@@ -8,45 +8,54 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; }
+        body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; -webkit-tap-highlight-color: transparent; }
         .font-serif { font-family: 'Playfair Display', serif; }
-        .info-card { border-left: 10px solid #3b82f6; }
+        .info-card { border-left: 6px solid #3b82f6; }
+        @media (min-width: 768px) {
+            .info-card { border-left-width: 10px; }
+        }
     </style>
 </head>
-<body class="pb-20">
+<body class="pb-10">
 
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl px-6 py-8 flex justify-between items-center border-b-2 border-gray-50">
-        <h1 class="font-black text-gray-800 text-2xl tracking-tighter">CLJ <span class="text-blue-500 text-sm">CONSTITUTION</span></h1>
-        <a href="bare-acts.html" class="text-xs font-black uppercase text-blue-600 bg-blue-50 px-8 py-4 rounded-full shadow-sm active:scale-90 transition">Back</a>
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl px-4 py-4 md:px-8 md:py-6 flex justify-between items-center border-b border-gray-100">
+        <h1 class="font-black text-gray-800 text-xl md:text-2xl tracking-tighter uppercase">CLJ <span class="text-blue-500 text-xs md:text-sm">Constitution</span></h1>
+        <a href="bare-acts.html" class="text-[10px] md:text-xs font-black uppercase text-blue-600 bg-blue-50 px-6 py-3 rounded-full shadow-sm active:scale-90 transition">
+            <i class="fa-solid fa-chevron-left mr-1"></i> Back
+        </a>
     </nav>
 
-    <main class="px-6 space-y-12 max-w-2xl mx-auto mt-16">
+    <main class="px-5 space-y-6 md:space-y-12 max-w-2xl mx-auto mt-8 md:mt-16">
         
-        <section class="info-card bg-white p-12 rounded-[4rem] shadow-xl shadow-blue-50/50">
-            <h3 class="text-blue-600 font-black text-xs uppercase tracking-widest mb-4">Background & History</h3>
-            <h2 class="text-4xl font-black text-gray-800 mb-6 tracking-tight">How it was Formed?</h2>
-            <p class="text-gray-600 text-xl leading-relaxed font-medium italic">
-                The Constitution of India was adopted on 26th November 1949 and came into effect on 26th January 1950. It took 2 years, 11 months, and 18 days to complete. The main reason for its creation was to transform India from a British Colony into a Sovereign Democratic Republic, ensuring justice and equality for all citizens after centuries of colonial rule.
+        <section class="info-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-blue-50/50">
+            <h3 class="text-blue-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Background & History</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-4 md:mb-6 tracking-tight">How it was Formed?</h2>
+            <p class="text-gray-600 text-base md:text-xl leading-relaxed font-medium italic">
+                The Constitution of India was adopted on 26th November 1949 and came into effect on 26th January 1950. It took 2 years, 11 months, and 18 days to complete. It transformed India into a Sovereign Democratic Republic.
             </p>
         </section>
 
-        <section class="info-card bg-white p-12 rounded-[4rem] shadow-xl shadow-blue-50/50 border-l-purple-500">
-            <h3 class="text-purple-600 font-black text-xs uppercase tracking-widest mb-4">Key Features</h3>
-            <h2 class="text-4xl font-black text-gray-800 mb-6 tracking-tight">Main Pillars</h2>
-            <p class="text-gray-600 text-xl leading-relaxed font-medium">
-                The key highlights include the Fundamental Rights (Articles 12-35), Directive Principles, and the separation of powers between the Judiciary, Executive, and Legislature. It is the longest written constitution in the world, originally containing 395 articles and 8 schedules, which has now grown to over 448 articles.
+        <section class="info-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-blue-50/50 border-l-purple-500">
+            <h3 class="text-purple-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Key Features</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-4 md:mb-6 tracking-tight">Main Pillars</h2>
+            <p class="text-gray-600 text-base md:text-xl leading-relaxed font-medium">
+                The key highlights include the Fundamental Rights (Articles 12-35), Directive Principles, and the separation of powers. It is the longest written constitution in the world, with over 448 articles today.
             </p>
         </section>
 
-        <section class="info-card bg-white p-12 rounded-[4rem] shadow-xl shadow-blue-50/50 border-l-emerald-500">
-            <h3 class="text-emerald-600 font-black text-xs uppercase tracking-widest mb-4">Why it Matters?</h3>
-            <h2 class="text-4xl font-black text-gray-800 mb-6 tracking-tight">The Modern Use</h2>
-            <p class="text-gray-600 text-xl leading-relaxed font-medium">
-                Today, the Constitution acts as the supreme shield for every Indian. It protects us from arbitrary state power and gives us the right to move the Supreme Court (Article 32) if our rights are violated. It is a living document that evolves with time through amendments to meet the needs of a modern India.
+        <section class="info-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-blue-50/50 border-l-emerald-500">
+            <h3 class="text-emerald-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Why it Matters?</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-4 md:mb-6 tracking-tight">The Modern Use</h2>
+            <p class="text-gray-600 text-base md:text-xl leading-relaxed font-medium">
+                The Constitution acts as a supreme shield. It protects us from arbitrary state power and grants us the right to move the Supreme Court (Article 32) if our rights are violated. It is a living document that evolves with time.
             </p>
         </section>
 
     </main>
+
+    <footer class="mt-12 py-8 text-center">
+        <p class="text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
+    </footer>
 
 </body>
 </html>
