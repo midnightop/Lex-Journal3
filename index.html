@@ -7,9 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600;700;900&display=swap');
         
-        body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; }
+        body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; -webkit-tap-highlight-color: transparent; }
         .font-serif { font-family: 'Playfair Display', serif; }
         
         /* Premium Background Gradient */
@@ -26,13 +26,13 @@
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        /* Profile Card Tags Styling */
+        /* Profile Card Tags */
         .profile-tag {
             background-color: #f9fafb;
             border: 1px solid #f3f4f6;
-            padding: 8px 16px;
+            padding: 10px 18px;
             border-radius: 9999px;
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 700;
             color: #9ca3af;
             text-transform: uppercase;
@@ -41,101 +41,105 @@
 </head>
 <body class="pb-10">
 
-    <nav class="sticky top-0 z-50 glass-nav px-6 py-4 flex justify-between items-center">
+    <nav class="sticky top-0 z-50 glass-nav px-6 py-5 flex justify-between items-center">
         <div class="flex items-center gap-2">
-            <span class="font-bold text-gray-800 text-xl tracking-tighter">CLJ</span>
+            <span class="font-bold text-gray-800 text-2xl tracking-tighter">CLJ</span>
         </div>
         <div class="flex gap-4 items-center">
-            <a href="bare-acts.html" class="text-[10px] font-bold uppercase text-blue-500 bg-blue-50 px-3 py-1 rounded-full tracking-widest">Acts</a>
-            <i class="fa-solid fa-bars text-gray-600 text-2xl"></i>
+            <a href="bare-acts.html" class="text-xs font-black uppercase text-blue-500 bg-blue-50 px-4 py-2 rounded-full tracking-widest">Acts</a>
+            <i class="fa-solid fa-bars text-gray-600 text-3xl"></i>
         </div>
     </nav>
 
     <main class="hero-bg">
-        <header class="pt-12 pb-12 px-6 text-center">
-            <div class="inline-block bg-white border border-blue-50 px-4 py-1 rounded-full mb-8 shadow-sm">
-                <p class="text-[10px] font-bold text-blue-400 uppercase tracking-widest flex items-center">
-                    <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span> India's Simplest Law Resource
+        <header class="pt-14 pb-12 px-6 text-center">
+            <div class="inline-block bg-white border border-blue-50 px-5 py-2 rounded-full mb-10 shadow-sm">
+                <p class="text-xs font-bold text-blue-400 uppercase tracking-widest flex items-center">
+                    <span class="w-2.5 h-2.5 bg-blue-400 rounded-full mr-3"></span> India's Simplest Law Resource
                 </p>
             </div>
 
-            <h1 class="text-5xl font-serif font-bold text-blue-500 mb-1">Calcutta</h1>
-            <h1 class="text-5xl font-serif font-bold text-gray-800 mb-8 tracking-tight">Law Journal</h1>
+            <h1 class="text-6xl font-serif font-bold text-blue-500 mb-2 leading-tight">Calcutta</h1>
+            <h1 class="text-6xl font-serif font-bold text-gray-800 mb-10 tracking-tight leading-tight">Law Journal</h1>
 
-            <div class="flex flex-col gap-4 max-w-xs mx-auto mb-16">
-                <a href="bare-acts.html" class="btn-blue text-white py-4 rounded-3xl font-bold shadow-lg shadow-blue-100 text-center active:scale-95 transition">Explore Bare Acts</a>
-                <a href="case-laws.html" class="btn-pink text-white py-4 rounded-3xl font-bold shadow-lg shadow-pink-100 text-center active:scale-95 transition">Read Case Laws</a>
+            <div class="flex flex-col gap-5 max-w-sm mx-auto mb-20">
+                <a href="bare-acts.html" class="btn-blue text-white py-5 rounded-[2rem] text-lg font-bold shadow-2xl shadow-blue-200 text-center active:scale-95 transition-all">Explore Bare Acts</a>
+                <a href="case-laws.html" class="btn-pink text-white py-5 rounded-[2rem] text-lg font-bold shadow-2xl shadow-pink-200 text-center active:scale-95 transition-all">Read Case Laws</a>
             </div>
 
-            <div class="space-y-6 max-w-sm mx-auto">
-                <a href="https://www.calcuttahighcourt.gov.in/" target="_blank" class="block rounded-[2.5rem] overflow-hidden shadow-xl border-4 border-white relative active:scale-95 transition">
-                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800" class="w-full h-44 object-cover">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-left">
-                        <p class="text-[10px] font-bold text-white uppercase tracking-widest opacity-90">Calcutta High Court</p>
-                        <p class="text-xs text-white/70">Official Website <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></p>
+            <div class="space-y-8 max-w-sm mx-auto">
+                <a href="https://www.calcuttahighcourt.gov.in/" target="_blank" class="block rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white relative active:scale-95 transition">
+                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800" class="w-full h-52 object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 p-7 bg-gradient-to-t from-black/90 to-transparent text-left">
+                        <p class="text-xs font-bold text-white uppercase tracking-widest opacity-90">Calcutta High Court</p>
+                        <p class="text-sm text-white/70 mt-1">Official Website <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i></p>
                     </div>
                 </a>
 
-                <a href="https://main.sci.gov.in/" target="_blank" class="block rounded-[2.5rem] overflow-hidden shadow-xl border-4 border-white relative active:scale-95 transition">
-                    <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=800" class="w-full h-44 object-cover">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-blue-900/90 to-transparent text-left">
-                        <p class="text-[10px] font-bold text-white uppercase tracking-widest opacity-90">Supreme Court of India</p>
-                        <p class="text-xs text-white/70">Official Portal <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></p>
+                <a href="https://main.sci.gov.in/" target="_blank" class="block rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white relative active:scale-95 transition">
+                    <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=800" class="w-full h-52 object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 p-7 bg-gradient-to-t from-blue-900/90 to-transparent text-left">
+                        <p class="text-xs font-bold text-white uppercase tracking-widest opacity-90">Supreme Court of India</p>
+                        <p class="text-sm text-white/70 mt-1">Official Portal <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i></p>
                     </div>
                 </a>
             </div>
         </header>
 
-        <section class="px-6 py-16 text-center">
-            <h2 class="text-2xl font-serif font-bold text-gray-800 mb-8">Research</h2>
+        <section class="px-6 py-24 text-center">
+            <h2 class="text-4xl font-serif font-bold text-gray-800 mb-12 tracking-tight">Research</h2>
             
-            <a href="research.html" class="block p-10 bg-white rounded-[3rem] border border-gray-100 shadow-sm active:scale-95 transition max-w-sm mx-auto group">
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 bg-blue-600 rounded-[2rem] flex items-center justify-center text-white shadow-xl shadow-blue-100 mb-6 group-hover:rotate-6 transition-transform">
-                        <i class="fa-solid fa-book-bookmark text-3xl"></i>
+            <a href="research.html" class="block p-14 bg-white rounded-[4rem] border-2 border-blue-50 shadow-2xl shadow-blue-100/60 active:scale-95 transition max-w-sm mx-auto group relative overflow-hidden">
+                <div class="absolute -top-12 -right-12 w-40 h-40 bg-blue-400/10 rounded-full blur-3xl"></div>
+                
+                <div class="flex flex-col items-center relative z-10">
+                    <div class="w-28 h-28 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-[2.5rem] flex items-center justify-center text-white shadow-2xl shadow-blue-200 mb-10 group-hover:scale-110 transition-transform duration-500">
+                        <i class="fa-solid fa-microscope text-5xl"></i>
                     </div>
-                    <h4 class="font-bold text-gray-800 text-xl">Legal Research</h4>
-                    <p class="text-xs text-gray-400 mt-2 mb-6 leading-relaxed">Papers, Analysis & Academic Thesis</p>
-                    <div class="bg-blue-50 text-blue-600 px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest">
-                        Open Library
+                    
+                    <h4 class="font-black text-gray-800 text-3xl mb-4">Legal Research</h4>
+                    <p class="text-sm text-gray-400 mb-10 leading-relaxed font-semibold">Academic Papers & Analysis</p>
+                    
+                    <div class="inline-flex items-center gap-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-12 py-5 rounded-2xl text-xs font-black uppercase tracking-[0.2em] shadow-xl shadow-blue-200">
+                        Explore <i class="fa-solid fa-arrow-right-long animate-pulse"></i>
                     </div>
                 </div>
             </a>
         </section>
 
-        <section class="px-6 py-10">
-            <div class="bg-white rounded-[3rem] shadow-2xl shadow-blue-100/50 border border-gray-50 overflow-hidden max-w-2xl mx-auto">
-                <div class="h-28 bg-gradient-to-r from-blue-50 to-indigo-50 flex items-center justify-center relative">
-                    <i class="fa-solid fa-quote-left text-blue-200 text-5xl absolute opacity-30"></i>
+        <section class="px-6 py-12">
+            <div class="bg-white rounded-[3.5rem] shadow-[0_35px_60px_-15px_rgba(0,0,0,0.1)] border border-gray-50 overflow-hidden max-w-2xl mx-auto">
+                <div class="h-32 bg-gradient-to-r from-blue-50 to-indigo-50 flex items-center justify-center relative">
+                    <i class="fa-solid fa-quote-left text-blue-200 text-6xl absolute opacity-30"></i>
                 </div>
                 
-                <div class="p-10 -mt-14 relative bg-white rounded-t-[3rem]">
-                    <div class="text-blue-500 mb-6 text-2xl">
+                <div class="p-12 -mt-16 relative bg-white rounded-t-[3.5rem]">
+                    <div class="text-blue-500 mb-8 text-3xl">
                         <i class="fa-solid fa-quote-left"></i>
                     </div>
 
-                    <p class="text-gray-700 font-serif italic text-lg leading-relaxed mb-10">
+                    <p class="text-gray-700 font-serif italic text-xl leading-relaxed mb-12">
                         I started this journal because I struggled with the same thing every law student does — dense, inaccessible language in statutes and judgments. If I can understand it, I want to make sure you can too.
                     </p>
                     
-                    <div class="h-[1px] bg-gray-100 w-full mb-10"></div>
+                    <div class="h-[1px] bg-gray-100 w-full mb-12"></div>
 
-                    <div class="flex items-center gap-5 mb-10 text-left">
-                        <div class="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg shadow-blue-200">
+                    <div class="flex items-center gap-6 mb-12 text-left">
+                        <div class="w-20 h-20 bg-blue-500 rounded-3xl flex items-center justify-center text-white text-4xl shadow-xl shadow-blue-200">
                             <i class="fa-solid fa-user-graduate"></i>
                         </div>
                         <div>
-                            <h3 class="text-2xl font-bold text-gray-800 tracking-tight">Reyansh</h3>
-                            <p class="text-xs text-gray-500 font-semibold mt-1">
+                            <h3 class="text-3xl font-black text-gray-800 tracking-tight">Reyansh</h3>
+                            <p class="text-sm text-gray-500 font-bold mt-1">
                                 Law Student • Surendranath Law College
                             </p>
-                            <p class="text-[10px] text-gray-400 uppercase tracking-wider mt-1">
+                            <p class="text-xs text-gray-400 uppercase tracking-widest mt-1">
                                 University of Calcutta, West Bengal
                             </p>
                         </div>
                     </div>
 
-                    <div class="flex flex-wrap gap-2 justify-start">
+                    <div class="flex flex-wrap gap-3 justify-start">
                         <span class="profile-tag">Constitutional Law</span>
                         <span class="profile-tag">Criminal Law</span>
                         <span class="profile-tag">Civil Procedure</span>
@@ -146,8 +150,8 @@
         </section>
     </main>
 
-    <footer class="py-12 text-center">
-        <p class="text-[10px] font-bold text-gray-300 uppercase tracking-widest">&copy; 2026 Calcutta Law Journal</p>
+    <footer class="py-16 text-center">
+        <p class="text-xs font-black text-gray-300 uppercase tracking-[0.3em]">&copy; 2026 Calcutta Law Journal</p>
     </footer>
 
 </body>
