@@ -9,104 +9,103 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
         
-        body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
         .font-serif { font-family: 'Playfair Display', serif; }
         
         /* Smooth Entrance Animation */
         .fade-up { animation: fadeUp 0.8s ease-out forwards; }
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(40px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
-<body class="pb-20">
+<body class="pb-10">
 
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl px-8 py-10 flex justify-between items-center border-b-2 border-gray-50">
-        <h1 class="font-black text-gray-800 text-4xl tracking-tighter">CLJ <span class="text-blue-500">Legal</span></h1>
-        <a href="index.html" class="text-sm font-black uppercase tracking-[0.3em] text-blue-600 bg-blue-50 px-8 py-4 rounded-[2rem] shadow-sm active:scale-90 transition">
-            <i class="fa-solid fa-arrow-left mr-2"></i> Home
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl px-4 py-6 md:px-8 md:py-10 flex justify-between items-center border-b border-gray-100">
+        <h1 class="font-black text-gray-800 text-2xl md:text-4xl tracking-tighter">CLJ <span class="text-blue-500">Legal</span></h1>
+        <a href="index.html" class="text-[10px] md:text-sm font-black uppercase tracking-widest text-blue-600 bg-blue-50 px-5 py-3 md:px-8 md:py-4 rounded-full shadow-sm active:scale-90 transition">
+            <i class="fa-solid fa-arrow-left mr-1.5"></i> Home
         </a>
     </nav>
 
-    <header class="pt-20 pb-16 px-8 text-center bg-gradient-to-b from-blue-50/50 to-transparent">
-        <div class="inline-block bg-white border-2 border-blue-50 px-8 py-3 rounded-full mb-10 shadow-md">
-            <p class="text-xs font-black text-blue-400 uppercase tracking-[0.3em]">Official Policy</p>
+    <header class="pt-12 pb-10 px-6 text-center bg-gradient-to-b from-blue-50/50 to-transparent">
+        <div class="inline-block bg-white border border-blue-50 px-5 py-2 rounded-full mb-6 shadow-sm">
+            <p class="text-[10px] font-black text-blue-400 uppercase tracking-widest">Official Policy</p>
         </div>
-        <h1 class="text-7xl font-serif font-bold text-gray-800 leading-tight tracking-tighter fade-up">Terms & <br>Conditions</h1>
+        <h1 class="text-4xl md:text-7xl font-serif font-bold text-gray-800 leading-tight tracking-tight fade-up">Terms & <br>Conditions</h1>
     </header>
 
-    <main class="px-8 space-y-12 max-w-3xl mx-auto fade-up" style="animation-delay: 0.2s;">
+    <main class="px-5 space-y-6 md:space-y-12 max-w-3xl mx-auto fade-up" style="animation-delay: 0.2s;">
         
-        <section class="bg-white p-12 rounded-[4rem] border-2 border-gray-50 shadow-xl shadow-blue-50/50">
-            <div class="flex items-center gap-6 mb-8">
-                <div class="w-16 h-16 bg-blue-600 rounded-3xl flex items-center justify-center text-white text-3xl shadow-lg">
+        <section class="bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] border border-gray-50 shadow-xl shadow-blue-50/50">
+            <div class="flex items-center gap-4 md:gap-6 mb-6 md:mb-8">
+                <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-600 rounded-2xl md:rounded-3xl flex items-center justify-center text-white text-xl md:text-3xl shadow-lg">
                     <i class="fa-solid fa-scale-balanced"></i>
                 </div>
-                <h3 class="text-3xl font-black text-gray-800">Introduction</h3>
+                <h3 class="text-xl md:text-3xl font-black text-gray-800">Introduction</h3>
             </div>
-            <p class="text-gray-500 text-xl leading-relaxed font-medium">
-                Welcome to the Calcutta Law Journal (CLJ). By accessing this website, you agree to follow the rules outlined here. These terms ensure that the legal information shared remains educational and reliable for everyone.
+            <p class="text-gray-500 text-base md:text-xl leading-relaxed font-medium">
+                Welcome to the Calcutta Law Journal (CLJ). By accessing this website, you agree to follow the rules outlined here. These terms ensure that the legal information shared remains educational and reliable.
             </p>
         </section>
 
-        <section class="bg-white p-12 rounded-[4rem] border-2 border-gray-50 shadow-xl shadow-blue-50/50">
-            <div class="flex items-center gap-6 mb-8">
-                <div class="w-16 h-16 bg-purple-600 rounded-3xl flex items-center justify-center text-white text-3xl shadow-lg">
+        <section class="bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] border border-gray-50 shadow-xl shadow-blue-50/50">
+            <div class="flex items-center gap-4 md:gap-6 mb-6 md:mb-8">
+                <div class="w-12 h-12 md:w-16 md:h-16 bg-purple-600 rounded-2xl md:rounded-3xl flex items-center justify-center text-white text-xl md:text-3xl shadow-lg">
                     <i class="fa-solid fa-file-shield"></i>
                 </div>
-                <h3 class="text-3xl font-black text-gray-800">Usage Policy</h3>
+                <h3 class="text-xl md:text-3xl font-black text-gray-800">Usage Policy</h3>
             </div>
-            <ul class="space-y-6">
-                <li class="flex gap-5 text-gray-500 text-lg font-medium">
+            <ul class="space-y-4 md:space-y-6">
+                <li class="flex gap-4 text-gray-500 text-sm md:text-lg font-medium">
                     <i class="fa-solid fa-circle-check text-green-500 mt-1"></i>
-                    <span>The content provided on CLJ is for educational and research purposes only.</span>
+                    <span>Educational and research purposes only.</span>
                 </li>
-                <li class="flex gap-5 text-gray-500 text-lg font-medium">
+                <li class="flex gap-4 text-gray-500 text-sm md:text-lg font-medium">
                     <i class="fa-solid fa-circle-check text-green-500 mt-1"></i>
-                    <span>Reproduction of research papers without proper citation is prohibited.</span>
+                    <span>Proper citation required for research papers.</span>
                 </li>
-                <li class="flex gap-5 text-gray-500 text-lg font-medium">
+                <li class="flex gap-4 text-gray-500 text-sm md:text-lg font-medium">
                     <i class="fa-solid fa-circle-check text-green-500 mt-1"></i>
-                    <span>Users are encouraged to verify statutes from official government gazettes.</span>
+                    <span>Verify statutes from official government gazettes.</span>
                 </li>
             </ul>
         </section>
 
-        <section class="bg-white p-12 rounded-[4rem] border-2 border-gray-50 shadow-xl shadow-blue-50/50">
-            <div class="flex items-center gap-6 mb-8">
-                <div class="w-16 h-16 bg-orange-500 rounded-3xl flex items-center justify-center text-white text-3xl shadow-lg">
+        <section class="bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] border border-gray-50 shadow-xl shadow-blue-50/50">
+            <div class="flex items-center gap-4 md:gap-6 mb-6 md:mb-8">
+                <div class="w-12 h-12 md:w-16 md:h-16 bg-orange-500 rounded-2xl md:rounded-3xl flex items-center justify-center text-white text-xl md:text-3xl shadow-lg">
                     <i class="fa-solid fa-triangle-exclamation"></i>
                 </div>
-                <h3 class="text-3xl font-black text-gray-800">Legal Disclaimer</h3>
+                <h3 class="text-xl md:text-3xl font-black text-gray-800">Disclaimer</h3>
             </div>
-            <div class="bg-orange-50 p-8 rounded-[2.5rem] border-l-8 border-orange-400">
-                <p class="text-orange-900 text-xl italic font-bold leading-relaxed">
-                    "This website does not provide professional legal advice. For any legal matters, kindly consult a registered advocate or legal professional."
+            <div class="bg-orange-50 p-6 md:p-8 rounded-3xl border-l-4 md:border-l-8 border-orange-400">
+                <p class="text-orange-900 text-base md:text-xl italic font-bold leading-relaxed">
+                    "This website does not provide professional legal advice. Kindly consult a registered advocate for legal matters."
                 </p>
             </div>
         </section>
 
-        <section class="bg-white p-12 rounded-[4rem] border-2 border-gray-50 shadow-xl shadow-blue-50/50">
-            <div class="flex items-center gap-6 mb-8">
-                <div class="w-16 h-16 bg-pink-600 rounded-3xl flex items-center justify-center text-white text-3xl shadow-lg">
+        <section class="bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] border border-gray-50 shadow-xl shadow-blue-50/50">
+            <div class="flex items-center gap-4 md:gap-6 mb-6 md:mb-8">
+                <div class="w-12 h-12 md:w-16 md:h-16 bg-pink-600 rounded-2xl md:rounded-3xl flex items-center justify-center text-white text-xl md:text-3xl shadow-lg">
                     <i class="fa-solid fa-lock"></i>
                 </div>
-                <h3 class="text-3xl font-black text-gray-800">Privacy</h3>
+                <h3 class="text-xl md:text-3xl font-black text-gray-800">Privacy</h3>
             </div>
-            <p class="text-gray-500 text-xl leading-relaxed font-medium">
-                We respect your privacy. No personal data is collected or shared by CLJ without your explicit consent. Your digital safety is our priority.
+            <p class="text-gray-500 text-base md:text-xl leading-relaxed font-medium">
+                We respect your privacy. No personal data is collected or shared without your explicit consent. Your digital safety is our priority.
             </p>
         </section>
 
     </main>
 
-    <footer class="py-24 text-center">
-        <p class="text-sm font-black text-gray-200 uppercase tracking-[0.5em]">&copy; 2026 Calcutta Law Journal</p>
+    <footer class="py-16 text-center">
+        <p class="text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
     </footer>
 
 </body>
-      </html>
-      
+</html>
