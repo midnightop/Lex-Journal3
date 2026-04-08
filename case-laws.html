@@ -7,15 +7,27 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; }
         .font-serif { font-family: 'Playfair Display', serif; }
         
-        .hero-bg { background: linear-gradient(180deg, #f5f3ff 0%, #ffffff 100%); }
-        .case-card { transition: all 0.3s ease; }
-        .case-card:active { transform: scale(0.97); }
-        .pill-active { background: linear-gradient(90deg, #a855f7, #ec4899); color: white; }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
+        /* Modal Animation */
+        .modal-overlay {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            transform: translateY(50px);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="pb-10">
@@ -27,117 +39,106 @@
         </a>
     </nav>
 
-    <header class="hero-bg pt-10 pb-6 px-6 text-center">
-        <div class="inline-block bg-purple-50 text-purple-600 px-4 py-1 rounded-full text-[10px] font-bold mb-4 border border-purple-100 uppercase tracking-widest">
-            <i class="fa-solid fa-gavel mr-2"></i> Case Laws
+    <main class="px-6 space-y-6 max-w-2xl mx-auto pt-10">
+        <div class="bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 p-6">
+            <div class="flex justify-between items-center mb-4">
+                <span class="bg-blue-500/10 text-blue-600 text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">Constitution • 1973</span>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-800 font-serif leading-tight">Kesavananda Bharati Case</h2>
+            <p class="text-gray-400 text-[10px] font-bold mt-1 uppercase tracking-widest mb-4">The Basic Structure Doctrine</p>
+            
+            <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                Parliament cannot alter the essential features of the Indian Constitution. This was the historic decision by the largest bench in history...
+            </p>
+
+            <button onclick="openCaseModal('kesavananda')" class="w-full bg-pink-500 text-white py-4 rounded-2xl font-bold text-xs uppercase tracking-widest shadow-lg shadow-pink-100 transition active:scale-95">
+                Read Full About Case
+            </button>
         </div>
-        <h1 class="text-4xl font-serif font-bold text-gray-800 leading-tight">
-            Landmark <br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">Judgments</span> <br>
-            That Changed India
-        </h1>
-        <p class="mt-6 text-gray-500 max-w-xs mx-auto text-sm leading-relaxed italic">
-            Supreme Court decisions summarized with context, facts, and the final verdict in simple language.
-        </p>
-    </header>
-
-    <section class="px-6 py-6 overflow-x-auto flex gap-2 no-scrollbar">
-        <button class="pill-active px-5 py-2 rounded-full text-xs font-bold shadow-md">All</button>
-        <button class="bg-white px-5 py-2 rounded-full text-xs font-bold border text-gray-400">Constitution</button>
-        <button class="bg-white px-5 py-2 rounded-full text-xs font-bold border text-gray-400">Gender Justice</button>
-        <button class="bg-white px-5 py-2 rounded-full text-xs font-bold border text-gray-400">Cyber Law</button>
-    </section>
-
-    <main class="px-6 space-y-10 max-w-2xl mx-auto">
         
-        <div class="case-card bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100">
-            <div class="relative h-44">
-                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800" class="w-full h-full object-cover">
-                <div class="absolute top-4 left-4 flex gap-2">
-                    <span class="bg-blue-500/80 backdrop-blur-md text-white text-[9px] px-2 py-1 rounded font-bold uppercase">Constitutional</span>
-                    <span class="bg-black/50 backdrop-blur-md text-white text-[9px] px-2 py-1 rounded font-bold uppercase">1973</span>
-                </div>
-            </div>
-            <div class="p-8">
-                <h2 class="text-xl font-bold text-gray-800 font-serif leading-snug">Kesavananda Bharati v. State of Kerala</h2>
-                <p class="text-gray-400 text-[9px] font-bold mt-1 mb-4 uppercase tracking-widest">AIR 1973 SC 1461 • Landmark Bench</p>
-                
-                <div class="bg-blue-50 p-5 rounded-2xl mb-6 border-l-4 border-blue-400">
-                    <p class="text-blue-800 text-xs font-medium italic leading-relaxed">
-                        "The Parliament has the power to amend the Constitution, but it cannot touch its 'Basic Structure'."
-                    </p>
-                </div>
+        </main>
 
-                <div class="text-gray-600 text-xs leading-relaxed space-y-4">
-                    <p><strong>Context:</strong> Challenged the Parliament's power to take away Fundamental Rights using amendments.</p>
-                    <p><strong>Verdict:</strong> SC ruled that features like Democracy, Secularism, and Judicial Review are part of the 'Basic Structure' and can never be deleted.</p>
-                </div>
-
-                <button class="w-full mt-8 pt-4 border-t flex justify-between items-center text-gray-400 text-[10px] font-bold tracking-widest uppercase">
-                    Read full case <i class="fa-solid fa-chevron-right"></i>
+    <div id="caseModal" class="modal-overlay fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-end md:items-center justify-center">
+        <div class="absolute inset-0" onclick="closeCaseModal()"></div>
+        
+        <div class="modal-content bg-white w-full max-w-2xl h-[85vh] md:h-auto md:max-h-[90vh] rounded-t-[3rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative flex flex-col">
+            
+            <div class="p-6 border-b flex justify-between items-center sticky top-0 bg-white z-10">
+                <h3 class="font-serif font-bold text-xl text-gray-800" id="modalTitle">Full Case Details</h3>
+                <button onclick="closeCaseModal()" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-500">
+                    <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-        </div>
 
-        <div class="case-card bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100">
-            <div class="relative h-44">
-                <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=800" class="w-full h-full object-cover">
-                <div class="absolute top-4 left-4 flex gap-2">
-                    <span class="bg-pink-500/80 backdrop-blur-md text-white text-[9px] px-2 py-1 rounded font-bold uppercase">Article 21</span>
-                    <span class="bg-black/50 backdrop-blur-md text-white text-[9px] px-2 py-1 rounded font-bold uppercase">1978</span>
+            <div class="p-8 overflow-y-auto flex-1 space-y-6">
+                <div>
+                    <h4 class="text-pink-500 font-bold text-[10px] uppercase tracking-widest mb-2">Facts of the Case</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed" id="modalFacts"></p>
                 </div>
-            </div>
-            <div class="p-8">
-                <h2 class="text-xl font-bold text-gray-800 font-serif leading-snug">Maneka Gandhi v. Union of India</h2>
-                <p class="text-gray-400 text-[9px] font-bold mt-1 mb-4 uppercase tracking-widest">AIR 1978 SC 597 • Personal Liberty</p>
                 
-                <div class="bg-pink-50 p-5 rounded-2xl mb-6 border-l-4 border-pink-400">
-                    <p class="text-pink-800 text-xs font-medium italic leading-relaxed">
-                        "Life is not just physical existence; it includes the right to live with human dignity."
-                    </p>
+                <div class="bg-blue-50 p-6 rounded-[2rem] border-l-4 border-blue-400">
+                    <h4 class="text-blue-800 font-bold text-[10px] uppercase tracking-widest mb-2">The Legal Issue</h4>
+                    <p class="text-blue-900 text-sm italic font-medium" id="modalIssue"></p>
                 </div>
 
-                <div class="text-gray-600 text-xs leading-relaxed space-y-4">
-                    <p><strong>Context:</strong> Government impounded Maneka Gandhi's passport without giving a valid reason.</p>
-                    <p><strong>Verdict:</strong> Court expanded Article 21, saying any law taking away liberty must be 'Just, Fair, and Reasonable'.</p>
+                <div>
+                    <h4 class="text-pink-500 font-bold text-[10px] uppercase tracking-widest mb-2">Final Judgment (Verdict)</h4>
+                    <ul class="text-gray-600 text-sm space-y-4 leading-relaxed" id="modalVerdict">
+                        </ul>
                 </div>
 
-                <button class="w-full mt-8 pt-4 border-t flex justify-between items-center text-gray-400 text-[10px] font-bold tracking-widest uppercase">
-                    Read full case <i class="fa-solid fa-chevron-right"></i>
-                </button>
+                <div class="p-6 bg-gray-50 rounded-3xl">
+                    <h4 class="text-gray-400 font-bold text-[10px] uppercase tracking-widest mb-2">Significance</h4>
+                    <p class="text-gray-500 text-xs italic" id="modalSignificance"></p>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="case-card bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100">
-            <div class="relative h-44">
-                <img src="https://images.unsplash.com/photo-1589216532372-2c2f22976d20?w=800" class="w-full h-full object-cover">
-                <div class="absolute top-4 left-4 flex gap-2">
-                    <span class="bg-purple-500/80 backdrop-blur-md text-white text-[9px] px-2 py-1 rounded font-bold uppercase">Women Rights</span>
-                    <span class="bg-black/50 backdrop-blur-md text-white text-[9px] px-2 py-1 rounded font-bold uppercase">1997</span>
-                </div>
-            </div>
-            <div class="p-8">
-                <h2 class="text-xl font-bold text-gray-800 font-serif leading-snug">Vishaka v. State of Rajasthan</h2>
-                <p class="text-gray-400 text-[9px] font-bold mt-1 mb-4 uppercase tracking-widest">AIR 1997 SC 3011 • Workplace Safety</p>
-                
-                <div class="bg-purple-50 p-5 rounded-2xl mb-6 border-l-4 border-purple-400">
-                    <p class="text-purple-800 text-xs font-medium italic leading-relaxed">
-                        "Workplace sexual harassment is a violation of Fundamental Rights."
-                    </p>
-                </div>
+    <script>
+        // Case Data Database
+        const casesData = {
+            'kesavananda': {
+                title: "Kesavananda Bharati v. State of Kerala",
+                facts: "Kesavananda Bharati, head of Edneer Mutt, challenged the Kerala Government's land reform laws. He claimed his fundamental right to manage religious property under Article 26 was being violated. The case eventually became about whether Parliament's power to amend the Constitution was absolute.",
+                issue: "Whether the power of Parliament to amend the Constitution under Article 368 is unlimited?",
+                verdict: [
+                    "Parliament CAN amend any part of the Constitution including Fundamental Rights.",
+                    "However, it CANNOT alter or destroy the 'Basic Structure' of the Constitution.",
+                    "The largest ever bench of 13 judges sat for 68 days to deliver this 7:6 majority verdict.",
+                    "Basic structure includes Secularism, Federalism, and Judicial Review."
+                ],
+                significance: "This judgment is the reason why India is still a democracy. It prevented the government from becoming a dictatorship by changing the entire Constitution."
+            }
+            // Add more cases here like 'maneka', 'vishaka' etc.
+        };
 
-                <div class="text-gray-600 text-xs leading-relaxed space-y-4">
-                    <p><strong>Context:</strong> A social worker was gang-raped, and there were no laws to protect women at workplaces.</p>
-                    <p><strong>Verdict:</strong> SC gave 'Vishaka Guidelines' which later became the POSH Act, 2013.</p>
-                </div>
+        function openCaseModal(caseKey) {
+            const data = casesData[caseKey];
+            const modal = document.getElementById('caseModal');
+            
+            // Fill Data
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalFacts').innerText = data.facts;
+            document.getElementById('modalIssue').innerText = data.issue;
+            document.getElementById('modalSignificance').innerText = data.significance;
+            
+            // Fill Verdict List
+            const verdictList = document.getElementById('modalVerdict');
+            verdictList.innerHTML = '';
+            data.verdict.forEach(point => {
+                verdictList.innerHTML += `<li class="flex gap-3"><i class="fa-solid fa-circle-check text-green-500 mt-1"></i> ${point}</li>`;
+            });
 
-                <button class="w-full mt-8 pt-4 border-t flex justify-between items-center text-gray-400 text-[10px] font-bold tracking-widest uppercase">
-                    Read full case <i class="fa-solid fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
+            // Show Modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Stop background scrolling
+        }
 
-    </main>
-
+        function closeCaseModal() {
+            document.getElementById('caseModal').classList.remove('active');
+            document.body.style.overflow = 'auto'; // Resume background scrolling
+        }
+    </script>
 </body>
 </html>
