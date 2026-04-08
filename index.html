@@ -9,74 +9,78 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
         
-        body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background: #fcfdfe; color: #1e293b; overflow-x: hidden; -webkit-tap-highlight-color: transparent; }
         .font-serif { font-family: 'Playfair Display', serif; }
 
-        /* Smooth Scroll Reveal Animation */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        /* Performance Optimized Reveal */
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            will-change: transform, opacity;
+        }
         .reveal.active { opacity: 1; transform: translateY(0); }
-        
-        /* Navbar Glassmorphism */
+
+        /* Glossy Blur Elements */
         .glass-nav {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        /* Research Glossy Card */
-        .research-highlight {
-            background: linear-gradient(145deg, #1e293b, #0f172a);
-            border-radius: 35px;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .research-highlight::before {
-            content: '';
-            position: absolute;
-            top: -20%; right: -10%;
-            width: 150px; height: 150px;
-            background: rgba(59, 130, 246, 0.15);
-            filter: blur(50px);
-            border-radius: 50%;
-        }
-
-        /* Law Icons instead of CLJ logo */
-        .law-icon-box {
-            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 15px;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-        }
-
-        .premium-card {
-            background: white;
-            border: 1px solid rgba(0,0,0,0.03);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        .glossy-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
             border-radius: 32px;
         }
 
+        /* Animated Gradient for Research */
+        .research-gloss {
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #1e293b);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            border-radius: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Button Gloss Effect */
         .btn-glossy {
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: transform 0.2s ease;
         }
-        .btn-glossy:active { transform: scale(0.95); }
+        .btn-glossy::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.15), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 4s infinite;
+        }
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            20%, 100% { transform: translateX(100%) rotate(45deg); }
+        }
+        .btn-glossy:active { transform: scale(0.96); }
     </style>
 </head>
 <body>
 
     <nav class="sticky top-0 z-50 glass-nav px-5 py-3 flex justify-between items-center">
         <div class="flex items-center gap-3">
-            <i class="fa-solid fa-scale-balanced text-blue-600 text-xl"></i>
-            <span class="font-black text-gray-800 text-lg tracking-tighter">CLJ <span class="text-blue-600">Journal</span></span>
+            <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-200">
+                <i class="fa-solid fa-scale-balanced text-sm"></i>
+            </div>
+            <span class="font-black text-gray-800 tracking-tighter text-lg">CLJ <span class="text-blue-600">Journal</span></span>
         </div>
         <a href="https://www.instagram.com/midieeeeee" target="_blank" class="active:scale-90 transition">
             <i class="fa-brands fa-instagram text-2xl text-pink-500"></i>
@@ -84,83 +88,81 @@
     </nav>
 
     <main>
-        <header class="pt-12 pb-10 px-8 text-center reveal">
+        <header class="pt-12 pb-10 px-8 text-center reveal active">
             <h1 class="text-5xl font-serif font-bold text-blue-600 leading-tight">Calcutta</h1>
             <h1 class="text-5xl font-serif font-bold text-gray-900 mb-8 leading-tight">Law Journal</h1>
             <p class="text-gray-800 text-xl font-serif italic mb-6">"Honestly? Law is hard. But it doesn't have to be boring."</p>
-            <p class="text-gray-500 text-sm leading-relaxed mb-8">We’ve taken those heavy, dusty Bare Acts and complex judgments and translated them into plain, everyday English. Think of us as your legal translator.</p>
             
-            <div class="flex flex-col gap-4 max-w-xs mx-auto">
-                <a href="bare-acts.html" class="btn-glossy bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-lg shadow-blue-100">Explore Bare Acts</a>
-                <a href="case-laws.html" class="btn-glossy bg-gradient-to-r from-pink-500 to-rose-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-lg shadow-pink-100">Read Case Laws</a>
+            <div class="flex flex-col gap-4 max-w-xs mx-auto pt-4">
+                <a href="bare-acts.html" class="btn-glossy bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl">Explore Bare Acts</a>
+                <a href="case-laws.html" class="btn-glossy bg-gradient-to-r from-pink-500 to-rose-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl">Read Case Laws</a>
             </div>
         </header>
 
         <section class="px-6 py-6 reveal">
-            <div class="research-highlight p-8 shadow-2xl text-white">
+            <div class="research-gloss p-8 shadow-2xl text-white relative">
                 <div class="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 border border-white/20">
                     <i class="fa-solid fa-atom text-blue-400 text-2xl"></i>
                 </div>
                 <h2 class="text-3xl font-black mb-4 tracking-tighter uppercase">Research Lab</h2>
                 <p class="text-sm opacity-80 leading-relaxed font-medium mb-8">
-                    Research isn't just about finding a page number; it's about being a detective. We dig through thousands of records to find the secret sauce for your next thesis or debate.
+                    We dig through thousands of records to find the secret sauce for your next thesis or debate. Detective work, made legal.
                 </p>
                 <a href="research.html" class="block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px] active:scale-95 transition">Enter Lab</a>
             </div>
         </section>
 
         <section class="px-6 py-8 space-y-8">
-            <div class="premium-card p-8 reveal">
+            <div class="glossy-card p-8 reveal">
                 <div class="flex items-center gap-4 mb-4">
-                    <div class="law-icon-box text-blue-600"><i class="fa-solid fa-scroll"></i></div>
-                    <h3 class="text-blue-600 font-black text-lg uppercase tracking-tight">Bare Acts</h3>
+                    <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600"><i class="fa-solid fa-scroll"></i></div>
+                    <h3 class="text-blue-600 font-black text-lg uppercase">Bare Acts</h3>
                 </div>
                 <p class="text-gray-600 text-sm leading-relaxed">
-                    Think of the Bare Act as a blueprint. You can't be a great lawyer without knowing the exact words of the Parliament. We break down the dry statutes into simple sections so you can master them with confidence.
+                    Statutes are the blueprints of our nation. We decode them so you can master them without the headache.
                 </p>
             </div>
 
-            <div class="premium-card p-8 reveal">
+            <div class="glossy-card p-8 reveal">
                 <div class="flex items-center gap-4 mb-4">
-                    <div class="law-icon-box text-pink-600"><i class="fa-solid fa-gavel"></i></div>
-                    <h3 class="text-pink-600 font-black text-lg uppercase tracking-tight">Case Laws</h3>
+                    <div class="w-10 h-10 bg-pink-50 rounded-xl flex items-center justify-center text-pink-600"><i class="fa-solid fa-gavel"></i></div>
+                    <h3 class="text-pink-600 font-black text-lg uppercase">Case Laws</h3>
                 </div>
                 <p class="text-gray-600 text-sm leading-relaxed">
-                    Case laws are where the action happens. It’s where the law meets real life. Landmark cases show you how to fight for justice and prove that a strong argument can change the country.
+                    Landmark cases prove that a strong argument can change the country. We simplify the stories behind the justice.
                 </p>
             </div>
         </section>
 
         <section class="space-y-10 py-10 px-6">
-            <div class="premium-card overflow-hidden reveal">
+            <div class="glossy-card overflow-hidden reveal">
                 <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800" class="w-full h-48 object-cover">
                 <div class="p-8">
                     <h2 class="text-2xl font-black text-gray-800 mb-2">Calcutta High Court</h2>
-                    <p class="text-xs text-gray-500 mb-6">Established in 1862, it is the oldest High Court in India. A cradle of jurisprudence and heritage.</p>
-                    <a href="https://www.calcuttahighcourt.gov.in/" target="_blank" class="text-blue-600 font-black text-[10px] uppercase flex items-center gap-2">Visit Portal <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <p class="text-xs text-gray-500 mb-6 uppercase font-bold">Oldest in India | Established 1862</p>
+                    <a href="https://www.calcuttahighcourt.gov.in/" target="_blank" class="text-blue-600 font-black text-[10px] uppercase flex items-center gap-2">Visit Official Portal <i class="fa-solid fa-chevron-right"></i></a>
                 </div>
             </div>
 
-            <div class="research-highlight overflow-hidden reveal">
+            <div class="research-gloss overflow-hidden reveal">
                 <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=800" class="w-full h-48 object-cover opacity-60">
                 <div class="p-8">
                     <h2 class="text-2xl font-black text-white mb-2">Supreme Court of India</h2>
-                    <p class="text-xs text-gray-400 mb-6">The final guardian of our Constitution. Since 1950, it has been the shield against arbitrary power.</p>
-                    <a href="https://main.sci.gov.in/" target="_blank" class="text-white font-black text-[10px] uppercase flex items-center gap-2">Official Portal <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <p class="text-xs text-gray-400 mb-6 uppercase font-bold">The Final Arbiter | Since 1950</p>
+                    <a href="https://main.sci.gov.in/" target="_blank" class="text-white font-black text-[10px] uppercase flex items-center gap-2">Official Portal <i class="fa-solid fa-chevron-right"></i></a>
                 </div>
             </div>
         </section>
 
         <section class="px-6 py-16 reveal">
-            <div class="premium-card p-10 text-center">
-                <div class="w-20 h-20 bg-blue-50 rounded-3xl flex items-center justify-center text-blue-600 text-4xl mx-auto mb-6">
-                    <i class="fa-solid fa-user-graduate"></i>
+            <div class="glossy-card p-10 text-center">
+                <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-3xl flex items-center justify-center text-white text-4xl mx-auto mb-6 shadow-xl shadow-blue-100">
+                    <i class="fa-solid fa-graduation-cap"></i>
                 </div>
                 <h3 class="text-2xl font-black text-gray-800">Reyansh</h3>
-                <p class="text-blue-500 font-black uppercase text-[10px] tracking-widest mt-1">Founder & Law Student</p>
-                <p class="text-gray-400 font-bold text-[8px] uppercase">Surendranath Law College</p>
-                <p class="mt-8 text-gray-700 italic leading-relaxed font-serif text-lg">
-                    "I started this because I'm a student too. I know how confusing this can be. Let's make law simple, together."
+                <p class="text-blue-500 font-black uppercase text-[10px] tracking-widest mt-1">Surendranath Law College</p>
+                <p class="mt-8 text-gray-600 italic leading-relaxed font-serif text-lg">
+                    "I'm a student too. I know how confusing this can be. Let's make law simple, together."
                 </p>
             </div>
         </section>
@@ -173,7 +175,9 @@
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
             });
         }, { threshold: 0.1 });
 
