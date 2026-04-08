@@ -18,6 +18,7 @@
 
         .btn-blue { background: linear-gradient(90deg, #00a8ff, #00d2ff); box-shadow: 0 15px 30px -10px rgba(0, 168, 255, 0.4); }
         .btn-pink { background: linear-gradient(90deg, #a29bfe, #fd79a8); box-shadow: 0 15px 30px -10px rgba(253, 121, 168, 0.4); }
+        .btn-dark { background: #111827; box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.2); }
 
         .glass-nav {
             background: rgba(255, 255, 255, 0.9);
@@ -25,13 +26,14 @@
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        .tag {
-            background: #f3f4f6;
-            color: #6b7280;
-            padding: 4px 12px;
+        .profile-tag {
+            background-color: #f9fafb;
+            border: 1px solid #f3f4f6;
+            padding: 8px 16px;
             border-radius: 9999px;
             font-size: 10px;
-            font-weight: 700;
+            font-weight: 800;
+            color: #9ca3af;
             text-transform: uppercase;
         }
     </style>
@@ -51,88 +53,127 @@
     </nav>
 
     <main class="hero-bg">
-        <header class="pt-12 pb-12 px-6 text-center">
+        <header class="pt-12 pb-8 px-6 text-center">
             <div class="inline-block bg-white border border-blue-50 px-5 py-2 rounded-full mb-8 shadow-sm">
                 <p class="text-[10px] font-black text-blue-400 uppercase tracking-widest flex items-center">
-                    <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span> India's Simplest Law Resource
+                    <span class="w-2.5 h-2.5 bg-blue-400 rounded-full mr-3"></span> India's Simplest Law Resource
                 </p>
             </div>
-
             <h1 class="text-5xl font-serif font-bold text-blue-600 mb-2 leading-none tracking-tight">Calcutta</h1>
             <h1 class="text-5xl font-serif font-bold text-gray-800 mb-6 tracking-tight leading-none">Law Journal</h1>
-
-            <p class="text-gray-500 text-lg font-serif italic mb-6 leading-relaxed px-4">
+            <p class="text-gray-500 text-lg font-serif italic mb-6 leading-relaxed">
                 "Understanding Bare Acts and Case Laws in Simple Words"
             </p>
-
-            <p class="text-gray-400 text-sm max-w-xs mx-auto mb-10 leading-relaxed font-medium">
-                Complex legal language, decoded. From the Constitution to landmark Supreme Court judgments — explained clearly for students and citizens.
-            </p>
-
-            <div class="flex flex-col gap-4 max-w-xs mx-auto mb-20">
-                <a href="bare-acts.html" class="btn-blue text-white py-5 rounded-2xl text-lg font-black uppercase tracking-widest active:scale-95 transition-all">Explore Bare Acts</a>
-                <a href="case-laws.html" class="btn-pink text-white py-5 rounded-2xl text-lg font-black uppercase tracking-widest active:scale-95 transition-all">Read Case Laws</a>
+            <div class="flex flex-col gap-4 max-w-xs mx-auto mb-16">
+                <a href="bare-acts.html" class="btn-blue text-white py-4 rounded-2xl text-lg font-black uppercase tracking-widest text-center active:scale-95 transition-all">Explore Bare Acts</a>
+                <a href="case-laws.html" class="btn-pink text-white py-4 rounded-2xl text-lg font-black uppercase tracking-widest text-center active:scale-95 transition-all">Read Case Laws</a>
             </div>
         </header>
 
+        <section class="px-6 py-12">
+            <div class="bg-white rounded-[3rem] p-8 border border-blue-50 shadow-2xl relative overflow-hidden max-w-md mx-auto">
+                <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-400/10 rounded-full blur-2xl"></div>
+                <div class="flex flex-col items-center text-center relative z-10">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center text-white shadow-xl mb-6">
+                        <i class="fa-solid fa-microscope text-2xl"></i>
+                    </div>
+                    <h4 class="font-black text-gray-800 text-2xl mb-2">Original Research</h4>
+                    <p class="text-sm text-gray-400 mb-8 font-bold uppercase tracking-wider">Academic Library & Thesis</p>
+                    <a href="research.html" class="btn-dark text-white px-10 py-4 rounded-xl text-xs font-black uppercase tracking-widest shadow-lg active:scale-95 transition">
+                        Open Library <i class="fa-solid fa-arrow-right-long ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <section class="px-6 py-16 bg-white/50">
             <div class="text-center mb-12">
-                <span class="bg-blue-50 text-blue-500 text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest">What We Cover</span>
-                <h2 class="text-3xl font-serif font-bold text-gray-800 mt-4 tracking-tight">Two pillars of <span class="text-blue-500">Indian Law</span></h2>
-                <p class="text-gray-400 text-sm mt-2 font-medium">Start with the statutes, understand through the cases.</p>
+                <span class="bg-blue-50 text-blue-500 text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest">Two Pillars</span>
+                <h2 class="text-3xl font-serif font-bold text-gray-800 mt-4 tracking-tight">Our Core <span class="text-blue-500">Focus</span></h2>
             </div>
-
             <div class="space-y-10 max-w-md mx-auto">
                 <div class="bg-white rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-50 group">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="relative h-44 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
-                            <span class="text-[10px] font-black text-blue-300 uppercase tracking-widest mb-1">Decoded for You</span>
-                            <h3 class="text-3xl font-black text-white tracking-tighter">Bare Acts</h3>
+                            <h3 class="text-2xl font-black text-white tracking-tighter">Bare Acts</h3>
                         </div>
                     </div>
-                    <div class="p-8">
-                        <p class="text-gray-500 text-sm leading-relaxed mb-6">
-                            Every major Indian statute — from the Constitution to the BNS — explained in plain language with section-by-section breakdowns.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="tag">Constitution</span>
-                            <span class="tag">BNS</span>
-                            <span class="tag">Contract Act</span>
-                            <span class="tag">IPC</span>
-                        </div>
-                        <a href="bare-acts.html" class="inline-flex items-center justify-center w-full py-4 bg-blue-500 text-white rounded-xl text-xs font-black uppercase tracking-widest shadow-lg active:scale-95 transition">
-                            Browse Bare Acts <i class="fa-solid fa-arrow-right ml-2"></i>
-                        </a>
+                    <div class="p-6">
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">Major Indian statutes decoded into plain language.</p>
+                        <a href="bare-acts.html" class="text-blue-500 text-xs font-black uppercase tracking-widest flex items-center">Browse Statutes <i class="fa-solid fa-chevron-right ml-2"></i></a>
                     </div>
                 </div>
-
                 <div class="bg-white rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-50 group">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=800" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="relative h-44 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=800" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
-                            <span class="text-[10px] font-black text-pink-300 uppercase tracking-widest mb-1">Landmark Judgments</span>
-                            <h3 class="text-3xl font-black text-white tracking-tighter">Case Laws</h3>
+                            <h3 class="text-2xl font-black text-white tracking-tighter">Case Laws</h3>
                         </div>
                     </div>
-                    <div class="p-8">
-                        <p class="text-gray-500 text-sm leading-relaxed mb-6">
-                            Supreme Court decisions that shaped Indian law — summarised with facts, issues, and significance in simple language.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="tag">Kesavananda</span>
-                            <span class="tag">Maneka Gandhi</span>
-                            <span class="tag">Vishaka</span>
-                        </div>
-                        <a href="case-laws.html" class="inline-flex items-center justify-center w-full py-4 bg-pink-500 text-white rounded-xl text-xs font-black uppercase tracking-widest shadow-lg active:scale-95 transition">
-                            Browse Case Laws <i class="fa-solid fa-arrow-right ml-2"></i>
-                        </a>
+                    <div class="p-6">
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">Detailed summaries of Landmark Judgments.</p>
+                        <a href="case-laws.html" class="text-pink-500 text-xs font-black uppercase tracking-widest flex items-center">Explore Judgments <i class="fa-solid fa-chevron-right ml-2"></i></a>
                     </div>
                 </div>
             </div>
         </section>
 
-        </main>
+        <section class="px-6 py-16 bg-white">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl font-black text-gray-800 tracking-tighter uppercase">Official Portals</h2>
+                <div class="w-12 h-1 bg-blue-500 mx-auto mt-2"></div>
+            </div>
+            <div class="space-y-6 max-w-md mx-auto">
+                <a href="https://www.calcuttahighcourt.gov.in/" target="_blank" class="block bg-gray-50 rounded-3xl p-6 border border-gray-100 active:scale-95 transition shadow-sm">
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-md">
+                            <i class="fa-solid fa-building-columns text-blue-500 text-2xl"></i>
+                        </div>
+                        <div class="text-left">
+                            <h4 class="font-black text-gray-800 text-lg leading-tight">Calcutta High Court</h4>
+                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-1">Visit Official Website <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://main.sci.gov.in/" target="_blank" class="block bg-gray-50 rounded-3xl p-6 border border-gray-100 active:scale-95 transition shadow-sm">
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-md">
+                            <i class="fa-solid fa-gavel text-indigo-500 text-2xl"></i>
+                        </div>
+                        <div class="text-left">
+                            <h4 class="font-black text-gray-800 text-lg leading-tight">Supreme Court of India</h4>
+                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-1">Visit Official Portal <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="px-4 py-20 bg-blue-50/30">
+            <div class="bg-white rounded-[3rem] shadow-2xl border border-gray-50 overflow-hidden max-w-xl mx-auto">
+                <div class="h-32 bg-gradient-to-r from-blue-100 via-indigo-50 to-pink-50 flex items-center justify-center relative">
+                    <i class="fa-solid fa-quote-left text-blue-200 text-7xl absolute opacity-20"></i>
+                </div>
+                <div class="px-8 pb-12 -mt-16 relative bg-white rounded-t-[3rem]">
+                    <div class="text-blue-500 mb-6 text-4xl pt-8"><i class="fa-solid fa-quote-left"></i></div>
+                    <p class="text-gray-800 font-serif italic text-xl leading-relaxed mb-10">
+                        I started this journal because I struggled with dense, inaccessible language in statutes. If I can understand it, I want to make sure you can too.
+                    </p>
+                    <div class="flex flex-col items-center gap-6 text-center">
+                        <div class="w-20 h-20 bg-blue-600 rounded-3xl flex items-center justify-center text-white text-4xl shadow-lg">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-black text-gray-800 tracking-tighter">Reyansh</h3>
+                            <p class="text-[10px] text-gray-500 font-black mt-1 uppercase tracking-widest">Law Student</p>
+                            <p class="text-[10px] text-gray-400 mt-1 font-bold uppercase leading-tight px-4">Surendranath Law College | University of Calcutta</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer class="py-12 text-center">
         <p class="text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
