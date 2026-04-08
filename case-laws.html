@@ -11,23 +11,24 @@
         body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; }
         .font-serif { font-family: 'Playfair Display', serif; }
         
-        /* Modal Animation */
+        /* Modal Popup Animation */
         .modal-overlay {
-            transition: opacity 0.3s ease, visibility 0.3s ease;
             opacity: 0;
             visibility: hidden;
+            transition: all 0.3s ease;
         }
         .modal-overlay.active {
             opacity: 1;
             visibility: visible;
         }
         .modal-content {
-            transform: translateY(50px);
+            transform: translateY(100px);
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .modal-overlay.active .modal-content {
             transform: translateY(0);
         }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body class="pb-10">
@@ -40,64 +41,75 @@
     </nav>
 
     <main class="px-6 space-y-6 max-w-2xl mx-auto pt-10">
+        
         <div class="bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 p-6">
-            <div class="flex justify-between items-center mb-4">
-                <span class="bg-blue-500/10 text-blue-600 text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">Constitution • 1973</span>
+            <div class="flex justify-between items-start mb-4">
+                <span class="bg-blue-500/10 text-blue-600 text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">Constitutional • 1973</span>
             </div>
-            <h2 class="text-2xl font-bold text-gray-800 font-serif leading-tight">Kesavananda Bharati Case</h2>
-            <p class="text-gray-400 text-[10px] font-bold mt-1 uppercase tracking-widest mb-4">The Basic Structure Doctrine</p>
+            <h2 class="text-xl font-bold text-gray-800 font-serif leading-snug">Kesavananda Bharati Case</h2>
+            <p class="text-gray-400 text-[9px] font-bold mt-1 uppercase tracking-widest mb-4">Basic Structure Doctrine</p>
+            <p class="text-gray-500 text-sm leading-relaxed mb-6">Parliament cannot alter the essential features of the Indian Constitution. This was the historic decision by the largest bench...</p>
             
-            <p class="text-gray-600 text-sm leading-relaxed mb-6">
-                Parliament cannot alter the essential features of the Indian Constitution. This was the historic decision by the largest bench in history...
-            </p>
-
-            <button onclick="openCaseModal('kesavananda')" class="w-full bg-pink-500 text-white py-4 rounded-2xl font-bold text-xs uppercase tracking-widest shadow-lg shadow-pink-100 transition active:scale-95">
+            <button onclick="openModal('kesavananda')" class="w-full bg-pink-500 text-white py-4 rounded-2xl font-bold text-[10px] uppercase tracking-widest shadow-lg shadow-pink-100 transition active:scale-95">
                 Read Full About Case
             </button>
         </div>
-        
-        </main>
+
+        <div class="bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 p-6">
+            <div class="flex justify-between items-start mb-4">
+                <span class="bg-pink-500/10 text-pink-600 text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">Article 21 • 1978</span>
+            </div>
+            <h2 class="text-xl font-bold text-gray-800 font-serif leading-snug">Maneka Gandhi v. UOI</h2>
+            <p class="text-gray-400 text-[9px] font-bold mt-1 uppercase tracking-widest mb-4">Personal Liberty & Dignity</p>
+            <p class="text-gray-500 text-sm leading-relaxed mb-6">Expanding the scope of Article 21, the court ruled that any procedure of law must be just, fair, and reasonable...</p>
+            
+            <button onclick="openModal('maneka')" class="w-full bg-pink-500 text-white py-4 rounded-2xl font-bold text-[10px] uppercase tracking-widest shadow-lg shadow-pink-100 transition active:scale-95">
+                Read Full About Case
+            </button>
+        </div>
+
+    </main>
 
     <div id="caseModal" class="modal-overlay fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-end md:items-center justify-center">
-        <div class="absolute inset-0" onclick="closeCaseModal()"></div>
+        <div class="absolute inset-0" onclick="closeModal()"></div>
         
-        <div class="modal-content bg-white w-full max-w-2xl h-[85vh] md:h-auto md:max-h-[90vh] rounded-t-[3rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative flex flex-col">
+        <div class="modal-content bg-white w-full max-w-xl h-[85vh] md:h-auto md:max-h-[90vh] rounded-t-[3rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative flex flex-col">
             
             <div class="p-6 border-b flex justify-between items-center sticky top-0 bg-white z-10">
-                <h3 class="font-serif font-bold text-xl text-gray-800" id="modalTitle">Full Case Details</h3>
-                <button onclick="closeCaseModal()" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-500">
-                    <i class="fa-solid fa-xmark"></i>
+                <h3 class="font-bold text-gray-800 text-sm md:text-base pr-4" id="modalTitle">Case Details</h3>
+                <button onclick="closeModal()" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-500">
+                    <i class="fa-solid fa-xmark text-sm"></i>
                 </button>
             </div>
 
-            <div class="p-8 overflow-y-auto flex-1 space-y-6">
+            <div class="p-6 overflow-y-auto no-scrollbar space-y-8 pb-12 text-left">
                 <div>
-                    <h4 class="text-pink-500 font-bold text-[10px] uppercase tracking-widest mb-2">Facts of the Case</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed" id="modalFacts"></p>
+                    <h4 class="text-pink-500 font-bold text-[10px] uppercase tracking-widest mb-3">Facts of the Case</h4>
+                    <p id="modalFacts" class="text-gray-600 text-xs leading-relaxed"></p>
                 </div>
-                
-                <div class="bg-blue-50 p-6 rounded-[2rem] border-l-4 border-blue-400">
-                    <h4 class="text-blue-800 font-bold text-[10px] uppercase tracking-widest mb-2">The Legal Issue</h4>
-                    <p class="text-blue-900 text-sm italic font-medium" id="modalIssue"></p>
+
+                <div class="bg-blue-50 p-6 rounded-3xl border border-blue-100">
+                    <h4 class="text-blue-500 font-bold text-[10px] uppercase tracking-widest mb-2">The Legal Issue</h4>
+                    <p id="modalIssue" class="text-blue-900 text-xs italic font-medium leading-relaxed"></p>
                 </div>
 
                 <div>
-                    <h4 class="text-pink-500 font-bold text-[10px] uppercase tracking-widest mb-2">Final Judgment (Verdict)</h4>
-                    <ul class="text-gray-600 text-sm space-y-4 leading-relaxed" id="modalVerdict">
+                    <h4 class="text-pink-500 font-bold text-[10px] uppercase tracking-widest mb-4">Final Judgment (Verdict)</h4>
+                    <ul id="modalVerdict" class="space-y-4 text-gray-600 text-xs leading-relaxed">
                         </ul>
                 </div>
 
-                <div class="p-6 bg-gray-50 rounded-3xl">
+                <div class="bg-gray-50 p-6 rounded-3xl">
                     <h4 class="text-gray-400 font-bold text-[10px] uppercase tracking-widest mb-2">Significance</h4>
-                    <p class="text-gray-500 text-xs italic" id="modalSignificance"></p>
+                    <p id="modalSignificance" class="text-gray-500 text-[11px] leading-relaxed"></p>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Case Data Database
-        const casesData = {
+        // Database of Case Details
+        const caseDatabase = {
             'kesavananda': {
                 title: "Kesavananda Bharati v. State of Kerala",
                 facts: "Kesavananda Bharati, head of Edneer Mutt, challenged the Kerala Government's land reform laws. He claimed his fundamental right to manage religious property under Article 26 was being violated. The case eventually became about whether Parliament's power to amend the Constitution was absolute.",
@@ -109,35 +121,50 @@
                     "Basic structure includes Secularism, Federalism, and Judicial Review."
                 ],
                 significance: "This judgment is the reason why India is still a democracy. It prevented the government from becoming a dictatorship by changing the entire Constitution."
+            },
+            'maneka': {
+                title: "Maneka Gandhi v. Union of India",
+                facts: "In 1977, the passport of Maneka Gandhi was impounded by the government 'in public interest' without providing any reasons or a hearing. She challenged this under Article 21, claiming her right to travel abroad was part of personal liberty.",
+                issue: "Does 'Procedure established by law' under Article 21 need to be reasonable and fair?",
+                verdict: [
+                    "Right to travel abroad is part of 'Personal Liberty' under Article 21.",
+                    "Any law taking away liberty must be just, fair, and not arbitrary.",
+                    "The court introduced the concept of 'Due Process of Law' into the Indian legal system.",
+                    "Articles 14, 19, and 21 are not separate; they form a 'Golden Triangle'."
+                ],
+                significance: "This judgment significantly expanded the power of the Judiciary to protect citizens against arbitrary actions of the Government."
             }
-            // Add more cases here like 'maneka', 'vishaka' etc.
         };
 
-        function openCaseModal(caseKey) {
-            const data = casesData[caseKey];
+        function openModal(caseKey) {
+            const data = caseDatabase[caseKey];
             const modal = document.getElementById('caseModal');
-            
+
             // Fill Data
             document.getElementById('modalTitle').innerText = data.title;
             document.getElementById('modalFacts').innerText = data.facts;
             document.getElementById('modalIssue').innerText = data.issue;
             document.getElementById('modalSignificance').innerText = data.significance;
-            
+
             // Fill Verdict List
-            const verdictList = document.getElementById('modalVerdict');
-            verdictList.innerHTML = '';
+            const verdictUl = document.getElementById('modalVerdict');
+            verdictUl.innerHTML = '';
             data.verdict.forEach(point => {
-                verdictList.innerHTML += `<li class="flex gap-3"><i class="fa-solid fa-circle-check text-green-500 mt-1"></i> ${point}</li>`;
+                verdictUl.innerHTML += `
+                    <li class="flex gap-3">
+                        <i class="fa-solid fa-circle-check text-green-500 mt-1"></i>
+                        <span>${point}</span>
+                    </li>`;
             });
 
             // Show Modal
             modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Stop background scrolling
+            document.body.style.overflow = 'hidden'; // Scroll disable
         }
 
-        function closeCaseModal() {
+        function closeModal() {
             document.getElementById('caseModal').classList.remove('active');
-            document.body.style.overflow = 'auto'; // Resume background scrolling
+            document.body.style.overflow = 'auto'; // Scroll enable
         }
     </script>
 </body>
