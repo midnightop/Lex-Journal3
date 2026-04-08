@@ -9,195 +9,104 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
         
-        body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; overflow-x: hidden; }
         .font-serif { font-family: 'Playfair Display', serif; }
 
-        /* Smooth Slide-Up Animation */
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-slide { animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+        /* Smooth Scroll Animation */
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.05); }
         
-        /* Navbar Glassmorphism */
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        /* CLJ Brand Logo */
-        .clj-logo-box {
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            color: white;
-            font-weight: 900;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
-        }
-
-        /* Research Glossy Card */
-        .research-highlight {
-            background: linear-gradient(145deg, #1e293b, #0f172a);
-            border-radius: 35px;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .research-highlight::before {
-            content: '';
-            position: absolute;
-            top: -20%; right: -10%;
-            width: 150px; height: 150px;
-            background: rgba(59, 130, 246, 0.15);
-            filter: blur(50px);
-            border-radius: 50%;
-        }
-
-        /* Cool Research Icon */
-        .cool-icon {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            width: 55px;
-            height: 55px;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            border: 1px solid rgba(255,255,255,0.2);
-            color: #60a5fa;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-
-        .premium-card {
-            background: white;
-            border: 1px solid rgba(0,0,0,0.03);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-            border-radius: 32px;
-        }
-
-        .btn-glossy {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        .btn-glossy:active { transform: scale(0.95); }
+        .premium-card { background: white; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 10px 25px rgba(0,0,0,0.03); border-radius: 28px; }
+        
+        .glossy-btn { transition: all 0.3s ease; }
+        .glossy-btn:active { transform: scale(0.97); }
     </style>
 </head>
-<body>
+<body class="pb-10">
 
-    <nav class="sticky top-0 z-50 glass-nav px-5 py-3 flex justify-between items-center">
-        <div class="flex items-center gap-3">
-            <div class="clj-logo-box text-sm">CLJ</div>
-            <span class="font-black text-gray-800 text-lg">CLJ <span class="text-blue-600">Journal</span></span>
+    <nav class="sticky top-0 z-50 glass-nav px-5 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-2 font-black text-gray-800 text-lg">
+            <i class="fa-solid fa-scale-balanced text-blue-600"></i> Law Journal
         </div>
         <a href="https://www.instagram.com/midieeeeee" target="_blank">
             <i class="fa-brands fa-instagram text-2xl text-pink-500"></i>
         </a>
     </nav>
 
-    <main class="animate-slide">
-        <header class="pt-10 pb-8 px-8 text-center">
+    <main>
+        <header class="pt-16 pb-12 px-6 text-center reveal">
             <h1 class="text-5xl font-serif font-bold text-blue-600 leading-tight">Calcutta</h1>
             <h1 class="text-5xl font-serif font-bold text-gray-900 mb-8 leading-tight">Law Journal</h1>
-            
-            <p class="text-gray-800 text-lg font-serif italic mb-6">"Honestly? Law is hard. But it doesn't have to be boring."</p>
-            
+            <p class="text-gray-800 text-xl font-serif italic mb-6">"Law hard hai, par boring bilkul nahi."</p>
+            <p class="text-gray-500 text-sm mb-8">Humne legal jargon ko seedhi bhasha mein badal diya hai taaki aap bina headache ke apna syllabus aur rights samajh sakein.</p>
             <div class="flex flex-col gap-4 max-w-xs mx-auto">
-                <a href="bare-acts.html" class="btn-glossy bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-lg">Explore Bare Acts</a>
-                <a href="case-laws.html" class="btn-glossy bg-gradient-to-r from-pink-500 to-rose-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-lg">Read Case Laws</a>
+                <a href="bare-acts.html" class="glossy-btn bg-blue-600 text-white py-4 rounded-2xl font-black uppercase text-xs shadow-lg">Explore Bare Acts</a>
+                <a href="case-laws.html" class="glossy-btn bg-pink-500 text-white py-4 rounded-2xl font-black uppercase text-xs shadow-lg">Read Case Laws</a>
             </div>
         </header>
 
-        <section class="px-6 py-6 animate-slide" style="animation-delay: 0.2s;">
-            <div class="research-highlight p-8 shadow-2xl text-white">
-                <div class="cool-icon mb-6">
-                    <i class="fa-solid fa-atom animate-spin-slow"></i>
-                </div>
-                <h2 class="text-3xl font-black mb-4 tracking-tighter uppercase">Research</h2>
-                <p class="text-sm opacity-80 leading-relaxed font-medium mb-8">
-                    Research isn't just about finding a page number; it's being a detective. We dig through thousands of records to find the "why" behind the law, giving you the secret sauce for your next thesis or debate.
-                </p>
-                <a href="research.html" class="block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px] active:scale-95 transition">Enter Research Lab</a>
-            </div>
-        </section>
-
-        <section class="px-6 py-8 space-y-8 animate-slide" style="animation-delay: 0.4s;">
+        <section class="px-6 py-6 space-y-6 reveal">
             <div class="premium-card p-8">
                 <div class="flex items-center gap-4 mb-4">
-                    <div class="clj-logo-box text-xs">CLJ</div>
-                    <h3 class="text-blue-600 font-black text-lg uppercase">Bare Acts</h3>
+                    <i class="fa-solid fa-scroll text-blue-600 text-2xl"></i>
+                    <h3 class="font-black text-lg uppercase tracking-tight text-gray-800">Bare Acts</h3>
                 </div>
-                <p class="text-gray-600 text-sm leading-relaxed">
-                    Think of the Bare Act as a blueprint. You can't be a great lawyer without knowing the exact words of the Parliament. We break down the dry statutes into simple sections so you can master them with confidence.
-                </p>
+                <p class="text-gray-600 text-sm leading-relaxed">Bare Act ek blueprint ki tarah hai. Ek achha lawyer wahi hai jise law ki exact wording yaad ho. Hum inhein simple section breakdown ke saath samjhate hain.</p>
             </div>
 
             <div class="premium-card p-8">
                 <div class="flex items-center gap-4 mb-4">
-                    <div class="clj-logo-box text-xs" style="background: linear-gradient(135deg, #ec4899, #be185d);">CLJ</div>
-                    <h3 class="text-pink-600 font-black text-lg uppercase">Case Laws</h3>
+                    <i class="fa-solid fa-gavel text-pink-500 text-2xl"></i>
+                    <h3 class="font-black text-lg uppercase tracking-tight text-gray-800">Case Laws</h3>
                 </div>
-                <p class="text-gray-600 text-sm leading-relaxed">
-                    Case laws are where the action happens. It’s where the law meets real life. Landmark cases show you how to fight for justice and prove that a strong argument can change the country.
-                </p>
+                <p class="text-gray-600 text-sm leading-relaxed">Case laws mein hi asli kahani hai. Landmark judgments aapko dikhati hain ki kaise ek sahi argument pure desh ki kanooni tasveer badal sakta hai.</p>
             </div>
         </section>
 
-        <section class="px-6 py-10">
-            <div class="text-center mb-10">
-                <h2 class="text-2xl font-black text-gray-800 uppercase tracking-tighter">Our Core Focus</h2>
-                <div class="w-12 h-1 bg-blue-500 mx-auto mt-2 rounded-full"></div>
-            </div>
-            <div class="space-y-4 max-w-md mx-auto text-gray-600 text-sm leading-relaxed px-2">
-                <p>We focus on Landmark cases because they are the guideposts of a legal career. They provide the "Ratio Decidendi" which serves as the law of the land under Article 141. Understanding the "Basic Structure" of our nation is what builds a solid foundation for any law student.</p>
-            </div>
-        </section>
-
-        <section class="space-y-10 py-10 px-6">
-            <div class="premium-card overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800" class="w-full h-48 object-cover">
-                <div class="p-8">
-                    <h2 class="text-2xl font-black text-gray-800 mb-3">Calcutta High Court</h2>
-                    <p class="text-xs text-gray-500 leading-relaxed">Established in 1862, it is the oldest High Court in India. For 160+ years, it has stood as a gothic sentinel of justice in the East.</p>
-                    <a href="https://www.calcuttahighcourt.gov.in/" target="_blank" class="mt-6 block text-center py-3 border border-blue-600 text-blue-600 font-black rounded-xl uppercase text-[10px]">Official Website</a>
-                </div>
-            </div>
-
-            <div class="research-highlight overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=800" class="w-full h-48 object-cover opacity-60">
-                <div class="p-8">
-                    <h2 class="text-2xl font-black text-white mb-3">Supreme Court of India</h2>
-                    <p class="text-xs text-gray-400 leading-relaxed">The final guardian of our Constitution. Since 1950, it has been the shield against arbitrary power and the ultimate arbiter of truth.</p>
-                    <a href="https://main.sci.gov.in/" target="_blank" class="mt-6 block text-center py-3 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px]">Official Portal</a>
-                </div>
+        <section class="px-6 py-10 reveal">
+            <div class="bg-slate-900 p-8 rounded-[2rem] text-white shadow-2xl">
+                <i class="fa-solid fa-microscope text-blue-400 text-3xl mb-4"></i>
+                <h2 class="text-2xl font-black mb-3 uppercase">Research Lab</h2>
+                <p class="text-sm opacity-80 mb-6 leading-relaxed">Research matlab detective banna! Hum purane records aur naye laws ko chhaan-been karke aapke liye research material taiyaar karte hain.</p>
+                <a href="research.html" class="block text-center py-3 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px]">Enter Lab</a>
             </div>
         </section>
 
-        <section class="px-6 py-16">
-            <div class="premium-card p-10 text-center">
-                <div class="w-20 h-20 bg-blue-50 rounded-3xl flex items-center justify-center text-blue-600 text-4xl mx-auto mb-6">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </div>
-                <h3 class="text-2xl font-black text-gray-800">Reyansh</h3>
-                <p class="text-blue-500 font-black uppercase text-[10px] tracking-widest mt-1">Founder & Law Student</p>
-                <p class="text-gray-400 font-bold text-[8px] uppercase">Surendranath Law College</p>
-                <p class="mt-8 text-gray-600 italic leading-relaxed font-serif text-lg">
-                    "I started this because I'm a student too. I know how confusing this can be. Let's make law simple, together."
-                </p>
+        <section class="px-6 space-y-6">
+            <div class="premium-card p-6 reveal">
+                <h2 class="font-black mb-2">Calcutta High Court</h2>
+                <p class="text-[10px] text-gray-500 mb-4 uppercase">1862 se Nyay ka ghar.</p>
+                <a href="https://www.calcuttahighcourt.gov.in/" target="_blank" class="text-blue-600 font-black text-[10px] uppercase">Official Website <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="premium-card p-6 reveal">
+                <h2 class="font-black mb-2">Supreme Court of India</h2>
+                <p class="text-[10px] text-gray-500 mb-4 uppercase">Nyay ka antim sthan.</p>
+                <a href="https://main.sci.gov.in/" target="_blank" class="text-blue-600 font-black text-[10px] uppercase">Official Portal <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <section class="px-6 py-16 reveal">
+            <div class="premium-card p-8 text-center">
+                <i class="fa-solid fa-user-graduate text-blue-600 text-4xl mb-4"></i>
+                <h3 class="font-black text-xl">Reyansh</h3>
+                <p class="text-[9px] text-gray-400 font-black uppercase tracking-widest mt-1">Law Student | Calcutta</p>
+                <p class="mt-6 text-gray-600 italic font-serif leading-relaxed">"Main bhi ek student hoon, isliye main samajhta hoon ki law ko easy kaise banana hai."</p>
             </div>
         </section>
     </main>
 
-    <footer class="py-12 text-center">
-        <p class="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
-    </footer>
-
+    <script>
+        // Scroll Animation Logic
+        const reveals = document.querySelectorAll(".reveal");
+        window.addEventListener("scroll", () => {
+            reveals.forEach(reveal => {
+                let windowHeight = window.innerHeight;
+                let elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 50) reveal.classList.add("active");
+            });
+        });
+    </script>
 </body>
 </html>
