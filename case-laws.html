@@ -12,15 +12,17 @@
         body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
         .font-serif { font-family: 'Playfair Display', serif; }
         
-        .blur-bg { position: fixed; z-index: -1; filter: blur(90px); opacity: 0.4; pointer-events: none; }
+        /* Vibrant Blurs Background */
+        .blur-bg { position: fixed; z-index: -1; filter: blur(90px); opacity: 0.35; pointer-events: none; }
         
         .modal-overlay { opacity: 0; visibility: hidden; transition: all 0.3s ease; display: flex; align-items: flex-end; }
         @media (min-width: 768px) { .modal-overlay { align-items: center; } }
         .modal-overlay.active { opacity: 1; visibility: visible; }
+        
         .modal-container { transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .modal-overlay.active .modal-container { transform: translateY(0); }
 
-        .search-focus:focus-within { border-color: #ec4899; box-shadow: 0 0 40px rgba(236, 72, 153, 0.3); transform: scale(1.02); }
+        .search-focus:focus-within { border-color: #ec4899; box-shadow: 0 0 50px rgba(236, 72, 153, 0.3); transform: scale(1.02); }
         
         .case-card { transition: all 0.4s ease; }
         .case-card.hidden { display: none; }
@@ -29,13 +31,13 @@
 </head>
 <body class="pb-20">
 
-    <div class="blur-bg bg-pink-300 w-96 h-96 -top-20 -left-20"></div>
-    <div class="blur-bg bg-blue-300 w-80 h-80 top-1/2 -right-20"></div>
-    <div class="blur-bg bg-purple-300 w-72 h-72 bottom-0 left-10"></div>
+    <div class="blur-bg bg-pink-400 w-96 h-96 -top-20 -left-20"></div>
+    <div class="blur-bg bg-blue-400 w-80 h-80 top-1/2 -right-20"></div>
+    <div class="blur-bg bg-purple-400 w-72 h-72 bottom-0 left-10"></div>
 
-    <nav class="sticky top-0 z-50 bg-white/70 backdrop-blur-2xl px-6 py-8 flex justify-between items-center border-b-2 border-white/20 shadow-sm">
+    <nav class="sticky top-0 z-50 bg-white/70 backdrop-blur-2xl px-6 py-8 flex justify-between items-center border-b-2 border-white/20">
         <h1 class="font-black text-gray-800 text-3xl tracking-tighter">CLJ <span class="text-pink-500">Cases</span></h1>
-        <a href="index.html" class="text-xs font-black uppercase tracking-widest text-pink-600 bg-pink-50 px-8 py-4 rounded-[2rem] shadow-sm active:scale-90 transition">Home</a>
+        <a href="index.html" class="text-xs font-black uppercase tracking-widest text-pink-600 bg-pink-50 px-8 py-4 rounded-[2.5rem] shadow-sm active:scale-90 transition">Home</a>
     </nav>
 
     <header class="pt-20 pb-12 px-6 text-center">
@@ -47,28 +49,32 @@
         </div>
     </header>
 
-    <main class="px-6 space-y-16 max-w-2xl mx-auto" id="casesContainer">
-        </main>
+    <main class="px-6 space-y-16 max-w-2xl mx-auto" id="casesContainer"></main>
 
     <div id="caseModal" class="modal-overlay fixed inset-0 z-[100] bg-black/60 backdrop-blur-md justify-center">
         <div class="absolute inset-0" onclick="closeModal()"></div>
         <div class="modal-container bg-white w-full max-w-xl h-[85vh] md:h-auto md:max-h-[85vh] rounded-t-[5rem] md:rounded-[5rem] shadow-2xl overflow-hidden relative flex flex-col">
+            
             <div class="p-8 border-b-2 border-gray-50 flex justify-between items-center sticky top-0 bg-white z-10">
                 <h3 class="font-black text-gray-800 text-xl" id="modalTitle">Case Details</h3>
                 <button onclick="closeModal()" class="w-14 h-14 bg-gray-50 rounded-full flex items-center justify-center text-gray-800"><i class="fa-solid fa-xmark text-2xl"></i></button>
             </div>
+
             <div class="p-12 overflow-y-auto no-scrollbar space-y-12 pb-24 text-left">
                 <div>
-                    <h4 class="text-pink-500 font-black text-xs uppercase tracking-widest mb-4">The Story</h4>
-                    <p id="modalFacts" class="text-gray-600 text-2xl leading-relaxed font-serif italic"></p>
+                    <h4 class="text-pink-500 font-black text-xs uppercase tracking-widest mb-4">Background Story</h4>
+                    <p id="modalDescription" class="text-gray-600 text-3xl leading-relaxed font-serif italic mb-6"></p>
+                    <p id="modalFacts" class="text-gray-500 text-xl leading-relaxed font-medium"></p>
                 </div>
-                <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-10 rounded-[3rem] border-l-8 border-pink-400">
-                    <h4 class="text-pink-600 font-black text-xs uppercase tracking-widest mb-4">Legal Question</h4>
-                    <p id="modalIssue" class="text-pink-950 text-xl font-bold leading-relaxed"></p>
+
+                <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-10 rounded-[3.5rem] border-l-8 border-pink-400">
+                    <h4 class="text-pink-600 font-black text-xs uppercase tracking-widest mb-4">The Legal Issue</h4>
+                    <p id="modalIssue" class="text-pink-950 text-2xl font-bold leading-relaxed"></p>
                 </div>
+
                 <div>
-                    <h4 class="text-gray-800 font-black text-xs uppercase tracking-widest mb-8">Verdict</h4>
-                    <ul id="modalVerdict" class="space-y-8 text-gray-600 text-xl leading-relaxed font-medium"></ul>
+                    <h4 class="text-gray-800 font-black text-xs uppercase tracking-widest mb-8">Final Verdict</h4>
+                    <ul id="modalVerdict" class="space-y-8 text-gray-600 text-xl leading-relaxed font-bold"></ul>
                 </div>
             </div>
         </div>
@@ -76,17 +82,92 @@
 
     <script>
         const caseDatabase = {
-            'kesavananda': { title: "Kesavananda Bharati (1973)", cat: "Constitution", facts: "Challenged the power of Parliament to amend the Constitution.", issue: "Can the Basic Structure be changed?", verdict: ["Parliament cannot amend 'Basic Structure'.", "Judicial Review is supreme."] },
-            'maneka': { title: "Maneka Gandhi (1978)", cat: "Article 21", facts: "Passport impounded without hearing.", issue: "Is 'Procedure Established by Law' enough?", verdict: ["Procedure must be Just, Fair, and Reasonable.", "Right to travel is personal liberty."] },
-            'puttaswamy': { title: "K.S. Puttaswamy (2017)", cat: "Privacy", facts: "Aadhaar data and privacy concerns.", issue: "Is Privacy a Fundamental Right?", verdict: ["Right to Privacy is Fundamental under Art. 21.", "Applies to digital data too."] },
-            'vishaka': { title: "Vishaka v. Rajasthan (1997)", cat: "Women Rights", facts: "Sexual harassment at workplace case.", issue: "Need for workplace protection guidelines?", verdict: ["Vishaka Guidelines issued.", "ICC committees made mandatory."] },
-            'navtej': { title: "Navtej Singh Johar (2018)", cat: "LGBTQ Rights", facts: "Challenge to Section 377 IPC.", issue: "Criminalization of consensual gay sex?", verdict: ["Section 377 decriminalized.", "LGBTQ citizens have equal rights."] },
-            'shayara': { title: "Shayara Bano (2017)", cat: "Family Law", facts: "Challenge to Triple Talaq.", issue: "Is Triple Talaq constitutional?", verdict: ["Instant Triple Talaq declared unconstitutional.", "Violates Article 14 and 21."] },
-            'minerva': { title: "Minerva Mills (1980)", cat: "Constitution", facts: "Parliament tried to give Directive Principles priority over Fundamental Rights.", issue: "Balance between Part III and Part IV?", verdict: ["Constitution is built on the balance of FRs and DPSPs.", "Limited power of amendment."] },
-            'admi': { title: "ADM Jabalpur (1976)", cat: "Emergency", facts: "Suspension of rights during Emergency.", issue: "Can Habeas Corpus be suspended?", verdict: ["Black spot in history: Rights were suspended.", "Later corrected by 44th Amendment."] },
-            'sr_bommai': { title: "S.R. Bommai (1994)", cat: "Federalism", facts: "Dismissal of State Governments.", issue: "Abuse of Article 356 (President's Rule)?", verdict: ["President's Rule is subject to Judicial Review.", "Secularism is Basic Structure."] },
-            'shah_bano': { title: "Mohd. Ahmed Khan v. Shah Bano (1985)", cat: "Maintenance", facts: "Elderly woman denied maintenance after divorce.", issue: "Does Section 125 CrPC apply to Muslims?", verdict: ["Maintenance must be paid even after Iddat.", "Step toward Uniform Civil Code."] }
+            'kesavananda': { 
+                title: "Kesavananda Bharati (1973)", cat: "Constitution",
+                desc: "The battle led by Swami Kesavananda Bharati against the state, represented by the legendary Nani Palkhivala.",
+                facts: "Swami Kesavananda Bharati challenged the Kerala government's land reform laws. 13 Judges sat for 68 days to decide if Parliament could destroy our basic rights.", 
+                issue: "Can Parliament change the 'Basic Structure' of our Constitution?", 
+                verdict: ["Parliament cannot touch Basic Structure.", "Democracy and Secularism are safe.", "Nani Palkhivala saved Indian democracy."] 
+            },
+            'maneka': { 
+                title: "Maneka Gandhi (1978)", cat: "Article 21",
+                desc: "Maneka Gandhi fought the Union of India for her right to travel and personal freedom.",
+                facts: "Her passport was impounded 'in public interest' without any hearing. She argued this violated her dignity and rights under Article 21.", 
+                issue: "Is any procedure established by law always fair and just?", 
+                verdict: ["Laws must be Just, Fair, and Reasonable.", "Travel is a Personal Liberty.", "Art. 14, 19, and 21 are inseparable."] 
+            },
+            'puttaswamy': { 
+                title: "K.S. Puttaswamy (2017)", cat: "Privacy",
+                desc: "Justice Puttaswamy challenged the state to recognize our right to privacy.",
+                facts: "This case started with a challenge to Aadhaar. 9 Judges unanimously decided that every Indian has a right to their own data.", 
+                issue: "Is the Right to Privacy a Fundamental Right?", 
+                verdict: ["Privacy is an absolute part of Life.", "Digital data is protected.", "State surveillance must have limits."] 
+            },
+            'vishaka': { 
+                title: "Vishaka v. Rajasthan (1997)", cat: "Women Rights",
+                desc: "Bhanwari Devi's struggle led to the first guidelines for workplace safety.",
+                facts: "A social worker was gang-raped, and there were no laws to protect women at work. The SC created the 'Vishaka Guidelines' to fill this gap.", 
+                issue: "How to safeguard women at work without a specific act?", 
+                verdict: ["Vishaka Guidelines are mandatory.", "Employers must form ICC committees.", "Foundation for POSH Act 2013."] 
+            },
+            'navtej': { 
+                title: "Navtej Singh Johar (2018)", cat: "LGBTQ Rights",
+                desc: "Navtej Singh Johar and others challenged the colonial Section 377 IPC.",
+                facts: "Section 377 criminalized consensual same-sex acts. The court ruled that sexual orientation is biological and deserves dignity.", 
+                issue: "Does Section 377 violate the right to love and equality?", 
+                verdict: ["Consensual gay sex is not a crime.", "Sec 377 declared unconstitutional for adults.", "Right to choose partner is fundamental."] 
+            },
+            'shayara': { 
+                title: "Shayara Bano (2017)", cat: "Family Law",
+                desc: "Shayara Bano's fight against the practice of 'Triple Talaq'.",
+                facts: "She was divorced via speed-post. She challenged this practice as discriminatory against Muslim women's dignity.", 
+                issue: "Is Instant Triple Talaq constitutional?", 
+                verdict: ["Instant Triple Talaq is void.", "It violates Article 14 (Equality).", "Promoted gender justice in Personal Laws."] 
+            },
+            'minerva': { 
+                title: "Minerva Mills (1980)", cat: "Constitution",
+                desc: "Minerva Mills Ltd. challenged the government's power to prioritize policy over rights.",
+                facts: "Parliament tried to say that state policies are more important than individual rights. The court restored the balance.", 
+                issue: "Can Parliament destroy the balance of the Constitution?", 
+                verdict: ["Balance of FRs and DPSPs is basic structure.", "Parliament's power is limited.", "Judicial Review was protected."] 
+            },
+            'sr_bommai': { 
+                title: "S.R. Bommai (1994)", cat: "Federalism",
+                desc: "S.R. Bommai challenged the arbitrary dismissal of his state government.",
+                facts: "The President's Rule was being used to kill state governments. This case set the rules for Article 356.", 
+                issue: "Is the President's Rule subject to Court review?", 
+                verdict: ["Article 356 is subject to Judicial Review.", "Secularism is a basic structure.", "States are not mere appendages of Center."] 
+            },
+            'shah_bano': { 
+                title: "Shah Bano Case (1985)", cat: "Maintenance",
+                desc: "Shah Bano fought for her right to alimony after 40 years of marriage.",
+                facts: "Her husband refused to pay maintenance. The SC ruled that Section 125 CrPC applies to all Indian women regardless of religion.", 
+                issue: "Does Section 125 apply to Muslim personal law?", 
+                verdict: ["Husband must pay maintenance.", "CrPC 125 is above personal laws.", "Secularism protects human dignity."] 
+            },
+            'admi': { 
+                title: "ADM Jabalpur (1976)", cat: "Emergency",
+                desc: "The 'Habeas Corpus' case during the darkest time of Indian democracy.",
+                facts: "During Emergency, people were jailed without reason. Only Justice Khanna dissented, saying rights cannot be suspended.", 
+                issue: "Can the Right to Life be suspended during Emergency?", 
+                verdict: ["Court originally said Yes (A mistake).", "Later corrected: Rights can NEVER be suspended.", "Justice Khanna became a legend for his dissent."] 
+            }
         };
+
+        const container = document.getElementById('casesContainer');
+        Object.keys(caseDatabase).forEach(key => {
+            const data = caseDatabase[key];
+            container.innerHTML += `
+                <div class="case-card bg-white/90 backdrop-blur-md rounded-[4.5rem] p-12 shadow-2xl border-2 border-white relative overflow-hidden" data-title="${data.title} ${data.cat}">
+                    <div class="flex justify-between items-start mb-10">
+                        <span class="bg-pink-600 text-white text-[10px] font-black px-6 py-2 rounded-full uppercase tracking-widest">${data.cat}</span>
+                    </div>
+                    <h2 class="text-5xl font-black text-gray-800 tracking-tight leading-tight">${data.title}</h2>
+                    <p class="text-gray-400 text-xl mt-6 mb-12 font-medium leading-relaxed">${data.desc}</p>
+                    <button onclick="openModal('${key}')" class="w-full bg-gradient-to-r from-pink-500 to-rose-500 text-white py-7 rounded-[2.5rem] font-black text-xs uppercase tracking-[0.2em] shadow-2xl shadow-pink-200 active:scale-95 transition-all">Analyse Case</button>
+                </div>
+            `;
+        });
 
         function searchCases() {
             let input = document.getElementById('caseSearch').value.toLowerCase();
@@ -98,23 +179,10 @@
             }
         }
 
-        const container = document.getElementById('casesContainer');
-        Object.keys(caseDatabase).forEach(key => {
-            const data = caseDatabase[key];
-            container.innerHTML += `
-                <div class="case-card bg-white/90 backdrop-blur-md rounded-[4.5rem] p-12 shadow-2xl border-2 border-white relative overflow-hidden" data-title="${data.title} ${data.cat}">
-                    <div class="flex justify-between items-start mb-12">
-                        <span class="bg-pink-600 text-white text-[10px] font-black px-6 py-2 rounded-full uppercase tracking-widest">${data.cat}</span>
-                    </div>
-                    <h2 class="text-5xl font-black text-gray-800 tracking-tight leading-tight">${data.title}</h2>
-                    <button onclick="openModal('${key}')" class="w-full mt-10 bg-gradient-to-r from-pink-500 to-rose-500 text-white py-7 rounded-[2.5rem] font-black text-xs uppercase tracking-[0.2em] shadow-2xl shadow-pink-200 active:scale-95 transition-all">Deep Analysis</button>
-                </div>
-            `;
-        });
-
         function openModal(key) {
             const data = caseDatabase[key];
             document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalDescription').innerText = data.desc;
             document.getElementById('modalFacts').innerText = data.facts;
             document.getElementById('modalIssue').innerText = data.issue;
             const verdictUl = document.getElementById('modalVerdict');
