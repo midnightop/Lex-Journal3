@@ -32,58 +32,63 @@
         <div class="bg-white p-8 rounded-[3rem] border-2 border-gray-50 shadow-xl shadow-blue-50/50 group">
             <div class="flex items-center gap-6 mb-6">
                 <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-3xl flex items-center justify-center text-white shadow-lg shadow-blue-100">
-                    <i class="fa-solid fa- newspaper text-2xl"></i>
+                    <i class="fa-solid fa-newspaper text-2xl"></i>
                 </div>
                 <div>
                     <h4 class="font-black text-gray-800 text-xl leading-tight">Privacy in Digital Era</h4>
-                    <span class="text-[10px] font-bold text-blue-500 bg-blue-50 px-2 py-1 rounded">Article</span>
+                    <span class="text-[10px] font-bold text-blue-500 bg-blue-50 px-2 py-1 rounded uppercase">Read Online</span>
                 </div>
             </div>
-            <p class="text-gray-500 text-sm mb-8 leading-relaxed">Technology is moving faster than law. Here is an analysis of how privacy is becoming our most valuable right...</p>
+            <p class="text-gray-500 text-sm mb-8 leading-relaxed">
+                An analytical piece on how data privacy is evolving with the DPDP Act 2023. Click below to read the full summary on the website.
+            </p>
             <button onclick="openArticle('privacy')" class="w-full py-4 bg-gray-900 text-white rounded-2xl font-bold text-[10px] uppercase tracking-widest active:scale-95 transition">Read Full Article</button>
         </div>
-
-        <div class="bg-white p-8 rounded-[3rem] border-2 border-gray-50 shadow-xl shadow-blue-50/50 flex items-center justify-between group">
-            <div class="flex items-center gap-6">
-                <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl flex items-center justify-center text-white shadow-lg shadow-purple-100">
-                    <i class="fa-solid fa-file-pdf text-2xl"></i>
+        <div class="bg-white p-8 rounded-[3rem] border-2 border-gray-50 shadow-xl shadow-blue-50/50 group">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl flex items-center justify-center text-white shadow-lg shadow-purple-100">
+                        <i class="fa-solid fa-file-pdf text-2xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-black text-gray-800 text-xl leading-tight">Legal Rights of Society</h4>
+                        <p class="text-[10px] text-gray-400 font-black uppercase mt-1 tracking-widest">PDF Document</p>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="font-black text-gray-800 text-xl leading-tight">Legal Rights of Society</h4>
-                    <p class="text-[10px] text-gray-400 font-black uppercase mt-2 tracking-widest">PDF • Google Drive</p>
-                </div>
+                <a href="LINK DEDE BHAI🌝" target="_blank" class="w-14 h-14 bg-gray-50 rounded-full flex items-center justify-center text-purple-600 shadow-inner active:scale-90 transition">
+                    <i class="fa-solid fa-download"></i>
+                </a>
             </div>
-            <a href="LINK DEDE BHAI🌝" target="_blank" class="w-14 h-14 bg-gray-50 rounded-full flex items-center justify-center text-purple-600 shadow-inner active:scale-90 transition">
-                <i class="fa-solid fa-download"></i>
-            </a>
+            <p class="text-gray-500 text-sm leading-relaxed border-t pt-4">
+                This comprehensive paper outlines the fundamental legal protections available to every citizen in India. It covers constitutional safeguards and procedural rights essential for a healthy democracy.
+            </p>
         </div>
-
-    </main>
+        </main>
 
     <div id="articleModal" class="modal-overlay fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-end md:items-center justify-center">
         <div class="absolute inset-0" onclick="closeArticle()"></div>
-        <div class="bg-white w-full max-w-xl h-[80vh] md:h-auto md:max-h-[85vh] rounded-t-[3rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative flex flex-col translate-y-0">
+        <div class="bg-white w-full max-w-xl h-[80vh] md:h-auto md:max-h-[85vh] rounded-t-[3rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative flex flex-col">
             <div class="p-6 border-b flex justify-between items-center bg-white sticky top-0">
                 <h3 id="modalTitle" class="font-bold text-gray-800">Article View</h3>
                 <button onclick="closeArticle()" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-500"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="p-8 overflow-y-auto no-scrollbar pb-16">
-                <div id="modalContent" class="text-gray-600 text-[15px] leading-relaxed space-y-4">
-                    </div>
+                <div id="modalContent" class="text-gray-600 text-[15px] leading-relaxed space-y-4"></div>
             </div>
         </div>
     </div>
 
     <script>
+        // ############################################################
+        // # DATA REPOSITORY: Add text content for articles here       #
+        // ############################################################
         const articles = {
             'privacy': {
                 title: "Privacy in Digital Era",
                 content: `
-                    <p class="font-bold text-gray-800">Understanding Privacy Today</p>
-                    <p>In the 21st century, data is the new oil. From our location history to our shopping habits, everything is being tracked. The Right to Privacy, declared a fundamental right in the Puttaswamy judgment, is now under constant threat from big tech and surveillance.</p>
-                    <p class="font-bold text-gray-800">The DPDP Act 2023</p>
-                    <p>India's new Digital Personal Data Protection Act aims to provide a framework for data processing. It introduces the concept of 'Data Fiduciary' and 'Data Principal', giving citizens more control over their personal information.</p>
-                    <p>However, the balance between national security and individual liberty remains a hot debate in the legal corridors of India.</p>
+                    <p class="font-bold text-gray-800 text-lg">Digital Sovereignty</p>
+                    <p>In a world driven by data, privacy is no longer a luxury but a fundamental necessity. The Supreme Court's declaration of privacy as a core part of Article 21 has changed how we view our digital footprints.</p>
+                    <p>With the DPDP Act 2023, India is taking strides towards protecting personal data, yet the balance between state security and individual liberty remains delicate.</p>
                 `
             }
         };
@@ -95,7 +100,7 @@
             document.body.style.overflow = 'hidden';
         }
 
-        function closeArticle() {
+        function closeModal() {
             document.getElementById('articleModal').classList.remove('active');
             document.body.style.overflow = 'auto';
         }
