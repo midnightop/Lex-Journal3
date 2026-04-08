@@ -8,10 +8,34 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700;900&display=swap');
+        
         body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; }
         .font-serif { font-family: 'Playfair Display', serif; }
-        .modal-overlay { opacity: 0; visibility: hidden; transition: 0.3s ease; }
-        .modal-overlay.active { opacity: 1; visibility: visible; }
+
+        /* Modal Logic Fix */
+        .modal-overlay { 
+            opacity: 0; 
+            visibility: hidden; 
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            align-items: flex-end;
+        }
+        @media (min-width: 768px) { .modal-overlay { align-items: center; } }
+
+        .modal-overlay.active { 
+            opacity: 1; 
+            visibility: visible; 
+        }
+
+        .modal-container {
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal-overlay.active .modal-container {
+            transform: translateY(0);
+        }
+
         .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
@@ -65,44 +89,58 @@
         </div>
         </main>
 
-    <div id="articleModal" class="modal-overlay fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-end md:items-center justify-center">
+    <div id="articleModal" class="modal-overlay fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm justify-center">
         <div class="absolute inset-0" onclick="closeArticle()"></div>
-        <div class="bg-white w-full max-w-xl h-[80vh] md:h-auto md:max-h-[85vh] rounded-t-[3rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative flex flex-col">
-            <div class="p-6 border-b flex justify-between items-center bg-white sticky top-0">
-                <h3 id="modalTitle" class="font-bold text-gray-800">Article View</h3>
-                <button onclick="closeArticle()" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-500"><i class="fa-solid fa-xmark"></i></button>
+        
+        <div class="modal-container bg-white w-full max-w-xl h-[80vh] md:h-auto md:max-h-[85vh] rounded-t-[3rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative flex flex-col">
+            
+            <div class="p-6 border-b flex justify-between items-center bg-white sticky top-0 z-20">
+                <h3 id="modalTitle" class="font-bold text-gray-800 text-lg">Article View</h3>
+                <button onclick="closeArticle()" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200 transition-colors">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
             </div>
-            <div class="p-8 overflow-y-auto no-scrollbar pb-16">
-                <div id="modalContent" class="text-gray-600 text-[15px] leading-relaxed space-y-4"></div>
+
+            <div class="p-8 overflow-y-auto no-scrollbar pb-16 relative">
+                <div id="modalContent" class="text-gray-600 text-[15px] leading-relaxed space-y-6">
+                    </div>
             </div>
         </div>
     </div>
 
     <script>
         // ############################################################
-        // # DATA REPOSITORY: Add text content for articles here       #
+        // # DATA REPOSITORY: Article ka content yahan edit karein      #
         // ############################################################
         const articles = {
             'privacy': {
                 title: "Privacy in Digital Era",
                 content: `
-                    <p class="font-bold text-gray-800 text-lg">Digital Sovereignty</p>
-                    <p>In a world driven by data, privacy is no longer a luxury but a fundamental necessity. The Supreme Court's declaration of privacy as a core part of Article 21 has changed how we view our digital footprints.</p>
+                    <div class="bg-blue-50 p-6 rounded-3xl border-l-4 border-blue-400 mb-4">
+                        <p class="text-blue-800 italic font-medium">"Privacy is a Fundamental Right under Article 21."</p>
+                    </div>
+                    <p class="font-bold text-gray-800 text-lg">The Digital Landscape</p>
+                    <p>In a world driven by data, privacy is no longer a luxury but a fundamental necessity. The Supreme Court's declaration of privacy as a core part of the Indian Constitution has changed everything.</p>
                     <p>With the DPDP Act 2023, India is taking strides towards protecting personal data, yet the balance between state security and individual liberty remains delicate.</p>
+                    <p>Understanding these laws is crucial for every law student and citizen to protect their digital identity.</p>
                 `
             }
         };
 
         function openArticle(key) {
-            document.getElementById('modalTitle').innerText = articles[key].title;
-            document.getElementById('modalContent').innerHTML = articles[key].content;
-            document.getElementById('articleModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
+            const data = articles[key];
+            if (data) {
+                document.getElementById('modalTitle').innerText = data.title;
+                document.getElementById('modalContent').innerHTML = data.content;
+                document.getElementById('articleModal').classList.add('active');
+                document.body.style.overflow = 'hidden'; // Stop background scroll
+            }
         }
 
-        function closeModal() {
-            document.getElementById('articleModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
+        function closeArticle() {
+            const modal = document.getElementById('articleModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Resume background scroll
         }
     </script>
 </body>
