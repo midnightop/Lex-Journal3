@@ -12,100 +12,99 @@
         .font-serif { font-family: 'Playfair Display', serif; }
         
         .header-bg { background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%); }
-        .act-card { transition: all 0.3s ease; border-top: 5px solid #3b82f6; }
+        
+        /* Card & Search Styling */
+        .act-card { transition: all 0.3s ease; border-top: 6px solid #3b82f6; }
         .act-card.hidden { display: none; }
         
-        .pill-active { background-color: #3b82f6; color: white; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); }
+        .search-box:focus-within { 
+            border-color: #3b82f6; 
+            box-shadow: 0 15px 40px -12px rgba(59, 130, 246, 0.25); 
+            transform: translateY(-2px);
+        }
+
         .no-scrollbar::-webkit-scrollbar { display: none; }
-        
-        /* Search Bar Focus Glow */
-        .search-focus:focus-within { border-color: #3b82f6; box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.2); }
     </style>
 </head>
-<body class="pb-10">
+<body class="pb-20">
 
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md px-6 py-5 flex justify-between items-center border-b">
-        <h1 class="font-black text-gray-800 text-2xl tracking-tighter">CLJ <span class="text-blue-500">Acts</span></h1>
-        <a href="index.html" class="text-xs font-black uppercase tracking-widest text-blue-600 bg-blue-50 px-5 py-2 rounded-full shadow-sm">
-            <i class="fa-solid fa-house mr-1"></i> Home
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md px-6 py-6 flex justify-between items-center border-b">
+        <h1 class="font-black text-gray-800 text-3xl tracking-tighter">CLJ <span class="text-blue-500">Acts</span></h1>
+        <a href="index.html" class="text-xs font-black uppercase tracking-widest text-blue-600 bg-blue-50 px-6 py-3 rounded-full shadow-sm">
+            <i class="fa-solid fa-house mr-2"></i> Home
         </a>
     </nav>
 
-    <header class="header-bg pt-12 pb-12 px-6 text-center">
-        <div class="inline-block bg-blue-50 text-blue-600 px-5 py-2 rounded-full text-[10px] font-black mb-6 border border-blue-100 uppercase tracking-widest">
-            <i class="fa-solid fa-book-open mr-2"></i> Bare Acts Portal
+    <header class="header-bg pt-16 pb-12 px-6 text-center">
+        <div class="inline-block bg-blue-50 text-blue-600 px-6 py-2 rounded-full text-[10px] font-black mb-8 border border-blue-100 uppercase tracking-widest">
+            <i class="fa-solid fa-book-open mr-2"></i> Digital Statutes
         </div>
         
-        <h1 class="text-5xl font-serif font-bold text-gray-800 mb-2 leading-tight">Indian <span class="text-blue-500">Bare Acts</span></h1>
-        <p class="text-3xl font-serif italic text-gray-700 mb-10">Made Simple</p>
+        <h1 class="text-6xl font-serif font-bold text-gray-800 mb-4 tracking-tight leading-none">Indian <span class="text-blue-500">Acts</span></h1>
+        <p class="text-3xl font-serif italic text-gray-600 mb-12">Simplified for you</p>
 
-        <div class="max-w-md mx-auto mb-12 relative group search-focus transition-all duration-300 border-2 border-gray-100 rounded-[2rem] bg-white overflow-hidden flex items-center px-6">
-            <i class="fa-solid fa-magnifying-glass text-gray-300 text-lg"></i>
-            <input type="text" id="actSearch" onkeyup="searchActs()" placeholder="Search Acts (e.g. IPC, Constitution)..." 
-            class="w-full py-5 px-4 text-sm font-semibold outline-none text-gray-700 placeholder:text-gray-300">
+        <div class="max-w-md mx-auto mb-16 relative search-box transition-all duration-300 border-4 border-gray-50 rounded-[2.5rem] bg-white flex items-center px-8 shadow-sm">
+            <i class="fa-solid fa-magnifying-glass text-blue-400 text-xl"></i>
+            <input type="text" id="actSearch" onkeyup="searchActs()" placeholder="Search (e.g. IPC, Constitution)..." 
+            class="w-full py-6 px-5 text-lg font-bold outline-none text-gray-700 placeholder:text-gray-300">
         </div>
         
-        <div class="flex justify-center items-center gap-4">
-            <span class="bg-white px-6 py-3 rounded-2xl shadow-md text-xs font-black text-gray-700 border border-gray-50 flex items-center gap-2">
+        <div class="flex justify-center items-center gap-6">
+            <span class="bg-white px-8 py-4 rounded-3xl shadow-lg text-sm font-black text-gray-700 border border-gray-50 flex items-center gap-3">
                 <i class="fa-solid fa-layer-group text-blue-500"></i> 6 Acts
             </span>
-            <span class="bg-white px-6 py-3 rounded-2xl shadow-md text-xs font-black text-gray-700 border border-gray-50 flex items-center gap-2">
+            <span class="bg-white px-8 py-4 rounded-3xl shadow-lg text-sm font-black text-gray-700 border border-gray-50 flex items-center gap-3">
                 <i class="fa-solid fa-list-check text-green-500"></i> 200+ Sections
             </span>
         </div>
     </header>
 
-    <section class="px-6 py-8 overflow-x-auto whitespace-nowrap flex gap-3 no-scrollbar">
-        <button class="pill-active px-7 py-3 rounded-full text-xs font-black uppercase tracking-widest">All</button>
-        <button class="bg-white px-6 py-3 rounded-full text-xs font-bold border text-gray-500 shadow-sm">Constitutional Law</button>
-        <button class="bg-white px-6 py-3 rounded-full text-xs font-bold border text-gray-500 shadow-sm">Criminal Law</button>
-    </section>
-
-    <main class="px-6 space-y-10 max-w-2xl mx-auto" id="actsContainer">
+    <main class="px-6 space-y-12 max-w-2xl mx-auto" id="actsContainer">
         
-        <div class="act-card bg-white rounded-[2.5rem] p-10 shadow-xl shadow-blue-50/50 border border-gray-100" data-title="Constitution">
-            <div class="flex justify-between items-start mb-8">
-                <div class="bg-blue-600 p-4 rounded-3xl text-white shadow-xl shadow-blue-200">
-                    <i class="fa-solid fa-landmark text-2xl"></i>
+        <div class="act-card bg-white rounded-[4rem] p-12 shadow-2xl shadow-blue-100/50 border border-gray-50" data-title="Constitution">
+            <div class="flex justify-between items-start mb-10">
+                <div class="w-20 h-20 bg-blue-600 rounded-[2rem] flex items-center justify-center text-white shadow-2xl shadow-blue-200">
+                    <i class="fa-solid fa-landmark text-4xl"></i>
                 </div>
-                <span class="text-blue-600 text-[10px] font-black bg-blue-50 px-4 py-2 rounded-full uppercase tracking-widest">Constitutional Law</span>
+                <span class="text-blue-600 text-xs font-black bg-blue-50 px-5 py-2 rounded-full uppercase tracking-widest">Constitution</span>
             </div>
-            <h2 class="text-3xl font-black text-gray-800 tracking-tight">Constitution</h2>
-            <p class="text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em] mt-2 mb-6">The Constitution of India, 1950 • 448 Articles</p>
-            <p class="text-gray-600 text-sm leading-relaxed mb-8 font-medium">The supreme law of India establishing the framework for political principles.</p>
             
-            <button class="w-full text-gray-400 text-xs font-black border-t pt-6 flex justify-between items-center tracking-[0.2em] uppercase active:text-blue-500 transition">
-                View key sections <i class="fa-solid fa-chevron-down"></i>
-            </button>
+            <h2 class="text-4xl font-black text-gray-800 tracking-tight">Constitution</h2>
+            <p class="text-gray-400 text-[11px] font-bold uppercase tracking-[0.2em] mt-3 mb-8">India, 1950 • 448 Articles</p>
+            <p class="text-gray-600 text-lg leading-relaxed mb-10 font-medium italic">"The supreme law that defines India's identity and rights."</p>
+            
+            <a href="constitution-sections.html" class="w-full text-blue-500 text-sm font-black border-t-2 border-gray-50 pt-8 flex justify-between items-center tracking-widest uppercase active:scale-95 transition">
+                View key sections <i class="fa-solid fa-circle-arrow-right text-2xl"></i>
+            </a>
         </div>
 
-        <div class="act-card bg-white rounded-[2.5rem] p-10 shadow-xl shadow-purple-50/50 border border-gray-100" style="border-top-color: #a855f7;" data-title="IPC">
-            <div class="flex justify-between items-start mb-8">
-                <div class="bg-purple-600 p-4 rounded-3xl text-white shadow-xl shadow-purple-200">
-                    <i class="fa-solid fa-gavel text-2xl"></i>
+        <div class="act-card bg-white rounded-[4rem] p-12 shadow-2xl shadow-purple-100/50 border border-gray-50" style="border-top-color: #a855f7;" data-title="IPC">
+            <div class="flex justify-between items-start mb-10">
+                <div class="w-20 h-20 bg-purple-600 rounded-[2rem] flex items-center justify-center text-white shadow-2xl shadow-purple-200">
+                    <i class="fa-solid fa-gavel text-4xl"></i>
                 </div>
-                <span class="text-purple-600 text-[10px] font-black bg-purple-50 px-4 py-2 rounded-full uppercase tracking-widest">Criminal Law</span>
+                <span class="text-purple-600 text-xs font-black bg-purple-50 px-5 py-2 rounded-full uppercase tracking-widest">Criminal</span>
             </div>
-            <h2 class="text-3xl font-black text-gray-800 tracking-tight">IPC</h2>
-            <p class="text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em] mt-2 mb-6">Indian Penal Code, 1860 • 511 Sections</p>
-            <p class="text-gray-600 text-sm leading-relaxed mb-8 font-medium">The main criminal code defining offences and prescribing punishments.</p>
             
-            <button class="w-full text-gray-400 text-xs font-black border-t pt-6 flex justify-between items-center tracking-[0.2em] uppercase active:text-purple-500 transition">
-                View key sections <i class="fa-solid fa-chevron-down"></i>
-            </button>
+            <h2 class="text-4xl font-black text-gray-800 tracking-tight">IPC</h2>
+            <p class="text-gray-400 text-[11px] font-bold uppercase tracking-[0.2em] mt-3 mb-8">Penal Code, 1860 • 511 Sections</p>
+            <p class="text-gray-600 text-lg leading-relaxed mb-10 font-medium italic">"Foundational code for criminal justice and punishments."</p>
+            
+            <a href="ipc-sections.html" class="w-full text-purple-500 text-sm font-black border-t-2 border-gray-50 pt-8 flex justify-between items-center tracking-widest uppercase active:scale-95 transition">
+                View key sections <i class="fa-solid fa-circle-arrow-right text-2xl"></i>
+            </a>
         </div>
 
     </main>
 
     <script>
-        // # Search Logic Function #
+        // # Working Search Logic #
         function searchActs() {
             let input = document.getElementById('actSearch').value.toLowerCase();
             let cards = document.getElementsByClassName('act-card');
 
             for (let i = 0; i < cards.length; i++) {
                 let title = cards[i].getAttribute('data-title').toLowerCase();
-                // Check if title or category contains the search term
                 if (title.includes(input)) {
                     cards[i].classList.remove('hidden');
                 } else {
@@ -115,8 +114,8 @@
         }
     </script>
 
-    <footer class="py-16 text-center">
-        <p class="text-xs font-black text-gray-300 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
+    <footer class="py-24 text-center">
+        <p class="text-sm font-black text-gray-200 uppercase tracking-[0.5em]">&copy; 2026 Calcutta Law Journal</p>
     </footer>
 
 </body>
