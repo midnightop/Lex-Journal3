@@ -12,7 +12,6 @@
         body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
         .font-serif { font-family: 'Playfair Display', serif; }
         
-        /* Vibrant Blurs Background */
         .blur-bg { position: fixed; z-index: -1; filter: blur(60px); opacity: 0.25; pointer-events: none; }
         
         .modal-overlay { opacity: 0; visibility: hidden; transition: all 0.3s ease; display: flex; align-items: flex-end; }
@@ -39,12 +38,12 @@
         <a href="index.html" class="text-[10px] font-black uppercase tracking-widest text-pink-600 bg-pink-50 px-5 py-2.5 rounded-full shadow-sm active:scale-90 transition">Home</a>
     </nav>
 
-    <header class="pt-12 pb-8 px-6 text-center">
+    <header class="pt-10 pb-6 px-6 text-center">
         <h1 class="text-4xl md:text-7xl font-serif font-bold text-gray-800 mb-2 tracking-tight leading-tight">Landmark <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">Judgments</span></h1>
         
-        <div class="max-w-md mx-auto mt-10 mb-12 relative search-focus transition-all duration-300 border-2 border-white rounded-2xl bg-white/90 backdrop-blur-md flex items-center px-5 shadow-xl">
+        <div class="max-w-md mx-auto mt-8 mb-10 relative search-focus transition-all duration-300 border-2 border-white rounded-2xl bg-white/90 backdrop-blur-md flex items-center px-5 shadow-xl">
             <i class="fa-solid fa-magnifying-glass text-pink-500 text-lg"></i>
-            <input type="text" id="caseSearch" onkeyup="searchCases()" placeholder="Search Cases..." class="w-full py-4 px-4 text-base font-bold outline-none bg-transparent text-gray-700 placeholder:text-gray-300">
+            <input type="text" id="caseSearch" onkeyup="searchCases()" placeholder="Search from 10 Famous Cases..." class="w-full py-4 px-4 text-base font-bold outline-none bg-transparent text-gray-700 placeholder:text-gray-300">
         </div>
     </header>
 
@@ -52,27 +51,28 @@
 
     <div id="caseModal" class="modal-overlay fixed inset-0 z-[100] bg-black/60 backdrop-blur-md justify-center">
         <div class="absolute inset-0" onclick="closeModal()"></div>
-        <div class="modal-container bg-white w-full max-w-xl h-[90vh] md:h-auto md:max-h-[85vh] rounded-t-[3rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative flex flex-col">
+        <div class="modal-container bg-white w-full max-w-xl h-[92vh] md:h-auto md:max-h-[85vh] rounded-t-[2.5rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative flex flex-col">
             
             <div class="px-6 py-5 border-b border-gray-50 flex justify-between items-center sticky top-0 bg-white z-10">
                 <h3 class="font-black text-gray-800 text-base" id="modalTitle">Case Details</h3>
                 <button onclick="closeModal()" class="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center text-gray-800 active:scale-90 transition"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
 
-            <div class="p-8 overflow-y-auto no-scrollbar space-y-10 pb-20 text-left">
+            <div class="p-8 overflow-y-auto no-scrollbar space-y-10 pb-24 text-left">
                 <div>
-                    <h4 class="text-pink-500 font-black text-[10px] uppercase tracking-widest mb-3">Background Story</h4>
+                    <h4 class="text-pink-500 font-black text-[10px] uppercase tracking-widest mb-3">Context & Background</h4>
                     <p id="modalDescription" class="text-gray-600 text-2xl leading-relaxed font-serif italic mb-4"></p>
-                    <p id="modalFacts" class="text-gray-500 text-base leading-relaxed font-medium"></p>
+                    <div id="modalLongFacts" class="text-gray-500 text-base leading-relaxed space-y-4 font-medium">
+                        </div>
                 </div>
 
-                <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-6 rounded-3xl border-l-4 border-pink-400">
-                    <h4 class="text-pink-600 font-black text-[10px] uppercase tracking-widest mb-2">The Legal Issue</h4>
+                <div class="bg-gradient-to-br from-pink-50/50 to-purple-50/50 p-6 rounded-3xl border-l-4 border-pink-400">
+                    <h4 class="text-pink-600 font-black text-[10px] uppercase tracking-widest mb-3">The Constitutional Conflict</h4>
                     <p id="modalIssue" class="text-pink-950 text-lg font-bold leading-snug"></p>
                 </div>
 
                 <div>
-                    <h4 class="text-gray-800 font-black text-[10px] uppercase tracking-widest mb-6">Final Verdict</h4>
+                    <h4 class="text-gray-800 font-black text-[10px] uppercase tracking-widest mb-6">The Court's Reasoning</h4>
                     <ul id="modalVerdict" class="space-y-4 text-gray-600 text-base leading-relaxed font-bold"></ul>
                 </div>
             </div>
@@ -82,32 +82,161 @@
     <script>
         const caseDatabase = {
             'kesavananda': { 
-                title: "Kesavananda Bharati (1973)", cat: "Constitution",
-                desc: "The battle led by Swami Kesavananda Bharati against the state.",
-                facts: "Swami Kesavananda Bharati challenged the Kerala government's land reform laws. 13 Judges sat for 68 days to decide if Parliament could destroy our basic rights.", 
-                issue: "Can Parliament change the 'Basic Structure' of our Constitution?", 
-                verdict: ["Parliament cannot touch Basic Structure.", "Democracy and Secularism are safe.", "Nani Palkhivala saved Indian democracy."] 
+                title: "Kesavananda Bharati (1973)", 
+                cat: "Constitution",
+                desc: "The battle that saved Indian Democracy.",
+                longFacts: `
+                    <p>In 1970, Swami Kesavananda Bharati, the head of Edneer Mutt in Kerala, challenged the state government's attempt to impose restrictions on the management of his religious property under land reform laws. While the case began as a property dispute, it quickly escalated into the greatest constitutional showdown in Indian history.</p>
+                    <p>The core struggle was between the Parliament's power to amend the Constitution and the Judiciary's duty to protect its integrity. Prime Minister Indira Gandhi's government argued that Parliament had 'unlimited' power to change any part of the Constitution, including Fundamental Rights.</p>
+                    <p>A record-breaking bench of 13 judges sat for 68 days to hear the arguments led by the legendary jurist Nani Palkhivala. The result was a razor-thin 7:6 majority that changed India forever.</p>`,
+                issue: "Does Parliament have the power to destroy the very identity of the Constitution through amendments?", 
+                verdict: [
+                    "Parliament can amend the Constitution but cannot touch its 'Basic Structure'.",
+                    "The power to amend is not the power to destroy.",
+                    "The Judiciary has the final authority to review any amendment.",
+                    "Secularism, Democracy, and Federalism are part of this unchangeable core."
+                ] 
             },
             'maneka': { 
-                title: "Maneka Gandhi (1978)", cat: "Article 21",
-                desc: "Maneka Gandhi fought for her right to travel and personal freedom.",
-                facts: "Her passport was impounded 'in public interest' without any hearing. She argued this violated her dignity and rights under Article 21.", 
-                issue: "Is any procedure established by law always fair and just?", 
-                verdict: ["Laws must be Just, Fair, and Reasonable.", "Travel is a Personal Liberty.", "Art. 14, 19, and 21 are inseparable."] 
+                title: "Maneka Gandhi (1978)", 
+                cat: "Article 21",
+                desc: "Redefining the Right to Life and Liberty.",
+                longFacts: `
+                    <p>In 1977, the regional passport office in New Delhi asked Maneka Gandhi to surrender her passport 'in public interest' without providing any specific reasons. When she asked for an explanation, the government refused to disclose it, claiming it was for the good of the general public.</p>
+                    <p>She challenged this under Article 21, which states that no person shall be deprived of life or liberty except according to 'procedure established by law'. Before this case, the courts believed that as long as a law existed, the procedure was valid.</p>
+                    <p>This case transformed the Indian Judiciary's approach to human rights, moving from a literal interpretation to one based on natural justice.</p>`,
+                issue: "Can a law be considered valid if the procedure it follows is unfair or arbitrary?", 
+                verdict: [
+                    "Any procedure must be 'Just, Fair, and Reasonable'.",
+                    "The Right to Travel abroad is a part of Personal Liberty.",
+                    "Articles 14, 19, and 21 are a 'Golden Triangle'—they cannot be separated.",
+                    "Principles of Natural Justice (the right to be heard) are mandatory."
+                ] 
             },
             'puttaswamy': { 
-                title: "K.S. Puttaswamy (2017)", cat: "Privacy",
-                desc: "Justice Puttaswamy challenged the state to recognize privacy.",
-                facts: "This case started with a challenge to Aadhaar. 9 Judges unanimously decided that every Indian has a right to their own data.", 
-                issue: "Is the Right to Privacy a Fundamental Right?", 
-                verdict: ["Privacy is an absolute part of Life.", "Digital data is protected.", "State surveillance must have limits."] 
+                title: "K.S. Puttaswamy (2017)", 
+                cat: "Privacy",
+                desc: "Your Data is Your Dignity.",
+                longFacts: `
+                    <p>This historic litigation began when 91-year-old retired judge K.S. Puttaswamy challenged the government's Aadhaar project. He argued that the mandatory collection of biometrics (fingerprints and iris scans) without a strong privacy law violated the dignity of Indian citizens.</p>
+                    <p>The government initially argued that the Constitution does not specifically mention a 'Right to Privacy' and that it was only a common law right, not a fundamental one.</p>
+                    <p>A 9-judge bench was formed to settle the matter once and for all, examining decades of conflicting previous judgments.</p>`,
+                issue: "Is privacy an inherent part of the Right to Life, even if the word 'Privacy' isn't in the Constitution?", 
+                verdict: [
+                    "Privacy is a Fundamental Right protected under Article 21.",
+                    "It includes informational privacy and bodily autonomy.",
+                    "Any state interference must pass a 'Triple Test': Legality, Need, and Proportionality.",
+                    "Privacy is essential for the exercise of all other liberties."
+                ] 
             },
             'vishaka': { 
-                title: "Vishaka v. Rajasthan (1997)", cat: "Women Rights",
-                desc: "Bhanwari Devi's struggle led to workplace safety guidelines.",
-                facts: "A social worker was gang-raped, and there were no laws to protect women at work. SC created the 'Vishaka Guidelines'.", 
-                issue: "How to safeguard women at work without a specific act?", 
-                verdict: ["Vishaka Guidelines are mandatory.", "Employers must form ICC committees.", "Foundation for POSH Act 2013."] 
+                title: "Vishaka v. Rajasthan (1997)", 
+                cat: "Women Rights",
+                desc: "The Law that emerged from a Silent Vacuum.",
+                longFacts: `
+                    <p>Bhanwari Devi, a social worker in Rajasthan, was brutally gang-raped by high-caste men because she tried to stop a child marriage. When the criminal justice system failed to provide her justice, women's rights groups (under the name 'Vishaka') filed a class-action petition.</p>
+                    <p>At the time, India had no specific laws to address sexual harassment at the workplace. The court realized that waiting for Parliament to pass a law would leave millions of women unprotected.</p>
+                    <p>Using international conventions, the Supreme Court stepped in to act as a temporary legislator.</p>`,
+                issue: "How can the Court protect fundamental rights of women when Parliament has failed to make a law?", 
+                verdict: [
+                    "Sexual harassment is a violation of Gender Equality and Right to Life.",
+                    "The Court established the 'Vishaka Guidelines' as mandatory law.",
+                    "Employers must provide a mechanism for grievance redressal (Internal Committees).",
+                    "This served as law until the POSH Act was passed in 2013."
+                ] 
+            },
+            'navtej': { 
+                title: "Navtej Singh Johar (2018)", 
+                cat: "LGBTQ Rights",
+                desc: "Freedom to Love without Fear.",
+                longFacts: `
+                    <p>Section 377 of the Indian Penal Code was a 158-year-old colonial law that criminalized 'unnatural offenses.' For decades, this law was used to harass and marginalize the LGBTQ+ community, even when acts were consensual and between adults in private.</p>
+                    <p>Navtej Singh Johar, a dancer, and four other high-profile professionals filed a petition stating that the law forced them to live as second-class citizens in constant fear of prosecution.</p>
+                    <p>The court engaged in a deep philosophical discussion about 'Constitutional Morality' versus 'Social Morality.'</p>`,
+                issue: "Does a majority's view of 'morality' justify taking away the rights of a minority?", 
+                verdict: [
+                    "Section 377 is unconstitutional regarding consensual adult acts.",
+                    "Sexual orientation is biological and an absolute part of privacy.",
+                    "Constitutional Morality must prevail over Social Morality.",
+                    "The state owes the LGBTQ+ community an apology for history's delay."
+                ] 
+            },
+            'shayara': { 
+                title: "Shayara Bano (2017)", 
+                cat: "Family Law",
+                desc: "A milestone for Gender Justice in Personal Laws.",
+                longFacts: `
+                    <p>Shayara Bano had been married for 15 years when her husband suddenly sent her a letter via speed-post containing the words 'Talaq, Talaq, Talaq.' This 'Instant Triple Talaq' ended their marriage immediately, leaving her with no legal recourse or maintenance.</p>
+                    <p>She challenged the practice, alongside other victims, arguing that it treated women as inferior and violated their right to equality (Article 14).</p>
+                    <p>The case forced the court to decide if religious personal laws are immune to the Constitution.</p>`,
+                issue: "Is a religious practice valid if it is arbitrary and violates the dignity of women?", 
+                verdict: [
+                    "Instant Triple Talaq (Talaq-e-Biddat) is unconstitutional.",
+                    "The practice is 'Manifestly Arbitrary' and not an essential religious practice.",
+                    "Personal laws must be consistent with Fundamental Rights.",
+                    "It paved the way for the Triple Talaq Prohibition Act."
+                ] 
+            },
+            'minerva': { 
+                title: "Minerva Mills (1980)", 
+                cat: "Constitution",
+                desc: "Restoring the Constitutional Equilibrium.",
+                longFacts: `
+                    <p>Following the Kesavananda Bharati case, the government passed the 42nd Amendment to effectively say that no constitutional amendment could be challenged in court. They also tried to make Directive Principles (state policies) superior to Fundamental Rights.</p>
+                    <p>Minerva Mills, a textile company being taken over by the government, challenged these amendments.</p>
+                    <p>The court had to decide if Parliament could use its power to make itself the absolute master of the Constitution.</p>`,
+                issue: "Can Parliament use its amending power to take away the power of Judicial Review?", 
+                verdict: [
+                    "The 'Limited Amending Power' of Parliament is itself a Basic Structure.",
+                    "A harmony between Fundamental Rights and DPSPs is required.",
+                    "Parliament cannot make its own power 'unlimited'.",
+                    "Judicial Review is an indestructible pillar of Indian law."
+                ] 
+            },
+            'sr_bommai': { 
+                title: "S.R. Bommai (1994)", 
+                cat: "Federalism",
+                desc: "Stopping the misuse of President's Rule.",
+                longFacts: `
+                    <p>S.R. Bommai was the Chief Minister of Karnataka. The Governor dismissed his government and imposed President's Rule (Article 356) based on a report that he had lost his majority, without actually letting him prove it on the floor of the house.</p>
+                    <p>This was a common practice used by central governments to topple rival state governments. The case reached the Supreme Court to define the limits of the Centre's power over the States.</p>`,
+                issue: "Can the Central Government dismiss a democratically elected State Government arbitrarily?", 
+                verdict: [
+                    "A majority must be proved on the 'Floor of the House', not in the Governor's office.",
+                    "Presidential proclamation is subject to Judicial Review.",
+                    "Federalism and Secularism are Basic Structures of the Constitution.",
+                    "States are not mere administrative units of the Centre."
+                ] 
+            },
+            'shah_bano': { 
+                title: "Shah Bano Case (1985)", 
+                cat: "Maintenance",
+                desc: "Human Rights over Personal Law.",
+                longFacts: `
+                    <p>Shah Bano, a 62-year-old woman, was divorced by her husband after 40 years of marriage. He refused to pay her maintenance beyond the 'Iddat' period (approx. 3 months). She filed a claim under Section 125 of the CrPC, a secular law meant to prevent women and children from starving.</p>
+                    <p>The husband argued that as a Muslim, he was only bound by Muslim Personal Law, not the secular CrPC.</p>`,
+                issue: "Does a secular law for maintenance apply to everyone regardless of their religion?", 
+                verdict: [
+                    "Section 125 of CrPC is a secular law and applies to all Indian citizens.",
+                    "Religion cannot be an excuse to deny a divorced wife her right to survive.",
+                    "The court emphasized the need for a Uniform Civil Code.",
+                    "Human dignity and social justice are above personal law rituals."
+                ] 
+            },
+            'admi': { 
+                title: "ADM Jabalpur (1976)", 
+                cat: "Emergency",
+                desc: "The Dark Night of the Judiciary.",
+                longFacts: `
+                    <p>During the 1975 Emergency, the government suspended fundamental rights and arrested thousands of political opponents under the MISA Act. When the families of those arrested filed 'Habeas Corpus' petitions (asking the court to produce the prisoner), the government argued that during an Emergency, citizens have no rights at all.</p>
+                    <p>Four out of five judges agreed with the government, in what is considered the SC's greatest failure. Only Justice H.R. Khanna stood his ground.</p>`,
+                issue: "Can the Right to Life be suspended during a period of Emergency?", 
+                verdict: [
+                    "The majority originally said 'Yes', but this is now legally considered 'vitiated' (wrong).",
+                    "Justice Khanna's dissent: The right to life exists even without the Constitution.",
+                    "This led to the 44th Amendment ensuring Art. 20 & 21 can never be suspended.",
+                    "The court formally overruled this 'mistake' in the 2017 Privacy judgment."
+                ] 
             }
         };
 
@@ -140,13 +269,15 @@
             const data = caseDatabase[key];
             document.getElementById('modalTitle').innerText = data.title;
             document.getElementById('modalDescription').innerText = data.desc;
-            document.getElementById('modalFacts').innerText = data.facts;
+            document.getElementById('modalLongFacts').innerHTML = data.longFacts;
             document.getElementById('modalIssue').innerText = data.issue;
+            
             const verdictUl = document.getElementById('modalVerdict');
             verdictUl.innerHTML = '';
             data.verdict.forEach(point => {
                 verdictUl.innerHTML += `<li class="flex gap-4"><i class="fa-solid fa-check-circle text-pink-500 mt-1"></i><span>${point}</span></li>`;
             });
+            
             document.getElementById('caseModal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
