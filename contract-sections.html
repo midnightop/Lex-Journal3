@@ -8,43 +8,53 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; }
-        .contract-card { border-left: 10px solid #10b981; }
+        body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; -webkit-tap-highlight-color: transparent; }
+        .contract-card { border-left: 6px solid #10b981; }
+        @media (min-width: 768px) {
+            .contract-card { border-left-width: 10px; }
+        }
     </style>
 </head>
-<body class="pb-20">
+<body class="pb-10">
 
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl px-6 py-8 flex justify-between items-center border-b-2 border-gray-50">
-        <h1 class="font-black text-gray-800 text-2xl tracking-tighter">CLJ <span class="text-emerald-500 text-sm">CONTRACT</span></h1>
-        <a href="bare-acts.html" class="text-xs font-black uppercase text-emerald-600 bg-emerald-50 px-8 py-4 rounded-full shadow-sm active:scale-90 transition">Back</a>
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl px-4 py-4 md:px-8 md:py-6 flex justify-between items-center border-b border-gray-100">
+        <h1 class="font-black text-gray-800 text-xl md:text-2xl tracking-tighter uppercase">CLJ <span class="text-emerald-500 text-xs md:text-sm">Contract</span></h1>
+        <a href="bare-acts.html" class="text-[10px] md:text-xs font-black uppercase text-emerald-600 bg-emerald-50 px-6 py-3 rounded-full shadow-sm active:scale-90 transition">
+            <i class="fa-solid fa-chevron-left mr-1"></i> Back
+        </a>
     </nav>
 
-    <main class="px-6 space-y-12 max-w-2xl mx-auto mt-16">
+    <main class="px-5 space-y-6 md:space-y-12 max-w-2xl mx-auto mt-8 md:mt-16">
         
-        <section class="contract-card bg-white p-12 rounded-[4rem] shadow-xl shadow-emerald-50/50">
-            <h3 class="text-emerald-600 font-black text-xs uppercase tracking-widest mb-4">Commercial Base</h3>
-            <h2 class="text-4xl font-black text-gray-800 mb-6 tracking-tight">The 1872 Foundation</h2>
-            <p class="text-gray-600 text-xl leading-relaxed font-medium italic">
-                The Indian Contract Act of 1872 was enacted to regulate mercantile transactions and provide a set of rules for making agreements. Before this, trade was governed by diverse customs. This Act brought a uniform legal standard, essential for the growth of business and trade in the Indian subcontinent.
+        <section class="contract-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-emerald-50/50">
+            <h3 class="text-emerald-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Commercial Base</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-4 md:mb-6 tracking-tight">The 1872 Foundation</h2>
+            <p class="text-gray-600 text-base md:text-xl leading-relaxed font-medium italic">
+                The Indian Contract Act of 1872 was enacted to regulate mercantile transactions and provide a set of rules for making agreements. This Act brought a uniform legal standard, essential for the growth of business in India.
             </p>
         </section>
 
-        <section class="contract-card bg-white p-12 rounded-[4rem] shadow-xl shadow-emerald-50/50 border-l-blue-500">
-            <h3 class="text-blue-500 font-black text-xs uppercase tracking-widest mb-4">Essentials</h3>
-            <h2 class="text-4xl font-black text-gray-800 mb-6 tracking-tight">Offer & Acceptance</h2>
-            <p class="text-gray-600 text-xl leading-relaxed font-medium">
-                The Act defines what makes an agreement a "Contract". Key sections include Section 2 (Definitions), Section 10 (What agreements are contracts), and Section 73 (Compensation for breach). It emphasizes on "Free Consent", meaning no contract is valid if made under pressure or fraud.
+        <section class="contract-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-emerald-50/50 border-l-blue-500">
+            <h3 class="text-blue-500 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Essentials</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-4 md:mb-6 tracking-tight">Offer & Acceptance</h2>
+            <p class="text-gray-600 text-base md:text-xl leading-relaxed font-medium">
+                The Act defines what makes an agreement a "Contract". Key highlights include Section 10 (What agreements are contracts) and the requirement of "Free Consent", ensuring no contract is valid if made under fraud.
             </p>
         </section>
 
-        <section class="contract-card bg-white p-12 rounded-[4rem] shadow-xl shadow-emerald-50/50 border-l-amber-500">
-            <h3 class="text-amber-500 font-black text-xs uppercase tracking-widest mb-4">Modern Use</h3>
-            <h2 class="text-4xl font-black text-gray-800 mb-6 tracking-tight">Business Law</h2>
-            <p class="text-gray-600 text-xl leading-relaxed font-medium">
-                In today's world, from clicking "I Agree" on an app to signing a multi-million dollar deal, everything is governed by this Act. It provides the legal safety net that ensures if one party fails to fulfill their promise, the other can seek justice and compensation in court.
+        <section class="contract-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-emerald-50/50 border-l-amber-500">
+            <h3 class="text-amber-500 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Modern Use</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-4 md:mb-6 tracking-tight">Business Law</h2>
+            <p class="text-gray-600 text-base md:text-xl leading-relaxed font-medium">
+                From digital terms to multi-million dollar deals, everything is governed by this Act. It provides the legal safety net that ensures justice and compensation if one party fails to fulfill their promise.
             </p>
         </section>
 
     </main>
+
+    <footer class="mt-12 py-8 text-center">
+        <p class="text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
+    </footer>
+
 </body>
 </html>
