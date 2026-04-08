@@ -11,98 +11,163 @@
         body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; }
         .font-serif { font-family: 'Playfair Display', serif; }
         
-        /* Smooth opening animation */
-        .case-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out, opacity 0.3s ease;
-            opacity: 0;
+        /* Premium Modal Animation */
+        .modal-overlay {
+            opacity: 0; visibility: hidden;
+            transition: all 0.3s ease;
         }
-        .case-card.active .case-details {
-            max-height: 1000px; /* Bada number taaki content fit ho jaye */
-            opacity: 1;
-            margin-top: 1.5rem;
+        .modal-overlay.active {
+            opacity: 1; visibility: visible;
         }
-        .case-card.active .rotate-icon {
-            transform: rotate(180deg);
+        .modal-content {
+            transform: translateY(100px);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body class="pb-10">
 
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md px-6 py-4 flex justify-between items-center border-b">
         <h1 class="font-bold text-gray-800 text-xl tracking-tighter">CLJ <span class="text-pink-500">Cases</span></h1>
-        <a href="index.html" class="text-xs font-bold uppercase tracking-widest text-pink-600 bg-pink-50 px-4 py-2 rounded-full">
+        <a href="index.html" class="text-xs font-bold uppercase tracking-widest text-pink-600 bg-pink-50 px-4 py-2 rounded-full shadow-sm">
             <i class="fa-solid fa-house mr-1"></i> Home
         </a>
     </nav>
 
-    <main class="px-6 space-y-6 max-w-2xl mx-auto pt-10">
-        
-        <div class="case-card bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 p-6 transition-all duration-300">
-            <div class="flex justify-between items-start mb-4">
-                <span class="bg-blue-500/10 text-blue-600 text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">Constitutional • 1973</span>
-                <i class="fa-solid fa-chevron-down text-gray-300 rotate-icon transition-transform"></i>
-            </div>
-            
-            <h2 class="text-xl font-bold text-gray-800 font-serif leading-snug">Kesavananda Bharati v. State of Kerala</h2>
-            <p class="text-gray-400 text-[9px] font-bold mt-1 uppercase tracking-widest">Basic Structure Doctrine</p>
-            
-            <div class="case-details border-t pt-4">
-                <div class="bg-blue-50 p-4 rounded-2xl mb-4 border-l-4 border-blue-400">
-                    <p class="text-blue-800 text-xs italic">"Parliament cannot alter the essential features of the Constitution."</p>
-                </div>
-                <div class="text-gray-600 text-sm space-y-3">
-                    <p><strong>Context:</strong> This 13-judge bench case (largest ever) decided the extent of Parliament's power to amend the Constitution under Article 368.</p>
-                    <p><strong>Verdict:</strong> The court held that while Parliament has wide powers, it cannot touch the 'Basic Structure'—like Secularism, Democracy, and Federalism.</p>
-                </div>
-            </div>
+    <header class="p-6 pt-10 text-center">
+        <h2 class="text-3xl font-serif font-bold text-gray-800">Landmark <span class="text-pink-500">Judgments</span></h2>
+        <p class="text-gray-400 text-xs mt-2">Tap any case to see full offline details.</p>
+    </header>
 
-            <button onclick="toggleCase(this)" class="w-full mt-4 text-pink-500 text-[10px] font-bold tracking-widest uppercase flex items-center justify-center gap-2">
-                <span class="btn-text">Read More</span>
-            </button>
+    <main class="px-6 space-y-6 max-w-2xl mx-auto">
+        
+        <div class="bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 p-6">
+            <span class="bg-blue-50 text-blue-600 text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">Constitution • 1973</span>
+            <h2 class="text-xl font-bold text-gray-800 font-serif mt-4">Kesavananda Bharati Case</h2>
+            <p class="text-gray-500 text-sm mt-2 mb-6">Basic Structure Doctrine explained clearly.</p>
+            <button onclick="openModal('kesavananda')" class="w-full bg-pink-500 text-white py-4 rounded-2xl font-bold text-[10px] uppercase tracking-widest shadow-lg shadow-pink-100 active:scale-95 transition">Read Full About Case</button>
         </div>
 
-        <div class="case-card bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 p-6 transition-all duration-300">
-            <div class="flex justify-between items-start mb-4">
-                <span class="bg-pink-500/10 text-pink-600 text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">Article 21 • 1978</span>
-                <i class="fa-solid fa-chevron-down text-gray-300 rotate-icon transition-transform"></i>
-            </div>
-            
-            <h2 class="text-xl font-bold text-gray-800 font-serif leading-snug">Maneka Gandhi v. Union of India</h2>
-            <p class="text-gray-400 text-[9px] font-bold mt-1 uppercase tracking-widest">Personal Liberty</p>
-            
-            <div class="case-details border-t pt-4">
-                <div class="bg-pink-50 p-4 rounded-2xl mb-4 border-l-4 border-pink-400">
-                    <p class="text-pink-800 text-xs italic">"Any law taking away liberty must be just, fair, and reasonable."</p>
-                </div>
-                <div class="text-gray-600 text-sm space-y-3">
-                    <p><strong>Context:</strong> Maneka Gandhi's passport was impounded without a hearing. She challenged it as a violation of freedom of movement.</p>
-                    <p><strong>Verdict:</strong> SC established that 'Procedure established by law' must also be 'Due process of law', expanding the scope of Article 21 immensely.</p>
-                </div>
-            </div>
+        <div class="bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 p-6">
+            <span class="bg-pink-50 text-pink-600 text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">Article 21 • 1978</span>
+            <h2 class="text-xl font-bold text-gray-800 font-serif mt-4">Maneka Gandhi v. UOI</h2>
+            <p class="text-gray-500 text-sm mt-2 mb-6">Personal Liberty and Due Process of Law.</p>
+            <button onclick="openModal('maneka')" class="w-full bg-pink-500 text-white py-4 rounded-2xl font-bold text-[10px] uppercase tracking-widest shadow-lg shadow-pink-100 active:scale-95 transition">Read Full About Case</button>
+        </div>
 
-            <button onclick="toggleCase(this)" class="w-full mt-4 text-pink-500 text-[10px] font-bold tracking-widest uppercase flex items-center justify-center gap-2">
-                <span class="btn-text">Read More</span>
-            </button>
+        <div class="bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 p-6">
+            <span class="bg-purple-50 text-purple-600 text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">Women Rights • 1997</span>
+            <h2 class="text-xl font-bold text-gray-800 font-serif mt-4">Vishaka v. Rajasthan</h2>
+            <p class="text-gray-500 text-sm mt-2 mb-6">Workplace safety and POSH guidelines.</p>
+            <button onclick="openModal('vishaka')" class="w-full bg-pink-500 text-white py-4 rounded-2xl font-bold text-[10px] uppercase tracking-widest shadow-lg shadow-pink-100 active:scale-95 transition">Read Full About Case</button>
         </div>
 
     </main>
 
+    <div id="caseModal" class="modal-overlay fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-end md:items-center justify-center">
+        <div class="absolute inset-0" onclick="closeModal()"></div>
+        
+        <div class="modal-content bg-white w-full max-w-xl h-[85vh] md:h-auto md:max-h-[90vh] rounded-t-[3rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative flex flex-col">
+            
+            <div class="p-6 border-b flex justify-between items-center sticky top-0 bg-white z-10">
+                <h3 class="font-bold text-gray-800 text-sm md:text-base pr-4" id="modalTitle">Case Details</h3>
+                <button onclick="closeModal()" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-500">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+
+            <div class="p-6 overflow-y-auto no-scrollbar space-y-8 pb-12 text-left">
+                <div>
+                    <h4 class="text-pink-500 font-bold text-[10px] uppercase tracking-widest mb-3">Facts of the Case</h4>
+                    <p id="modalFacts" class="text-gray-600 text-[13px] leading-relaxed"></p>
+                </div>
+
+                <div class="bg-blue-50 p-6 rounded-3xl border border-blue-100">
+                    <h4 class="text-blue-500 font-bold text-[10px] uppercase tracking-widest mb-2">The Legal Issue</h4>
+                    <p id="modalIssue" class="text-blue-900 text-[13px] italic font-medium leading-relaxed"></p>
+                </div>
+
+                <div>
+                    <h4 class="text-pink-500 font-bold text-[10px] uppercase tracking-widest mb-4">Final Judgment (Verdict)</h4>
+                    <ul id="modalVerdict" class="space-y-4 text-gray-600 text-[13px] leading-relaxed">
+                        </ul>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-3xl">
+                    <h4 class="text-gray-400 font-bold text-[10px] uppercase tracking-widest mb-2">Significance</h4>
+                    <p id="modalSignificance" class="text-gray-500 text-[12px] leading-relaxed"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        function toggleCase(btn) {
-            const card = btn.closest('.case-card');
-            const btnText = btn.querySelector('.btn-text');
-            
-            // Toggle 'active' class
-            card.classList.toggle('active');
-            
-            // Change button text
-            if(card.classList.contains('active')) {
-                btnText.innerText = "Read Less";
-            } else {
-                btnText.innerText = "Read More";
+        // --- OFFLINE DATABASE ---
+        const caseDatabase = {
+            'kesavananda': {
+                title: "Kesavananda Bharati v. State of Kerala",
+                facts: "Challenged the Kerala Government's land reform laws. The main question was whether Parliament can amend anything in the Constitution.",
+                issue: "Whether the power of Parliament to amend the Constitution under Article 368 is unlimited?",
+                verdict: [
+                    "Parliament can amend any part of the Constitution.",
+                    "But, it CANNOT change the 'Basic Structure' (Democracy, Secularism, etc).",
+                    "Largest bench ever (13 Judges) sat for this case.",
+                    "Judicial review is part of the basic structure."
+                ],
+                significance: "Prevented India from turning into a dictatorship by keeping the core of the Constitution safe."
+            },
+            'maneka': {
+                title: "Maneka Gandhi v. Union of India",
+                facts: "Passport was impounded 'in public interest' without a hearing. Challenged as a violation of Personal Liberty.",
+                issue: "Does Article 21's 'Procedure established by law' need to be fair and reasonable?",
+                verdict: [
+                    "Right to travel abroad is part of 'Personal Liberty'.",
+                    "Any law taking away liberty must be Just, Fair, and Reasonable.",
+                    "Articles 14, 19, and 21 form the 'Golden Triangle'.",
+                    "Introduced Due Process of Law in India."
+                ],
+                significance: "Massively expanded citizens' rights against arbitrary government action."
+            },
+            'vishaka': {
+                title: "Vishaka v. State of Rajasthan",
+                facts: "A social worker was gang-raped while doing her duty. No laws existed for workplace safety back then.",
+                issue: "Should there be guidelines for protecting women at workplaces?",
+                verdict: [
+                    "Workplace harassment violates Articles 14, 19, and 21.",
+                    "Court issued 'Vishaka Guidelines' for all employers.",
+                    "Created Internal Complaints Committees (ICC).",
+                    "Mandated punishment for sexual harassment."
+                ],
+                significance: "Became the foundation for the POSH Act, 2013, making workplaces safer for women."
             }
+        };
+
+        function openModal(caseKey) {
+            const data = caseDatabase[caseKey];
+            const modal = document.getElementById('caseModal');
+
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalFacts').innerText = data.facts;
+            document.getElementById('modalIssue').innerText = data.issue;
+            document.getElementById('modalSignificance').innerText = data.significance;
+
+            const verdictUl = document.getElementById('modalVerdict');
+            verdictUl.innerHTML = '';
+            data.verdict.forEach(point => {
+                verdictUl.innerHTML += `<li class="flex gap-3"><i class="fa-solid fa-circle-check text-green-500 mt-1"></i><span>${point}</span></li>`;
+            });
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('caseModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
         }
     </script>
 </body>
