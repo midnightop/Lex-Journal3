@@ -8,43 +8,53 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; }
-        .ipc-card { border-left: 10px solid #a855f7; }
+        body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; -webkit-tap-highlight-color: transparent; }
+        .ipc-card { border-left: 6px solid #a855f7; }
+        @media (min-width: 768px) {
+            .ipc-card { border-left-width: 10px; }
+        }
     </style>
 </head>
-<body class="pb-20">
+<body class="pb-10">
 
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl px-6 py-8 flex justify-between items-center border-b-2 border-gray-50">
-        <h1 class="font-black text-gray-800 text-2xl tracking-tighter">CLJ <span class="text-purple-500 text-sm">IPC</span></h1>
-        <a href="bare-acts.html" class="text-xs font-black uppercase text-purple-600 bg-purple-50 px-8 py-4 rounded-full shadow-sm active:scale-90 transition">Back</a>
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl px-4 py-4 md:px-8 md:py-6 flex justify-between items-center border-b border-gray-100">
+        <h1 class="font-black text-gray-800 text-xl md:text-2xl tracking-tighter uppercase">CLJ <span class="text-purple-500 text-xs md:text-sm">IPC</span></h1>
+        <a href="bare-acts.html" class="text-[10px] md:text-xs font-black uppercase text-purple-600 bg-purple-50 px-6 py-3 rounded-full shadow-sm active:scale-90 transition">
+            <i class="fa-solid fa-chevron-left mr-1"></i> Back
+        </a>
     </nav>
 
-    <main class="px-6 space-y-12 max-w-2xl mx-auto mt-16">
+    <main class="px-5 space-y-6 md:space-y-12 max-w-2xl mx-auto mt-8 md:mt-16">
         
-        <section class="ipc-card bg-white p-12 rounded-[4rem] shadow-xl shadow-purple-50/50">
-            <h3 class="text-purple-600 font-black text-xs uppercase tracking-widest mb-4">Colonial Legacy</h3>
-            <h2 class="text-4xl font-black text-gray-800 mb-6 tracking-tight">The 1860 Origin</h2>
-            <p class="text-gray-600 text-xl leading-relaxed font-medium italic">
-                Indian Penal Code (IPC) was drafted in 1860 based on the recommendations of the first Law Commission of India, chaired by Thomas Babington Macaulay. It was created by the British to have a uniform criminal law across India, replacing various religious and local penal systems that existed during the Mughal and Princely eras.
+        <section class="ipc-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-purple-50/50">
+            <h3 class="text-purple-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Colonial Legacy</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-4 md:mb-6 tracking-tight">The 1860 Origin</h2>
+            <p class="text-gray-600 text-base md:text-xl leading-relaxed font-medium italic">
+                The IPC was drafted in 1860 by Thomas Babington Macaulay. It was created to provide a uniform criminal law across India, replacing diverse local systems during the British era.
             </p>
         </section>
 
-        <section class="ipc-card bg-white p-12 rounded-[4rem] shadow-xl shadow-purple-50/50 border-l-blue-500">
-            <h3 class="text-blue-500 font-black text-xs uppercase tracking-widest mb-4">Structure</h3>
-            <h2 class="text-4xl font-black text-gray-800 mb-6 tracking-tight">Key Provisions</h2>
-            <p class="text-gray-600 text-xl leading-relaxed font-medium">
-                The IPC originally contained 511 sections divided into 23 chapters. It covers a vast range of offenses—from crimes against the State (Sedition) and public tranquility to offenses affecting the human body (Murder, Rape) and property (Theft, Robbery). Its clarity in defining "Mens Rea" (Guilty Mind) remains a masterpiece of legal drafting.
+        <section class="ipc-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-purple-50/50 border-l-blue-500">
+            <h3 class="text-blue-500 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Structure</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-4 md:mb-6 tracking-tight">Key Provisions</h2>
+            <p class="text-gray-600 text-base md:text-xl leading-relaxed font-medium">
+                The IPC contains 511 sections covering crimes from those against the State to offenses affecting the human body and property. Its definition of "Mens Rea" (Guilty Mind) remains a legal masterpiece.
             </p>
         </section>
 
-        <section class="ipc-card bg-white p-12 rounded-[4rem] shadow-xl shadow-purple-50/50 border-l-pink-500">
-            <h3 class="text-pink-500 font-black text-xs uppercase tracking-widest mb-4">Evolution</h3>
-            <h2 class="text-4xl font-black text-gray-800 mb-6 tracking-tight">Current Standing</h2>
-            <p class="text-gray-600 text-xl leading-relaxed font-medium">
-                While IPC has governed Indian courts for over 160 years, it is now transitioning into the Bharatiya Nyaya Sanhita (BNS). However, for any crime committed before the full implementation of the new laws, IPC remains the governing statute. It is the most cited legal document in Indian criminal history.
+        <section class="ipc-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-purple-50/50 border-l-pink-500">
+            <h3 class="text-pink-500 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Evolution</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-4 md:mb-6 tracking-tight">Current Standing</h2>
+            <p class="text-gray-600 text-base md:text-xl leading-relaxed font-medium">
+                While transitioning into the Bharatiya Nyaya Sanhita (BNS), the IPC remains the governing statute for crimes committed prior to the new law's implementation. It is the most cited document in Indian criminal history.
             </p>
         </section>
 
     </main>
+
+    <footer class="mt-12 py-8 text-center">
+        <p class="text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
+    </footer>
+
 </body>
 </html>
