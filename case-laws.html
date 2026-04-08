@@ -12,30 +12,15 @@
         body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
         .font-serif { font-family: 'Playfair Display', serif; }
         
-        /* Premium Background with Colorful Blurs */
-        .blur-bg {
-            position: fixed;
-            z-index: -1;
-            filter: blur(80px);
-            opacity: 0.4;
-            pointer-events: none;
-        }
-
-        .header-bg { background: transparent; }
-
-        /* Modal Logic */
+        .blur-bg { position: fixed; z-index: -1; filter: blur(90px); opacity: 0.4; pointer-events: none; }
+        
         .modal-overlay { opacity: 0; visibility: hidden; transition: all 0.3s ease; display: flex; align-items: flex-end; }
         @media (min-width: 768px) { .modal-overlay { align-items: center; } }
         .modal-overlay.active { opacity: 1; visibility: visible; }
         .modal-container { transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .modal-overlay.active .modal-container { transform: translateY(0); }
 
-        /* Search Glow */
-        .search-focus:focus-within { 
-            border-color: #ec4899; 
-            box-shadow: 0 0 40px rgba(236, 72, 153, 0.3); 
-            transform: scale(1.02); 
-        }
+        .search-focus:focus-within { border-color: #ec4899; box-shadow: 0 0 40px rgba(236, 72, 153, 0.3); transform: scale(1.02); }
         
         .case-card { transition: all 0.4s ease; }
         .case-card.hidden { display: none; }
@@ -50,72 +35,39 @@
 
     <nav class="sticky top-0 z-50 bg-white/70 backdrop-blur-2xl px-6 py-8 flex justify-between items-center border-b-2 border-white/20 shadow-sm">
         <h1 class="font-black text-gray-800 text-3xl tracking-tighter">CLJ <span class="text-pink-500">Cases</span></h1>
-        <a href="index.html" class="text-xs font-black uppercase tracking-widest text-pink-600 bg-pink-50 px-8 py-4 rounded-[2rem] shadow-sm active:scale-90 transition">
-            <i class="fa-solid fa-house mr-2"></i> Home
-        </a>
+        <a href="index.html" class="text-xs font-black uppercase tracking-widest text-pink-600 bg-pink-50 px-8 py-4 rounded-[2rem] shadow-sm active:scale-90 transition">Home</a>
     </nav>
 
-    <header class="header-bg pt-20 pb-12 px-6 text-center">
-        <div class="inline-block bg-white/80 backdrop-blur-md border-2 border-pink-100 px-8 py-3 rounded-full mb-10 shadow-xl">
-            <p class="text-xs font-black text-pink-500 uppercase tracking-[0.3em] flex items-center justify-center">
-                <span class="w-3 h-3 bg-pink-500 rounded-full mr-4 animate-pulse"></span> Supreme Court Library
-            </p>
-        </div>
-        
+    <header class="pt-20 pb-12 px-6 text-center">
         <h1 class="text-7xl font-serif font-bold text-gray-800 mb-4 tracking-tighter leading-tight">Landmark <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">Judgments</span></h1>
-        <p class="text-2xl font-serif italic text-gray-400 mb-16">The Verdicts that shaped modern India</p>
-
-        <div class="max-w-xl mx-auto mb-20 relative search-focus transition-all duration-300 border-4 border-white rounded-[3rem] bg-white/90 backdrop-blur-md flex items-center px-10 shadow-2xl">
+        
+        <div class="max-w-xl mx-auto mt-16 mb-20 relative search-focus transition-all duration-300 border-4 border-white rounded-[3rem] bg-white/90 backdrop-blur-md flex items-center px-10 shadow-2xl">
             <i class="fa-solid fa-magnifying-glass text-pink-500 text-2xl"></i>
-            <input type="text" id="caseSearch" onkeyup="searchCases()" placeholder="Search Cases (e.g. Privacy, Maneka)..." 
-            class="w-full py-8 px-6 text-xl font-bold outline-none bg-transparent text-gray-700 placeholder:text-gray-300">
+            <input type="text" id="caseSearch" onkeyup="searchCases()" placeholder="Search from 10 Famous Cases..." class="w-full py-8 px-6 text-xl font-bold outline-none bg-transparent text-gray-700 placeholder:text-gray-300">
         </div>
     </header>
 
     <main class="px-6 space-y-16 max-w-2xl mx-auto" id="casesContainer">
-        
-        <div class="case-card bg-white/90 backdrop-blur-md rounded-[4.5rem] p-12 shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] border-2 border-white relative overflow-hidden" data-title="Kesavananda Bharati Basic Structure Constitution">
-            <div class="absolute -top-10 -right-10 w-32 h-32 bg-pink-500/5 rounded-full blur-2xl"></div>
-            <div class="flex justify-between items-start mb-12">
-                <span class="bg-blue-600 text-white text-[10px] font-black px-6 py-2 rounded-full uppercase tracking-widest shadow-lg shadow-blue-200">Constitution • 1973</span>
-            </div>
-            <h2 class="text-5xl font-black text-gray-800 tracking-tight leading-tight">Kesavananda Bharati Case</h2>
-            <p class="text-gray-500 text-xl mt-6 mb-12 font-medium italic">"Parliament can't touch the Basic Structure."</p>
-            <button onclick="openModal('kesavananda')" class="w-full bg-gradient-to-r from-pink-500 to-rose-500 text-white py-7 rounded-[2.5rem] font-black text-xs uppercase tracking-[0.2em] shadow-2xl shadow-pink-200 active:scale-95 transition-all">Deep Analysis</button>
-        </div>
-
-        <div class="case-card bg-white/90 backdrop-blur-md rounded-[4.5rem] p-12 shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] border-2 border-white relative overflow-hidden" data-title="Maneka Gandhi Personal Liberty Golden Triangle">
-            <div class="absolute -top-10 -right-10 w-32 h-32 bg-purple-500/5 rounded-full blur-2xl"></div>
-            <div class="flex justify-between items-start mb-12">
-                <span class="bg-purple-600 text-white text-[10px] font-black px-6 py-2 rounded-full uppercase tracking-widest shadow-lg shadow-purple-200">Article 21 • 1978</span>
-            </div>
-            <h2 class="text-5xl font-black text-gray-800 tracking-tight leading-tight">Maneka Gandhi Case</h2>
-            <p class="text-gray-500 text-xl mt-6 mb-12 font-medium italic">"Due Process: Procedure must be Fair."</p>
-            <button onclick="openModal('maneka')" class="w-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white py-7 rounded-[2.5rem] font-black text-xs uppercase tracking-[0.2em] shadow-2xl shadow-purple-200 active:scale-95 transition-all">Deep Analysis</button>
-        </div>
-
-    </main>
+        </main>
 
     <div id="caseModal" class="modal-overlay fixed inset-0 z-[100] bg-black/60 backdrop-blur-md justify-center">
         <div class="absolute inset-0" onclick="closeModal()"></div>
         <div class="modal-container bg-white w-full max-w-xl h-[85vh] md:h-auto md:max-h-[85vh] rounded-t-[5rem] md:rounded-[5rem] shadow-2xl overflow-hidden relative flex flex-col">
-            <div class="p-8 border-b-2 border-gray-50 flex justify-between items-center sticky top-0 bg-white/95 z-10 backdrop-blur-md">
+            <div class="p-8 border-b-2 border-gray-50 flex justify-between items-center sticky top-0 bg-white z-10">
                 <h3 class="font-black text-gray-800 text-xl" id="modalTitle">Case Details</h3>
-                <button onclick="closeModal()" class="w-14 h-14 bg-gray-50 rounded-full flex items-center justify-center text-gray-800 active:scale-90 transition shadow-inner">
-                    <i class="fa-solid fa-xmark text-2xl"></i>
-                </button>
+                <button onclick="closeModal()" class="w-14 h-14 bg-gray-50 rounded-full flex items-center justify-center text-gray-800"><i class="fa-solid fa-xmark text-2xl"></i></button>
             </div>
             <div class="p-12 overflow-y-auto no-scrollbar space-y-12 pb-24 text-left">
                 <div>
-                    <h4 class="text-pink-500 font-black text-xs uppercase tracking-widest mb-4">Background Facts</h4>
+                    <h4 class="text-pink-500 font-black text-xs uppercase tracking-widest mb-4">The Story</h4>
                     <p id="modalFacts" class="text-gray-600 text-2xl leading-relaxed font-serif italic"></p>
                 </div>
                 <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-10 rounded-[3rem] border-l-8 border-pink-400">
-                    <h4 class="text-pink-600 font-black text-xs uppercase tracking-widest mb-4">Legal Issue</h4>
+                    <h4 class="text-pink-600 font-black text-xs uppercase tracking-widest mb-4">Legal Question</h4>
                     <p id="modalIssue" class="text-pink-950 text-xl font-bold leading-relaxed"></p>
                 </div>
                 <div>
-                    <h4 class="text-gray-800 font-black text-xs uppercase tracking-widest mb-8">Verdict Summary</h4>
+                    <h4 class="text-gray-800 font-black text-xs uppercase tracking-widest mb-8">Verdict</h4>
                     <ul id="modalVerdict" class="space-y-8 text-gray-600 text-xl leading-relaxed font-medium"></ul>
                 </div>
             </div>
@@ -124,29 +76,41 @@
 
     <script>
         const caseDatabase = {
-            'kesavananda': {
-                title: "Kesavananda Bharati Case",
-                facts: "Challenged land reform laws. 13 Judges sat to decide if Parliament can change everything in our Constitution.",
-                issue: "Can Parliament amend the 'Basic Structure' of the Constitution?",
-                verdict: ["Parliament can amend any part.", "Cannot touch Basic Structure.", "Judicial Review is mandatory.", "Democracy must be preserved."]
-            },
-            'maneka': {
-                title: "Maneka Gandhi Case",
-                facts: "Government took her passport without reasons. She fought for her right to travel and personal freedom.",
-                issue: "Is 'Procedure Established by Law' always enough to take away liberty?",
-                verdict: ["Rights must be Fair and Just.", "Travel is a Personal Liberty.", "Articles 14, 19, 21 are linked.", "Arbitrary action is unconstitutional."]
-            }
+            'kesavananda': { title: "Kesavananda Bharati (1973)", cat: "Constitution", facts: "Challenged the power of Parliament to amend the Constitution.", issue: "Can the Basic Structure be changed?", verdict: ["Parliament cannot amend 'Basic Structure'.", "Judicial Review is supreme."] },
+            'maneka': { title: "Maneka Gandhi (1978)", cat: "Article 21", facts: "Passport impounded without hearing.", issue: "Is 'Procedure Established by Law' enough?", verdict: ["Procedure must be Just, Fair, and Reasonable.", "Right to travel is personal liberty."] },
+            'puttaswamy': { title: "K.S. Puttaswamy (2017)", cat: "Privacy", facts: "Aadhaar data and privacy concerns.", issue: "Is Privacy a Fundamental Right?", verdict: ["Right to Privacy is Fundamental under Art. 21.", "Applies to digital data too."] },
+            'vishaka': { title: "Vishaka v. Rajasthan (1997)", cat: "Women Rights", facts: "Sexual harassment at workplace case.", issue: "Need for workplace protection guidelines?", verdict: ["Vishaka Guidelines issued.", "ICC committees made mandatory."] },
+            'navtej': { title: "Navtej Singh Johar (2018)", cat: "LGBTQ Rights", facts: "Challenge to Section 377 IPC.", issue: "Criminalization of consensual gay sex?", verdict: ["Section 377 decriminalized.", "LGBTQ citizens have equal rights."] },
+            'shayara': { title: "Shayara Bano (2017)", cat: "Family Law", facts: "Challenge to Triple Talaq.", issue: "Is Triple Talaq constitutional?", verdict: ["Instant Triple Talaq declared unconstitutional.", "Violates Article 14 and 21."] },
+            'minerva': { title: "Minerva Mills (1980)", cat: "Constitution", facts: "Parliament tried to give Directive Principles priority over Fundamental Rights.", issue: "Balance between Part III and Part IV?", verdict: ["Constitution is built on the balance of FRs and DPSPs.", "Limited power of amendment."] },
+            'admi': { title: "ADM Jabalpur (1976)", cat: "Emergency", facts: "Suspension of rights during Emergency.", issue: "Can Habeas Corpus be suspended?", verdict: ["Black spot in history: Rights were suspended.", "Later corrected by 44th Amendment."] },
+            'sr_bommai': { title: "S.R. Bommai (1994)", cat: "Federalism", facts: "Dismissal of State Governments.", issue: "Abuse of Article 356 (President's Rule)?", verdict: ["President's Rule is subject to Judicial Review.", "Secularism is Basic Structure."] },
+            'shah_bano': { title: "Mohd. Ahmed Khan v. Shah Bano (1985)", cat: "Maintenance", facts: "Elderly woman denied maintenance after divorce.", issue: "Does Section 125 CrPC apply to Muslims?", verdict: ["Maintenance must be paid even after Iddat.", "Step toward Uniform Civil Code."] }
         };
 
         function searchCases() {
             let input = document.getElementById('caseSearch').value.toLowerCase();
             let cards = document.getElementsByClassName('case-card');
             for (let i = 0; i < cards.length; i++) {
-                let title = cards[i].getAttribute('data-title').toLowerCase();
-                if (title.includes(input)) cards[i].classList.remove('hidden');
+                let content = cards[i].getAttribute('data-title').toLowerCase();
+                if (content.includes(input)) cards[i].classList.remove('hidden');
                 else cards[i].classList.add('hidden');
             }
         }
+
+        const container = document.getElementById('casesContainer');
+        Object.keys(caseDatabase).forEach(key => {
+            const data = caseDatabase[key];
+            container.innerHTML += `
+                <div class="case-card bg-white/90 backdrop-blur-md rounded-[4.5rem] p-12 shadow-2xl border-2 border-white relative overflow-hidden" data-title="${data.title} ${data.cat}">
+                    <div class="flex justify-between items-start mb-12">
+                        <span class="bg-pink-600 text-white text-[10px] font-black px-6 py-2 rounded-full uppercase tracking-widest">${data.cat}</span>
+                    </div>
+                    <h2 class="text-5xl font-black text-gray-800 tracking-tight leading-tight">${data.title}</h2>
+                    <button onclick="openModal('${key}')" class="w-full mt-10 bg-gradient-to-r from-pink-500 to-rose-500 text-white py-7 rounded-[2.5rem] font-black text-xs uppercase tracking-[0.2em] shadow-2xl shadow-pink-200 active:scale-95 transition-all">Deep Analysis</button>
+                </div>
+            `;
+        });
 
         function openModal(key) {
             const data = caseDatabase[key];
