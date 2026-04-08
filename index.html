@@ -12,9 +12,10 @@
         .font-serif { font-family: 'Playfair Display', serif; }
         .hero-bg { background: radial-gradient(circle at top, #e0f2fe 0%, #ffffff 45%, #fdf2f8 100%); }
         .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .btn-blue { background: linear-gradient(90deg, #00a8ff, #00d2ff); box-shadow: 0 15px 30px -10px rgba(0, 168, 255, 0.4); }
-        .btn-pink { background: linear-gradient(90deg, #a29bfe, #fd79a8); box-shadow: 0 15px 30px -10px rgba(253, 121, 168, 0.4); }
-        .content-section { line-height: 1.8; color: #4b5563; }
+        .btn-blue { background: linear-gradient(90deg, #00a8ff, #00d2ff); box-shadow: 0 10px 20px -5px rgba(0, 168, 255, 0.3); }
+        .btn-pink { background: linear-gradient(90deg, #a29bfe, #fd79a8); box-shadow: 0 10px 20px -5px rgba(253, 121, 168, 0.3); }
+        .btn-dark { background: #111827; box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2); }
+        .content-block { line-height: 1.8; text-align: justify; font-size: 0.875rem; color: #4b5563; }
     </style>
 </head>
 <body class="pb-10">
@@ -29,86 +30,97 @@
 
     <main class="hero-bg">
         <header class="pt-12 pb-12 px-6 text-center">
-            <h1 class="text-5xl font-serif font-bold text-blue-600 mb-2 tracking-tight">Calcutta</h1>
-            <h1 class="text-5xl font-serif font-bold text-gray-800 mb-6 tracking-tight">Law Journal</h1>
+            <h1 class="text-5xl font-serif font-bold text-blue-600 mb-2 leading-tight">Calcutta</h1>
+            <h1 class="text-5xl font-serif font-bold text-gray-800 mb-6 leading-tight">Law Journal</h1>
             
-            <div class="max-w-md mx-auto space-y-4">
-                <p class="text-gray-700 text-xl font-serif italic leading-relaxed">
-                    "Understanding Bare Acts and Case Laws in Simple Words: Bridging the Gap Between Complex Statutes and the Common Man."
+            <div class="max-w-md mx-auto">
+                <p class="text-gray-700 text-xl font-serif italic mb-6 leading-relaxed">
+                    "Understanding Bare Acts and Case Laws in Simple Words: Deciphering the Legal DNA of India for the Common Citizen."
                 </p>
-                <p class="text-gray-500 text-sm leading-relaxed">
-                    The legal landscape of India is often locked behind ivory towers of complex jargon and colonial-era terminology. CLJ is founded on the belief that law shouldn't be a mystery. We take the raw, unfiltered text of the Indian legal system and refine it into a resource that is accessible to a first-year law student and a curious citizen alike. Our mission is to democratize legal knowledge, ensuring that "Ignorantia juris non excusat" (Ignorance of the law is no excuse) becomes a fair standard, not a burden.
+                <p class="text-gray-500 text-sm leading-relaxed mb-10">
+                    The Calcutta Law Journal is more than just a repository of legal text; it is a bridge between the archaic complexity of colonial legislation and the modern need for clear, actionable legal literacy. We believe that the law should not be a weapon used by the few, but a shield available to the many. By breaking down dense statutes into human-centric language, we empower students to excel in their academics and citizens to stand firm in their rights.
                 </p>
+                <div class="flex flex-col gap-4">
+                    <a href="bare-acts.html" class="btn-blue text-white py-4 rounded-xl font-black uppercase tracking-widest text-sm">Explore Bare Acts</a>
+                    <a href="case-laws.html" class="btn-pink text-white py-4 rounded-xl font-black uppercase tracking-widest text-sm">Read Case Laws</a>
+                </div>
             </div>
         </header>
 
-        <section class="px-6 py-16 bg-white">
-            <div class="max-w-2xl mx-auto">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white"><i class="fa-solid fa-microscope text-xl"></i></div>
-                    <h2 class="text-3xl font-black text-gray-800">Research</h2>
-                </div>
-                <div class="content-section space-y-4 text-justify text-sm">
-                    <p>Research is the heartbeat of legal evolution. At the Calcutta Law Journal, our research wing does not merely summarize existing data; we dissect the "why" behind the law. Legal research is an exhaustive process of finding, analyzing, and interpreting the law. It involves a deep dive into primary sources like statutes and secondary sources like journals and treatises. In the Indian context, where laws are constantly being replaced—such as the transition from the IPC to the BNS—research becomes the only tool that keeps a legal professional relevant.</p>
-                    <p>Our research methodology focuses on three pillars: Historical Context, Current Application, and Future Impact. We explore how socio-economic shifts in India demand new legal frameworks, such as Digital Privacy and Environmental Protection. By providing high-quality thesis summaries and academic papers, we help students develop the critical thinking skills required to argue in high courts and the supreme court. Research at CLJ is about uncovering the intent of the legislature and the vision of the judiciary.</p>
-                </div>
+        <section class="px-6 py-10 space-y-12">
+            <div class="max-w-md mx-auto bg-white p-8 rounded-[2.5rem] shadow-xl border border-gray-50">
+                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6"><i class="fa-solid fa-scroll"></i></div>
+                <h2 class="text-2xl font-black text-gray-800 mb-4 uppercase">The Bare Act Foundation</h2>
+                <p class="content-block">
+                    A Bare Act is the rawest form of legislation, containing the exact words as passed by the Parliament. It is the skeletal structure of our democracy. For a law student, the Bare Act is the ultimate source of truth. Textbooks may offer interpretations, but the Bare Act offers the Law. At CLJ, we focus on the **purity of the text** while providing the **clarity of explanation**. Understanding the "Proviso," the "Explanation," and the "Notwithstanding" clauses is what separates a mediocre student from a future jurist.
+                </p>
             </div>
-        </section>
 
-        <section class="px-6 py-16 bg-blue-50/50">
-            <div class="max-w-2xl mx-auto">
-                <h2 class="text-center text-3xl font-black text-gray-800 mb-12">Our Core <span class="text-blue-500">Focus</span></h2>
-                
-                <div class="space-y-12">
-                    <div>
-                        <h3 class="text-xl font-bold text-blue-600 mb-4 uppercase tracking-wider">The Power of Bare Acts</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed text-justify">
-                            For any law student, the **Bare Act** is the Bible. It is the raw text of the law as passed by the Parliament. Without a thorough command over Bare Acts, a student is like a builder without a blueprint. We focus on Bare Acts because they are the final authority; while textbooks provide opinions, Bare Acts provide the *Fact*. Mastering the language of sections, clauses, and provisos is essential for drafting, litigation, and competitive exams like the Judiciary (JS). CLJ simplifies these acts without diluting their legal essence, making them easier to memorize and apply.
-                        </p>
-                    </div>
-
-                    <div>
-                        <h3 class="text-xl font-bold text-pink-600 mb-4 uppercase tracking-wider">Importance of Landmark Cases</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed text-justify">
-                            If Bare Acts are the skeleton, **Case Laws** are the flesh and blood of the law. India follows a common-law system where the "Precedent" is binding. Landmark cases like *Kesavananda Bharati* or *Maneka Gandhi* are not just stories; they are the law itself. They show how the Supreme Court interprets the dry text of a Bare Act to protect a human soul. For a law student, studying landmark cases is crucial because it teaches the "Art of Argument." It shows how a lawyer can take a single sentence from the Constitution and turn it into a shield for millions.
-                        </p>
-                    </div>
-                </div>
+            <div class="max-w-md mx-auto bg-white p-8 rounded-[2.5rem] shadow-xl border border-gray-50">
+                <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center text-pink-600 mb-6"><i class="fa-solid fa-gavel"></i></div>
+                <h2 class="text-2xl font-black text-gray-800 mb-4 uppercase">The Case Law Perspective</h2>
+                <p class="content-block">
+                    If Bare Acts are the bones, Case Laws are the flesh, blood, and soul. They represent the "living law"—showing how judges breathe life into dry statutes to ensure justice in real-world scenarios. Studying Landmark Judgments is essential because it reveals the **Judicial Mindset**. It teaches students how to interpret the law creatively to protect fundamental rights. Every landmark case we summarize is a lesson in legal history and a masterclass in the art of building a winning argument.
+                </p>
             </div>
         </section>
 
         <section class="px-6 py-16 bg-white">
             <div class="max-w-2xl mx-auto">
-                <div class="flex flex-col items-center text-center mb-8">
-                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800" class="w-full h-48 object-cover rounded-[2rem] mb-6 shadow-lg">
-                    <h2 class="text-3xl font-black text-gray-800">Calcutta High Court</h2>
-                    <p class="text-blue-500 font-bold text-xs uppercase mt-2">Established 1862</p>
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-black text-gray-800 uppercase tracking-tighter">Research</h2>
+                    <div class="w-12 h-1 bg-blue-600 mx-auto mt-2"></div>
                 </div>
-                <div class="content-section text-sm space-y-4 text-justify">
-                    <p>The High Court of Calcutta is the oldest High Court in India. Established on **July 1, 1862**, under the High Courts Act of 1861, it stands as a majestic gothic sentinel in the heart of Kolkata. Its jurisdiction extends over the State of West Bengal and the Union Territory of the Andaman and Nicobar Islands. For over a century and a half, this institution has been the cradle of Indian jurisprudence.</p>
-                    <p>The court's history is intertwined with India's struggle for independence. It was here that some of the greatest legal minds of the country, from C.R. Das to Siddhartha Shankar Ray, practiced. The building itself, modeled after the Cloth Hall in Ypres, Belgium, represents the weight of tradition. For a law student in Bengal, the Calcutta High Court is not just a court; it is the ultimate destination for justice. It has pioneered several landmark decisions regarding civil liberties and labor rights, making it one of the most respected judicial bodies in the world.</p>
+                <div class="content-block space-y-6 bg-gray-50 p-8 rounded-[3rem]">
+                    <p>Legal research is the systematic investigation into the law and its application to specific facts. It is the cornerstone of the legal profession. At the Calcutta Law Journal, our research goes beyond simple Google searches; we dive into the legislative intent, the Hansard records, and the evolving jurisprudence of the higher courts. Effective research involves identifying the relevant statutes, finding the latest amendments, and most importantly, tracking the hierarchy of precedents that govern a particular legal issue.</p>
+                    <p>In the digital age, the volume of legal information is overwhelming. A law student must develop the skill to distinguish between "information" and "authority." Our research wing focuses on providing high-quality analysis on emerging areas such as Artificial Intelligence Law, Data Privacy, and Environmental Jurisprudence. We provide students with the tools to construct complex legal theories and provide citizens with the knowledge to navigate bureaucratic hurdles. Research is not just about finding the law; it is about finding the **justice** within the law.</p>
+                    <a href="research.html" class="btn-dark text-white w-full py-4 rounded-xl font-black uppercase tracking-widest text-xs inline-block text-center mt-6">Open Research Portal</a>
                 </div>
-                <a href="https://www.calcuttahighcourt.gov.in/" target="_blank" class="mt-8 block text-center py-4 border-2 border-blue-600 text-blue-600 font-black rounded-xl uppercase tracking-widest text-xs">Official High Court Portal</a>
             </div>
         </section>
 
-        <section class="px-6 py-16 bg-gray-900 text-white">
+        <section class="px-6 py-16 bg-blue-600 text-white">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-3xl font-black mb-10 uppercase tracking-tighter">Our Core Focus</h2>
+                <div class="space-y-8 text-left">
+                    <div class="border-l-4 border-blue-300 pl-6">
+                        <h3 class="text-xl font-bold mb-3">Why Landmark Cases?</h3>
+                        <p class="text-sm opacity-90 leading-relaxed">
+                            For a law student, Landmark cases are the guideposts of their career. They provide the "Ratio Decidendi"—the reason for the decision—which serves as the law of the land under Article 141. By focusing on cases like *Kesavananda Bharati* or *Puttaswamy*, we ensure that students understand the "Basic Structure" of their nation. It builds the foundation for constitutional litigation and deepens their appreciation for civil liberties.
+                        </p>
+                    </div>
+                    <div class="border-l-4 border-blue-300 pl-6">
+                        <h3 class="text-xl font-bold mb-3">The Bare Act Priority</h3>
+                        <p class="text-sm opacity-90 leading-relaxed">
+                            Ignorance of the Bare Act leads to professional failure. We focus on Bare Acts because they are the final authority in any courtroom. A lawyer who can cite the exact subsection of a statute commands instant respect. We provide the simplest breakdown of these acts so that students can internalize the law rather than just memorizing it.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="px-6 py-16 bg-white space-y-20">
             <div class="max-w-2xl mx-auto">
-                <div class="flex flex-col items-center text-center mb-8">
-                    <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=800" class="w-full h-48 object-cover rounded-[2rem] mb-6 shadow-xl opacity-80">
-                    <h2 class="text-3xl font-black">Supreme Court of India</h2>
-                    <p class="text-indigo-400 font-bold text-xs uppercase mt-2">The Final Arbiter</p>
+                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800" class="w-full h-56 object-cover rounded-[2.5rem] mb-8 shadow-2xl">
+                <h2 class="text-3xl font-black text-gray-800 mb-6 uppercase tracking-tighter">Calcutta High Court: The Cradle of Justice</h2>
+                <div class="content-block space-y-4">
+                    <p>The High Court of Calcutta is the oldest High Court in India. It was established on **July 1, 1862**, under the High Courts Act of 1861. It stands as an architectural and judicial marvel, with its neo-gothic design inspired by the Ypres Cloth Hall in Belgium. For over 160 years, this court has been the guardian of the law in West Bengal and the Andaman and Nicobar Islands.</p>
+                    <p>Its historical significance is unparalleled. It was the first court to witness the transition from colonial 'Rule by Law' to independent 'Rule of Law.' Great jurists like C.R. Das and Sir Ashutosh Mukherjee graced its halls, setting standards of legal excellence that remain benchmarks today. For a law student in Kolkata, this institution is the ultimate symbol of the power of the robe and the sanctity of the bench. It continues to be a powerhouse of landmark decisions on labor rights, civil procedure, and constitutional interpretation.</p>
                 </div>
-                <div class="text-sm space-y-4 text-justify leading-relaxed opacity-90">
-                    <p>The Supreme Court of India is the highest judicial forum and final court of appeal under the Constitution of India. Established on **January 28, 1950**, it replaced both the Federal Court of India and the Judicial Committee of the Privy Council. It is the protector of the Fundamental Rights of the citizens and the guardian of the Constitution. Located on Tilak Marg in New Delhi, its motto "Yato Dharmastato Jayah" (Where there is Dharma, there is Victory) defines its existence.</p>
-                    <p>The Supreme Court possesses original, appellate, and advisory jurisdiction. It has the power of "Judicial Review"—the authority to strike down laws passed by Parliament if they violate the basic structure of the Constitution. From the historic *Kesavananda Bharati* case to the recent *Puttaswamy* (Right to Privacy) judgment, the SC has consistently shaped the moral and legal fabric of India. For any law student, the Supreme Court is the pinnacle of the legal profession, representing the ultimate triumph of the rule of law over arbitrary power.</p>
+            </div>
+
+            <div class="max-w-2xl mx-auto">
+                <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=800" class="w-full h-56 object-cover rounded-[2.5rem] mb-8 shadow-2xl">
+                <h2 class="text-3xl font-black text-gray-800 mb-6 uppercase tracking-tighter">The Supreme Court: Guardian of the Republic</h2>
+                <div class="content-block space-y-4">
+                    <p>The Supreme Court of India was inaugurated on **January 28, 1950**, two days after India became a Republic. It replaced both the Federal Court of India and the Judicial Committee of the Privy Council. As the highest judicial body, it is the final interpreter of the Constitution. Its motto, *"Yato Dharmastato Jayah"* (Where there is Dharma, there is Victory), reflects its role as the ultimate arbiter of truth and justice.</p>
+                    <p>The Supreme Court’s authority is absolute. Under Article 141, the law declared by the SC is binding on all courts in India. It has been the primary shield against executive overreach and legislative tyranny. From establishing the "Basic Structure Doctrine" to decriminalizing personal identities, the SC has defined what it means to be an Indian. For a student, the SC is the peak of the legal mountain—a place where law meets philosophy to create a better society.</p>
                 </div>
-                <a href="https://main.sci.gov.in/" target="_blank" class="mt-8 block text-center py-4 bg-indigo-600 text-white font-black rounded-xl uppercase tracking-widest text-xs">Official Supreme Court Portal</a>
             </div>
         </section>
 
-        <section class="px-6 py-20">
-            <div class="bg-white rounded-[3rem] shadow-2xl border border-gray-100 overflow-hidden max-w-xl mx-auto p-10 text-center">
+        <section class="px-6 py-20 bg-gray-50">
+            <div class="bg-white rounded-[3.5rem] shadow-2xl border border-gray-100 overflow-hidden max-w-xl mx-auto p-10 text-center">
                 <div class="w-24 h-24 bg-blue-600 rounded-[2rem] flex items-center justify-center text-white text-5xl shadow-lg mx-auto mb-6">
                     <i class="fa-solid fa-user-graduate"></i>
                 </div>
@@ -117,7 +129,7 @@
                 <p class="text-gray-400 font-bold text-[10px] mt-2 uppercase">Surendranath Law College | University of Calcutta</p>
                 
                 <p class="mt-8 text-gray-600 italic leading-relaxed font-serif">
-                    "I started this journal because I struggled with the same thing every law student does: dense, inaccessible language in statutes and judgments. My goal is to make sure that no student feels lost in the library. If I can decode it, I will share it."
+                    "This journal is my response to the struggle of every law student. We are often drowned in information but starved for clarity. My mission is to ensure that no student or citizen is ever intimidated by the language of the law. If I can understand it, I will make sure you can too."
                 </p>
             </div>
         </section>
