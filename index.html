@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcutta Law Journal | Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .hero-bg { background: radial-gradient(circle at top, #e0f2fe 0%, #ffffff 40%, #fdf2f8 100%); }
+        .btn-blue { background: linear-gradient(90deg, #00a8ff, #00d2ff); }
+        .btn-pink { background: linear-gradient(90deg, #a29bfe, #fd79a8); }
+        .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+    </style>
+</head>
+<body>
+
+    <nav class="sticky top-0 z-50 glass-nav px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <span class="font-bold text-gray-800 text-xl tracking-tighter">CLJ</span>
+        </div>
+        <div class="flex gap-4 items-center">
+            <i class="fa-solid fa-house text-blue-500"></i>
+            <i class="fa-solid fa-bars text-gray-600 text-2xl"></i>
+        </div>
+    </nav>
+
+    <main class="hero-bg pb-12">
+        <header class="pt-10 px-6 text-center">
+            <div class="inline-block bg-white border border-blue-50 px-4 py-1 rounded-full mb-8 shadow-sm">
+                <p class="text-[10px] font-bold text-blue-400 uppercase tracking-widest flex items-center">
+                    <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span> India's Simplest Law Resource
+                </p>
+            </div>
+            <h1 class="text-5xl font-serif font-bold text-blue-500 mb-1">Calcutta</h1>
+            <h1 class="text-5xl font-serif font-bold text-gray-800 mb-6">Law Journal</h1>
+            <p class="text-gray-700 italic font-medium text-lg mb-4">"Understanding Law in Simple Words"</p>
+            
+            <div class="flex flex-col gap-4 max-w-xs mx-auto mb-16">
+                <a href="bare-acts.html" class="btn-blue text-white py-4 rounded-3xl font-bold shadow-lg shadow-blue-100 text-center">Explore Bare Acts</a>
+                <a href="case-laws.html" class="btn-pink text-white py-4 rounded-3xl font-bold shadow-lg shadow-pink-100 text-center">Read Case Laws</a>
+            </div>
+
+            <div class="grid grid-cols-2 gap-y-10 max-w-xs mx-auto text-center mb-12">
+                <div><p id="stat-acts" class="text-3xl font-bold text-blue-400">50+</p><p class="text-[10px] font-bold text-gray-400 uppercase">Bare Acts</p></div>
+                <div><p id="stat-cases" class="text-3xl font-bold text-blue-400">100+</p><p class="text-[10px] font-bold text-gray-400 uppercase">Case Summaries</p></div>
+            </div>
+
+            <div class="rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white relative mx-auto max-w-sm">
+                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800" class="w-full h-48 object-cover">
+                <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/80 text-left">
+                    <p class="text-[10px] font-bold text-white uppercase tracking-widest opacity-90">Calcutta High Court</p>
+                    <p class="text-xs text-white/70">West Bengal, India</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="px-6 py-12">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-serif font-bold text-gray-800">Latest Legal News</h2>
+                <span class="text-blue-500 text-xs font-bold px-3 py-1 bg-blue-50 rounded-full">New</span>
+            </div>
+            
+            <div id="news-container" class="space-y-4">
+                <div class="p-4 bg-white rounded-3xl border border-gray-100 shadow-sm flex gap-4 items-center">
+                    <div class="w-16 h-16 bg-gray-100 rounded-2xl animate-pulse"></div>
+                    <div class="flex-1 space-y-2">
+                        <div class="h-4 bg-gray-100 rounded animate-pulse"></div>
+                        <div class="h-3 bg-gray-100 rounded w-1/2 animate-pulse"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="p-6">
+            <div class="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-sm">
+                <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-4">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800">Reyansh</h3>
+                <p class="text-[10px] text-gray-500 font-bold uppercase mb-4 tracking-widest">Sambhunath Law College</p>
+                <p class="text-gray-500 italic text-sm leading-relaxed">"Decoding the law for every student."</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // 1. STATS DATA
+        const myStats = { acts: "50+", cases: "100+", students: "10k+" };
+        document.getElementById('stat-acts').innerText = myStats.acts;
+        document.getElementById('stat-cases').innerText = myStats.cases;
+
+        // 2. NEWS API INTEGRATION
+        async function fetchLegalNews() {
+            const newsContainer = document.getElementById('news-container');
+            
+            try { const response = await fetch('pub_381f5922674c4f8db2a9d1978c537bbb');
+                const data = await response.json();
+               
+                // API DALNA HAI EDHAR 🎀
+                // Example: 
+                // const response = await fetch('YOUR_NEWS_API_URL_HERE');
+                // const data = await response.json();
+                
+                // Demo Content (Jab tak API nahi hai)
+                setTimeout(() => {
+                    newsContainer.innerHTML = `
+                        <div class="p-4 bg-white rounded-3xl border border-gray-100 shadow-sm flex gap-4 items-center">
+                            <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=200" class="w-16 h-16 rounded-2xl object-cover">
+                            <div class="flex-1">
+                                <h4 class="font-bold text-sm text-gray-800">Supreme Court issues new guidelines for digital evidence...</h4>
+                                <p class="text-[10px] text-gray-400 mt-1">2 hours ago • Law Updates</p>
+                            </div>
+                        </div>
+                    `;
+                }, 1000);
+
+            } catch (error) {
+                newsContainer.innerHTML = "<p class='text-xs text-red-400'>Error loading news.</p>";
+            }
+        }
+        fetchLegalNews();
+    </script>
+</body>
+</html>
