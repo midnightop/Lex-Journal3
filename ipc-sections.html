@@ -8,11 +8,40 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; -webkit-tap-highlight-color: transparent; }
-        .ipc-card { border-left: 6px solid #a855f7; }
-        @media (min-width: 768px) {
-            .ipc-card { border-left-width: 10px; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fcfdfe; 
+            -webkit-tap-highlight-color: transparent;
+            /* --- COPY PROTECTION --- */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
+
+        .ipc-card { 
+            border-left: 6px solid #a855f7; 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .ipc-card:hover { transform: translateX(8px); }
+        
+        @media (min-width: 768px) {
+            .ipc-card { border-left-width: 12px; }
+        }
+
+        /* Snappy Animations */
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out; 
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Smooth Transition Out */
+        .page-fade-out { opacity: 0 !important; transition: opacity 0.2s ease-out; }
+
+        .juris-box { background: #f5f3ff; border-radius: 1.5rem; padding: 1.5rem; border: 1px solid #ddd6fe; }
     </style>
 </head>
 <body class="pb-10">
@@ -24,30 +53,91 @@
         </a>
     </nav>
 
-    <main class="px-5 space-y-6 md:space-y-12 max-w-2xl mx-auto mt-8 md:mt-16">
+    <main class="px-5 space-y-8 md:space-y-16 max-w-3xl mx-auto mt-8 md:mt-16">
         
-        <section class="ipc-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-purple-50/50">
+        <section class="ipc-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-purple-50/50 reveal active">
             <h3 class="text-purple-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Colonial Legacy</h3>
-            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-4 md:mb-6 tracking-tight">The 1860 Origin</h2>
-            <p class="text-gray-600 text-base md:text-xl leading-relaxed font-medium italic">
-                The IPC was drafted in 1860 by Thomas Babington Macaulay. It was created to provide a uniform criminal law across India, replacing diverse local systems during the British era.
-            </p>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">The 1860 Origin</h2>
+            
+            <div class="space-y-6 text-gray-600 text-sm md:text-base leading-relaxed">
+                <p class="text-lg font-medium italic text-gray-700">"A century and a half of Indian Criminal Jurisprudence."</p>
+                <p>The Indian Penal Code (IPC) was drafted in 1860 by the First Law Commission of India, presided over by **Thomas Babington Macaulay**. It is a comprehensive code intended to cover all substantive aspects of criminal law. Even after the transition to BNS, the IPC remains the reference point for legal theory in India.</p>
+                
+                <h4 class="font-black text-gray-800 uppercase text-xs tracking-widest">10 Core Principles of IPC:</h4>
+                <ul class="grid md:grid-cols-2 gap-4">
+                    <li class="flex items-start"><i class="fa-solid fa-scale-balanced text-purple-500 mt-1 mr-2"></i> Actus Non Facit Reum Nisi Mens Sit Rea.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-scale-balanced text-purple-500 mt-1 mr-2"></i> Territorial Jurisdiction (Sec 2).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-scale-balanced text-purple-500 mt-1 mr-2"></i> General Explanations (Sec 6-52A).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-scale-balanced text-purple-500 mt-1 mr-2"></i> Punishments (Sec 53).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-scale-balanced text-purple-500 mt-1 mr-2"></i> General Exceptions (Sec 76-106).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-scale-balanced text-purple-500 mt-1 mr-2"></i> Abetment (Sec 107-120).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-scale-balanced text-purple-500 mt-1 mr-2"></i> Criminal Conspiracy (Sec 120A/B).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-scale-balanced text-purple-500 mt-1 mr-2"></i> Offenses against the State.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-scale-balanced text-purple-500 mt-1 mr-2"></i> Offenses against Public Tranquility.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-scale-balanced text-purple-500 mt-1 mr-2"></i> Fraudulent deeds & Property marks.</li>
+                </ul>
+            </div>
         </section>
 
-        <section class="ipc-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-purple-50/50 border-l-blue-500">
+        <section class="ipc-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-blue-50/50 border-l-blue-500 reveal">
             <h3 class="text-blue-500 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Structure</h3>
-            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-4 md:mb-6 tracking-tight">Key Provisions</h2>
-            <p class="text-gray-600 text-base md:text-xl leading-relaxed font-medium">
-                The IPC contains 511 sections covering crimes from those against the State to offenses affecting the human body and property. Its definition of "Mens Rea" (Guilty Mind) remains a legal masterpiece.
-            </p>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">Key Provisions & Definitions</h2>
+            
+            <div class="space-y-8 text-gray-600 text-sm md:text-base leading-relaxed">
+                <p>The IPC is divided into 23 chapters. Its brilliance lies in the precise definition of offenses and the accompanying 'Illustrations' that clarify the legislative intent.</p>
+
+                <div class="juris-box">
+                    <h5 class="font-black text-purple-700 text-xs uppercase mb-4 tracking-widest">5 Landmark Sections:</h5>
+                    <div class="space-y-4">
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-blue-600 block">Section 300: Murder</span>
+                            <p class="text-[11px]">Defines when culpable homicide amounts to murder, focusing on intent and knowledge.</p>
+                            <p class="text-[9px] font-black mt-1 uppercase text-gray-400">Case: KM Nanavati v. State of Maharashtra</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-blue-600 block">Section 378: Theft</span>
+                            <p class="text-[11px]">Moving movable property out of possession without consent with dishonest intent.</p>
+                            <p class="text-[9px] font-black mt-1 uppercase text-gray-400">Case: Pyare Lal Bhargava v. State of Rajasthan</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-blue-600 block">Section 420: Cheating</span>
+                            <p class="text-[11px]">Inducing the delivery of property by cheating and dishonestly.</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-blue-600 block">Section 124A: Sedition</span>
+                            <p class="text-[11px]">Bringing hatred or contempt against the Government (Now highly debated/replaced).</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-blue-600 block">Section 499: Defamation</span>
+                            <p class="text-[11px]">Harming the reputation of a person by words or visible representations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section class="ipc-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-purple-50/50 border-l-pink-500">
+        <section class="ipc-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-pink-50/50 border-l-pink-500 reveal">
             <h3 class="text-pink-500 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Evolution</h3>
-            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-4 md:mb-6 tracking-tight">Current Standing</h2>
-            <p class="text-gray-600 text-base md:text-xl leading-relaxed font-medium">
-                While transitioning into the Bharatiya Nyaya Sanhita (BNS), the IPC remains the governing statute for crimes committed prior to the new law's implementation. It is the most cited document in Indian criminal history.
-            </p>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">The Modern Standing</h2>
+            
+            <div class="space-y-6 text-gray-600 text-sm md:text-base leading-relaxed text-justify">
+                <p>The IPC has survived for over a century due to its logical consistency. However, the 2023 legal reforms identified that a colonial code cannot serve a sovereign digital nation forever. While BNS takes over, the IPC's 'General Exceptions' (Sections 76-106) continue to be the gold standard for defining Private Defense and Mistake of Fact.</p>
+
+                <div class="p-6 bg-pink-50 rounded-3xl border border-pink-100 italic">
+                    <p class="text-xs text-pink-900 leading-loose">
+                        "IPC is the foundation upon which the Indian Police Service and the Judiciary were built. It decoded human evil into 511 neat segments. For any lawyer, IPC is not just an act, it is the grammar of crime."
+                    </p>
+                </div>
+                
+                <h4 class="font-black text-gray-800 uppercase text-xs tracking-widest mt-6">5 Landmark Judicial Interpretations:</h4>
+                <ul class="space-y-3 text-xs">
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-pink-500 mr-2"></i> <strong>Navtej Singh Johar v. UOI:</strong> Struck down Sec 377 (Homosexuality).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-pink-500 mr-2"></i> <strong>Joseph Shine v. UOI:</strong> Struck down Sec 497 (Adultery).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-pink-500 mr-2"></i> <strong>Bachan Singh v. State of Punjab:</strong> 'Rarest of Rare' doctrine for death penalty.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-pink-500 mr-2"></i> <strong>Gian Kaur v. State of Punjab:</strong> Validity of Attempt to Suicide (Sec 309).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-pink-500 mr-2"></i> <strong>Mithu v. State of Punjab:</strong> Invalidated Sec 303 (Mandatory death penalty).</li>
+                </ul>
+            </div>
         </section>
 
     </main>
@@ -56,5 +146,40 @@
         <p class="text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
     </footer>
 
+    <script>
+        // --- PREVENT WHITE SCREEN ON BACK BUTTON ---
+        window.addEventListener('pageshow', function(event) {
+            document.body.classList.remove('page-fade-out');
+            document.body.style.opacity = '1';
+        });
+
+        // --- REVEAL ON SCROLL ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // --- FAST CLICK TRANSITION ---
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && !href.startsWith('http') && href !== '#') {
+                    e.preventDefault();
+                    document.body.classList.add('page-fade-out');
+                    setTimeout(() => { window.location.href = href; }, 200);
+                }
+            });
+        });
+
+        // --- SECURITY SCRIPTS ---
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('copy', e => e.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false;
+            if (e.key === 'F12') return false;
+        };
+    </script>
 </body>
 </html>
