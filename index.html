@@ -144,8 +144,8 @@
             </p>
             
             <div class="flex flex-col gap-4 max-w-xs mx-auto">
-                <a href="bare-acts.html" class="btn-glossy bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl">Explore Bare Acts</a>
-                <a href="case-laws.html" class="btn-glossy bg-gradient-to-r from-pink-500 to-rose-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl">Read Case Laws</a>
+                <a href="bare-acts.html" class="btn-glossy bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl text-center">Explore Bare Acts</a>
+                <a href="case-laws.html" class="btn-glossy bg-gradient-to-r from-pink-500 to-rose-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl text-center">Read Case Laws</a>
             </div>
         </header>
 
@@ -239,6 +239,15 @@
                 sk.style.transition = 'opacity 0.3s ease';
                 sk.style.opacity = '0';
                 setTimeout(() => sk.remove(), 300);
+            }
+        });
+
+        // --- BACK BUTTON FIX (BFCache Reset) ---
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                document.body.classList.remove('page-fade-out');
+                const sk = document.getElementById('skeleton-screen');
+                if(sk) sk.remove();
             }
         });
 
