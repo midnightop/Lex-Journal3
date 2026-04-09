@@ -21,6 +21,7 @@
         
         .blur-bg { position: fixed; z-index: -1; filter: blur(60px); opacity: 0.25; pointer-events: none; }
         
+        /* Modal Transitions */
         .modal-overlay { opacity: 0; visibility: hidden; transition: all 0.3s ease; display: flex; align-items: flex-end; z-index: 1000;}
         @media (min-width: 768px) { .modal-overlay { align-items: center; } }
         .modal-overlay.active { opacity: 1; visibility: visible; }
@@ -28,9 +29,16 @@
         .modal-container { transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .modal-overlay.active .modal-container { transform: translateY(0); }
 
-        .search-focus:focus-within { border-color: #ec4899; box-shadow: 0 10px 30px rgba(236, 72, 153, 0.2); }
-        
-        .case-card { transition: all 0.3s ease; border-top: 4px solid #ec4899; height: 100%; display: flex; flex-direction: column; }
+        /* Compact Cards Style */
+        .case-card { 
+            transition: transform 0.3s ease, opacity 0.4s ease; 
+            border-top: 4px solid #ec4899; 
+            opacity: 0; 
+            transform: translateY(20px);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+        .case-card.visible { opacity: 1; transform: translateY(0); }
         .case-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
         .case-card.hidden { display: none !important; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -42,7 +50,6 @@
         }
         
         .opinion-box { background: #fff1f2; border-left: 4px solid #be185d; padding: 1.5rem; border-radius: 1.5rem; }
-
         .page-fade-out { opacity: 0 !important; transition: opacity 0.2s; }
     </style>
 </head>
@@ -52,16 +59,16 @@
     <div class="blur-bg bg-blue-400 w-64 h-64 top-1/2 -right-10"></div>
 
     <nav class="sticky top-0 z-50 bg-white/70 backdrop-blur-2xl px-4 py-4 md:px-10 md:py-6 flex justify-between items-center border-b border-gray-100">
-        <h1 class="font-black text-gray-800 text-xl md:text-2xl tracking-tighter">CLJ <span class="text-pink-500">Cases</span></h1>
+        <h1 class="font-black text-gray-800 text-xl md:text-2xl tracking-tighter uppercase">CLJ <span class="text-pink-500">Judgments</span></h1>
         <a href="index.html" class="text-[10px] font-black uppercase tracking-widest text-pink-600 bg-pink-50 px-5 py-2.5 rounded-full shadow-sm active:scale-90 transition">Home</a>
     </nav>
 
     <header class="pt-10 pb-6 px-6 text-center">
-        <h1 class="text-4xl md:text-7xl font-serif font-bold text-gray-800 mb-2 tracking-tight leading-tight">Landmark <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">Judgments</span></h1>
+        <h1 class="text-4xl md:text-7xl font-serif font-bold text-gray-800 mb-2 tracking-tight leading-tight">Landmark <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">30 Cases</span></h1>
         
-        <div class="max-w-md mx-auto mt-8 mb-10 relative search-focus transition-all duration-300 border-2 border-white rounded-2xl bg-white/90 backdrop-blur-md flex items-center px-5 shadow-xl">
+        <div class="max-w-md mx-auto mt-8 mb-10 relative border-2 border-gray-100 rounded-2xl bg-white/90 backdrop-blur-md flex items-center px-5 shadow-xl transition-all search-focus">
             <i class="fa-solid fa-magnifying-glass text-pink-500 text-lg"></i>
-            <input type="text" id="caseSearch" onkeyup="searchCases()" placeholder="Search from all acts and cases..." class="w-full py-4 px-4 text-base font-bold outline-none bg-transparent text-gray-700 placeholder:text-gray-300">
+            <input type="text" id="caseSearch" onkeyup="searchCases()" placeholder="Search from 30+ Landmark cases..." class="w-full py-4 px-4 text-base font-bold outline-none bg-transparent text-gray-700 placeholder:text-gray-300">
         </div>
     </header>
 
@@ -69,17 +76,17 @@
 
     <div id="caseModal" class="modal-overlay fixed inset-0 bg-black/60 backdrop-blur-md justify-center">
         <div class="absolute inset-0" onclick="closeModal()"></div>
-        <div class="modal-container bg-white w-full max-w-2xl h-[92vh] md:h-[85vh] rounded-t-[2.5rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative flex flex-col">
+        <div class="modal-container bg-white w-full max-w-2xl h-[92vh] md:h-[85vh] rounded-t-[3rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative flex flex-col">
             
             <div class="px-6 py-5 border-b border-gray-50 flex justify-between items-center sticky top-0 bg-white z-10">
-                <h3 class="font-black text-gray-800 text-base">In-Depth Analysis</h3>
+                <h3 class="font-black text-gray-800 text-base">In-Depth Case Analysis</h3>
                 <button onclick="closeModal()" class="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center text-gray-800 active:scale-90 transition"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
 
             <div class="p-8 overflow-y-auto no-scrollbar space-y-12 pb-24 text-left">
                 <div>
-                    <h4 class="text-pink-500 font-black text-[10px] uppercase tracking-widest mb-4">Background Facts</h4>
-                    <p id="modalDescription" class="text-gray-800 text-2xl leading-tight font-serif italic mb-6"></p>
+                    <h4 class="text-pink-500 font-black text-[10px] uppercase tracking-widest mb-4">Background & History</h4>
+                    <p id="modalDescription" class="text-gray-800 text-3xl leading-tight font-serif italic mb-6"></p>
                     <div id="modalLongFacts" class="text-gray-600 text-base leading-relaxed space-y-6"></div>
                 </div>
 
@@ -101,112 +108,290 @@
             'kesavananda': { 
                 title: "Kesavananda Bharati (1973)", 
                 cat: "Constitution",
-                desc: "Basic Structure Doctrine origin.",
-                longFacts: "<p>The 13-judge bench of the Supreme Court sat for 68 days to decide the power of Parliament to amend the Constitution. It arose from a property dispute in Kerala but became a shield for Indian democracy.</p><p>It established that while Parliament has wide powers under Article 368, it cannot touch the 'identity' of the Constitution.</p>",
-                points: ["Basic Structure Doctrine established.", "Art 368 is not absolute.", "Judicial Review is essential.", "Constitutional supremacy confirmed.", "Preamble is a part of the document.", "Overruled Golaknath case.", "Checks and Balances reaffirmed.", "Secularism as core value.", "Parliament is not sovereign; Constitution is.", "7:6 razor-thin majority judgment."],
-                opinion: "This judgment is the only reason India is not a totalitarian state. It shows the spine of the Indian Judiciary during the toughest political times."
+                desc: "The battle for the soul of the Constitution.",
+                longFacts: "<p>The landmark 13-judge bench decision that saved Indian democracy. It limited the power of Parliament to amend the Constitution by introducing the 'Basic Structure Doctrine'.</p><p>This case ensures that the core identity of India (Secularism, Democracy, Federalism) remains unchangeable even by a 2/3rd majority in Parliament. It was a 7:6 majority decision.</p>",
+                points: ["Basic Structure Doctrine born.", "Art 368 is not absolute.", "Judicial Review is unchangeable.", "Overruled Golaknath judgment.", "Constitutional Supremacy re-affirmed.", "Separation of Powers protected.", "Preamble is a part of the document.", "Ensured India remains a Democracy.", "Nani Palkhivala's legendary arguments.", "Foundation for future rights."],
+                opinion: "This is the 'shield' of our nation. It proves that the Judiciary is the final guardian of our liberty."
             },
             'maneka': { 
                 title: "Maneka Gandhi (1978)", 
                 cat: "Article 21",
                 desc: "Redefining personal liberty.",
-                longFacts: "<p>When Maneka Gandhi's passport was impounded without reason, the SC expanded Art 21. It moved from a literal interpretation to a substantive one, demanding that procedures must be 'Fair, Just, and Reasonable'.</p>",
-                points: ["Procedure established by law must be reasonable.", "Golden Triangle (Art 14, 19, 21).", "Right to travel abroad included.", "Natural Justice is mandatory.", "Expanded scope of Personal Liberty.", "Protection against arbitrary state action.", "Overruled A.K. Gopalan case logic.", "Due process principles introduced.", "Judiciary becomes proactive.", "Foundational for environmental & privacy laws."],
-                opinion: "This case made the Indian Constitution 'humane'. It stopped the government from hiding behind technicalities to violate human rights."
+                longFacts: "<p>Expanded Art 21. It moved from a literal interpretation to a substantive one, demanding that procedures must be 'Fair, Just, and Reasonable'.</p>",
+                points: ["Procedure must be reasonable.", "Golden Triangle (Art 14, 19, 21).", "Right to travel abroad included.", "Natural Justice is mandatory.", "Expanded scope of Personal Liberty.", "Protection against arbitrary state action.", "Overruled A.K. Gopalan case.", "Due process principles introduced.", "Judiciary becomes proactive.", "Foundational for modern rights."],
+                opinion: "This case made the Indian Constitution 'humane'. It stopped the government from hiding behind technicalities."
             },
             'puttaswamy': { 
                 title: "K.S. Puttaswamy (2017)", 
                 cat: "Privacy",
                 desc: "Data is part of Dignity.",
-                longFacts: "<p>A 9-judge bench decided whether privacy is a fundamental right. It arose during the Aadhaar challenge. The court held that privacy is intrinsic to life and dignity under Art 21.</p>",
-                points: ["Privacy is a Fundamental Right.", "Informational privacy recognized.", "Triple Test for state interference.", "Bodily autonomy protected.", "Overruled ADM Jabalpur (Habeas Corpus).", "Dignity is a core value.", "Sexual orientation privacy included.", "Check on digital surveillance.", "Unanimous 9-judge decision.", "Future of data protection law."],
-                opinion: "In a world of surveillance, this is every citizen's digital armor. It ensures the state doesn't own your personal information."
+                longFacts: "<p>A 9-judge bench decided whether privacy is a fundamental right. The court held that privacy is intrinsic to life and dignity under Art 21.</p>",
+                points: ["Privacy is a Fundamental Right.", "Informational privacy recognized.", "Triple Test for state interference.", "Bodily autonomy protected.", "Overruled ADM Jabalpur mistake.", "Dignity is a core value.", "Sexual orientation privacy included.", "Check on digital surveillance.", "Unanimous 9-judge decision.", "Future of data protection law."],
+                opinion: "In the digital age, this is every citizen's armor. It ensures the state doesn't own your personal information."
             },
             'mohori': { 
                 title: "Mohori Bibee (1903)", 
                 cat: "Contract Act",
                 desc: "The Minor's Agreement rule.",
-                longFacts: "<p>A minor borrowed money and executed a mortgage. The Privy Council ruled that under Section 11 of the Contract Act, a minor's agreement is void from the start (void-ab-initio).</p>",
-                points: ["Minor's agreement is void-ab-initio.", "No liability for breach.", "Protection of young borrowers.", "Sec 11 ICA interpretation.", "Shield for minors.", "Absolute nullity.", "No restitution in void contracts.", "Lender's risk confirmed.", "Foundation of incapacity law.", "120-year-old active precedent."],
-                opinion: "Crucial for protecting kids from predatory business. The law assumes minors can't foresee long-term financial traps."
+                longFacts: "<p>A minor cannot enter into a contract. Any agreement made by a minor is 'Void-ab-initio' (null from the start). This case protects children from being exploited.</p>",
+                points: ["Minor's agreement is void-ab-initio.", "No liability for breach.", "Protection of young borrowers.", "Sec 11 ICA interpretation.", "Shield for minors.", "Absolute nullity.", "No restitution in void contracts.", "Lender's risk confirmed.", "Foundation of incapacity law.", "A 120-year-old active precedent."],
+                opinion: "Crucial for protecting kids from predatory business. The law correctly assumes minors can't foresee long-term traps."
             },
             'nanavati': { 
                 title: "KM Nanavati (1959)", 
                 cat: "IPC / BNS",
                 desc: "End of the Jury trials.",
-                longFacts: "<p>A high-profile case where a naval officer killed his wife's lover. It captured the public's imagination and led to the abolition of the jury system in India due to biased verdicts.</p>",
-                points: ["Jury system abolished.", "Sudden Provocation test defined.", "Difference in Murder vs Culpable Homicide.", "Impact of media on trials.", "Cooling-off period concept.", "Mens Rea assessment.", "Defense of Honor rejected.", "Public emotion vs Legal fact.", "Last major jury trial.", "Influenced Sec 300 IPC (103 BNS)."],
-                opinion: "Justice should be blind, but juries have eyes for drama. Professional judges were a necessary upgrade for Indian justice."
+                longFacts: "<p>A high-profile case where a naval officer killed his wife's lover. It captured the public's imagination and led to the abolition of the jury system in India.</p>",
+                points: ["Jury system abolished.", "Sudden Provocation test defined.", "Difference in Murder vs Culpable Homicide.", "Impact of media on trials.", "Cooling-off period concept.", "Mens Rea assessment.", "Defense of Honor rejected.", "Public emotion vs Legal fact.", "Last major jury trial.", "Influenced Sec 300 IPC."],
+                opinion: "Justice should be blind. Abolishing juries was necessary to ensure that verdicts are based on law, not drama."
             },
             'dastane': { 
                 title: "Dastane v Dastane (1975)", 
-                cat: "HMA / Family Law",
+                cat: "Family Law",
                 desc: "Defining Mental Cruelty.",
-                longFacts: "<p>The husband sought divorce on grounds of cruelty. The SC ruled that cruelty isn't just physical; persistent mental agony and behavioral torture are valid grounds for divorce.</p>",
-                points: ["Mental Cruelty recognized.", "Expanded Sec 13 HMA.", "Subjective impact on spouse.", "Preponderance of probabilities standard.", "Marital relief expanded.", "Behavioral analysis by court.", "Psychological safety in marriage.", "Modern divorce benchmark.", "Relief for toxic environment victims.", "Foundation for modern family law."],
+                longFacts: "<p>The SC ruled that cruelty isn't just physical; persistent mental agony and behavioral torture are valid grounds for divorce under Section 13.</p>",
+                points: ["Mental Cruelty recognized.", "Expanded Sec 13 HMA.", "Subjective impact on spouse.", "Standard of proof defined.", "Marital relief expanded.", "Behavioral analysis by court.", "Psychological safety focus.", "Modern divorce benchmark.", "Relief for toxic environment victims.", "Foundation for modern family law."],
                 opinion: "This case saved thousands from 'silent prisons'. Mental torture can be more damaging than physical bruises."
             },
             'hadley': { 
                 title: "Hadley v Baxendale (1854)", 
                 cat: "Contract Act",
                 desc: "The rule on Damages.",
-                longFacts: "<p>A classic case on breach of contract. It set the rule that damages should only cover losses that arise naturally from the breach or were foreseeable by both parties.</p>",
+                longFacts: "<p>A classic case on breach of contract. It set the rule that damages should only cover losses that arise naturally from the breach or were foreseeable.</p>",
                 points: ["Foundation of Sec 73 ICA.", "Direct vs Remote loss.", "Reasonable foreseeability test.", "Special damages communication.", "Mitigation of loss concept.", "Fair compensation logic.", "Commercial predictability.", "Limit on business liability.", "Global contract standard.", "Damages as compensation, not punishment."],
-                opinion: "This keeps the economy running. You shouldn't be ruined by a mistake unless you were warned of the extreme risks beforehand."
+                opinion: "This keeps the economy running. You shouldn't be ruined by a mistake unless you were warned of extreme risks."
             },
             'vishaka': { 
                 title: "Vishaka v Rajasthan (1997)", 
-                cat: "Workplace Safety",
-                desc: "Guidelines against harassment.",
-                longFacts: "<p>Bhanwari Devi's assault led to this. Since there was no law on workplace harassment, the SC created the 'Vishaka Guidelines' to protect women until the 2013 Act.</p>",
+                cat: "Women",
+                desc: "Workplace Guidelines.",
+                longFacts: "<p>Bhanwari Devi's assault led to this. Since there was no law on workplace harassment, the SC created the 'Vishaka Guidelines' to protect women.</p>",
                 points: ["Judicial legislation.", "POSH Act 2013 precursor.", "Employer liability defined.", "Internal Committee requirement.", "Art 14 & 21 protection.", "Gender equality focus.", "Zero tolerance policy.", "Mandatory grievance mechanism.", "International convention usage.", "Justice for Bhanwari Devi."],
-                opinion: "A perfect example of the Court stepping in when the Legislature fails to act. It changed professional India for women."
+                opinion: "A perfect example of the Court stepping in when the Parliament fails to act. It made professional spaces safer."
             },
             'shayara': { 
                 title: "Shayara Bano (2017)", 
                 cat: "Gender Justice",
                 desc: "Triple Talaq unconstitutional.",
-                longFacts: "<p>Triple Talaq was challenged as being arbitrary and discriminatory. The SC declared it unconstitutional as it violated the dignity of Muslim women and Article 14.</p>",
+                longFacts: "<p>The SC struck down 'Instant Triple Talaq' as it was arbitrary and violated the equality and dignity of Muslim women under Article 14.</p>",
                 points: ["Triple Talaq struck down.", "Art 14 violation.", "Manifestly arbitrary test.", "Personal law vs Constitution.", "Dignity of women prioritized.", "Reform in family law.", "Essential religious practice test.", "Paved way for legislation.", "Protection against instant divorce.", "Social reform milestone."],
-                opinion: "Equality should never stop at the door of religion. This was a massive win for constitutional morality."
+                opinion: "Equality should never stop at the door of religion. This was a long-overdue win for constitutional morality."
             },
             'adm_jabalpur': { 
                 title: "ADM Jabalpur (1976)", 
                 cat: "Emergency",
-                desc: "The Judiciary's dark day.",
-                longFacts: "<p>During Emergency, the SC said citizens could be arrested without reason. Only Justice Khanna dissented. This 'black mark' was finally corrected in 2017.</p>",
-                points: ["Habeas Corpus suspension case.", "Right to life denied (then).", "Justice Khanna's brave dissent.", "Judicial failure lesson.", "Overruled by Privacy case.", "Checks and balances failure.", "44th Amendment trigger.", "Totalitarianism warning.", "Correction of historic wrong.", "Dignity is inalienable."],
-                opinion: "A reminder that even the Supreme Court can be wrong. Justice Khanna is a hero for choosing his conscience over his career."
+                desc: "The Judiciary's darkest day.",
+                longFacts: "<p>During Emergency, the SC said citizens could be arrested without reason. Only Justice Khanna dissented. This was corrected in the Privacy judgment.</p>",
+                points: ["Habeas Corpus suspension.", "Right to life denied (then).", "Justice Khanna's brave dissent.", "Judicial failure lesson.", "Overruled in 2017.", "Checks and balances failure.", "44th Amendment trigger.", "Totalitarianism warning.", "Correction of historic wrong.", "Dignity is inalienable."],
+                opinion: "A reminder that even the Supreme Court can be wrong. Justice Khanna is a hero for choosing conscience over career."
+            },
+            'minerva': { 
+                title: "Minerva Mills (1980)", 
+                cat: "Constitution",
+                desc: "Harmony of Rights & DPSP.",
+                longFacts: "<p>Struck down parts of 42nd Amendment. Held that Parliament cannot give itself unlimited amending power.</p>",
+                points: ["Limited amending power.", "Basic structure strengthened.", "Harmony of Rights and DPSP.", "Judicial Review as basic structure.", "Parliament is not master.", "Checks and balances.", "Supremacy of Constitution.", "Constitutional equilibrium.", "Democracy safeguard.", "Anti-dictatorship stance."],
+                opinion: "It restored the balance between individual rights and state policy. Absolute power is a threat to any democracy."
+            },
+            'sr_bommai': { 
+                title: "S.R. Bommai (1994)", 
+                cat: "Federalism",
+                desc: "Stop misuse of Art 356.",
+                longFacts: "<p>Prevented arbitrary dismissal of state governments. Majority must be proved on the 'floor of the house'.</p>",
+                points: ["Floor test mandatory.", "Federalism is basic structure.", "Secularism is basic structure.", "Art 356 reviewable.", "Governor's role defined.", "Center-State balance.", "Prevention of arbitrary rule.", "Democratic stability.", "Judicial monitoring of politics.", "Political accountability."],
+                opinion: "States are not just branches of the Centre. This judgment protected India's federal soul."
+            },
+            'shah_bano': { 
+                title: "Shah Bano (1985)", 
+                cat: "Maintenance",
+                desc: "Secular Maintenance Rule.",
+                longFacts: "<p>A 62-year-old woman was denied support. SC ruled that Section 125 of CrPC is a secular law and applies to all.</p>",
+                points: ["Sec 125 CrPC is secular.", "Right to survive is above ritual.", "Human rights in personal law.", "Gender justice focus.", "UCC discussion started.", "Protection of elderly.", "Universal application.", "Social security for women.", "Dignity over religion.", "Historic brave stance."],
+                opinion: "No religion teaches that a divorced wife should starve. The court chose human life over religious technicality."
+            },
+            'selvi': { 
+                title: "Selvi v Karnataka (2010)", 
+                cat: "Evidence",
+                desc: "Narco-analysis Ban.",
+                longFacts: "<p>Involuntary narco-analysis and brain mapping violate the right against self-incrimination under Art 20(3).</p>",
+                points: ["Art 20(3) protection.", "Involuntary tests illegal.", "Mental privacy.", "Bodily integrity.", "Self-incrimination focus.", "Rights of accused.", "Forensic ethics.", "Psychological safety.", "Custodial dignity.", "Modern evidence rule."],
+                opinion: "Forced interrogation is a step back into the dark ages. Mental privacy is the final frontier of liberty."
+            },
+            'mc_mehta': { 
+                title: "MC Mehta (Oleum Gas) (1986)", 
+                cat: "Environment",
+                desc: "Absolute Liability Born.",
+                longFacts: "<p>Created Absolute Liability for hazardous industries. The polluter must pay, and there are no exceptions.</p>",
+                points: ["Absolute Liability established.", "No defense for accidents.", "Hazardous industry duty.", "Art 21 includes environment.", "Public safety priority.", "Compensation standard.", "Enterprise responsibility.", "Precautionary principle.", "Environment protection.", "Global impact."],
+                opinion: "If an industry deals with death, its liability must be absolute. Profiting from risk requires paying for damage."
+            },
+            'golaknath': { 
+                title: "Golaknath (1967)", 
+                cat: "Constitution",
+                desc: "Immutable Rights.",
+                longFacts: "<p>An 11-judge bench held that Parliament CANNOT amend Fundamental Rights at all. Later modified by Kesavananda.</p>",
+                points: ["Rights cannot be amended.", "Art 13 vs Art 368.", "Judicial supremacy.", "Protection of property.", "Historic 11-judge bench.", "Immutable character of rights.", "Prospectivity rule.", "Parliament limits.", "Early rights battle.", "Paved way for future debates."],
+                opinion: "The boldest stance ever taken for individual rights. It forced the government to rethink its power."
+            },
+            'joseph_shine': { 
+                title: "Joseph Shine (2018)", 
+                cat: "Gender Equality",
+                desc: "Adultery Decriminalized.",
+                longFacts: "<p>Struck down Section 497. Adultery is a ground for divorce but not a crime. Men only punishments were unconstitutional.</p>",
+                points: ["Sec 497 struck down.", "Gender equality win.", "Wife is not husband's property.", "Decriminalized adultery.", "Autonomy of women.", "Privacy in relationships.", "End of Victorian morality.", "Marital rights redefined.", "Individual liberty.", "Constitutional reform."],
+                opinion: "Adultery is a heart-break, not a crime. The state has no business entering the private bedroom of adults."
+            },
+            'sabarimala': { 
+                title: "Indian Young Lawyers (2018)", 
+                cat: "Religion",
+                desc: "Temple Entry Rights.",
+                longFacts: "<p>Allowed women of all ages to enter Sabarimala temple. Biological factors cannot be used to exclude women from devotion.</p>",
+                points: ["Gender equality in religion.", "Biological exclusion ban.", "Devotion over tradition.", "Art 25 vs Art 14.", "Individual rights prioritized.", "Untouchability logic used.", "Essential practice test.", "Reformative religion.", "Rights of female devotees.", "Constitutional morality."],
+                opinion: "God does not discriminate. This judgment proved that tradition cannot override the equality of souls."
+            },
+            'anuradha_bhasin': { 
+                title: "Anuradha Bhasin (2020)", 
+                cat: "Internet",
+                desc: "Internet as a Tool of Liberty.",
+                longFacts: "<p>Internet shutdowns in Kashmir were challenged. SC held that freedom of speech on the internet is protected under Art 19.</p>",
+                points: ["Internet is Art 19 tool.", "Shutdowns are reviewable.", "Proportionality test.", "Necessary & temporary only.", "Digital rights established.", "Freedom of press protected.", "Transparency in orders.", "Check on state power.", "Connectivity as modern life.", "Liberty in digital age."],
+                opinion: "In today's world, cutting the internet is like cutting the oxygen of democracy. It must be a last resort."
+            },
+            'nilabati_behera': { 
+                title: "Nilabati Behera (1993)", 
+                cat: "Criminal",
+                desc: "Custodial Death Relief.",
+                longFacts: "<p>Established that the state is liable to pay monetary compensation for custodial deaths under Article 21.</p>",
+                points: ["Monetary compensation for death.", "State liability confirmed.", "Art 21 protection in jail.", "Human rights victory.", "Police accountability.", "Sovereign immunity check.", "Right to life focus.", "Judicial compensation award.", "Protection of prisoners.", "Accountability of uniform."],
+                opinion: "The police must protect lives, not take them. Compensation is the least the state can do for its own brutality."
+            },
+            'dk_basu': { 
+                title: "D.K. Basu (1997)", 
+                cat: "Criminal",
+                desc: "Arrest Protocols.",
+                longFacts: "<p>Created strict guidelines for police during arrest to prevent custodial torture and ensure transparency.</p>",
+                points: ["Arrest guidelines created.", "Mandatory memo of arrest.", "Right to inform relatives.", "Police ID requirement.", "Prevention of torture.", "Custodial dignity.", "Judicial monitoring.", "Rights of the accused.", "Transparency in detention.", "Human rights in policing."],
+                opinion: "The Magna Carta for an arrested person. It ensured that a person doesn't vanish into thin air after arrest."
+            },
+            'sarla_mudgal': { 
+                title: "Sarla Mudgal (1995)", 
+                cat: "Family Law",
+                desc: "Conversion & Bigamy.",
+                longFacts: "<p>Changing religion solely for a second marriage is illegal. The first marriage remains valid and the second is bigamy.</p>",
+                points: ["Conversion doesn't dissolve marriage.", "Anti-bigamy stance.", "Uniform Civil Code plea.", "Protection of first wife.", "HMA integrity.", "Sec 494 IPC link.", "Moral legal balance.", "Right to dignity.", "No misuse of personal law.", "Legal status of converts."],
+                opinion: "Religion shouldn't be a loophole for adultery. This case protected the sanctity of marriage."
+            },
+            'l_chandra_kumar': { 
+                title: "L. Chandra Kumar (1997)", 
+                cat: "Judiciary",
+                desc: "High Court's Writ Power.",
+                longFacts: "<p>Judicial review by High Courts and Supreme Court is a basic structure. Tribunals are subject to court review.</p>",
+                points: ["Writ power is basic structure.", "High Courts are not inferior.", "Tribunals under review.", "Judicial independence.", "Access to justice.", "Constitutional supremacy.", "Check on executive tribunals.", "Art 226/227 protected.", "Hierarchy of courts.", "Justice at doorstep."],
+                opinion: "It ensured that the High Courts remain the local guardians of the Constitution."
+            },
+            'mandal_commission': { 
+                title: "Indira Sawhney (1992)", 
+                cat: "Reservation",
+                desc: "50% Cap on Quota.",
+                longFacts: "<p>Upheld OBC reservations but set a 50% limit and introduced the 'Creamy Layer' concept for fairness.</p>",
+                points: ["50% reservation cap.", "Creamy layer exclusion.", "OBC reservation valid.", "Backwardness criteria.", "Merit vs Upliftment.", "No reservation in promotion.", "Social justice focus.", "Benchmark for quotas.", "Equality of opportunity.", "Systematic upliftment."],
+                opinion: "A fine balance between helping the historically oppressed and maintaining the merit of the nation."
+            },
+            'ews_reservation': { 
+                title: "Janhit Abhiyan (2022)", 
+                cat: "Constitution",
+                desc: "Economic Quota Uphold.",
+                longFacts: "<p>The SC upheld the 103rd Amendment providing 10% EWS reservation. Held it doesn't violate basic structure.</p>",
+                points: ["EWS reservation valid.", "Economic backwardness focus.", "Amendment upheld.", "Social justice expanded.", "Poverty as criteria.", "10% quota recognized.", "Basic structure intact.", "Equality analysis.", "Financial aid through law.", "Modern reservation era."],
+                opinion: "Poverty is a real hurdle. Recognizing economic struggle alongside social struggle is a step towards true equality."
+            },
+            'berubari': { 
+                title: "Berubari Union (1960)", 
+                cat: "Territory",
+                desc: "Preamble & Territory Transfer.",
+                longFacts: "<p>Discussed the power of Parliament to transfer territory to a foreign state. Initially said Preamble is not part of Constitution.</p>",
+                points: ["Territory transfer power.", "Preamble status (old view).", "Amendment for ceding land.", "Sovereignty focus.", "Art 3 limitations.", "National integrity.", "International treaties.", "Parliamentary limits.", "Early territory case.", "Historic context."],
+                opinion: "A foundational case for understanding India's borders and the status of our Preamble."
+            },
+            'satyabrata_ghose': { 
+                title: "Satyabrata Ghose (1954)", 
+                cat: "Contract",
+                desc: "Doctrine of Frustration.",
+                longFacts: "<p>Defined when a contract becomes impossible to perform under Section 56 of the Contract Act. It's the law of frustration.</p>",
+                points: ["Sec 56 ICA foundation.", "Impossibility of performance.", "Frustration of contract.", "Unforeseen events.", "Voiding contracts fairly.", "War impact on business.", "Direct vs Indirect impossibility.", "Contract exit route.", "Commercial safety.", "Doctrine of impossibility."],
+                opinion: "You can't force someone to do the impossible. This case provided a fair exit for honest businesses."
+            },
+            'ioth_schedule': { 
+                title: "Kihoto Hollohan (1992)", 
+                cat: "Politics",
+                desc: "Anti-Defection Law.",
+                longFacts: "<p>Upheld the 10th Schedule but said the Speaker's decision is subject to judicial review. Prevented 'Aaya Ram Gaya Ram'.</p>",
+                points: ["Anti-defection valid.", "Speaker decision reviewable.", "Political morality.", "Stability of government.", "Check on horse-trading.", "10th Schedule focus.", "Democratic integrity.", "Judicial review role.", "Party discipline.", "Prevention of betrayal."],
+                opinion: "Politics shouldn't be a marketplace. This judgment made defections a legal risk for politicians."
+            },
+            'mc_mehta_taj': { 
+                title: "Taj Trapezium Case (1996)", 
+                cat: "Environment",
+                desc: "Protecting Heritage.",
+                longFacts: "<p>SC ordered industries around the Taj Mahal to switch to cleaner fuels to prevent acid rain damage to the marble monument.</p>",
+                points: ["Heritage protection.", "Pollution control.", "Taj Mahal safety.", "Environment vs Industry.", "Clean fuel mandate.", "Heritage is Art 21 right.", "Public interest litigation.", "Iconic landmark safety.", "Ecological balance.", "State duty to protect."],
+                opinion: "Our history is our pride. This case proved that marble and air are more valuable than industrial smoke."
+            },
+            'balsara': { 
+                title: "F.N. Balsara (1951)", 
+                cat: "Rights",
+                desc: "Reasonable Restrictions.",
+                longFacts: "<p>First case to interpret 'Reasonable Restrictions' on Fundamental Rights. Balanced state prohibition power with liberty.</p>",
+                points: ["Reasonable restrictions born.", "State prohibition power.", "Art 19(1)(g) balance.", "Liberty vs Social order.", "Judicial test for laws.", "Public health focus.", "Regulatory authority.", "Early rights interpretation.", "Foundation of state power.", "Checks on police power."],
+                opinion: "It established the 'how' and 'why' of when the government can stop you from doing something."
             }
         };
 
         const container = document.getElementById('casesContainer');
-        Object.keys(caseDatabase).forEach(key => {
-            const data = caseDatabase[key];
-            container.innerHTML += `
-                <div class="case-card bg-white rounded-3xl p-6 shadow-md border border-gray-100" data-title="${data.title} ${data.cat}">
+        const caseKeys = Object.keys(caseDatabase);
+        let currentIndex = 0;
+        const batchSize = 10;
+
+        function renderBatch() {
+            const nextBatch = caseKeys.slice(currentIndex, currentIndex + batchSize);
+            nextBatch.forEach(key => {
+                const data = caseDatabase[key];
+                const card = document.createElement('div');
+                card.className = "case-card bg-white rounded-3xl p-6 shadow-md border border-gray-100 flex flex-col justify-between";
+                card.setAttribute('data-title', `${data.title} ${data.cat}`.toLowerCase());
+                card.innerHTML = `
                     <div class="flex-grow">
                         <span class="text-[8px] font-black text-pink-500 uppercase tracking-widest bg-pink-50 px-3 py-1 rounded-full mb-3 inline-block">${data.cat}</span>
                         <h2 class="text-xl font-black text-gray-800 leading-tight">${data.title}</h2>
                         <p class="text-gray-400 text-[11px] mt-2 font-medium line-clamp-2">${data.desc}</p>
                     </div>
                     <button onclick="openModal('${key}')" class="mt-6 w-full py-3 bg-gray-50 text-gray-800 rounded-xl font-black text-[9px] uppercase tracking-widest active:scale-95 transition-all hover:bg-pink-500 hover:text-white">Analysis</button>
-                </div>
-            `;
-        });
+                `;
+                container.appendChild(card);
+                setTimeout(() => card.classList.add('visible'), 50);
+            });
+            currentIndex += batchSize;
+        }
+
+        const scrollObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && currentIndex < caseKeys.length) renderBatch();
+        }, { threshold: 1.0 });
+
+        const sentinel = document.createElement('div');
+        sentinel.style.height = '20px';
+        document.body.appendChild(sentinel);
+        scrollObserver.observe(sentinel);
 
         function openModal(id) {
             const data = caseDatabase[id];
             document.getElementById('modalDescription').innerText = data.desc;
             document.getElementById('modalLongFacts').innerHTML = data.longFacts;
             document.getElementById('modalOpinion').innerText = data.opinion;
-            
             const pointsList = document.getElementById('modalPoints');
             pointsList.innerHTML = '';
-            data.points.forEach((p, index) => {
-                pointsList.innerHTML += `<li class="flex items-start gap-3"><span class="w-5 h-5 bg-blue-100 text-blue-600 rounded flex items-center justify-center text-[10px] shrink-0 font-bold">${index+1}</span> ${p}</li>`;
+            data.points.forEach((p, i) => {
+                pointsList.innerHTML += `<li class="flex items-start gap-3"><span class="w-5 h-5 bg-blue-100 text-blue-600 rounded flex items-center justify-center text-[10px] shrink-0 font-bold">${i+1}</span> ${p}</li>`;
             });
-
             document.getElementById('caseModal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -217,23 +402,21 @@
         }
 
         function searchCases() {
-            let input = document.getElementById('caseSearch').value.toLowerCase();
-            let cards = document.getElementsByClassName('case-card');
-            for (let i = 0; i < cards.length; i++) {
-                let title = cards[i].getAttribute('data-title').toLowerCase();
-                if (title.includes(input)) {
-                    cards[i].classList.remove('hidden');
-                } else {
-                    cards[i].classList.add('hidden');
-                }
+            const input = document.getElementById('caseSearch').value.toLowerCase();
+            const cards = document.getElementsByClassName('case-card');
+            if (input.length > 0 && currentIndex < caseKeys.length) {
+                while(currentIndex < caseKeys.length) renderBatch();
             }
+            Array.from(cards).forEach(card => {
+                const title = card.getAttribute('data-title');
+                card.classList.toggle('hidden', !title.includes(input));
+            });
         }
 
-        window.onpageshow = function(event) { if (event.persisted) location.reload(); };
-
+        window.onpageshow = (e) => { if (e.persisted) location.reload(); };
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.addEventListener('copy', e => e.preventDefault());
-        document.onkeydown = function(e) { if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false; };
+        document.onkeydown = (e) => { if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false; };
     </script>
 
     <footer class="py-16 text-center">
