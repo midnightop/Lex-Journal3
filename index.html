@@ -9,11 +9,27 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
         
-        /* FAST PAGE ENTRANCE */
-        @keyframes pageEntrance {
-            from { opacity: 0; transform: scale(1.01); }
-            to { opacity: 1; transform: scale(1); }
+        /* --- SMOOTH LOADING ANIMATION --- */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #fcfdfe;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.4s ease-out, visibility 0.4s;
         }
+        .loader-spin {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #e2e8f0;
+            border-top: 3px solid #2563eb;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        .loader-hidden { opacity: 0; visibility: hidden; }
 
         body { 
             font-family: 'Inter', sans-serif; 
@@ -21,44 +37,39 @@
             color: #1e293b; 
             overflow-x: hidden; 
             -webkit-tap-highlight-color: transparent;
-            animation: pageEntrance 0.3s ease-out forwards;
-            
-            /* --- COPY PROTECTION CSS --- */
             -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
             user-select: none;
-        }
-
-        /* FAST EXIT */
-        .page-exit {
-            opacity: 0 !important;
-            transform: scale(0.99);
-            transition: opacity 0.2s ease-out, transform 0.2s ease-out !important;
         }
 
         .font-serif { font-family: 'Playfair Display', serif; }
 
+        /* Animation for reveal */
         .reveal { 
             opacity: 0; 
-            transform: translateY(20px); 
-            transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transform: translateY(15px); 
+            transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
             will-change: transform, opacity;
         }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
+        /* Hover interaction for cards */
         .glossy-card {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.8);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
             border-radius: 32px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glossy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .research-gloss {
@@ -96,6 +107,10 @@
 </head>
 <body>
 
+    <div id="loader">
+        <div class="loader-spin"></div>
+    </div>
+
     <nav class="sticky top-0 z-50 glass-nav px-5 py-3 flex justify-between items-center">
         <div class="flex items-center gap-3">
             <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg">
@@ -115,20 +130,14 @@
         <header class="pt-12 pb-10 px-8 text-center reveal active">
             <h1 class="text-5xl font-serif font-bold text-blue-600 leading-tight">Calcutta</h1>
             <h1 class="text-5xl font-serif font-bold text-gray-900 mb-8 leading-tight">Law Journal</h1>
-            
-            <div class="max-w-md mx-auto mb-8 relative group">
-                <input type="text" placeholder="Search sections, cases, research..." class="w-full py-4 px-6 rounded-2xl border border-gray-100 bg-white shadow-lg focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm transition-all">
-                <i class="fa-solid fa-magnifying-glass absolute right-5 top-4.5 text-gray-300 group-focus-within:text-blue-500"></i>
-            </div>
-
             <p class="text-gray-800 text-xl font-serif italic mb-6">"Honestly? Law is hard. But it doesn't have to be boring."</p>
             <p class="text-gray-500 text-sm leading-relaxed mb-8 max-w-md mx-auto">
                 Legal language shouldn't be a barrier to justice. We decode the DNA of the Indian legal system, translating complex colonial-era jargon into simple, actionable English for every student and citizen.
             </p>
             
             <div class="flex flex-col gap-4 max-w-xs mx-auto">
-                <a href="bare-acts.html" class="btn-glossy bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl">Explore Bare Acts</a>
-                <a href="case-laws.html" class="btn-glossy bg-gradient-to-r from-pink-500 to-rose-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl">Read Case Laws</a>
+                <a href="bare-acts.html" class="btn-glossy bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl text-center">Explore Bare Acts</a>
+                <a href="case-laws.html" class="btn-glossy bg-gradient-to-r from-pink-500 to-rose-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl text-center">Read Case Laws</a>
             </div>
         </header>
 
@@ -140,61 +149,30 @@
                 <h2 class="text-3xl font-black mb-4 tracking-tighter uppercase">Research</h2>
                 <div class="text-sm opacity-80 leading-relaxed font-medium space-y-4">
                     <p>Legal research is the systematic investigation into the law and its application to specific facts. It is the cornerstone of the legal profession. At the Calcutta Law Journal, our research wing does not merely summarize existing data; we dissect the "why" behind the law. In the Indian context, where laws are constantly being replaced—such as the massive transition from the IPC/CrPC to the BNS—research becomes the only tool that keeps a legal professional relevant.</p>
-                    <p>We explore how socio-economic shifts in India demand new legal frameworks, such as Digital Privacy and Environmental Protection. By providing high-quality thesis summaries and academic papers, we help students develop the critical thinking skills required to argue in high courts and the supreme court. Research at CLJ is about uncovering the intent of the legislature and the vision of the judiciary, ensuring that justice is found within the law.</p>
                 </div>
                 <a href="research.html" class="mt-8 block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px] active:scale-95 transition shadow-lg">Enter Research Lab</a>
             </div>
         </section>
 
         <section class="px-6 py-8 space-y-8">
-            <div class="glossy-card p-8 reveal relative overflow-hidden">
-                <div class="absolute top-4 right-4 bg-blue-50 text-blue-600 text-[8px] font-black px-2 py-1 rounded-full uppercase">BNS 2024 Updated</div>
-                
+            <div class="glossy-card p-8 reveal">
                 <div class="flex items-center gap-4 mb-4">
                     <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600"><i class="fa-solid fa-scroll"></i></div>
                     <h3 class="text-blue-600 font-black text-lg uppercase">The Bare Act Foundation</h3>
                 </div>
                 <p class="text-gray-600 text-sm leading-relaxed text-justify">
-                    A Bare Act is the rawest form of legislation, passed by Parliament. It is the skeletal structure of our democracy. For a law student, the Bare Act is the ultimate source of truth. Mastering the language of sections, clauses, and provisos is essential for drafting, litigation, and competitive exams. CLJ simplifies these acts without diluting their legal essence, making them easier to internalize and apply in the real world.
+                    A Bare Act is the rawest form of legislation, passed by Parliament. Mastering the language of sections, clauses, and provisos is essential for drafting, litigation, and competitive exams.
                 </p>
             </div>
 
-            <div class="glossy-card p-8 reveal relative overflow-hidden">
-                <div class="absolute top-4 right-4 bg-pink-50 text-pink-600 text-[8px] font-black px-2 py-1 rounded-full uppercase">Landmark Focus</div>
-
+            <div class="glossy-card p-8 reveal">
                 <div class="flex items-center gap-4 mb-4">
                     <div class="w-10 h-10 bg-pink-50 rounded-xl flex items-center justify-center text-pink-600"><i class="fa-solid fa-gavel"></i></div>
                     <h3 class="text-pink-600 font-black text-lg uppercase">Landmark Case Laws</h3>
                 </div>
                 <p class="text-gray-600 text-sm leading-relaxed text-justify">
-                    If Bare Acts are the skeleton, Case Laws are the flesh and blood. Precedents are binding in India, and landmark judgments show how judges breathe life into statutes to protect human souls. Studying cases like Kesavananda Bharati teaches students the "Art of Argument." It shows how a lawyer can take a single sentence from the Constitution and turn it into a shield for millions.
+                    If Bare Acts are the skeleton, Case Laws are the flesh and blood. Precedents are binding in India, and landmark judgments show how judges breathe life into statutes.
                 </p>
-            </div>
-        </section>
-
-        <section class="space-y-12 py-10 px-6">
-            <div class="glossy-card overflow-hidden reveal">
-                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800" class="w-full h-52 object-cover">
-                <div class="p-8">
-                    <h2 class="text-2xl font-black text-gray-800 mb-4 uppercase tracking-tighter">Calcutta High Court</h2>
-                    <div class="text-xs text-gray-500 leading-relaxed space-y-4 text-justify">
-                        <p>The High Court of Calcutta is the oldest High Court in India, established on **July 1, 1862**. Its majestic gothic design, inspired by the Ypres Cloth Hall, represents the weight of tradition and the evolution from 'Rule by Law' to independent 'Rule of Law.'</p>
-                        <p>For over 160 years, it has been the cradle of Indian jurisprudence, hosting legendary legal minds like C.R. Das and Sir Ashutosh Mukherjee. For a law student in Bengal, this institution is the ultimate symbol of the power of the robe and a destination for pioneering decisions on civil liberties and labor rights.</p>
-                    </div>
-                    <a href="https://www.calcuttahighcourt.gov.in/" target="_blank" class="mt-8 block text-center py-4 border border-blue-600 text-blue-600 font-black rounded-xl uppercase text-[10px]">Official HC Portal</a>
-                </div>
-            </div>
-
-            <div class="research-gloss overflow-hidden reveal">
-                <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=800" class="w-full h-52 object-cover opacity-60">
-                <div class="p-8 text-white">
-                    <h2 class="text-2xl font-black mb-4 uppercase tracking-tighter">Supreme Court of India</h2>
-                    <div class="text-xs text-gray-300 leading-relaxed space-y-4 text-justify">
-                        <p>Inaugurated on **January 28, 1950**, the Supreme Court is the final interpreter of the Constitution. Its motto, *"Yato Dharmastato Jayah"* (Where there is Dharma, there is Victory), defines its role as the protector of fundamental rights and the guardian of the Republic.</p>
-                        <p>Under Article 141, the law declared by the SC is binding across India. From establishing the "Basic Structure Doctrine" to decriminalizing personal identities, the SC has defined what it means to be an Indian citizen. For any student, the SC represents the peak of the legal mountain and the triumph of the rule of law over arbitrary power.</p>
-                    </div>
-                    <a href="https://main.sci.gov.in/" target="_blank" class="mt-8 block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px]">Official SC Portal</a>
-                </div>
             </div>
         </section>
 
@@ -206,10 +184,6 @@
                 <h3 class="text-2xl font-black text-gray-800">Rey</h3>
                 <p class="text-blue-500 font-black uppercase text-[10px] mt-1 tracking-widest">Law Student</p>
                 <p class="text-gray-400 font-bold text-[8px] mt-1 uppercase leading-tight">Surendranath Law College | University of Calcutta</p>
-                
-                <p class="mt-8 text-gray-600 italic leading-relaxed font-serif text-lg">
-                    "I started this because I'm a student too. I know how confusing this can be. Let's make law simple, together."
-                </p>
             </div>
         </section>
     </main>
@@ -219,34 +193,42 @@
     </footer>
 
     <script>
+        // 1. LOADER LOGIC
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            loader.classList.add('loader-hidden');
+            // Check if page fully loaded, if not reload once
+            if (!document.body.innerHTML.includes('footer')) {
+                location.reload();
+            }
+        });
+
+        // 2. REVEAL ANIMATION
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
             });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // --- TRANSITION SCRIPT (Integrated) ---
+        // 3. PAGE TRANSITIONS
         document.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function(e) {
                 if (this.hostname === window.location.hostname && !this.target && !this.href.includes('#')) {
                     e.preventDefault();
-                    document.body.classList.add('page-exit');
+                    document.body.style.opacity = '0';
+                    document.body.style.transition = 'opacity 0.2s';
                     setTimeout(() => { window.location.href = this.href; }, 200);
                 }
             });
         });
 
-        // --- SECURITY SCRIPT (Preserved) ---
-        document.addEventListener('contextmenu', event => event.preventDefault());
-        document.addEventListener('copy', (e) => e.preventDefault());
-        document.addEventListener('cut', (e) => e.preventDefault());
-        document.addEventListener('paste', (e) => e.preventDefault());
-
+        // 4. SECURITY
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('copy', e => e.preventDefault());
         document.onkeydown = function(e) {
             if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false;
-            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) return false;
+            if (e.key === 'F12') return false;
         };
     </script>
 </body>
