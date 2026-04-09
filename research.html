@@ -9,8 +9,23 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700;900&display=swap');
         
-        body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; -webkit-tap-highlight-color: transparent; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fcfdfe; 
+            -webkit-tap-highlight-color: transparent; 
+            -webkit-user-select: none;
+            user-select: none;
+            overflow-x: hidden;
+        }
         .font-serif { font-family: 'Playfair Display', serif; }
+
+        /* Smooth Reveal */
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); 
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* Modal Smoothness */
         .modal-overlay { 
@@ -21,22 +36,23 @@
             align-items: flex-end;
         }
         @media (min-width: 768px) { .modal-overlay { align-items: center; } }
-
-        .modal-overlay.active { 
-            opacity: 1; 
-            visibility: visible; 
-        }
-
+        .modal-overlay.active { opacity: 1; visibility: visible; }
         .modal-container {
             transform: translateY(100%);
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .modal-overlay.active .modal-container {
-            transform: translateY(0);
-        }
+        .modal-overlay.active .modal-container { transform: translateY(0); }
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
+        
+        .opinion-tag {
+            background: #fff1f2;
+            border-left: 4px solid #be185d;
+            padding: 1rem;
+            border-radius: 1rem;
+            margin-top: 1.5rem;
+        }
+        .page-fade-out { opacity: 0 !important; transition: opacity 0.2s; }
     </style>
 </head>
 <body class="pb-10">
@@ -46,67 +62,80 @@
         <a href="index.html" class="text-[10px] font-black uppercase tracking-widest text-blue-600 bg-blue-50 px-4 py-2 rounded-full shadow-sm active:scale-95 transition">Home</a>
     </nav>
 
-    <header class="pt-10 pb-6 px-6 text-center bg-gradient-to-b from-blue-50 to-transparent">
-        <h1 class="text-4xl md:text-5xl font-serif font-bold text-gray-800 leading-tight">Legal <span class="text-blue-600">Insights</span></h1>
-        <p class="mt-3 text-gray-500 text-xs font-medium uppercase tracking-wider">Academic Articles & Resources</p>
+    <header class="pt-12 pb-8 px-6 text-center bg-gradient-to-b from-blue-50 to-transparent">
+        <h1 class="text-4xl md:text-6xl font-serif font-bold text-gray-800 leading-tight">Legal <span class="text-blue-600">Insights</span></h1>
+        <p class="mt-4 text-gray-500 text-[10px] font-black uppercase tracking-[0.3em]">Academic Repository & Papers</p>
     </header>
 
-    <main class="px-5 space-y-6 max-w-lg mx-auto mt-6">
+    <main class="px-5 space-y-8 max-w-lg mx-auto mt-6">
         
-        <div class="bg-white p-6 rounded-[2.5rem] border border-gray-100 shadow-xl shadow-blue-50/50">
+        <div class="reveal bg-white p-6 rounded-[2.5rem] border border-gray-100 shadow-xl shadow-blue-50/50">
             <div class="flex items-center gap-4 mb-5">
                 <div class="w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-2xl flex items-center justify-center text-white shadow-lg">
-                    <i class="fa-solid fa-newspaper text-xl"></i>
+                    <i class="fa-solid fa-fingerprint text-xl"></i>
                 </div>
                 <div>
-                    <h4 class="font-black text-gray-800 text-lg leading-tight">Privacy in Digital Era</h4>
-                    <span class="text-[9px] font-bold text-blue-500 bg-blue-50 px-2 py-0.5 rounded uppercase mt-1 inline-block">Read Online</span>
+                    <h4 class="font-black text-gray-800 text-lg leading-tight">Privacy & DPDP Act</h4>
+                    <span class="text-[9px] font-bold text-blue-500 bg-blue-50 px-2 py-0.5 rounded uppercase mt-1 inline-block">Deep Analysis</span>
                 </div>
             </div>
             <p class="text-gray-500 text-sm mb-6 leading-relaxed">
-                An analytical piece on how data privacy is evolving with the DPDP Act 2023 and constitutional changes.
+                Examining the tectonic shift in Indian data laws and the constitutional status of privacy after the landmark 2023 legislation.
             </p>
-            <button onclick="openArticle('privacy')" class="w-full py-4 bg-gray-900 text-white rounded-xl font-bold text-[10px] uppercase tracking-widest active:scale-95 transition">Read Full Article</button>
+            <button onclick="openArticle('privacy')" class="w-full py-4 bg-gray-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest active:scale-95 transition">Analyse Paper</button>
         </div>
 
-        <div class="bg-white p-6 rounded-[2.5rem] border border-gray-100 shadow-xl shadow-purple-50/50">
+        <div class="reveal bg-white p-6 rounded-[2.5rem] border border-gray-100 shadow-xl shadow-red-50/50">
+            <div class="flex items-center gap-4 mb-5">
+                <div class="w-14 h-14 bg-gradient-to-br from-red-600 to-orange-400 rounded-2xl flex items-center justify-center text-white shadow-lg">
+                    <i class="fa-solid fa-gavel text-xl"></i>
+                </div>
+                <div>
+                    <h4 class="font-black text-gray-800 text-lg leading-tight">BNS vs IPC 1860</h4>
+                    <span class="text-[9px] font-bold text-red-500 bg-red-50 px-2 py-0.5 rounded uppercase mt-1 inline-block">Criminal Reform</span>
+                </div>
+            </div>
+            <p class="text-gray-500 text-sm mb-6 leading-relaxed">
+                A comparative research on how India's new criminal code decolonizes the legal framework and its impact on trials.
+            </p>
+            <button onclick="openArticle('bns_ipc')" class="w-full py-4 bg-red-600 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest active:scale-95 transition">Read Comparison</button>
+        </div>
+
+        <div class="reveal bg-white p-6 rounded-[2.5rem] border border-gray-100 shadow-xl shadow-purple-50/50">
             <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center gap-4">
-                    <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-white shadow-lg">
+                    <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-2xl flex items-center justify-center text-white shadow-lg">
                         <i class="fa-solid fa-file-pdf text-xl"></i>
                     </div>
                     <div>
-                        <h4 class="font-black text-gray-800 text-lg leading-tight">Rights of Society</h4>
-                        <p class="text-[9px] text-gray-400 font-black uppercase mt-1 tracking-widest">PDF Document</p>
+                        <h4 class="font-black text-gray-800 text-lg leading-tight">Society Rights</h4>
+                        <p class="text-[9px] text-gray-400 font-black uppercase mt-1 tracking-widest">PDF Commentary</p>
                     </div>
                 </div>
-                <a href="https://drive.google.com/file/d/1rhLqLQLmC6z4Hv6V3beyTY2n2KRAuxqj/view?usp=drivesdk" target="_blank" class="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-purple-600 shadow-inner active:scale-90 transition">
+                <a href="https://drive.google.com/file/d/1rhLqLQLmC6z4Hv6V3beyTY2n2KRAuxqj/view" target="_blank" class="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-purple-600 shadow-inner active:scale-90 transition">
                    <i class="fa-solid fa-download"></i>
                 </a>
             </div>
             <div class="border-t border-gray-50 pt-4">
                 <p class="text-gray-500 text-sm leading-relaxed">
-                    This paper outlines the fundamental legal protections available to every citizen under the Constitution of India.
+                    Download our thesis on "Legal Protections of the Common Man" under Indian Constitutional Jurisprudence.
                 </p>
             </div>
         </div>
     </main>
 
-    <div id="articleModal" class="modal-overlay fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm justify-center">
+    <div id="articleModal" class="modal-overlay fixed inset-0 z-[100] bg-black/60 backdrop-blur-md justify-center">
         <div class="absolute inset-0" onclick="closeArticle()"></div>
-        
-        <div class="modal-container bg-white w-full max-w-xl h-[85vh] md:h-auto md:max-h-[85vh] rounded-t-[2.5rem] md:rounded-[2.5rem] shadow-2xl overflow-hidden relative flex flex-col">
-            
-            <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-white sticky top-0 z-20">
-                <h3 id="modalTitle" class="font-bold text-gray-800 text-base">Article View</h3>
-                <button onclick="closeArticle()" class="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 active:scale-90 transition">
+        <div class="modal-container bg-white w-full max-w-2xl h-[90vh] md:h-[85vh] rounded-t-[3rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative flex flex-col">
+            <div class="px-8 py-6 border-b border-gray-100 flex justify-between items-center bg-white sticky top-0 z-20">
+                <h3 id="modalTitle" class="font-black text-gray-800 text-lg uppercase tracking-tight">Article</h3>
+                <button onclick="closeArticle()" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 active:scale-90 transition">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-
-            <div class="p-6 overflow-y-auto no-scrollbar pb-16">
-                <div id="modalContent" class="text-gray-600 text-sm leading-relaxed space-y-5">
-                    </div>
+            <div class="p-8 overflow-y-auto no-scrollbar pb-24">
+                <div id="modalContent" class="text-gray-600 text-base leading-relaxed space-y-6 text-justify">
+                </div>
             </div>
         </div>
     </div>
@@ -116,13 +145,35 @@
             'privacy': {
                 title: "Privacy in Digital Era",
                 content: `
-                    <div class="bg-blue-50 p-5 rounded-2xl border-l-4 border-blue-400 mb-4">
-                        <p class="text-blue-800 italic font-medium text-sm">"Privacy is a Fundamental Right under Article 21."</p>
+                    <p class="text-2xl font-serif italic text-gray-800 mb-6">"Privacy is the core of human dignity."</p>
+                    <p>The Digital Personal Data Protection (DPDP) Act 2023 marks a historic moment for India. After the Puttaswamy judgment declared privacy as a fundamental right, the need for a statutory framework was urgent.</p>
+                    <div class="bg-blue-50 p-6 rounded-3xl border-l-4 border-blue-500 my-6">
+                        <h5 class="font-black text-blue-900 text-xs uppercase mb-2">Key takeaway</h5>
+                        <p class="text-sm text-blue-800">The Act defines 'Data Principals' (users) and 'Data Fiduciaries' (companies), making the latter accountable for every byte of data collected.</p>
                     </div>
-                    <p class="font-bold text-gray-800 text-base">The Digital Landscape</p>
-                    <p>In a world driven by data, privacy is no longer a luxury but a fundamental necessity. The Supreme Court's declaration of privacy as a core part of the Indian Constitution has changed everything.</p>
-                    <p>With the DPDP Act 2023, India is taking strides towards protecting personal data, yet the balance between state security and individual liberty remains delicate.</p>
-                    <p>Understanding these laws is crucial for every law student and citizen to protect their digital identity.</p>
+                    <p>However, the research explores the controversy surrounding Section 36, which grants the Central Government vast powers of exemption. This creates a friction between state security and individual autonomy.</p>
+                    <p>For a student of law, understanding the transition from a 'Consent-only' regime to a 'Rights-based' regime is essential. Digital privacy is no longer about hiding; it is about the power to control your own narrative.</p>
+                    <div class="opinion-tag">
+                        <h6 class="font-black text-[10px] text-pink-700 uppercase mb-1">OPINION</h6>
+                        <p class="text-sm italic text-pink-900 font-medium">While DPDP 2023 is a step forward, its success depends on the independence of the Data Protection Board. Without autonomy, the right to privacy remains a paper tiger.</p>
+                    </div>
+                `
+            },
+            'bns_ipc': {
+                title: "BNS vs IPC 1860",
+                content: `
+                    <p class="text-2xl font-serif italic text-gray-800 mb-6">"Nyaya over Danda: A New Criminal Era."</p>
+                    <p>The transition from the Indian Penal Code (IPC) to the Bharatiya Nyaya Sanhita (BNS) is more than just a name change. It is an ideological shift from the colonial objective of 'punishment' to the democratic objective of 'justice'.</p>
+                    <div class="bg-red-50 p-6 rounded-3xl border-l-4 border-red-500 my-6">
+                        <h5 class="font-black text-red-900 text-xs uppercase mb-2">Legislative Shift</h5>
+                        <p class="text-sm text-red-800">BNS has removed the archaic word 'Sedition' and replaced it with provisions against 'Acts endangering sovereignty'. It also introduces community service for the first time.</p>
+                    </div>
+                    <p>Research indicates that while the mapping of sections has caused initial confusion (e.g., Murder moving from Sec 302 to Sec 103), the clarity in defining organized crime and terrorism is a modern necessity.</p>
+                    <p>This article dissects the 'First Information Report' digitization process and how the new code handles digital evidence, making it the most significant reform in 163 years.</p>
+                    <div class="opinion-tag">
+                        <h6 class="font-black text-[10px] text-red-700 uppercase mb-1">OPINION</h6>
+                        <p class="text-sm italic text-red-900 font-medium">Decolonizing the law is great, but re-training the entire police force and judiciary overnight is the real challenge. Names change easily; mindset takes a generation.</p>
+                    </div>
                 `
             }
         };
@@ -141,10 +192,32 @@
             document.getElementById('articleModal').classList.remove('active');
             document.body.style.overflow = 'auto';
         }
+
+        // Scroll Reveal Logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Back Button Fix
+        window.addEventListener('pageshow', (e) => {
+            if (e.persisted) document.body.classList.remove('page-fade-out');
+        });
+
+        // Click Protection
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('copy', e => e.preventDefault());
+        document.onkeydown = (e) => {
+            if (e.ctrlKey && [67, 86, 85, 83].includes(e.keyCode)) return false;
+            if (e.key === 'F12') return false;
+        };
     </script>
 
-    <footer class="mt-12 py-8 text-center">
-        <p class="text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
+    <footer class="mt-12 py-12 text-center border-t border-gray-50">
+        <p class="text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal • Research Hub</p>
     </footer>
 
 </body>
