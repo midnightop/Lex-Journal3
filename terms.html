@@ -9,10 +9,16 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
         
-        body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fcfdfe; 
+            -webkit-tap-highlight-color: transparent; 
+            overflow-x: hidden;
+            -webkit-user-select: none;
+            user-select: none; /* Copy protection */
+        }
         .font-serif { font-family: 'Playfair Display', serif; }
         
-        /* Smooth Entrance Animation */
         .fade-up { animation: fadeUp 0.8s ease-out forwards; }
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(20px); }
@@ -20,12 +26,19 @@
         }
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
+        
+        /* Glassmorphism utility */
+        .glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
     </style>
 </head>
 <body class="pb-10">
 
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl px-4 py-6 md:px-8 md:py-10 flex justify-between items-center border-b border-gray-100">
-        <h1 class="font-black text-gray-800 text-2xl md:text-4xl tracking-tighter">CLJ <span class="text-blue-500">Legal</span></h1>
+        <h1 class="font-black text-gray-800 text-2xl md:text-4xl tracking-tighter uppercase">CLJ <span class="text-blue-500">Legal</span></h1>
         <a href="index.html" class="text-[10px] md:text-sm font-black uppercase tracking-widest text-blue-600 bg-blue-50 px-5 py-3 md:px-8 md:py-4 rounded-full shadow-sm active:scale-90 transition">
             <i class="fa-solid fa-arrow-left mr-1.5"></i> Home
         </a>
@@ -33,22 +46,22 @@
 
     <header class="pt-12 pb-10 px-6 text-center bg-gradient-to-b from-blue-50/50 to-transparent">
         <div class="inline-block bg-white border border-blue-50 px-5 py-2 rounded-full mb-6 shadow-sm">
-            <p class="text-[10px] font-black text-blue-400 uppercase tracking-widest">Official Policy</p>
+            <p class="text-[10px] font-black text-blue-400 uppercase tracking-widest">User Agreement & Policy</p>
         </div>
-        <h1 class="text-4xl md:text-7xl font-serif font-bold text-gray-800 leading-tight tracking-tight fade-up">Terms & <br>Conditions</h1>
+        <h1 class="text-4xl md:text-7xl font-serif font-bold text-gray-800 leading-tight tracking-tight fade-up">Our Legal <br>Framework</h1>
     </header>
 
-    <main class="px-5 space-y-6 md:space-y-12 max-w-3xl mx-auto fade-up" style="animation-delay: 0.2s;">
+    <main class="px-5 space-y-8 md:space-y-12 max-w-4xl mx-auto fade-up" style="animation-delay: 0.2s;">
         
         <section class="bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] border border-gray-50 shadow-xl shadow-blue-50/50">
             <div class="flex items-center gap-4 md:gap-6 mb-6 md:mb-8">
                 <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-600 rounded-2xl md:rounded-3xl flex items-center justify-center text-white text-xl md:text-3xl shadow-lg">
                     <i class="fa-solid fa-scale-balanced"></i>
                 </div>
-                <h3 class="text-xl md:text-3xl font-black text-gray-800">Introduction</h3>
+                <h3 class="text-xl md:text-3xl font-black text-gray-800 uppercase tracking-tighter">1. Introduction</h3>
             </div>
-            <p class="text-gray-500 text-base md:text-xl leading-relaxed font-medium">
-                Welcome to Lawjournal.online By accessing this website, you agree to follow the rules outlined here. These terms ensure that the legal information shared remains educational and reliable.
+            <p class="text-gray-500 text-base md:text-xl leading-relaxed font-medium text-justify">
+                Welcome to <span class="text-blue-600 font-bold">Lawjournal.online</span>. By accessing, browsing, or using this website, you acknowledge that you have read, understood, and agreed to be bound by these Terms and Conditions. This agreement acts as a legal contract between the platform and the user. If you do not agree with any of these terms, you are prohibited from using or accessing this site. All materials contained in this website are protected by applicable copyright and trademark law.
             </p>
         </section>
 
@@ -57,22 +70,32 @@
                 <div class="w-12 h-12 md:w-16 md:h-16 bg-purple-600 rounded-2xl md:rounded-3xl flex items-center justify-center text-white text-xl md:text-3xl shadow-lg">
                     <i class="fa-solid fa-file-shield"></i>
                 </div>
-                <h3 class="text-xl md:text-3xl font-black text-gray-800">Usage Policy</h3>
+                <h3 class="text-xl md:text-3xl font-black text-gray-800 uppercase tracking-tighter">2. Usage Policy</h3>
             </div>
-            <ul class="space-y-4 md:space-y-6">
-                <li class="flex gap-4 text-gray-500 text-sm md:text-lg font-medium">
-                    <i class="fa-solid fa-circle-check text-green-500 mt-1"></i>
-                    <span>Educational and research purposes only.</span>
-                </li>
-                <li class="flex gap-4 text-gray-500 text-sm md:text-lg font-medium">
-                    <i class="fa-solid fa-circle-check text-green-500 mt-1"></i>
-                    <span>Proper citation required for research papers.</span>
-                </li>
-                <li class="flex gap-4 text-gray-500 text-sm md:text-lg font-medium">
-                    <i class="fa-solid fa-circle-check text-green-500 mt-1"></i>
-                    <span>Verify statutes from official government gazettes.</span>
-                </li>
-            </ul>
+            <div class="space-y-6">
+                <div class="p-6 bg-purple-50/50 rounded-3xl">
+                    <h4 class="text-purple-900 font-black text-sm uppercase mb-3">Academic Integrity</h4>
+                    <p class="text-gray-500 text-sm md:text-lg leading-relaxed">
+                        The content provided is strictly for **educational and research purposes**. Users are allowed to use the information for academic assignments, moot court preparations, and general legal awareness. Commercial exploitation of the data without written consent is strictly prohibited.
+                    </p>
+                </div>
+                <div class="p-6 bg-blue-50/50 rounded-3xl">
+                    <h4 class="text-blue-900 font-black text-sm uppercase mb-3">Verification Clause</h4>
+                    <p class="text-gray-500 text-sm md:text-lg leading-relaxed">
+                        While we strive for 100% accuracy, laws and statutes change frequently. We strongly advise users to verify the latest amendments and sections from official **Government Gazettes** or registered legal practitioners before relying on them for litigation.
+                    </p>
+                </div>
+                <ul class="space-y-4 px-2">
+                    <li class="flex gap-4 text-gray-600 text-sm md:text-lg font-bold">
+                        <i class="fa-solid fa-circle-check text-green-500 mt-1"></i>
+                        <span>No unauthorized scraping or automated data collection.</span>
+                    </li>
+                    <li class="flex gap-4 text-gray-600 text-sm md:text-lg font-bold">
+                        <i class="fa-solid fa-circle-check text-green-500 mt-1"></i>
+                        <span>Respect intellectual property rights of the contributors.</span>
+                    </li>
+                </ul>
+            </div>
         </section>
 
         <section class="bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] border border-gray-50 shadow-xl shadow-blue-50/50">
@@ -80,11 +103,14 @@
                 <div class="w-12 h-12 md:w-16 md:h-16 bg-orange-500 rounded-2xl md:rounded-3xl flex items-center justify-center text-white text-xl md:text-3xl shadow-lg">
                     <i class="fa-solid fa-triangle-exclamation"></i>
                 </div>
-                <h3 class="text-xl md:text-3xl font-black text-gray-800">Disclaimer</h3>
+                <h3 class="text-xl md:text-3xl font-black text-gray-800 uppercase tracking-tighter">3. Disclaimer</h3>
             </div>
-            <div class="bg-orange-50 p-6 md:p-8 rounded-3xl border-l-4 md:border-l-8 border-orange-400">
-                <p class="text-orange-900 text-base md:text-xl italic font-bold leading-relaxed">
-                    "This website does not provide professional legal advice. Kindly consult a registered advocate for legal matters."
+            <div class="bg-orange-50 p-8 md:p-10 rounded-3xl border-l-8 border-orange-400">
+                <p class="text-orange-900 text-xl md:text-2xl italic font-black leading-tight mb-4">
+                    "Lawjournal.online is an Informational Portal, not a Law Firm."
+                </p>
+                <p class="text-orange-800 text-base md:text-lg font-medium leading-relaxed">
+                    The information provided on this website does not, and is not intended to, constitute legal advice; instead, all information, content, and materials available on this site are for general informational purposes only. Information on this website may not constitute the most up-to-date legal or other information. You should contact your attorney to obtain advice with respect to any particular legal matter.
                 </p>
             </div>
         </section>
@@ -94,18 +120,42 @@
                 <div class="w-12 h-12 md:w-16 md:h-16 bg-pink-600 rounded-2xl md:rounded-3xl flex items-center justify-center text-white text-xl md:text-3xl shadow-lg">
                     <i class="fa-solid fa-lock"></i>
                 </div>
-                <h3 class="text-xl md:text-3xl font-black text-gray-800">Privacy</h3>
+                <h3 class="text-xl md:text-3xl font-black text-gray-800 uppercase tracking-tighter">4. Privacy Policy</h3>
             </div>
-            <p class="text-gray-500 text-base md:text-xl leading-relaxed font-medium">
-                We respect your privacy. No personal data is collected or shared without your explicit consent. Your digital safety is our priority.
+            <p class="text-gray-500 text-base md:text-xl leading-relaxed font-medium text-justify">
+                We believe in complete transparency. Our platform follows a strict **No-Tracking Policy**. We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties. Any data shared voluntarily via contact forms is encrypted and used only for communication purposes. Your digital footprint on our site is kept anonymous to ensure a safe research environment.
+            </p>
+        </section>
+
+        <section class="bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] border border-gray-50 shadow-xl shadow-blue-50/50">
+            <div class="flex items-center gap-4 md:gap-6 mb-6 md:mb-8">
+                <div class="w-12 h-12 md:w-16 md:h-16 bg-teal-600 rounded-2xl md:rounded-3xl flex items-center justify-center text-white text-xl md:text-3xl shadow-lg">
+                    <i class="fa-solid fa-copyright"></i>
+                </div>
+                <h3 class="text-xl md:text-3xl font-black text-gray-800 uppercase tracking-tighter">5. Copyright</h3>
+            </div>
+            <p class="text-gray-500 text-base md:text-xl leading-relaxed font-medium text-justify">
+                All contents including text, graphics, logos, and case summaries are the intellectual property of Calcutta Law Journal (CLJ). Unauthorized reproduction, redistribution, or modification of the content is a violation of Indian Copyright Act, 1957. If you wish to use our analysis for publication, please reach out for formal licensing.
             </p>
         </section>
 
     </main>
 
-    <footer class="py-16 text-center">
-        <p class="text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">&copy; 2026 Lawjournal.online</p>
+    <footer class="py-20 text-center">
+        <div class="mb-6 h-px w-24 bg-gray-100 mx-auto"></div>
+        <p class="text-[10px] font-black text-gray-400 uppercase tracking-[0.5em]">&copy; 2026 Calcutta Law Journal • Lawjournal.online</p>
+        <p class="text-[8px] text-gray-300 mt-2">All Rights Reserved. Jurisdiction: Kolkata, WB.</p>
     </footer>
 
+    <script>
+        // Disable Right Click & Copying for Data Protection
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('copy', e => e.preventDefault());
+        document.onkeydown = function(e) {
+            if(e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 85 || e.keyCode === 83)) {
+                return false;
+            }
+        };
+    </script>
 </body>
 </html>
