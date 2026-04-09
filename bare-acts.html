@@ -9,31 +9,34 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
         
-        body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
         .font-serif { font-family: 'Playfair Display', serif; }
         
-        .header-bg { background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%); }
+        .header-bg { background: linear-gradient(135deg, #e0f2fe 0%, #fdfcfd 100%); }
         
-        /* Mobile-Friendly Act Cards */
-        .act-card { transition: all 0.3s ease; border-top: 6px solid #3b82f6; }
+        /* Vibrant Act Cards */
+        .act-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .act-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1); }
         .act-card.hidden { display: none; }
         
-        /* Centered Search Bar Focus */
+        /* More Colourful Accents */
+        .bg-constitution { background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%); border-top: 8px solid #2563eb; }
+        .bg-bns { background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%); border-top: 8px solid #dc2626; }
+        .bg-ipc { background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 100%); border-top: 8px solid #7c3aed; }
+        .bg-hma { background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%); border-top: 8px solid #d97706; }
+        .bg-contract { background: linear-gradient(135deg, #ecfdf5 0%, #ffffff 100%); border-top: 8px solid #059669; }
+
         .search-focus:focus-within { 
             border-color: #3b82f6; 
-            box-shadow: 0 15px 35px -10px rgba(59, 130, 246, 0.2); 
-            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3); 
         }
 
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-
-        /* Smooth Click Transition */
         .page-fade-out { opacity: 0 !important; transition: opacity 0.2s ease-out; }
     </style>
 </head>
 <body class="pb-10">
 
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl px-4 py-4 md:px-10 flex justify-between items-center border-b border-gray-100">
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl px-4 py-4 md:px-10 flex justify-between items-center border-b border-gray-100">
         <h1 class="font-black text-gray-800 text-xl md:text-2xl tracking-tighter">CLJ <span class="text-blue-500">Acts</span></h1>
         <a href="index.html" class="text-[10px] font-black uppercase tracking-widest text-blue-600 bg-blue-50 px-5 py-2.5 rounded-full shadow-sm active:scale-90 transition">
             <i class="fa-solid fa-house mr-1.5"></i> Home
@@ -41,175 +44,165 @@
     </nav>
 
     <header class="header-bg pt-12 pb-8 px-6 text-center">
-        <div class="inline-block bg-white border border-blue-100 px-4 py-2 rounded-full mb-6 shadow-sm">
-            <p class="text-[10px] font-black text-blue-400 uppercase tracking-widest flex items-center justify-center">
-                <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span> Digital Library
+        <div class="inline-block bg-white border border-blue-100 px-4 py-2 rounded-full mb-6 shadow-md">
+            <p class="text-[10px] font-black text-blue-600 uppercase tracking-widest flex items-center justify-center">
+                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3 animate-pulse"></span> 2026 Updated Library
             </p>
         </div>
         
-        <h1 class="text-4xl md:text-6xl font-serif font-bold text-gray-800 mb-2 tracking-tight">Indian <span class="text-blue-500">Acts</span></h1>
-        <p class="text-lg md:text-2xl font-serif italic text-gray-500 mb-10">Simplified for students</p>
+        <h1 class="text-4xl md:text-6xl font-serif font-bold text-gray-900 mb-2 tracking-tight">Vibrant <span class="text-blue-600">Legal</span> Portal</h1>
+        <p class="text-lg md:text-2xl font-serif italic text-gray-500 mb-10">Study law with clarity and color</p>
 
-        <div class="max-w-md mx-auto mb-8 relative search-focus transition-all duration-300 border-2 border-gray-100 rounded-2xl bg-white flex items-center px-5 shadow-sm">
+        <div class="max-w-md mx-auto mb-8 relative search-focus transition-all duration-300 border-2 border-white rounded-3xl bg-white/50 backdrop-blur-sm flex items-center px-5 shadow-lg">
             <i class="fa-solid fa-magnifying-glass text-blue-500 text-lg"></i>
             <input type="text" id="actSearch" onkeyup="searchActs()" placeholder="Search Acts (e.g. BNS, IPC)..." 
-            class="w-full py-4 px-4 text-base font-bold outline-none text-gray-700 placeholder:text-gray-300">
-        </div>
-        
-        <div class="flex justify-center items-center gap-3 mb-10">
-            <span class="bg-white px-4 py-2.5 rounded-xl shadow-md text-[10px] font-black text-gray-600 border border-gray-50 flex items-center gap-2">
-                <i class="fa-solid fa-layer-group text-blue-500"></i> 5 Acts
-            </span>
-            <span class="bg-white px-4 py-2.5 rounded-xl shadow-md text-[10px] font-black text-gray-600 border border-gray-50 flex items-center gap-2">
-                <i class="fa-solid fa-list-check text-green-500"></i> 200+ Sections
-            </span>
+            class="w-full py-4 px-4 text-base font-bold outline-none bg-transparent text-gray-700 placeholder:text-gray-300">
         </div>
     </header>
 
-    <main class="px-6 space-y-8 max-w-lg mx-auto" id="actsContainer">
+    <main class="px-6 space-y-12 max-w-2xl mx-auto" id="actsContainer">
         
-        <div class="act-card bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-50" data-title="Constitution Constitution of India">
-            <div class="flex justify-between items-start mb-6">
-                <div class="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-blue-100">
-                    <i class="fa-solid fa-landmark text-2xl"></i>
+        <div class="act-card bg-constitution rounded-[2.5rem] p-8 shadow-xl border border-blue-50" data-title="Constitution Constitution of India">
+            <div class="flex justify-between items-start mb-8">
+                <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-white shadow-xl shadow-blue-200">
+                    <i class="fa-solid fa-landmark-dome text-3xl"></i>
                 </div>
-                <span class="text-blue-600 text-[9px] font-black bg-blue-50 px-3 py-1.5 rounded-full uppercase tracking-wider border border-blue-100">National Law</span>
+                <span class="text-blue-600 text-[10px] font-black bg-blue-100 px-4 py-2 rounded-full uppercase tracking-widest border border-blue-200">Supreme Document</span>
             </div>
-            <h2 class="text-3xl font-black text-gray-800 tracking-tight">Constitution</h2>
-            <p class="text-gray-400 text-[10px] font-black uppercase tracking-widest mt-2 mb-6">India, 1950 • 448 Articles</p>
-            <div class="text-gray-600 text-sm space-y-3 mb-8">
-                <p class="italic font-medium">"The fundamental framework that governs the Republic of India."</p>
-                <ul class="space-y-2 text-[12px]">
-                    <li>• <strong>Grundnorm:</strong> Supreme law of India.</li>
-                    <li>• <strong>Federalism:</strong> Dual polity with unitary bias.</li>
-                    <li>• <strong>Fundamental Rights:</strong> Guaranteed by Part III.</li>
-                    <li>• <strong>DPSP:</strong> Directive principles for social justice.</li>
-                    <li>• <strong>Judicial Supremacy:</strong> Power of Judicial Review.</li>
-                    <li>• <strong>Writ Jurisdiction:</strong> Art 32 & 226 protections.</li>
-                    <li>• <strong>Secularism:</strong> Equality for all religions.</li>
-                    <li>• <strong>Amendment:</strong> Flexibility via Art 368.</li>
-                    <li>• <strong>Democratic Republic:</strong> Power to the people.</li>
-                    <li>• <strong>Emergency Powers:</strong> Safeguards for the state.</li>
-                </ul>
+            
+            <h2 class="text-4xl font-black text-gray-900 tracking-tight mb-2">Constitution</h2>
+            <p class="text-blue-500 text-[11px] font-black uppercase tracking-[0.2em] mb-8">Mastering the Grundnorm</p>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <div>
+                    <h4 class="text-blue-700 font-black text-[12px] uppercase mb-4 tracking-wider">5 Key Concepts</h4>
+                    <ul class="space-y-3 text-[13px] font-medium text-gray-700">
+                        <li class="flex items-start"><i class="fa-solid fa-circle-dot mt-1 mr-3 text-blue-400"></i> Basic Structure Doctrine</li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle-dot mt-1 mr-3 text-blue-400"></i> Federalism with Unitary Bias</li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle-dot mt-1 mr-3 text-blue-400"></i> Parliamentary Democracy</li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle-dot mt-1 mr-3 text-blue-400"></i> Independent Judiciary</li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle-dot mt-1 mr-3 text-blue-400"></i> Secularism & Equality</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-blue-700 font-black text-[12px] uppercase mb-4 tracking-wider">5 Key Articles</h4>
+                    <ul class="space-y-3 text-[13px] font-medium text-gray-700">
+                        <li class="flex items-start"><i class="fa-solid fa-bookmark mt-1 mr-3 text-blue-500"></i> <strong>Art 14:</strong> Right to Equality</li>
+                        <li class="flex items-start"><i class="fa-solid fa-bookmark mt-1 mr-3 text-blue-500"></i> <strong>Art 19:</strong> Freedom of Speech</li>
+                        <li class="flex items-start"><i class="fa-solid fa-bookmark mt-1 mr-3 text-blue-500"></i> <strong>Art 21:</strong> Right to Life & Liberty</li>
+                        <li class="flex items-start"><i class="fa-solid fa-bookmark mt-1 mr-3 text-blue-500"></i> <strong>Art 32:</strong> Constitutional Remedies</li>
+                        <li class="flex items-start"><i class="fa-solid fa-bookmark mt-1 mr-3 text-blue-500"></i> <strong>Art 226:</strong> High Court Writs</li>
+                    </ul>
+                </div>
             </div>
-            <a href="constitution-sections.html" class="w-full text-blue-600 text-[11px] font-black border-t border-gray-50 pt-6 flex justify-between items-center tracking-widest uppercase active:scale-95 transition">
-                View Key Sections <i class="fa-solid fa-circle-arrow-right text-2xl"></i>
+
+            <div class="bg-white/50 p-6 rounded-3xl border border-blue-100 mb-8">
+                <h5 class="font-black text-[10px] text-blue-600 uppercase mb-4 tracking-widest">Educational Analysis</h5>
+                <p class="text-[13px] text-gray-600 leading-relaxed text-justify">
+                    The Constitution of India is the longest written constitution of any sovereign country in the world. It was enacted on 26th November 1949 and came into effect on 26th January 1950. As the supreme law, it provides a comprehensive framework that balances the rights of the individual with the security and interests of the state. 
+                    <br><br>
+                    Law students must understand that the Constitution is not a static document; it is a "living document" that evolves through judicial interpretations. The 'Basic Structure' doctrine, established in the Kesavananda Bharati case, ensures that while Parliament has the power to amend the Constitution, it cannot destroy its core identity. From Article 12, which defines the 'State', to Article 368, which outlines the amendment process, every provision is a cog in the wheel of Indian democracy. Mastering the Constitution is essential because every other Bare Act—be it IPC, BNS, or Contract Act—must be consistent with its provisions, or it faces being declared *ultra vires*.
+                </p>
+            </div>
+
+            <a href="constitution-sections.html" class="w-full text-blue-600 text-[11px] font-black border-t border-blue-50 pt-6 flex justify-between items-center tracking-widest uppercase active:scale-95 transition">
+                Deep Dive Articles <i class="fa-solid fa-circle-arrow-right text-3xl"></i>
             </a>
         </div>
 
-        <div class="act-card bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-50" style="border-top-color: #ef4444;" data-title="BNS Bharatiya Nyaya Sanhita New Criminal Law">
-            <div class="flex justify-between items-start mb-6">
-                <div class="w-14 h-14 bg-red-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-red-100">
-                    <i class="fa-solid fa-shield-halved text-2xl"></i>
+        <div class="act-card bg-bns rounded-[2.5rem] p-8 shadow-xl border border-red-50" data-title="BNS Bharatiya Nyaya Sanhita New Criminal Law">
+            <div class="flex justify-between items-start mb-8">
+                <div class="w-16 h-16 bg-red-600 rounded-2xl flex items-center justify-center text-white shadow-xl shadow-red-200">
+                    <i class="fa-solid fa-shield-halved text-3xl"></i>
                 </div>
-                <span class="text-red-600 text-[9px] font-black bg-red-50 px-3 py-1.5 rounded-full uppercase tracking-wider border border-red-100">New Law</span>
+                <span class="text-red-600 text-[10px] font-black bg-red-100 px-4 py-2 rounded-full uppercase tracking-widest border border-red-200">New Era</span>
             </div>
-            <h2 class="text-3xl font-black text-gray-800 tracking-tight">BNS</h2>
-            <p class="text-gray-400 text-[10px] font-black uppercase tracking-widest mt-2 mb-6">Bharatiya Nyaya Sanhita, 2023</p>
-            <div class="text-gray-600 text-sm space-y-3 mb-8">
-                <p class="italic font-medium">"Replacing colonial-era IPC with a victim-centric approach."</p>
-                <ul class="space-y-2 text-[12px]">
-                    <li>• <strong>Decolonization:</strong> Removes British terminology.</li>
-                    <li>• <strong>Community Service:</strong> New punishment type.</li>
-                    <li>• <strong>Terrorism:</strong> Clearly defined for the first time.</li>
-                    <li>• <strong>Organized Crime:</strong> Strict penalties introduced.</li>
-                    <li>• <strong>Gender Neutrality:</strong> Applied to many offenses.</li>
-                    <li>• <strong>Victim Rights:</strong> Faster judicial processes.</li>
-                    <li>• <strong>Digital Evidence:</strong> Broadened legal scope.</li>
-                    <li>• <strong>Zero FIR:</strong> Mandatory filing protocols.</li>
-                    <li>• <strong>Mob Lynching:</strong> Specific criminal provisions.</li>
-                    <li>• <strong>Sedition:</strong> Replaced with Treason focus.</li>
-                </ul>
+            
+            <h2 class="text-4xl font-black text-gray-900 tracking-tight mb-2">BNS</h2>
+            <p class="text-red-500 text-[11px] font-black uppercase tracking-[0.2em] mb-8">Bharatiya Nyaya Sanhita, 2023</p>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <div>
+                    <h4 class="text-red-700 font-black text-[12px] uppercase mb-4 tracking-wider">5 Key Concepts</h4>
+                    <ul class="space-y-3 text-[13px] font-medium text-gray-700">
+                        <li class="flex items-start"><i class="fa-solid fa-check-double mt-1 mr-3 text-red-400"></i> Victim Centric Justice</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check-double mt-1 mr-3 text-red-400"></i> Digital-First Evidence</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check-double mt-1 mr-3 text-red-400"></i> Reformative Punishment</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check-double mt-1 mr-3 text-red-400"></i> Gender Neutral Definitions</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check-double mt-1 mr-3 text-red-400"></i> Organized Crime Focus</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-red-700 font-black text-[12px] uppercase mb-4 tracking-wider">5 Key Sections</h4>
+                    <ul class="space-y-3 text-[13px] font-medium text-gray-700">
+                        <li class="flex items-start"><i class="fa-solid fa-gavel mt-1 mr-3 text-red-500"></i> <strong>Sec 2:</strong> Modern Definitions</li>
+                        <li class="flex items-start"><i class="fa-solid fa-gavel mt-1 mr-3 text-red-500"></i> <strong>Sec 103:</strong> Punishment for Murder</li>
+                        <li class="flex items-start"><i class="fa-solid fa-gavel mt-1 mr-3 text-red-500"></i> <strong>Sec 111:</strong> Organized Crime</li>
+                        <li class="flex items-start"><i class="fa-solid fa-gavel mt-1 mr-3 text-red-500"></i> <strong>Sec 113:</strong> Terrorism Provisions</li>
+                        <li class="flex items-start"><i class="fa-solid fa-gavel mt-1 mr-3 text-red-500"></i> <strong>Sec 4:</strong> Community Service</li>
+                    </ul>
+                </div>
             </div>
-            <a href="bns-sections.html" class="w-full text-red-600 text-[11px] font-black border-t border-gray-50 pt-6 flex justify-between items-center tracking-widest uppercase active:scale-95 transition">
-                View Key Sections <i class="fa-solid fa-circle-arrow-right text-2xl"></i>
+
+            <div class="bg-white/50 p-6 rounded-3xl border border-red-100 mb-8">
+                <h5 class="font-black text-[10px] text-red-600 uppercase mb-4 tracking-widest">New Criminal Code Analysis</h5>
+                <p class="text-[13px] text-gray-600 leading-relaxed text-justify">
+                    The Bharatiya Nyaya Sanhita (BNS) is a landmark shift in the Indian legal landscape, aiming to remove the shadows of the colonial IPC. It introduces a more contemporary understanding of crime and punishment. One of the most significant changes is the introduction of 'Community Service' as a form of punishment, moving the needle towards a more reformative justice system for petty offenses. 
+                    <br><br>
+                    BNS also addresses 21st-century challenges by strictly defining organized crime and terrorism within the general penal law. For students, the transition from IPC to BNS requires unlearning section numbers while deeply understanding the refined definitions of offenses against the human body and property. This act is the first step towards a digital-native legal system in India.
+                </p>
+            </div>
+
+            <a href="bns-sections.html" class="act-link w-full text-red-600 text-[11px] font-black border-t border-red-50 pt-6 flex justify-between items-center tracking-widest uppercase active:scale-95 transition">
+                Explore BNS Sections <i class="fa-solid fa-circle-arrow-right text-3xl"></i>
             </a>
         </div>
 
-        <div class="act-card bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-50" style="border-top-color: #a855f7;" data-title="IPC Indian Penal Code Criminal">
-            <div class="flex justify-between items-start mb-6">
-                <div class="w-14 h-14 bg-purple-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-purple-100">
-                    <i class="fa-solid fa-gavel text-2xl"></i>
+        <div class="act-card bg-hma rounded-[2.5rem] p-8 shadow-xl border border-amber-50" data-title="Hindu Marriage Act HMA Family Law">
+            <div class="flex justify-between items-start mb-8">
+                <div class="w-16 h-16 bg-amber-600 rounded-2xl flex items-center justify-center text-white shadow-xl shadow-amber-200">
+                    <i class="fa-solid fa-om text-3xl"></i>
                 </div>
-                <span class="text-purple-600 text-[9px] font-black bg-purple-50 px-3 py-1.5 rounded-full uppercase tracking-wider border border-purple-100">Criminal Code</span>
+                <span class="text-amber-600 text-[10px] font-black bg-amber-100 px-4 py-2 rounded-full uppercase tracking-widest border border-amber-200">Personal Law</span>
             </div>
-            <h2 class="text-3xl font-black text-gray-800 tracking-tight">IPC</h2>
-            <p class="text-gray-400 text-[10px] font-black uppercase tracking-widest mt-2 mb-6">Penal Code, 1860 • 511 Sections</p>
-            <div class="text-gray-600 text-sm space-y-3 mb-8">
-                <p class="italic font-medium">"The principal criminal code of India defining offenses."</p>
-                <ul class="space-y-2 text-[12px]">
-                    <li>• <strong>Codification:</strong> Lord Macaulay's legacy.</li>
-                    <li>• <strong>Mens Rea:</strong> Essential guilty mind concept.</li>
-                    <li>• <strong>Punishments:</strong> Range from fine to death.</li>
-                    <li>• <strong>Murder:</strong> Detailed under Section 300.</li>
-                    <li>• <strong>Theft:</strong> Elements of dishonest intent.</li>
-                    <li>• <strong>Culpable Homicide:</strong> Distinct from murder.</li>
-                    <li>• <strong>Exceptions:</strong> General defenses (76-106).</li>
-                    <li>• <strong>Abetment:</strong> Holding accessories liable.</li>
-                    <li>• <strong>Conspiracy:</strong> Criminal agreement focus.</li>
-                    <li>• <strong>Public Order:</strong> Crimes against the state.</li>
-                </ul>
-            </div>
-            <a href="ipc-sections.html" class="w-full text-purple-600 text-[11px] font-black border-t border-gray-50 pt-6 flex justify-between items-center tracking-widest uppercase active:scale-95 transition">
-                View Key Sections <i class="fa-solid fa-circle-arrow-right text-2xl"></i>
-            </a>
-        </div>
+            
+            <h2 class="text-4xl font-black text-gray-900 tracking-tight mb-2">HMA</h2>
+            <p class="text-amber-600 text-[11px] font-black uppercase tracking-[0.2em] mb-8">Hindu Marriage Act, 1955</p>
 
-        <div class="act-card bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-50" style="border-top-color: #f59e0b;" data-title="Hindu Marriage Act HMA Family Law">
-            <div class="flex justify-between items-start mb-6">
-                <div class="w-14 h-14 bg-amber-500 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-amber-100">
-                    <i class="fa-solid fa-om text-2xl"></i>
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <div>
+                    <h4 class="text-amber-700 font-black text-[12px] uppercase mb-4 tracking-wider">5 Key Concepts</h4>
+                    <ul class="space-y-3 text-[13px] font-medium text-gray-700">
+                        <li class="flex items-start"><i class="fa-solid fa-heart mt-1 mr-3 text-amber-400"></i> Sacramental Marriage</li>
+                        <li class="flex items-start"><i class="fa-solid fa-heart mt-1 mr-3 text-amber-400"></i> Legal Monogamy</li>
+                        <li class="flex items-start"><i class="fa-solid fa-heart mt-1 mr-3 text-amber-400"></i> Matrimonial Reliefs</li>
+                        <li class="flex items-start"><i class="fa-solid fa-heart mt-1 mr-3 text-amber-400"></i> Sapinda Relationships</li>
+                        <li class="flex items-start"><i class="fa-solid fa-heart mt-1 mr-3 text-amber-400"></i> Alimony & Maintenance</li>
+                    </ul>
                 </div>
-                <span class="text-amber-600 text-[9px] font-black bg-amber-50 px-3 py-1.5 rounded-full uppercase tracking-wider border border-amber-100">Family Law</span>
+                <div>
+                    <h4 class="text-amber-700 font-black text-[12px] uppercase mb-4 tracking-wider">5 Key Sections</h4>
+                    <ul class="space-y-3 text-[13px] font-medium text-gray-700">
+                        <li class="flex items-start"><i class="fa-solid fa-scroll mt-1 mr-3 text-amber-500"></i> <strong>Sec 5:</strong> Conditions for Marriage</li>
+                        <li class="flex items-start"><i class="fa-solid fa-scroll mt-1 mr-3 text-amber-500"></i> <strong>Sec 9:</strong> Restitution of Conjugal Rights</li>
+                        <li class="flex items-start"><i class="fa-solid fa-scroll mt-1 mr-3 text-amber-500"></i> <strong>Sec 13:</strong> Grounds for Divorce</li>
+                        <li class="flex items-start"><i class="fa-solid fa-scroll mt-1 mr-3 text-amber-500"></i> <strong>Sec 24:</strong> Maintenance Pendente Lite</li>
+                        <li class="flex items-start"><i class="fa-solid fa-scroll mt-1 mr-3 text-amber-500"></i> <strong>Sec 25:</strong> Permanent Alimony</li>
+                    </ul>
+                </div>
             </div>
-            <h2 class="text-3xl font-black text-gray-800 tracking-tight">HMA</h2>
-            <p class="text-gray-400 text-[10px] font-black uppercase tracking-widest mt-2 mb-6">Hindu Marriage Act, 1955</p>
-            <div class="text-gray-600 text-sm space-y-3 mb-8">
-                <p class="italic font-medium">"The primary law governing marriage and divorce among Hindus."</p>
-                <ul class="space-y-2 text-[12px]">
-                    <li>• <strong>Codification:</strong> Uniformity in personal law.</li>
-                    <li>• <strong>Monogamy:</strong> Legal requirement of one spouse.</li>
-                    <li>• <strong>Divorce:</strong> Grounds like cruelty & desertion.</li>
-                    <li>• <strong>Restitution:</strong> Conjugal rights (Section 9).</li>
-                    <li>• <strong>Nullity:</strong> Void and voidable marriages.</li>
-                    <li>• <strong>Maintenance:</strong> Rights of spouse (Sec 24/25).</li>
-                    <li>• <strong>Custody:</strong> Welfare of minor children.</li>
-                    <li>• <strong>Consent:</strong> Age and mental health rules.</li>
-                    <li>• <strong>Ceremonies:</strong> Saptapadi and legal rites.</li>
-                    <li>• <strong>Jurisdiction:</strong> Family court procedures.</li>
-                </ul>
-            </div>
-            <a href="hma-sections.html" class="w-full text-amber-600 text-[11px] font-black border-t border-gray-50 pt-6 flex justify-between items-center tracking-widest uppercase active:scale-95 transition">
-                View Key Sections <i class="fa-solid fa-circle-arrow-right text-2xl"></i>
-            </a>
-        </div>
 
-        <div class="act-card bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-50" style="border-top-color: #10b981;" data-title="Indian Contract Act ICA Civil Law">
-            <div class="flex justify-between items-start mb-6">
-                <div class="w-14 h-14 bg-emerald-500 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-emerald-100">
-                    <i class="fa-solid fa-file-signature text-2xl"></i>
-                </div>
-                <span class="text-emerald-600 text-[9px] font-black bg-emerald-50 px-3 py-1.5 rounded-full uppercase tracking-wider border border-emerald-100">Civil Law</span>
+            <div class="bg-white/50 p-6 rounded-3xl border border-amber-100 mb-8">
+                <h5 class="font-black text-[10px] text-amber-600 uppercase mb-4 tracking-widest">Family Law Insight</h5>
+                <p class="text-[13px] text-gray-600 leading-relaxed text-justify">
+                    The Hindu Marriage Act of 1955 was a revolutionary step in codifying the diverse customs of Hindu personal law. It moved the institution from a purely religious sacrament towards a legally binding contract with social obligations. Understanding Section 5 is crucial, as it sets the threshold for a valid marriage—dealing with age, mental capacity, and the strict prohibition of bigamy. 
+                    <br><br>
+                    For a law student, the real challenge lies in the evolving interpretation of Section 13 (Divorce). Courts now focus on 'Irretrievable Breakdown' and 'Mental Cruelty' more than ever. This Act is not just about marriage; it is about the protection of spouse rights, child custody, and the financial security of individuals after the dissolution of marriage.
+                </p>
             </div>
-            <h2 class="text-3xl font-black text-gray-800 tracking-tight">Contract Act</h2>
-            <p class="text-gray-400 text-[10px] font-black uppercase tracking-widest mt-2 mb-6">Indian Contract Act, 1872</p>
-            <div class="text-gray-600 text-sm space-y-3 mb-8">
-                <p class="italic font-medium">"Governing the formation and enforceability of agreements."</p>
-                <ul class="space-y-2 text-[12px]">
-                    <li>• <strong>Proposal:</strong> Essential starting point.</li>
-                    <li>• <strong>Acceptance:</strong> Absolute and unqualified rules.</li>
-                    <li>• <strong>Consideration:</strong> Quid pro quo requirement.</li>
-                    <li>• <strong>Capacity:</strong> Rules for minors/unsound mind.</li>
-                    <li>• <strong>Free Consent:</strong> Absence of fraud or coercion.</li>
-                    <li>• <strong>Breach:</strong> Consequences of non-performance.</li>
-                    <li>• <strong>Damages:</strong> Compensation for losses.</li>
-                    <li>• <strong>Indemnity:</strong> Protection against liability.</li>
-                    <li>• <strong>Guarantee:</strong> Three-party safety netting.</li>
-                    <li>• <strong>Agency:</strong> Rules for acting on behalf.</li>
-                </ul>
-            </div>
-            <a href="contract-sections.html" class="w-full text-emerald-600 text-[11px] font-black border-t border-gray-50 pt-6 flex justify-between items-center tracking-widest uppercase active:scale-95 transition">
-                View Key Sections <i class="fa-solid fa-circle-arrow-right text-2xl"></i>
+
+            <a href="hma-sections.html" class="act-link w-full text-amber-600 text-[11px] font-black border-t border-amber-50 pt-6 flex justify-between items-center tracking-widest uppercase active:scale-95 transition">
+                View Detailed Sections <i class="fa-solid fa-circle-arrow-right text-3xl"></i>
             </a>
         </div>
 
