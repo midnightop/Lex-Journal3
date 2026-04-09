@@ -8,12 +8,43 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; -webkit-tap-highlight-color: transparent; }
-        .font-serif { font-family: 'Playfair Display', serif; }
-        .info-card { border-left: 6px solid #3b82f6; }
-        @media (min-width: 768px) {
-            .info-card { border-left-width: 10px; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fcfdfe; 
+            -webkit-tap-highlight-color: transparent;
+            /* --- COPY PROTECTION CSS --- */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
+
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        /* Vibrant Borders & Cards */
+        .info-card { 
+            border-left: 6px solid #3b82f6; 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .info-card:hover { transform: translateX(8px); }
+        
+        @media (min-width: 768px) {
+            .info-card { border-left-width: 12px; }
+        }
+
+        /* Fast Entrance Animation */
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out; 
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Smooth Fade-out for buttons */
+        .page-fade-out { opacity: 0 !important; transition: opacity 0.2s ease-out; }
+
+        .case-box { background: rgba(243, 244, 246, 0.6); border-radius: 1rem; padding: 1rem; border-left: 3px solid #6b7280; }
     </style>
 </head>
 <body class="pb-10">
@@ -25,37 +56,156 @@
         </a>
     </nav>
 
-    <main class="px-5 space-y-6 md:space-y-12 max-w-2xl mx-auto mt-8 md:mt-16">
+    <main class="px-5 space-y-8 md:space-y-16 max-w-3xl mx-auto mt-8 md:mt-16">
         
-        <section class="info-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-blue-50/50">
+        <section class="info-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-blue-50/50 reveal active">
             <h3 class="text-blue-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Background & History</h3>
-            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-4 md:mb-6 tracking-tight">How it was Formed?</h2>
-            <p class="text-gray-600 text-base md:text-xl leading-relaxed font-medium italic">
-                The Constitution of India was adopted on 26th November 1949 and came into effect on 26th January 1950. It took 2 years, 11 months, and 18 days to complete. It transformed India into a Sovereign Democratic Republic.
-            </p>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">How it was Formed?</h2>
+            
+            <div class="space-y-6 text-gray-600 text-sm md:text-base leading-relaxed">
+                <p class="font-medium italic text-gray-700 text-lg">"The journey from a colonial subject to a Sovereign Republic."</p>
+                <p>The Constitution of India was not just a legal document but a charter of dreams for millions of Indians who fought for freedom. It was adopted on 26th November 1949 and came into effect on 26th January 1950. The Constituent Assembly, led by Dr. B.R. Ambedkar, took exactly 2 years, 11 months, and 18 days to draft this masterpiece.</p>
+                
+                <h4 class="font-black text-gray-800 uppercase text-xs tracking-widest">10 Key Historical Milestones:</h4>
+                <ul class="grid md:grid-cols-2 gap-3">
+                    <li class="flex items-start"><i class="fa-solid fa-circle-check text-blue-500 mt-1 mr-2"></i> M.N. Roy first proposed the idea in 1934.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-circle-check text-blue-500 mt-1 mr-2"></i> Constituent Assembly set up in 1946.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-circle-check text-blue-500 mt-1 mr-2"></i> Objective Resolution by Nehru (1946).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-circle-check text-blue-500 mt-1 mr-2"></i> Drafting Committee headed by Dr. Ambedkar.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-circle-check text-blue-500 mt-1 mr-2"></i> Inspired by USA, UK, Ireland & Canada.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-circle-check text-blue-500 mt-1 mr-2"></i> World's longest written Constitution.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-circle-check text-blue-500 mt-1 mr-2"></i> Hand-written in Hindi and English.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-circle-check text-blue-500 mt-1 mr-2"></i> Preamble declared India a Republic.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-circle-check text-blue-500 mt-1 mr-2"></i> Total 395 Articles & 8 Schedules (1950).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-circle-check text-blue-500 mt-1 mr-2"></i> Abolition of Princely States' rule.</li>
+                </ul>
+
+                <div class="case-box">
+                    <p class="font-black text-xs text-blue-600 uppercase mb-2">Landmark Jurisprudence:</p>
+                    <p class="font-bold">Kesavananda Bharati v. State of Kerala (1973)</p>
+                    <p class="text-xs">Established the 'Basic Structure Doctrine', stating that Parliament cannot amend the fundamental features of the Constitution.</p>
+                </div>
+            </div>
         </section>
 
-        <section class="info-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-blue-50/50 border-l-purple-500">
+        <section class="info-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-purple-50/50 border-l-purple-500 reveal">
             <h3 class="text-purple-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Key Features</h3>
-            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-4 md:mb-6 tracking-tight">Main Pillars</h2>
-            <p class="text-gray-600 text-base md:text-xl leading-relaxed font-medium">
-                The key highlights include the Fundamental Rights (Articles 12-35), Directive Principles, and the separation of powers. It is the longest written constitution in the world, with over 448 articles today.
-            </p>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">Part III: Fundamental Rights</h2>
+            
+            <div class="space-y-6 text-gray-600 text-sm md:text-base leading-relaxed">
+                <p>Fundamental Rights (Articles 12 to 35) are the conscience of the Constitution. They protect the liberty and dignity of individuals against the arbitrary power of the State.</p>
+
+                <div class="space-y-4">
+                    <div class="p-4 bg-purple-50 rounded-2xl">
+                        <p class="font-black text-purple-700">Article 14: Equality Before Law</p>
+                        <p class="text-xs text-purple-900">Guarantees that no person is above the law and everyone gets equal protection within India.</p>
+                        <p class="mt-2 text-[10px] font-bold">Case: E.P. Royappa v. State of Tamil Nadu (Anti-arbitrariness doctrine).</p>
+                    </div>
+
+                    <div class="p-4 bg-pink-50 rounded-2xl">
+                        <p class="font-black text-pink-700">Article 19: Six Fundamental Freedoms</p>
+                        <p class="text-xs text-pink-900">Freedom of speech, assembly, association, movement, residence, and profession.</p>
+                        <p class="mt-2 text-[10px] font-bold">Case: Bennett Coleman & Co. v. Union of India (Freedom of Press).</p>
+                    </div>
+
+                    <div class="p-4 bg-blue-50 rounded-2xl">
+                        <p class="font-black text-blue-700">Article 21: Right to Life & Liberty</p>
+                        <p class="text-xs text-blue-900">No person shall be deprived of his life or personal liberty except according to procedure established by law.</p>
+                        <p class="mt-2 text-[10px] font-bold">Case: Maneka Gandhi v. Union of India (Golden Triangle Rule).</p>
+                    </div>
+                </div>
+
+                <h4 class="font-black text-gray-800 uppercase text-xs tracking-widest">Essential Rights Points:</h4>
+                <ul class="list-disc pl-5 space-y-2 text-xs md:text-sm">
+                    <li><strong>Art 12:</strong> Defines 'State' including Local Authorities.</li>
+                    <li><strong>Art 13:</strong> Judicial Review of laws inconsistent with rights.</li>
+                    <li><strong>Art 15:</strong> Prohibition of discrimination on religion, race, caste.</li>
+                    <li><strong>Art 17:</strong> Abolition of Untouchability.</li>
+                    <li><strong>Art 21A:</strong> Right to Free & Compulsory Education.</li>
+                    <li><strong>Art 25-28:</strong> Religious Freedom & Secular Identity.</li>
+                    <li><strong>Art 32:</strong> Constitutional Remedies (Heart & Soul).</li>
+                </ul>
+            </div>
         </section>
 
-        <section class="info-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-blue-50/50 border-l-emerald-500">
-            <h3 class="text-emerald-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Why it Matters?</h3>
-            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-4 md:mb-6 tracking-tight">The Modern Use</h2>
-            <p class="text-gray-600 text-base md:text-xl leading-relaxed font-medium">
-                The Constitution acts as a supreme shield. It protects us from arbitrary state power and grants us the right to move the Supreme Court (Article 32) if our rights are violated. It is a living document that evolves with time.
-            </p>
+        <section class="info-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-emerald-50/50 border-l-emerald-500 reveal">
+            <h3 class="text-emerald-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Constitutional Remedies</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">The 5 Great Writs</h2>
+            
+            <div class="space-y-6 text-gray-600 text-sm md:text-base leading-relaxed">
+                <p>Under Article 32 (Supreme Court) and Article 226 (High Court), the judiciary can issue orders called 'Writs' to protect citizen rights.</p>
+
+                <div class="grid md:grid-cols-1 gap-4 text-xs md:text-sm">
+                    <div class="flex gap-4 items-center p-4 border border-emerald-100 rounded-2xl">
+                        <span class="bg-emerald-500 text-white font-bold px-3 py-1 rounded-lg">1</span>
+                        <div><strong>Habeas Corpus:</strong> "To have the body." Against unlawful detention.</div>
+                    </div>
+                    <div class="flex gap-4 items-center p-4 border border-emerald-100 rounded-2xl">
+                        <span class="bg-emerald-500 text-white font-bold px-3 py-1 rounded-lg">2</span>
+                        <div><strong>Mandamus:</strong> "We command." Ordering a public official to do their duty.</div>
+                    </div>
+                    <div class="flex gap-4 items-center p-4 border border-emerald-100 rounded-2xl">
+                        <span class="bg-emerald-500 text-white font-bold px-3 py-1 rounded-lg">3</span>
+                        <div><strong>Quo-Warranto:</strong> "By what authority?" Checking illegal claims to public office.</div>
+                    </div>
+                    <div class="flex gap-4 items-center p-4 border border-emerald-100 rounded-2xl">
+                        <span class="bg-emerald-500 text-white font-bold px-3 py-1 rounded-lg">4</span>
+                        <div><strong>Certiorari:</strong> To quash orders of lower courts/tribunals.</div>
+                    </div>
+                    <div class="flex gap-4 items-center p-4 border border-emerald-100 rounded-2xl">
+                        <span class="bg-emerald-500 text-white font-bold px-3 py-1 rounded-lg">5</span>
+                        <div><strong>Prohibition:</strong> Issued to prevent a lower court from exceeding jurisdiction.</div>
+                    </div>
+                </div>
+
+                <div class="case-box border-l-emerald-500 bg-emerald-50/50">
+                    <p class="font-black text-xs text-emerald-600 uppercase mb-2">Vital Precedent:</p>
+                    <p class="font-bold">Justice K.S. Puttaswamy v. Union of India (2017)</p>
+                    <p class="text-xs">The 9-judge bench declared Right to Privacy as a fundamental right under Article 21.</p>
+                </div>
+            </div>
         </section>
 
     </main>
 
     <footer class="mt-12 py-8 text-center">
-        <p class="text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
+        <p class="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
     </footer>
 
+    <script>
+        // --- REVEAL ON SCROLL ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // --- BACK BUTTON REFRESH ---
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) document.body.classList.remove('page-fade-out');
+        });
+
+        // --- FAST CLICK TRANSITION ---
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && !href.startsWith('http') && href !== '#') {
+                    e.preventDefault();
+                    document.body.classList.add('page-fade-out');
+                    setTimeout(() => { window.location.href = href; }, 200);
+                }
+            });
+        });
+
+        // --- COPY PROTECTION ---
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('copy', e => e.preventDefault());
+        document.addEventListener('cut', e => e.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false;
+            if (e.key === 'F12') return false;
+        };
+    </script>
 </body>
 </html>
