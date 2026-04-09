@@ -9,10 +9,10 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
         
-        /* Fast Entrance */
-        @keyframes fadeInPage {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        /* FAST PAGE ENTRANCE ANIMATION */
+        @keyframes pageEntrance {
+            from { opacity: 0; transform: scale(1.02); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         body { 
@@ -21,7 +21,7 @@
             color: #1e293b; 
             overflow-x: hidden; 
             -webkit-tap-highlight-color: transparent;
-            animation: fadeInPage 0.3s ease-out; /* Super fast entry */
+            animation: pageEntrance 0.3s ease-out forwards; /* Entry speed */
             
             /* --- COPY PROTECTION CSS --- */
             -webkit-user-select: none;
@@ -30,24 +30,25 @@
             user-select: none;
         }
 
-        /* --- SNAP-FAST PAGE TRANSITION --- */
-        .fade-out {
+        /* FAST PAGE EXIT ANIMATION */
+        .page-exit {
             opacity: 0 !important;
-            transform: scale(0.98); /* Halka sa zoom out effect instead of slide */
+            transform: scale(0.98);
             transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
         }
 
         .font-serif { font-family: 'Playfair Display', serif; }
 
-        /* Reveal Animations - Faster timing */
+        /* Smooth Performance-Optimized Animations */
         .reveal { 
             opacity: 0; 
-            transform: translateY(15px); 
-            transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transform: translateY(20px); 
+            transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
             will-change: transform, opacity;
         }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
+        /* Glossy Blur Elements */
         .glass-nav {
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(20px);
@@ -133,7 +134,7 @@
                     <i class="fa-solid fa-atom text-blue-400 text-2xl"></i>
                 </div>
                 <h2 class="text-3xl font-black mb-4 tracking-tighter uppercase">Research</h2>
-                <div class="text-sm opacity-80 leading-relaxed font-medium space-y-4 text-justify">
+                <div class="text-sm opacity-80 leading-relaxed font-medium space-y-4">
                     <p>Legal research is the systematic investigation into the law and its application to specific facts. It is the cornerstone of the legal profession. At the Calcutta Law Journal, our research wing does not merely summarize existing data; we dissect the "why" behind the law. In the Indian context, where laws are constantly being replaced—such as the massive transition from the IPC/CrPC to the BNS—research becomes the only tool that keeps a legal professional relevant.</p>
                 </div>
                 <a href="research.html" class="mt-8 block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px] active:scale-95 transition shadow-lg">Enter Research Lab</a>
@@ -157,18 +158,8 @@
                     <h3 class="text-pink-600 font-black text-lg uppercase">Landmark Case Laws</h3>
                 </div>
                 <p class="text-gray-600 text-sm leading-relaxed text-justify">
-                    If Bare Acts are the skeleton, Case Laws are the flesh and blood. Precedents are binding in India, and landmark judgments show how judges breathe life into statutes.
+                    If Bare Acts are the skeleton, Case Laws are the flesh and blood. Precedents are binding in India, and landmark judgments show how judges breathe life into statutes to protect human souls.
                 </p>
-            </div>
-        </section>
-
-        <section class="space-y-12 py-10 px-6">
-            <div class="glossy-card overflow-hidden reveal">
-                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800" class="w-full h-52 object-cover">
-                <div class="p-8">
-                    <h2 class="text-2xl font-black text-gray-800 mb-4 uppercase tracking-tighter">Calcutta High Court</h2>
-                    <a href="https://www.calcuttahighcourt.gov.in/" target="_blank" class="mt-4 block text-center py-4 border border-blue-600 text-blue-600 font-black rounded-xl uppercase text-[10px]">Official HC Portal</a>
-                </div>
             </div>
         </section>
 
@@ -179,6 +170,7 @@
                 </div>
                 <h3 class="text-2xl font-black text-gray-800">Reyansh</h3>
                 <p class="text-blue-500 font-black uppercase text-[10px] mt-1 tracking-widest">Law Student</p>
+                <p class="text-gray-400 font-bold text-[8px] mt-1 uppercase leading-tight">Surendranath Law College | University of Calcutta</p>
             </div>
         </section>
     </main>
@@ -188,32 +180,41 @@
     </footer>
 
     <script>
-        // Reveal on scroll
+        // Animations Observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
             });
-        }, { threshold: 0.05 });
+        }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // --- FAST PAGE TRANSITION ---
+        // --- FAST PAGE TRANSITION LOGIC ---
         document.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function(e) {
-                if (this.hostname === window.location.hostname && !this.target && !this.href.includes('#')) {
+                // Apply only to internal links that don't open in new tabs
+                if (this.hostname === window.location.hostname && 
+                    !this.target && 
+                    !this.href.includes('#')) {
+                    
                     e.preventDefault();
-                    const destination = this.href;
-                    document.body.classList.add('fade-out');
-                    setTimeout(() => { window.location.href = destination; }, 250); // Fast 250ms jump
+                    const target = this.href;
+                    document.body.classList.add('page-exit');
+                    
+                    setTimeout(() => {
+                        window.location.href = target;
+                    }, 250); // Instant 250ms delay for visual feedback
                 }
             });
         });
 
         // --- SECURITY ---
-        document.addEventListener('contextmenu', e => e.preventDefault());
-        document.addEventListener('copy', e => e.preventDefault());
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('copy', (e) => e.preventDefault());
+        document.addEventListener('cut', (e) => e.preventDefault());
+        document.addEventListener('paste', (e) => e.preventDefault());
         document.onkeydown = function(e) {
             if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false;
-            if (e.key === 'F12') return false;
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) return false;
         };
     </script>
 </body>
