@@ -8,11 +8,40 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; -webkit-tap-highlight-color: transparent; }
-        .contract-card { border-left: 6px solid #10b981; }
-        @media (min-width: 768px) {
-            .contract-card { border-left-width: 10px; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fcfdfe; 
+            -webkit-tap-highlight-color: transparent;
+            /* --- COPY PROTECTION --- */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
+
+        .contract-card { 
+            border-left: 6px solid #10b981; 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .contract-card:hover { transform: translateX(8px); }
+        
+        @media (min-width: 768px) {
+            .contract-card { border-left-width: 12px; }
+        }
+
+        /* Snappy Animations */
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out; 
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Smooth Transition Out */
+        .page-fade-out { opacity: 0 !important; transition: opacity 0.2s ease-out; }
+
+        .mercantile-box { background: #ecfdf5; border-radius: 1.5rem; padding: 1.5rem; border: 1px solid #d1fae5; }
     </style>
 </head>
 <body class="pb-10">
@@ -24,37 +53,135 @@
         </a>
     </nav>
 
-    <main class="px-5 space-y-6 md:space-y-12 max-w-2xl mx-auto mt-8 md:mt-16">
+    <main class="px-5 space-y-8 md:space-y-16 max-w-3xl mx-auto mt-8 md:mt-16">
         
-        <section class="contract-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-emerald-50/50">
+        <section class="contract-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-emerald-50/50 reveal active">
             <h3 class="text-emerald-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Commercial Base</h3>
-            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-4 md:mb-6 tracking-tight">The 1872 Foundation</h2>
-            <p class="text-gray-600 text-base md:text-xl leading-relaxed font-medium italic">
-                The Indian Contract Act of 1872 was enacted to regulate mercantile transactions and provide a set of rules for making agreements. This Act brought a uniform legal standard, essential for the growth of business in India.
-            </p>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">The 1872 Foundation</h2>
+            
+            <div class="space-y-6 text-gray-600 text-sm md:text-base leading-relaxed">
+                <p class="text-lg font-medium italic text-gray-700">"The grammar of commerce and the DNA of agreements."</p>
+                <p>The Indian Contract Act of 1872 is the most important legislation in mercantile law. It defines the circumstances in which promises made by the parties to a contract shall be legally binding. From a small grocery purchase to a multi-billion dollar corporate merger, every transaction in India breathes through this statute.</p>
+                
+                <h4 class="font-black text-gray-800 uppercase text-xs tracking-widest">10 Key Pillars of ICA:</h4>
+                <ul class="grid md:grid-cols-2 gap-4">
+                    <li class="flex items-start"><i class="fa-solid fa-file-contract text-emerald-500 mt-1 mr-2"></i> Section 2(h): Contract as an Enforceable Agreement.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-file-contract text-emerald-500 mt-1 mr-2"></i> Consensus ad idem (Meeting of minds).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-file-contract text-emerald-500 mt-1 mr-2"></i> Privity of Contract Doctrine.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-file-contract text-emerald-500 mt-1 mr-2"></i> Section 10: Essentials of a Valid Contract.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-file-contract text-emerald-500 mt-1 mr-2"></i> Capacity of Parties (Minor's agreement rules).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-file-contract text-emerald-500 mt-1 mr-2"></i> Free Consent (Absence of Coercion/Fraud).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-file-contract text-emerald-500 mt-1 mr-2"></i> Lawful Consideration (Quid Pro Quo).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-file-contract text-emerald-500 mt-1 mr-2"></i> Void & Voidable Agreements (Sec 23-30).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-file-contract text-emerald-500 mt-1 mr-2"></i> Performance of Contracts.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-file-contract text-emerald-500 mt-1 mr-2"></i> Breach and Remedies (Sec 73-75).</li>
+                </ul>
+            </div>
         </section>
 
-        <section class="contract-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-emerald-50/50 border-l-blue-500">
+        <section class="contract-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-blue-50/50 border-l-blue-500 reveal">
             <h3 class="text-blue-500 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Essentials</h3>
-            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-4 md:mb-6 tracking-tight">Offer & Acceptance</h2>
-            <p class="text-gray-600 text-base md:text-xl leading-relaxed font-medium">
-                The Act defines what makes an agreement a "Contract". Key highlights include Section 10 (What agreements are contracts) and the requirement of "Free Consent", ensuring no contract is valid if made under fraud.
-            </p>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">Offer, Acceptance & Consent</h2>
+            
+            <div class="space-y-8 text-gray-600 text-sm md:text-base leading-relaxed">
+                <p>Every contract begins with a 'Proposal'. Once accepted, it becomes a 'Promise'. If backed by 'Consideration', it becomes an 'Agreement'. And if enforceable by law, it finally becomes a 'Contract'.</p>
+
+                <div class="mercantile-box">
+                    <h5 class="font-black text-emerald-700 text-xs uppercase mb-4 tracking-widest">5 Landmark Jurisprudence Points:</h5>
+                    <div class="space-y-4">
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-emerald-600 block">Section 11: Capacity to Contract</span>
+                            <p class="text-[11px]">A minor's agreement is void ab initio (void from the beginning).</p>
+                            <p class="text-[9px] font-black mt-1 uppercase text-gray-400">Case: Mohori Bibee v. Dharmodas Ghose</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-emerald-600 block">Section 2(a): Proposal</span>
+                            <p class="text-[11px]">Distinction between an 'Offer' and an 'Invitation to Treat'.</p>
+                            <p class="text-[9px] font-black mt-1 uppercase text-gray-400">Case: Harvey v. Facey</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-emerald-600 block">Section 14: Free Consent</span>
+                            <p class="text-[11px]">Consent must not be caused by Coercion (Sec 15), Undue Influence (Sec 16), or Fraud (Sec 17).</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-emerald-600 block">Section 56: Frustration of Contract</span>
+                            <p class="text-[11px]">Agreements to do an impossible act are void.</p>
+                            <p class="text-[9px] font-black mt-1 uppercase text-gray-400">Case: Satyabrata Ghose v. Mugneeram Bangur</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-emerald-600 block">Section 73: Damages</span>
+                            <p class="text-[11px]">Compensation for loss or damage caused by breach of contract.</p>
+                            <p class="text-[9px] font-black mt-1 uppercase text-gray-400">Case: Hadley v. Baxendale</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section class="contract-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-emerald-50/50 border-l-amber-500">
+        <section class="contract-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-amber-50/50 border-l-amber-500 reveal">
             <h3 class="text-amber-500 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Modern Use</h3>
-            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-4 md:mb-6 tracking-tight">Business Law</h2>
-            <p class="text-gray-600 text-base md:text-xl leading-relaxed font-medium">
-                From digital terms to multi-million dollar deals, everything is governed by this Act. It provides the legal safety net that ensures justice and compensation if one party fails to fulfill their promise.
-            </p>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">Contracting in the Digital Age</h2>
+            
+            <div class="space-y-6 text-gray-600 text-sm md:text-base leading-relaxed text-justify">
+                <p>The 1872 Act still governs E-Contracts, click-wrap agreements, and smart contracts. The foundational principles of Offer and Acceptance remain the same even when communicated via lightning-fast digital signals.</p>
+
+                <div class="p-6 bg-amber-50 rounded-3xl border border-amber-100 italic">
+                    <p class="text-xs text-amber-900 leading-loose">
+                        "The Contract Act is the guardian of trust in the marketplace. It ensures that 'My Word is My Bond' has a legal force behind it, allowing the machinery of business to run without friction."
+                    </p>
+                </div>
+                
+                <h4 class="font-black text-gray-800 uppercase text-xs tracking-widest mt-6">5 Critical Legal Concepts:</h4>
+                <ul class="space-y-3 text-xs">
+                    <li class="flex items-start"><i class="fa-solid fa-briefcase text-amber-500 mr-2"></i> <strong>Indemnity & Guarantee:</strong> Specific protection against future losses (Sec 124-147).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-briefcase text-amber-500 mr-2"></i> <strong>Bailment & Pledge:</strong> Rules for the temporary transfer of goods (Sec 148-181).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-briefcase text-amber-500 mr-2"></i> <strong>Law of Agency:</strong> How one person can represent another legally (Sec 182-238).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-briefcase text-amber-500 mr-2"></i> <strong>Quasi-Contracts:</strong> Relationships created by law even without a formal agreement (Sec 68-72).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-briefcase text-amber-500 mr-2"></i> <strong>Specific Performance:</strong> When the court orders a party to fulfill the exact promise.</li>
+                </ul>
+            </div>
         </section>
 
     </main>
 
     <footer class="mt-12 py-8 text-center">
-        <p class="text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
+        <p class="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
     </footer>
 
+    <script>
+        // --- PREVENT WHITE SCREEN ON BACK BUTTON ---
+        window.addEventListener('pageshow', function(event) {
+            document.body.classList.remove('page-fade-out');
+            document.body.style.opacity = '1';
+        });
+
+        // --- REVEAL ON SCROLL ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // --- FAST CLICK TRANSITION ---
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && !href.startsWith('http') && href !== '#') {
+                    e.preventDefault();
+                    document.body.classList.add('page-fade-out');
+                    setTimeout(() => { window.location.href = href; }, 200);
+                }
+            });
+        });
+
+        // --- SECURITY SCRIPTS ---
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('copy', e => e.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false;
+            if (e.key === 'F12') return false;
+        };
+    </script>
 </body>
 </html>
