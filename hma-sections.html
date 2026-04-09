@@ -8,11 +8,40 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; -webkit-tap-highlight-color: transparent; }
-        .hma-card { border-left: 6px solid #f59e0b; }
-        @media (min-width: 768px) {
-            .hma-card { border-left-width: 10px; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fcfdfe; 
+            -webkit-tap-highlight-color: transparent;
+            /* --- COPY PROTECTION --- */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
+
+        .hma-card { 
+            border-left: 6px solid #f59e0b; 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hma-card:hover { transform: translateX(8px); }
+        
+        @media (min-width: 768px) {
+            .hma-card { border-left-width: 12px; }
+        }
+
+        /* Snappy Animations */
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out; 
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Smooth Transition Out */
+        .page-fade-out { opacity: 0 !important; transition: opacity 0.2s ease-out; }
+
+        .law-box { background: #fffbeb; border-radius: 1.5rem; padding: 1.5rem; border: 1px solid #fef3c7; }
     </style>
 </head>
 <body class="pb-10">
@@ -24,37 +53,133 @@
         </a>
     </nav>
 
-    <main class="px-5 space-y-6 md:space-y-12 max-w-2xl mx-auto mt-8 md:mt-16">
+    <main class="px-5 space-y-8 md:space-y-16 max-w-3xl mx-auto mt-8 md:mt-16">
         
-        <section class="hma-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-amber-50/50">
+        <section class="hma-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-amber-50/50 reveal active">
             <h3 class="text-amber-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Social Reform</h3>
-            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-4 md:mb-6 tracking-tight">The 1955 Reform</h2>
-            <p class="text-gray-600 text-base md:text-xl leading-relaxed font-medium italic">
-                The Hindu Marriage Act of 1955 codified laws to introduce monogamy and provide a legal path for divorce. It brought social equality and protected the rights of women within the community.
-            </p>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">The 1955 Codification</h2>
+            
+            <div class="space-y-6 text-gray-600 text-sm md:text-base leading-relaxed">
+                <p class="text-lg font-medium italic text-gray-700">"Transforming an ancient sacrament into a modern legal status."</p>
+                <p>The Hindu Marriage Act (HMA) of 1955 was part of the Hindu Code Bills that aimed to modernize personal laws. Before this, Hindu marriage was considered an indissoluble sacrament. The Act introduced the revolutionary concepts of **Monogamy** and **Matrimonial Reliefs**, ensuring that women have equal rights to end a marriage in cases of cruelty or desertion.</p>
+                
+                <h4 class="font-black text-gray-800 uppercase text-xs tracking-widest">10 Key Pillars of HMA:</h4>
+                <ul class="grid md:grid-cols-2 gap-4">
+                    <li class="flex items-start"><i class="fa-solid fa-om text-amber-500 mt-1 mr-2"></i> Application to Hindus, Sikhs, Jains, & Buddhists.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-om text-amber-500 mt-1 mr-2"></i> Section 5: Essential conditions for validity.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-om text-amber-500 mt-1 mr-2"></i> Absolute prohibition of Bigamy.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-om text-amber-500 mt-1 mr-2"></i> Regulation of Sapinda relationships.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-om text-amber-500 mt-1 mr-2"></i> Recognition of Saptapadi (Section 7).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-om text-amber-500 mt-1 mr-2"></i> Restitution of Conjugal Rights (Section 9).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-om text-amber-500 mt-1 mr-2"></i> Judicial Separation (Section 10).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-om text-amber-500 mt-1 mr-2"></i> Distinction between Void & Voidable marriages.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-om text-amber-500 mt-1 mr-2"></i> Grounds for Divorce (Section 13).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-om text-amber-500 mt-1 mr-2"></i> Alimony & Maintenance (Section 24/25).</li>
+                </ul>
+            </div>
         </section>
 
-        <section class="hma-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-amber-50/50 border-l-red-500">
+        <section class="hma-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-red-50/50 border-l-red-500 reveal">
             <h3 class="text-red-500 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Key Conditions</h3>
-            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-4 md:mb-6 tracking-tight">Validity & Rituals</h2>
-            <p class="text-gray-600 text-base md:text-xl leading-relaxed font-medium">
-                Key points include Section 5 (Conditions for marriage), Section 7 (Ceremonies like Saptapadi), and Section 13 (Grounds for Divorce). It also covers Restitution of Conjugal Rights (Section 9).
-            </p>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">Validity & Reliefs</h2>
+            
+            <div class="space-y-8 text-gray-600 text-sm md:text-base leading-relaxed">
+                <p>Marriage under HMA is valid only if the parties fulfill the conditions of age (21 for Groom, 18 for Bride), mental health, and monogamy.</p>
+
+                <div class="law-box">
+                    <h5 class="font-black text-amber-700 text-xs uppercase mb-4 tracking-widest">5 Landmark Relief Sections:</h5>
+                    <div class="space-y-4">
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-red-600 block">Section 9: RCR</span>
+                            <p class="text-[11px]">Restitution of Conjugal Rights—ordering a spouse to return home. Often debated for Constitutional validity.</p>
+                            <p class="text-[9px] font-black mt-1 uppercase text-gray-400">Case: T. Sareetha v. Venkatasubbaiah</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-red-600 block">Section 11: Void Marriages</span>
+                            <p class="text-[11px]">Marriages that are null from the start (e.g., Bigamy or Sapinda).</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-red-600 block">Section 13: Divorce</span>
+                            <p class="text-[11px]">Fault-based grounds: Cruelty, Desertion, Adultery, Conversion, Insanity.</p>
+                            <p class="text-[9px] font-black mt-1 uppercase text-gray-400">Case: Dastane v. Dastane (Cruelty)</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-red-600 block">Section 13B: Mutual Consent</span>
+                            <p class="text-[11px]">Added in 1976—allowing couples to part ways amicably after a 6-month cooling period.</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-red-600 block">Section 24: Maintenance</span>
+                            <p class="text-[11px]">Maintenance 'pendente lite'—support during the pendency of litigation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section class="hma-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-amber-50/50 border-l-emerald-500">
-            <h3 class="text-emerald-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Purpose</h3>
-            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-4 md:mb-6 tracking-tight">Personal Liberty</h2>
-            <p class="text-gray-600 text-base md:text-xl leading-relaxed font-medium">
-                This Act aligns personal laws with modern constitutional values. It provides a structured framework for maintenance, alimony, and custody, ensuring disputes are resolved with dignity.
-            </p>
+        <section class="hma-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-emerald-50/50 border-l-emerald-500 reveal">
+            <h3 class="text-emerald-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Evolution</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">Judicial Activism in HMA</h2>
+            
+            <div class="space-y-6 text-gray-600 text-sm md:text-base leading-relaxed text-justify">
+                <p>The Judiciary has played a vital role in expanding the definition of 'Cruelty' and 'Irretrievable Breakdown of Marriage' under Article 142. Today, the welfare of the child and the economic stability of the spouse are the primary concerns in any family court proceeding.</p>
+
+                <div class="p-6 bg-emerald-50 rounded-3xl border border-emerald-100 italic">
+                    <p class="text-xs text-emerald-900 leading-loose">
+                        "The HMA is more than a law; it is a shield for the vulnerable within a family. It ensures that the 'sacrament' of marriage does not become a 'shackle' of oppression."
+                    </p>
+                </div>
+                
+                <h4 class="font-black text-gray-800 uppercase text-xs tracking-widest mt-6">5 Essential Jurisprudence Points:</h4>
+                <ul class="space-y-3 text-xs">
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-emerald-500 mr-2"></i> <strong>Sarabjit Singh v. Kirpal Kaur:</strong> Mental cruelty as a ground for divorce.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-emerald-500 mr-2"></i> <strong>Amardeep Singh v. Harveen Kaur:</strong> Cooling-off period (13B) is directory, not mandatory.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-emerald-500 mr-2"></i> <strong>Shilpa Sailesh v. Varun Sreenivasan:</strong> Divorce on irretrievable breakdown via Art 142.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-emerald-500 mr-2"></i> <strong>S.P.S. Balasubramanyam Case:</strong> Legitimacy of children from long-term live-in relationships.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-emerald-500 mr-2"></i> <strong>Rajnesh v. Neha:</strong> Guidelines for payment of maintenance in matrimonial matters.</li>
+                </ul>
+            </div>
         </section>
 
     </main>
 
     <footer class="mt-12 py-8 text-center">
-        <p class="text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
+        <p class="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
     </footer>
 
+    <script>
+        // --- PREVENT WHITE SCREEN ON BACK BUTTON ---
+        window.addEventListener('pageshow', function(event) {
+            document.body.classList.remove('page-fade-out');
+            document.body.style.opacity = '1';
+        });
+
+        // --- REVEAL ON SCROLL ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // --- FAST CLICK TRANSITION ---
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && !href.startsWith('http') && href !== '#') {
+                    e.preventDefault();
+                    document.body.classList.add('page-fade-out');
+                    setTimeout(() => { window.location.href = href; }, 200);
+                }
+            });
+        });
+
+        // --- SECURITY SCRIPTS ---
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('copy', e => e.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false;
+            if (e.key === 'F12') return false;
+        };
+    </script>
 </body>
 </html>
