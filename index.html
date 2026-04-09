@@ -17,7 +17,7 @@
             -webkit-tap-highlight-color: transparent;
             
             /* --- ZOOM PROTECTION & SELECTION --- */
-            touch-action: pan-x pan-y; /* Zoom disable handling */
+            touch-action: pan-x pan-y; 
             -webkit-user-select: none; 
             -moz-user-select: none;    
             -ms-user-select: none;     
@@ -26,10 +26,7 @@
             animation: fadeInBody 0.3s ease-in;
         }
 
-        @keyframes fadeInBody {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+        @keyframes fadeInBody { from { opacity: 0; } to { opacity: 1; } }
 
         .page-fade-out {
             opacity: 0 !important;
@@ -53,6 +50,16 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         }
 
+        /* --- STAT BADGES IN NAV --- */
+        .nav-stat {
+            font-size: 8px;
+            font-weight: 900;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 6px;
+            letter-spacing: 0.05em;
+        }
+
         .glossy-card {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(10px);
@@ -67,10 +74,9 @@
             animation: gradientShift 15s ease infinite;
             border-radius: 35px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative; /* Badge positioning ke liye */
+            position: relative;
         }
 
-        /* --- RESEARCH COUNTER BADGE --- */
         .research-counter {
             position: absolute;
             top: -12px;
@@ -133,17 +139,23 @@
         <div class="h-64 w-full sk-item"></div>
     </div>
 
-    <nav class="sticky top-0 z-50 glass-nav px-5 py-3 flex justify-between items-center">
-        <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg">
-                <i class="fa-solid fa-scale-balanced text-sm"></i>
+    <nav class="sticky top-0 z-50 glass-nav px-4 py-3 flex justify-between items-center">
+        <div class="flex flex-col">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center text-white shadow-md">
+                    <i class="fa-solid fa-scale-balanced text-[10px]"></i>
+                </div>
+                <span class="font-black text-gray-800 tracking-tighter text-sm">CLJ <span class="text-blue-600">Journal</span></span>
             </div>
-            <span class="font-black text-gray-800 tracking-tighter text-lg">CLJ <span class="text-blue-600">Journal</span></span>
+            <div class="flex gap-2 mt-1">
+                <span class="nav-stat bg-blue-50 text-blue-600 border border-blue-100">5 Bare Acts</span>
+                <span class="nav-stat bg-pink-50 text-pink-600 border border-pink-100">30+ Case Laws</span>
+            </div>
         </div>
-        <div class="flex items-center gap-4">
-            <a href="terms.html" class="text-[10px] font-black uppercase text-gray-500 border border-gray-200 px-3 py-1.5 rounded-lg active:bg-gray-50 transition">Terms</a>
+        <div class="flex items-center gap-3">
+            <a href="terms.html" class="text-[9px] font-black uppercase text-gray-500 border border-gray-200 px-3 py-1.5 rounded-lg active:bg-gray-50 transition">Terms</a>
             <a href="https://www.instagram.com/midieeeeee" target="_blank" class="active:scale-90 transition">
-                <i class="fa-brands fa-instagram text-2xl text-pink-500"></i>
+                <i class="fa-brands fa-instagram text-xl text-pink-500"></i>
             </a>
         </div>
     </nav>
@@ -173,7 +185,7 @@
                 <h2 class="text-3xl font-black mb-4 tracking-tighter uppercase">Research</h2>
                 <div class="text-sm opacity-80 leading-relaxed font-medium space-y-4">
                     <p>Legal research is the systematic investigation into the law and its application to specific facts. It is the cornerstone of the legal profession. At the Calcutta Law Journal, our research wing does not merely summarize existing data; we dissect the "why" behind the law. In the Indian context, where laws are constantly being replaced—such as the massive transition from the IPC/CrPC to the BNS—research becomes the only tool that keeps a legal professional relevant.</p>
-                    <p>We explore how socio-economic shifts in India demand new legal frameworks, such as Digital Privacy and Environmental Protection. By providing high-quality thesis summaries and academic papers, we help students develop the critical thinking skills required to argue in high courts and the supreme court. Research at CLJ is about uncovering the intent of the legislature and the vision of the judiciary, ensuring that justice is found within the law.</p>
+                    <p>We explore how socio-economic shifts in India demand new legal frameworks, such as Digital Privacy and Environmental Protection. By providing high-quality thesis summaries and academic papers, we help students develop the critical thinking skills required to argue in high courts and the supreme court.</p>
                 </div>
                 <a href="research.html" class="mt-8 block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px] active:scale-95 transition shadow-lg">Enter Research Lab</a>
             </div>
@@ -186,7 +198,7 @@
                     <h3 class="text-blue-600 font-black text-lg uppercase">The Bare Act Foundation</h3>
                 </div>
                 <p class="text-gray-600 text-sm leading-relaxed text-justify">
-                    A Bare Act is the rawest form of legislation, passed by Parliament. It is the skeletal structure of our democracy. For a law student, the Bare Act is the ultimate source of truth. Mastering the language of sections, clauses, and provisos is essential for drafting, litigation, and competitive exams. CLJ simplifies these acts without diluting their legal essence, making them easier to internalize and apply in the real world.
+                    A Bare Act is the rawest form of legislation, passed by Parliament. It is the skeletal structure of our democracy. For a law student, the Bare Act is the ultimate source of truth. Mastering the language of sections, clauses, and provisos is essential for drafting, litigation, and competitive exams.
                 </p>
             </div>
 
@@ -196,7 +208,7 @@
                     <h3 class="text-pink-600 font-black text-lg uppercase">Landmark Case Laws</h3>
                 </div>
                 <p class="text-gray-600 text-sm leading-relaxed text-justify">
-                    If Bare Acts are the skeleton, Case Laws are the flesh and blood. Precedents are binding in India, and landmark judgments show how judges breathe life into statutes to protect human souls. Studying cases like Kesavananda Bharati teaches students the "Art of Argument." It shows how a lawyer can take a single sentence from the Constitution and turn it into a shield for millions.
+                    If Bare Acts are the skeleton, Case Laws are the flesh and blood. Precedents are binding in India, and landmark judgments show how judges breathe life into statutes to protect human souls. Studying cases like Kesavananda Bharati teaches students the "Art of Argument."
                 </p>
             </div>
         </section>
@@ -208,7 +220,6 @@
                     <h2 class="text-2xl font-black text-gray-800 mb-4 uppercase tracking-tighter">Calcutta High Court</h2>
                     <div class="text-xs text-gray-500 leading-relaxed space-y-4 text-justify">
                         <p>The High Court of Calcutta is the oldest High Court in India, established on **July 1, 1862**. Its majestic gothic design, inspired by the Ypres Cloth Hall, represents the weight of tradition and the evolution from 'Rule by Law' to independent 'Rule of Law.'</p>
-                        <p>For over 160 years, it has been the cradle of Indian jurisprudence, hosting legendary legal minds like C.R. Das and Sir Ashutosh Mukherjee. For a law student in Bengal, this institution is the ultimate symbol of the power of the robe and a destination for pioneering decisions on civil liberties and labor rights.</p>
                     </div>
                     <a href="https://www.calcuttahighcourt.gov.in/" target="_blank" class="mt-8 block text-center py-4 border border-blue-600 text-blue-600 font-black rounded-xl uppercase text-[10px]">Official HC Portal</a>
                 </div>
@@ -219,8 +230,7 @@
                 <div class="p-8 text-white">
                     <h2 class="text-2xl font-black mb-4 uppercase tracking-tighter">Supreme Court of India</h2>
                     <div class="text-xs text-gray-300 leading-relaxed space-y-4 text-justify">
-                        <p>Inaugurated on **January 28, 1950**, the Supreme Court is the final interpreter of the Constitution. Its motto, *"Yato Dharmastato Jayah"* (Where there is Dharma, there is Victory), defines its role as the protector of fundamental rights and the guardian of the Republic.</p>
-                        <p>Under Article 141, the law declared by the SC is binding across India. From establishing the "Basic Structure Doctrine" to decriminalizing personal identities, the SC has defined what it means to be an Indian citizen. For any student, the SC represents the peak of the legal mountain and the triumph of the rule of law over arbitrary power.</p>
+                        <p>Inaugurated on **January 28, 1950**, the Supreme Court is the final interpreter of the Constitution. Its motto, *"Yato Dharmastato Jayah"* defines its role as the protector of fundamental rights.</p>
                     </div>
                     <a href="https://main.sci.gov.in/" target="_blank" class="mt-8 block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px]">Official SC Portal</a>
                 </div>
@@ -235,10 +245,6 @@
                 <h3 class="text-2xl font-black text-gray-800">Rey</h3>
                 <p class="text-blue-500 font-black uppercase text-[10px] mt-1 tracking-widest">Law Student</p>
                 <p class="text-gray-400 font-bold text-[8px] mt-1 uppercase leading-tight">Surendranath Law College | University of Calcutta</p>
-                
-                <p class="mt-8 text-gray-600 italic leading-relaxed font-serif text-lg">
-                    "I started this because I'm a student too. I know how confusing this can be. Let's make law simple, together."
-                </p>
             </div>
         </section>
     </main>
@@ -248,7 +254,6 @@
     </footer>
 
     <script>
-        // --- SKELETON HIDER ---
         window.addEventListener('load', () => {
             const sk = document.getElementById('skeleton-screen');
             if(sk) {
@@ -258,7 +263,6 @@
             }
         });
 
-        // --- BACK BUTTON FIX (BFCache Reset) ---
         window.addEventListener('pageshow', (event) => {
             if (event.persisted) {
                 document.body.classList.remove('page-fade-out');
@@ -267,7 +271,6 @@
             }
         });
 
-        // Animations Observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
@@ -276,7 +279,6 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // --- FAST CLICK TRANSITION (NON-INVASIVE) ---
         document.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
@@ -288,7 +290,7 @@
             });
         });
 
-        // --- PROTECTION SCRIPTS ---
+        // Protection Scripts
         document.addEventListener('contextmenu', event => event.preventDefault());
         document.addEventListener('copy', (e) => e.preventDefault());
         document.addEventListener('cut', (e) => e.preventDefault());
@@ -298,9 +300,7 @@
         let lastTouchEnd = 0;
         document.addEventListener('touchend', (e) => {
             const now = (new Date()).getTime();
-            if (now - lastTouchEnd <= 300) {
-                e.preventDefault();
-            }
+            if (now - lastTouchEnd <= 300) { e.preventDefault(); }
             lastTouchEnd = now;
         }, false);
 
