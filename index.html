@@ -9,7 +9,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
         
-        /* Smooth Entrance on Load */
+        /* Fast Entrance */
         @keyframes fadeInPage {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -21,7 +21,7 @@
             color: #1e293b; 
             overflow-x: hidden; 
             -webkit-tap-highlight-color: transparent;
-            animation: fadeInPage 0.5s ease-in;
+            animation: fadeInPage 0.3s ease-out; /* Super fast entry */
             
             /* --- COPY PROTECTION CSS --- */
             -webkit-user-select: none;
@@ -30,25 +30,24 @@
             user-select: none;
         }
 
-        /* --- PAGE TRANSITION EFFECT --- */
+        /* --- SNAP-FAST PAGE TRANSITION --- */
         .fade-out {
             opacity: 0 !important;
-            transform: translateY(-10px);
-            transition: opacity 0.4s ease-out, transform 0.4s ease-out !important;
+            transform: scale(0.98); /* Halka sa zoom out effect instead of slide */
+            transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
         }
 
         .font-serif { font-family: 'Playfair Display', serif; }
 
-        /* Smooth Performance-Optimized Animations */
+        /* Reveal Animations - Faster timing */
         .reveal { 
             opacity: 0; 
-            transform: translateY(20px); 
-            transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transform: translateY(15px); 
+            transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
             will-change: transform, opacity;
         }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Glossy Elements */
         .glass-nav {
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(20px);
@@ -113,7 +112,7 @@
         </div>
     </nav>
 
-    <main id="main-content">
+    <main>
         <header class="pt-12 pb-10 px-8 text-center reveal active">
             <h1 class="text-5xl font-serif font-bold text-blue-600 leading-tight">Calcutta</h1>
             <h1 class="text-5xl font-serif font-bold text-gray-900 mb-8 leading-tight">Law Journal</h1>
@@ -134,7 +133,7 @@
                     <i class="fa-solid fa-atom text-blue-400 text-2xl"></i>
                 </div>
                 <h2 class="text-3xl font-black mb-4 tracking-tighter uppercase">Research</h2>
-                <div class="text-sm opacity-80 leading-relaxed font-medium space-y-4">
+                <div class="text-sm opacity-80 leading-relaxed font-medium space-y-4 text-justify">
                     <p>Legal research is the systematic investigation into the law and its application to specific facts. It is the cornerstone of the legal profession. At the Calcutta Law Journal, our research wing does not merely summarize existing data; we dissect the "why" behind the law. In the Indian context, where laws are constantly being replaced—such as the massive transition from the IPC/CrPC to the BNS—research becomes the only tool that keeps a legal professional relevant.</p>
                 </div>
                 <a href="research.html" class="mt-8 block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px] active:scale-95 transition shadow-lg">Enter Research Lab</a>
@@ -147,7 +146,29 @@
                     <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600"><i class="fa-solid fa-scroll"></i></div>
                     <h3 class="text-blue-600 font-black text-lg uppercase">The Bare Act Foundation</h3>
                 </div>
-                <p class="text-gray-600 text-sm leading-relaxed text-justify">A Bare Act is the rawest form of legislation, passed by Parliament. It is the skeletal structure of our democracy.</p>
+                <p class="text-gray-600 text-sm leading-relaxed text-justify">
+                    A Bare Act is the rawest form of legislation, passed by Parliament. It is the skeletal structure of our democracy. For a law student, the Bare Act is the ultimate source of truth.
+                </p>
+            </div>
+
+            <div class="glossy-card p-8 reveal">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-10 h-10 bg-pink-50 rounded-xl flex items-center justify-center text-pink-600"><i class="fa-solid fa-gavel"></i></div>
+                    <h3 class="text-pink-600 font-black text-lg uppercase">Landmark Case Laws</h3>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed text-justify">
+                    If Bare Acts are the skeleton, Case Laws are the flesh and blood. Precedents are binding in India, and landmark judgments show how judges breathe life into statutes.
+                </p>
+            </div>
+        </section>
+
+        <section class="space-y-12 py-10 px-6">
+            <div class="glossy-card overflow-hidden reveal">
+                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800" class="w-full h-52 object-cover">
+                <div class="p-8">
+                    <h2 class="text-2xl font-black text-gray-800 mb-4 uppercase tracking-tighter">Calcutta High Court</h2>
+                    <a href="https://www.calcuttahighcourt.gov.in/" target="_blank" class="mt-4 block text-center py-4 border border-blue-600 text-blue-600 font-black rounded-xl uppercase text-[10px]">Official HC Portal</a>
+                </div>
             </div>
         </section>
 
@@ -167,38 +188,29 @@
     </footer>
 
     <script>
-        // 1. Reveal Animations on Scroll
+        // Reveal on scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.05 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // 2. --- PAGE TRANSITION SCRIPT ---
+        // --- FAST PAGE TRANSITION ---
         document.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function(e) {
-                // Only for internal links that don't open in new tab
-                if (this.hostname === window.location.hostname && 
-                    !this.target && 
-                    !this.href.includes('#')) {
-                    
+                if (this.hostname === window.location.hostname && !this.target && !this.href.includes('#')) {
                     e.preventDefault();
                     const destination = this.href;
                     document.body.classList.add('fade-out');
-                    
-                    setTimeout(() => {
-                        window.location.href = destination;
-                    }, 400);
+                    setTimeout(() => { window.location.href = destination; }, 250); // Fast 250ms jump
                 }
             });
         });
 
-        // 3. --- COPY PROTECTION SCRIPT ---
+        // --- SECURITY ---
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.addEventListener('copy', e => e.preventDefault());
-        document.addEventListener('cut', e => e.preventDefault());
-
         document.onkeydown = function(e) {
             if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false;
             if (e.key === 'F12') return false;
