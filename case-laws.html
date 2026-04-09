@@ -1,139 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landmark Judgments | CLJ</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
-        
-        body { font-family: 'Inter', sans-serif; background-color: #fcfdfe; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
-        .font-serif { font-family: 'Playfair Display', serif; }
-        
-        .blur-bg { position: fixed; z-index: -1; filter: blur(60px); opacity: 0.25; pointer-events: none; }
-        
-        .modal-overlay { opacity: 0; visibility: hidden; transition: all 0.3s ease; display: flex; align-items: flex-end; }
-        @media (min-width: 768px) { .modal-overlay { align-items: center; } }
-        .modal-overlay.active { opacity: 1; visibility: visible; }
-        
-        .modal-container { transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .modal-overlay.active .modal-container { transform: translateY(0); }
-
-        .search-focus:focus-within { border-color: #ec4899; box-shadow: 0 10px 30px rgba(236, 72, 153, 0.2); transform: scale(1.01); }
-        
-        .case-card { transition: all 0.4s ease; }
-        .case-card.hidden { display: none; }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-    </style>
-</head>
-<body class="pb-10">
-
-    <div class="blur-bg bg-pink-400 w-64 h-64 -top-10 -left-10"></div>
-    <div class="blur-bg bg-blue-400 w-64 h-64 top-1/2 -right-10"></div>
-
-    <nav class="sticky top-0 z-50 bg-white/70 backdrop-blur-2xl px-4 py-4 md:px-10 md:py-6 flex justify-between items-center border-b border-gray-100">
-        <h1 class="font-black text-gray-800 text-xl md:text-2xl tracking-tighter">CLJ <span class="text-pink-500">Cases</span></h1>
-        <a href="index.html" class="text-[10px] font-black uppercase tracking-widest text-pink-600 bg-pink-50 px-5 py-2.5 rounded-full shadow-sm active:scale-90 transition">Home</a>
-    </nav>
-
-    <header class="pt-10 pb-6 px-6 text-center">
-        <h1 class="text-4xl md:text-7xl font-serif font-bold text-gray-800 mb-2 tracking-tight leading-tight">Landmark <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">Judgments</span></h1>
-        
-        <div class="max-w-md mx-auto mt-8 mb-10 relative search-focus transition-all duration-300 border-2 border-white rounded-2xl bg-white/90 backdrop-blur-md flex items-center px-5 shadow-xl">
-            <i class="fa-solid fa-magnifying-glass text-pink-500 text-lg"></i>
-            <input type="text" id="caseSearch" onkeyup="searchCases()" placeholder="Search from 10 Famous Cases..." class="w-full py-4 px-4 text-base font-bold outline-none bg-transparent text-gray-700 placeholder:text-gray-300">
-        </div>
-    </header>
-
-    <main class="px-5 space-y-8 max-w-lg mx-auto" id="casesContainer"></main>
-
-    <div id="caseModal" class="modal-overlay fixed inset-0 z-[100] bg-black/60 backdrop-blur-md justify-center">
-        <div class="absolute inset-0" onclick="closeModal()"></div>
-        <div class="modal-container bg-white w-full max-w-xl h-[92vh] md:h-auto md:max-h-[85vh] rounded-t-[2.5rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative flex flex-col">
-            
-            <div class="px-6 py-5 border-b border-gray-50 flex justify-between items-center sticky top-0 bg-white z-10">
-                <h3 class="font-black text-gray-800 text-base" id="modalTitle">Case Details</h3>
-                <button onclick="closeModal()" class="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center text-gray-800 active:scale-90 transition"><i class="fa-solid fa-xmark text-lg"></i></button>
-            </div>
-
-            <div class="p-8 overflow-y-auto no-scrollbar space-y-10 pb-24 text-left">
-                <div>
-                    <h4 class="text-pink-500 font-black text-[10px] uppercase tracking-widest mb-3">Context & Background</h4>
-                    <p id="modalDescription" class="text-gray-600 text-2xl leading-relaxed font-serif italic mb-4"></p>
-                    <div id="modalLongFacts" class="text-gray-500 text-base leading-relaxed space-y-4 font-medium">
-                        </div>
-                </div>
-
-                <div class="bg-gradient-to-br from-pink-50/50 to-purple-50/50 p-6 rounded-3xl border-l-4 border-pink-400">
-                    <h4 class="text-pink-600 font-black text-[10px] uppercase tracking-widest mb-3">The Constitutional Conflict</h4>
-                    <p id="modalIssue" class="text-pink-950 text-lg font-bold leading-snug"></p>
-                </div>
-
-                <div>
-                    <h4 class="text-gray-800 font-black text-[10px] uppercase tracking-widest mb-6">The Court's Reasoning</h4>
-                    <ul id="modalVerdict" class="space-y-4 text-gray-600 text-base leading-relaxed font-bold"></ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const caseDatabase = {
-            'kesavananda': { 
-                title: "Kesavananda Bharati (1973)", 
-                cat: "Constitution",
-                desc: "The battle that saved Indian Democracy.",
-                longFacts: `
-                    <p>In 1970, Swami Kesavananda Bharati, the head of Edneer Mutt in Kerala, challenged the state government's attempt to impose restrictions on the management of his religious property under land reform laws. While the case began as a property dispute, it quickly escalated into the greatest constitutional showdown in Indian history.</p>
-                    <p>The core struggle was between the Parliament's power to amend the Constitution and the Judiciary's duty to protect its integrity. Prime Minister Indira Gandhi's government argued that Parliament had 'unlimited' power to change any part of the Constitution, including Fundamental Rights.</p>
-                    <p>A record-breaking bench of 13 judges sat for 68 days to hear the arguments led by the legendary jurist Nani Palkhivala. The result was a razor-thin 7:6 majority that changed India forever.</p>`,
-                issue: "Does Parliament have the power to destroy the very identity of the Constitution through amendments?", 
-                verdict: [
-                    "Parliament can amend the Constitution but cannot touch its 'Basic Structure'.",
-                    "The power to amend is not the power to destroy.",
-                    "The Judiciary has the final authority to review any amendment.",
-                    "Secularism, Democracy, and Federalism are part of this unchangeable core."
-                ] 
-            },
-            'maneka': { 
-                title: "Maneka Gandhi (1978)", 
-                cat: "Article 21",
-                desc: "Redefining the Right to Life and Liberty.",
-                longFacts: `
-                    <p>In 1977, the regional passport office in New Delhi asked Maneka Gandhi to surrender her passport 'in public interest' without providing any specific reasons. When she asked for an explanation, the government refused to disclose it, claiming it was for the good of the general public.</p>
-                    <p>She challenged this under Article 21, which states that no person shall be deprived of life or liberty except according to 'procedure established by law'. Before this case, the courts believed that as long as a law existed, the procedure was valid.</p>
-                    <p>This case transformed the Indian Judiciary's approach to human rights, moving from a literal interpretation to one based on natural justice.</p>`,
-                issue: "Can a law be considered valid if the procedure it follows is unfair or arbitrary?", 
-                verdict: [
-                    "Any procedure must be 'Just, Fair, and Reasonable'.",
-                    "The Right to Travel abroad is a part of Personal Liberty.",
-                    "Articles 14, 19, and 21 are a 'Golden Triangle'—they cannot be separated.",
-                    "Principles of Natural Justice (the right to be heard) are mandatory."
-                ] 
-            },
-            'puttaswamy': { 
-                title: "K.S. Puttaswamy (2017)", 
-                cat: "Privacy",
-                desc: "Your Data is Your Dignity.",
-                longFacts: `
-                    <p>This historic litigation began when 91-year-old retired judge K.S. Puttaswamy challenged the government's Aadhaar project. He argued that the mandatory collection of biometrics (fingerprints and iris scans) without a strong privacy law violated the dignity of Indian citizens.</p>
-                    <p>The government initially argued that the Constitution does not specifically mention a 'Right to Privacy' and that it was only a common law right, not a fundamental one.</p>
-                    <p>A 9-judge bench was formed to settle the matter once and for all, examining decades of conflicting previous judgments.</p>`,
-                issue: "Is privacy an inherent part of the Right to Life, even if the word 'Privacy' isn't in the Constitution?", 
-                verdict: [
-                    "Privacy is a Fundamental Right protected under Article 21.",
-                    "It includes informational privacy and bodily autonomy.",
-                    "Any state interference must pass a 'Triple Test': Legality, Need, and Proportionality.",
-                    "Privacy is essential for the exercise of all other liberties."
-                ] 
-            },
-            'vishaka': { 
-                title: "Vishaka v. Rajasthan (1997)", 
-                cat: "Women Rights",
-                desc: "The Law that emerged from a Silent Vacuum.",
-                longFacts: `
+              longFacts: `
                     <p>Bhanwari Devi, a social worker in Rajasthan, was brutally gang-raped by high-caste men because she tried to stop a child marriage. When the criminal justice system failed to provide her justice, women's rights groups (under the name 'Vishaka') filed a class-action petition.</p>
                     <p>At the time, India had no specific laws to address sexual harassment at the workplace. The court realized that waiting for Parliament to pass a law would leave millions of women unprotected.</p>
                     <p>Using international conventions, the Supreme Court stepped in to act as a temporary legislator.</p>`,
@@ -286,6 +151,265 @@
             document.getElementById('caseModal').classList.remove('active');
             document.body.style.overflow = 'auto';
         }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landmark Judgments | CLJ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fcfdfe; 
+            -webkit-tap-highlight-color: transparent; 
+            overflow-x: hidden;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .blur-bg { position: fixed; z-index: -1; filter: blur(60px); opacity: 0.25; pointer-events: none; }
+        
+        .modal-overlay { opacity: 0; visibility: hidden; transition: all 0.3s ease; display: flex; align-items: flex-end; }
+        @media (min-width: 768px) { .modal-overlay { align-items: center; } }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        
+        .modal-container { transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .modal-overlay.active .modal-container { transform: translateY(0); }
+
+        .search-focus:focus-within { border-color: #ec4899; box-shadow: 0 10px 30px rgba(236, 72, 153, 0.2); transform: scale(1.01); }
+        
+        /* Compact Cards Style */
+        .case-card { transition: all 0.3s ease; border-top: 4px solid #ec4899; }
+        .case-card:hover { transform: translateY(-5px); }
+        .case-card.hidden { display: none; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+
+        .opinion-box { background: #fff1f2; border-left: 4px solid #be185d; padding: 1.5rem; border-radius: 1.5rem; }
+        .page-fade-out { opacity: 0 !important; transition: opacity 0.2s; }
+    </style>
+</head>
+<body class="pb-10">
+
+    <div class="blur-bg bg-pink-400 w-64 h-64 -top-10 -left-10"></div>
+    <div class="blur-bg bg-blue-400 w-64 h-64 top-1/2 -right-10"></div>
+
+    <nav class="sticky top-0 z-50 bg-white/70 backdrop-blur-2xl px-4 py-4 md:px-10 md:py-6 flex justify-between items-center border-b border-gray-100">
+        <h1 class="font-black text-gray-800 text-xl md:text-2xl tracking-tighter">CLJ <span class="text-pink-500">Cases</span></h1>
+        <a href="index.html" class="text-[10px] font-black uppercase tracking-widest text-pink-600 bg-pink-50 px-5 py-2.5 rounded-full shadow-sm active:scale-90 transition">Home</a>
+    </nav>
+
+    <header class="pt-10 pb-6 px-6 text-center">
+        <h1 class="text-4xl md:text-7xl font-serif font-bold text-gray-800 mb-2 tracking-tight leading-tight">Landmark <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">Judgments</span></h1>
+        
+        <div class="max-w-md mx-auto mt-8 mb-10 relative search-focus transition-all duration-300 border-2 border-gray-100 rounded-2xl bg-white/90 backdrop-blur-md flex items-center px-5 shadow-xl">
+            <i class="fa-solid fa-magnifying-glass text-pink-500 text-lg"></i>
+            <input type="text" id="caseSearch" onkeyup="searchCases()" placeholder="Search cases (e.g. Mohori Bibee, BNS, IPC)..." class="w-full py-4 px-4 text-base font-bold outline-none bg-transparent text-gray-700 placeholder:text-gray-300">
+        </div>
+    </header>
+
+    <main class="px-5 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto" id="casesContainer"></main>
+
+    <div id="caseModal" class="modal-overlay fixed inset-0 z-[100] bg-black/60 backdrop-blur-md justify-center">
+        <div class="absolute inset-0" onclick="closeModal()"></div>
+        <div class="modal-container bg-white w-full max-w-2xl h-[92vh] md:h-[85vh] rounded-t-[2.5rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative flex flex-col">
+            
+            <div class="px-6 py-5 border-b border-gray-50 flex justify-between items-center sticky top-0 bg-white z-10">
+                <h3 class="font-black text-gray-800 text-base" id="modalTitle text-pink-600 uppercase tracking-widest">Analyse</h3>
+                <button onclick="closeModal()" class="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center text-gray-800 active:scale-90 transition"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+
+            <div class="p-8 overflow-y-auto no-scrollbar space-y-12 pb-24 text-left">
+                <div>
+                    <h4 class="text-pink-500 font-black text-[10px] uppercase tracking-widest mb-4">Detailed Case Facts</h4>
+                    <p id="modalDescription" class="text-gray-800 text-3xl leading-tight font-serif italic mb-6"></p>
+                    <div id="modalLongFacts" class="text-gray-600 text-base leading-relaxed space-y-6"></div>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-[2rem]">
+                    <h4 class="text-gray-800 font-black text-[10px] uppercase tracking-widest mb-6">10 Key Takeaways</h4>
+                    <ul id="modalPoints" class="space-y-4 text-gray-700 text-sm font-semibold"></ul>
+                </div>
+
+                <div class="opinion-box">
+                    <h4 class="text-pink-700 font-black text-[10px] uppercase tracking-widest mb-3">Rey's Opinion</h4>
+                    <p id="modalOpinion" class="text-pink-900 text-base italic leading-relaxed"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const caseDatabase = {
+            'kesavananda': { 
+                title: "Kesavananda Bharati (1973)", 
+                cat: "Constitution",
+                desc: "The basic structure showdown.",
+                longFacts: `
+                    <p>The Kesavananda Bharati case is the most significant constitutional case in Indian history. It involved a massive dispute over land reform laws in Kerala that affected religious property. However, it turned into a debate about the soul of India: Can Parliament change anything in the Constitution?</p>
+                    <p>Over 13 judges sat for nearly 70 days. The government wanted total power to amend Fundamental Rights. The petitioners, led by Nani Palkhivala, argued that certain features are beyond Parliament's reach.</p>
+                    <p>The judgment created the 'Basic Structure Doctrine'. It means Parliament can amend but not destroy the Constitution's core like Democracy, Secularism, and Federalism.</p>`,
+                points: [
+                    "Parliament's amending power under Art 368 is limited.",
+                    "Basic Structure cannot be destroyed.",
+                    "Judicial Review is an essential part of the basic structure.",
+                    "The Preamble is part of the Constitution.",
+                    "It overruled the Golaknath case.",
+                    "Property rights are not part of the basic structure.",
+                    "Supremacy of the Constitution was re-established.",
+                    "Secularism was recognized as a core value.",
+                    "Democracy and free elections are unchangeable.",
+                    "It prevented India from turning into a totalitarian state."
+                ],
+                opinion: "This case is the only reason India is still a democracy today. Without this 7:6 majority, the Constitution would have been a puppet in the hands of whoever had the majority in Parliament. It is a masterpiece of judicial bravery."
+            },
+            'mohori': { 
+                title: "Mohori Bibee v Dharmodas (1903)", 
+                cat: "Contract Act",
+                desc: "The minor's agreement rule.",
+                longFacts: `
+                    <p>A landmark case from the British era that still governs Indian Contract law. A minor (Dharmodas Ghose) borrowed money from a moneylender by hiding his age. When the lender tried to recover the money, the minor's mother sued to cancel the contract.</p>
+                    <p>The Privy Council had to decide if a minor's promise had any legal value at all. They looked at Section 11 of the Contract Act which says parties must be 'competent' to contract.</p>`,
+                points: [
+                    "Minor's agreement is void-ab-initio (void from start).",
+                    "A minor cannot be sued for breach of contract.",
+                    "Section 11 is mandatory, not optional.",
+                    "Moneylender cannot recover money under a void agreement.",
+                    "A minor cannot ratify a contract after becoming an adult.",
+                    "The rule protects minors from being exploited.",
+                    "The doctrine of estoppel does not apply to minors.",
+                    "The minor cannot be made to return the benefit if the contract is void.",
+                    "Age of majority is 18 (Indian Majority Act).",
+                    "Parental consent doesn't make a minor's contract valid."
+                ],
+                opinion: "This case established a 'shield' for minors. While it seems unfair to the moneylender, the law correctly assumes that children don't have the mental maturity to understand commercial consequences."
+            },
+            'nanavati': { 
+                title: "KM Nanavati v Maharashtra (1959)", 
+                cat: "IPC / BNS",
+                desc: "The end of the Jury system in India.",
+                longFacts: `
+                    <p>A high-profile case involving a Navy Commander who shot his wife's lover. Nanavati found out about his wife Sylvia's affair with Prem Ahuja. He went to his ship, took a gun, and shot Ahuja.</p>
+                    <p>The trial was famous because the public and the media supported Nanavati. The jury initially declared him 'Not Guilty' based on 'Sudden Provocation', but the judge disagreed.</p>`,
+                points: [
+                    "Last major jury trial in India.",
+                    "Jury system was abolished after this bias.",
+                    "Distinction between Murder and Culpable Homicide.",
+                    "The provocation was not 'sudden' because he had time to cool down.",
+                    "Intent was proven by the act of taking the gun from the ship.",
+                    "Self-defense plea was rejected.",
+                    "Media influence on trials became a topic of discussion.",
+                    "It defined Section 300 (Murder) of IPC (Now 103 BNS).",
+                    "Culpable homicide not amounting to murder requires specific circumstances.",
+                    "Nanavati was eventually pardoned after a few years."
+                ],
+                opinion: "This case shows why professional judges are better than juries. Emotions can blind common people, but the law must remain cold and objective. It changed Indian legal history by ending the jury era."
+            },
+            'dastane': { 
+                title: "Dastane v Dastane (1975)", 
+                cat: "HMA / Family Law",
+                desc: "Defining Mental Cruelty.",
+                longFacts: `
+                    <p>The husband sued for divorce claiming his wife was cruel. The court had to define what 'Cruelty' means because earlier, only physical violence was considered cruelty.</p>
+                    <p>The wife had a history of aggressive behavior and mental instability, making the husband's life miserable. The case went to the Supreme Court to set a standard for matrimonial disputes.</p>`,
+                points: [
+                    "Cruelty can be physical or mental.",
+                    "Standard of proof is 'Preponderance of Probabilities'.",
+                    "Conduct must be such that it's impossible to live together.",
+                    "Isolated incidents don't amount to cruelty.",
+                    "It must be 'grave and weighty' conduct.",
+                    "Condonation of cruelty (forgiving the act) was discussed.",
+                    "Impact on the victim is more important than the intent of the harasser.",
+                    "Section 13(1)(ia) of HMA is based on this logic.",
+                    "Social status of parties is considered during evaluation.",
+                    "Changed the face of Indian divorce law."
+                ],
+                opinion: "Marriage shouldn't be a prison. Dastane case recognized that mental torture can be worse than physical wounds. It gave victims a way out of toxic environments."
+            },
+            'hadley': { 
+                title: "Hadley v Baxendale (1854)", 
+                cat: "Contract Act",
+                desc: "The law of Remoteness of Damages.",
+                longFacts: `
+                    <p>A mill's shaft broke, and the carrier (Baxendale) delayed the delivery of the new shaft. The mill owner sued for the loss of profits during the delay. The court had to decide if the carrier was liable for all losses or only direct ones.</p>`,
+                points: [
+                    "Origin of Section 73 of the Indian Contract Act.",
+                    "Damages must arise naturally from the breach.",
+                    "Special losses must be communicated in advance.",
+                    "Reasonable foreseeability is the test.",
+                    "Remote and indirect losses are not payable.",
+                    "Ordinary vs Special damages.",
+                    "Compensation is to place the party in the same financial position.",
+                    "Not meant to punish the party who broke the contract.",
+                    "Foundation of commercial liability.",
+                    "Applied globally in almost every common law country."
+                ],
+                opinion: "This is the most logical rule in business. You cannot hold someone liable for millions in losses unless you warned them about the risks before signing the contract."
+            }
+        };
+
+        const container = document.getElementById('casesContainer');
+        Object.keys(caseDatabase).forEach(key => {
+            const data = caseDatabase[key];
+            container.innerHTML += `
+                <div class="case-card bg-white rounded-3xl p-6 shadow-md border border-gray-100 flex flex-col justify-between" data-title="${data.title} ${data.cat}">
+                    <div>
+                        <span class="text-[8px] font-black text-pink-500 uppercase tracking-widest bg-pink-50 px-3 py-1 rounded-full mb-3 inline-block">${data.cat}</span>
+                        <h2 class="text-xl font-black text-gray-800 leading-tight">${data.title}</h2>
+                        <p class="text-gray-400 text-[11px] mt-2 font-medium">${data.desc}</p>
+                    </div>
+                    <button onclick="openModal('${key}')" class="mt-6 w-full py-3 bg-gray-50 text-gray-800 rounded-xl font-black text-[9px] uppercase tracking-widest active:scale-95 transition-all hover:bg-pink-500 hover:text-white">View Full Analysis</button>
+                </div>
+            `;
+        });
+
+        function openModal(id) {
+            const data = caseDatabase[id];
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalDescription').innerText = data.desc;
+            document.getElementById('modalLongFacts').innerHTML = data.longFacts;
+            document.getElementById('modalOpinion').innerText = data.opinion;
+            
+            const pointsList = document.getElementById('modalPoints');
+            pointsList.innerHTML = '';
+            data.points.forEach((p, index) => {
+                pointsList.innerHTML += `<li class="flex items-start gap-3"><span class="w-5 h-5 bg-pink-100 text-pink-600 rounded flex items-center justify-center text-[10px] shrink-0">${index+1}</span> ${p}</li>`;
+            });
+
+            document.getElementById('caseModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('caseModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function searchCases() {
+            let input = document.getElementById('caseSearch').value.toLowerCase();
+            let cards = document.getElementsByClassName('case-card');
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getAttribute('data-title').toLowerCase();
+                cards[i].classList.toggle('hidden', !title.includes(input));
+            }
+        }
+
+        // --- BACK BUTTON FIX ---
+        window.onpageshow = function(event) { if (event.persisted) location.reload(); };
+
+        // --- SECURITY ---
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('copy', e => e.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false;
+        };
     </script>
 </body>
 </html>
