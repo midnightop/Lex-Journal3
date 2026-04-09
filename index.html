@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Calcutta Law Journal | Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -16,13 +16,13 @@
             overflow-x: hidden; 
             -webkit-tap-highlight-color: transparent;
             
-            /* --- COPY PROTECTION CSS --- */
-            -webkit-user-select: none; /* Safari */
-            -moz-user-select: none;    /* Firefox */
-            -ms-user-select: none;     /* IE10+ */
-            user-select: none;         /* Standard */
+            /* --- ZOOM PROTECTION & SELECTION --- */
+            touch-action: pan-x pan-y; /* Zoom disable handling */
+            -webkit-user-select: none; 
+            -moz-user-select: none;    
+            -ms-user-select: none;     
+            user-select: none;         
 
-            /* Smooth Entrance */
             animation: fadeInBody 0.3s ease-in;
         }
 
@@ -31,7 +31,6 @@
             to { opacity: 1; }
         }
 
-        /* Fast Click Transition Effect */
         .page-fade-out {
             opacity: 0 !important;
             transform: scale(0.99);
@@ -40,7 +39,6 @@
 
         .font-serif { font-family: 'Playfair Display', serif; }
 
-        /* Smooth Performance-Optimized Animations */
         .reveal { 
             opacity: 0; 
             transform: translateY(20px); 
@@ -49,7 +47,6 @@
         }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Glossy Blur Elements */
         .glass-nav {
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(20px);
@@ -70,7 +67,25 @@
             animation: gradientShift 15s ease infinite;
             border-radius: 35px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative; /* Badge positioning ke liye */
         }
+
+        /* --- RESEARCH COUNTER BADGE --- */
+        .research-counter {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #ef4444;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 10px;
+            font-weight: 900;
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.4);
+            border: 2px solid #fcfdfe;
+            letter-spacing: 0.05em;
+        }
+
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -96,7 +111,6 @@
             20%, 100% { transform: translateX(100%) rotate(45deg); }
         }
 
-        /* Simple Skeleton UI Overlay */
         #skeleton-screen {
             position: fixed;
             inset: 0;
@@ -151,6 +165,8 @@
 
         <section class="px-6 py-10 reveal">
             <div class="research-gloss p-8 shadow-2xl text-white">
+                <div class="research-counter uppercase">3 Papers Active</div>
+                
                 <div class="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 border border-white/20">
                     <i class="fa-solid fa-atom text-blue-400 text-2xl"></i>
                 </div>
@@ -277,6 +293,17 @@
         document.addEventListener('copy', (e) => e.preventDefault());
         document.addEventListener('cut', (e) => e.preventDefault());
         document.addEventListener('paste', (e) => e.preventDefault());
+        
+        // Prevent zoom on double tap
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', (e) => {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+
         document.onkeydown = function(e) {
             if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false;
             if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) return false;
