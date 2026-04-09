@@ -15,22 +15,27 @@
             color: #1e293b; 
             overflow-x: hidden; 
             -webkit-tap-highlight-color: transparent;
-            -webkit-user-select: none; 
-            user-select: none;
-            /* Smooth entry animation */
-            animation: fadeInPage 0.4s ease-out;
+            
+            /* --- COPY PROTECTION CSS --- */
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none;    /* Firefox */
+            -ms-user-select: none;     /* IE10+ */
+            user-select: none;         /* Standard */
+
+            /* Smooth Entrance */
+            animation: fadeInBody 0.3s ease-in;
         }
 
-        @keyframes fadeInPage {
+        @keyframes fadeInBody {
             from { opacity: 0; }
             to { opacity: 1; }
         }
 
-        /* --- PAGE EXIT TRANSITION --- */
-        .page-transition {
+        /* Fast Click Transition Effect */
+        .page-fade-out {
             opacity: 0 !important;
-            transform: scale(0.98);
-            transition: opacity 0.2s ease-in, transform 0.2s ease-in !important;
+            transform: scale(0.99);
+            transition: opacity 0.2s ease-out, transform 0.2s ease-out !important;
         }
 
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -57,11 +62,7 @@
             border: 1px solid rgba(255, 255, 255, 0.8);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
             border-radius: 32px;
-            transition: transform 0.2s ease;
         }
-        
-        /* Button & Card Micro-interaction */
-        .glossy-card:active { transform: scale(0.97); }
 
         .research-gloss {
             background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #1e293b);
@@ -79,10 +80,8 @@
         .btn-glossy {
             position: relative;
             overflow: hidden;
-            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.2s ease;
         }
-        .btn-glossy:active { transform: scale(0.95); }
-
         .btn-glossy::after {
             content: '';
             position: absolute;
@@ -97,29 +96,27 @@
             20%, 100% { transform: translateX(100%) rotate(45deg); }
         }
 
-        /* Skeleton Loading UI */
-        #skeleton-loader {
+        /* Simple Skeleton UI Overlay */
+        #skeleton-screen {
             position: fixed;
             inset: 0;
             background: #fcfdfe;
             z-index: 9999;
             display: flex;
             flex-direction: column;
+            padding: 20px;
             gap: 20px;
-            padding: 40px 20px;
-            transition: opacity 0.3s ease;
         }
-        .sk-box { background: #eee; border-radius: 20px; animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
+        .sk-item { background: #f1f5f9; border-radius: 15px; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 50% { opacity: 0.5; } }
     </style>
 </head>
 <body>
 
-    <div id="skeleton-loader">
-        <div class="h-10 w-full sk-box"></div>
-        <div class="h-40 w-full sk-box mt-10"></div>
-        <div class="h-64 w-full sk-box"></div>
-        <div class="h-64 w-full sk-box"></div>
+    <div id="skeleton-screen">
+        <div class="h-12 w-full sk-item"></div>
+        <div class="h-40 w-3/4 mx-auto sk-item mt-10"></div>
+        <div class="h-64 w-full sk-item"></div>
     </div>
 
     <nav class="sticky top-0 z-50 glass-nav px-5 py-3 flex justify-between items-center">
@@ -147,8 +144,8 @@
             </p>
             
             <div class="flex flex-col gap-4 max-w-xs mx-auto">
-                <a href="bare-acts.html" class="btn-glossy bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl text-center">Explore Bare Acts</a>
-                <a href="case-laws.html" class="btn-glossy bg-gradient-to-r from-pink-500 to-rose-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl text-center">Read Case Laws</a>
+                <a href="bare-acts.html" class="btn-glossy bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl">Explore Bare Acts</a>
+                <a href="case-laws.html" class="btn-glossy bg-gradient-to-r from-pink-500 to-rose-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl">Read Case Laws</a>
             </div>
         </header>
 
@@ -158,8 +155,9 @@
                     <i class="fa-solid fa-atom text-blue-400 text-2xl"></i>
                 </div>
                 <h2 class="text-3xl font-black mb-4 tracking-tighter uppercase">Research</h2>
-                <div class="text-sm opacity-80 leading-relaxed font-medium space-y-4 text-justify">
+                <div class="text-sm opacity-80 leading-relaxed font-medium space-y-4">
                     <p>Legal research is the systematic investigation into the law and its application to specific facts. It is the cornerstone of the legal profession. At the Calcutta Law Journal, our research wing does not merely summarize existing data; we dissect the "why" behind the law. In the Indian context, where laws are constantly being replaced—such as the massive transition from the IPC/CrPC to the BNS—research becomes the only tool that keeps a legal professional relevant.</p>
+                    <p>We explore how socio-economic shifts in India demand new legal frameworks, such as Digital Privacy and Environmental Protection. By providing high-quality thesis summaries and academic papers, we help students develop the critical thinking skills required to argue in high courts and the supreme court. Research at CLJ is about uncovering the intent of the legislature and the vision of the judiciary, ensuring that justice is found within the law.</p>
                 </div>
                 <a href="research.html" class="mt-8 block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px] active:scale-95 transition shadow-lg">Enter Research Lab</a>
             </div>
@@ -172,7 +170,7 @@
                     <h3 class="text-blue-600 font-black text-lg uppercase">The Bare Act Foundation</h3>
                 </div>
                 <p class="text-gray-600 text-sm leading-relaxed text-justify">
-                    A Bare Act is the rawest form of legislation, passed by Parliament. It is the skeletal structure of our democracy. CLJ simplifies these acts without diluting their legal essence, making them easier to apply.
+                    A Bare Act is the rawest form of legislation, passed by Parliament. It is the skeletal structure of our democracy. For a law student, the Bare Act is the ultimate source of truth. Mastering the language of sections, clauses, and provisos is essential for drafting, litigation, and competitive exams. CLJ simplifies these acts without diluting their legal essence, making them easier to internalize and apply in the real world.
                 </p>
             </div>
 
@@ -182,8 +180,34 @@
                     <h3 class="text-pink-600 font-black text-lg uppercase">Landmark Case Laws</h3>
                 </div>
                 <p class="text-gray-600 text-sm leading-relaxed text-justify">
-                    Precedents are binding in India, and landmark judgments show how judges breathe life into statutes. Studying cases like Kesavananda Bharati teaches students the "Art of Argument."
+                    If Bare Acts are the skeleton, Case Laws are the flesh and blood. Precedents are binding in India, and landmark judgments show how judges breathe life into statutes to protect human souls. Studying cases like Kesavananda Bharati teaches students the "Art of Argument." It shows how a lawyer can take a single sentence from the Constitution and turn it into a shield for millions.
                 </p>
+            </div>
+        </section>
+
+        <section class="space-y-12 py-10 px-6">
+            <div class="glossy-card overflow-hidden reveal">
+                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800" class="w-full h-52 object-cover">
+                <div class="p-8">
+                    <h2 class="text-2xl font-black text-gray-800 mb-4 uppercase tracking-tighter">Calcutta High Court</h2>
+                    <div class="text-xs text-gray-500 leading-relaxed space-y-4 text-justify">
+                        <p>The High Court of Calcutta is the oldest High Court in India, established on **July 1, 1862**. Its majestic gothic design, inspired by the Ypres Cloth Hall, represents the weight of tradition and the evolution from 'Rule by Law' to independent 'Rule of Law.'</p>
+                        <p>For over 160 years, it has been the cradle of Indian jurisprudence, hosting legendary legal minds like C.R. Das and Sir Ashutosh Mukherjee. For a law student in Bengal, this institution is the ultimate symbol of the power of the robe and a destination for pioneering decisions on civil liberties and labor rights.</p>
+                    </div>
+                    <a href="https://www.calcuttahighcourt.gov.in/" target="_blank" class="mt-8 block text-center py-4 border border-blue-600 text-blue-600 font-black rounded-xl uppercase text-[10px]">Official HC Portal</a>
+                </div>
+            </div>
+
+            <div class="research-gloss overflow-hidden reveal">
+                <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=800" class="w-full h-52 object-cover opacity-60">
+                <div class="p-8 text-white">
+                    <h2 class="text-2xl font-black mb-4 uppercase tracking-tighter">Supreme Court of India</h2>
+                    <div class="text-xs text-gray-300 leading-relaxed space-y-4 text-justify">
+                        <p>Inaugurated on **January 28, 1950**, the Supreme Court is the final interpreter of the Constitution. Its motto, *"Yato Dharmastato Jayah"* (Where there is Dharma, there is Victory), defines its role as the protector of fundamental rights and the guardian of the Republic.</p>
+                        <p>Under Article 141, the law declared by the SC is binding across India. From establishing the "Basic Structure Doctrine" to decriminalizing personal identities, the SC has defined what it means to be an Indian citizen. For any student, the SC represents the peak of the legal mountain and the triumph of the rule of law over arbitrary power.</p>
+                    </div>
+                    <a href="https://main.sci.gov.in/" target="_blank" class="mt-8 block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px]">Official SC Portal</a>
+                </div>
             </div>
         </section>
 
@@ -195,6 +219,10 @@
                 <h3 class="text-2xl font-black text-gray-800">Rey</h3>
                 <p class="text-blue-500 font-black uppercase text-[10px] mt-1 tracking-widest">Law Student</p>
                 <p class="text-gray-400 font-bold text-[8px] mt-1 uppercase leading-tight">Surendranath Law College | University of Calcutta</p>
+                
+                <p class="mt-8 text-gray-600 italic leading-relaxed font-serif text-lg">
+                    "I started this because I'm a student too. I know how confusing this can be. Let's make law simple, together."
+                </p>
             </div>
         </section>
     </main>
@@ -204,43 +232,45 @@
     </footer>
 
     <script>
-        // --- SKELETON LOADER REMOVAL ---
+        // --- SKELETON HIDER ---
         window.addEventListener('load', () => {
-            const loader = document.getElementById('skeleton-loader');
-            loader.style.opacity = '0';
-            setTimeout(() => loader.remove(), 300);
+            const sk = document.getElementById('skeleton-screen');
+            if(sk) {
+                sk.style.transition = 'opacity 0.3s ease';
+                sk.style.opacity = '0';
+                setTimeout(() => sk.remove(), 300);
+            }
         });
 
-        // --- BUTTON CLICK ANIMATION ---
-        document.querySelectorAll('a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const target = this.getAttribute('href');
-                // Don't animate for external links or social media
-                if (target.startsWith('http') && !target.includes('lawjournal.online') && !target.includes('.html')) return;
-                
-                e.preventDefault();
-                document.body.classList.add('page-transition');
-                
-                setTimeout(() => {
-                    window.location.href = target;
-                }, 200); // Fast enough not to feel slow, slow enough to see the fade
-            });
-        });
-
-        // Reveal Observer
+        // Animations Observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
             });
         }, { threshold: 0.1 });
+
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Protection Scripts
-        document.addEventListener('contextmenu', e => e.preventDefault());
-        document.addEventListener('copy', e => e.preventDefault());
+        // --- FAST CLICK TRANSITION (NON-INVASIVE) ---
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && href !== '#' && !href.startsWith('http')) {
+                    e.preventDefault();
+                    document.body.classList.add('page-fade-out');
+                    setTimeout(() => { window.location.href = href; }, 200);
+                }
+            });
+        });
+
+        // --- PROTECTION SCRIPTS ---
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('copy', (e) => e.preventDefault());
+        document.addEventListener('cut', (e) => e.preventDefault());
+        document.addEventListener('paste', (e) => e.preventDefault());
         document.onkeydown = function(e) {
             if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false;
-            if (e.key === 'F12') return false;
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) return false;
         };
     </script>
 </body>
