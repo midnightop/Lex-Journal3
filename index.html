@@ -15,19 +15,14 @@
             color: #1e293b; 
             overflow-x: hidden; 
             -webkit-tap-highlight-color: transparent;
-            
-            /* --- NO ZOOM & COPY PROTECTION --- */
             touch-action: manipulation;
             -webkit-user-select: none;
             user-select: none;
-
-            /* Smooth Entrance */
             animation: fadeInBody 0.3s ease-in;
         }
 
         @keyframes fadeInBody { from { opacity: 0; } to { opacity: 1; } }
 
-        /* Fast Click Transition Effect */
         .page-fade-out {
             opacity: 0 !important;
             transform: scale(0.99);
@@ -36,7 +31,6 @@
 
         .font-serif { font-family: 'Playfair Display', serif; }
 
-        /* Smooth Performance-Optimized Animations */
         .reveal { 
             opacity: 0; 
             transform: translateY(20px); 
@@ -45,7 +39,6 @@
         }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Glossy Blur Elements */
         .glass-nav {
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(20px);
@@ -58,10 +51,9 @@
             border: 1px solid rgba(255, 255, 255, 0.8);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
             border-radius: 32px;
-            position: relative; /* Badge positioning */
+            position: relative;
         }
 
-        /* --- STAT BADGES --- */
         .stat-tag {
             position: absolute;
             top: 20px;
@@ -110,7 +102,6 @@
             20%, 100% { transform: translateX(100%) rotate(45deg); }
         }
 
-        /* Simple Skeleton UI Overlay */
         #skeleton-screen {
             position: fixed;
             inset: 0;
@@ -128,9 +119,9 @@
 <body>
 
     <div id="skeleton-screen">
-        <div class="h-12 w-full sk-item"></div>
+        <div class="h-12 sk-item"></div>
         <div class="h-40 w-3/4 mx-auto sk-item mt-10"></div>
-        <div class="h-64 w-full sk-item"></div>
+        <div class="h-64 sk-item"></div>
     </div>
 
     <nav class="sticky top-0 z-50 glass-nav px-5 py-3 flex justify-between items-center">
@@ -154,7 +145,7 @@
             <h1 class="text-5xl font-serif font-bold text-gray-900 mb-8 leading-tight">Law Journal</h1>
             <p class="text-gray-800 text-xl font-serif italic mb-6">"Honestly? Law is hard. But it doesn't have to be boring."</p>
             <p class="text-gray-500 text-sm leading-relaxed mb-8 max-w-md mx-auto">
-                Legal language shouldn't be a barrier to justice. We decode the DNA of the Indian legal system, translating complex colonial-era jargon into simple, actionable English for every student and citizen.
+                Legal language shouldn't be a barrier to justice. We decode the DNA of the Indian legal system for every student and citizen.
             </p>
             
             <div class="flex flex-col gap-4 max-w-xs mx-auto">
@@ -166,14 +157,12 @@
         <section class="px-6 py-10 reveal">
             <div class="research-gloss p-8 shadow-2xl text-white">
                 <div class="stat-tag text-blue-600">3 Papers</div>
-
                 <div class="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 border border-white/20">
                     <i class="fa-solid fa-atom text-blue-400 text-2xl"></i>
                 </div>
                 <h2 class="text-3xl font-black mb-4 tracking-tighter uppercase">Research</h2>
-                <div class="text-sm opacity-80 leading-relaxed font-medium space-y-4">
-                    <p>Legal research is the systematic investigation into the law and its application to specific facts. It is the cornerstone of the legal profession. At the Calcutta Law Journal, our research wing does not merely summarize existing data; we dissect the "why" behind the law. In the Indian context, where laws are constantly being replaced—such as the massive transition from the IPC/CrPC to the BNS—research becomes the only tool that keeps a legal professional relevant.</p>
-                    <p>By providing high-quality thesis summaries and academic papers, we help students develop the critical thinking skills required to argue in high courts and the supreme court. Research at CLJ is about uncovering the intent of the legislature and the vision of the judiciary, ensuring that justice is found within the law.</p>
+                <div class="text-sm opacity-80 leading-relaxed font-medium space-y-4 text-justify">
+                    <p>At the Calcutta Law Journal, our research wing dissects the "why" behind the law. In the Indian context, where laws are constantly being replaced, research becomes the only tool that keeps a legal professional relevant.</p>
                 </div>
                 <a href="research.html" class="mt-8 block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px] active:scale-95 transition shadow-lg">Enter Research Lab</a>
             </div>
@@ -182,50 +171,24 @@
         <section class="px-6 py-8 space-y-8">
             <div class="glossy-card p-8 reveal">
                 <div class="stat-tag text-blue-600">5 Acts</div>
-
                 <div class="flex items-center gap-4 mb-4">
                     <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600"><i class="fa-solid fa-scroll"></i></div>
-                    <h3 class="text-blue-600 font-black text-lg uppercase">The Bare Act Foundation</h3>
+                    <h3 class="text-blue-600 font-black text-lg uppercase">Bare Act Basis</h3>
                 </div>
                 <p class="text-gray-600 text-sm leading-relaxed text-justify">
-                    A Bare Act is the rawest form of legislation, passed by Parliament. It is the skeletal structure of our democracy. For a law student, the Bare Act is the ultimate source of truth. Mastering the language of sections, clauses, and provisos is essential for drafting, litigation, and competitive exams. CLJ simplifies these acts without diluting their legal essence.
+                    A Bare Act is the skeletal structure of our democracy. We simplify these acts without diluting their legal essence, making them easier to internalize and apply.
                 </p>
             </div>
 
             <div class="glossy-card p-8 reveal">
                 <div class="stat-tag text-pink-600">30+ Cases</div>
-
                 <div class="flex items-center gap-4 mb-4">
                     <div class="w-10 h-10 bg-pink-50 rounded-xl flex items-center justify-center text-pink-600"><i class="fa-solid fa-gavel"></i></div>
-                    <h3 class="text-pink-600 font-black text-lg uppercase">Landmark Case Laws</h3>
+                    <h3 class="text-pink-600 font-black text-lg uppercase">Landmark Cases</h3>
                 </div>
                 <p class="text-gray-600 text-sm leading-relaxed text-justify">
-                    If Bare Acts are the skeleton, Case Laws are the flesh and blood. Precedents are binding in India, and landmark judgments show how judges breathe life into statutes to protect human souls. Studying cases like Kesavananda Bharati teaches students the "Art of Argument." It shows how a lawyer can take a single sentence from the Constitution and turn it into a shield for millions.
+                    Studying landmark judgments teaches the "Art of Argument." It shows how a lawyer can take the Constitution and turn it into a shield for millions.
                 </p>
-            </div>
-        </section>
-
-        <section class="space-y-12 py-10 px-6">
-            <div class="glossy-card overflow-hidden reveal">
-                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800" class="w-full h-52 object-cover">
-                <div class="p-8">
-                    <h2 class="text-2xl font-black text-gray-800 mb-4 uppercase tracking-tighter">Calcutta High Court</h2>
-                    <div class="text-xs text-gray-500 leading-relaxed space-y-4 text-justify">
-                        <p>The High Court of Calcutta is the oldest High Court in India, established on **July 1, 1862**. Its majestic gothic design represents the weight of tradition and the evolution from 'Rule by Law' to independent 'Rule of Law.'</p>
-                    </div>
-                    <a href="https://www.calcuttahighcourt.gov.in/" target="_blank" class="mt-8 block text-center py-4 border border-blue-600 text-blue-600 font-black rounded-xl uppercase text-[10px]">Official HC Portal</a>
-                </div>
-            </div>
-
-            <div class="research-gloss overflow-hidden reveal">
-                <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=800" class="w-full h-52 object-cover opacity-60">
-                <div class="p-8 text-white">
-                    <h2 class="text-2xl font-black mb-4 uppercase tracking-tighter">Supreme Court of India</h2>
-                    <div class="text-xs text-gray-300 leading-relaxed space-y-4 text-justify">
-                        <p>Inaugurated on **January 28, 1950**, the Supreme Court is the final interpreter of the Constitution. Its motto defines its role as the protector of fundamental rights and the republic.</p>
-                    </div>
-                    <a href="https://main.sci.gov.in/" target="_blank" class="mt-8 block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px]">Official SC Portal</a>
-                </div>
             </div>
         </section>
 
@@ -236,10 +199,9 @@
                 </div>
                 <h3 class="text-2xl font-black text-gray-800">Rey</h3>
                 <p class="text-blue-500 font-black uppercase text-[10px] mt-1 tracking-widest">Law Student</p>
-                <p class="text-gray-400 font-bold text-[8px] mt-1 uppercase leading-tight">Surendranath Law College | University of Calcutta</p>
                 
-                <p class="mt-8 text-gray-600 italic leading-relaxed font-serif text-lg">
-                    "​deconstruct the complexities of Indian jurisprudence to bridge the gap between colonial-era legislation and modern digital laws. Through the Calcutta Law Journal, I simplify our legal DNA to prove that legal literacy is the most powerful tool for justice."
+                <p class="mt-6 text-gray-600 italic leading-relaxed font-serif text-lg">
+                    "I deconstruct Indian jurisprudence to bridge colonial-era legislation and digital laws, simplifying our legal DNA for justice."
                 </p>
             </div>
         </section>
@@ -250,7 +212,6 @@
     </footer>
 
     <script>
-        // --- SKELETON HIDER ---
         window.addEventListener('load', () => {
             const sk = document.getElementById('skeleton-screen');
             if(sk) {
@@ -260,14 +221,6 @@
             }
         });
 
-        // --- BACK BUTTON FIX ---
-        window.addEventListener('pageshow', (event) => {
-            if (event.persisted) {
-                document.body.classList.remove('page-fade-out');
-            }
-        });
-
-        // Reveal Observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
@@ -276,7 +229,6 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // --- FAST CLICK TRANSITION ---
         document.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
@@ -288,22 +240,15 @@
             });
         });
 
-        // --- PROTECTION & ZOOM BLOCK ---
         document.addEventListener('contextmenu', event => event.preventDefault());
         document.addEventListener('copy', (e) => e.preventDefault());
         
-        // Block double-tap to zoom
         let lastTouchEnd = 0;
         document.addEventListener('touchend', (e) => {
             const now = (new Date()).getTime();
             if (now - lastTouchEnd <= 300) e.preventDefault();
             lastTouchEnd = now;
         }, false);
-
-        document.onkeydown = function(e) {
-            if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false;
-            if (e.key === 'F12') return false;
-        };
     </script>
 </body>
 </html>
