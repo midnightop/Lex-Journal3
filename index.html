@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcutta Law Journal | Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Law Journal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -16,20 +17,16 @@
             overflow-x: hidden; 
             -webkit-tap-highlight-color: transparent;
             
-            /* --- COPY PROTECTION CSS --- */
-            -webkit-user-select: none; /* Safari */
-            -moz-user-select: none;    /* Firefox */
-            -ms-user-select: none;     /* IE10+ */
-            user-select: none;         /* Standard */
+            /* --- NO ZOOM & COPY PROTECTION --- */
+            touch-action: manipulation;
+            -webkit-user-select: none;
+            user-select: none;
 
             /* Smooth Entrance */
             animation: fadeInBody 0.3s ease-in;
         }
 
-        @keyframes fadeInBody {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+        @keyframes fadeInBody { from { opacity: 0; } to { opacity: 1; } }
 
         /* Fast Click Transition Effect */
         .page-fade-out {
@@ -62,6 +59,23 @@
             border: 1px solid rgba(255, 255, 255, 0.8);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
             border-radius: 32px;
+            position: relative; /* Badge positioning */
+        }
+
+        /* --- STAT BADGES --- */
+        .stat-tag {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 9px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
 
         .research-gloss {
@@ -70,6 +84,7 @@
             animation: gradientShift 15s ease infinite;
             border-radius: 35px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
         }
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
@@ -109,16 +124,6 @@
         }
         .sk-item { background: #f1f5f9; border-radius: 15px; animation: pulse 1.5s infinite; }
         @keyframes pulse { 50% { opacity: 0.5; } }
-
-        /* --- ADDED CLASS TO COMPACT THE BIO TEXT --- */
-        .bio-text-compact {
-            font-size: 0.875rem !important; /* text-sm equivalent */
-            line-height: 1.5 !important; /* leading-normal equivalent */
-            margin-top: 1rem !important; /* mt-4 equivalent */
-            max-width: 20rem; /* compact width */
-            margin-left: auto;
-            margin-right: auto;
-        }
     </style>
 </head>
 <body>
@@ -134,7 +139,7 @@
             <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg">
                 <i class="fa-solid fa-scale-balanced text-sm"></i>
             </div>
-            <span class="font-black text-gray-800 tracking-tighter text-lg">CLJ <span class="text-blue-600">Journal</span></span>
+            <span class="font-black text-gray-800 tracking-tighter text-lg">Law <span class="text-blue-600">Journal</span></span>
         </div>
         <div class="flex items-center gap-4">
             <a href="terms.html" class="text-[10px] font-black uppercase text-gray-500 border border-gray-200 px-3 py-1.5 rounded-lg active:bg-gray-50 transition">Terms</a>
@@ -161,13 +166,15 @@
 
         <section class="px-6 py-10 reveal">
             <div class="research-gloss p-8 shadow-2xl text-white">
+                <div class="stat-tag text-blue-600">3 Papers</div>
+
                 <div class="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 border border-white/20">
                     <i class="fa-solid fa-atom text-blue-400 text-2xl"></i>
                 </div>
                 <h2 class="text-3xl font-black mb-4 tracking-tighter uppercase">Research</h2>
                 <div class="text-sm opacity-80 leading-relaxed font-medium space-y-4">
                     <p>Legal research is the systematic investigation into the law and its application to specific facts. It is the cornerstone of the legal profession. At the Calcutta Law Journal, our research wing does not merely summarize existing data; we dissect the "why" behind the law. In the Indian context, where laws are constantly being replaced—such as the massive transition from the IPC/CrPC to the BNS—research becomes the only tool that keeps a legal professional relevant.</p>
-                    <p>We explore how socio-economic shifts in India demand new legal frameworks, such as Digital Privacy and Environmental Protection. By providing high-quality thesis summaries and academic papers, we help students develop the critical thinking skills required to argue in high courts and the supreme court. Research at CLJ is about uncovering the intent of the legislature and the vision of the judiciary, ensuring that justice is found within the law.</p>
+                    <p>By providing high-quality thesis summaries and academic papers, we help students develop the critical thinking skills required to argue in high courts and the supreme court. Research at CLJ is about uncovering the intent of the legislature and the vision of the judiciary, ensuring that justice is found within the law.</p>
                 </div>
                 <a href="research.html" class="mt-8 block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px] active:scale-95 transition shadow-lg">Enter Research Lab</a>
             </div>
@@ -175,16 +182,20 @@
 
         <section class="px-6 py-8 space-y-8">
             <div class="glossy-card p-8 reveal">
+                <div class="stat-tag text-blue-600">5 Acts</div>
+
                 <div class="flex items-center gap-4 mb-4">
                     <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600"><i class="fa-solid fa-scroll"></i></div>
                     <h3 class="text-blue-600 font-black text-lg uppercase">The Bare Act Foundation</h3>
                 </div>
                 <p class="text-gray-600 text-sm leading-relaxed text-justify">
-                    A Bare Act is the rawest form of legislation, passed by Parliament. It is the skeletal structure of our democracy. For a law student, the Bare Act is the ultimate source of truth. Mastering the language of sections, clauses, and provisos is essential for drafting, litigation, and competitive exams. CLJ simplifies these acts without diluting their legal essence, making them easier to internalize and apply in the real world.
+                    A Bare Act is the rawest form of legislation, passed by Parliament. It is the skeletal structure of our democracy. For a law student, the Bare Act is the ultimate source of truth. Mastering the language of sections, clauses, and provisos is essential for drafting, litigation, and competitive exams. CLJ simplifies these acts without diluting their legal essence.
                 </p>
             </div>
 
             <div class="glossy-card p-8 reveal">
+                <div class="stat-tag text-pink-600">30+ Cases</div>
+
                 <div class="flex items-center gap-4 mb-4">
                     <div class="w-10 h-10 bg-pink-50 rounded-xl flex items-center justify-center text-pink-600"><i class="fa-solid fa-gavel"></i></div>
                     <h3 class="text-pink-600 font-black text-lg uppercase">Landmark Case Laws</h3>
@@ -201,8 +212,7 @@
                 <div class="p-8">
                     <h2 class="text-2xl font-black text-gray-800 mb-4 uppercase tracking-tighter">Calcutta High Court</h2>
                     <div class="text-xs text-gray-500 leading-relaxed space-y-4 text-justify">
-                        <p>The High Court of Calcutta is the oldest High Court in India, established on **July 1, 1862**. Its majestic gothic design, inspired by the Ypres Cloth Hall, represents the weight of tradition and the evolution from 'Rule by Law' to independent 'Rule of Law.'</p>
-                        <p>For over 160 years, it has been the cradle of Indian jurisprudence, hosting legendary legal minds like C.R. Das and Sir Ashutosh Mukherjee. For a law student in Bengal, this institution is the ultimate symbol of the power of the robe and a destination for pioneering decisions on civil liberties and labor rights.</p>
+                        <p>The High Court of Calcutta is the oldest High Court in India, established on **July 1, 1862**. Its majestic gothic design represents the weight of tradition and the evolution from 'Rule by Law' to independent 'Rule of Law.'</p>
                     </div>
                     <a href="https://www.calcuttahighcourt.gov.in/" target="_blank" class="mt-8 block text-center py-4 border border-blue-600 text-blue-600 font-black rounded-xl uppercase text-[10px]">Official HC Portal</a>
                 </div>
@@ -213,8 +223,7 @@
                 <div class="p-8 text-white">
                     <h2 class="text-2xl font-black mb-4 uppercase tracking-tighter">Supreme Court of India</h2>
                     <div class="text-xs text-gray-300 leading-relaxed space-y-4 text-justify">
-                        <p>Inaugurated on **January 28, 1950**, the Supreme Court is the final interpreter of the Constitution. Its motto, *"Yato Dharmastato Jayah"* (Where there is Dharma, there is Victory), defines its role as the protector of fundamental rights and the guardian of the Republic.</p>
-                        <p>Under Article 141, the law declared by the SC is binding across India. From establishing the "Basic Structure Doctrine" to decriminalizing personal identities, the SC has defined what it means to be an Indian citizen. For any student, the SC represents the peak of the legal mountain and the triumph of the rule of law over arbitrary power.</p>
+                        <p>Inaugurated on **January 28, 1950**, the Supreme Court is the final interpreter of the Constitution. Its motto defines its role as the protector of fundamental rights and the republic.</p>
                     </div>
                     <a href="https://main.sci.gov.in/" target="_blank" class="mt-8 block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px]">Official SC Portal</a>
                 </div>
@@ -230,8 +239,8 @@
                 <p class="text-blue-500 font-black uppercase text-[10px] mt-1 tracking-widest">Law Student</p>
                 <p class="text-gray-400 font-bold text-[8px] mt-1 uppercase leading-tight">Surendranath Law College | University of Calcutta</p>
                 
-                <p class="bio-text-compact italic text-gray-600 font-serif">
-                    "deconstruct the complexities of Indian jurisprudence to bridge the gap between colonial-era legislation and modern digital laws. Through the Calcutta Law Journal, I simplify our legal DNA to prove that legal literacy is the most powerful tool for justice."
+                <p class="mt-8 text-gray-600 italic leading-relaxed font-serif text-lg">
+                    "deconstruct the complexities of Indian jurisprudence to bridge the gap between colonial era legislation and modern digital laws. we simplify our legal DNA to prove that legal literacy is the most powerful tool for justice."
                 </p>
             </div>
         </section>
@@ -252,16 +261,14 @@
             }
         });
 
-        // --- BACK BUTTON FIX (BFCache Reset) ---
+        // --- BACK BUTTON FIX ---
         window.addEventListener('pageshow', (event) => {
             if (event.persisted) {
                 document.body.classList.remove('page-fade-out');
-                const sk = document.getElementById('skeleton-screen');
-                if(sk) sk.remove();
             }
         });
 
-        // Animations Observer
+        // Reveal Observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
@@ -270,7 +277,7 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // --- FAST CLICK TRANSITION (NON-INVASIVE) ---
+        // --- FAST CLICK TRANSITION ---
         document.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
@@ -282,14 +289,21 @@
             });
         });
 
-        // --- PROTECTION SCRIPTS ---
+        // --- PROTECTION & ZOOM BLOCK ---
         document.addEventListener('contextmenu', event => event.preventDefault());
         document.addEventListener('copy', (e) => e.preventDefault());
-        document.addEventListener('cut', (e) => e.preventDefault());
-        document.addEventListener('paste', (e) => e.preventDefault());
+        
+        // Block double-tap to zoom
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', (e) => {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) e.preventDefault();
+            lastTouchEnd = now;
+        }, false);
+
         document.onkeydown = function(e) {
             if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false;
-            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) return false;
+            if (e.key === 'F12') return false;
         };
     </script>
 </body>
