@@ -1,3 +1,4 @@
+Sorry
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,104 +10,63 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
         
-        :root {
-            --bg-body: #fcfdfe;
-            --text-main: #1e293b;
-            --nav-bg: rgba(255, 255, 255, 0.9);
-            --card-bg: #ffffff;
-            --border-ui: #f1f5f9;
-            --header-grad: linear-gradient(180deg, #f0f7ff 0%, #fcfdfe 100%);
-        }
-
-        .dark-mode {
-            --bg-body: #070b14;
-            --text-main: #e2e8f0;
-            --nav-bg: rgba(7, 11, 20, 0.9);
-            --card-bg: #0d111a;
-            --border-ui: rgba(255, 255, 255, 0.05);
-            --header-grad: linear-gradient(180deg, #0d111a 0%, #070b14 100%);
-        }
-
         body { 
             font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-body); 
-            color: var(--text-main);
-            transition: background 0.4s ease, color 0.4s ease;
+            background-color: #fcfdfe; 
             -webkit-tap-highlight-color: transparent; 
             overflow-x: hidden;
+            /* --- COPY PROTECTION CSS --- */
             -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
             user-select: none;
         }
-
         .font-serif { font-family: 'Playfair Display', serif; }
-        .header-bg { background: var(--header-grad); }
-        .glass-nav { background: var(--nav-bg); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-ui); }
+        .header-bg { background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%); }
         
-        .act-card { 
-            background: var(--card-bg);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            border: 1px solid var(--border-ui);
-        }
-        .act-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); }
-        .act-card.hidden { display: none !important; }
+        /* Vibrant Act Cards with Original Structure */
+        .act-card { transition: all 0.3s ease; border-top: 8px solid #3b82f6; }
+        .act-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .act-card.hidden { display: none; }
         
-        .search-focus:focus-within { border-color: #3b82f6; box-shadow: 0 15px 35px -10px rgba(59, 130, 246, 0.3); }
-
-        .mode-toggle {
-            width: 40px; height: 40px; border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            background: var(--border-ui); cursor: pointer; transition: 0.3s;
+        .search-focus:focus-within { 
+            border-color: #3b82f6; 
+            box-shadow: 0 15px 35px -10px rgba(59, 130, 246, 0.2); 
         }
 
-        /* Essential Dark Mode Overrides - Fixes white patches */
-        .dark-mode .text-gray-800 { color: #f8fafc; }
-        .dark-mode .text-gray-600 { color: #94a3b8; }
-        .dark-mode .text-gray-500 { color: #64748b; }
-        .dark-mode .bg-white { background-color: var(--card-bg) !important; }
-        .dark-mode .border-gray-50, .dark-mode .border-gray-100 { border-color: var(--border-ui) !important; }
-        
-        /* Tag backgrounds for dark mode */
-        .dark-mode .bg-blue-50, .dark-mode .bg-red-50, .dark-mode .bg-purple-50, 
-        .dark-mode .bg-amber-50, .dark-mode .bg-emerald-50, .dark-mode .bg-pink-50,
-        .dark-mode .bg-teal-50, .dark-mode .bg-orange-50, .dark-mode .bg-indigo-50 { 
-            background-color: rgba(255, 255, 255, 0.05) !important; 
-        }
-
+        /* Fast Click Transition */
         .page-fade-out { opacity: 0 !important; transition: opacity 0.2s ease-out; }
     </style>
 </head>
 <body class="pb-10">
 
-    <nav class="sticky top-0 z-50 glass-nav px-4 py-3 md:px-10 flex justify-between items-center">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl px-4 py-4 md:px-10 flex justify-between items-center border-b border-gray-100">
         <h1 class="font-black text-gray-800 text-xl md:text-2xl tracking-tighter">CLJ <span class="text-blue-500">Acts</span></h1>
-        <div class="flex items-center gap-3">
-            <div onclick="toggleDarkMode()" class="mode-toggle" id="themeBtn">
-                <i class="fa-solid fa-moon text-blue-500"></i>
-            </div>
-            <a href="index.html" class="text-[10px] font-black uppercase tracking-widest text-blue-600 bg-blue-50 px-5 py-2.5 rounded-full shadow-sm active:scale-90 transition">
-                <i class="fa-solid fa-house mr-1.5"></i> Home
-            </a>
-        </div>
+        <a href="index.html" class="text-[10px] font-black uppercase tracking-widest text-blue-600 bg-blue-50 px-5 py-2.5 rounded-full shadow-sm active:scale-90 transition">
+            <i class="fa-solid fa-house mr-1.5"></i> Home
+        </a>
     </nav>
 
     <header class="header-bg pt-12 pb-8 px-6 text-center">
-        <div class="inline-block bg-white dark:bg-slate-900 border border-blue-100 px-4 py-2 rounded-full mb-6 shadow-sm">
+        <div class="inline-block bg-white border border-blue-100 px-4 py-2 rounded-full mb-6 shadow-sm">
             <p class="text-[10px] font-black text-blue-400 uppercase tracking-widest flex items-center justify-center">
                 <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span> Digital Library
             </p>
         </div>
+        
         <h1 class="text-4xl md:text-6xl font-serif font-bold text-gray-800 mb-2 tracking-tight">Indian <span class="text-blue-500">Acts</span></h1>
         <p class="text-lg md:text-2xl font-serif italic text-gray-500 mb-10">Simplified for students</p>
-        <div class="max-w-md mx-auto mb-8 relative search-focus transition-all duration-300 border-2 border-gray-100 dark:border-gray-800 rounded-2xl bg-white dark:bg-slate-900 flex items-center px-5 shadow-sm">
+
+        <div class="max-w-md mx-auto mb-8 relative search-focus transition-all duration-300 border-2 border-gray-100 rounded-2xl bg-white flex items-center px-5 shadow-sm">
             <i class="fa-solid fa-magnifying-glass text-blue-500 text-lg"></i>
             <input type="text" id="actSearch" onkeyup="searchActs()" placeholder="Search Acts (e.g. BNS, IPC)..." 
-            class="w-full py-4 px-4 text-base font-bold outline-none bg-transparent text-gray-700 dark:text-gray-200 placeholder:text-gray-300">
+            class="w-full py-4 px-4 text-base font-bold outline-none text-gray-700 placeholder:text-gray-300">
         </div>
     </header>
 
     <main class="px-6 space-y-12 max-w-xl mx-auto" id="actsContainer">
         
-        <div class="act-card rounded-[2.5rem] p-8 shadow-xl" style="border-top: 8px solid #2563eb;" data-title="Constitution Constitution of India">
+        <div class="act-card bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-50" style="border-top-color: #2563eb;" data-title="Constitution Constitution of India">
             <div class="flex justify-between items-start mb-6">
                 <div class="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center text-white shadow-lg">
                     <i class="fa-solid fa-landmark text-2xl"></i>
@@ -126,13 +86,13 @@
                     <li><i class="fa-solid fa-gavel text-blue-500 mr-2"></i> Basic Structure</li>
                 </ul>
             </div>
-            <p class="text-gray-600 text-sm leading-relaxed mb-8 text-justify">The Constitution of India is the cornerstone of our legal system. It provides the legal authority for every other act. Understanding the "Basic Structure" and Fundamental Rights is crucial for any competitive exam.</p>
+            <p class="text-gray-600 text-sm leading-relaxed mb-8 text-justify">The Constitution of India is the cornerstone of our legal system. It provides the legal authority for every other act. Understanding the "Basic Structure" and Fundamental Rights is crucial for any competitive exam. It balances judicial review with parliamentary sovereignty, ensuring the rule of law prevails in the world's largest democracy.</p>
             <a href="constitution-sections.html" class="w-full text-blue-600 text-[11px] font-black border-t border-gray-50 pt-6 flex justify-between items-center tracking-widest uppercase active:scale-95 transition">
                 View Key Articles <i class="fa-solid fa-circle-arrow-right text-2xl"></i>
             </a>
         </div>
 
-        <div class="act-card rounded-[2.5rem] p-8 shadow-xl" style="border-top: 8px solid #ef4444;" data-title="BNS Bharatiya Nyaya Sanhita New Criminal Law">
+        <div class="act-card bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-50" style="border-top-color: #ef4444;" data-title="BNS Bharatiya Nyaya Sanhita New Criminal Law">
             <div class="flex justify-between items-start mb-6">
                 <div class="w-14 h-14 bg-red-600 rounded-2xl flex items-center justify-center text-white shadow-lg">
                     <i class="fa-solid fa-shield-halved text-2xl"></i>
@@ -152,13 +112,13 @@
                     <li><i class="fa-solid fa-gavel text-red-500 mr-2"></i> Digital Records</li>
                 </ul>
             </div>
-            <p class="text-gray-600 text-sm leading-relaxed mb-8 text-justify">Bharatiya Nyaya Sanhita (BNS) represents the modernization of Indian criminal law, replacing the 163-year-old IPC. It prioritizes justice for victims over colonial punishment.</p>
+            <p class="text-gray-600 text-sm leading-relaxed mb-8 text-justify">Bharatiya Nyaya Sanhita (BNS) represents the modernization of Indian criminal law, replacing the 163-year-old IPC. It prioritizes justice for victims over colonial punishment. It introduces community service and strictly defines terrorism and organized crime, making it essential for current judicial preparation.</p>
             <a href="bns-sections.html" class="w-full text-red-600 text-[11px] font-black border-t border-gray-50 pt-6 flex justify-between items-center tracking-widest uppercase active:scale-95 transition">
                 View BNS Sections <i class="fa-solid fa-circle-arrow-right text-2xl"></i>
             </a>
         </div>
 
-        <div class="act-card rounded-[2.5rem] p-8 shadow-xl" style="border-top: 8px solid #a855f7;" data-title="IPC Indian Penal Code Criminal">
+        <div class="act-card bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-50" style="border-top-color: #a855f7;" data-title="IPC Indian Penal Code Criminal">
             <div class="flex justify-between items-start mb-6">
                 <div class="w-14 h-14 bg-purple-600 rounded-2xl flex items-center justify-center text-white shadow-lg">
                     <i class="fa-solid fa-gavel text-2xl"></i>
@@ -166,13 +126,25 @@
                 <span class="text-purple-600 text-[9px] font-black bg-purple-50 px-3 py-1.5 rounded-full uppercase tracking-wider">Legacy Code</span>
             </div>
             <h2 class="text-3xl font-black text-gray-800 tracking-tight">IPC</h2>
-            <p class="text-gray-600 text-sm leading-relaxed mb-8 text-justify">Though being replaced, the IPC remains fundamental for legal history and existing cases. Understanding Lord Macaulay's codification is vital.</p>
+            <div class="grid grid-cols-2 gap-4 my-6 text-[11px] font-bold text-gray-500 uppercase">
+                <ul class="space-y-2">
+                    <li><i class="fa-solid fa-check text-purple-500 mr-2"></i> Mens Rea Rules</li>
+                    <li><i class="fa-solid fa-check text-purple-500 mr-2"></i> Sec 300 Murder</li>
+                    <li><i class="fa-solid fa-check text-purple-500 mr-2"></i> Sec 378 Theft</li>
+                </ul>
+                <ul class="space-y-2">
+                    <li><i class="fa-solid fa-gavel text-purple-500 mr-2"></i> General Defenses</li>
+                    <li><i class="fa-solid fa-gavel text-purple-500 mr-2"></i> Abetment Laws</li>
+                    <li><i class="fa-solid fa-gavel text-purple-500 mr-2"></i> Public Peace</li>
+                </ul>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed mb-8 text-justify">Though being replaced, the IPC remains fundamental for legal history and existing cases. Understanding Lord Macaulay's codification of crimes against the human body and property is vital. It set the standard for criminal liability and "guilty mind" concepts that still influence Indian jurisprudence today.</p>
             <a href="ipc-sections.html" class="w-full text-purple-600 text-[11px] font-black border-t border-gray-50 pt-6 flex justify-between items-center tracking-widest uppercase active:scale-95 transition">
                 View IPC Sections <i class="fa-solid fa-circle-arrow-right text-2xl"></i>
             </a>
         </div>
 
-        <div class="act-card rounded-[2.5rem] p-8 shadow-xl" style="border-top: 8px solid #f59e0b;" data-title="Hindu Marriage Act HMA Family Law">
+        <div class="act-card bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-50" style="border-top-color: #f59e0b;" data-title="Hindu Marriage Act HMA Family Law">
             <div class="flex justify-between items-start mb-6">
                 <div class="w-14 h-14 bg-amber-500 rounded-2xl flex items-center justify-center text-white shadow-lg">
                     <i class="fa-solid fa-om text-2xl"></i>
@@ -180,13 +152,25 @@
                 <span class="text-amber-600 text-[9px] font-black bg-amber-50 px-3 py-1.5 rounded-full uppercase tracking-wider">Family Law</span>
             </div>
             <h2 class="text-3xl font-black text-gray-800 tracking-tight">HMA</h2>
-            <p class="text-gray-600 text-sm leading-relaxed mb-8 text-justify">The Hindu Marriage Act governs personal laws for Hindus, Sikhs, Jains, and Buddhists. Key sections like Sec 9 and Sec 13 are essential.</p>
+            <div class="grid grid-cols-2 gap-4 my-6 text-[11px] font-bold text-gray-500 uppercase">
+                <ul class="space-y-2">
+                    <li><i class="fa-solid fa-check text-amber-500 mr-2"></i> Sec 5 Conditions</li>
+                    <li><i class="fa-solid fa-check text-amber-500 mr-2"></i> Sec 9 Rights</li>
+                    <li><i class="fa-solid fa-check text-amber-500 mr-2"></i> Sec 13 Divorce</li>
+                </ul>
+                <ul class="space-y-2">
+                    <li><i class="fa-solid fa-gavel text-amber-500 mr-2"></i> Maintenance Sec 24</li>
+                    <li><i class="fa-solid fa-gavel text-amber-500 mr-2"></i> Nullity Rules</li>
+                    <li><i class="fa-solid fa-gavel text-amber-500 mr-2"></i> Child Custody</li>
+                </ul>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed mb-8 text-justify">The Hindu Marriage Act governs personal laws for Hindus, Sikhs, Jains, and Buddhists. It shifted marriage from a purely religious sacrament to a legal status with enforceable rights. Key sections like Sec 9 (Conjugal Rights) and Sec 13 (Divorce) are essential for practitioners specializing in family and civil litigation.</p>
             <a href="hma-sections.html" class="w-full text-amber-600 text-[11px] font-black border-t border-gray-50 pt-6 flex justify-between items-center tracking-widest uppercase active:scale-95 transition">
                 View HMA Sections <i class="fa-solid fa-circle-arrow-right text-2xl"></i>
             </a>
         </div>
 
-        <div class="act-card rounded-[2.5rem] p-8 shadow-xl" style="border-top: 8px solid #10b981;" data-title="Indian Contract Act ICA Civil Law">
+        <div class="act-card bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-50" style="border-top-color: #10b981;" data-title="Indian Contract Act ICA Civil Law">
             <div class="flex justify-between items-start mb-6">
                 <div class="w-14 h-14 bg-emerald-500 rounded-2xl flex items-center justify-center text-white shadow-lg">
                     <i class="fa-solid fa-file-signature text-2xl"></i>
@@ -194,13 +178,25 @@
                 <span class="text-emerald-600 text-[9px] font-black bg-emerald-50 px-3 py-1.5 rounded-full uppercase tracking-wider">Civil Law</span>
             </div>
             <h2 class="text-3xl font-black text-gray-800 tracking-tight">Contract Act</h2>
-            <p class="text-gray-600 text-sm leading-relaxed mb-8 text-justify">The Indian Contract Act is the foundation of commercial life. Mastering principles of consideration and capacity is essential.</p>
+            <div class="grid grid-cols-2 gap-4 my-6 text-[11px] font-bold text-gray-500 uppercase">
+                <ul class="space-y-2">
+                    <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Offer & Accept</li>
+                    <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Free Consent</li>
+                    <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Breach Damages</li>
+                </ul>
+                <ul class="space-y-2">
+                    <li><i class="fa-solid fa-gavel text-emerald-500 mr-2"></i> Indemnity Laws</li>
+                    <li><i class="fa-solid fa-gavel text-emerald-500 mr-2"></i> Agency Rules</li>
+                    <li><i class="fa-solid fa-gavel text-emerald-500 mr-2"></i> Void Agreements</li>
+                </ul>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed mb-8 text-justify">The Indian Contract Act is the foundation of commercial life. From forming a valid agreement to understanding the consequences of a breach, it covers the DNA of civil transactions. Every law student must master the principles of consideration, capacity, and the special contracts like indemnity and agency to excel in corporate law.</p>
             <a href="contract-sections.html" class="w-full text-emerald-600 text-[11px] font-black border-t border-gray-50 pt-6 flex justify-between items-center tracking-widest uppercase active:scale-95 transition">
                 View Key Sections <i class="fa-solid fa-circle-arrow-right text-2xl"></i>
             </a>
         </div>
 
-        <div class="act-card rounded-[2.5rem] p-8 shadow-xl" style="border-top: 8px solid #ec4899;" data-title="Family Law 2 Muslim Law Succession">
+        <div class="act-card bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-50" style="border-top-color: #ec4899;" data-title="Family Law 2 Muslim Law Succession">
             <div class="flex justify-between items-start mb-6">
                 <div class="w-14 h-14 bg-pink-500 rounded-2xl flex items-center justify-center text-white shadow-lg">
                     <i class="fa-solid fa-users text-2xl"></i>
@@ -208,13 +204,25 @@
                 <span class="text-pink-600 text-[9px] font-black bg-pink-50 px-3 py-1.5 rounded-full uppercase tracking-wider">Family Law</span>
             </div>
             <h2 class="text-3xl font-black text-gray-800 tracking-tight">Muslim Law</h2>
-            <p class="text-gray-600 text-sm leading-relaxed mb-8 text-justify">Family Law II covers Muslim Law (Nikah, Talaq, Waqf) and the Indian Succession Act. Crucial for inheritance disputes.</p>
+            <div class="grid grid-cols-2 gap-4 my-6 text-[11px] font-bold text-gray-500 uppercase">
+                <ul class="space-y-2">
+                    <li><i class="fa-solid fa-check text-pink-500 mr-2"></i> Muslim Law</li>
+                    <li><i class="fa-solid fa-check text-pink-500 mr-2"></i> Nikah & Talaq</li>
+                    <li><i class="fa-solid fa-check text-pink-500 mr-2"></i> Waqf Rules</li>
+                </ul>
+                <ul class="space-y-2">
+                    <li><i class="fa-solid fa-gavel text-pink-500 mr-2"></i> Succession Act</li>
+                    <li><i class="fa-solid fa-gavel text-pink-500 mr-2"></i> Inheritance</li>
+                    <li><i class="fa-solid fa-gavel text-pink-500 mr-2"></i> Wills & Probate</li>
+                </ul>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed mb-8 text-justify">Family Law II broadens the scope of personal laws by diving into Muslim Law (covering marriage, dower, divorce, and waqf) and the Indian Succession Act. This subject is crucial for navigating testamentary and intestate succession, understanding inheritance rights, and resolving complex familial property disputes.</p>
             <a href="family-law-2.html" class="w-full text-pink-600 text-[11px] font-black border-t border-gray-50 pt-6 flex justify-between items-center tracking-widest uppercase active:scale-95 transition">
                 View Family Law II <i class="fa-solid fa-circle-arrow-right text-2xl"></i>
             </a>
         </div>
 
-        <div class="act-card rounded-[2.5rem] p-8 shadow-xl" style="border-top: 8px solid #14b8a6;" data-title="Special Contract Partnership Sale of Goods">
+        <div class="act-card bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-50" style="border-top-color: #14b8a6;" data-title="Special Contract Partnership Sale of Goods">
             <div class="flex justify-between items-start mb-6">
                 <div class="w-14 h-14 bg-teal-500 rounded-2xl flex items-center justify-center text-white shadow-lg">
                     <i class="fa-solid fa-handshake text-2xl"></i>
@@ -222,13 +230,25 @@
                 <span class="text-teal-600 text-[9px] font-black bg-teal-50 px-3 py-1.5 rounded-full uppercase tracking-wider">Civil Law</span>
             </div>
             <h2 class="text-3xl font-black text-gray-800 tracking-tight">Special Contract</h2>
-            <p class="text-gray-600 text-sm leading-relaxed mb-8 text-justify">Integrates the Sale of Goods Act and Partnership Act. A must-know for aspiring corporate litigators.</p>
+            <div class="grid grid-cols-2 gap-4 my-6 text-[11px] font-bold text-gray-500 uppercase">
+                <ul class="space-y-2">
+                    <li><i class="fa-solid fa-check text-teal-500 mr-2"></i> Bailment & Pledge</li>
+                    <li><i class="fa-solid fa-check text-teal-500 mr-2"></i> Sale of Goods</li>
+                    <li><i class="fa-solid fa-check text-teal-500 mr-2"></i> Unpaid Seller</li>
+                </ul>
+                <ul class="space-y-2">
+                    <li><i class="fa-solid fa-gavel text-teal-500 mr-2"></i> Partnership Act</li>
+                    <li><i class="fa-solid fa-gavel text-teal-500 mr-2"></i> Firm Dissolution</li>
+                    <li><i class="fa-solid fa-gavel text-teal-500 mr-2"></i> Agency Rights</li>
+                </ul>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed mb-8 text-justify">Going beyond basic principles, Special Contracts govern specific commercial relationships. It integrates the Sale of Goods Act and the Indian Partnership Act alongside specific provisions of the Contract Act (like Bailment, Pledge, and Agency). A must-know for aspiring corporate and commercial litigators.</p>
             <a href="special-contract.html" class="w-full text-teal-600 text-[11px] font-black border-t border-gray-50 pt-6 flex justify-between items-center tracking-widest uppercase active:scale-95 transition">
                 View Special Contracts <i class="fa-solid fa-circle-arrow-right text-2xl"></i>
             </a>
         </div>
 
-        <div class="act-card rounded-[2.5rem] p-8 shadow-xl" style="border-top: 8px solid #f97316;" data-title="Law of Torts MV Accident Consumer Protection CPA">
+        <div class="act-card bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-50" style="border-top-color: #f97316;" data-title="Law of Torts MV Accident Consumer Protection CPA">
             <div class="flex justify-between items-start mb-6">
                 <div class="w-14 h-14 bg-orange-500 rounded-2xl flex items-center justify-center text-white shadow-lg">
                     <i class="fa-solid fa-car-burst text-2xl"></i>
@@ -236,13 +256,25 @@
                 <span class="text-orange-600 text-[9px] font-black bg-orange-50 px-3 py-1.5 rounded-full uppercase tracking-wider">Civil Wrongs</span>
             </div>
             <h2 class="text-3xl font-black text-gray-800 tracking-tight">Law of Torts</h2>
-            <p class="text-gray-600 text-sm leading-relaxed mb-8 text-justify">Deals with Negligence, Defamation, and Consumer Protection. Combines tort principles with statutory remedies.</p>
+            <div class="grid grid-cols-2 gap-4 my-6 text-[11px] font-bold text-gray-500 uppercase">
+                <ul class="space-y-2">
+                    <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> Negligence</li>
+                    <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> Defamation</li>
+                    <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> Strict Liability</li>
+                </ul>
+                <ul class="space-y-2">
+                    <li><i class="fa-solid fa-gavel text-orange-500 mr-2"></i> MV Act Claims</li>
+                    <li><i class="fa-solid fa-gavel text-orange-500 mr-2"></i> Consumer Rights</li>
+                    <li><i class="fa-solid fa-gavel text-orange-500 mr-2"></i> CPA Forums</li>
+                </ul>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed mb-8 text-justify">The Law of Torts deals with civil wrongs and compensation for unliquidated damages. This module critically combines core tort principles with statutory remedies provided under the Motor Vehicles Act for accident tribunals and the Consumer Protection Act for guarding buyers against deficiency in service.</p>
             <a href="torts-mv-cpa.html" class="w-full text-orange-600 text-[11px] font-black border-t border-gray-50 pt-6 flex justify-between items-center tracking-widest uppercase active:scale-95 transition">
                 View Torts & CPA <i class="fa-solid fa-circle-arrow-right text-2xl"></i>
             </a>
         </div>
 
-        <div class="act-card rounded-[2.5rem] p-8 shadow-xl" style="border-top: 8px solid #6366f1;" data-title="Competition Law CCI Anti Trust Corporate">
+        <div class="act-card bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-50" style="border-top-color: #6366f1;" data-title="Competition Law CCI Anti Trust Corporate">
             <div class="flex justify-between items-start mb-6">
                 <div class="w-14 h-14 bg-indigo-500 rounded-2xl flex items-center justify-center text-white shadow-lg">
                     <i class="fa-solid fa-chart-line text-2xl"></i>
@@ -250,7 +282,19 @@
                 <span class="text-indigo-600 text-[9px] font-black bg-indigo-50 px-3 py-1.5 rounded-full uppercase tracking-wider">Corporate Law</span>
             </div>
             <h2 class="text-3xl font-black text-gray-800 tracking-tight">Competition Law</h2>
-            <p class="text-gray-600 text-sm leading-relaxed mb-8 text-justify">Promotes market fairness. Essential for understanding CCI functions and regulating mergers.</p>
+            <div class="grid grid-cols-2 gap-4 my-6 text-[11px] font-bold text-gray-500 uppercase">
+                <ul class="space-y-2">
+                    <li><i class="fa-solid fa-check text-indigo-500 mr-2"></i> Anti-Competitive</li>
+                    <li><i class="fa-solid fa-check text-indigo-500 mr-2"></i> Dominant Position</li>
+                    <li><i class="fa-solid fa-check text-indigo-500 mr-2"></i> Combinations</li>
+                </ul>
+                <ul class="space-y-2">
+                    <li><i class="fa-solid fa-gavel text-indigo-500 mr-2"></i> CCI Powers</li>
+                    <li><i class="fa-solid fa-gavel text-indigo-500 mr-2"></i> Cartel Regulation</li>
+                    <li><i class="fa-solid fa-gavel text-indigo-500 mr-2"></i> Market Control</li>
+                </ul>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed mb-8 text-justify">Replacing the outdated MRTP Act, Competition Law promotes market fairness and protects consumer interests against monopolistic practices. Understanding the functions of the Competition Commission of India (CCI) is indispensable for regulating mergers, cartels, and fair market competition.</p>
             <a href="competition-law.html" class="w-full text-indigo-600 text-[11px] font-black border-t border-gray-50 pt-6 flex justify-between items-center tracking-widest uppercase active:scale-95 transition">
                 View Competition Law <i class="fa-solid fa-circle-arrow-right text-2xl"></i>
             </a>
@@ -259,20 +303,7 @@
     </main>
 
     <script>
-        function toggleDarkMode() {
-            const body = document.body;
-            const btn = document.getElementById('themeBtn');
-            body.classList.toggle('dark-mode');
-            const isDark = body.classList.contains('dark-mode');
-            btn.innerHTML = isDark ? '<i class="fa-solid fa-sun text-yellow-400"></i>' : '<i class="fa-solid fa-moon text-blue-500"></i>';
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        }
-
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.classList.add('dark-mode');
-            document.getElementById('themeBtn').innerHTML = '<i class="fa-solid fa-sun text-yellow-400"></i>';
-        }
-
+        // --- SEARCH LOGIC ---
         function searchActs() {
             let input = document.getElementById('actSearch').value.toLowerCase();
             let cards = document.getElementsByClassName('act-card');
@@ -282,10 +313,14 @@
             }
         }
 
+        // --- BACK BUTTON FIX ---
         window.onpageshow = function(event) {
-            if (event.persisted) document.body.classList.remove('page-fade-out');
+            if (event.persisted) {
+                document.body.classList.remove('page-fade-out');
+            }
         };
 
+        // --- TRANSITION LOGIC ---
         document.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
@@ -297,12 +332,19 @@
             });
         });
 
-        document.addEventListener('contextmenu', e => e.preventDefault());
-        document.addEventListener('copy', e => e.preventDefault());
+        // --- SECURITY SCRIPTS ---
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('copy', (e) => e.preventDefault());
+        document.addEventListener('cut', (e) => e.preventDefault());
+        document.addEventListener('paste', (e) => e.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false;
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) return false;
+        };
     </script>
 
     <footer class="py-16 text-center">
-        <p class="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
+        <p class="text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
     </footer>
 
 </body>
