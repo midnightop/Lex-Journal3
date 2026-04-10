@@ -40,9 +40,29 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         .glass-nav {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* STYLISH TERMS BUTTON */
+        .terms-btn {
+            background: white;
+            border: 1.5px solid #e2e8f0;
+            color: #64748b;
+            padding: 6px 16px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .terms-btn:active {
+            transform: scale(0.95);
+            background: #f8fafc;
+            border-color: #cbd5e1;
         }
 
         .glossy-card {
@@ -124,18 +144,16 @@
         <div class="h-64 w-full sk-item"></div>
     </div>
 
-    <nav class="sticky top-0 z-50 glass-nav px-4 py-3 flex justify-between items-center">
-        <div class="flex items-center gap-2">
-            <div class="w-9 h-9 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center text-white shadow-md">
-                <i class="fa-solid fa-scale-balanced text-xs"></i>
+    <nav class="sticky top-0 z-50 glass-nav px-5 py-3 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg">
+                <i class="fa-solid fa-scale-balanced text-sm"></i>
             </div>
-            <span class="font-black text-gray-800 tracking-tighter text-base">Law <span class="text-blue-600">Journal</span></span>
+            <span class="font-black text-gray-800 tracking-tighter text-lg">Law <span class="text-blue-600">Journal</span></span>
         </div>
-        
-        <div class="flex items-center gap-5">
-            <a href="terms.html" class="text-[10px] font-bold uppercase text-gray-400 hover:text-gray-600 transition">Terms</a>
-            <a href="support.html" class="bg-blue-600 text-white text-[10px] font-black uppercase px-4 py-2 rounded-full shadow-lg shadow-blue-200 active:scale-90 transition flex items-center gap-1.5">
-                <i class="fa-solid fa-circle-question text-[12px]"></i> Support
+        <div class="flex items-center">
+            <a href="terms.html" class="terms-btn">
+                Terms
             </a>
         </div>
     </nav>
@@ -165,8 +183,7 @@
                 <h2 class="text-3xl font-black mb-4 tracking-tighter uppercase">Research</h2>
                 <div class="text-sm opacity-80 leading-relaxed font-medium space-y-4">
                     <p>Legal research is the systematic dissection of the "why" behind the law. At Calcutta Law Journal, our research wing goes beyond summaries; we analyze the evolving legal landscape especially the critical transition from IPC/CrPC to BNS.</p>
-                    <p>
-We provide high quality thesis summaries and academic papers to help students develop the sharp thinking required for High Courts and the Supreme Court. At Lawjournal.online, we uncover the intent of the legislature to ensure that justice is found within the law.</p>
+                    <p>We provide high quality thesis summaries and academic papers to help students develop the sharp thinking required for High Courts and the Supreme Court. At Lawjournal.online, we uncover the intent of the legislature to ensure that justice is found within the law.</p>
                 </div>
                 <a href="research.html" class="mt-8 block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px] active:scale-95 transition shadow-lg">Enter Research Lab</a>
             </div>
@@ -175,19 +192,17 @@ We provide high quality thesis summaries and academic papers to help students de
         <section class="px-6 py-8 space-y-8">
             <div class="glossy-card p-8 reveal">
                 <div class="stat-tag text-blue-600">10+ Acts</div>
-
                 <div class="flex items-center gap-4 mb-4">
                     <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600"><i class="fa-solid fa-scroll"></i></div>
                     <h3 class="text-blue-600 font-black text-lg uppercase">The Bare Act Foundation</h3>
                 </div>
                 <p class="text-gray-600 text-sm leading-relaxed text-justify">
-                    A Bare Act is the rawest form of legislation, passed by Parliament. It is the skeletal structure of our democracy. For a law student, the Bare Act is the ultimate source of truth. Mastering the language of sections, clauses, and provisos is essential for drafting, litigation, and competitive exams. lawjournal.online simplifies these acts without diluting their legal essence.
+                    A Bare Act is the rawest form of legislation, passed by Parliament. It is the skeletal structure of our democracy. For a law student, the Bare Act is the ultimate source of truth. mastering the language of sections, clauses, and provisos is essential for drafting, litigation, and competitive exams. lawjournal.online simplifies these acts without diluting their legal essence.
                 </p>
             </div>
 
             <div class="glossy-card p-8 reveal">
                 <div class="stat-tag text-pink-600">30+ Cases</div>
-
                 <div class="flex items-center gap-4 mb-4">
                     <div class="w-10 h-10 bg-pink-50 rounded-xl flex items-center justify-center text-pink-600"><i class="fa-solid fa-gavel"></i></div>
                     <h3 class="text-pink-600 font-black text-lg uppercase">Landmark Case Laws</h3>
