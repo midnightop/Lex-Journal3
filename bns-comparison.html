@@ -7,240 +7,118 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Inter:wght@400;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
         
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: #fcfdfe; 
-            color: #1e293b;
-            -webkit-user-select: none;
-            user-select: none;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
+        body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; -webkit-user-select: none; user-select: none; overflow-x: hidden; }
+
+        /* Premium Search Bar UI */
+        .search-container {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
         }
 
-        /* Smooth Glass Navigation */
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(25px) saturate(180%);
-            border-bottom: 1px solid rgba(241, 245, 249, 0.7);
+        #masterSearch {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Enhanced Card Design */
-        .sec-card {
-            background: white;
-            border-radius: 24px;
-            border: 1px solid #f1f5f9;
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.04);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .sec-card:active, .sec-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px -15px rgba(220, 38, 38, 0.1);
-            border-color: rgba(220, 38, 38, 0.2);
-        }
-
-        .tag-ipc { background: #f8fafc; color: #64748b; font-size: 10px; font-weight: 800; padding: 4px 10px; border-radius: 8px; border: 1px solid #e2e8f0; }
-        .tag-bns { background: #fee2e2; color: #dc2626; font-size: 10px; font-weight: 800; padding: 4px 10px; border-radius: 8px; border: 1px solid #fecaca; }
-
-        .nav-chip {
-            white-space: nowrap; padding: 10px 20px; border-radius: 14px; font-size: 10px; font-weight: 900;
-            text-transform: uppercase; background: #fff; border: 1.5px solid #edf2f7; color: #94a3b8; transition: all 0.3s;
-        }
-        .nav-chip.active { background: #1e293b; color: white; border-color: #1e293b; box-shadow: 0 10px 20px rgba(0,0,0,0.15); transform: scale(1.05); }
-
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        
-        /* Animations */
-        @keyframes revealMain {
-            from { opacity: 0; transform: scale(0.95); filter: blur(10px); }
-            to { opacity: 1; transform: scale(1); filter: blur(0); }
-        }
-
-        @keyframes fadeInUp { 
-            from { opacity: 0; transform: translateY(30px); } 
-            to { opacity: 1; transform: translateY(0); } 
-        }
-
-        .animate-reveal { animation: revealMain 0.8s ease-out forwards; }
-        .animate-card { animation: fadeInUp 0.5s ease forwards; }
-
-        /* Custom Input Glow */
         #masterSearch:focus {
-            box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.05);
+            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+            border-color: #ef4444;
         }
+
+        /* Improved Navigation Chips */
+        .nav-chip {
+            padding: 10px 22px; border-radius: 50px; font-size: 11px; font-weight: 700;
+            background: #ffffff; border: 1px solid #e2e8f0; color: #64748b; 
+            transition: all 0.2s ease; cursor: pointer;
+        }
+        .nav-chip.active { 
+            background: #1e293b; color: #ffffff; border-color: #1e293b; 
+            box-shadow: 0 4px 12px rgba(30, 41, 59, 0.2); 
+        }
+
+        .sec-card {
+            background: white; border-radius: 20px; border: 1px solid #f1f5f9;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .sec-card:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.04); }
+
+        .tag-ipc { background: #f1f5f9; color: #475569; font-size: 9px; font-weight: 900; padding: 3px 8px; border-radius: 6px; }
+        .tag-bns { background: #fee2e2; color: #b91c1c; font-size: 9px; font-weight: 900; padding: 3px 8px; border-radius: 6px; }
     </style>
 </head>
 <body class="pb-20">
 
-    <nav class="sticky top-0 z-50 glass-nav px-5 py-4 flex justify-between items-center">
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md px-5 py-4 flex justify-between items-center border-b border-gray-100">
         <span class="font-black text-gray-900 tracking-tighter text-xl uppercase italic">IPC <span class="text-red-600 font-serif">vs</span> BNS</span>
-        <a href="research.html" class="w-10 h-10 bg-gray-900 text-white rounded-xl flex items-center justify-center shadow-lg active:scale-90 transition transform hover:rotate-6">
-            <i class="fa-solid fa-arrow-left text-sm"></i>
-        </a>
+        <div class="w-10 h-10 bg-gray-50 text-gray-800 rounded-full flex items-center justify-center border border-gray-200">
+            <i class="fa-solid fa-arrow-left text-xs"></i>
+        </div>
     </nav>
 
-    <header class="pt-12 pb-6 px-8 text-center bg-gradient-to-b from-gray-50 to-transparent animate-reveal">
-        <div class="inline-block px-4 py-1 bg-red-50 text-red-600 text-[10px] font-black rounded-full uppercase tracking-widest mb-4 border border-red-100">2023 Reform</div>
-        <h1 class="text-5xl font-black text-gray-900 tracking-tighter uppercase leading-none">250+ <br><span class="text-gray-400">Sections</span></h1>
-        <div class="mt-6 max-w-sm mx-auto space-y-3">
-            <p class="text-gray-800 text-xs font-bold leading-relaxed uppercase tracking-tighter">The complete decode for legal guidance.</p>
-            <p class="text-gray-400 text-[10px] font-medium leading-relaxed italic">Handcrafted comparative study to bridge the gap between colonial era laws and the modern Bharatiya Nyaya Sanhita.</p>
-        </div>
+    <header class="pt-10 pb-6 px-6 text-center">
+        <div class="inline-block px-3 py-1 bg-red-50 text-red-600 text-[9px] font-black rounded-lg uppercase tracking-widest mb-3">2023 Reform</div>
+        <h1 class="text-4xl font-black text-gray-900 tracking-tighter uppercase">Legal <span class="text-gray-400">Decode</span></h1>
     </header>
 
-    <div class="sticky top-[72px] z-40 bg-white/80 backdrop-blur-md pb-4 pt-2 border-b border-gray-100 animate-reveal" style="animation-delay: 0.2s;">
-        <div class="px-6 space-y-4 max-w-xl mx-auto">
-            <div class="relative group">
-                <i class="fa-solid fa-magnifying-glass absolute left-5 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-red-600 transition-colors"></i>
-                <input type="text" id="masterSearch" placeholder="Search by Offense, IPC or BNS Section..." 
-                    class="w-full pl-14 pr-6 py-4 bg-gray-50 border-2 border-transparent focus:bg-white focus:border-red-600/20 rounded-2xl outline-none font-bold text-sm transition-all shadow-inner">
-            </div>
-            
-            <div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
-                <button onclick="filter('all', this)" class="nav-chip active">All Data</button>
-                <button onclick="filter('Body', this)" class="nav-chip">Offenses Against Body</button>
-                <button onclick="filter('Women', this)" class="nav-chip">Women & Children</button>
-                <button onclick="filter('Property', this)" class="nav-chip">Property Crimes</button>
-                <button onclick="filter('State', this)" class="nav-chip">State & Security</button>
-                <button onclick="filter('General', this)" class="nav-chip">General Exceptions</button>
-                <button onclick="filter('Misc', this)" class="nav-chip">Miscellaneous</button>
-            </div>
+    <div class="sticky top-[70px] z-40 search-container mx-4 p-2 rounded-3xl mb-6">
+        <div class="relative mb-4">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            <input type="text" id="masterSearch" placeholder="Search sections..." 
+                class="w-full pl-12 pr-6 py-4 bg-transparent outline-none font-bold text-sm text-gray-700">
+        </div>
+        
+        <div class="flex gap-2 overflow-x-auto no-scrollbar px-1 pb-1">
+            <button onclick="filter('all', this)" class="nav-chip active">All</button>
+            <button onclick="filter('Body', this)" class="nav-chip">Body</button>
+            <button onclick="filter('Women', this)" class="nav-chip">Women</button>
+            <button onclick="filter('Property', this)" class="nav-chip">Property</button>
+            <button onclick="filter('State', this)" class="nav-chip">State</button>
         </div>
     </div>
 
-    <main class="px-6 mt-10 max-w-xl mx-auto space-y-5" id="renderZone">
-    </main>
-
-    <div id="noResult" class="hidden text-center py-20">
-        <i class="fa-solid fa-ghost text-4xl text-gray-100 mb-4 animate-bounce"></i>
-        <p class="text-gray-300 font-black uppercase text-[10px] tracking-widest">Section not found in repository</p>
-    </div>
+    <main class="px-5 space-y-4 max-w-xl mx-auto" id="renderZone"></main>
 
     <script>
         const data = [
-            // CHAPTER I: PRELIMINARY
-            { cat: 'General', name: "Short Title & Commencement", ipc: "1", bns: "1", desc: "Operation of the Sanhita and territorial jurisdiction within India." },
-            { cat: 'General', name: "Definitions", ipc: "1-52", bns: "2", desc: "Consolidated definitions including 'Court', 'Gender', 'Person', and 'Public'." },
-            
-            // CHAPTER II: PUNISHMENTS
-            { cat: 'General', name: "Punishments", ipc: "53", bns: "4", desc: "Types of punishments including Death, Life Imprisonment, and Community Service." },
-            { cat: 'General', name: "Commutation of Sentence", ipc: "54-55", bns: "5", desc: "Power of government to commute death or life sentences." },
-            { cat: 'General', name: "Fraction of Punishment", ipc: "57", bns: "6", desc: "Calculation of terms of imprisonment for specific offenses." },
-            { cat: 'General', name: "Solitary Confinement", ipc: "73-74", bns: "11", desc: "Provisions for strict solitary confinement and its limits." },
-
-            // CHAPTER III: GENERAL EXCEPTIONS
-            { cat: 'General', name: "Mistake of Fact", ipc: "76-79", bns: "14-17", desc: "Acts done by a person bound or justified by law under mistake of fact." },
-            { cat: 'General', name: "Judicial Acts", ipc: "77-78", bns: "18-19", desc: "Acts done by judges acting judicially or under court orders." },
-            { cat: 'General', name: "Accident & Necessity", ipc: "80-81", bns: "20-21", desc: "Acts resulting from accidents or acts done to prevent greater harm." },
-            { cat: 'General', name: "Infancy & Insanity", ipc: "82-84", bns: "22-24", desc: "Exemption for children and persons of unsound mind." },
-            { cat: 'General', name: "Right of Private Defence", ipc: "96-106", bns: "34-44", desc: "Comprehensive rights to protect body and property from aggression." },
-
-            // CHAPTER IV: ABETMENT, CONSPIRACY & ATTEMPT
-            { cat: 'General', name: "Abetment", ipc: "107-114", bns: "45-52", desc: "Instigating, conspiring, or aiding in the commission of an offense." },
-            { cat: 'General', name: "Criminal Conspiracy", ipc: "120A-120B", bns: "61", desc: "Agreement between two or more persons to commit an illegal act." },
-            { cat: 'General', name: "Criminal Attempt", ipc: "511", bns: "62", desc: "Attempting to commit offenses punishable with imprisonment." },
-
-            // CHAPTER V: OFFENSES AGAINST WOMEN & CHILDREN
-            { cat: 'Women', name: "Rape", ipc: "375-376", bns: "63-64", desc: "Definitions and rigorous punishment for sexual assault without consent." },
-            { cat: 'Women', name: "Sexual Intercourse by Deceit", ipc: "New", bns: "69", desc: "Sexual intercourse on a false promise of marriage or deceitful means." },
-            { cat: 'Women', name: "Gang Rape", ipc: "376D", bns: "70", desc: "Rape committed by one or more persons in furtherance of common intent." },
-            { cat: 'Women', name: "Assault on Woman", ipc: "354", bns: "74", desc: "Criminal force to outrage the modesty of a woman." },
-            { cat: 'Women', name: "Sexual Harassment", ipc: "354A", bns: "75", desc: "Unwelcome physical contact, sexual remarks, or stalking." },
-            { cat: 'Women', name: "Stalking", ipc: "354D", bns: "78", desc: "Repeatedly following or contacting a woman despite her disinterest." },
-            { cat: 'Women', name: "Dowry Death", ipc: "304B", bns: "80", desc: "Death related to dowry demands within 7 years of marriage." },
-            { cat: 'Women', name: "Marriage Related Offenses", ipc: "493-498", bns: "81-84", desc: "Coercion, bigamy, and fraudulent marriage ceremonies." },
-            { cat: 'Women', name: "Cruelty by Husband", ipc: "498A", bns: "85", desc: "Subjecting a woman to cruelty by husband or relatives." },
-
-            // CHAPTER VI: OFFENSES AGAINST HUMAN BODY
-            { cat: 'Body', name: "Murder", ipc: "302", bns: "103(1)", desc: "Punishment for causing death with intention or lethal knowledge." },
-            { cat: 'Body', name: "Culpable Homicide", ipc: "304", bns: "105", desc: "Causing death by negligence or without specific intent to murder." },
-            { cat: 'Body', name: "Hit and Run", ipc: "New", bns: "106(2)", desc: "Death by negligence followed by escaping the scene without reporting." },
-            { cat: 'Body', name: "Abetment of Suicide", ipc: "306", bns: "108", desc: "Instigating or aiding a person in ending their own life." },
-            { cat: 'Body', name: "Attempt to Murder", ipc: "307", bns: "109", desc: "Acts done with murderous intent but result not achieved." },
-            { cat: 'Body', name: "Grievous Hurt", ipc: "325", bns: "117", desc: "Voluntarily causing severe injury like bone fractures or organ damage." },
-            { cat: 'Body', name: "Acid Attack", ipc: "326A", bns: "124", desc: "Punishment for causing permanent disability using corrosive substances." },
-            { cat: 'Body', name: "Kidnapping", ipc: "363", bns: "137", desc: "Taking a person out of lawful guardianship without consent." },
-
-            // CHAPTER VII: OFFENSES AGAINST STATE
-            { cat: 'State', name: "Waging War Against State", ipc: "121", bns: "147", desc: "Organizing or participating in armed rebellion against the Government." },
-            { cat: 'State', name: "Acts Endangering Sovereignty", ipc: "124A", bns: "152", desc: "Replacement for Sedition; acts endangering India's unity and integrity." },
-            { cat: 'State', name: "Terrorist Act", ipc: "New", bns: "113", desc: "Acts intended to threaten the security or sovereignty of India." },
-            { cat: 'State', name: "Organized Crime", ipc: "New", bns: "111", desc: "Activities of criminal syndicates including contract killing and smuggling." },
-
-            // CHAPTER XVII: OFFENSES AGAINST PROPERTY
-            { cat: 'Property', name: "Theft", ipc: "378-382", bns: "303-307", desc: "Dishonest removal of movable property from anyone's possession." },
-            { cat: 'Property', name: "Snatching", ipc: "New", bns: "304", desc: "Newly defined offense for sudden grabbing of property from a person." },
-            { cat: 'Property', name: "Extortion", ipc: "383-384", bns: "308", desc: "Compelling delivery of property by putting a person in fear." },
-            { cat: 'Property', name: "Robbery", ipc: "390", bns: "309", desc: "Theft or extortion involving immediate threat of death or hurt." },
-            { cat: 'Property', name: "Dacoity", ipc: "395", bns: "310", desc: "Robbery committed by five or more persons acting together." },
-            { cat: 'Property', name: "Criminal Breach of Trust", ipc: "405-406", bns: "316", desc: "Dishonest misappropriation of property entrusted to a person." },
-            { cat: 'Property', name: "Cheating", ipc: "415-420", bns: "318", desc: "Deceiving a person to deliver property or valuable security." },
-            { cat: 'Property', name: "Mischief", ipc: "425-426", bns: "324", desc: "Causing destruction of property with intent to cause loss." },
-
-            // CHAPTER XIX: DEFAMATION & INTIMIDATION
-            { cat: 'Misc', name: "Defamation", ipc: "499-502", bns: "356", desc: "Harm to reputation; includes punishment by community service." },
-            { cat: 'Misc', name: "Criminal Intimidation", ipc: "506", bns: "351", desc: "Threatening a person with injury to body, reputation, or property." },
-            { cat: 'Misc', name: "Public Nuisance", ipc: "268-290", bns: "270-297", desc: "Acts causing general danger or annoyance to the public." }
+            { cat: 'General', name: "Short Title", ipc: "1", bns: "1", desc: "Operation of the Sanhita." },
+            { cat: 'Women', name: "Rape", ipc: "375-376", bns: "63-64", desc: "Punishment for sexual assault." },
+            { cat: 'Body', name: "Murder", ipc: "302", bns: "103", desc: "Punishment for causing death." },
+            { cat: 'Property', name: "Theft", ipc: "378", bns: "303", desc: "Removal of movable property." }
         ];
 
         const zone = document.getElementById('renderZone');
         const searchInput = document.getElementById('masterSearch');
 
         function paint(list) {
-            if(list.length === 0) {
-                document.getElementById('noResult').classList.remove('hidden');
-                zone.innerHTML = '';
-                return;
-            }
-            document.getElementById('noResult').classList.add('hidden');
-            zone.innerHTML = list.map((i, idx) => `
-                <div class="sec-card p-6 animate-card" style="animation-delay: ${idx * 0.05}s">
-                    <div class="flex justify-between items-start mb-3">
-                        <div>
-                            <h4 class="text-sm font-black text-gray-800 uppercase leading-none tracking-tight">${i.name}</h4>
-                            <span class="text-[8px] font-bold text-red-500 uppercase tracking-widest mt-1 inline-block">${i.cat}</span>
-                        </div>
-                        <div class="flex flex-col items-end gap-1.5">
+            zone.innerHTML = list.map(i => `
+                <div class="sec-card p-5">
+                    <div class="flex justify-between items-center mb-3">
+                        <h4 class="text-xs font-black text-gray-800 uppercase">${i.name}</h4>
+                        <div class="flex gap-1">
                             <span class="tag-ipc">IPC ${i.ipc}</span>
                             <span class="tag-bns">BNS ${i.bns}</span>
                         </div>
                     </div>
-                    <p class="text-[11px] text-gray-500 leading-relaxed font-medium border-t border-gray-50 pt-3">${i.desc}</p>
+                    <p class="text-[11px] text-gray-500 leading-relaxed font-medium">${i.desc}</p>
                 </div>
             `).join('');
         }
 
         searchInput.addEventListener('input', (e) => {
             const val = e.target.value.toLowerCase();
-            const filtered = data.filter(i => 
-                i.name.toLowerCase().includes(val) || 
-                i.ipc.toLowerCase().includes(val) || 
-                i.bns.toLowerCase().includes(val) ||
-                i.desc.toLowerCase().includes(val)
-            );
-            paint(filtered);
+            paint(data.filter(i => i.name.toLowerCase().includes(val)));
         });
 
         function filter(cat, btn) {
             document.querySelectorAll('.nav-chip').forEach(c => c.classList.remove('active'));
             btn.classList.add('active');
             cat === 'all' ? paint(data) : paint(data.filter(i => i.cat === cat));
-            searchInput.value = '';
-            window.scrollTo({ top: 300, behavior: 'smooth' });
         }
 
         paint(data);
-
-        // PROTECTION
-        document.addEventListener('contextmenu', e => e.preventDefault());
-        document.onkeydown = (e) => {
-            if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false;
-            if (e.key === "F12") return false;
-        };
     </script>
 </body>
 </html>
