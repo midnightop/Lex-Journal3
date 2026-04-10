@@ -382,25 +382,46 @@
         document.body.appendChild(sentinel);
         scrollObserver.observe(sentinel);
 
-        function openModal(key) {
-    // ... aapka purana logic yahan rahega (content load karne wala) ...
-    
-    document.getElementById('articleModal').classList.add('active');
-    document.body.style.overflow = 'hidden';
-
-    // Sabse important line:
-    window.history.pushState({ modalOpen: true }, "");
-}
+        function openModal(id) {
+            const data = caseDatabase[id];
+            document.getElementById('modalDescription').innerText = data.desc;
+            document.getElementById('modalLongFacts').innerHTML = data.longFacts;
+            document.getElementById('modalOpinion').innerText = data.opinion;
+            const pointsList = document.getElementById('modalPoints');
+            pointsList.innerHTML = '';
+            data.points.forEach((p, i) => {
+                pointsList.innerHTML += `<li class="flex items-start gap-3"><span class="w-5 h-5 bg-blue-100 text-blue-600 rounded flex items-center justify-center text-[10px] shrink-0 font-bold">${i+1}</span> ${p}</li>`;
+            });
+            document.getElementById('caseModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
         function closeModal() {
-    const modal = document.getElementById('articleModal');
-    if (modal.classList.contains('active')) {
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-
-        // Agar user ne 'X' dabakar band kiya, toh history saaf karo
-        if (window.history.state && window.history.state.modalOpen) {
-            window.history.back();
+            document.getElementById('caseModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
         }
-    }
-}
+
+        function searchCases() {
+            const input = document.getElementById('caseSearch').value.toLowerCase();
+            const cards = document.getElementsByClassName('case-card');
+            if (input.length > 0 && currentIndex < caseKeys.length) {
+                while(currentIndex < caseKeys.length) renderBatch();
+            }
+            Array.from(cards).forEach(card => {
+                const title = card.getAttribute('data-title');
+                card.classList.toggle('hidden', !title.includes(input));
+            });
+        }
+
+        window.onpageshow = (e) => { if (e.persisted) location.reload(); };
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('copy', e => e.preventDefault());
+        document.onkeydown = (e) => { if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false; };
+    </script>
+
+    <footer class="py-16 text-center">
+        <p class="text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
+    </footer>
+
+</body>
+</html>
