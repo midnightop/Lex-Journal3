@@ -16,6 +16,8 @@
             --card-glass: rgba(255, 255, 255, 0.6);
             --nav-glass: rgba(255, 255, 255, 0.75);
             --border-ui: rgba(255, 255, 255, 0.8);
+            --lab-btn-bg: #ffffff;
+            --lab-btn-text: #1e293b;
         }
 
         .dark-mode {
@@ -24,6 +26,9 @@
             --card-glass: rgba(30, 41, 59, 0.7);
             --nav-glass: rgba(15, 23, 42, 0.8);
             --border-ui: rgba(255, 255, 255, 0.1);
+            /* Dark mode mein button ko glass look diya hai visibility ke liye */
+            --lab-btn-bg: rgba(255, 255, 255, 0.05);
+            --lab-btn-text: #ffffff;
         }
 
         body { 
@@ -52,6 +57,18 @@
             border-radius: 32px;
         }
 
+        /* Research Lab Button Styling */
+        .lab-btn {
+            background: var(--lab-btn-bg);
+            color: var(--lab-btn-text);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .dark-mode .lab-btn {
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
         /* Dark Mode adjustments for existing classes */
         .dark-mode .text-gray-900 { color: #ffffff; }
         .dark-mode .text-gray-800 { color: #e2e8f0; }
@@ -65,7 +82,6 @@
         .dark-mode .sk-item { background: #1e293b; }
 
         @keyframes fadeInBody { from { opacity: 0; } to { opacity: 1; } }
-        /* Page Transition Fix */
         .page-fade-out { opacity: 0 !important; transform: scale(0.99); transition: opacity 0.2s ease-out, transform 0.2s ease-out !important; }
         
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -91,8 +107,7 @@
 
         .btn-glossy { position: relative; overflow: hidden; transition: transform 0.2s ease; }
         .btn-glossy::after { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent); transform: rotate(45deg); animation: shimmer 5s infinite; }
-        @keyframes shimmer { 0% { transform: translateX(-100%) rotate(45deg); } 20%, 100% { transform: translateX(100%) rotate(45deg); } }
-
+        
         #skeleton-screen { position: fixed; inset: 0; background: #fcfdfe; z-index: 9999; display: flex; flex-direction: column; padding: 20px; gap: 20px; }
         .sk-item { background: #f1f5f9; border-radius: 15px; animation: pulse 1.5s infinite; }
         @keyframes pulse { 50% { opacity: 0.5; } }
@@ -151,7 +166,7 @@
                     <p>Legal research is the systematic dissection of the "why" behind the law. At Calcutta Law Journal, our research wing goes beyond summaries; we analyze the evolving legal landscape especially the critical transition from IPC/CrPC to BNS.</p>
                     <p>We provide high quality thesis summaries and academic papers to help students develop the sharp thinking required for High Courts and the Supreme Court. At Lawjournal.online, we uncover the intent of the legislature to ensure that justice is found within the law.</p>
                 </div>
-                <a href="research.html" class="mt-8 block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px] active:scale-95 transition shadow-lg">Enter Research Lab</a>
+                <a href="research.html" class="mt-8 block text-center py-4 lab-btn font-black rounded-xl uppercase text-[10px] active:scale-95 transition shadow-lg">Enter Research Lab</a>
             </div>
         </section>
 
@@ -232,12 +247,10 @@
     </footer>
 
     <script>
-        // Mode Toggle Logic
         function toggleMode() {
             const body = document.body;
             const icon = document.querySelector('#themeIcon i');
             body.classList.toggle('dark-mode');
-            
             if(body.classList.contains('dark-mode')) {
                 icon.className = 'fa-solid fa-sun text-xs';
                 localStorage.setItem('theme', 'dark');
@@ -247,13 +260,11 @@
             }
         }
 
-        // Apply saved theme
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-mode');
             document.querySelector('#themeIcon i').className = 'fa-solid fa-sun text-xs';
         }
 
-        // Skeleton Screen Remover
         function removeSkeleton() {
             const sk = document.getElementById('skeleton-screen');
             if(sk) {
@@ -262,15 +273,13 @@
                 setTimeout(() => { if(sk.parentNode) sk.remove(); }, 300);
             }
         }
-
         window.addEventListener('load', removeSkeleton);
 
-        // FIX: Handle Back Navigation from Cache (BFCache)
+        // Fix Back Navigation
         window.addEventListener('pageshow', (event) => {
-            // Agar page cache se load hua hai (back button dabane par)
             if (event.persisted) {
                 document.body.classList.remove('page-fade-out');
-                removeSkeleton(); // Back aane par agar skeleton dikhe toh remove kar do
+                removeSkeleton();
             }
         });
 
@@ -279,7 +288,6 @@
                 if (entry.isIntersecting) entry.target.classList.add('active');
             });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
         document.querySelectorAll('a').forEach(link => {
