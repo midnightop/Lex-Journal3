@@ -3,164 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms & Conditions | CLJ</title>
+    <title>Terms of Service | Calcutta Law Journal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600;700;900&display=swap');
         
         body { 
             font-family: 'Inter', sans-serif; 
-            background-color: #f8fafc; 
-            -webkit-tap-highlight-color: transparent; 
+            background-color: #fcfdfe; 
+            color: #1a1a1a;
             overflow-x: hidden;
             -webkit-user-select: none;
             user-select: none;
-            color: #1e293b;
         }
         .font-serif { font-family: 'Playfair Display', serif; }
         
-        /* Smooth Entrance */
-        .fade-up { animation: fadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
+        .fade-in-section {
+            animation: fadeInUp 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+            opacity: 0;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.4s ease;
+        .legal-card {
+            background: white;
+            border: 1px solid #f1f5f9;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
         }
-        .glass-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+        .legal-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 0;
+            background: #2563eb;
+            transition: height 0.5s ease;
         }
-
-        .contact-btn {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .contact-btn:hover {
-            transform: scale(1.02);
-            filter: brightness(1.1);
+        .legal-card:hover::before { height: 100%; }
+        .legal-card:hover {
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.05);
+            border-color: #e2e8f0;
         }
 
         .page-fade-out { opacity: 0 !important; transition: opacity 0.3s; }
     </style>
 </head>
-<body class="pb-20">
+<body class="selection:bg-blue-100 selection:text-blue-900">
 
-    <nav class="sticky top-0 z-50 bg-white/70 backdrop-blur-2xl px-6 py-5 md:px-12 md:py-8 flex justify-between items-center border-b border-gray-100">
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100 px-6 py-5 md:px-16 flex justify-between items-center">
         <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-gray-900 rounded-xl flex items-center justify-center text-white">
-                <i class="fa-solid fa-scale-balanced"></i>
+            <div class="p-2 bg-blue-600 rounded-lg text-white">
+                <i class="fa-solid fa-gavel"></i>
             </div>
-            <h1 class="font-black text-gray-900 text-xl md:text-3xl tracking-tighter uppercase">CLJ <span class="text-blue-600">LEGAL</span></h1>
+            <span class="font-black tracking-tighter text-xl uppercase italic">CLJ <span class="text-blue-600">Legal</span></span>
         </div>
-        <a href="index.html" class="text-[10px] md:text-xs font-bold uppercase tracking-widest text-white bg-gray-900 px-6 py-3 rounded-full shadow-lg active:scale-95 transition">
-            <i class="fa-solid fa-chevron-left mr-2"></i> Exit
+        <a href="index.html" class="group flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-blue-600 transition">
+            <i class="fa-solid fa-arrow-left transition group-hover:-translate-x-1"></i> Return Home
         </a>
     </nav>
 
-    <header class="pt-20 pb-16 px-6 text-center">
-        <span class="px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-[10px] font-black uppercase tracking-[0.2em] border border-blue-100">Legal Framework 2026</span>
-        <h1 class="mt-8 text-5xl md:text-8xl font-serif font-bold text-gray-900 tracking-tight leading-none fade-up">Terms of <br><span class="text-blue-600 italic">Service.</span></h1>
-        <p class="mt-6 text-gray-500 max-w-xl mx-auto text-sm md:text-lg font-medium fade-up" style="animation-delay: 0.1s;">
-            Please read these terms carefully before accessing the Calcutta Law Journal academic repository.
-        </p>
+    <header class="pt-24 pb-20 px-6 text-center max-w-4xl mx-auto fade-in-section">
+        <h4 class="text-blue-600 font-black text-[10px] uppercase tracking-[0.4em] mb-4">Official Documentation</h4>
+        <h1 class="text-5xl md:text-8xl font-serif font-bold leading-tight tracking-tight mb-8">User Agreement & <br><span class="italic text-gray-400 font-medium text-4xl md:text-7xl">Platform Ethics</span></h1>
+        <div class="h-1 w-24 bg-blue-600 mx-auto rounded-full"></div>
     </header>
 
-    <main class="px-6 space-y-10 max-w-5xl mx-auto">
-        
-        <section class="glass-card p-10 md:p-16 rounded-[3rem] fade-up" style="animation-delay: 0.2s;">
-            <div class="flex flex-col md:flex-row gap-12">
-                <div class="flex-1">
-                    <div class="flex items-center gap-4 mb-8">
-                        <span class="text-4xl font-black text-blue-100 italic">01</span>
-                        <h3 class="text-2xl md:text-3xl font-black uppercase tracking-tighter">General Declaration</h3>
-                    </div>
+    <main class="max-w-5xl mx-auto px-6 pb-24 space-y-12">
+
+        <section class="legal-card p-10 md:p-16 rounded-[2rem] fade-in-section" style="animation-delay: 0.1s;">
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="md:col-span-2">
+                    <h2 class="text-3xl font-black uppercase tracking-tighter mb-6 flex items-center gap-3">
+                        <span class="text-blue-600">01.</span> General Information
+                    </h2>
                     <p class="text-gray-500 text-lg leading-relaxed text-justify">
-                        This platform, <span class="text-gray-900 font-bold">Lawjournal.online</span>, operates as an independent academic resource. We provide simplified legal summaries for the benefit of law students at <span class="text-blue-600">Surendranath Law College</span> and the <span class="text-blue-600">University of Calcutta</span>. By continuing, you acknowledge that this is an educational tool and not a commercial law firm.
+                        This digital platform, <b>Lawjournal.online</b> (hereinafter referred to as "the Blog"), is an academic initiative. It is designed to serve as a supplementary study aid for students enrolled in legal programs, specifically at <b>Surendranath Law College</b> and the <b>University of Calcutta</b>. By accessing this platform, you acknowledge that you are seeking educational insights and not professional legal representation.
                     </p>
                 </div>
-                <div class="w-full md:w-72 flex flex-col gap-3 justify-center">
-                    <a href="mailto:bigdaddymidnightop@gmail.com" class="contact-btn w-full bg-gray-900 text-white p-5 rounded-2xl flex items-center justify-between px-8 shadow-xl">
-                        <span class="font-bold text-[10px] tracking-widest uppercase">Official Mail</span>
-                        <i class="fa-solid fa-paper-plane text-blue-400"></i>
+                <div class="space-y-4 flex flex-col justify-center">
+                    <a href="mailto:bigdaddymidnightop@gmail.com" class="p-5 bg-gray-900 text-white rounded-2xl flex items-center justify-between group hover:bg-blue-600 transition-all">
+                        <span class="text-[10px] font-bold uppercase tracking-widest">Email Support</span>
+                        <i class="fa-solid fa-envelope group-hover:rotate-12 transition"></i>
                     </a>
-                    <a href="https://www.instagram.com/midieeeeee" target="_blank" class="contact-btn w-full bg-white border border-gray-100 text-gray-900 p-5 rounded-2xl flex items-center justify-between px-8 shadow-sm">
-                        <span class="font-bold text-[10px] tracking-widest uppercase">Instagram</span>
-                        <i class="fa-brands fa-instagram text-pink-500"></i>
+                    <a href="https://www.instagram.com/midieeeeee" target="_blank" class="p-5 bg-blue-50 text-blue-700 rounded-2xl flex items-center justify-between group hover:bg-blue-100 transition-all">
+                        <span class="text-[10px] font-bold uppercase tracking-widest">Instagram</span>
+                        <i class="fa-brands fa-instagram group-hover:scale-125 transition"></i>
                     </a>
                 </div>
             </div>
         </section>
 
-        <section class="glass-card p-10 md:p-16 rounded-[3rem] border-l-[12px] border-blue-600 fade-up" style="animation-delay: 0.3s;">
-            <div class="flex items-center gap-4 mb-8">
-                <span class="text-4xl font-black text-blue-100 italic">02</span>
-                <h3 class="text-2xl md:text-3xl font-black uppercase tracking-tighter">Anti-Bot & Data Protection</h3>
-            </div>
-            <div class="space-y-6">
-                <p class="text-gray-600 text-lg leading-relaxed">
-                    We employ advanced monitoring to protect our intellectual property. The use of automated systems, "bots", "spiders", or "scrapers" to extract data for commercial use or AI training without explicit permission is <span class="text-red-600 font-black italic underline">STRICTLY PROHIBITED.</span>
-                </p>
-                <div class="grid md:grid-cols-2 gap-6 mt-8">
-                    <div class="bg-blue-50/50 p-6 rounded-3xl border border-blue-100">
-                        <h4 class="font-black text-blue-900 uppercase text-xs tracking-widest mb-2">Technical Violation</h4>
-                        <p class="text-blue-800 text-sm">Excessive requests or bypass of security measures will result in an immediate permanent IP ban.</p>
-                    </div>
-                    <div class="bg-red-50/50 p-6 rounded-3xl border border-red-100">
-                        <h4 class="font-black text-red-900 uppercase text-xs tracking-widest mb-2">Legal Consequence</h4>
-                        <p class="text-red-800 text-sm">Violation of this clause may lead to legal action under the <span class="font-bold">Information Technology Act</span> for unauthorized data access.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="glass-card p-10 md:p-16 rounded-[3rem] fade-up" style="animation-delay: 0.4s;">
-            <div class="flex items-center gap-4 mb-8">
-                <span class="text-4xl font-black text-blue-100 italic">03</span>
-                <h3 class="text-2xl md:text-3xl font-black uppercase tracking-tighter">DMCA & Content Removal</h3>
-            </div>
+        <section class="legal-card p-10 md:p-16 rounded-[2rem] border-l-8 border-red-500 fade-in-section" style="animation-delay: 0.2s;">
+            <h2 class="text-3xl font-black uppercase tracking-tighter mb-6 flex items-center gap-3">
+                <span class="text-red-500">02.</span> Intellectual Property Claims
+            </h2>
             <p class="text-gray-500 text-lg leading-relaxed mb-8">
-                If you believe any content on Lawjournal.online infringes your copyright, please submit a formal request. We respect intellectual property and will act swiftly to resolve disputes.
+                We take intellectual property seriously. If you are a copyright holder and find content that belongs to you or your organization, you may submit a <b>Notice of Infringement</b>. 
             </p>
-            <div class="bg-gray-900 text-gray-400 p-8 rounded-3xl">
-                <p class="text-xs uppercase tracking-[0.2em] mb-4 text-blue-400 font-bold">Requirement for Removal:</p>
-                <ul class="text-sm space-y-3">
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-check-double text-blue-500"></i> Evidence of ownership or authorization.</li>
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-check-double text-blue-500"></i> Direct link to the disputed content.</li>
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-check-double text-blue-500"></i> Email: <span class="text-white">bigdaddymidnightop@gmail.com</span></li>
-                </ul>
+            <div class="bg-red-50 border border-red-100 p-8 rounded-3xl">
+                <h4 class="text-red-900 font-bold uppercase text-xs tracking-widest mb-4">Procedure for Removal:</h4>
+                <p class="text-red-800 text-sm leading-relaxed mb-4">Please email <span class="font-bold">bigdaddymidnightop@gmail.com</span> with: 1. Identification of the copyrighted work, 2. The URL on our site, and 3. Proof of ownership. Valid requests are typically processed within 48 to 72 business hours.</p>
             </div>
         </section>
 
-        <section class="glass-card p-10 md:p-16 rounded-[3rem] fade-up" style="animation-delay: 0.5s;">
-            <div class="flex items-center gap-4 mb-8">
-                <span class="text-4xl font-black text-blue-100 italic">04</span>
-                <h3 class="text-2xl md:text-3xl font-black uppercase tracking-tighter">Limitation of Liability</h3>
+        <section class="legal-card p-10 md:p-16 rounded-[2rem] fade-in-section" style="animation-delay: 0.3s;">
+            <h2 class="text-3xl font-black uppercase tracking-tighter mb-6 flex items-center gap-3">
+                <span class="text-blue-600">03.</span> Anti-Bot & Automated Access
+            </h2>
+            <p class="text-gray-500 text-lg leading-relaxed mb-6">
+                Unauthorized data mining is strictly prohibited. To maintain the integrity of our hosting environment and protect our proprietary summaries:
+            </p>
+            <ul class="space-y-4">
+                <li class="flex gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                    <i class="fa-solid fa-ban text-red-500 mt-1"></i>
+                    <span class="text-sm font-medium text-gray-700">The use of AI crawlers, scrapers, or automated harvesting software is forbidden without prior written consent.</span>
+                </li>
+                <li class="flex gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                    <i class="fa-solid fa-gavel text-blue-500 mt-1"></i>
+                    <span class="text-sm font-medium text-gray-700">Violations will result in an immediate IP-based access block and may lead to legal reporting under Indian Cyber Laws.</span>
+                </li>
+            </ul>
+        </section>
+
+        <section class="legal-card p-10 md:p-16 rounded-[2rem] fade-in-section" style="animation-delay: 0.4s;">
+            <h2 class="text-3xl font-black uppercase tracking-tighter mb-6 flex items-center gap-3">
+                <span class="text-blue-600">04.</span> User Conduct
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <h5 class="font-black text-xs uppercase tracking-widest text-gray-400 italic">Prohibited Actions:</h5>
+                    <p class="text-gray-500 text-sm leading-relaxed">Users shall not attempt to inject malicious code, disrupt the site’s performance, or redistribute the content of this Blog on commercial platforms or for-profit academic portals.</p>
+                </div>
+                <div class="space-y-4">
+                    <h5 class="font-black text-xs uppercase tracking-widest text-gray-400 italic">Permitted Use:</h5>
+                    <p class="text-gray-500 text-sm leading-relaxed">Printing for personal study, referencing in moot court memos (with proper citation), and sharing links for peer-to-peer non-commercial learning is encouraged.</p>
+                </div>
             </div>
-            <div class="bg-amber-50 p-8 rounded-[2rem] border-2 border-dashed border-amber-200">
-                <p class="text-amber-900 font-bold text-lg mb-4">"Caveat Emptor - User's Responsibility"</p>
+        </section>
+
+        <section class="legal-card p-10 md:p-16 rounded-[2rem] fade-in-section" style="animation-delay: 0.5s;">
+            <h2 class="text-3xl font-black uppercase tracking-tighter mb-6 flex items-center gap-3">
+                <span class="text-blue-600">05.</span> Disclaimer of Liability
+            </h2>
+            <div class="p-8 bg-amber-50 rounded-[2rem] border-2 border-dashed border-amber-200">
+                <p class="text-amber-900 font-bold mb-4 italic">"The law is a living organism, constantly evolving through judicial precedents."</p>
                 <p class="text-amber-800 text-sm md:text-base leading-relaxed">
-                    Law is subject to interpretation and frequent amendments. While we strive for 100% accuracy, the Calcutta Law Journal is not responsible for any academic or legal loss resulting from the use of this data. Always refer to original Bare Acts and Gazette notifications for litigation purposes.
+                    While our team (mostly law students) strives for academic rigor, we do not guarantee that every summary is updated with the latest Supreme Court or High Court amendments. The information provided is <b>"AS IS"</b>. We shall not be held liable for any academic failures or adverse legal outcomes based on reliance upon this content.
                 </p>
             </div>
         </section>
 
-        <section class="text-center py-10 fade-up" style="animation-delay: 0.6s;">
-            <h3 class="text-xs font-black uppercase tracking-[0.4em] text-gray-400 mb-4">Jurisdiction</h3>
-            <p class="text-gray-500 text-sm max-w-lg mx-auto italic">
-                These terms are governed by the laws of India. Any disputes arising shall be subject to the exclusive jurisdiction of the courts in <span class="text-gray-900 font-bold uppercase">Kolkata, West Bengal</span>.
+        <section class="legal-card p-10 md:p-16 rounded-[2rem] fade-in-section" style="animation-delay: 0.6s;">
+            <h2 class="text-3xl font-black uppercase tracking-tighter mb-6 flex items-center gap-3">
+                <span class="text-blue-600">06.</span> Third-Party Content
+            </h2>
+            <p class="text-gray-500 text-lg leading-relaxed">
+                The Blog may contain links to external sites (like IndianKanoon, SCC Online, or Government Portals). We do not control, endorse, or take responsibility for the privacy practices or the content of these external entities.
             </p>
+        </section>
+
+        <section class="legal-card p-10 md:p-16 rounded-[2rem] fade-in-section" style="animation-delay: 0.7s;">
+            <h2 class="text-3xl font-black uppercase tracking-tighter mb-6 flex items-center gap-3">
+                <span class="text-blue-600">07.</span> Right to Amend
+            </h2>
+            <p class="text-gray-500 text-lg leading-relaxed">
+                We reserve the right to modify these Terms of Service at any time without prior notice. Continued use of the platform after changes have been posted constitutes your acceptance of the revised agreement.
+            </p>
+        </section>
+
+        <section class="legal-card p-10 md:p-16 rounded-[2rem] bg-gray-900 text-white fade-in-section" style="animation-delay: 0.8s;">
+            <h2 class="text-3xl font-black uppercase tracking-tighter mb-6 flex items-center gap-3">
+                <span class="text-blue-400">08.</span> Legal Jurisdiction
+            </h2>
+            <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                These terms shall be governed by and construed in accordance with the <b>Laws of the Republic of India</b>. Any disputes arising from the use of this website shall be subject to the exclusive jurisdiction of the <b>Hon'ble High Court at Calcutta</b> and its subordinate courts in Kolkata.
+            </p>
+            <div class="h-px w-full bg-gray-800 my-8"></div>
+            <p class="text-[10px] text-gray-500 font-bold uppercase tracking-[0.3em]">Last Updated: April 2026</p>
         </section>
 
     </main>
 
-    <footer class="mt-20 py-10 border-t border-gray-100 text-center">
-        <p class="text-[10px] font-black text-gray-400 uppercase tracking-[0.5em]">&copy; 2026 Calcutta Law Journal • Lawjournal.online</p>
+    <footer class="py-20 text-center border-t border-gray-100">
+        <div class="flex justify-center gap-6 mb-8 text-gray-400 text-sm">
+            <a href="#" class="hover:text-blue-600 transition">Privacy Policy</a>
+            <span>•</span>
+            <a href="#" class="hover:text-blue-600 transition">Disclaimer</a>
+            <span>•</span>
+            <a href="#" class="hover:text-blue-600 transition">Contact</a>
+        </div>
+        <p class="text-[10px] font-black text-gray-400 uppercase tracking-[0.5em]">&copy; 2026 Calcutta Law Journal • lawjournal.online</p>
     </footer>
 
     <script>
