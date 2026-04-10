@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Contract | CLJ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fcfdfe; 
+            -webkit-tap-highlight-color: transparent;
+            /* --- COPY PROTECTION --- */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .special-card { 
+            border-left: 6px solid #14b8a6; /* Teal-500 */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .special-card:hover { transform: translateX(8px); }
+        
+        @media (min-width: 768px) {
+            .special-card { border-left-width: 12px; }
+        }
+
+        /* Snappy Animations */
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out; 
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Smooth Transition Out */
+        .page-fade-out { opacity: 0 !important; transition: opacity 0.2s ease-out; }
+
+        .law-box { background: #f0fdfa; border-radius: 1.5rem; padding: 1.5rem; border: 1px solid #ccfbf1; }
+    </style>
+</head>
+<body class="pb-10">
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl px-4 py-4 md:px-8 md:py-6 flex justify-between items-center border-b border-gray-100">
+        <h1 class="font-black text-gray-800 text-xl md:text-2xl tracking-tighter uppercase">CLJ <span class="text-teal-500 text-xs md:text-sm">SPECIAL CONTRACT</span></h1>
+        <a href="bare-acts.html" class="text-[10px] md:text-xs font-black uppercase text-teal-600 bg-teal-50 px-6 py-3 rounded-full shadow-sm active:scale-90 transition">
+            <i class="fa-solid fa-chevron-left mr-1"></i> Back
+        </a>
+    </nav>
+
+    <main class="px-5 space-y-8 md:space-y-16 max-w-3xl mx-auto mt-8 md:mt-16">
+        
+        <section class="special-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-teal-50/50 reveal active">
+            <h3 class="text-teal-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Commercial Transactions</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">Beyond General Principles</h2>
+            
+            <div class="space-y-6 text-gray-600 text-sm md:text-base leading-relaxed">
+                <p class="text-lg font-medium italic text-gray-700">"The specialized rules governing agency, bailment, sales, and partnerships."</p>
+                <p>While the first part of the Indian Contract Act deals with general principles, <strong>Special Contracts</strong> dive into specific commercial relationships. This subject covers Sections 124-238 of the Indian Contract Act, along with two major independent acts that were originally part of it: The <strong>Sale of Goods Act, 1930</strong> and the <strong>Indian Partnership Act, 1932</strong>.</p>
+                
+                <h4 class="font-black text-gray-800 uppercase text-xs tracking-widest">10 Key Pillars of Special Contracts:</h4>
+                <ul class="grid md:grid-cols-2 gap-4">
+                    <li class="flex items-start"><i class="fa-solid fa-handshake text-teal-500 mt-1 mr-2"></i> Contract of Indemnity (Sec 124).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-handshake text-teal-500 mt-1 mr-2"></i> Contract of Guarantee & Surety.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-handshake text-teal-500 mt-1 mr-2"></i> Bailment (Sec 148) & Finder of Goods.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-handshake text-teal-500 mt-1 mr-2"></i> Pledge by mercantile agents.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-handshake text-teal-500 mt-1 mr-2"></i> Creation and termination of Agency.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-handshake text-teal-500 mt-1 mr-2"></i> Sale vs. Agreement to Sell (SOGA).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-handshake text-teal-500 mt-1 mr-2"></i> Conditions & Warranties.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-handshake text-teal-500 mt-1 mr-2"></i> Rights of an Unpaid Seller.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-handshake text-teal-500 mt-1 mr-2"></i> Mutual Agency in Partnership.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-handshake text-teal-500 mt-1 mr-2"></i> Dissolution of a Partnership Firm.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="special-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-cyan-50/50 border-l-cyan-500 reveal">
+            <h3 class="text-cyan-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Statutory Breakdown</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">Core Doctrines</h2>
+            
+            <div class="space-y-8 text-gray-600 text-sm md:text-base leading-relaxed">
+                <p>Commercial law heavily relies on implied terms, mutual trust, and the specific transfer of risk and property across these three distinct domains of special contracts.</p>
+
+                <div class="law-box">
+                    <h5 class="font-black text-teal-800 text-xs uppercase mb-4 tracking-widest">5 Landmark Legal Concepts:</h5>
+                    <div class="space-y-4">
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-cyan-600 block">Indemnity vs. Guarantee</span>
+                            <p class="text-[11px]">Indemnity involves two parties (saving from loss). Guarantee involves three parties (Principal Debtor, Creditor, Surety) to perform a promise if a third person defaults.</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-cyan-600 block">Nemo Dat Quod Non Habet</span>
+                            <p class="text-[11px]">"No one gives what they do not have." A core rule in the Sale of Goods Act regarding the transfer of title by a non-owner, subject to certain exceptions.</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-cyan-600 block">Caveat Emptor</span>
+                            <p class="text-[11px]">"Let the buyer beware." The principle that the buyer alone is responsible for checking the quality and suitability of goods before a purchase is made.</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-cyan-600 block">True Test of Partnership</span>
+                            <p class="text-[11px]">Sharing of profits is only prima facie evidence. The true test is <em>Mutual Agency</em>—whether the business is carried on by all or any of them acting for all.</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-cyan-600 block">Doctrine of Holding Out</span>
+                            <p class="text-[11px]">If a person represents themselves as a partner, or allows themselves to be represented as one, they are liable to anyone who gives credit to the firm on that faith.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="special-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-blue-50/50 border-l-blue-500 reveal">
+            <h3 class="text-blue-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Evolution</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">Key Case Laws</h2>
+            
+            <div class="space-y-6 text-gray-600 text-sm md:text-base leading-relaxed text-justify">
+                <p>Judicial interpretations have shaped the boundaries of liability for agents, sureties, and partners, balancing the rigidity of commercial contracts with equitable principles.</p>
+
+                <div class="p-6 bg-blue-50 rounded-3xl border border-blue-100 italic">
+                    <p class="text-xs text-blue-900 leading-loose">
+                        "The law of special contracts is the invisible architecture of commerce. It dictates who bears the loss when goods perish, agents go rogue, or partners fall out."
+                    </p>
+                </div>
+                
+                <h4 class="font-black text-gray-800 uppercase text-xs tracking-widest mt-6">5 Essential Jurisprudence Points:</h4>
+                <ul class="space-y-3 text-xs">
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-blue-500 mr-2"></i> <strong>Cox v. Hickman:</strong> The foundational English case establishing that 'mutual agency', not mere profit-sharing, is the true test of a partnership.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-blue-500 mr-2"></i> <strong>Gajanan Moreshwar v. Moreshwar Madan:</strong> Clarified that an indemnifier's liability commences as soon as the liability of the indemnified becomes absolute and certain.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-blue-500 mr-2"></i> <strong>Amrit Lal Goverdhan Lalan v. State Bank of Travancore:</strong> Established the rights of a surety to the securities held by the creditor, and discharge of surety if securities are lost.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-blue-500 mr-2"></i> <strong>Lee v. Griffin:</strong> Differentiated between a 'contract for sale of goods' and a 'contract for work and labour'.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-blue-500 mr-2"></i> <strong>Snow White Food Products v. Sohan Lal:</strong> Addressed the implied authority of a partner and the binding nature of their acts on the entire firm.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-12 py-8 text-center">
+        <p class="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
+    </footer>
+
+    <script>
+        // --- PREVENT WHITE SCREEN ON BACK BUTTON ---
+        window.addEventListener('pageshow', function(event) {
+            document.body.classList.remove('page-fade-out');
+            document.body.style.opacity = '1';
+        });
+
+        // --- REVEAL ON SCROLL ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // --- FAST CLICK TRANSITION ---
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && !href.startsWith('http') && href !== '#') {
+                    e.preventDefault();
+                    document.body.classList.add('page-fade-out');
+                    setTimeout(() => { window.location.href = href; }, 200);
+                }
+            });
+        });
+
+        // --- SECURITY SCRIPTS ---
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('copy', e => e.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false;
+            if (e.key === 'F12') return false;
+        };
+    </script>
+</body>
+</html>
