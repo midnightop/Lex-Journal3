@@ -19,6 +19,7 @@
         }
         .font-serif { font-family: 'Playfair Display', serif; }
 
+        /* Smooth Reveal */
         .reveal { 
             opacity: 0; 
             transform: translateY(20px); 
@@ -26,6 +27,7 @@
         }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
+        /* Modal Smoothness */
         .modal-overlay { 
             opacity: 0; 
             visibility: hidden; 
@@ -66,6 +68,7 @@
     </header>
 
     <main class="px-5 space-y-8 max-w-lg mx-auto mt-6">
+        
         <div class="reveal bg-white p-6 rounded-[2.5rem] border border-gray-100 shadow-xl shadow-blue-50/50">
             <div class="flex items-center gap-4 mb-5">
                 <div class="w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-2xl flex items-center justify-center text-white shadow-lg">
@@ -141,15 +144,41 @@
         const articles = {
             'privacy': {
                 title: "Privacy in Digital Era",
-                content: `<p class="text-2xl font-serif italic text-gray-800 mb-6">"Privacy is the core of human dignity."</p><p>The Digital Personal Data Protection (DPDP) Act 2023 marks a historic moment for India...</p>`
+                content: `
+                    <p class="text-2xl font-serif italic text-gray-800 mb-6">"Privacy is the core of human dignity."</p>
+                    <p>The Digital Personal Data Protection (DPDP) Act 2023 marks a historic moment for India. After the landmark Puttaswamy judgment declared privacy as a fundamental right under Article 21, the need for a statutory framework was urgent to regulate the growing digital economy.</p>
+                    <div class="bg-blue-50 p-6 rounded-3xl border-l-4 border-blue-500 my-6">
+                        <h5 class="font-black text-blue-900 text-xs uppercase mb-2">Key takeaway</h5>
+                        <p class="text-sm text-blue-800">The Act defines 'Data Principals' (users) and 'Data Fiduciaries' (companies), making the latter accountable for every byte of data collected.</p>
+                    </div>
+                    <p>However, the research explores the controversy surrounding Section 36, which grants the Central Government vast powers of exemption. This creates a friction between state security and individual autonomy.</p>
+                    <p>For a student of law, understanding the transition from a 'Consent-only' regime to a 'Rights-based' regime is essential. Digital privacy is no longer about hiding; it is about the power to control your own narrative in an era of mass surveillance and algorithmic profiling.</p>
+                    <div class="opinion-tag">
+                        <h6 class="font-black text-[10px] text-pink-700 uppercase mb-1">OPINION</h6>
+                        <p class="text-sm italic text-pink-900 font-medium">While DPDP 2023 is a step forward, its success depends on the independence of the Data Protection Board. Without autonomy, the right to privacy remains a paper tiger.</p>
+                    </div>
+                `
             },
             'bns_ipc': {
                 title: "BNS vs IPC 1860",
-                content: `<p class="text-2xl font-serif italic text-gray-800 mb-6">"Nyaya over Danda: A New Criminal Era."</p><p>The transition from IPC to BNS is an ideological shift...</p>`
+                content: `
+                    <p class="text-2xl font-serif italic text-gray-800 mb-6">"Nyaya over Danda: A New Criminal Era."</p>
+                    <p>The transition from the Indian Penal Code (IPC) to the Bharatiya Nyaya Sanhita (BNS) is more than just a name change. It is an ideological shift from the colonial objective of 'punishment' to the democratic objective of 'justice'.</p>
+                    <div class="bg-red-50 p-6 rounded-3xl border-l-4 border-red-500 my-6">
+                        <h5 class="font-black text-red-900 text-xs uppercase mb-2">Legislative Shift</h5>
+                        <p class="text-sm text-red-800">BNS has removed the archaic word 'Sedition' and replaced it with provisions against 'Acts endangering sovereignty'. It also introduces community service for the first time in Indian history.</p>
+                    </div>
+                    <p>Research indicates that while the mapping of sections has caused initial confusion (e.g., Murder moving from Sec 302 to Sec 103), the clarity in defining organized crime and terrorism is a modern necessity for national security.</p>
+                    <p>This article dissects the 'First Information Report' (e-FIR) digitization process and how the new code handles digital evidence, making it the most significant legal reform in 163 years. Decolonizing the law is a monumental task.</p>
+                    <div class="opinion-tag">
+                        <h6 class="font-black text-[10px] text-red-700 uppercase mb-1">OPINION</h6>
+                        <p class="text-sm italic text-red-900 font-medium">Decolonizing the law is great, but re-training the entire police force and judiciary overnight is the real challenge. Names change easily; mindset takes a generation to evolve.</p>
+                    </div>
+                `
             }
         };
 
-        // FIXED BACK BUTTON LOGIC
+        // --- BACK BUTTON POPUP FIX ---
         function openArticle(key) {
             const data = articles[key];
             if (data) {
@@ -158,7 +187,7 @@
                 document.getElementById('articleModal').classList.add('active');
                 document.body.style.overflow = 'hidden';
                 
-                // Push a fake state to history
+                // Add a fake state so back button closes modal
                 window.history.pushState({ modalOpen: true }, "");
             }
         }
@@ -169,24 +198,23 @@
                 modal.classList.remove('active');
                 document.body.style.overflow = 'auto';
                 
-                // If the close was manual (X button or overlay click), 
-                // we clean up the history if the state is still there
+                // Clean up history if we close manually
                 if (window.history.state && window.history.state.modalOpen) {
                     window.history.back();
                 }
             }
         }
 
-        // Listen for browser back button
+        // Listen for mobile back button
         window.addEventListener('popstate', (event) => {
             const modal = document.getElementById('articleModal');
             if (modal.classList.contains('active')) {
-                // Just close the modal, don't go back further
                 modal.classList.remove('active');
                 document.body.style.overflow = 'auto';
             }
         });
 
+        // Scroll Reveal
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
