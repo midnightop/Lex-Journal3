@@ -9,125 +9,97 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
         
+        /* Dark Mode variables - bina content chede */
+        :root {
+            --bg-body: #fcfdfe;
+            --text-main: #1e293b;
+            --card-glass: rgba(255, 255, 255, 0.6);
+            --nav-glass: rgba(255, 255, 255, 0.75);
+            --border-ui: rgba(255, 255, 255, 0.8);
+        }
+
+        .dark-mode {
+            --bg-body: #0f172a;
+            --text-main: #f1f5f9;
+            --card-glass: rgba(30, 41, 59, 0.7);
+            --nav-glass: rgba(15, 23, 42, 0.8);
+            --border-ui: rgba(255, 255, 255, 0.1);
+        }
+
         body { 
             font-family: 'Inter', sans-serif; 
-            background: #fcfdfe; 
-            color: #1e293b; 
+            background: var(--bg-body); 
+            color: var(--text-main); 
             overflow-x: hidden; 
             -webkit-tap-highlight-color: transparent;
             touch-action: manipulation;
             -webkit-user-select: none;
             user-select: none;
-            animation: fadeInBody 0.3s ease-in;
+            transition: background 0.3s ease;
         }
-
-        @keyframes fadeInBody { from { opacity: 0; } to { opacity: 1; } }
-
-        .page-fade-out {
-            opacity: 0 !important;
-            transform: scale(0.99);
-            transition: opacity 0.2s ease-out, transform 0.2s ease-out !important;
-        }
-
-        .font-serif { font-family: 'Playfair Display', serif; }
-
-        .reveal { 
-            opacity: 0; 
-            transform: translateY(20px); 
-            transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-            will-change: transform, opacity;
-        }
-        .reveal.active { opacity: 1; transform: translateY(0); }
 
         .glass-nav {
-            background: rgba(255, 255, 255, 0.75);
+            background: var(--nav-glass);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .terms-btn {
-            background: white;
-            border: 1.5px solid #e2e8f0;
-            color: #64748b;
-            padding: 6px 16px;
-            border-radius: 12px;
-            font-size: 10px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border-bottom: 1px solid var(--border-ui);
         }
 
         .glossy-card {
-            background: rgba(255, 255, 255, 0.6);
+            background: var(--card-glass);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 1px solid var(--border-ui);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
             border-radius: 32px;
-            position: relative;
+        }
+
+        /* Dark Mode adjustments for existing classes */
+        .dark-mode .text-gray-900 { color: #ffffff; }
+        .dark-mode .text-gray-800 { color: #e2e8f0; }
+        .dark-mode .text-gray-700 { color: #cbd5e1; }
+        .dark-mode .text-gray-600 { color: #94a3b8; }
+        .dark-mode .text-gray-500 { color: #64748b; }
+        .dark-mode .bg-white { background: #1e293b; }
+        .dark-mode .terms-btn { background: #1e293b; border-color: #334155; }
+        .dark-mode .stat-tag { background: #334155; color: #60a5fa; border-color: transparent; }
+        .dark-mode #skeleton-screen { background: #0f172a; }
+        .dark-mode .sk-item { background: #1e293b; }
+
+        @keyframes fadeInBody { from { opacity: 0; } to { opacity: 1; } }
+        .page-fade-out { opacity: 0 !important; transform: scale(0.99); transition: all 0.2s ease-out !important; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .terms-btn {
+            background: white; border: 1.5px solid #e2e8f0; color: #64748b; padding: 6px 16px; border-radius: 12px;
+            font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; transition: all 0.3s ease;
         }
 
         .stat-tag {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(0,0,0,0.05);
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 9px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            position: absolute; top: 20px; right: 25px; background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 12px; font-size: 9px; font-weight: 900;
         }
 
         .research-gloss {
             background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #1e293b);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            border-radius: 35px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
+            background-size: 400% 400%; animation: gradientShift 15s ease infinite; border-radius: 35px;
         }
 
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+        @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-        .btn-glossy {
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.2s ease;
-        }
-        .btn-glossy::after {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            transform: rotate(45deg);
-            animation: shimmer 5s infinite;
-        }
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) rotate(45deg); }
-            20%, 100% { transform: translateX(100%) rotate(45deg); }
-        }
+        .btn-glossy { position: relative; overflow: hidden; transition: transform 0.2s ease; }
+        .btn-glossy::after { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent); transform: rotate(45deg); animation: shimmer 5s infinite; }
+        @keyframes shimmer { 0% { transform: translateX(-100%) rotate(45deg); } 20%, 100% { transform: translateX(100%) rotate(45deg); } }
 
-        #skeleton-screen {
-            position: fixed;
-            inset: 0;
-            background: #fcfdfe;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            gap: 20px;
-        }
+        #skeleton-screen { position: fixed; inset: 0; background: #fcfdfe; z-index: 9999; display: flex; flex-direction: column; padding: 20px; gap: 20px; }
         .sk-item { background: #f1f5f9; border-radius: 15px; animation: pulse 1.5s infinite; }
         @keyframes pulse { 50% { opacity: 0.5; } }
+
+        /* Mode Switcher Button */
+        .theme-switcher {
+            width: 36px; height: 36px; border-radius: 10px; background: var(--border-ui);
+            display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s;
+        }
     </style>
 </head>
 <body>
@@ -143,9 +115,14 @@
             <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg">
                 <i class="fa-solid fa-scale-balanced text-sm"></i>
             </div>
-            <span class="font-black text-gray-800 tracking-tighter text-lg">Law <span class="text-blue-600">Journal</span></span>
+            <span class="font-black tracking-tighter text-lg">Law <span class="text-blue-600">Journal</span></span>
         </div>
-        <a href="terms.html" class="terms-btn">Terms</a>
+        <div class="flex items-center gap-3">
+            <div onclick="toggleMode()" class="theme-switcher" id="themeIcon">
+                <i class="fa-solid fa-moon text-xs"></i>
+            </div>
+            <a href="terms.html" class="terms-btn">Terms</a>
+        </div>
     </nav>
 
     <main>
@@ -239,7 +216,7 @@
                 <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-3xl flex items-center justify-center text-white text-4xl mx-auto mb-6 shadow-xl">
                     <i class="fa-solid fa-graduation-cap"></i>
                 </div>
-                <h3 class="text-2xl font-black text-gray-800">Rey</h3>
+                <h3 class="text-2xl font-black">Rey</h3>
                 <p class="text-blue-500 font-black uppercase text-[10px] mt-1 tracking-widest">Law Student</p>
                 <p class="text-gray-400 font-bold text-[8px] mt-1 uppercase leading-tight">Surendranath Law College | University of Calcutta</p>
                 <p class="mt-8 text-gray-600 italic leading-relaxed font-serif text-lg">
@@ -254,6 +231,27 @@
     </footer>
 
     <script>
+        // Mode Toggle Logic
+        function toggleMode() {
+            const body = document.body;
+            const icon = document.querySelector('#themeIcon i');
+            body.classList.toggle('dark-mode');
+            
+            if(body.classList.contains('dark-mode')) {
+                icon.className = 'fa-solid fa-sun text-xs';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.className = 'fa-solid fa-moon text-xs';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Apply saved theme
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.querySelector('#themeIcon i').className = 'fa-solid fa-sun text-xs';
+        }
+
         window.addEventListener('load', () => {
             const sk = document.getElementById('skeleton-screen');
             if(sk) {
