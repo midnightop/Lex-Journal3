@@ -15,19 +15,14 @@
             color: #1e293b; 
             overflow-x: hidden; 
             -webkit-tap-highlight-color: transparent;
-            
-            /* --- NO ZOOM & COPY PROTECTION --- */
             touch-action: manipulation;
             -webkit-user-select: none;
             user-select: none;
-
-            /* Smooth Entrance */
             animation: fadeInBody 0.3s ease-in;
         }
 
         @keyframes fadeInBody { from { opacity: 0; } to { opacity: 1; } }
 
-        /* Fast Click Transition Effect */
         .page-fade-out {
             opacity: 0 !important;
             transform: scale(0.99);
@@ -36,7 +31,6 @@
 
         .font-serif { font-family: 'Playfair Display', serif; }
 
-        /* Smooth Performance-Optimized Animations */
         .reveal { 
             opacity: 0; 
             transform: translateY(20px); 
@@ -45,11 +39,10 @@
         }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Glossy Blur Elements */
         .glass-nav {
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .glossy-card {
@@ -58,10 +51,9 @@
             border: 1px solid rgba(255, 255, 255, 0.8);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
             border-radius: 32px;
-            position: relative; /* Badge positioning */
+            position: relative;
         }
 
-        /* --- STAT BADGES --- */
         .stat-tag {
             position: absolute;
             top: 20px;
@@ -110,7 +102,6 @@
             20%, 100% { transform: translateX(100%) rotate(45deg); }
         }
 
-        /* Simple Skeleton UI Overlay */
         #skeleton-screen {
             position: fixed;
             inset: 0;
@@ -133,17 +124,18 @@
         <div class="h-64 w-full sk-item"></div>
     </div>
 
-    <nav class="sticky top-0 z-50 glass-nav px-5 py-3 flex justify-between items-center">
-        <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg">
-                <i class="fa-solid fa-scale-balanced text-sm"></i>
+    <nav class="sticky top-0 z-50 glass-nav px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div class="w-9 h-9 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center text-white shadow-md">
+                <i class="fa-solid fa-scale-balanced text-xs"></i>
             </div>
-            <span class="font-black text-gray-800 tracking-tighter text-lg">Law <span class="text-blue-600">Journal</span></span>
+            <span class="font-black text-gray-800 tracking-tighter text-base">Law <span class="text-blue-600">Journal</span></span>
         </div>
-        <div class="flex items-center gap-4">
-            <a href="terms.html" class="text-[10px] font-black uppercase text-gray-500 border border-gray-200 px-3 py-1.5 rounded-lg active:bg-gray-50 transition">Terms</a>
-            <a href="support.html" class="text-[10px] font-black uppercase bg-blue-600 text-white px-3 py-1.5 rounded-lg active:scale-95 transition flex items-center gap-1">
-                <i class="fa-solid fa-headset"></i> Support
+        
+        <div class="flex items-center gap-5">
+            <a href="terms.html" class="text-[10px] font-bold uppercase text-gray-400 hover:text-gray-600 transition">Terms</a>
+            <a href="support.html" class="bg-blue-600 text-white text-[10px] font-black uppercase px-4 py-2 rounded-full shadow-lg shadow-blue-200 active:scale-90 transition flex items-center gap-1.5">
+                <i class="fa-solid fa-circle-question text-[12px]"></i> Support
             </a>
         </div>
     </nav>
@@ -251,7 +243,6 @@ We provide high quality thesis summaries and academic papers to help students de
     </footer>
 
     <script>
-        // --- SKELETON HIDER ---
         window.addEventListener('load', () => {
             const sk = document.getElementById('skeleton-screen');
             if(sk) {
@@ -261,14 +252,12 @@ We provide high quality thesis summaries and academic papers to help students de
             }
         });
 
-        // --- BACK BUTTON FIX ---
         window.addEventListener('pageshow', (event) => {
             if (event.persisted) {
                 document.body.classList.remove('page-fade-out');
             }
         });
 
-        // Reveal Observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
@@ -277,7 +266,6 @@ We provide high quality thesis summaries and academic papers to help students de
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // --- FAST CLICK TRANSITION ---
         document.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
@@ -289,11 +277,9 @@ We provide high quality thesis summaries and academic papers to help students de
             });
         });
 
-        // --- PROTECTION & ZOOM BLOCK ---
         document.addEventListener('contextmenu', event => event.preventDefault());
         document.addEventListener('copy', (e) => e.preventDefault());
         
-        // Block double-tap to zoom
         let lastTouchEnd = 0;
         document.addEventListener('touchend', (e) => {
             const now = (new Date()).getTime();
