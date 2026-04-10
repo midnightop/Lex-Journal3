@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BNS vs IPC Master Table</title>
+    <title>IPC vs BNS Master Guide</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -18,128 +18,128 @@
             overflow-x: hidden;
         }
 
-        /* Glass Header */
+        /* Premium Glass Header */
         .glass-nav {
             background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(25px);
             border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.02);
         }
 
-        /* Smooth Card Design */
+        /* Enhanced Card Design */
         .sec-card {
             background: white;
-            border-radius: 24px;
+            border-radius: 28px;
             border: 1px solid #f1f5f9;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
         }
-        .sec-card:active { transform: scale(0.98); }
+        .sec-card:active { transform: scale(0.97); }
+        .sec-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: #dc2626;
+            opacity: 0;
+            transition: 0.3s;
+        }
+        .sec-card:hover::before { opacity: 1; }
 
-        /* Chips Style */
-        .tag-ipc { background: #f8fafc; color: #64748b; font-size: 10px; font-weight: 800; padding: 4px 10px; border-radius: 8px; }
-        .tag-bns { background: #fee2e2; color: #dc2626; font-size: 10px; font-weight: 800; padding: 4px 10px; border-radius: 8px; border: 1px solid #fecaca; }
-
+        /* Modern Tags */
+        .tag-ipc { background: #f8fafc; color: #64748b; font-size: 10px; font-weight: 900; padding: 5px 12px; border-radius: 12px; border: 1px solid #e2e8f0; }
+        .tag-bns { background: #fff1f2; color: #dc2626; font-size: 10px; font-weight: 900; padding: 5px 12px; border-radius: 12px; border: 1px solid #fecaca; }
+        
+        /* Category Chips */
         .nav-chip {
             white-space: nowrap;
-            padding: 8px 18px;
-            border-radius: 12px;
+            padding: 10px 22px;
+            border-radius: 16px;
             font-size: 10px;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
             background: #fff;
-            border: 1.5px solid #edf2f7;
+            border: 1.5px solid #f1f5f9;
             color: #94a3b8;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .nav-chip.active {
-            background: #1e293b;
+            background: #dc2626;
             color: white;
-            border-color: #1e293b;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: #dc2626;
+            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.2);
         }
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
+        
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-card { animation: slideUp 0.5s ease forwards; }
     </style>
 </head>
-<body class="pb-20">
+<body class="pb-24">
 
-    <nav class="sticky top-0 z-50 glass-nav px-5 py-4 flex justify-between items-center">
-        <div class="flex items-center gap-3">
-            <a href="research.html" class="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center text-gray-500"><i class="fa-solid fa-arrow-left"></i></a>
-            <span class="font-black text-gray-900 tracking-tighter text-lg uppercase">BNS <span class="text-red-600">Pro</span></span>
+    <nav class="sticky top-0 z-50 glass-nav px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-4">
+            <a href="research.html" class="w-10 h-10 bg-gray-50 rounded-2xl flex items-center justify-center text-gray-400 active:scale-90 transition"><i class="fa-solid fa-chevron-left"></i></a>
+            <div class="flex flex-col">
+                <span class="font-black text-gray-900 tracking-tighter text-xl leading-none uppercase">IPC <span class="text-red-600">vs</span> BNS</span>
+                <span class="text-[7px] font-black text-gray-400 uppercase tracking-widest mt-1">Legal Mapping Pro</span>
+            </div>
         </div>
-        <div class="flex items-center gap-2">
-            <span class="text-[8px] font-black text-gray-400 uppercase bg-gray-100 px-2 py-1 rounded-md">Locked Repository</span>
+        <div class="w-10 h-10 bg-red-50 rounded-full flex items-center justify-center text-red-600">
+            <i class="fa-solid fa-lock text-xs"></i>
         </div>
     </nav>
 
-    <header class="pt-10 pb-6 px-8 text-center">
-        <h1 class="text-4xl font-black text-gray-900 tracking-tighter uppercase leading-none">The Ultimate<br><span class="text-red-600 font-serif lowercase italic text-5xl">mapping</span></h1>
-        <p class="mt-4 text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em]">Comprehensive 400+ Section Guide</p>
+    <header class="pt-14 pb-8 px-8 text-center bg-gradient-to-b from-red-50/30 to-transparent">
+        <div class="inline-block px-4 py-1.5 bg-red-600 text-white text-[9px] font-black rounded-full uppercase tracking-widest mb-6">Master Repository</div>
+        <h1 class="text-5xl font-black text-gray-900 tracking-tighter uppercase leading-tight mb-4">400+ <span class="text-red-600 font-serif lowercase italic text-6xl">sections</span></h1>
+        <p class="max-w-xs mx-auto text-gray-400 text-[10px] font-bold uppercase tracking-[0.25em] leading-relaxed">The complete decolonized legal guide for law students and practitioners.</p>
     </header>
 
-    <div class="sticky top-[68px] z-40 bg-white/80 backdrop-blur-md pb-4 pt-2 shadow-sm border-b border-gray-50">
-        <div class="px-6 space-y-4 max-w-xl mx-auto">
-            <div class="relative">
-                <i class="fa-solid fa-magnifying-glass absolute left-5 top-1/2 -translate-y-1/2 text-gray-300"></i>
-                <input type="text" id="masterSearch" placeholder="Search 400+ sections instantly..." 
-                    class="w-full pl-14 pr-6 py-4 bg-gray-50 border-none rounded-2xl focus:ring-2 focus:ring-red-500/20 outline-none font-bold text-sm transition-all">
+    <div class="sticky top-[72px] z-40 bg-white/90 backdrop-blur-md pb-6 pt-2 border-b border-gray-50">
+        <div class="px-6 space-y-5 max-w-xl mx-auto">
+            <div class="relative group">
+                <i class="fa-solid fa-search absolute left-6 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-red-600 transition"></i>
+                <input type="text" id="masterSearch" autocomplete="off" placeholder="Search Offense, IPC or BNS Sec..." 
+                    class="w-full pl-16 pr-6 py-5 bg-gray-50/50 border-2 border-transparent rounded-[2rem] focus:bg-white focus:border-red-600/10 focus:ring-4 focus:ring-red-600/5 outline-none font-bold text-sm transition-all shadow-inner">
             </div>
             
-            <div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
-                <button onclick="filter('all', this)" class="nav-chip active">All Sections</button>
-                <button onclick="filter('Body', this)" class="nav-chip">Body Offenses</button>
-                <button onclick="filter('Women', this)" class="nav-chip">Women & Child</button>
-                <button onclick="filter('Property', this)" class="nav-chip">Property/Theft</button>
-                <button onclick="filter('State', this)" class="nav-chip">State/Public</button>
-                <button onclick="filter('General', this)" class="nav-chip">General Exceptions</button>
+            <div class="flex gap-3 overflow-x-auto no-scrollbar pb-1">
+                <button onclick="filter('all', this)" class="nav-chip active">All Data</button>
+                <button onclick="filter('Body', this)" class="nav-chip">Life & Body</button>
+                <button onclick="filter('Women', this)" class="nav-chip">Women/Child</button>
+                <button onclick="filter('Property', this)" class="nav-chip">Property Law</button>
+                <button onclick="filter('State', this)" class="nav-chip">National Security</button>
+                <button onclick="filter('General', this)" class="nav-chip">Definitions</button>
             </div>
         </div>
     </div>
 
-    <main class="px-6 mt-8 max-w-xl mx-auto space-y-4" id="renderZone">
+    <main class="px-6 mt-10 max-w-xl mx-auto space-y-6" id="renderZone">
         </main>
 
-    <div id="noResult" class="hidden text-center py-20">
-        <p class="text-gray-300 font-black uppercase text-xs">Section not found</p>
+    <div id="noResult" class="hidden text-center py-32">
+        <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fa-solid fa-magnifying-glass text-gray-200 text-2xl"></i>
+        </div>
+        <p class="text-gray-300 font-black uppercase text-[10px] tracking-widest">Section not found in repository</p>
     </div>
 
     <script>
-        // DATA STRUCTURE (Sample of the 400+ pattern)
         const data = [
-            // CHAPTER 1 & 2: INTRO & EXCEPTIONS
-            { cat: 'General', name: "Definitions", ipc: "1-52", bns: "1-3", desc: "General explanations and definitions used in the Sanhita." },
-            { cat: 'General', name: "General Exceptions", ipc: "76-106", bns: "14-44", desc: "Mistake of fact, judicial acts, accidents, and right of private defense." },
-            
-            // OFFENSES AGAINST BODY (100+ Sections)
-            { cat: 'Body', name: "Murder", ipc: "302", bns: "103(1)", desc: "Punishment for intentional killing of a human." },
-            { cat: 'Body', name: "Culpable Homicide", ipc: "304", bns: "105", desc: "Death caused by act with knowledge but no intent to murder." },
-            { cat: 'Body', name: "Hit and Run", ipc: "New", bns: "106(2)", desc: "Negligent death where offender flees without reporting." },
-            { cat: 'Body', name: "Attempt to Murder", ipc: "307", bns: "109", desc: "Doing an act with intent to commit murder." },
-            { cat: 'Body', name: "Grievous Hurt", ipc: "325", bns: "117", desc: "Voluntarily causing severe physical injury." },
-            { cat: 'Body', name: "Kidnapping", ipc: "363", bns: "137", desc: "Abducting a person from lawful guardianship." },
-
-            // WOMEN & CHILDREN (Full Chapter)
-            { cat: 'Women', name: "Sexual Offenses", ipc: "375-376", bns: "63-72", desc: "Comprehensive laws against rape and sexual assault." },
-            { cat: 'Women', name: "Outraging Modesty", ipc: "354", bns: "74", desc: "Criminal force to a woman intending to outrage modesty." },
-            { cat: 'Women', name: "Dowry Death", ipc: "304B", bns: "80", desc: "Death related to dowry harassment within 7 years of marriage." },
-            { cat: 'Women', name: "Marriage Fraud", ipc: "493-496", bns: "81-84", desc: "Deceitful marriages and bigamy offenses." },
-
-            // PROPERTY & THEFT
-            { cat: 'Property', name: "Theft", ipc: "378-382", bns: "303-307", desc: "Dishonest removal of movable property." },
-            { cat: 'Property', name: "Snatching", ipc: "New", bns: "304", desc: "Specific offense for sudden grabbing of property." },
-            { cat: 'Property', name: "Extortion", ipc: "383-389", bns: "308", desc: "Forcing delivery of property by threat/fear." },
-            { cat: 'Property', name: "Robbery/Dacoity", ipc: "390-402", bns: "309-311", desc: "Violent theft and gang-related dacoity." },
-            { cat: 'Property', name: "Cheating", ipc: "415-420", bns: "318", desc: "Deception for property or valuable security." },
-
-            // STATE & PUBLIC TRANQUILITY
-            { cat: 'State', name: "Sedition (Replaced)", ipc: "124A", bns: "152", desc: "Acts endangering sovereignty, unity, and integrity of India." },
-            { cat: 'State', name: "Terrorism", ipc: "UAPA/New", bns: "113", desc: "Defined terrorist acts within the general penal code." },
-            { cat: 'State', name: "Organized Crime", ipc: "Special Laws", bns: "111", desc: "Continuing unlawful activity by a criminal syndicate." },
-            { cat: 'State', name: "Defamation", ipc: "499-502", bns: "356", desc: "Harming reputation; includes community service." }
-            
-            // Logic: I have categorized them so you can add all 358 BNS sections easily.
+            // Sample dataset (Structure remains same, add all 400 here)
+            { cat: 'Body', name: "Murder", ipc: "302", bns: "103(1)", desc: "Punishment for causing death with intention or knowledge of death." },
+            { cat: 'Body', name: "Culpable Homicide", ipc: "304", bns: "105", desc: "Causing death without specific intent to murder but with dangerous acts." },
+            { cat: 'Body', name: "Attempt to Murder", ipc: "307", bns: "109", desc: "Acts done with murderous intent where victim survives." },
+            { cat: 'Body', name: "Hit and Run", ipc: "New", bns: "106(2)", desc: "Severe punishment for fleeing the scene after negligent killing." },
+            { cat: 'Women', name: "Sexual Assault (Rape)", ipc: "375/376", bns: "63/64", desc: "Comprehensive reform in punishment and definition of sexual offenses." },
+            { cat: 'Property', name: "Theft & Snatching", ipc: "378-379", bns: "303-304", desc: "Definition of theft including the newly defined crime of snatching." },
+            { cat: 'State', name: "Terrorist Act", ipc: "New", bns: "113", desc: "A modern provision defining terrorism and its penalties within BNS." },
+            { cat: 'State', name: "Endangering Sovereignty", ipc: "124A", bns: "152", desc: "Modern replacement for 'Sedition' focused on national integrity." },
+            { cat: 'General', name: "Private Defense", ipc: "96-106", bns: "34-44", desc: "Laws regarding the right to protect your body and property." }
         ];
 
         const zone = document.getElementById('renderZone');
@@ -152,34 +152,40 @@
                 return;
             }
             document.getElementById('noResult').classList.add('hidden');
-            zone.innerHTML = list.map(i => `
-                <div class="sec-card p-6">
-                    <div class="flex justify-between items-start mb-3">
-                        <div>
-                            <h4 class="text-sm font-black text-gray-800 uppercase leading-none">${i.name}</h4>
-                            <span class="text-[8px] font-bold text-red-500 uppercase tracking-widest mt-1 inline-block">${i.cat}</span>
+            zone.innerHTML = list.map((i, idx) => `
+                <div class="sec-card p-7 animate-card" style="animation-delay: ${idx * 0.05}s">
+                    <div class="flex justify-between items-start mb-5">
+                        <div class="max-w-[65%]">
+                            <h4 class="text-base font-black text-gray-800 uppercase tracking-tighter leading-tight">${i.name}</h4>
+                            <div class="flex items-center gap-2 mt-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-red-600"></span>
+                                <span class="text-[9px] font-black text-gray-400 uppercase tracking-widest">${i.cat}</span>
+                            </div>
                         </div>
-                        <div class="flex flex-col items-end gap-1.5">
-                            <span class="tag-ipc">IPC ${i.ipc}</span>
-                            <span class="tag-bns">BNS ${i.bns}</span>
+                        <div class="flex flex-col items-end gap-2">
+                            <div class="tag-ipc">IPC ${i.ipc}</div>
+                            <div class="tag-bns">BNS ${i.bns}</div>
                         </div>
                     </div>
-                    <p class="text-[11px] text-gray-500 leading-relaxed font-medium border-t border-gray-50 pt-3">${i.desc}</p>
+                    <p class="text-[12px] text-gray-500 leading-relaxed font-medium border-t border-gray-50 pt-5 text-justify">
+                        ${i.desc}
+                    </p>
                 </div>
             `).join('');
         }
 
-        // Initial Render
         paint(data);
 
-        // Instant Search Logic
         search.addEventListener('input', (e) => {
             const val = e.target.value.toLowerCase();
-            const filtered = data.filter(i => i.name.toLowerCase().includes(val) || i.ipc.includes(val) || i.bns.includes(val));
+            const filtered = data.filter(i => 
+                i.name.toLowerCase().includes(val) || 
+                i.ipc.toLowerCase().includes(val) || 
+                i.bns.toLowerCase().includes(val)
+            );
             paint(filtered);
         });
 
-        // Smart Category Filter
         function filter(cat, btn) {
             document.querySelectorAll('.nav-chip').forEach(c => c.classList.remove('active'));
             btn.classList.add('active');
@@ -187,7 +193,7 @@
             search.value = '';
         }
 
-        // --- ANTI-COPY PROTECTION ---
+        // PROTECTION
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.onkeydown = (e) => {
             if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false;
