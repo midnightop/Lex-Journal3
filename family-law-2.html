@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Law II | CLJ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fcfdfe; 
+            -webkit-tap-highlight-color: transparent;
+            /* --- COPY PROTECTION --- */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .family-card { 
+            border-left: 6px solid #ec4899; /* Pink-500 */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .family-card:hover { transform: translateX(8px); }
+        
+        @media (min-width: 768px) {
+            .family-card { border-left-width: 12px; }
+        }
+
+        /* Snappy Animations */
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out; 
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Smooth Transition Out */
+        .page-fade-out { opacity: 0 !important; transition: opacity 0.2s ease-out; }
+
+        .law-box { background: #fdf2f8; border-radius: 1.5rem; padding: 1.5rem; border: 1px solid #fce7f3; }
+    </style>
+</head>
+<body class="pb-10">
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl px-4 py-4 md:px-8 md:py-6 flex justify-between items-center border-b border-gray-100">
+        <h1 class="font-black text-gray-800 text-xl md:text-2xl tracking-tighter uppercase">CLJ <span class="text-pink-500 text-xs md:text-sm">FAMILY LAW II</span></h1>
+        <a href="bare-acts.html" class="text-[10px] md:text-xs font-black uppercase text-pink-600 bg-pink-50 px-6 py-3 rounded-full shadow-sm active:scale-90 transition">
+            <i class="fa-solid fa-chevron-left mr-1"></i> Back
+        </a>
+    </nav>
+
+    <main class="px-5 space-y-8 md:space-y-16 max-w-3xl mx-auto mt-8 md:mt-16">
+        
+        <section class="family-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-pink-50/50 reveal active">
+            <h3 class="text-pink-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Muslim Law & Succession</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">Navigating Personal Laws</h2>
+            
+            <div class="space-y-6 text-gray-600 text-sm md:text-base leading-relaxed">
+                <p class="text-lg font-medium italic text-gray-700">"Balancing faith-based uncodified rules with statutory inheritance."</p>
+                <p>Family Law II broadly covers two distinct but crucial areas: **Muslim Personal Law** (governing marriage, divorce, maintenance, and waqf) and the **Indian Succession Act, 1925** (governing testamentary and intestate succession). It bridges the gap between traditional religious practices and codified civil procedures for property distribution.</p>
+                
+                <h4 class="font-black text-gray-800 uppercase text-xs tracking-widest">10 Key Pillars of Family Law II:</h4>
+                <ul class="grid md:grid-cols-2 gap-4">
+                    <li class="flex items-start"><i class="fa-solid fa-users text-pink-500 mt-1 mr-2"></i> Application of Muslim Shariat Act, 1937.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-users text-pink-500 mt-1 mr-2"></i> Nikah (Marriage) as a civil contract.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-users text-pink-500 mt-1 mr-2"></i> Mahr (Dower) & its prompt/deferred nature.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-users text-pink-500 mt-1 mr-2"></i> Talaq & Dissolution of Muslim Marriages Act.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-users text-pink-500 mt-1 mr-2"></i> Hiba (Gift) & Wasiyat (Wills) in Muslim Law.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-users text-pink-500 mt-1 mr-2"></i> Waqf concepts & Mutawalli duties.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-users text-pink-500 mt-1 mr-2"></i> Indian Succession Act, 1925 framework.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-users text-pink-500 mt-1 mr-2"></i> Intestate vs. Testamentary Succession.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-users text-pink-500 mt-1 mr-2"></i> Execution and Revocation of Wills.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-users text-pink-500 mt-1 mr-2"></i> Obtaining Probate & Letters of Administration.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="family-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-purple-50/50 border-l-purple-500 reveal">
+            <h3 class="text-purple-500 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Core Concepts</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">Contracts & Inheritance</h2>
+            
+            <div class="space-y-8 text-gray-600 text-sm md:text-base leading-relaxed">
+                <p>Unlike the sacramental nature of Hindu marriage, Muslim marriage is a definitive civil contract, while property distribution is strictly quantified by either Quranic shares or the Succession Act.</p>
+
+                <div class="law-box">
+                    <h5 class="font-black text-pink-700 text-xs uppercase mb-4 tracking-widest">5 Landmark Legal Instruments:</h5>
+                    <div class="space-y-4">
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-purple-600 block">Nikah & Mahr</span>
+                            <p class="text-[11px]">Marriage requires proposal (Ijab) and acceptance (Qubul). Mahr is the consideration paid to the wife as a mark of respect.</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-purple-600 block">Dissolution of Marriage Act, 1939</span>
+                            <p class="text-[11px]">Codified the grounds on which a Muslim woman can seek divorce (e.g., whereabouts of husband unknown, cruelty, failure to maintain).</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-purple-600 block">Hiba (Gift)</span>
+                            <p class="text-[11px]">Transfer of property without consideration. Requires declaration, acceptance, and immediate delivery of possession.</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-purple-600 block">Testamentary Succession (Wills)</span>
+                            <p class="text-[11px]">Under ISA 1925, specifies how a will is drafted, attested, and executed. (Note: Muslim law limits bequeathing via Wasiyat to 1/3rd of the estate).</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-purple-600 block">Probate</span>
+                            <p class="text-[11px]">The official proving of a will. Established under the Indian Succession Act as a copy of the will certified under the seal of a court of competent jurisdiction.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="family-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-indigo-50/50 border-l-indigo-500 reveal">
+            <h3 class="text-indigo-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Evolution</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">Modern Jurisprudence</h2>
+            
+            <div class="space-y-6 text-gray-600 text-sm md:text-base leading-relaxed text-justify">
+                <p>The interpretation of personal laws has undergone massive shifts through judicial intervention, particularly concerning women's rights, maintenance, and striking down arbitrary practices to align with Constitutional morality.</p>
+
+                <div class="p-6 bg-indigo-50 rounded-3xl border border-indigo-100 italic">
+                    <p class="text-xs text-indigo-900 leading-loose">
+                        "The courts have continuously walked a tightrope, ensuring the protection of fundamental rights without entirely erasing the distinct identity of personal religious laws."
+                    </p>
+                </div>
+                
+                <h4 class="font-black text-gray-800 uppercase text-xs tracking-widest mt-6">5 Essential Jurisprudence Points:</h4>
+                <ul class="space-y-3 text-xs">
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-indigo-500 mr-2"></i> <strong>Shayara Bano v. Union of India:</strong> Landmark judgment declaring the practice of Triple Talaq (Talaq-e-Biddat) unconstitutional.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-indigo-500 mr-2"></i> <strong>Danial Latifi v. Union of India:</strong> Upheld a divorced Muslim woman's right to maintenance for a lifetime or until remarriage under the 1986 Act.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-indigo-500 mr-2"></i> <strong>Shamim Ara v. State of UP:</strong> Set strict procedural conditions for a valid Talaq, requiring reasonable cause and attempts at conciliation.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-indigo-500 mr-2"></i> <strong>Mary Roy v. State of Kerala:</strong> Ensured equal inheritance rights for Syrian Christian women under the Indian Succession Act.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-indigo-500 mr-2"></i> <strong>Clarence Pais v. Union of India:</strong> Addressed the requirement of Probate under the Indian Succession Act for different communities.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-12 py-8 text-center">
+        <p class="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
+    </footer>
+
+    <script>
+        // --- PREVENT WHITE SCREEN ON BACK BUTTON ---
+        window.addEventListener('pageshow', function(event) {
+            document.body.classList.remove('page-fade-out');
+            document.body.style.opacity = '1';
+        });
+
+        // --- REVEAL ON SCROLL ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // --- FAST CLICK TRANSITION ---
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && !href.startsWith('http') && href !== '#') {
+                    e.preventDefault();
+                    document.body.classList.add('page-fade-out');
+                    setTimeout(() => { window.location.href = href; }, 200);
+                }
+            });
+        });
+
+        // --- SECURITY SCRIPTS ---
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('copy', e => e.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false;
+            if (e.key === 'F12') return false;
+        };
+    </script>
+</body>
+          </html>
+          
