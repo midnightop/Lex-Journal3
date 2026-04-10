@@ -42,12 +42,7 @@
         .modal-overlay.active .modal-container { transform: translateY(0); }
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
-        
-        .section-row {
-            border-bottom: 1px solid #f1f5f9;
-            padding: 12px 0;
-        }
-        .section-row:last-child { border: none; }
+        .page-fade-out { opacity: 0 !important; transition: opacity 0.2s; }
     </style>
 </head>
 <body class="pb-10">
@@ -64,22 +59,6 @@
 
     <main class="px-5 space-y-8 max-w-lg mx-auto mt-6">
         
-        <div class="reveal bg-white p-6 rounded-[2.5rem] border border-gray-100 shadow-xl shadow-red-50/50">
-            <div class="flex items-center gap-4 mb-5">
-                <div class="w-14 h-14 bg-gradient-to-br from-red-600 to-orange-400 rounded-2xl flex items-center justify-center text-white shadow-lg">
-                    <i class="fa-solid fa-gavel text-xl"></i>
-                </div>
-                <div>
-                    <h4 class="font-black text-gray-800 text-lg leading-tight">BNS vs IPC 1860</h4>
-                    <span class="text-[9px] font-bold text-red-500 bg-red-50 px-2 py-0.5 rounded uppercase mt-1 inline-block">Criminal Reform</span>
-                </div>
-            </div>
-            <p class="text-gray-500 text-sm mb-6 leading-relaxed">
-                Detailed comparison of 30+ key sections from the Indian Penal Code to the Bharatiya Nyaya Sanhita. Essential for judicial aspirants.
-            </p>
-            <button onclick="openArticle('bns_ipc')" class="w-full py-4 bg-red-600 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest active:scale-95 transition">View Section List</button>
-        </div>
-
         <div class="reveal bg-white p-6 rounded-[2.5rem] border border-gray-100 shadow-xl shadow-blue-50/50">
             <div class="flex items-center gap-4 mb-5">
                 <div class="w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-2xl flex items-center justify-center text-white shadow-lg">
@@ -129,8 +108,8 @@
                 </button>
             </div>
             <div class="p-8 overflow-y-auto no-scrollbar pb-24">
-                <div id="modalContent" class="text-gray-600 text-base leading-relaxed space-y-6">
-                    </div>
+                <div id="modalContent" class="text-gray-600 text-base leading-relaxed space-y-6 text-justify">
+                </div>
             </div>
         </div>
     </div>
@@ -142,59 +121,6 @@
                 content: `
                     <p class="text-2xl font-serif italic text-gray-800 mb-6">"Privacy is the core of human dignity."</p>
                     <p>The Digital Personal Data Protection (DPDP) Act 2023 marks a historic moment for India. After the landmark Puttaswamy judgment declared privacy as a fundamental right under Article 21, the need for a statutory framework was urgent to regulate the growing digital economy.</p>
-                `
-            },
-            'bns_ipc': {
-                title: "BNS vs IPC Section Mapping",
-                content: `
-                    <p class="text-xl font-serif italic text-gray-800 mb-4">"Decolonizing the Criminal Justice System."</p>
-                    <p class="text-sm text-gray-500 mb-8">The Bharatiya Nyaya Sanhita (BNS) 2023 replaces the IPC 1860, reorganizing offenses to prioritize justice for citizens over colonial control. Below is a mapping of 30 critical sections.</p>
-                    
-                    <div class="space-y-4">
-                        ${[
-                            ["Murder", "302", "103", "Punishment for causing death with intent."],
-                            ["Culpable Homicide", "304", "105", "Death caused by negligence or without specific intent."],
-                            ["Rape", "376", "64", "Major reorganization under 'Offenses against Women'."],
-                            ["Theft", "379", "303", "Theft in various forms including dwelling houses."],
-                            ["Extortion", "384", "308", "Punishment for putting a person in fear of injury."],
-                            ["Robbery", "392", "309", "Theft or extortion involving immediate violence."],
-                            ["Dacoity", "395", "310", "Robbery committed by five or more persons."],
-                            ["Cheating", "420", "318", "Deceiving a person to deliver property or money."],
-                            ["Defamation", "499/500", "356", "Now includes community service as a punishment."],
-                            ["Sedition", "124A", "152", "Replaced with 'Acts endangering sovereignty'."],
-                            ["Unlawful Assembly", "143", "189", "Punishment for member of prohibited gathering."],
-                            ["Rioting", "147", "191", "Guilty of violence while being part of an assembly."],
-                            ["Bribery (Elections)", "171E", "170", "Punishment for influencing voters illegally."],
-                            ["Public Nuisance", "290", "270", "General punishment for creating public annoyance."],
-                            ["Assault on Woman", "354", "74", "Outraging the modesty of a woman."],
-                            ["Kidnapping", "363", "137", "Abducting or taking away a person illegally."],
-                            ["Attempt to Murder", "307", "109", "Acts done with intent to cause death but failed."],
-                            ["Grievous Hurt", "325", "117", "Voluntarily causing severe physical injury."],
-                            ["Wrongful Restraint", "341", "126", "Preventing a person from moving in a direction."],
-                            ["Criminal Trespass", "447", "329", "Entering property with intent to commit offense."],
-                            ["Forgery", "465", "336", "Making false documents with intent to defraud."],
-                            ["Bigamy", "494", "82", "Marrying again during the lifetime of a spouse."],
-                            ["Criminal Intimidation", "506", "351", "Threatening a person with injury or reputation damage."],
-                            ["Mischief", "426", "324", "Causing destruction of property."],
-                            ["Adultery", "497", "Removed", "Fully struck down to maintain gender equality."],
-                            ["Stalking", "354D", "78", "Monitoring or following a woman against her will."],
-                            ["Sexual Harassment", "354A", "75", "Unwelcome physical contact or sexual remarks."],
-                            ["Dowry Death", "304B", "80", "Death of a woman caused by dowry demands."],
-                            ["Counterfeit Currency", "489A", "257", "Making or using fake legal tender."],
-                            ["Terrorist Act", "New", "113", "Specifically defined for the first time in BNS."]
-                        ].map(item => `
-                            <div class="section-row">
-                                <div class="flex justify-between items-start mb-1">
-                                    <span class="font-black text-gray-800 text-xs uppercase tracking-tight">${item[0]}</span>
-                                    <div class="flex gap-2">
-                                        <span class="text-[9px] font-bold bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded">IPC ${item[1]}</span>
-                                        <span class="text-[9px] font-bold bg-red-100 text-red-600 px-1.5 py-0.5 rounded">BNS ${item[2]}</span>
-                                    </div>
-                                </div>
-                                <p class="text-[11px] text-gray-500 leading-tight">${item[3]}</p>
-                            </div>
-                        `).join('')}
-                    </div>
                 `
             }
         };
@@ -235,10 +161,5 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
-
-    <footer class="mt-12 py-12 text-center border-t border-gray-50">
-        <p class="text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal • Research Hub</p>
-    </footer>
-
 </body>
 </html>
