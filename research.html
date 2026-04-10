@@ -53,6 +53,12 @@
             margin-top: 1.5rem;
         }
         .page-fade-out { opacity: 0 !important; transition: opacity 0.2s; }
+
+        /* Submission Card Glow */
+        .submit-card {
+            background: linear-gradient(145deg, #ffffff, #f1f5f9);
+            border: 2px dashed #e2e8f0;
+        }
     </style>
 </head>
 <body class="pb-10">
@@ -69,6 +75,15 @@
 
     <main class="px-5 space-y-8 max-w-lg mx-auto mt-6">
         
+        <div class="reveal submit-card p-8 rounded-[2.5rem] text-center mb-12">
+            <div class="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-200">
+                <i class="fa-solid fa-feather-pointed text-2xl"></i>
+            </div>
+            <h3 class="font-black text-gray-800 text-xl uppercase tracking-tighter">Publish With Us</h3>
+            <p class="text-gray-500 text-xs mt-2 leading-relaxed">Have a unique legal perspective? Submit your research paper to the Calcutta Law Journal.</p>
+            <button onclick="openArticle('submit_rules')" class="mt-6 px-8 py-4 bg-blue-600 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest active:scale-95 transition shadow-xl shadow-blue-100">Submission Rules</button>
+        </div>
+
         <div class="reveal bg-white p-6 rounded-[2.5rem] border border-gray-100 shadow-xl shadow-blue-50/50">
             <div class="flex items-center gap-4 mb-5">
                 <div class="w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-2xl flex items-center justify-center text-white shadow-lg">
@@ -142,6 +157,43 @@
 
     <script>
         const articles = {
+            'submit_rules': {
+                title: "Submission Guidelines",
+                content: `
+                    <div class="space-y-6">
+                        <p class="text-xl font-serif italic text-blue-600">Want to see your work on Law Journal?</p>
+                        
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="bg-gray-50 p-5 rounded-2xl border-l-4 border-blue-500">
+                                <h6 class="font-black text-[10px] text-gray-400 uppercase mb-2">Rule 01</h6>
+                                <p class="text-sm font-bold text-gray-800">Unique Topic: Your research must be original and not published elsewhere.</p>
+                            </div>
+                            <div class="bg-gray-50 p-5 rounded-2xl border-l-4 border-blue-500">
+                                <h6 class="font-black text-[10px] text-gray-400 uppercase mb-2">Rule 02</h6>
+                                <p class="text-sm font-bold text-gray-800">AI Limit: Maximum 25% AI-generated content is allowed. We verify quality.</p>
+                            </div>
+                            <div class="bg-gray-50 p-5 rounded-2xl border-l-4 border-blue-500">
+                                <h6 class="font-black text-[10px] text-gray-400 uppercase mb-2">Rule 03</h6>
+                                <p class="text-sm font-bold text-gray-800">Format: Submissions must be in PDF format only.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-600 p-8 rounded-[2rem] text-white mt-8 shadow-xl shadow-blue-100">
+                            <h5 class="font-black text-xs uppercase mb-4 tracking-widest opacity-80">Ready to Submit?</h5>
+                            <p class="text-sm mb-6 leading-relaxed">Send your PDF file to our official email or contact us via Instagram for queries.</p>
+                            
+                            <div class="flex flex-col gap-3">
+                                <a href="mailto:bigdaddymidnightop@gmail.com" class="bg-white text-blue-600 py-4 rounded-xl font-black text-[10px] uppercase text-center flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-envelope"></i> Email PDF
+                                </a>
+                                <a href="https://www.instagram.com/midieeeeee" target="_blank" class="bg-blue-500/50 border border-white/20 text-white py-4 rounded-xl font-black text-[10px] uppercase text-center flex items-center justify-center gap-2">
+                                    <i class="fa-brands fa-instagram"></i> Instagram DM
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
             'privacy': {
                 title: "Privacy in Digital Era",
                 content: `
@@ -193,7 +245,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Scroll Reveal Logic
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
@@ -202,12 +253,10 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Back Button Fix
         window.addEventListener('pageshow', (e) => {
             if (e.persisted) document.body.classList.remove('page-fade-out');
         });
 
-        // Click Protection
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.addEventListener('copy', e => e.preventDefault());
         document.onkeydown = (e) => {
