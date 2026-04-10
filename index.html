@@ -65,7 +65,9 @@
         .dark-mode .sk-item { background: #1e293b; }
 
         @keyframes fadeInBody { from { opacity: 0; } to { opacity: 1; } }
-        .page-fade-out { opacity: 0 !important; transform: scale(0.99); transition: all 0.2s ease-out !important; }
+        /* Page Transition Fix */
+        .page-fade-out { opacity: 0 !important; transform: scale(0.99); transition: opacity 0.2s ease-out, transform 0.2s ease-out !important; }
+        
         .font-serif { font-family: 'Playfair Display', serif; }
         .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -95,7 +97,6 @@
         .sk-item { background: #f1f5f9; border-radius: 15px; animation: pulse 1.5s infinite; }
         @keyframes pulse { 50% { opacity: 0.5; } }
 
-        /* Mode Switcher Button */
         .theme-switcher {
             width: 36px; height: 36px; border-radius: 10px; background: var(--border-ui);
             display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s;
@@ -252,12 +253,24 @@
             document.querySelector('#themeIcon i').className = 'fa-solid fa-sun text-xs';
         }
 
-        window.addEventListener('load', () => {
+        // Skeleton Screen Remover
+        function removeSkeleton() {
             const sk = document.getElementById('skeleton-screen');
             if(sk) {
                 sk.style.transition = 'opacity 0.3s ease';
                 sk.style.opacity = '0';
-                setTimeout(() => sk.remove(), 300);
+                setTimeout(() => { if(sk.parentNode) sk.remove(); }, 300);
+            }
+        }
+
+        window.addEventListener('load', removeSkeleton);
+
+        // FIX: Handle Back Navigation from Cache (BFCache)
+        window.addEventListener('pageshow', (event) => {
+            // Agar page cache se load hua hai (back button dabane par)
+            if (event.persisted) {
+                document.body.classList.remove('page-fade-out');
+                removeSkeleton(); // Back aane par agar skeleton dikhe toh remove kar do
             }
         });
 
