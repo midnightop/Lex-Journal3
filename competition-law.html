@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competition Law | CLJ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fcfdfe; 
+            -webkit-tap-highlight-color: transparent;
+            /* --- COPY PROTECTION --- */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .comp-card { 
+            border-left: 6px solid #6366f1; /* Indigo-500 */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .comp-card:hover { transform: translateX(8px); }
+        
+        @media (min-width: 768px) {
+            .comp-card { border-left-width: 12px; }
+        }
+
+        /* Snappy Animations */
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out; 
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Smooth Transition Out */
+        .page-fade-out { opacity: 0 !important; transition: opacity 0.2s ease-out; }
+
+        .law-box { background: #eef2ff; border-radius: 1.5rem; padding: 1.5rem; border: 1px solid #e0e7ff; }
+    </style>
+</head>
+<body class="pb-10">
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl px-4 py-4 md:px-8 md:py-6 flex justify-between items-center border-b border-gray-100">
+        <h1 class="font-black text-gray-800 text-xl md:text-2xl tracking-tighter uppercase">CLJ <span class="text-indigo-500 text-xs md:text-sm">COMPETITION LAW</span></h1>
+        <a href="bare-acts.html" class="text-[10px] md:text-xs font-black uppercase text-indigo-600 bg-indigo-50 px-6 py-3 rounded-full shadow-sm active:scale-90 transition">
+            <i class="fa-solid fa-chevron-left mr-1"></i> Back
+        </a>
+    </nav>
+
+    <main class="px-5 space-y-8 md:space-y-16 max-w-3xl mx-auto mt-8 md:mt-16">
+        
+        <section class="comp-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-indigo-50/50 reveal active">
+            <h3 class="text-indigo-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Market Regulation</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">The Anti-Trust Framework</h2>
+            
+            <div class="space-y-6 text-gray-600 text-sm md:text-base leading-relaxed">
+                <p class="text-lg font-medium italic text-gray-700">"Protecting the process of competition, not necessarily the competitors."</p>
+                <p>Replacing the outdated MRTP Act, the <strong>Competition Act, 2002</strong> reflects India's shift towards a free-market economy. Its primary goals are to prevent practices having an Appreciable Adverse Effect on Competition (AAEC), promote and sustain market competition, protect consumer interests, and ensure freedom of trade carried on by other participants in markets in India.</p>
+                
+                <h4 class="font-black text-gray-800 uppercase text-xs tracking-widest">10 Key Pillars of Competition Law:</h4>
+                <ul class="grid md:grid-cols-2 gap-4">
+                    <li class="flex items-start"><i class="fa-solid fa-chart-line text-indigo-500 mt-1 mr-2"></i> Anti-Competitive Agreements (Sec 3).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-chart-line text-indigo-500 mt-1 mr-2"></i> Abuse of Dominant Position (Sec 4).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-chart-line text-indigo-500 mt-1 mr-2"></i> Regulation of Combinations (Sec 5 & 6).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-chart-line text-indigo-500 mt-1 mr-2"></i> Establishment of the CCI (Sec 7).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-chart-line text-indigo-500 mt-1 mr-2"></i> Role of the Director General (DG).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-chart-line text-indigo-500 mt-1 mr-2"></i> Determining the "Relevant Market".</li>
+                    <li class="flex items-start"><i class="fa-solid fa-chart-line text-indigo-500 mt-1 mr-2"></i> Cartelization & Bid Rigging penalties.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-chart-line text-indigo-500 mt-1 mr-2"></i> Leniency Programmes for whistleblowers.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-chart-line text-indigo-500 mt-1 mr-2"></i> Extraterritorial Jurisdiction of CCI.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-chart-line text-indigo-500 mt-1 mr-2"></i> Appeals to NCLAT & Supreme Court.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="comp-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-violet-50/50 border-l-violet-500 reveal">
+            <h3 class="text-violet-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Core Concepts</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">Regulating Monopoly</h2>
+            
+            <div class="space-y-8 text-gray-600 text-sm md:text-base leading-relaxed">
+                <p>The Act does not punish a company merely for being large or dominant; it strictly punishes the *abuse* of that dominance to drive out rivals or exploit consumers.</p>
+
+                <div class="law-box">
+                    <h5 class="font-black text-indigo-800 text-xs uppercase mb-4 tracking-widest">5 Landmark Legal Doctrines:</h5>
+                    <div class="space-y-4">
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-violet-600 block">Relevant Market</span>
+                            <p class="text-[11px]">The starting point of any anti-trust investigation. Comprises the "Relevant Product Market" (interchangeable goods) and "Relevant Geographic Market" (conditions of competition).</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-violet-600 block">Appreciable Adverse Effect on Competition (AAEC)</span>
+                            <p class="text-[11px]">The threshold test under Section 3 to determine if an agreement (horizontal or vertical) harms market competition. Cartels are presumed to have AAEC.</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-violet-600 block">Predatory Pricing</span>
+                            <p class="text-[11px]">Selling goods below the cost of production with the clear intent to eliminate competitors, which is a classic abuse of a dominant position under Section 4.</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-violet-600 block">Combinations (M&A)</span>
+                            <p class="text-[11px]">Mergers, acquisitions, or amalgamations that cross a certain financial threshold must seek prior approval from the CCI to ensure they don't create a monopoly.</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-violet-600 block">Gun Jumping</span>
+                            <p class="text-[11px]">When merging parties fail to notify the CCI of a reportable combination or implement the merger before the CCI's waiting period expires.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="comp-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-blue-50/50 border-l-blue-500 reveal">
+            <h3 class="text-blue-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Evolution</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">Key CCI Rulings</h2>
+            
+            <div class="space-y-6 text-gray-600 text-sm md:text-base leading-relaxed text-justify">
+                <p>The Competition Commission of India (CCI) has increasingly taken an active stance against giant corporations, cartels, and big tech platforms to ensure a level playing field in both traditional and digital markets.</p>
+
+                <div class="p-6 bg-blue-50 rounded-3xl border border-blue-100 italic">
+                    <p class="text-xs text-blue-900 leading-loose">
+                        "In a digitized global economy, competition law is the ultimate referee. It prevents innovation from being stifled by entrenched monopolies and algorithmic price-fixing."
+                    </p>
+                </div>
+                
+                <h4 class="font-black text-gray-800 uppercase text-xs tracking-widest mt-6">5 Essential Jurisprudence Points:</h4>
+                <ul class="space-y-3 text-xs">
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-blue-500 mr-2"></i> <strong>Belaire Owner's Association v. DLF Ltd:</strong> Landmark case where DLF was heavily penalized for abusing its dominant position in imposing unfair conditions on apartment buyers.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-blue-500 mr-2"></i> <strong>CCI v. SAIL:</strong> Supreme Court clarified that the CCI is an inquisitorial and regulatory body, and its prima facie orders directing investigation cannot be appealed.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-blue-500 mr-2"></i> <strong>Cement Cartel Case:</strong> CCI levied massive fines on major cement companies for price parallelisms and hoarding, establishing strict rules against cartelization.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-blue-500 mr-2"></i> <strong>Google Android Ruling:</strong> CCI fined Google for abusing its dominant position in the Android ecosystem, signaling a tough stance on big tech "walled gardens."</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-blue-500 mr-2"></i> <strong>MakeMyTrip/Oyo Case:</strong> Addressed anti-competitive vertical arrangements and deep discounting tactics in online marketplace platforms.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-12 py-8 text-center">
+        <p class="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
+    </footer>
+
+    <script>
+        // --- PREVENT WHITE SCREEN ON BACK BUTTON ---
+        window.addEventListener('pageshow', function(event) {
+            document.body.classList.remove('page-fade-out');
+            document.body.style.opacity = '1';
+        });
+
+        // --- REVEAL ON SCROLL ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // --- FAST CLICK TRANSITION ---
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && !href.startsWith('http') && href !== '#') {
+                    e.preventDefault();
+                    document.body.classList.add('page-fade-out');
+                    setTimeout(() => { window.location.href = href; }, 200);
+                }
+            });
+        });
+
+        // --- SECURITY SCRIPTS ---
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('copy', e => e.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false;
+            if (e.key === 'F12') return false;
+        };
+    </script>
+</body>
+  </html>
+  
