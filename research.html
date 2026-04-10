@@ -19,7 +19,6 @@
         }
         .font-serif { font-family: 'Playfair Display', serif; }
 
-        /* Smooth Reveal */
         .reveal { 
             opacity: 0; 
             transform: translateY(20px); 
@@ -27,7 +26,6 @@
         }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Modal Smoothness */
         .modal-overlay { 
             opacity: 0; 
             visibility: hidden; 
@@ -53,12 +51,6 @@
             margin-top: 1.5rem;
         }
         .page-fade-out { opacity: 0 !important; transition: opacity 0.2s; }
-
-        /* Submission Card Glow */
-        .submit-card {
-            background: linear-gradient(145deg, #ffffff, #f1f5f9);
-            border: 2px dashed #e2e8f0;
-        }
     </style>
 </head>
 <body class="pb-10">
@@ -74,16 +66,6 @@
     </header>
 
     <main class="px-5 space-y-8 max-w-lg mx-auto mt-6">
-        
-        <div class="reveal submit-card p-8 rounded-[2.5rem] text-center mb-12">
-            <div class="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-200">
-                <i class="fa-solid fa-feather-pointed text-2xl"></i>
-            </div>
-            <h3 class="font-black text-gray-800 text-xl uppercase tracking-tighter">Publish With Us</h3>
-            <p class="text-gray-500 text-xs mt-2 leading-relaxed">Have a unique legal perspective? Submit your research paper to the Calcutta Law Journal.</p>
-            <button onclick="openArticle('submit_rules')" class="mt-6 px-8 py-4 bg-blue-600 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest active:scale-95 transition shadow-xl shadow-blue-100">Submission Rules</button>
-        </div>
-
         <div class="reveal bg-white p-6 rounded-[2.5rem] border border-gray-100 shadow-xl shadow-blue-50/50">
             <div class="flex items-center gap-4 mb-5">
                 <div class="w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-2xl flex items-center justify-center text-white shadow-lg">
@@ -157,79 +139,17 @@
 
     <script>
         const articles = {
-            'submit_rules': {
-                title: "Submission Guidelines",
-                content: `
-                    <div class="space-y-6">
-                        <p class="text-xl font-serif italic text-blue-600">Want to see your work on Law Journal?</p>
-                        
-                        <div class="grid grid-cols-1 gap-4">
-                            <div class="bg-gray-50 p-5 rounded-2xl border-l-4 border-blue-500">
-                                <h6 class="font-black text-[10px] text-gray-400 uppercase mb-2">Rule 01</h6>
-                                <p class="text-sm font-bold text-gray-800">Unique Topic: Your research must be original and not published elsewhere.</p>
-                            </div>
-                            <div class="bg-gray-50 p-5 rounded-2xl border-l-4 border-blue-500">
-                                <h6 class="font-black text-[10px] text-gray-400 uppercase mb-2">Rule 02</h6>
-                                <p class="text-sm font-bold text-gray-800">AI Limit: Maximum 25% AI-generated content is allowed. We verify quality.</p>
-                            </div>
-                            <div class="bg-gray-50 p-5 rounded-2xl border-l-4 border-blue-500">
-                                <h6 class="font-black text-[10px] text-gray-400 uppercase mb-2">Rule 03</h6>
-                                <p class="text-sm font-bold text-gray-800">Format: Submissions must be in PDF format only.</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-blue-600 p-8 rounded-[2rem] text-white mt-8 shadow-xl shadow-blue-100">
-                            <h5 class="font-black text-xs uppercase mb-4 tracking-widest opacity-80">Ready to Submit?</h5>
-                            <p class="text-sm mb-6 leading-relaxed">Send your PDF file to our official email or contact us via Instagram for queries.</p>
-                            
-                            <div class="flex flex-col gap-3">
-                                <a href="mailto:bigdaddymidnightop@gmail.com" class="bg-white text-blue-600 py-4 rounded-xl font-black text-[10px] uppercase text-center flex items-center justify-center gap-2">
-                                    <i class="fa-solid fa-envelope"></i> Email PDF
-                                </a>
-                                <a href="https://www.instagram.com/midieeeeee" target="_blank" class="bg-blue-500/50 border border-white/20 text-white py-4 rounded-xl font-black text-[10px] uppercase text-center flex items-center justify-center gap-2">
-                                    <i class="fa-brands fa-instagram"></i> Instagram DM
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
             'privacy': {
                 title: "Privacy in Digital Era",
-                content: `
-                    <p class="text-2xl font-serif italic text-gray-800 mb-6">"Privacy is the core of human dignity."</p>
-                    <p>The Digital Personal Data Protection (DPDP) Act 2023 marks a historic moment for India. After the Puttaswamy judgment declared privacy as a fundamental right, the need for a statutory framework was urgent.</p>
-                    <div class="bg-blue-50 p-6 rounded-3xl border-l-4 border-blue-500 my-6">
-                        <h5 class="font-black text-blue-900 text-xs uppercase mb-2">Key takeaway</h5>
-                        <p class="text-sm text-blue-800">The Act defines 'Data Principals' (users) and 'Data Fiduciaries' (companies), making the latter accountable for every byte of data collected.</p>
-                    </div>
-                    <p>However, the research explores the controversy surrounding Section 36, which grants the Central Government vast powers of exemption. This creates a friction between state security and individual autonomy.</p>
-                    <p>For a student of law, understanding the transition from a 'Consent-only' regime to a 'Rights-based' regime is essential. Digital privacy is no longer about hiding; it is about the power to control your own narrative.</p>
-                    <div class="opinion-tag">
-                        <h6 class="font-black text-[10px] text-pink-700 uppercase mb-1">OPINION</h6>
-                        <p class="text-sm italic text-pink-900 font-medium">While DPDP 2023 is a step forward, its success depends on the independence of the Data Protection Board. Without autonomy, the right to privacy remains a paper tiger.</p>
-                    </div>
-                `
+                content: `<p class="text-2xl font-serif italic text-gray-800 mb-6">"Privacy is the core of human dignity."</p><p>The Digital Personal Data Protection (DPDP) Act 2023 marks a historic moment for India...</p>`
             },
             'bns_ipc': {
                 title: "BNS vs IPC 1860",
-                content: `
-                    <p class="text-2xl font-serif italic text-gray-800 mb-6">"Nyaya over Danda: A New Criminal Era."</p>
-                    <p>The transition from the Indian Penal Code (IPC) to the Bharatiya Nyaya Sanhita (BNS) is more than just a name change. It is an ideological shift from the colonial objective of 'punishment' to the democratic objective of 'justice'.</p>
-                    <div class="bg-red-50 p-6 rounded-3xl border-l-4 border-red-500 my-6">
-                        <h5 class="font-black text-red-900 text-xs uppercase mb-2">Legislative Shift</h5>
-                        <p class="text-sm text-red-800">BNS has removed the archaic word 'Sedition' and replaced it with provisions against 'Acts endangering sovereignty'. It also introduces community service for the first time.</p>
-                    </div>
-                    <p>Research indicates that while the mapping of sections has caused initial confusion (e.g., Murder moving from Sec 302 to Sec 103), the clarity in defining organized crime and terrorism is a modern necessity.</p>
-                    <p>This article dissects the 'First Information Report' digitization process and how the new code handles digital evidence, making it the most significant reform in 163 years.</p>
-                    <div class="opinion-tag">
-                        <h6 class="font-black text-[10px] text-red-700 uppercase mb-1">OPINION</h6>
-                        <p class="text-sm italic text-red-900 font-medium">Decolonizing the law is great, but re-training the entire police force and judiciary overnight is the real challenge. Names change easily; mindset takes a generation.</p>
-                    </div>
-                `
+                content: `<p class="text-2xl font-serif italic text-gray-800 mb-6">"Nyaya over Danda: A New Criminal Era."</p><p>The transition from IPC to BNS is an ideological shift...</p>`
             }
         };
 
+        // FIXED BACK BUTTON LOGIC
         function openArticle(key) {
             const data = articles[key];
             if (data) {
@@ -237,13 +157,35 @@
                 document.getElementById('modalContent').innerHTML = data.content;
                 document.getElementById('articleModal').classList.add('active');
                 document.body.style.overflow = 'hidden';
+                
+                // Push a fake state to history
+                window.history.pushState({ modalOpen: true }, "");
             }
         }
 
         function closeArticle() {
-            document.getElementById('articleModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
+            const modal = document.getElementById('articleModal');
+            if (modal.classList.contains('active')) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                
+                // If the close was manual (X button or overlay click), 
+                // we clean up the history if the state is still there
+                if (window.history.state && window.history.state.modalOpen) {
+                    window.history.back();
+                }
+            }
         }
+
+        // Listen for browser back button
+        window.addEventListener('popstate', (event) => {
+            const modal = document.getElementById('articleModal');
+            if (modal.classList.contains('active')) {
+                // Just close the modal, don't go back further
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
