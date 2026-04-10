@@ -26,13 +26,13 @@
         }
 
         .page-fade-out { opacity: 0 !important; transition: opacity 0.2s; }
-
-        /* Custom Input Styling */
-        .feedback-input:focus {
-            border-color: #3b82f6;
-            ring: 2px;
-            ring-color: #dbeafe;
-            outline: none;
+        
+        .contact-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.2);
         }
     </style>
 </head>
@@ -62,61 +62,71 @@
                 <h3 class="text-xl md:text-3xl font-black text-gray-800 uppercase tracking-tighter">1. General Info</h3>
             </div>
             <p class="text-gray-500 text-base md:text-xl leading-relaxed font-medium text-justify">
-                This website, <span class="text-blue-600 font-bold">Lawjournal.online</span>, is a personal initiative aimed at simplifying complex legal topics for students and law enthusiasts.
+                This website, <span class="text-blue-600 font-bold">Lawjournal.online</span>, is a personal initiative aimed at simplifying complex legal topics for students and law enthusiasts. The content shared here is based on personal research, academic study materials, and publicly available information. By using this site, you agree to use the information responsibly and for learning purposes only.
             </p>
         </section>
 
-        <hr class="border-gray-100 my-12">
-
-        <section id="contact" class="bg-gradient-to-br from-blue-600 to-blue-800 p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-2xl text-white">
-            <div class="text-center mb-10">
-                <h3 class="text-2xl md:text-4xl font-black uppercase tracking-tighter mb-2">Get In Touch</h3>
-                <p class="text-blue-100 font-medium">Have questions? Reach out to me directly.</p>
+        <section class="bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] border border-gray-50 shadow-xl shadow-blue-50/50">
+            <div class="flex items-center gap-4 md:gap-6 mb-6 md:mb-8">
+                <div class="w-12 h-12 md:w-16 md:h-16 bg-purple-600 rounded-2xl md:rounded-3xl flex items-center justify-center text-white text-xl md:text-3xl shadow-lg">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <h3 class="text-xl md:text-3xl font-black text-gray-800 uppercase tracking-tighter">2. Usage Guide</h3>
             </div>
-            
-            <div class="grid md:grid-cols-2 gap-6">
-                <a href="mailto:bigdaddymidnightop@gmail.com" class="flex items-center gap-5 bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 hover:bg-white/20 transition group">
-                    <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-blue-600 text-xl shadow-lg group-hover:scale-110 transition">
-                        <i class="fa-solid fa-envelope"></i>
-                    </div>
-                    <div>
-                        <p class="text-[10px] uppercase tracking-widest font-bold opacity-70">Email Me</p>
-                        <p class="text-sm md:text-base font-bold truncate">bigdaddymidnightop@gmail.com</p>
-                    </div>
-                </a>
-
-                <a href="https://www.instagram.com/midieeeeee" target="_blank" class="flex items-center gap-5 bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 hover:bg-white/20 transition group">
-                    <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-pink-600 text-xl shadow-lg group-hover:scale-110 transition">
-                        <i class="fa-brands fa-instagram"></i>
-                    </div>
-                    <div>
-                        <p class="text-[10px] uppercase tracking-widest font-bold opacity-70">Instagram</p>
-                        <p class="text-sm md:text-base font-bold">@midieeeeee</p>
-                    </div>
-                </a>
+            <div class="space-y-6">
+                <p class="text-gray-500 text-sm md:text-lg leading-relaxed">
+                    All summaries, case analyses, and notes are meant to assist in your studies, moot court prep, or general awareness. Since law is a dynamic field that changes with new judgments and amendments, we recommend that you always double-check the latest facts from textbooks or reliable academic sources before using them in any formal capacity.
+                </p>
+                <ul class="space-y-4 px-2">
+                    <li class="flex gap-4 text-gray-600 text-sm md:text-lg font-bold">
+                        <i class="fa-solid fa-circle-check text-green-500 mt-1"></i>
+                        <span>No commercial reuse of the content is allowed.</span>
+                    </li>
+                    <li class="flex gap-4 text-gray-600 text-sm md:text-lg font-bold">
+                        <i class="fa-solid fa-circle-check text-green-500 mt-1"></i>
+                        <span>Do not use automated bots to scrap our notes.</span>
+                    </li>
+                </ul>
             </div>
         </section>
 
-        <section class="bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] border border-gray-100 shadow-xl shadow-blue-50/50">
-            <div class="flex items-center gap-4 md:gap-6 mb-8">
-                <div class="w-12 h-12 md:w-16 md:h-16 bg-emerald-500 rounded-2xl md:rounded-3xl flex items-center justify-center text-white text-xl md:text-3xl shadow-lg">
-                    <i class="fa-solid fa-comment-dots"></i>
+        <section class="bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] border border-gray-50 shadow-xl shadow-blue-50/50">
+            <div class="flex items-center gap-4 md:gap-6 mb-6 md:mb-8">
+                <div class="w-12 h-12 md:w-16 md:h-16 bg-orange-500 rounded-2xl md:rounded-3xl flex items-center justify-center text-white text-xl md:text-3xl shadow-lg">
+                    <i class="fa-solid fa-circle-exclamation"></i>
                 </div>
-                <h3 class="text-xl md:text-3xl font-black text-gray-800 uppercase tracking-tighter">Share Feedback</h3>
+                <h3 class="text-xl md:text-3xl font-black text-gray-800 uppercase tracking-tighter">3. Important Note</h3>
             </div>
-            
-            <form action="#" class="space-y-4">
-                <div class="grid md:grid-cols-2 gap-4">
-                    <input type="text" placeholder="Your Name" class="w-full bg-gray-50 border border-gray-100 p-4 rounded-2xl feedback-input text-gray-700 font-medium">
-                    <input type="email" placeholder="Email Address" class="w-full bg-gray-50 border border-gray-100 p-4 rounded-2xl feedback-input text-gray-700 font-medium">
-                </div>
-                <textarea rows="4" placeholder="How can I improve this platform?" class="w-full bg-gray-50 border border-gray-100 p-4 rounded-2xl feedback-input text-gray-700 font-medium"></textarea>
-                
-                <button type="submit" class="w-full bg-gray-900 text-white font-black uppercase tracking-widest py-5 rounded-2xl hover:bg-blue-600 shadow-lg active:scale-[0.98] transition-all">
-                    Send Message <i class="fa-solid fa-paper-plane ml-2"></i>
-                </button>
-            </form>
+            <div class="bg-orange-50 p-8 md:p-10 rounded-3xl border-l-8 border-orange-400">
+                <p class="text-orange-900 text-xl md:text-2xl italic font-black leading-tight mb-4">
+                    "Not a substitute for Professional Advice."
+                </p>
+                <p class="text-orange-800 text-base md:text-lg font-medium leading-relaxed">
+                    The content on this blog is for informational and educational purposes only. It does not constitute legal advice. Every legal situation is unique, and you should always seek the help of a qualified professional or lawyer for any specific legal problems or litigation matters.
+                </p>
+            </div>
         </section>
+
+        <section class="bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] border border-gray-50 shadow-xl shadow-blue-50/50">
+            <div class="flex items-center gap-4 md:gap-6 mb-6 md:mb-8">
+                <div class="w-12 h-12 md:w-16 md:h-16 bg-pink-600 rounded-2xl md:rounded-3xl flex items-center justify-center text-white text-xl md:text-3xl shadow-lg">
+                    <i class="fa-solid fa-shield-heart"></i>
+                </div>
+                <h3 class="text-xl md:text-3xl font-black text-gray-800 uppercase tracking-tighter">4. Personal Rights</h3>
+            </div>
+            <p class="text-gray-500 text-base md:text-xl leading-relaxed font-medium text-justify">
+                We respect your privacy. This site is designed to be a safe place for research. We do not collect your personal data or track your browsing habits. All work posted here is original effort; please respect the hard work by not copying or redistributing it without proper credit to the blog.
+            </p>
+        </section>
+
+        <div class="flex flex-col md:flex-row gap-4 pt-10">
+            <a href="mailto:bigdaddymidnightop@gmail.com" class="contact-btn flex-1 flex items-center justify-center gap-3 bg-gray-900 text-white p-6 rounded-3xl font-bold uppercase tracking-widest text-sm shadow-xl shadow-gray-200">
+                <i class="fa-solid fa-envelope text-blue-400"></i> Mail Me
+            </a>
+            <a href="https://www.instagram.com/midieeeeee" target="_blank" class="contact-btn flex-1 flex items-center justify-center gap-3 bg-white border border-gray-100 p-6 rounded-3xl font-bold uppercase tracking-widest text-sm text-gray-800 shadow-xl shadow-blue-50">
+                <i class="fa-brands fa-instagram text-pink-500 text-lg"></i> Instagram
+            </a>
+        </div>
 
     </main>
 
@@ -125,13 +135,13 @@
     </footer>
 
     <script>
-        // --- PREVENT WHITE SCREEN ON BACK BUTTON ---
+        // Back Button Fix
         window.addEventListener('pageshow', function(event) {
             document.body.classList.remove('page-fade-out');
             document.body.style.opacity = '1';
         });
 
-        // --- FAST CLICK TRANSITION ---
+        // Navigation Transition
         document.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
@@ -143,7 +153,7 @@
             });
         });
 
-        // Copy-Paste & Right-Click Protection
+        // Protection
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.addEventListener('copy', e => e.preventDefault());
         document.onkeydown = function(e) {
