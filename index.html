@@ -9,7 +9,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
         
-        /* Dark Mode variables - bina content chede */
+        /* Dark Mode variables - Bina content chede, aur zyada dark */
         :root {
             --bg-body: #fcfdfe;
             --text-main: #1e293b;
@@ -19,11 +19,15 @@
         }
 
         .dark-mode {
-            --bg-body: #0f172a;
-            --text-main: #f1f5f9;
-            --card-glass: rgba(30, 41, 59, 0.7);
-            --nav-glass: rgba(15, 23, 42, 0.8);
-            --border-ui: rgba(255, 255, 255, 0.1);
+            /* Rat ke liye perfect, aur dark background */
+            --bg-body: #070b14; 
+            /* Halka sa off-white text taaki aankhon par zor na pade */
+            --text-main: #e2e8f0;
+            /* Zyada gehre cards */
+            --card-glass: rgba(13, 17, 26, 0.9);
+            --nav-glass: rgba(7, 11, 20, 0.85);
+            /* Halka border */
+            --border-ui: rgba(255, 255, 255, 0.05);
         }
 
         body { 
@@ -35,7 +39,7 @@
             touch-action: manipulation;
             -webkit-user-select: none;
             user-select: none;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         .glass-nav {
@@ -48,21 +52,30 @@
             background: var(--card-glass);
             backdrop-filter: blur(10px);
             border: 1px solid var(--border-ui);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border-radius: 32px;
         }
 
-        /* Dark Mode adjustments for existing classes */
+        /* Dark Mode adjustments for existing Tailwind gray classes - Content preserved */
         .dark-mode .text-gray-900 { color: #ffffff; }
-        .dark-mode .text-gray-800 { color: #e2e8f0; }
-        .dark-mode .text-gray-700 { color: #cbd5e1; }
-        .dark-mode .text-gray-600 { color: #94a3b8; }
-        .dark-mode .text-gray-500 { color: #64748b; }
-        .dark-mode .bg-white { background: #1e293b; }
-        .dark-mode .terms-btn { background: #1e293b; border-color: #334155; }
-        .dark-mode .stat-tag { background: #334155; color: #60a5fa; border-color: transparent; }
-        .dark-mode #skeleton-screen { background: #0f172a; }
-        .dark-mode .sk-item { background: #1e293b; }
+        .dark-mode .text-gray-800 { color: #f1f5f9; }
+        .dark-mode .text-gray-700 { color: #e2e8f0; }
+        .dark-mode .text-gray-600 { color: #cbd5e1; }
+        .dark-mode .text-gray-500 { color: #94a3b8; }
+        
+        /* Elements that need background changes in deep dark mode */
+        .dark-mode .bg-white { background: #0d111a; }
+        .dark-mode .terms-btn { background: #0d111a; border-color: #1e293b; color: #cbd5e1; }
+        .dark-mode .stat-tag { background: #1e293b; color: #60a5fa; border-color: transparent; }
+        .dark-mode #skeleton-screen { background: #070b14; }
+        .dark-mode .sk-item { background: #0d111a; }
+        
+        /* Blue heading refinement for deep dark mode */
+        .dark-mode .text-blue-600 { color: #60a5fa; }
+        /* Collaboration section light background removal in dark mode */
+        .dark-mode .bg-gradient-to-br.from-indigo-50\/50.to-white\/80 { background-image: none; background-color: var(--card-glass); }
+        .dark-mode .text-indigo-900 { color: #a5b4fc; }
+        .dark-mode .bg-white\/60 { background-color: rgba(13, 17, 26, 0.5); border-color: rgba(255, 255, 255, 0.05); }
 
         @keyframes fadeInBody { from { opacity: 0; } to { opacity: 1; } }
         .page-fade-out { opacity: 0 !important; transform: scale(0.99); transition: all 0.2s ease-out !important; }
@@ -81,6 +94,7 @@
         }
 
         .research-gloss {
+            /* Keep existing gradient, it works well in dark */
             background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #1e293b);
             background-size: 400% 400%; animation: gradientShift 15s ease infinite; border-radius: 35px;
         }
@@ -95,10 +109,14 @@
         .sk-item { background: #f1f5f9; border-radius: 15px; animation: pulse 1.5s infinite; }
         @keyframes pulse { 50% { opacity: 0.5; } }
 
-        /* Mode Switcher Button */
+        /* Mode Switcher Button - Subtle style for dark mode */
         .theme-switcher {
             width: 36px; height: 36px; border-radius: 10px; background: var(--border-ui);
             display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s;
+            border: 1px solid transparent;
+        }
+        .dark-mode .theme-switcher {
+            border-color: rgba(255,255,255,0.1);
         }
     </style>
 </head>
@@ -216,7 +234,7 @@
                 <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-3xl flex items-center justify-center text-white text-4xl mx-auto mb-6 shadow-xl">
                     <i class="fa-solid fa-graduation-cap"></i>
                 </div>
-                <h3 class="text-2xl font-black">Rey</h3>
+                <h3 class="text-2xl font-black text-gray-800">Rey</h3>
                 <p class="text-blue-500 font-black uppercase text-[10px] mt-1 tracking-widest">Law Student</p>
                 <p class="text-gray-400 font-bold text-[8px] mt-1 uppercase leading-tight">Surendranath Law College | University of Calcutta</p>
                 <p class="mt-8 text-gray-600 italic leading-relaxed font-serif text-lg">
@@ -231,7 +249,7 @@
     </footer>
 
     <script>
-        // Mode Toggle Logic
+        // Mode Toggle Logic - Content untouched
         function toggleMode() {
             const body = document.body;
             const icon = document.querySelector('#themeIcon i');
@@ -246,7 +264,7 @@
             }
         }
 
-        // Apply saved theme
+        // Apply saved theme on load
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-mode');
             document.querySelector('#themeIcon i').className = 'fa-solid fa-sun text-xs';
