@@ -79,19 +79,22 @@
         <div class="modal-container bg-white w-full max-w-2xl h-[92vh] md:h-[85vh] rounded-t-[3rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative flex flex-col">
             
             <div class="px-6 py-5 border-b border-gray-50 flex justify-between items-center sticky top-0 bg-white z-10">
-                <h3 class="font-black text-gray-800 text-base">In-Depth Case Analysis</h3>
+                <div class="flex flex-col">
+                    <span id="modalCategory" class="text-[9px] font-black text-pink-500 uppercase tracking-widest">Category</span>
+                    <h3 id="modalTitle" class="font-black text-gray-800 text-lg leading-tight">Case Title Here</h3>
+                </div>
                 <button onclick="closeModal()" class="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center text-gray-800 active:scale-90 transition"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
 
             <div class="p-8 overflow-y-auto no-scrollbar space-y-12 pb-24 text-left">
                 <div>
-                    <h4 class="text-pink-500 font-black text-[10px] uppercase tracking-widest mb-4">Background & History</h4>
+                    <h4 class="text-pink-500 font-black text-[10px] uppercase tracking-widest mb-4">Background & Analysis</h4>
                     <p id="modalDescription" class="text-gray-800 text-3xl leading-tight font-serif italic mb-6"></p>
                     <div id="modalLongFacts" class="text-gray-600 text-base leading-relaxed space-y-6"></div>
                 </div>
 
                 <div class="points-box p-8">
-                    <h4 class="text-blue-700 font-black text-[10px] uppercase tracking-widest mb-6">10 Key Takeaways</h4>
+                    <h4 class="text-blue-700 font-black text-[10px] uppercase tracking-widest mb-6">Key Legal Takeaways</h4>
                     <ul id="modalPoints" class="space-y-4 text-gray-700 text-sm font-semibold"></ul>
                 </div>
 
@@ -106,7 +109,7 @@
     <script>
         const caseDatabase = {
             'kesavananda': { 
-                title: "Kesavananda Bharati (1973)", 
+                title: "Kesavananda Bharati v State of Kerala (1973)", 
                 cat: "Constitution",
                 desc: "The battle for the soul of the Constitution.",
                 longFacts: "<p>The landmark 13-judge bench decision that saved Indian democracy. It limited the power of Parliament to amend the Constitution by introducing the 'Basic Structure Doctrine'.</p><p>This case ensures that the core identity of India (Secularism, Democracy, Federalism) remains unchangeable even by a 2/3rd majority in Parliament. It was a 7:6 majority decision.</p>",
@@ -114,7 +117,7 @@
                 opinion: "This is the 'shield' of our nation. It proves that the Judiciary is the final guardian of our liberty."
             },
             'maneka': { 
-                title: "Maneka Gandhi (1978)", 
+                title: "Maneka Gandhi v Union of India (1978)", 
                 cat: "Article 21",
                 desc: "Redefining personal liberty.",
                 longFacts: "<p>Expanded Art 21. It moved from a literal interpretation to a substantive one, demanding that procedures must be 'Fair, Just, and Reasonable'.</p>",
@@ -122,7 +125,7 @@
                 opinion: "This case made the Indian Constitution 'humane'. It stopped the government from hiding behind technicalities."
             },
             'puttaswamy': { 
-                title: "K.S. Puttaswamy (2017)", 
+                title: "Justice K.S. Puttaswamy v Union of India (2017)", 
                 cat: "Privacy",
                 desc: "Data is part of Dignity.",
                 longFacts: "<p>A 9-judge bench decided whether privacy is a fundamental right. The court held that privacy is intrinsic to life and dignity under Art 21.</p>",
@@ -130,7 +133,7 @@
                 opinion: "In the digital age, this is every citizen's armor. It ensures the state doesn't own your personal information."
             },
             'mohori': { 
-                title: "Mohori Bibee (1903)", 
+                title: "Mohori Bibee v Dharmodas Ghose (1903)", 
                 cat: "Contract Act",
                 desc: "The Minor's Agreement rule.",
                 longFacts: "<p>A minor cannot enter into a contract. Any agreement made by a minor is 'Void-ab-initio' (null from the start). This case protects children from being exploited.</p>",
@@ -138,15 +141,15 @@
                 opinion: "Crucial for protecting kids from predatory business. The law correctly assumes minors can't foresee long-term traps."
             },
             'nanavati': { 
-                title: "KM Nanavati (1959)", 
-                cat: "IPC / BNS",
-                desc: "End of the Jury trials.",
+                title: "KM Nanavati v State of Maharashtra (1959)", 
+                cat: "Criminal Law",
+                desc: "End of the Jury trials in India.",
                 longFacts: "<p>A high-profile case where a naval officer killed his wife's lover. It captured the public's imagination and led to the abolition of the jury system in India.</p>",
                 points: ["Jury system abolished.", "Sudden Provocation test defined.", "Difference in Murder vs Culpable Homicide.", "Impact of media on trials.", "Cooling-off period concept.", "Mens Rea assessment.", "Defense of Honor rejected.", "Public emotion vs Legal fact.", "Last major jury trial.", "Influenced Sec 300 IPC."],
                 opinion: "Justice should be blind. Abolishing juries was necessary to ensure that verdicts are based on law, not drama."
             },
             'dastane': { 
-                title: "Dastane v Dastane (1975)", 
+                title: "Dr. N.G. Dastane v S. Dastane (1975)", 
                 cat: "Family Law",
                 desc: "Defining Mental Cruelty.",
                 longFacts: "<p>The SC ruled that cruelty isn't just physical; persistent mental agony and behavioral torture are valid grounds for divorce under Section 13.</p>",
@@ -162,15 +165,15 @@
                 opinion: "This keeps the economy running. You shouldn't be ruined by a mistake unless you were warned of extreme risks."
             },
             'vishaka': { 
-                title: "Vishaka v Rajasthan (1997)", 
-                cat: "Women",
+                title: "Vishaka v State of Rajasthan (1997)", 
+                cat: "Women Rights",
                 desc: "Workplace Guidelines.",
                 longFacts: "<p>Bhanwari Devi's assault led to this. Since there was no law on workplace harassment, the SC created the 'Vishaka Guidelines' to protect women.</p>",
                 points: ["Judicial legislation.", "POSH Act 2013 precursor.", "Employer liability defined.", "Internal Committee requirement.", "Art 14 & 21 protection.", "Gender equality focus.", "Zero tolerance policy.", "Mandatory grievance mechanism.", "International convention usage.", "Justice for Bhanwari Devi."],
                 opinion: "A perfect example of the Court stepping in when the Parliament fails to act. It made professional spaces safer."
             },
             'shayara': { 
-                title: "Shayara Bano (2017)", 
+                title: "Shayara Bano v Union of India (2017)", 
                 cat: "Gender Justice",
                 desc: "Triple Talaq unconstitutional.",
                 longFacts: "<p>The SC struck down 'Instant Triple Talaq' as it was arbitrary and violated the equality and dignity of Muslim women under Article 14.</p>",
@@ -178,7 +181,7 @@
                 opinion: "Equality should never stop at the door of religion. This was a long-overdue win for constitutional morality."
             },
             'adm_jabalpur': { 
-                title: "ADM Jabalpur (1976)", 
+                title: "ADM Jabalpur v Shivkant Shukla (1976)", 
                 cat: "Emergency",
                 desc: "The Judiciary's darkest day.",
                 longFacts: "<p>During Emergency, the SC said citizens could be arrested without reason. Only Justice Khanna dissented. This was corrected in the Privacy judgment.</p>",
@@ -186,7 +189,7 @@
                 opinion: "A reminder that even the Supreme Court can be wrong. Justice Khanna is a hero for choosing conscience over career."
             },
             'minerva': { 
-                title: "Minerva Mills (1980)", 
+                title: "Minerva Mills v Union of India (1980)", 
                 cat: "Constitution",
                 desc: "Harmony of Rights & DPSP.",
                 longFacts: "<p>Struck down parts of 42nd Amendment. Held that Parliament cannot give itself unlimited amending power.</p>",
@@ -194,7 +197,7 @@
                 opinion: "It restored the balance between individual rights and state policy. Absolute power is a threat to any democracy."
             },
             'sr_bommai': { 
-                title: "S.R. Bommai (1994)", 
+                title: "S.R. Bommai v Union of India (1994)", 
                 cat: "Federalism",
                 desc: "Stop misuse of Art 356.",
                 longFacts: "<p>Prevented arbitrary dismissal of state governments. Majority must be proved on the 'floor of the house'.</p>",
@@ -202,7 +205,7 @@
                 opinion: "States are not just branches of the Centre. This judgment protected India's federal soul."
             },
             'shah_bano': { 
-                title: "Shah Bano (1985)", 
+                title: "Mohd. Ahmed Khan v Shah Bano Begum (1985)", 
                 cat: "Maintenance",
                 desc: "Secular Maintenance Rule.",
                 longFacts: "<p>A 62-year-old woman was denied support. SC ruled that Section 125 of CrPC is a secular law and applies to all.</p>",
@@ -210,7 +213,7 @@
                 opinion: "No religion teaches that a divorced wife should starve. The court chose human life over religious technicality."
             },
             'selvi': { 
-                title: "Selvi v Karnataka (2010)", 
+                title: "Selvi v State of Karnataka (2010)", 
                 cat: "Evidence",
                 desc: "Narco-analysis Ban.",
                 longFacts: "<p>Involuntary narco-analysis and brain mapping violate the right against self-incrimination under Art 20(3).</p>",
@@ -218,7 +221,7 @@
                 opinion: "Forced interrogation is a step back into the dark ages. Mental privacy is the final frontier of liberty."
             },
             'mc_mehta': { 
-                title: "MC Mehta (Oleum Gas) (1986)", 
+                title: "MC Mehta v Union of India (1986)", 
                 cat: "Environment",
                 desc: "Absolute Liability Born.",
                 longFacts: "<p>Created Absolute Liability for hazardous industries. The polluter must pay, and there are no exceptions.</p>",
@@ -226,7 +229,7 @@
                 opinion: "If an industry deals with death, its liability must be absolute. Profiting from risk requires paying for damage."
             },
             'golaknath': { 
-                title: "Golaknath (1967)", 
+                title: "I.C. Golaknath v State of Punjab (1967)", 
                 cat: "Constitution",
                 desc: "Immutable Rights.",
                 longFacts: "<p>An 11-judge bench held that Parliament CANNOT amend Fundamental Rights at all. Later modified by Kesavananda.</p>",
@@ -234,7 +237,7 @@
                 opinion: "The boldest stance ever taken for individual rights. It forced the government to rethink its power."
             },
             'joseph_shine': { 
-                title: "Joseph Shine (2018)", 
+                title: "Joseph Shine v Union of India (2018)", 
                 cat: "Gender Equality",
                 desc: "Adultery Decriminalized.",
                 longFacts: "<p>Struck down Section 497. Adultery is a ground for divorce but not a crime. Men only punishments were unconstitutional.</p>",
@@ -242,7 +245,7 @@
                 opinion: "Adultery is a heart-break, not a crime. The state has no business entering the private bedroom of adults."
             },
             'sabarimala': { 
-                title: "Indian Young Lawyers (2018)", 
+                title: "Indian Young Lawyers Assoc. v Kerala (2018)", 
                 cat: "Religion",
                 desc: "Temple Entry Rights.",
                 longFacts: "<p>Allowed women of all ages to enter Sabarimala temple. Biological factors cannot be used to exclude women from devotion.</p>",
@@ -250,7 +253,7 @@
                 opinion: "God does not discriminate. This judgment proved that tradition cannot override the equality of souls."
             },
             'anuradha_bhasin': { 
-                title: "Anuradha Bhasin (2020)", 
+                title: "Anuradha Bhasin v Union of India (2020)", 
                 cat: "Internet",
                 desc: "Internet as a Tool of Liberty.",
                 longFacts: "<p>Internet shutdowns in Kashmir were challenged. SC held that freedom of speech on the internet is protected under Art 19.</p>",
@@ -258,7 +261,7 @@
                 opinion: "In today's world, cutting the internet is like cutting the oxygen of democracy. It must be a last resort."
             },
             'nilabati_behera': { 
-                title: "Nilabati Behera (1993)", 
+                title: "Nilabati Behera v State of Orissa (1993)", 
                 cat: "Criminal",
                 desc: "Custodial Death Relief.",
                 longFacts: "<p>Established that the state is liable to pay monetary compensation for custodial deaths under Article 21.</p>",
@@ -266,7 +269,7 @@
                 opinion: "The police must protect lives, not take them. Compensation is the least the state can do for its own brutality."
             },
             'dk_basu': { 
-                title: "D.K. Basu (1997)", 
+                title: "D.K. Basu v State of West Bengal (1997)", 
                 cat: "Criminal",
                 desc: "Arrest Protocols.",
                 longFacts: "<p>Created strict guidelines for police during arrest to prevent custodial torture and ensure transparency.</p>",
@@ -274,7 +277,7 @@
                 opinion: "The Magna Carta for an arrested person. It ensured that a person doesn't vanish into thin air after arrest."
             },
             'sarla_mudgal': { 
-                title: "Sarla Mudgal (1995)", 
+                title: "Sarla Mudgal v Union of India (1995)", 
                 cat: "Family Law",
                 desc: "Conversion & Bigamy.",
                 longFacts: "<p>Changing religion solely for a second marriage is illegal. The first marriage remains valid and the second is bigamy.</p>",
@@ -282,7 +285,7 @@
                 opinion: "Religion shouldn't be a loophole for adultery. This case protected the sanctity of marriage."
             },
             'l_chandra_kumar': { 
-                title: "L. Chandra Kumar (1997)", 
+                title: "L. Chandra Kumar v Union of India (1997)", 
                 cat: "Judiciary",
                 desc: "High Court's Writ Power.",
                 longFacts: "<p>Judicial review by High Courts and Supreme Court is a basic structure. Tribunals are subject to court review.</p>",
@@ -290,7 +293,7 @@
                 opinion: "It ensured that the High Courts remain the local guardians of the Constitution."
             },
             'mandal_commission': { 
-                title: "Indira Sawhney (1992)", 
+                title: "Indira Sawhney v Union of India (1992)", 
                 cat: "Reservation",
                 desc: "50% Cap on Quota.",
                 longFacts: "<p>Upheld OBC reservations but set a 50% limit and introduced the 'Creamy Layer' concept for fairness.</p>",
@@ -298,7 +301,7 @@
                 opinion: "A fine balance between helping the historically oppressed and maintaining the merit of the nation."
             },
             'ews_reservation': { 
-                title: "Janhit Abhiyan (2022)", 
+                title: "Janhit Abhiyan v Union of India (2022)", 
                 cat: "Constitution",
                 desc: "Economic Quota Uphold.",
                 longFacts: "<p>The SC upheld the 103rd Amendment providing 10% EWS reservation. Held it doesn't violate basic structure.</p>",
@@ -306,7 +309,7 @@
                 opinion: "Poverty is a real hurdle. Recognizing economic struggle alongside social struggle is a step towards true equality."
             },
             'berubari': { 
-                title: "Berubari Union (1960)", 
+                title: "Berubari Union Case (1960)", 
                 cat: "Territory",
                 desc: "Preamble & Territory Transfer.",
                 longFacts: "<p>Discussed the power of Parliament to transfer territory to a foreign state. Initially said Preamble is not part of Constitution.</p>",
@@ -314,7 +317,7 @@
                 opinion: "A foundational case for understanding India's borders and the status of our Preamble."
             },
             'satyabrata_ghose': { 
-                title: "Satyabrata Ghose (1954)", 
+                title: "Satyabrata Ghose v Mugneeram Bangur (1954)", 
                 cat: "Contract",
                 desc: "Doctrine of Frustration.",
                 longFacts: "<p>Defined when a contract becomes impossible to perform under Section 56 of the Contract Act. It's the law of frustration.</p>",
@@ -322,7 +325,7 @@
                 opinion: "You can't force someone to do the impossible. This case provided a fair exit for honest businesses."
             },
             'ioth_schedule': { 
-                title: "Kihoto Hollohan (1992)", 
+                title: "Kihoto Hollohan v Zachillhu (1992)", 
                 cat: "Politics",
                 desc: "Anti-Defection Law.",
                 longFacts: "<p>Upheld the 10th Schedule but said the Speaker's decision is subject to judicial review. Prevented 'Aaya Ram Gaya Ram'.</p>",
@@ -338,7 +341,7 @@
                 opinion: "Our history is our pride. This case proved that marble and air are more valuable than industrial smoke."
             },
             'balsara': { 
-                title: "F.N. Balsara (1951)", 
+                title: "State of Bombay v F.N. Balsara (1951)", 
                 cat: "Rights",
                 desc: "Reasonable Restrictions.",
                 longFacts: "<p>First case to interpret 'Reasonable Restrictions' on Fundamental Rights. Balanced state prohibition power with liberty.</p>",
@@ -373,6 +376,7 @@
             currentIndex += batchSize;
         }
 
+        // Sentinel for Infinite Scroll
         const scrollObserver = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting && currentIndex < caseKeys.length) renderBatch();
         }, { threshold: 1.0 });
@@ -384,14 +388,18 @@
 
         function openModal(id) {
             const data = caseDatabase[id];
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalCategory').innerText = data.cat;
             document.getElementById('modalDescription').innerText = data.desc;
             document.getElementById('modalLongFacts').innerHTML = data.longFacts;
             document.getElementById('modalOpinion').innerText = data.opinion;
+            
             const pointsList = document.getElementById('modalPoints');
             pointsList.innerHTML = '';
             data.points.forEach((p, i) => {
                 pointsList.innerHTML += `<li class="flex items-start gap-3"><span class="w-5 h-5 bg-blue-100 text-blue-600 rounded flex items-center justify-center text-[10px] shrink-0 font-bold">${i+1}</span> ${p}</li>`;
             });
+            
             document.getElementById('caseModal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -416,7 +424,7 @@
         window.onpageshow = (e) => { if (e.persisted) location.reload(); };
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.addEventListener('copy', e => e.preventDefault());
-        document.onkeydown = (e) => { if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false; };
+        document.onkeydown = (e) => { if (e.ctrlKey && [67, 86, 85, 83, 73, 74, 85].includes(e.keyCode)) return false; };
     </script>
 
     <footer class="py-16 text-center">
