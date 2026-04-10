@@ -58,11 +58,6 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
-        .terms-btn:active {
-            transform: scale(0.95);
-            background: #f8fafc;
-            border-color: #cbd5e1;
-        }
 
         .glossy-card {
             background: rgba(255, 255, 255, 0.6);
@@ -85,7 +80,6 @@
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
 
         .research-gloss {
@@ -96,6 +90,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
         }
+
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -150,9 +145,7 @@
             </div>
             <span class="font-black text-gray-800 tracking-tighter text-lg">Law <span class="text-blue-600">Journal</span></span>
         </div>
-        <div class="flex items-center">
-            <a href="terms.html" class="terms-btn">Terms</a>
-        </div>
+        <a href="terms.html" class="terms-btn">Terms</a>
     </nav>
 
     <main>
@@ -173,8 +166,8 @@
                     <i class="fa-solid fa-atom text-blue-400 text-2xl"></i>
                 </div>
                 <h2 class="text-3xl font-black mb-4 tracking-tighter uppercase">Research</h2>
-                <div class="text-sm opacity-80 leading-relaxed font-medium space-y-4">
-                    <p>Legal research is the systematic dissection of the "why" behind the law. At Calcutta Law Journal, our research wing goes beyond summaries; we analyze the evolving legal landscape.</p>
+                <div class="text-sm opacity-80 leading-relaxed font-medium">
+                    <p>Legal research is the systematic dissection of the "why" behind the law. We analyze the critical transition from IPC/CrPC to BNS.</p>
                 </div>
                 <a href="research.html" class="mt-8 block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px] active:scale-95 transition shadow-lg">Enter Research Lab</a>
             </div>
@@ -187,9 +180,7 @@
                     <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600"><i class="fa-solid fa-scroll"></i></div>
                     <h3 class="text-blue-600 font-black text-lg uppercase">The Bare Act Foundation</h3>
                 </div>
-                <p class="text-gray-600 text-sm leading-relaxed text-justify">
-                    A Bare Act is the rawest form of legislation. lawjournal.online simplifies these acts without diluting their legal essence.
-                </p>
+                <p class="text-gray-600 text-sm leading-relaxed text-justify">A Bare Act is the rawest form of legislation. Mastering sections and clauses is essential for any law student.</p>
             </div>
 
             <div class="glossy-card p-8 reveal">
@@ -198,34 +189,49 @@
                     <div class="w-10 h-10 bg-pink-50 rounded-xl flex items-center justify-center text-pink-600"><i class="fa-solid fa-gavel"></i></div>
                     <h3 class="text-pink-600 font-black text-lg uppercase">Landmark Case Laws</h3>
                 </div>
-                <p class="text-gray-600 text-sm leading-relaxed text-justify">
-                    Landmark judgments show how judges breathe life into statutes. Studying cases like Kesavananda Bharati teaches students the "Art of Argument."
-                </p>
+                <p class="text-gray-600 text-sm leading-relaxed text-justify">Landmark judgments show how judges breathe life into statutes to protect human souls and rights.</p>
             </div>
 
-            <div class="glossy-card p-8 reveal bg-gradient-to-br from-indigo-50 to-white">
-                <div class="flex items-center gap-4 mb-4">
-                    <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg"><i class="fa-solid fa-pen-nib"></i></div>
-                    <h3 class="text-indigo-600 font-black text-lg uppercase">Collaboration</h3>
+            <div class="glossy-card p-8 reveal border-l-4 border-indigo-600 bg-gradient-to-br from-indigo-50/50 to-white/80">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-indigo-200">
+                        <i class="fa-solid fa-pen-nib text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-indigo-900 font-black text-lg uppercase leading-none">Collaboration</h3>
+                        <p class="text-[9px] text-indigo-500 font-bold uppercase tracking-widest mt-1">Open Research Platform</p>
+                    </div>
                 </div>
-                <div class="space-y-4">
-                    <p class="text-gray-800 font-bold text-sm">Open platform for your research blogs on the legal field.</p>
-                    <ul class="text-gray-600 text-[11px] font-bold space-y-2 uppercase tracking-wide">
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Law related content only</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Max 25% AI usage allowed</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Submission in PDF format</li>
-                    </ul>
-                    <a href="mailto:bigdaddymidnightop@gmail.com" class="mt-4 block text-center py-3 bg-indigo-600 text-white font-black rounded-xl uppercase text-[10px] shadow-md">Contact via Mail</a>
+
+                <p class="text-gray-700 font-semibold text-sm leading-relaxed mb-6">Ye ek open platform hai aapke research blogs ke liye. Legal field mein apna impact banayein.</p>
+
+                <div class="grid grid-cols-1 gap-3 mb-8">
+                    <div class="flex items-center gap-3 bg-white/60 p-3 rounded-xl border border-indigo-100">
+                        <i class="fa-solid fa-microchip text-indigo-500 text-xs"></i>
+                        <span class="text-[10px] font-black text-gray-600 uppercase tracking-tighter">Max 25% AI Content allowed</span>
+                    </div>
+                    <div class="flex items-center gap-3 bg-white/60 p-3 rounded-xl border border-indigo-100">
+                        <i class="fa-solid fa-file-pdf text-red-500 text-xs"></i>
+                        <span class="text-[10px] font-black text-gray-600 uppercase tracking-tighter">Format: PDF only</span>
+                    </div>
+                    <div class="flex items-center gap-3 bg-white/60 p-3 rounded-xl border border-indigo-100">
+                        <i class="fa-solid fa-scale-balanced text-blue-500 text-xs"></i>
+                        <span class="text-[10px] font-black text-gray-600 uppercase tracking-tighter">Topic: Law related only</span>
+                    </div>
                 </div>
+
+                <a href="mailto:bigdaddymidnightop@gmail.com" class="btn-glossy w-full block text-center py-4 bg-indigo-600 text-white font-black rounded-2xl uppercase text-xs shadow-xl shadow-indigo-100 active:scale-95 transition-all">
+                    <i class="fa-solid fa-envelope mr-2"></i> Submit Your Blog
+                </a>
             </div>
-            </section>
+        </section>
 
         <section class="space-y-12 py-10 px-6">
             <div class="glossy-card overflow-hidden reveal">
                 <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800" class="w-full h-52 object-cover">
                 <div class="p-8">
                     <h2 class="text-2xl font-black text-gray-800 mb-2 uppercase tracking-tighter">Calcutta High Court</h2>
-                    <p class="text-xs text-gray-500 text-justify">The oldest High Court in India, established in 1862. A symbol of tradition and the Rule of Law.</p>
+                    <p class="text-xs text-gray-500 text-justify">The oldest High Court in India, established in 1862. Its gothic design represents the weight of tradition.</p>
                 </div>
             </div>
 
@@ -233,7 +239,7 @@
                 <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=800" class="w-full h-52 object-cover opacity-60">
                 <div class="p-8 text-white">
                     <h2 class="text-2xl font-black mb-2 uppercase tracking-tighter">Supreme Court of India</h2>
-                    <p class="text-xs text-gray-300 text-justify">The final interpreter of the Constitution, protecting the fundamental rights of the republic.</p>
+                    <p class="text-xs text-gray-300 text-justify">The final interpreter of the Constitution, protecting fundamental rights since 1950.</p>
                 </div>
             </div>
         </section>
@@ -245,7 +251,7 @@
                 </div>
                 <h3 class="text-2xl font-black text-gray-800">Rey</h3>
                 <p class="text-blue-500 font-black uppercase text-[10px] mt-1 tracking-widest">Law Student</p>
-                <p class="text-gray-400 font-bold text-[8px] mt-1 uppercase">Surendranath Law College | University of Calcutta</p>
+                <p class="text-gray-400 font-bold text-[8px] mt-1 uppercase leading-tight">Surendranath Law College | University of Calcutta</p>
                 <p class="mt-8 text-gray-600 italic leading-relaxed font-serif text-lg">
                     "Deconstruct the complexities of Indian jurisprudence to bridge the gap between colonial era legislation and modern digital laws."
                 </p>
@@ -288,13 +294,6 @@
 
         document.addEventListener('contextmenu', event => event.preventDefault());
         document.addEventListener('copy', (e) => e.preventDefault());
-        
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', (e) => {
-            const now = (new Date()).getTime();
-            if (now - lastTouchEnd <= 300) e.preventDefault();
-            lastTouchEnd = now;
-        }, false);
     </script>
 </body>
 </html>
