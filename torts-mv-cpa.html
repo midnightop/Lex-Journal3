@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Law of Torts & CPA | CLJ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fcfdfe; 
+            -webkit-tap-highlight-color: transparent;
+            /* --- COPY PROTECTION --- */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .tort-card { 
+            border-left: 6px solid #f97316; /* Orange-500 */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .tort-card:hover { transform: translateX(8px); }
+        
+        @media (min-width: 768px) {
+            .tort-card { border-left-width: 12px; }
+        }
+
+        /* Snappy Animations */
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out; 
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Smooth Transition Out */
+        .page-fade-out { opacity: 0 !important; transition: opacity 0.2s ease-out; }
+
+        .law-box { background: #fff7ed; border-radius: 1.5rem; padding: 1.5rem; border: 1px solid #ffedd5; }
+    </style>
+</head>
+<body class="pb-10">
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl px-4 py-4 md:px-8 md:py-6 flex justify-between items-center border-b border-gray-100">
+        <h1 class="font-black text-gray-800 text-xl md:text-2xl tracking-tighter uppercase">CLJ <span class="text-orange-500 text-xs md:text-sm">TORTS & CPA</span></h1>
+        <a href="bare-acts.html" class="text-[10px] md:text-xs font-black uppercase text-orange-600 bg-orange-50 px-6 py-3 rounded-full shadow-sm active:scale-90 transition">
+            <i class="fa-solid fa-chevron-left mr-1"></i> Back
+        </a>
+    </nav>
+
+    <main class="px-5 space-y-8 md:space-y-16 max-w-3xl mx-auto mt-8 md:mt-16">
+        
+        <section class="tort-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-orange-50/50 reveal active">
+            <h3 class="text-orange-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Civil Wrongs</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">Torts, MV Act & Consumer Law</h2>
+            
+            <div class="space-y-6 text-gray-600 text-sm md:text-base leading-relaxed">
+                <p class="text-lg font-medium italic text-gray-700">"Where there is a right, there is a remedy."</p>
+                <p>The <strong>Law of Torts</strong> deals with civil wrongs independent of contract, where the remedy is a common-law action for unliquidated damages. Because Torts are largely uncodified in India, this subject integrates two highly codified and practical statutory frameworks: The <strong>Motor Vehicles Act, 1988</strong> (for accident claims) and the <strong>Consumer Protection Act, 2019</strong> (for product liability and service deficiency).</p>
+                
+                <h4 class="font-black text-gray-800 uppercase text-xs tracking-widest">10 Key Pillars of the Subject:</h4>
+                <ul class="grid md:grid-cols-2 gap-4">
+                    <li class="flex items-start"><i class="fa-solid fa-car-burst text-orange-500 mt-1 mr-2"></i> Negligence & Duty of Care.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-car-burst text-orange-500 mt-1 mr-2"></i> Nuisance (Public & Private).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-car-burst text-orange-500 mt-1 mr-2"></i> Defamation (Libel & Slander).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-car-burst text-orange-500 mt-1 mr-2"></i> Vicarious Liability (Master/Servant).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-car-burst text-orange-500 mt-1 mr-2"></i> General Defenses (Volenti non fit injuria).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-car-burst text-orange-500 mt-1 mr-2"></i> Strict & Absolute Liability.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-car-burst text-orange-500 mt-1 mr-2"></i> MV Act: No-Fault Liability (Sec 140/164).</li>
+                    <li class="flex items-start"><i class="fa-solid fa-car-burst text-orange-500 mt-1 mr-2"></i> Hit and Run Compensation.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-car-burst text-orange-500 mt-1 mr-2"></i> CPA 2019: Deficiency in Service.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-car-burst text-orange-500 mt-1 mr-2"></i> Product Liability & E-commerce Rules.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="tort-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-red-50/50 border-l-red-500 reveal">
+            <h3 class="text-red-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Core Maxims & Statutes</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">Doctrines of Liability</h2>
+            
+            <div class="space-y-8 text-gray-600 text-sm md:text-base leading-relaxed">
+                <p>Liability in tort arises from the breach of a duty primarily fixed by law. The MV Act and CPA operationalize these principles through specialized tribunals and commissions to ensure rapid justice.</p>
+
+                <div class="law-box">
+                    <h5 class="font-black text-orange-800 text-xs uppercase mb-4 tracking-widest">5 Landmark Legal Concepts:</h5>
+                    <div class="space-y-4">
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-red-600 block">Injuria Sine Damno / Damnum Sine Injuria</span>
+                            <p class="text-[11px]">Legal injury without actual damage is actionable (e.g., Ashby v. White). Actual damage without legal injury is not actionable (e.g., Gloucester Grammar School case).</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-red-600 block">Res Ipsa Loquitur</span>
+                            <p class="text-[11px]">"The thing speaks for itself." A rule of evidence shifting the burden of proof in negligence cases where the accident could not have happened without negligence.</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-red-600 block">Strict vs. Absolute Liability</span>
+                            <p class="text-[11px]">Strict Liability (Rylands v. Fletcher) has exceptions like Act of God. Absolute Liability (M.C. Mehta case) applies to inherently dangerous industries with <em>no</em> exceptions.</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-red-600 block">No-Fault Liability (MV Act)</span>
+                            <p class="text-[11px]">Allows victims of motor accidents to claim basic compensation without having to prove the negligence or fault of the driver.</p>
+                        </div>
+                        <div class="p-3 bg-white rounded-xl shadow-sm">
+                            <span class="font-bold text-red-600 block">Unfair Trade Practice (CPA)</span>
+                            <p class="text-[11px]">A trade practice which, for the purpose of promoting the sale or use of any goods or services, adopts any unfair method or deceptive practice.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tort-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-amber-50/50 border-l-amber-500 reveal">
+            <h3 class="text-amber-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Evolution</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">Key Case Laws</h2>
+            
+            <div class="space-y-6 text-gray-600 text-sm md:text-base leading-relaxed text-justify">
+                <p>Because the Indian Law of Torts is largely based on English common law tailored to Indian conditions, judicial precedents are the very lifeblood of the subject, establishing duties of care from ginger beer bottles to medical operation theaters.</p>
+
+                <div class="p-6 bg-amber-50 rounded-3xl border border-amber-100 italic">
+                    <p class="text-xs text-amber-900 leading-loose">
+                        "The categories of negligence are never closed. The law must continuously evolve to hold the negligent accountable, whether on a highway or in a hospital."
+                    </p>
+                </div>
+                
+                <h4 class="font-black text-gray-800 uppercase text-xs tracking-widest mt-6">5 Essential Jurisprudence Points:</h4>
+                <ul class="space-y-3 text-xs">
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-amber-500 mr-2"></i> <strong>Donoghue v. Stevenson:</strong> The "Snail in the Bottle" case that established the modern tort of negligence and the 'Neighbour Principle'.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-amber-500 mr-2"></i> <strong>M.C. Mehta v. Union of India (Oleum Gas Leak):</strong> Evolved the rule of Absolute Liability in India, departing from the English strict liability rule.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-amber-500 mr-2"></i> <strong>Kasturi Lal v. State of UP:</strong> A landmark (though widely criticized) case regarding the State's sovereign immunity and vicarious liability.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-amber-500 mr-2"></i> <strong>Indian Medical Association v. V.P. Shantha:</strong> Brought medical professionals providing paid services under the ambit of the Consumer Protection Act.</li>
+                    <li class="flex items-start"><i class="fa-solid fa-gavel text-amber-500 mr-2"></i> <strong>Sarla Verma v. DTC:</strong> Standardized the multiplier method for calculating compensation in Motor Vehicle accident claims.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-12 py-8 text-center">
+        <p class="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em]">&copy; 2026 Calcutta Law Journal</p>
+    </footer>
+
+    <script>
+        // --- PREVENT WHITE SCREEN ON BACK BUTTON ---
+        window.addEventListener('pageshow', function(event) {
+            document.body.classList.remove('page-fade-out');
+            document.body.style.opacity = '1';
+        });
+
+        // --- REVEAL ON SCROLL ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // --- FAST CLICK TRANSITION ---
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && !href.startsWith('http') && href !== '#') {
+                    e.preventDefault();
+                    document.body.classList.add('page-fade-out');
+                    setTimeout(() => { window.location.href = href; }, 200);
+                }
+            });
+        });
+
+        // --- SECURITY SCRIPTS ---
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('copy', e => e.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false;
+            if (e.key === 'F12') return false;
+        };
+    </script>
+</body>
+  </html>
+  
