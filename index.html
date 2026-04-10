@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -256,12 +254,24 @@
     </footer>
 
     <script>
-        window.addEventListener('load', () => {
+        // Skeleton logic with cleanup
+        const hideSkeleton = () => {
             const sk = document.getElementById('skeleton-screen');
             if(sk) {
                 sk.style.transition = 'opacity 0.3s ease';
                 sk.style.opacity = '0';
-                setTimeout(() => sk.remove(), 300);
+                setTimeout(() => { if(sk.parentNode) sk.remove(); }, 300);
+            }
+        };
+
+        window.addEventListener('load', hideSkeleton);
+
+        // Fix for Back Button Blank Page (BF Cache Fix)
+        window.addEventListener('pageshow', (event) => {
+            // Agar page cache se load hua hai toh reset karo
+            if (event.persisted) {
+                document.body.classList.remove('page-fade-out');
+                hideSkeleton();
             }
         });
 
@@ -276,6 +286,7 @@
         document.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
+                // Don't fade for external links or email/internal tags
                 if (href && href !== '#' && !href.startsWith('http') && !href.startsWith('mailto')) {
                     e.preventDefault();
                     document.body.classList.add('page-fade-out');
