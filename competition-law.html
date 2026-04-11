@@ -42,6 +42,17 @@
         .page-fade-out { opacity: 0 !important; transition: opacity 0.2s ease-out; }
 
         .law-box { background: #eef2ff; border-radius: 1.5rem; padding: 1.5rem; border: 1px solid #e0e7ff; }
+
+        /* New Styles for Judgments Section */
+        .judgement-item {
+            transition: all 0.2s ease;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .judgement-item:hover {
+            background-color: #f8fafc;
+            padding-left: 8px;
+        }
+        .judgement-item:last-child { border-bottom: none; }
     </style>
 </head>
 <body class="pb-10">
@@ -114,27 +125,63 @@
             </div>
         </section>
 
-        <section class="comp-card bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-xl shadow-blue-50/50 border-l-blue-500 reveal">
-            <h3 class="text-blue-600 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Evolution</h3>
-            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-6 tracking-tight">Key CCI Rulings</h2>
+        <section class="comp-card bg-slate-900 p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-2xl border-l-emerald-500 reveal">
+            <h3 class="text-emerald-400 font-black text-[10px] md:text-xs uppercase tracking-widest mb-3">Judicial Compendium</h3>
+            <h2 class="text-2xl md:text-4xl font-black text-white mb-8 tracking-tight">10 Landmark Judgments</h2>
             
-            <div class="space-y-6 text-gray-600 text-sm md:text-base leading-relaxed text-justify">
-                <p>The Competition Commission of India (CCI) has increasingly taken an active stance against giant corporations, cartels, and big tech platforms to ensure a level playing field in both traditional and digital markets.</p>
-
-                <div class="p-6 bg-blue-50 rounded-3xl border border-blue-100 italic">
-                    <p class="text-xs text-blue-900 leading-loose">
-                        "In a digitized global economy, competition law is the ultimate referee. It prevents innovation from being stifled by entrenched monopolies and algorithmic price-fixing."
-                    </p>
+            <div class="bg-white/5 rounded-[2rem] overflow-hidden border border-white/10">
+                <div class="divide-y divide-white/10">
+                    <div class="p-5 md:p-6 judgement-item group">
+                        <span class="text-emerald-500 font-black text-xs">01.</span>
+                        <h4 class="text-white font-bold text-sm md:text-base mb-2 group-hover:text-emerald-400">Belaire Owners Association v. DLF Limited</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">Defining "Dominant Position" in the real estate sector and penalizing unfair conditions in buyer agreements.</p>
+                    </div>
+                    <div class="p-5 md:p-6 judgement-item group">
+                        <span class="text-emerald-500 font-black text-xs">02.</span>
+                        <h4 class="text-white font-bold text-sm md:text-base mb-2 group-hover:text-emerald-400">CCI v. Steel Authority of India (SAIL)</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">Supreme Court ruling that Section 26(1) orders are administrative/internal and do not require prior hearing of parties.</p>
+                    </div>
+                    <div class="p-5 md:p-6 judgement-item group">
+                        <span class="text-emerald-500 font-black text-xs">03.</span>
+                        <h4 class="text-white font-bold text-sm md:text-base mb-2 group-hover:text-emerald-400">Excel Crop Care Ltd. v. CCI</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">Introduced the principle of "Relevant Turnover" for calculating penalties to ensure proportionality.</p>
+                    </div>
+                    <div class="p-5 md:p-6 judgement-item group">
+                        <span class="text-emerald-500 font-black text-xs">04.</span>
+                        <h4 class="text-white font-bold text-sm md:text-base mb-2 group-hover:text-emerald-400">Builders Association of India v. Cement Manufacturers</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">The famous "Cement Cartel" case proving price parallelism and coordinated production limits among 11 major firms.</p>
+                    </div>
+                    <div class="p-5 md:p-6 judgement-item group">
+                        <span class="text-emerald-500 font-black text-xs">05.</span>
+                        <h4 class="text-white font-bold text-sm md:text-base mb-2 group-hover:text-emerald-400">Google Android Case (CCI 2022)</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">Landmark tech ruling against mandatory pre-installation of apps and stifling of "Android Forks."</p>
+                    </div>
+                    <div class="p-5 md:p-6 judgement-item group">
+                        <span class="text-emerald-500 font-black text-xs">06.</span>
+                        <h4 class="text-white font-bold text-sm md:text-base mb-2 group-hover:text-emerald-400">Shamsher Kataria v. Honda Siel Cars India</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">Addressed the "aftermarket" dominance in spare parts, making it easier for local garages to compete.</p>
+                    </div>
+                    <div class="p-5 md:p-6 judgement-item group">
+                        <span class="text-emerald-500 font-black text-xs">07.</span>
+                        <h4 class="text-white font-bold text-sm md:text-base mb-2 group-hover:text-emerald-400">Uber India v. CCI (Supreme Court)</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">Explored the concept of "Predatory Pricing" in the taxi-aggregator market and the requirement of investigation.</p>
+                    </div>
+                    <div class="p-5 md:p-6 judgement-item group">
+                        <span class="text-emerald-500 font-black text-xs">08.</span>
+                        <h4 class="text-white font-bold text-sm md:text-base mb-2 group-hover:text-emerald-400">Coal India Ltd. v. CCI (2023)</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">SC ruled that even Public Sector Undertakings (PSUs) are subject to Competition Law despite their social mandates.</p>
+                    </div>
+                    <div class="p-5 md:p-6 judgement-item group">
+                        <span class="text-emerald-500 font-black text-xs">09.</span>
+                        <h4 class="text-white font-bold text-sm md:text-base mb-2 group-hover:text-emerald-400">Rajasthan Cylinders v. CCI</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">Clarified that parallel pricing alone isn't enough to prove a cartel if the market is monopsonistic (single buyer).</p>
+                    </div>
+                    <div class="p-5 md:p-6 judgement-item group">
+                        <span class="text-emerald-500 font-black text-xs">10.</span>
+                        <h4 class="text-white font-bold text-sm md:text-base mb-2 group-hover:text-emerald-400">Monsanto v. CCI</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">Ruled that CCI has jurisdiction to investigate royalty matters even if they fall under Patent Law/IPR.</p>
+                    </div>
                 </div>
-                
-                <h4 class="font-black text-gray-800 uppercase text-xs tracking-widest mt-6">5 Essential Jurisprudence Points:</h4>
-                <ul class="space-y-3 text-xs">
-                    <li class="flex items-start"><i class="fa-solid fa-gavel text-blue-500 mr-2"></i> <strong>Belaire Owner's Association v. DLF Ltd:</strong> Landmark case where DLF was heavily penalized for abusing its dominant position in imposing unfair conditions on apartment buyers.</li>
-                    <li class="flex items-start"><i class="fa-solid fa-gavel text-blue-500 mr-2"></i> <strong>CCI v. SAIL:</strong> Supreme Court clarified that the CCI is an inquisitorial and regulatory body, and its prima facie orders directing investigation cannot be appealed.</li>
-                    <li class="flex items-start"><i class="fa-solid fa-gavel text-blue-500 mr-2"></i> <strong>Cement Cartel Case:</strong> CCI levied massive fines on major cement companies for price parallelisms and hoarding, establishing strict rules against cartelization.</li>
-                    <li class="flex items-start"><i class="fa-solid fa-gavel text-blue-500 mr-2"></i> <strong>Google Android Ruling:</strong> CCI fined Google for abusing its dominant position in the Android ecosystem, signaling a tough stance on big tech "walled gardens."</li>
-                    <li class="flex items-start"><i class="fa-solid fa-gavel text-blue-500 mr-2"></i> <strong>MakeMyTrip/Oyo Case:</strong> Addressed anti-competitive vertical arrangements and deep discounting tactics in online marketplace platforms.</li>
-                </ul>
             </div>
         </section>
 
@@ -180,5 +227,4 @@
         };
     </script>
 </body>
-  </html>
-  
+</html>
