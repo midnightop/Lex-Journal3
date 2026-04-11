@@ -15,8 +15,8 @@
                         sans: ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        'clj-primary': '#1E3A8A', // Deep blue
-                        'clj-accent': '#F59E0B', // Amber
+                        'clj-primary': '#1E3A8A', 
+                        'clj-accent': '#F59E0B',
                     },
                     borderRadius: {
                         'clj': '1.5rem',
@@ -30,7 +30,7 @@
         
         body { 
             font-family: 'Inter', sans-serif; 
-            background-color: #F3F4F6; /* Lighter gray background */
+            background-color: #F8FAFC; 
             -webkit-tap-highlight-color: transparent; 
             -webkit-user-select: none;
             user-select: none;
@@ -44,14 +44,13 @@
         }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Modern card hover effect */
         .clj-card {
-            transition: all 0.3s ease-out;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.8);
         }
         .clj-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
         }
 
         .modal-overlay { 
@@ -60,7 +59,7 @@
             transition: all 0.4s ease;
             display: flex;
             align-items: flex-end;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(8px);
         }
         @media (min-width: 768px) { .modal-overlay { align-items: center; } }
         .modal-overlay.active { opacity: 1; visibility: visible; }
@@ -73,166 +72,95 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
-<body class="pb-16">
+<body class="pb-20">
 
-    <nav class="sticky top-0 z-50 bg-white/70 backdrop-blur-xl px-5 py-5 flex justify-between items-center border-b border-gray-100/50 shadow-sm">
-        <h1 class="font-extrabold text-gray-900 text-2xl tracking-tighter">
-            <span class="text-clj-primary">CLJ</span> <span class="font-light text-gray-600">Research</span>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl px-5 py-5 flex justify-between items-center border-b border-gray-100 shadow-sm">
+        <h1 class="font-black text-gray-900 text-2xl tracking-tighter">
+            <span class="text-clj-primary">CLJ</span> <span class="font-medium text-gray-500">Research</span>
         </h1>
-        <a href="index.html" class="text-xs font-bold uppercase tracking-wider text-clj-primary bg-clj-primary/10 px-5 py-2.5 rounded-full shadow-inner hover:bg-clj-primary/20 transition duration-300">
-            Home
-        </a>
+        <a href="index.html" class="text-[10px] font-black uppercase tracking-widest text-clj-primary bg-blue-50 px-5 py-2.5 rounded-full shadow-sm active:scale-95 transition">Home</a>
     </nav>
 
-    <header class="pt-16 pb-12 px-8 text-center bg-white border-b border-gray-100/50">
-        <h1 class="text-5xl md:text-7xl font-serif font-bold text-gray-950 leading-tight tracking-tight">
-            Legal <span class="text-clj-accent">Insights</span>
-        </h1>
-        <p class="mt-5 text-gray-600 text-xs font-bold uppercase tracking-[0.35em]">
-            Academic Repository & Thought Leadership
-        </p>
-        <div class="mt-3 w-20 h-1.5 bg-clj-accent mx-auto rounded-full"></div>
+    <header class="pt-16 pb-12 px-8 text-center bg-white border-b border-gray-50">
+        <h1 class="text-5xl md:text-7xl font-serif font-bold text-gray-950 leading-tight">Legal <span class="text-clj-primary">Insights</span></h1>
+        <p class="mt-4 text-gray-500 text-[10px] font-black uppercase tracking-[0.4em]">Repository & Case Studies</p>
     </header>
 
-    <main class="px-6 space-y-10 max-w-2xl mx-auto mt-12">
+    <main class="px-6 space-y-10 max-w-xl mx-auto mt-12">
         
-        <div class="reveal clj-card bg-white p-8 rounded-clj border border-gray-100 shadow-sm relative overflow-hidden group">
-            <div class="absolute -top-10 -right-10 w-32 h-32 bg-clj-accent/10 rounded-full group-hover:scale-125 transition-transform duration-500"></div>
-            <div class="flex items-center gap-5 mb-6 relative z-10">
-                <div class="w-16 h-16 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-xl flex items-center justify-center text-white shadow-lg">
+        <div class="reveal clj-card bg-white p-8 rounded-clj shadow-xl shadow-red-900/5 relative overflow-hidden group">
+            <div class="flex items-center gap-5 mb-6">
+                <div class="w-16 h-16 bg-gradient-to-br from-red-600 to-orange-500 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:rotate-6 transition-transform">
+                    <i class="fa-solid fa-scale-balanced text-2xl"></i>
+                </div>
+                <div>
+                    <h4 class="font-black text-gray-900 text-xl leading-tight">BNS vs IPC 1860</h4>
+                    <span class="text-[10px] font-bold text-red-600 bg-red-50 px-3 py-1 rounded-full uppercase mt-1.5 inline-block tracking-tighter">Criminal Reform</span>
+                </div>
+            </div>
+            <p class="text-gray-500 text-base mb-8 leading-relaxed">
+                Comparative analysis of the Bharatiya Nyaya Sanhita and how it transforms the colonial-era Indian Penal Code.
+            </p>
+            <a href="bns-comparison.html" class="w-full block text-center py-5 bg-red-600 text-white rounded-2xl font-black text-xs uppercase tracking-[0.2em] shadow-lg shadow-red-200 hover:bg-red-700 active:scale-95 transition">View Comparison</a>
+        </div>
+
+        <div class="reveal clj-card bg-white p-8 rounded-clj shadow-xl shadow-amber-900/5 relative overflow-hidden group">
+            <div class="flex items-center gap-5 mb-6">
+                <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-yellow-600 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:rotate-6 transition-transform">
                     <i class="fa-solid fa-scroll text-2xl"></i>
                 </div>
                 <div>
-                    <h4 class="font-bold text-gray-900 text-xl leading-snug">Legal Maxims</h4>
-                    <span class="text-[10px] font-semibold text-clj-accent bg-amber-50 px-3 py-1 rounded-full uppercase mt-1.5 inline-block">Latin Terminologies</span>
+                    <h4 class="font-black text-gray-900 text-xl leading-tight">Legal Maxims</h4>
+                    <span class="text-[10px] font-bold text-amber-600 bg-amber-50 px-3 py-1 rounded-full uppercase mt-1.5 inline-block tracking-tighter">Latin Glossary</span>
                 </div>
             </div>
-            <p class="text-gray-600 text-base mb-8 leading-relaxed relative z-10">
-                Explore a comprehensive glossary of Latin legal maxims and fundamental principles essential for law students and professionals.
+            <p class="text-gray-500 text-base mb-8 leading-relaxed">
+                Master the fundamental Latin principles like 'Audi Alteram Partem' that form the bedrock of judicial systems.
             </p>
-            <a href="legal-maxims-page.html" class="relative z-10 w-full block text-center py-4.5 bg-clj-accent text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-amber-600 active:scale-[0.98] transition shadow-md hover:shadow-lg">
-                View All Maxims
-            </a>
+            <a href="legal-maxims-page.html" class="w-full block text-center py-5 bg-amber-500 text-white rounded-2xl font-black text-xs uppercase tracking-[0.2em] shadow-lg shadow-amber-200 hover:bg-amber-600 active:scale-95 transition">Explore Maxims</a>
         </div>
 
-        <div class="reveal clj-card bg-white p-8 rounded-clj border border-gray-100 shadow-sm relative overflow-hidden group">
-             <div class="absolute -top-10 -right-10 w-32 h-32 bg-red-100 rounded-full group-hover:scale-125 transition-transform duration-500"></div>
-            <div class="flex items-center gap-5 mb-6 relative z-10">
-                <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-500 rounded-xl flex items-center justify-center text-white shadow-lg">
-                    <i class="fa-solid fa-gavel text-2xl"></i>
+        <div class="reveal clj-card bg-white p-8 rounded-clj shadow-xl shadow-blue-900/5 relative overflow-hidden group">
+            <div class="flex items-center gap-5 mb-6">
+                <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:rotate-6 transition-transform">
+                    <i class="fa-solid fa-hand-holding-heart text-2xl"></i>
                 </div>
                 <div>
-                    <h4 class="font-bold text-gray-900 text-xl leading-snug">BNS vs IPC 1860</h4>
-                    <span class="text-[10px] font-semibold text-red-600 bg-red-50 px-3 py-1 rounded-full uppercase mt-1.5 inline-block">Criminal Reform</span>
+                    <h4 class="font-black text-gray-900 text-xl leading-tight">Constitutional Writs</h4>
+                    <span class="text-[10px] font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full uppercase mt-1.5 inline-block tracking-tighter">Article 32 & 226</span>
                 </div>
             </div>
-            <p class="text-gray-600 text-base mb-8 leading-relaxed relative z-10">
-                A comparative research on how India's new criminal code decolonizes the legal framework and its impact on trials.
+            <p class="text-gray-500 text-base mb-8 leading-relaxed">
+                A guide to the five extraordinary remedies: Habeas Corpus, Mandamus, Quo Warranto, Certiorari, and Prohibition.
             </p>
-            <a href="bns-comparison.html" class="relative z-10 w-full block text-center py-4.5 bg-red-600 text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-red-700 active:scale-[0.98] transition shadow-md hover:shadow-lg">
-                Read Comparison
-            </a>
+            <a href="constitutional-writs.html" class="w-full block text-center py-5 bg-clj-primary text-white rounded-2xl font-black text-xs uppercase tracking-[0.2em] shadow-lg shadow-blue-200 hover:bg-blue-900 active:scale-95 transition">Learn Remedies</a>
         </div>
 
-        <div class="reveal clj-card bg-white p-8 rounded-clj border border-gray-100 shadow-sm relative overflow-hidden group">
-            <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-100 rounded-full group-hover:scale-125 transition-transform duration-500"></div>
-            <div class="flex items-center gap-5 mb-6 relative z-10">
-                <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center text-white shadow-lg">
-                    <i class="fa-solid fa-fingerprint text-2xl"></i>
-                </div>
-                <div>
-                    <h4 class="font-bold text-gray-900 text-xl leading-snug">Privacy & DPDP Act</h4>
-                    <span class="text-[10px] font-semibold text-clj-primary bg-blue-50 px-3 py-1 rounded-full uppercase mt-1.5 inline-block">Deep Analysis</span>
-                </div>
-            </div>
-            <p class="text-gray-600 text-base mb-8 leading-relaxed relative z-10">
-                Examining the tectonic shift in Indian data laws and the constitutional status of privacy after the landmark 2023 legislation.
-            </p>
-            <button onclick="openArticle('privacy')" class="relative z-10 w-full py-4.5 bg-gray-950 text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-gray-800 active:scale-[0.98] transition shadow-md hover:shadow-lg">
-                Analyse Paper
-            </button>
-        </div>
-
-        <div class="reveal clj-card bg-white p-8 rounded-clj border border-gray-100 shadow-sm relative overflow-hidden group">
-             <div class="absolute -top-10 -right-10 w-32 h-32 bg-purple-100 rounded-full group-hover:scale-125 transition-transform duration-500"></div>
-            <div class="flex items-center justify-between mb-5 relative z-10">
+        <div class="reveal clj-card bg-white p-8 rounded-clj shadow-xl shadow-purple-900/5 relative overflow-hidden group">
+            <div class="flex items-center justify-between mb-5">
                 <div class="flex items-center gap-5">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg">
-                        <i class="fa-solid fa-file-pdf text-2xl"></i>
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:rotate-6 transition-transform">
+                        <i class="fa-solid fa-users-line text-2xl"></i>
                     </div>
                     <div>
-                        <h4 class="font-bold text-gray-900 text-xl leading-snug">Society Rights</h4>
-                        <p class="text-[10px] text-gray-500 font-semibold uppercase mt-1.5 tracking-wider">PDF Commentary</p>
+                        <h4 class="font-black text-gray-900 text-xl leading-tight">Society Rights</h4>
+                        <p class="text-[10px] text-gray-400 font-bold uppercase mt-1 tracking-widest">PDF Commentary</p>
                     </div>
                 </div>
-                <a href="https://drive.google.com/file/d/1rhLqLQLmC6z4Hv6V3beyTY2n2KRAuxqj/view" target="_blank" class="w-14 h-14 bg-purple-50 rounded-full flex items-center justify-center text-purple-600 shadow-inner hover:bg-purple-100 active:scale-90 transition duration-300">
-                   <i class="fa-solid fa-download text-lg"></i>
+                <a href="https://drive.google.com/file/d/1rhLqLQLmC6z4Hv6V3beyTY2n2KRAuxqj/view" target="_blank" class="w-14 h-14 bg-purple-50 rounded-full flex items-center justify-center text-purple-600 shadow-inner hover:bg-purple-100 active:scale-90 transition">
+                   <i class="fa-solid fa-download"></i>
                 </a>
             </div>
-            <div class="border-t border-gray-100 pt-5 relative z-10">
-                <p class="text-gray-600 text-base leading-relaxed">
+            <div class="border-t border-gray-50 pt-5">
+                <p class="text-gray-500 text-base leading-relaxed mb-8">
                     Download our thesis on "Legal Protections of the Common Man" under Indian Constitutional Jurisprudence.
                 </p>
+                <a href="https://drive.google.com/file/d/1rhLqLQLmC6z4Hv6V3beyTY2n2KRAuxqj/view" target="_blank" class="w-full block text-center py-5 bg-purple-600 text-white rounded-2xl font-black text-xs uppercase tracking-[0.2em] shadow-lg shadow-purple-200 hover:bg-purple-700 active:scale-95 transition">Download Paper</a>
             </div>
         </div>
     </main>
 
-    <div id="articleModal" class="modal-overlay fixed inset-0 z-[100] bg-black/60 justify-center p-4">
-        <div class="absolute inset-0" onclick="closeArticle()"></div>
-        <div class="modal-container bg-white w-full max-w-3xl h-[85vh] md:h-[80vh] rounded-3xl md:rounded-clj shadow-2xl overflow-hidden relative flex flex-col">
-            <div class="px-8 py-6 border-b border-gray-100 flex justify-between items-center bg-white sticky top-0 z-20">
-                <h3 id="modalTitle" class="font-extrabold text-gray-950 text-xl uppercase tracking-tight">Article</h3>
-                <button onclick="closeArticle()" class="w-11 h-11 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200 active:scale-90 transition duration-300">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
-            </div>
-            <div class="p-10 overflow-y-auto no-scrollbar pb-28">
-                <div id="modalContent" class="text-gray-700 text-base md:text-lg leading-relaxed space-y-7 text-justify font-normal">
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
-        const articles = {
-            'privacy': {
-                title: "Privacy in Digital Era",
-                content: `
-                    <p class="text-3xl font-serif italic text-gray-900 mb-8 border-l-4 border-clj-accent pl-6 py-2">"Privacy is the core of human dignity."</p>
-                    <p>The Digital Personal Data Protection (DPDP) Act 2023 marks a historic moment for India. After the landmark Puttaswamy judgment declared privacy as a fundamental right under Article 21, the need for a statutory framework was urgent to regulate the growing digital economy.</p>
-                     <p> This analysis explores the key provisions of the act, including the rights of data principals, the obligations of data fiduciaries, and the role of the Data Protection Board. It also critiques the potential impact on innovation and individual freedoms.</p>
-                `
-            }
-        };
-
-        function openArticle(key) {
-            const data = articles[key];
-            if (data) {
-                document.getElementById('modalTitle').innerText = data.title;
-                document.getElementById('modalContent').innerHTML = data.content;
-                document.getElementById('articleModal').classList.add('active');
-                document.body.style.overflow = 'hidden';
-                window.history.pushState({ modalOpen: true }, "");
-            }
-        }
-
-        function closeArticle() {
-            const modal = document.getElementById('articleModal');
-            if (modal.classList.contains('active')) {
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-                if (window.history.state && window.history.state.modalOpen) window.history.back();
-            }
-        }
-
-        window.addEventListener('popstate', () => {
-            const modal = document.getElementById('articleModal');
-            if (modal.classList.contains('active')) {
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        });
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
