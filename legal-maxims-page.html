@@ -3,178 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legal Maxims Audio Library | CLJ</title>
+    <title>Legal Maxims Library | CLJ Premium</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,900&family=Inter:wght@300;400;600;700;900&display=swap');
         
         body { 
             font-family: 'Inter', sans-serif; 
-            background-color: #f8fafc; 
-            /* Protection: Disable Selection */
+            background-color: #fcfdfe; 
+            color: #1e293b;
             -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
             user-select: none;
         }
         
+        .font-serif { font-family: 'Playfair Display', serif; }
+
+        /* Smooth Glass Card */
         .maxim-card {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
-        .maxim-card:hover { transform: translateY(-8px); box-shadow: 0 20px 30px -10px rgba(0,0,0,0.05); }
-        
-        /* Audio Wave Animation on Play */
-        .playing { animation: pulse 1.5s infinite; color: #f59e0b !important; }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+        .maxim-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+            border-color: #fbbf24;
+        }
+
+        /* Animated Search Bar */
+        .search-container input:focus {
+            box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.1);
+        }
+
+        /* Modal Animation */
+        #detailsModal.active { display: flex; animation: fadeIn 0.3s ease; }
+        #detailsModal.active .modal-content { animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body class="pb-20" oncontextmenu="return false;">
 
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl px-6 py-5 flex justify-between items-center border-b border-gray-100 shadow-sm">
-        <div>
-            <h1 class="font-black text-gray-900 text-lg tracking-tighter uppercase leading-none">CLJ <span class="text-amber-600 italic">Maxims</span></h1>
-            <span class="text-[8px] font-bold text-gray-400 uppercase tracking-widest mt-1 block">Audio Pronunciation Active</span>
+    <nav class="sticky top-0 z-50 bg-white/70 backdrop-blur-xl px-6 py-5 flex justify-between items-center border-b border-gray-100">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-amber-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-amber-200">
+                <i class="fa-solid fa-book-bookmark"></i>
+            </div>
+            <div>
+                <h1 class="font-black text-gray-900 text-lg tracking-tighter uppercase leading-none">CLJ <span class="text-amber-600">Lexicon</span></h1>
+                <span class="text-[8px] font-bold text-gray-400 uppercase tracking-widest mt-1 block">Latin Jurisprudence v2.0</span>
+            </div>
         </div>
-        <button onclick="window.history.back()" class="w-11 h-11 bg-gray-900 text-white rounded-full flex items-center justify-center active:scale-90 transition shadow-lg">
-            <i class="fa-solid fa-house-chimney text-xs"></i>
+        <button onclick="window.history.back()" class="w-10 h-10 bg-gray-900 text-white rounded-full flex items-center justify-center active:scale-90 transition">
+            <i class="fa-solid fa-arrow-left text-xs"></i>
         </button>
     </nav>
 
-    <header class="pt-16 pb-12 px-8 text-center bg-white border-b border-gray-50">
-        <h2 class="text-5xl font-serif font-black text-gray-900 leading-tight italic">Legal <span class="text-amber-600 not-italic">Glossary</span></h2>
-        <p class="mt-4 text-gray-400 text-[10px] font-black uppercase tracking-[0.4em]">Latin Authority & Jurisprudence</p>
+    <header class="pt-16 pb-12 px-8 text-center bg-gradient-to-b from-amber-50/50 to-transparent">
+        <h2 class="text-6xl font-serif font-black text-gray-950 leading-tight">Latin <br><span class="text-amber-600 italic">Authority</span></h2>
+        <p class="mt-4 text-gray-400 text-[10px] font-black uppercase tracking-[0.4em]">The Pillars of Modern Law</p>
         
-        <div class="mt-10 max-w-lg mx-auto relative group">
-            <i class="fa-solid fa-magnifying-glass absolute left-6 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-amber-500 transition-colors"></i>
-            <input type="text" id="searchInput" placeholder="Search 100+ Maxims..." 
-                   class="w-full py-5 pl-16 pr-6 bg-gray-50 border border-gray-100 rounded-[2rem] outline-none focus:bg-white focus:border-amber-400 focus:shadow-2xl focus:shadow-amber-100 transition-all font-medium text-gray-700">
+        <div class="mt-10 max-w-lg mx-auto search-container">
+            <input type="text" id="searchInput" placeholder="Search by Keyword or Maxim..." 
+                   class="w-full py-5 px-8 bg-white border border-gray-100 rounded-[2rem] outline-none text-gray-700 font-medium transition-all text-sm shadow-sm">
         </div>
     </header>
 
-    <main class="px-6 max-w-2xl mx-auto space-y-4 mt-10" id="maximContainer">
+    <main class="px-6 max-w-2xl mx-auto space-y-5 mt-8" id="maximContainer">
         </main>
 
-    <div id="detailsModal" class="fixed inset-0 z-[100] hidden bg-black/70 backdrop-blur-xl flex items-end md:items-center justify-center p-4">
+    <div id="detailsModal" class="fixed inset-0 z-[100] hidden bg-black/60 backdrop-blur-md items-end md:items-center justify-center p-4">
         <div class="absolute inset-0" onclick="closeModal()"></div>
-        <div class="bg-white w-full max-w-xl rounded-t-[3rem] md:rounded-[3rem] overflow-hidden shadow-2xl relative">
-            <div class="p-10">
+        <div class="modal-content bg-white w-full max-w-2xl rounded-t-[3rem] md:rounded-[3rem] overflow-hidden shadow-2xl relative">
+            
+            <div class="p-8 md:p-12 overflow-y-auto max-h-[85vh] no-scrollbar">
                 <div class="flex justify-between items-start mb-8">
                     <div class="flex-1">
-                        <span class="text-[9px] font-black text-amber-500 bg-amber-50 px-3 py-1 rounded-full uppercase tracking-widest">Judicial Principle</span>
-                        <h3 id="modalTitle" class="text-3xl font-serif font-black text-gray-900 mt-4 leading-tight italic"></h3>
+                        <div class="flex items-center gap-3">
+                            <span class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
+                            <span class="text-[10px] font-black text-amber-500 uppercase tracking-widest">Judicial Maxim Detail</span>
+                        </div>
+                        <h3 id="modalTitle" class="text-4xl font-serif font-black text-gray-900 mt-4 leading-tight italic"></h3>
                     </div>
-                    <button onclick="speakMaximInModal()" class="w-14 h-14 bg-amber-500 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-amber-200 active:scale-90 transition">
+                    <button onclick="speakMaxim()" class="w-14 h-14 bg-amber-500 text-white rounded-2xl flex items-center justify-center shadow-xl shadow-amber-200 active:scale-90 transition">
                         <i class="fa-solid fa-volume-high text-xl"></i>
                     </button>
                 </div>
 
-                <div class="space-y-8 overflow-y-auto max-h-[50vh] pr-2 no-scrollbar">
+                <div class="space-y-10">
                     <section>
-                        <h4 class="text-[10px] font-black uppercase text-gray-300 tracking-[0.2em] mb-3">Literal Meaning</h4>
-                        <p id="modalMeaning" class="text-gray-800 text-lg font-semibold leading-relaxed"></p>
+                        <h4 class="text-[10px] font-black uppercase text-gray-400 tracking-[0.2em] mb-4">Literal Translation</h4>
+                        <p id="modalMeaning" class="text-gray-900 text-2xl font-bold leading-snug"></p>
+                    </section>
+
+                    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-100">
+                            <h4 class="text-[9px] font-black uppercase text-amber-600 tracking-widest mb-3">Origin & History</h4>
+                            <p id="modalOrigin" class="text-gray-600 text-xs leading-relaxed"></p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-3xl border border-gray-100">
+                            <h4 class="text-[9px] font-black uppercase text-amber-600 tracking-widest mb-3">Judicial Use</h4>
+                            <p id="modalUsage" class="text-gray-600 text-xs leading-relaxed"></p>
+                        </div>
                     </section>
 
                     <section>
-                        <h4 class="text-[10px] font-black uppercase text-gray-300 tracking-[0.2em] mb-3">Historical Origin</h4>
-                        <p id="modalOrigin" class="text-gray-500 text-sm leading-relaxed"></p>
+                        <h4 class="text-[10px] font-black uppercase text-gray-400 tracking-[0.2em] mb-4">Landmark Judgement</h4>
+                        <div class="p-6 bg-amber-50 rounded-[2rem] border border-amber-100">
+                            <p id="modalCase" class="text-amber-900 font-black text-lg italic mb-2"></p>
+                            <p id="modalDetails" class="text-amber-800/70 text-sm leading-relaxed text-justify"></p>
+                        </div>
                     </section>
-
-                    <div class="bg-gray-50 p-6 rounded-[2rem] border border-gray-100">
-                        <h4 class="text-[10px] font-black uppercase text-amber-600 tracking-[0.2em] mb-3">Landmark Precedent</h4>
-                        <p id="modalCase" class="text-gray-900 font-black text-base italic"></p>
-                        <p id="modalImportance" class="text-gray-500 text-xs mt-3 leading-relaxed"></p>
-                    </div>
                 </div>
+
+                <button onclick="closeModal()" class="mt-10 w-full py-5 bg-gray-900 text-white rounded-2xl font-black text-[11px] uppercase tracking-[0.3em]">Close Lexicon</button>
             </div>
         </div>
     </div>
 
     <script>
-        // DATASET: Expandable to 100 Maxims
         const maxims = [
-            { title: "Ab Initio", meaning: "From the beginning.", origin: "Commonly used in contract law for void agreements.", case: "Any agreement with a minor is void ab-initio.", importance: "Establishes that the legal act was never valid." },
-            { title: "Actus Reus", meaning: "Guilty act.", origin: "Criminal jurisprudence requirement.", case: "State of Maharashtra v. Mayer Hans George", importance: "Focuses on the physical act of committing a crime." },
-            { title: "Audi Alteram Partem", meaning: "Hear the other side.", origin: "Natural Justice principle.", case: "Maneka Gandhi v. Union of India", importance: "No person should be judged without a fair hearing." },
-            { title: "Caveat Emptor", meaning: "Let the buyer beware.", origin: "Commercial law.", case: "Ward v. Hobbs", importance: "Buyer's responsibility to check goods." },
-            { title: "De Minimis Non Curat Lex", meaning: "Law does not care for trifles.", origin: "Statutory interpretation.", case: "Section 95 of IPC", importance: "Trivial issues are not entertained by courts." },
-            { title: "Ex Post Facto", meaning: "After the fact.", origin: "Article 20(1) of Constitution.", case: "Kedar Nath v. State of West Bengal", importance: "Law cannot punish an act that was legal when committed." },
-            { title: "Falsus in Uno, Falsus in Omnibus", meaning: "False in one thing, false in everything.", origin: "Evidence law.", case: "Not strictly followed in India (Ugar Ahir Case).", importance: "Used to impeach witness credibility." },
-            { title: "Ignorantia Juris Non Excusat", meaning: "Ignorance of law is no excuse.", origin: "Public Policy.", case: "M.H. George v. State", importance: "Presumes everyone knows the law." },
-            { title: "Locus Standi", meaning: "Right to appear in court.", origin: "Procedural law.", case: "S.P. Gupta v. Union of India (PIL)", importance: "Determines if a person has the right to file a case." },
-            { title: "Mens Rea", meaning: "Guilty mind.", origin: "Criminal Liability.", case: "Nathulal v. State of MP", importance: "Mental element necessary for a crime." },
-            { title: "Nemo Debet Esse Judex In Propria Sua Causa", meaning: "No one should be a judge in their own cause.", origin: "Rule against Bias.", case: "A.K. Kraipak v. Union of India", importance: "Ensures judicial impartiality." },
-            { title: "Obiter Dicta", meaning: "Things said by the way.", origin: "Precedents.", case: "Sajjan Singh v. State of Rajasthan", importance: "Not legally binding but persuasive." },
-            { title: "Pacta Sunt Servanda", meaning: "Agreements must be kept.", origin: "International & Contract Law.", case: "Basic for Treaty obligations.", importance: "Foundational for commercial trust." },
-            { title: "Quid Pro Quo", meaning: "Something for something.", origin: "Consideration in Contract.", case: "Section 2(d) of Indian Contract Act.", importance: "Essential for a valid contract." },
-            { title: "Res Ipsa Loquitur", meaning: "The thing speaks for itself.", origin: "Law of Torts (Negligence).", case: "Municipal Corp. of Delhi v. Subhagwanti", importance: "Burden of proof shifts to defendant." },
-            { title: "Stare Decisis", meaning: "To stand by things decided.", origin: "Doctrine of Precedent.", case: "Article 141 of Constitution.", importance: "Ensures judicial consistency." },
-            { title: "Ubi Jus Ibi Remedium", meaning: "Where there is a right, there is a remedy.", origin: "Equity law.", case: "Ashby v. White", importance: "Foundation of all civil litigation." },
-            { title: "Vigilantibus Non Dormientibus Jura Subveniunt", meaning: "Law assists the vigilant, not those who sleep.", origin: "Limitation Act.", case: "State of MP v. Bhailal Bhai", importance: "Encourages timely filing of claims." }
-            // Note: You can easily add more objects here to reach 100.
+            {
+                title: "Audi Alteram Partem",
+                meaning: "Hear the other side.",
+                origin: "A fundamental principle of Roman Law and the backbone of the concept of Natural Justice (Jus Naturale). It ensures that no person is condemned unheard.",
+                usage: "Widely used in Administrative Law, Constitutional Law, and disciplinary proceedings to ensure fairness and prevent arbitrary decisions.",
+                case: "Maneka Gandhi v. Union of India (1978)",
+                details: "In this landmark case, the Supreme Court held that 'fairness' is an integral part of Article 21. Even if a statute doesn't explicitly mention it, the principle of Audi Alteram Partem must be read into it to prevent injustice."
+            },
+            {
+                title: "Actus Curiae Neminem Gravabit",
+                meaning: "An act of the court shall prejudice no man.",
+                origin: "Stemming from English Common Law, this maxim ensures that if a mistake is made by the court's administration, the litigant should not suffer.",
+                usage: "Used when there are technical errors in filings, delays in court processing, or accidental administrative lapses.",
+                case: "A.R. Antulay v. R.S. Nayak (1988)",
+                details: "The Supreme Court clarified that if a court's own order or mistake causes harm to a party, the court is under a duty to rectify it, ensuring that no individual's rights are crushed by the judicial machine."
+            },
+            {
+                title: "Delegatus Non Potest Delegare",
+                meaning: "A delegate cannot further delegate.",
+                origin: "A principle of the Law of Agency and Administrative Law which implies that a power given to a specific person must be exercised by them alone.",
+                usage: "Used to challenge sub-delegation of power in government departments where an officer passes their statutory duty to a subordinate without authority.",
+                case: "A.K. Roy v. State of Punjab (1986)",
+                details: "The court held that if a statute specifies a particular officer to exercise a power (like signing a detention order), that power cannot be delegated unless the law specifically allows for sub-delegation."
+            },
+            {
+                title: "Ex Turpi Causa Non Oritur Actio",
+                meaning: "From a dishonorable cause, an action does not arise.",
+                origin: "A doctrine in Tort and Contract law that prevents a person from profiting from their own illegal act.",
+                usage: "Used to dismiss lawsuits where the plaintiff was involved in an illegal activity when the injury occurred.",
+                case: "Holman v. Johnson (1775)",
+                details: "Lord Mansfield established that no Court will lend its aid to a man who founds his cause of action upon an immoral or an illegal act. This remains the foundation of clean-hands doctrine in equity."
+            },
+            {
+                title: "Nemo Debet Esse Judex In Propria Sua Causa",
+                meaning: "No one should be a judge in their own cause.",
+                origin: "The second pillar of Natural Justice. It addresses the concept of 'Bias' (Pecuniary, Personal, or Subject-matter bias).",
+                usage: "Used to disqualify judges, committee members, or officers who have a personal interest in the outcome of a case.",
+                case: "A.K. Kraipak v. Union of India (1969)",
+                details: "The Supreme Court set aside a selection process because one of the candidates was also a member of the selection committee. It held that 'justice should not only be done but manifestly be seen to be done'."
+            },
+            {
+                title: "Respondeat Superior",
+                meaning: "Let the master answer.",
+                origin: "The foundation of Vicarious Liability in the Law of Torts. It holds the employer responsible for the acts of the employee.",
+                usage: "Applied in cases of corporate negligence, medical malpractice in hospitals, and government liability for its servants.",
+                case: "State of Rajasthan v. Vidhyawati (1962)",
+                details: "The Court held that the State is vicariously liable for the negligence of its employees (like a government driver) just like any other employer, discarding the old theory of sovereign immunity in torts."
+            },
+            {
+                title: "Ubi Jus Ibi Remedium",
+                meaning: "Where there is a right, there is a remedy.",
+                origin: "English Common Law. It emphasizes that a legal right is meaningless if there is no machinery to enforce it or compensate its breach.",
+                usage: "Used to create new remedies in Torts and to justify the writ jurisdiction of High Courts and the Supreme Court.",
+                case: "Ashby v. White (1703)",
+                details: "Even though the plaintiff suffered no financial loss when his vote was rejected, the court held that his legal right was violated, and therefore he was entitled to a remedy. Rights and remedies are two sides of the same coin."
+            },
+            {
+                title: "Volenti Non Fit Injuria",
+                meaning: "To a willing person, injury is not done.",
+                origin: "A defense in Tort law where a person who knowingly and voluntarily risks a danger cannot later sue for damages.",
+                usage: "Commonly used in sports injuries, medical surgeries (informed consent), and hazardous occupations.",
+                case: "Hall v. Brooklands Auto Racing Club",
+                details: "Spectators at a race track are assumed to have accepted the inherent risks of the sport. If a car flies off the track, they cannot sue unless there was gross negligence beyond the normal risks."
+            }
         ];
 
-        // RENDER FUNCTION
         function renderMaxims(data) {
             const container = document.getElementById('maximContainer');
             container.innerHTML = data.map((m, index) => `
-                <div class="maxim-card p-6 rounded-[2rem] border border-gray-100 flex justify-between items-center cursor-pointer shadow-sm" onclick="showDetails(${index})">
+                <div class="maxim-card p-8 rounded-[2.5rem] flex justify-between items-center cursor-pointer shadow-sm reveal active" onclick="showDetails(${index})">
                     <div class="flex-1">
-                        <h3 class="font-black text-gray-900 italic text-xl">${m.title}</h3>
-                        <p class="text-gray-400 text-xs font-bold mt-1 uppercase tracking-tighter">${m.meaning}</p>
+                        <h3 class="font-black text-gray-900 italic text-xl tracking-tight">${m.title}</h3>
+                        <p class="text-gray-400 text-[10px] font-bold mt-2 uppercase tracking-widest">${m.meaning}</p>
                     </div>
-                    <button onclick="event.stopPropagation(); speakText('${m.title}', this)" class="w-12 h-12 bg-gray-50 rounded-2xl flex items-center justify-center text-gray-300 hover:text-amber-500 transition-colors">
-                        <i class="fa-solid fa-volume-high"></i>
-                    </button>
+                    <div class="w-12 h-12 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-plus text-xs"></i>
+                    </div>
                 </div>
             `).join('');
         }
 
-        // TEXT TO SPEECH LOGIC
-        function speakText(text, btn) {
-            const msg = new SpeechSynthesisUtterance();
-            msg.text = text;
-            msg.lang = 'la'; // Latin Language Code
-            msg.rate = 0.8;
-            
-            const icon = btn.querySelector('i');
-            icon.classList.add('playing');
-            
-            window.speechSynthesis.speak(msg);
-            
-            msg.onend = () => {
-                icon.classList.remove('playing');
-            };
-        }
-
-        function speakMaximInModal() {
-            const title = document.getElementById('modalTitle').innerText;
-            speakText(title, document.querySelector('#detailsModal button'));
-        }
-
-        // MODAL LOGIC
         function showDetails(index) {
             const m = maxims[index];
             document.getElementById('modalTitle').innerText = m.title;
             document.getElementById('modalMeaning').innerText = m.meaning;
             document.getElementById('modalOrigin').innerText = m.origin;
+            document.getElementById('modalUsage').innerText = m.usage;
             document.getElementById('modalCase').innerText = m.case;
-            document.getElementById('modalImportance').innerText = m.importance;
+            document.getElementById('modalDetails').innerText = m.details;
             
-            document.getElementById('detailsModal').classList.remove('hidden');
+            const modal = document.getElementById('detailsModal');
+            modal.classList.add('active');
+            modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
-            document.getElementById('detailsModal').classList.add('hidden');
+            const modal = document.getElementById('detailsModal');
+            modal.classList.remove('active');
+            setTimeout(() => { modal.classList.add('hidden'); }, 300);
             document.body.style.overflow = 'auto';
         }
 
-        // SEARCH LOGIC
+        function speakMaxim() {
+            const text = document.getElementById('modalTitle').innerText;
+            const msg = new SpeechSynthesisUtterance(text);
+            msg.lang = 'la';
+            msg.rate = 0.7;
+            window.speechSynthesis.speak(msg);
+        }
+
         document.getElementById('searchInput').addEventListener('input', (e) => {
             const term = e.target.value.toLowerCase();
             const filtered = maxims.filter(m => 
@@ -184,15 +247,12 @@
             renderMaxims(filtered);
         });
 
-        // PROTECTION: Right Click & Keyboard
-        document.addEventListener('contextmenu', event => event.preventDefault());
-        document.addEventListener('keydown', (e) => {
-            if (e.ctrlKey && (e.key === 'c' || e.key === 'v' || e.key === 'u' || e.key === 's' || e.key === 'p')) e.preventDefault();
-            if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) e.preventDefault();
-            if (e.key === 'F12') e.preventDefault();
+        // Protection
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's')) e.preventDefault();
         });
 
-        // INITIAL RENDER
         renderMaxims(maxims);
     </script>
 </body>
