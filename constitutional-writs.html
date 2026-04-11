@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constitutional Writs | CLJ Vault</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,900&family=Inter:wght@300;400;600;700;900&display=swap');
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #f8fafc; 
+            color: #1e293b;
+        }
+        .font-serif { font-family: 'Playfair Display', serif; }
+
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(30px); 
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .writ-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .writ-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Side Indicator */
+        .indicator {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+        }
+    </style>
+</head>
+<body class="pb-24">
+
+    <nav class="sticky top-0 z-50 bg-white/60 backdrop-blur-xl px-6 py-5 flex justify-between items-center border-b border-gray-200/50">
+        <button onclick="window.history.back()" class="group flex items-center gap-2">
+            <div class="w-10 h-10 bg-gray-900 text-white rounded-full flex items-center justify-center group-active:scale-90 transition">
+                <i class="fa-solid fa-arrow-left text-sm"></i>
+            </div>
+            <span class="text-[10px] font-black uppercase tracking-widest text-gray-400 group-hover:text-gray-900 transition">Back</span>
+        </button>
+        <div class="text-right">
+            <h1 class="font-black text-gray-900 text-lg tracking-tighter leading-none">WRIT</h1>
+            <span class="text-[8px] font-bold text-blue-600 uppercase tracking-[0.3em]">Jurisdiction</span>
+        </div>
+    </nav>
+
+    <header class="pt-20 pb-16 px-8 text-center relative">
+        <div class="absolute inset-0 -z-10 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:20px_20px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+        <h1 class="text-6xl font-serif font-black text-gray-950 leading-tight">Judicial <br><span class="text-blue-600 italic">Command</span></h1>
+        <p class="mt-6 text-gray-400 text-[10px] font-black uppercase tracking-[0.5em]">Article 32 & 226 Powerhouses</p>
+    </header>
+
+    <main class="px-6 max-w-xl mx-auto space-y-10">
+
+        <div class="reveal writ-card p-8 rounded-[3rem]">
+            <div class="indicator bg-blue-600"></div>
+            <div class="flex justify-between items-start mb-6">
+                <div>
+                    <h3 class="text-3xl font-serif font-black text-gray-900 italic">Habeas Corpus</h3>
+                    <p class="text-[10px] font-black text-blue-600 uppercase tracking-widest mt-1">"To have the body"</p>
+                </div>
+                <div class="text-4xl font-black text-gray-100 italic select-none">01</div>
+            </div>
+            <p class="text-gray-500 text-base leading-relaxed mb-8">
+                The most powerful weapon for personal liberty. It challenges illegal detention, whether by the State or a private individual.
+            </p>
+            <div class="bg-blue-50/50 rounded-3xl p-6 border border-blue-100">
+                <span class="text-[9px] font-black text-blue-400 uppercase tracking-[0.2em]">Landmark Precedent</span>
+                <p class="text-blue-900 font-bold text-lg mt-2 leading-tight">ADM Jabalpur v. Shivkant Shukla (1976)</p>
+                <div class="h-px bg-blue-100 my-3"></div>
+                <p class="text-blue-700/70 text-xs italic font-medium">Defined the scope of liberty even during national emergencies.</p>
+            </div>
+        </div>
+
+        <div class="reveal writ-card p-8 rounded-[3rem]">
+            <div class="indicator bg-emerald-500"></div>
+            <div class="flex justify-between items-start mb-6">
+                <div>
+                    <h3 class="text-3xl font-serif font-black text-gray-900 italic">Mandamus</h3>
+                    <p class="text-[10px] font-black text-emerald-600 uppercase tracking-widest mt-1">"We Command"</p>
+                </div>
+                <div class="text-4xl font-black text-gray-100 italic select-none">02</div>
+            </div>
+            <p class="text-gray-500 text-base leading-relaxed mb-8">
+                A command to perform a public duty. Issued against public officials, governments, or corporations failing to act.
+            </p>
+            <div class="bg-emerald-50/50 rounded-3xl p-6 border border-emerald-100">
+                <span class="text-[9px] font-black text-emerald-400 uppercase tracking-[0.2em]">Landmark Precedent</span>
+                <p class="text-emerald-900 font-bold text-lg mt-2 leading-tight">Gujarat State Financial Corp. v. Lotus Hotels</p>
+                <div class="h-px bg-emerald-100 my-3"></div>
+                <p class="text-emerald-700/70 text-xs italic font-medium">Court enforced the principle that public bodies must act fairly.</p>
+            </div>
+        </div>
+
+        <div class="reveal writ-card p-8 rounded-[3rem]">
+            <div class="indicator bg-amber-500"></div>
+            <div class="flex justify-between items-start mb-6">
+                <div>
+                    <h3 class="text-3xl font-serif font-black text-gray-900 italic">Quo Warranto</h3>
+                    <p class="text-[10px] font-black text-amber-600 uppercase tracking-widest mt-1">"By What Authority"</p>
+                </div>
+                <div class="text-4xl font-black text-gray-100 italic select-none">03</div>
+            </div>
+            <p class="text-gray-500 text-base leading-relaxed mb-8">
+                Checks the legality of a person's claim to a public office. It prevents people from holding offices they aren't qualified for.
+            </p>
+            <div class="bg-amber-50/50 rounded-3xl p-6 border border-amber-100">
+                <span class="text-[9px] font-black text-amber-400 uppercase tracking-[0.2em]">Landmark Precedent</span>
+                <p class="text-amber-900 font-bold text-lg mt-2 leading-tight">University of Mysore v. Govinda Rao</p>
+                <div class="h-px bg-amber-100 my-3"></div>
+                <p class="text-amber-700/70 text-xs italic font-medium">Clarified that the office must be of 'public nature' for this writ.</p>
+            </div>
+        </div>
+
+        <div class="reveal writ-card p-8 rounded-[3rem]">
+            <div class="indicator bg-purple-600"></div>
+            <div class="flex justify-between items-start mb-6">
+                <div>
+                    <h3 class="text-3xl font-serif font-black text-gray-900 italic">Certiorari</h3>
+                    <p class="text-[10px] font-black text-purple-600 uppercase tracking-widest mt-1">"To Be Certified"</p>
+                </div>
+                <div class="text-4xl font-black text-gray-100 italic select-none">04</div>
+            </div>
+            <p class="text-gray-500 text-base leading-relaxed mb-8">
+                Quashes an order already passed by a lower court or authority. It is "curative" – it fixes a wrong decision.
+            </p>
+            <div class="bg-purple-50/50 rounded-3xl p-6 border border-purple-100">
+                <span class="text-[9px] font-black text-purple-400 uppercase tracking-[0.2em]">Landmark Precedent</span>
+                <p class="text-purple-900 font-bold text-lg mt-2 leading-tight">A.K. Kraipak v. Union of India (1969)</p>
+                <div class="h-px bg-purple-100 my-3"></div>
+                <p class="text-purple-700/70 text-xs italic font-medium">Landmark for applying writ jurisdiction to administrative decisions.</p>
+            </div>
+        </div>
+
+        <div class="reveal writ-card p-8 rounded-[3rem]">
+            <div class="indicator bg-red-600"></div>
+            <div class="flex justify-between items-start mb-6">
+                <div>
+                    <h3 class="text-3xl font-serif font-black text-gray-900 italic">Prohibition</h3>
+                    <p class="text-[10px] font-black text-red-600 uppercase tracking-widest mt-1">"Stay Order"</p>
+                </div>
+                <div class="text-4xl font-black text-gray-100 italic select-none">05</div>
+            </div>
+            <p class="text-gray-500 text-base leading-relaxed mb-8">
+                Issued while the case is pending. It stops a lower court from continuing a trial that is outside its jurisdiction.
+            </p>
+            <div class="bg-red-50/50 rounded-3xl p-6 border border-red-100">
+                <span class="text-[9px] font-black text-red-400 uppercase tracking-[0.2em]">Landmark Precedent</span>
+                <p class="text-red-900 font-bold text-lg mt-2 leading-tight">East India Commercial Co. v. Collector</p>
+                <div class="h-px bg-red-100 my-3"></div>
+                <p class="text-red-700/70 text-xs italic font-medium">Established the power to stop proceedings at the threshold.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <div class="fixed bottom-6 left-6 right-6 z-[100] max-w-lg mx-auto">
+        <div class="bg-gray-900/95 backdrop-blur-xl p-6 rounded-[2rem] shadow-2xl border border-white/10">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white shrink-0">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <div>
+                    <p class="text-white text-[11px] font-bold leading-relaxed">
+                        <span class="text-blue-400">Article 32:</span> Only for Fundamental Rights.<br>
+                        <span class="text-emerald-400">Article 226:</span> Wider powers for any legal right.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
