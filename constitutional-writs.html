@@ -14,6 +14,11 @@
             background-color: #f8fafc; 
             color: #1e293b;
             overflow-x: hidden;
+            /* Selection Protection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         .font-serif { font-family: 'Playfair Display', serif; }
 
@@ -53,7 +58,7 @@
         }
     </style>
 </head>
-<body class="pb-24">
+<body class="pb-24" oncontextmenu="return false;">
 
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl px-6 py-5 flex justify-between items-center border-b border-gray-100">
         <div>
@@ -82,16 +87,13 @@
                 <h3 class="text-2xl font-black text-gray-900 italic">Habeas Corpus</h3>
                 <span class="text-[10px] font-black bg-blue-50 text-blue-600 px-3 py-1 rounded-full uppercase italic">"To have the body"</span>
             </div>
-            
             <p class="text-gray-500 text-sm mb-6 leading-relaxed">Fundamental remedy against unlawful detention by State or private entities.</p>
-
             <div class="space-y-1 mb-8">
                 <h4 class="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-3">Key Technical Points</h4>
                 <div class="keypoint-item"><div class="keypoint-bullet"></div> Can be filed by a friend or relative on behalf of the detained person.</div>
                 <div class="keypoint-item"><div class="keypoint-bullet"></div> Cannot be issued if the detention is under a lawful order of the court.</div>
                 <div class="keypoint-item"><div class="keypoint-bullet"></div> Primary goal is immediate release from illegal custody.</div>
             </div>
-
             <div class="bg-gray-50 rounded-3xl p-6 border border-gray-100">
                 <span class="text-[9px] font-black text-blue-500 uppercase tracking-widest">Landmark Case</span>
                 <p class="text-gray-900 font-bold text-base mt-1 italic leading-tight text-justify">ADM Jabalpur v. Shivkant Shukla (1976)</p>
@@ -103,16 +105,13 @@
                 <h3 class="text-2xl font-black text-gray-900 italic">Mandamus</h3>
                 <span class="text-[10px] font-black bg-emerald-50 text-emerald-600 px-3 py-1 rounded-full uppercase italic">"We Command"</span>
             </div>
-            
             <p class="text-gray-500 text-sm mb-6 leading-relaxed">Directs a public official or body to perform a duty they have legally failed to do.</p>
-
             <div class="space-y-1 mb-8">
                 <h4 class="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-3">Key Technical Points</h4>
                 <div class="keypoint-item"><div class="keypoint-bullet bg-emerald-500"></div> The applicant must have a specific legal right to the performance of the duty.</div>
                 <div class="keypoint-item"><div class="keypoint-bullet bg-emerald-500"></div> Cannot be issued against the President or State Governors.</div>
                 <div class="keypoint-item"><div class="keypoint-bullet bg-emerald-500"></div> Cannot be issued for purely private or contractual obligations.</div>
             </div>
-
             <div class="bg-gray-50 rounded-3xl p-6 border border-gray-100">
                 <span class="text-[9px] font-black text-emerald-600 uppercase tracking-widest">Landmark Case</span>
                 <p class="text-gray-900 font-bold text-base mt-1 italic leading-tight text-justify">Gujarat State Financial Corp. v. Lotus Hotels</p>
@@ -124,16 +123,13 @@
                 <h3 class="text-2xl font-black text-gray-900 italic">Quo Warranto</h3>
                 <span class="text-[10px] font-black bg-amber-50 text-amber-600 px-3 py-1 rounded-full uppercase italic">"By What Authority"</span>
             </div>
-            
             <p class="text-gray-500 text-sm mb-6 leading-relaxed">Asks a person to prove under what legal authority they hold a public office.</p>
-
             <div class="space-y-1 mb-8">
                 <h4 class="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-3">Key Technical Points</h4>
                 <div class="keypoint-item"><div class="keypoint-bullet bg-amber-500"></div> Used only for offices of a public nature created by statute/Constitution.</div>
                 <div class="keypoint-item"><div class="keypoint-bullet bg-amber-500"></div> Prevents 'usurpation' (illegal taking) of a public office.</div>
                 <div class="keypoint-item"><div class="keypoint-bullet bg-amber-500"></div> Can be sought by any interested person, not necessarily the aggrieved.</div>
             </div>
-
             <div class="bg-gray-50 rounded-3xl p-6 border border-gray-100">
                 <span class="text-[9px] font-black text-amber-600 uppercase tracking-widest">Landmark Case</span>
                 <p class="text-gray-900 font-bold text-base mt-1 italic leading-tight text-justify">University of Mysore v. Govinda Rao</p>
@@ -145,16 +141,13 @@
                 <h3 class="text-2xl font-black text-gray-900 italic">Certiorari</h3>
                 <span class="text-[10px] font-black bg-purple-50 text-purple-600 px-3 py-1 rounded-full uppercase italic">"To Be Certified"</span>
             </div>
-            
             <p class="text-gray-500 text-sm mb-6 leading-relaxed">Issued to quash an order passed by a lower court or tribunal due to lack of jurisdiction.</p>
-
             <div class="space-y-1 mb-8">
                 <h4 class="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-3">Key Technical Points</h4>
                 <div class="keypoint-item"><div class="keypoint-bullet bg-purple-500"></div> It is both 'Preventive' and 'Curative' in nature.</div>
                 <div class="keypoint-item"><div class="keypoint-bullet bg-purple-500"></div> Issued when there is an "Error of Law apparent on the face of the record."</div>
                 <div class="keypoint-item"><div class="keypoint-bullet bg-purple-500"></div> Traditionally against judicial bodies, now also against administrative ones.</div>
             </div>
-
             <div class="bg-gray-50 rounded-3xl p-6 border border-gray-100">
                 <span class="text-[9px] font-black text-purple-600 uppercase tracking-widest">Landmark Case</span>
                 <p class="text-gray-900 font-bold text-base mt-1 italic leading-tight text-justify">A.K. Kraipak v. Union of India (1969)</p>
@@ -166,16 +159,13 @@
                 <h3 class="text-2xl font-black text-gray-900 italic">Prohibition</h3>
                 <span class="text-[10px] font-black bg-red-50 text-red-600 px-3 py-1 rounded-full uppercase italic">"Stay Order"</span>
             </div>
-            
             <p class="text-gray-500 text-sm mb-6 leading-relaxed">Issued to stop a lower court from continuing a trial that is outside its legal power.</p>
-
             <div class="space-y-1 mb-8">
                 <h4 class="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-3">Key Technical Points</h4>
                 <div class="keypoint-item"><div class="keypoint-bullet bg-red-500"></div> Unlike Certiorari, it is issued while the case is still pending.</div>
                 <div class="keypoint-item"><div class="keypoint-bullet bg-red-500"></div> Primary aim is to prevent a court from usurping jurisdiction.</div>
                 <div class="keypoint-item"><div class="keypoint-bullet bg-red-500"></div> It "forbids" the lower body to proceed further.</div>
             </div>
-
             <div class="bg-gray-50 rounded-3xl p-6 border border-gray-100">
                 <span class="text-[9px] font-black text-red-600 uppercase tracking-widest">Landmark Case</span>
                 <p class="text-gray-900 font-bold text-base mt-1 italic leading-tight text-justify">East India Commercial Co. v. Collector</p>
@@ -199,6 +189,23 @@
     </footer>
 
     <script>
+        // Disable Right Click
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Disable Keyboard Shortcuts (Copy, Save, View Source)
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && (e.key === 'c' || e.key === 'v' || e.key === 'u' || e.key === 's' || e.key === 'p')) {
+                e.preventDefault();
+            }
+            if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) {
+                e.preventDefault();
+            }
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
+        });
+
+        // Intersection Observer for animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
