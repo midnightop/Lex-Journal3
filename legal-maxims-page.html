@@ -130,7 +130,7 @@
                     </section>
 
                     <section>
-                        <h4 class="text-[10px] font-black uppercase text-gray-400 tracking-[0.2em] mb-4">Key Judgement & Takeaway</h4>
+                        <h4 class="text-[10px] font-black uppercase text-gray-400 tracking-[0.2em] mb-4">Key Takeaway</h4>
                         <div class="p-6 bg-amber-50 rounded-[2rem] border border-amber-100">
                             <p id="modalCase" class="text-amber-900 font-black text-lg italic mb-2"></p>
                             <p id="modalDetails" class="text-amber-800/70 text-sm leading-relaxed text-justify"></p>
@@ -145,62 +145,56 @@
 
     <script>
         const maxims = [
-            {
-                title: "Audi Alteram Partem",
-                meaning: "Hear the other side.",
-                origin: "A principle of 'Natural Justice' (Jus Naturale) rooted in the belief that justice must be fair. It traces back to medieval English and Roman law.",
-                usage: "Essential in Administrative and Constitutional law. It ensures no person is punished without being given a chance to defend themselves.",
-                case: "Maneka Gandhi v. Union of India (1978)",
-                details: "The Supreme Court expanded Article 21 to include 'Fairness'. It held that even if a law doesn't explicitly state it, the right to be heard is inherent in every fair legal system."
-            },
-            {
-                title: "Actus Reus Non Facit Reum Nisi Mens Sit Rea",
-                meaning: "An act does not make a person guilty unless the mind is also guilty.",
-                origin: "The foundation of modern Criminal Law. It establishes that a physical act must be accompanied by a 'guilty intention' for a conviction.",
-                usage: "Used in criminal trials to distinguish between accidental harm and deliberate crimes. It is the basis for defenses like insanity or accident.",
-                case: "State of Maharashtra v. Mayer Hans George (1965)",
-                details: "The court analyzed the requirement of 'Mens Rea' (guilty mind) in statutory offenses, clarifying that most crimes require intent unless explicitly waived by law."
-            },
-            {
-                title: "Ubi Jus Ibi Remedium",
-                meaning: "Where there is a right, there is a remedy.",
-                origin: "First formulated in English Common Law. It signifies that a legal right cannot exist in a vacuum; there must be a way to enforce it.",
-                usage: "Foundation of Tort Law and Writ Jurisdiction. It allows courts to create remedies where a clear legal wrong has been committed.",
-                case: "Ashby v. White (1703)",
-                details: "A classic case where a voter was denied his vote. Even though he suffered no financial loss, the court held that since his legal right was violated, he must have a remedy (damages)."
-            },
-            {
-                title: "Delegatus Non Potest Delegare",
-                meaning: "A delegate cannot further delegate.",
-                origin: "A principle of Agency and Administrative law. If someone is given a power because of their specific skills, they can't just pass it to someone else.",
-                usage: "Often used to challenge government notifications or orders signed by unauthorized subordinates instead of the specific officer mentioned in the law.",
-                case: "A.K. Roy v. State of Punjab (1986)",
-                details: "The court held that if the law empowers a specific authority (like a District Magistrate) to perform a task, they cannot sub-delegate it without clear statutory permission."
-            },
-            {
-                title: "Nemo Debet Esse Judex In Propria Sua Causa",
-                meaning: "No one should be a judge in their own cause.",
-                origin: "The rule against 'Bias'. It is the second fundamental pillar of Natural Justice, ensuring that decision-makers remain impartial.",
-                usage: "Used to set aside judicial or administrative decisions where the judge had a personal, pecuniary (money), or official interest in the case.",
-                case: "A.K. Kraipak v. Union of India (1969)",
-                details: "The Supreme Court set aside a selection process because one candidate sat on the selection committee. It famously noted: 'Justice should not only be done, but manifestly be seen to be done'."
-            },
-            {
-                title: "Stare Decisis",
-                meaning: "To stand by things decided.",
-                origin: "The 'Doctrine of Precedent'. It ensures that higher court decisions are binding on lower courts to maintain legal certainty.",
-                usage: "Foundational for judicial discipline. It prevents judges from changing the law every day based on personal whims.",
-                case: "Article 141 of the Constitution of India",
-                details: "While not a single case, this doctrine is enshrined in Art. 141, making Supreme Court rulings the 'Law of the Land' for all other courts."
-            },
-            {
-                title: "Res Ipsa Loquitur",
-                meaning: "The thing speaks for itself.",
-                origin: "Law of Torts (Negligence). It applies when the accident is of such a nature that it couldn't have happened without someone's negligence.",
-                usage: "Used to shift the 'Burden of Proof' to the defendant. For example, if a surgical tool is left inside a patient, the hospital must prove they weren't negligent.",
-                case: "Municipal Corp. of Delhi v. Subhagwanti (1966)",
-                details: "When a clock tower collapsed in Delhi, the court used this maxim to hold the Municipal Corporation liable, as towers don't just fall without a failure in maintenance."
-            }
+            { title: "Justice delayed is justice denied", meaning: "If legal redress is available for a party that has suffered some injury, but is not forthcoming in a timely fashion, it is effectively the same as having no redress at all.", origin: "Common Law Principle", usage: "Constitutional Law", case: "Hussainara Khatoon v. Home Secretary, State of Bihar", details: "Emphasizes the right to a speedy trial as a fundamental right." },
+            { title: "Actus non facit reum nisi mens sit rea", meaning: "An act does not make a person guilty unless the mind is also guilty.", origin: "Criminal Jurisprudence", usage: "Determining Criminal Liability", case: "R v. Tolson", details: "Establishment of intent is crucial for a criminal conviction." },
+            { title: "Audi alteram partem", meaning: "Hear the other side.", origin: "Natural Justice", usage: "Administrative Law", case: "Maneka Gandhi v. Union of India", details: "No person should be judged without a fair opportunity to be heard." },
+            { title: "Nemo judex in causa sua", meaning: "No one should be a judge in their own cause.", origin: "Natural Justice", usage: "Judicial Proceedings", case: "A.K. Kraipak v. Union of India", details: "Prevents bias in decision-making processes." },
+            { title: "Ignorantia juris non excusat", meaning: "Ignorance of the law excuses no one.", origin: "Roman Law", usage: "General Law", case: "M.H. George v. State of Maharashtra", details: "Presumption that every person knows the law of the land." },
+            { title: "Ubi jus ibi remedium", meaning: "Where there is a right, there is a remedy.", origin: "Common Law", usage: "Tort Law", case: "Ashby v. White", details: "If a person's legal right is violated, the law provides a means of seeking compensation." },
+            { title: "Injuria sine damno", meaning: "Injury without damage.", origin: "Law of Torts", usage: "Actionable Per Se", case: "Bhim Singh v. State of J&K", details: "Violation of a legal right without actual physical or financial loss is still actionable." },
+            { title: "Damnum sine injuria", meaning: "Damage without injury.", origin: "Law of Torts", usage: "Non-actionable claims", case: "Gloucester Grammar School case", details: "Actual loss or damage without violation of a legal right gives no ground for legal action." },
+            { title: "Actus reus", meaning: "The physical act of committing a crime.", origin: "Criminal Law", usage: "Criminal Liability", case: "General Criminal Law", details: "The objective element of a crime." },
+            { title: "Mens rea", meaning: "The mental intent to commit a crime.", origin: "Criminal Law", usage: "Criminal Liability", case: "General Criminal Law", details: "The subjective or 'guilty mind' element of a crime." },
+            { title: "In dubio pro reo", meaning: "In doubt, for the accused.", origin: "Roman Law", usage: "Criminal Trials", case: "Burden of Proof", details: "A defendant may not be convicted by the court when doubts about their guilt remain." },
+            { title: "Nullum crimen sine lege", meaning: "No crime without a law.", origin: "Legal Legality", usage: "Criminal Justice", case: "Article 20 of Indian Constitution", details: "A person cannot be punished for something that was not a crime when committed." },
+            { title: "Nulla poena sine lege", meaning: "No penalty without a law.", origin: "Rule of Law", usage: "Penal Systems", case: "Principle of Legality", details: "Punishment can only be imposed if it was previously prescribed by law." },
+            { title: "He who seeks equity must do equity", meaning: "A person seeking an equitable remedy must be prepared to act fairly.", origin: "Equity Jurisprudence", usage: "Civil Law", case: "Equitable Relief", details: "The court will only assist those who are willing to fulfill their own obligations." },
+            { title: "He who comes into equity must come with clean hands", meaning: "A plaintiff must not be guilty of misconduct in the matter brought before the court.", origin: "Equity Jurisprudence", usage: "Injunctions/Specific Performance", case: "General Equity Principles", details: "Relief is denied to those who have acted unethically in the transaction." },
+            { title: "Equity looks to intent rather than form", meaning: "Equity focuses on the substance of an agreement rather than technicalities.", origin: "Chancery Law", usage: "Contract Interpretation", case: "Interpretation of Deeds", details: "The true intention of parties prevails over clerical errors or formal defects." },
+            { title: "Equity will not suffer a wrong without a remedy", meaning: "Equity will provide a solution where the common law fails.", origin: "Maxims of Equity", usage: "Judicial Discretion", case: "Trust Law", details: "Ensures justice is not denied due to technical gaps in existing law." },
+            { title: "Res ipsa loquitur", meaning: "The thing speaks for itself.", origin: "Law of Torts", usage: "Negligence Cases", case: "Municipal Corp of Delhi v. Subhagwanti", details: "The accident itself implies negligence due to the nature of the event." },
+            { title: "Volenti non fit injuria", meaning: "To a willing person, injury is not done.", origin: "Common Law", usage: "Defense in Torts", case: "Hall v. Brooklands Auto Racing Club", details: "Consent to a risk bars a claim for damages resulting from that risk." },
+            { title: "Salus populi suprema lex esto", meaning: "The health/welfare of the people shall be the supreme law.", origin: "Political Philosophy", usage: "Public Policy", case: "Emergency Powers", details: "The individual interest must yield to the public good." },
+            { title: "Fiat justitia ruat caelum", meaning: "Let justice be done though the heavens fall.", origin: "Roman Maxim", usage: "Judicial Integrity", case: "Somerset's Case", details: "Justice must be realized regardless of the consequences." },
+            { title: "Lex loci delicti", meaning: "The law of the place where the crime/tort was committed.", origin: "Conflict of Laws", usage: "International Law", case: "Jurisdiction Determination", details: "Governs which jurisdiction's laws apply in cross-border disputes." },
+            { title: "Ex turpi causa non oritur actio", meaning: "From a dishonorable cause, an action does not arise.", origin: "Contract Law", usage: "Illegal Contracts", case: "Holman v. Johnson", details: "A court will not assist a person who bases their cause of action on an illegal act." },
+            { title: "Ei incumbit probatio qui dicit, non qui negat", meaning: "The burden of proof lies upon him who affirms, not on him who denies.", origin: "Evidence Law", usage: "Trial Procedure", case: "Indian Evidence Act", details: "The party making a claim must prove it." },
+            { title: "Falsus in uno, falsus in omnibus", meaning: "False in one thing, false in everything.", origin: "Witness Testimony", usage: "Trial Evaluation", case: "State of UP v. Sahai", details: "Used to assess the credibility of witnesses (applied cautiously in India)." },
+            { title: "Res judicata", meaning: "A matter judged.", origin: "Civil Procedure", usage: "Prevention of Litigation", case: "Section 11 CPC", details: "A case cannot be re-litigated between the same parties once decided." },
+            { title: "Sub judice", meaning: "Under a judge.", origin: "Procedural Law", usage: "Ongoing Cases", case: "Contempt of Court", details: "A matter that is currently under trial and cannot be discussed publicly to avoid bias." },
+            { title: "Delegatus non potest delegare", meaning: "A delegate cannot delegate.", origin: "Administrative Law", usage: "Power Delegation", case: "A.K. Roy v. State of Punjab", details: "A person to whom power is delegated cannot further delegate it to others." },
+            { title: "Actio personalis moritur cum persona", meaning: "A personal right of action dies with the person.", origin: "Common Law", usage: "Defamation/Personal Injury", case: "Survival of Actions", details: "Personal legal actions cannot be continued by heirs (with exceptions)." },
+            { title: "Nemo dat quod non habet", meaning: "No one gives what they do not have.", origin: "Property Law", usage: "Sale of Goods", case: "Title Disputes", details: "A seller cannot pass a better title than they themselves possess." },
+            { title: "Expressio unius est exclusio alterius", meaning: "The express mention of one thing excludes others.", origin: "Statutory Interpretation", usage: "Legal Drafting", case: "Interpretation of Statutes", details: "Explicitly listing items implies the exclusion of those not listed." },
+            { title: "Generalia specialibus non derogant", meaning: "General things do not derogate from special things.", origin: "Legal Logic", usage: "Conflict of Laws", case: "Statutory Interpretation", details: "Special laws prevail over general laws in specific matters." },
+            { title: "Ut res magis valeat quam pereat", meaning: "It is better for a thing to have effect than to be made void.", origin: "Interpretation", usage: "Constitutional/Contract Law", case: "Preservation of Validity", details: "Courts prefer interpretations that make a statute or contract valid." },
+            { title: "Reddendo singula singulis", meaning: "By rendering each his own.", origin: "Statutory Interpretation", usage: "Distributive Interpretation", case: "Grammatical Construction", details: "Words are referred to their appropriate subjects respectively." },
+            { title: "Casus omissus pro omisso habendus est", meaning: "A case omitted is to be held as intentionally omitted.", origin: "Interpretation", usage: "Legislative Intent", case: "Judicial Restraint", details: "Courts should not supply gaps in legislation." },
+            { title: "Ejusdem generis", meaning: "Of the same kind.", origin: "Interpretation", usage: "Classifying Words", case: "Statutory Analysis", details: "General words following specific words are limited to the same category." },
+            { title: "Noscitur a sociis", meaning: "It is known by its associates.", origin: "Linguistics", usage: "Contextual Meaning", case: "Interpretation of Statutes", details: "The meaning of an unclear word is determined by the words surrounding it." },
+            { title: "Lex non cogit ad impossibilia", meaning: "The law does not compel a man to do that which he cannot possibly perform.", origin: "Common Law", usage: "Excusing Performance", case: "Contractual Impossibility", details: "Legal obligations are discharged if performance is physically impossible." },
+            { title: "Lex fori", meaning: "The law of the forum.", origin: "Private International Law", usage: "Procedural Law", case: "Jurisdiction", details: "The law of the court in which the action is brought governs the procedure." },
+            { title: "Lex posterior derogat priori", meaning: "A later law repeals an earlier one.", origin: "Legislative Authority", usage: "Conflict of Statutes", case: "Implied Repeal", details: "Newer legislation takes precedence over older conflicting laws." },
+            { title: "Lex specialis derogat legi generali", meaning: "Special law repeals general law.", origin: "Interpretation", usage: "Statutory Priority", case: "Conflict of Laws", details: "A specific law overrides a general law when they conflict." },
+            { title: "Pacta sunt servanda", meaning: "Agreements must be kept.", origin: "International Law", usage: "Treaty/Contract Law", case: "Vienna Convention", details: "Fundamental principle that signed agreements are binding." },
+            { title: "Qui facit per alium facit per se", meaning: "He who acts through another acts himself.", origin: "Law of Agency", usage: "Vicarious Liability", case: "Master-Servant Relationship", details: "An employer is responsible for the acts of their agent or employee." },
+            { title: "Acta exteriora indicant interiora secreta", meaning: "Outward acts indicate inward secrets.", origin: "Evidence", usage: "Inferring Intent", case: "Criminal Intent", details: "A person's intention is inferred from their visible actions." },
+            { title: "Vigilantibus non dormientibus jura subveniunt", meaning: "The law assists those who are vigilant, not those who sleep over their rights.", origin: "Limitation Law", usage: "Laches/Delay", case: "Statute of Limitations", details: "Legal rights must be enforced within a reasonable or prescribed time." },
+            { title: "Nemo debet bis vexari pro una et eadem causa", meaning: "No man should be punished twice for the same cause.", origin: "Criminal Procedure", usage: "Double Jeopardy", case: "Article 20(2) Constitution", details: "Prevents multiple trials/punishments for the same offense." },
+            { title: "Interest reipublicae ut sit finis litium", meaning: "It is in the interest of the state that there be an end to litigation.", origin: "Public Policy", usage: "Finality of Judgments", case: "Res Judicata principle", details: "Legal disputes must eventually reach a final and binding conclusion." },
+            { title: "Ab initio", meaning: "From the beginning.", origin: "General Legal term", usage: "Void Contracts", case: "Mohori Bibee v. Dharmodas Ghose", details: "Used to describe something that was invalid or effective from the very start." },
+            { title: "Bona fide", meaning: "In good faith.", origin: "Civil Law", usage: "Trust/Contracts", case: "Good Faith Purchase", details: "Actions done honestly without intention to deceive." },
+            { title: "Mala fide", meaning: "In bad faith.", origin: "Civil/Administrative Law", usage: "Abuse of Power", case: "Quashing of Orders", details: "Actions carried out with intent to deceive or with malicious intent." }
         ];
 
         function renderMaxims(data) {
@@ -232,7 +226,6 @@
             setTimeout(() => { modal.classList.add('active'); }, 10);
             document.body.style.overflow = 'hidden';
 
-            // Push state for back button handling
             window.history.pushState({ modalOpen: true }, "");
         }
 
@@ -249,7 +242,6 @@
             }
         }
 
-        // Handle Back Button
         window.onpopstate = function(event) {
             const modal = document.getElementById('detailsModal');
             if (!modal.classList.contains('hidden')) {
@@ -282,7 +274,6 @@
             renderMaxims(filtered);
         });
 
-        // Copy-Paste & Right Click Protection
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.addEventListener('keydown', e => {
             if (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'i')) e.preventDefault();
