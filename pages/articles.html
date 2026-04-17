@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Academic Hub | Law Journal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; background: #fcfdfe; color: #1e293b; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+        .glossy-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            border-radius: 32px;
+            margin-bottom: 24px;
+        }
+        .btn-read {
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            color: white; padding: 12px; border-radius: 16px;
+            font-size: 11px; font-weight: 900; text-transform: uppercase;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+            display: block; text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-[#fcfdfe]">
+
+    <nav class="sticky top-0 z-50 glass-nav px-5 py-4 flex items-center gap-4">
+        <a href="../index.html" class="p-2 bg-white border border-gray-100 rounded-xl"><i class="fa-solid fa-chevron-left"></i></a>
+        <h1 class="font-black text-gray-800 text-lg">Academic <span class="text-blue-600">Hub</span></h1>
+    </nav>
+
+    <main class="px-6 py-8">
+        <header class="mb-10">
+            <h2 class="text-3xl font-serif font-bold text-gray-900 leading-tight">Featured <br><span class="text-blue-600">Articles</span></h2>
+        </header>
+
+        <div class="space-y-6">
+            
+            <div class="glossy-card p-6 border-b-4 border-blue-500">
+                <div class="flex items-center gap-4 mb-6">
+                    <img src="https://ui-avatars.com/api/?name=Arjun+S&background=0D8ABC&color=fff" class="w-14 h-14 rounded-2xl border-2 border-white shadow-md">
+                    <div>
+                        <h4 class="font-black text-gray-800 text-base">Arjun Sharma <i class="fa-solid fa-circle-check text-blue-500 text-[10px] ml-1"></i></h4>
+                        <p class="text-[9px] text-gray-400 font-bold uppercase">NLU Delhi | University Name</p>
+                    </div>
+                </div>
+                <div class="bg-white/60 rounded-2xl p-4 border border-white mb-6">
+                    <h5 class="text-sm font-black text-gray-800 mb-2 uppercase">The Digital Personal Data Protection Act</h5>
+                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2 italic">Detailed analysis of privacy regulations and corporate compliance in India...</p>
+                </div>
+                <a href="read/arjun-article.html" class="btn-read">Read Full Article <i class="fa-solid fa-arrow-right ml-2"></i></a>
+            </div>
+
+            <div class="glossy-card p-6 border-b-4 border-indigo-500">
+                <div class="flex items-center gap-4 mb-6">
+                    <img src="https://ui-avatars.com/api/?name=Sneha+K&background=4F46E5&color=fff" class="w-14 h-14 rounded-2xl border-2 border-white shadow-md">
+                    <div>
+                        <h4 class="font-black text-gray-800 text-base">Sneha Kapoor <i class="fa-solid fa-circle-check text-blue-500 text-[10px] ml-1"></i></h4>
+                        <p class="text-[9px] text-gray-400 font-bold uppercase">GLC Mumbai | University Name</p>
+                    </div>
+                </div>
+                <div class="bg-white/60 rounded-2xl p-4 border border-white mb-6">
+                    <h5 class="text-sm font-black text-gray-800 mb-2 uppercase">BNS Procedure Analysis</h5>
+                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2 italic">Understanding the new criminal procedure codes and their impact...</p>
+                </div>
+                <a href="read/sneha-article.html" class="btn-read">Read Full Article <i class="fa-solid fa-arrow-right ml-2"></i></a>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+</body>
+</html>
