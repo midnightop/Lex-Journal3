@@ -129,24 +129,9 @@
         .sk-item { background: #f1f5f9; border-radius: 15px; animation: pulse 1.5s infinite; }
         @keyframes pulse { 50% { opacity: 0.5; } }
 
-        .audio-btn {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 2px 8px;
-            border-radius: 8px;
-            font-size: 10px;
-            cursor: pointer;
-            margin-left: 8px;
-        }
-
-        /* NEW: Custom Scrollbar for horizontal cards */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+        /* Custom Scroll Style for Horizontal Cards */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body>
@@ -181,138 +166,115 @@
             </div>
         </header>
 
-        <section class="py-8 reveal">
-            <div class="px-6 mb-6">
-                <h3 class="text-2xl font-black text-gray-800 uppercase tracking-tighter">Student Insights</h3>
-                <p class="text-[10px] font-bold text-indigo-500 uppercase tracking-widest">Global Contributions</p>
+        <section class="reveal">
+            <div class="px-8 flex justify-between items-end mb-6">
+                <div>
+                    <h3 class="text-2xl font-black text-gray-800 uppercase tracking-tighter">Top Articles</h3>
+                    <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">Student Contributions</p>
+                </div>
+                <div class="flex gap-2">
+                    <div class="w-2 h-2 rounded-full bg-blue-600"></div>
+                    <div class="w-2 h-2 rounded-full bg-gray-200"></div>
+                </div>
             </div>
 
-            <div class="flex overflow-x-auto gap-6 px-6 pb-6 no-scrollbar snap-x">
+            <div class="flex overflow-x-auto gap-6 px-8 pb-10 no-scrollbar snap-x snap-mandatory">
                 
-                <div class="min-w-[85vw] md:min-w-[400px] snap-center glossy-card p-6 flex flex-col justify-between">
-                    <div>
+                <div class="min-w-[85vw] md:min-w-[400px] snap-center">
+                    <div class="glossy-card p-6 border-b-4 border-blue-500 bg-white/80">
                         <div class="flex items-center gap-4 mb-6">
                             <div class="relative">
-                                <img src="https://ui-avatars.com/api/?name=Arjun+Sharma&background=0D8ABC&color=fff" class="w-16 h-16 rounded-2xl border-2 border-white shadow-lg">
-                                <div class="absolute -bottom-1 -right-1 bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center border-2 border-white text-[10px]">
+                                <img src="https://ui-avatars.com/api/?name=Arjun+S&background=0D8ABC&color=fff" class="w-14 h-14 rounded-2xl shadow-lg border-2 border-white">
+                                <div class="absolute -bottom-1 -right-1 bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center border-2 border-white text-[8px]">
                                     <i class="fa-solid fa-check"></i>
                                 </div>
                             </div>
                             <div>
-                                <h4 class="font-black text-gray-800 text-lg leading-tight">Arjun Sharma</h4>
-                                <p class="text-[9px] text-gray-400 font-bold uppercase tracking-tighter">National Law University | Delhi</p>
-                                <p class="text-[8px] text-blue-500 font-black uppercase mt-1">Specialization: Constitutional Law</p>
+                                <h4 class="font-black text-gray-800 text-base">Arjun Sharma</h4>
+                                <p class="text-[9px] text-gray-500 font-bold uppercase">National Law University | Delhi</p>
+                                <p class="text-[8px] text-blue-500 font-black uppercase tracking-tighter mt-1 px-2 py-0.5 bg-blue-50 rounded-full inline-block">5th Year Student</p>
                             </div>
                         </div>
 
-                        <div class="bg-white/40 border border-white/60 p-4 rounded-2xl shadow-inner">
-                            <h5 class="text-xs font-black text-gray-700 uppercase mb-2">Digital Privacy 2024</h5>
-                            <p class="text-[11px] text-gray-500 leading-relaxed italic line-clamp-2">"The evolution of privacy laws in India has taken a massive turn with the 2023 Act..."</p>
-                            <a href="#" class="inline-block mt-3 text-[9px] font-black text-blue-600 uppercase border-b border-blue-600">Read Full Article</a>
+                        <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 group active:scale-95 transition-transform">
+                            <h5 class="text-xs font-black text-gray-800 mb-2 uppercase">The Digital Personal Data Protection Act</h5>
+                            <p class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 italic">An in-depth analysis of how India's new data laws will impact social media privacy and corporate compliance...</p>
+                            <div class="mt-3 flex justify-between items-center">
+                                <span class="text-[9px] font-black text-blue-600">READ ARTICLE <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                                <span class="text-[8px] text-gray-300">4 min read</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="min-w-[85vw] md:min-w-[400px] snap-center glossy-card p-6 flex flex-col justify-between">
-                    <div>
+                <div class="min-w-[85vw] md:min-w-[400px] snap-center">
+                    <div class="glossy-card p-6 border-b-4 border-indigo-500 bg-white/80">
                         <div class="flex items-center gap-4 mb-6">
                             <div class="relative">
-                                <img src="https://ui-avatars.com/api/?name=Ishita+Roy&background=4F46E5&color=fff" class="w-16 h-16 rounded-2xl border-2 border-white shadow-lg">
-                                <div class="absolute -bottom-1 -right-1 bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center border-2 border-white text-[10px]">
+                                <img src="https://ui-avatars.com/api/?name=Sneha+K&background=4F46E5&color=fff" class="w-14 h-14 rounded-2xl shadow-lg border-2 border-white">
+                                <div class="absolute -bottom-1 -right-1 bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center border-2 border-white text-[8px]">
                                     <i class="fa-solid fa-check"></i>
                                 </div>
                             </div>
                             <div>
-                                <h4 class="font-black text-gray-800 text-lg leading-tight">Ishita Roy</h4>
-                                <p class="text-[9px] text-gray-400 font-bold uppercase tracking-tighter">Amity Law School | Kolkata</p>
-                                <p class="text-[8px] text-blue-500 font-black uppercase mt-1">Specialization: Criminal Reform</p>
+                                <h4 class="font-black text-gray-800 text-base">Sneha Kapoor</h4>
+                                <p class="text-[9px] text-gray-500 font-bold uppercase">GLC | Mumbai</p>
+                                <p class="text-[8px] text-indigo-500 font-black uppercase tracking-tighter mt-1 px-2 py-0.5 bg-indigo-50 rounded-full inline-block">Research Scholar</p>
                             </div>
                         </div>
 
-                        <div class="bg-white/40 border border-white/60 p-4 rounded-2xl shadow-inner">
-                            <h5 class="text-xs font-black text-gray-700 uppercase mb-2">Marital Rape Debate</h5>
-                            <p class="text-[11px] text-gray-500 leading-relaxed italic line-clamp-2">"A deep dive into the constitutional validity of Exception 2 to Section 375..."</p>
-                            <a href="#" class="inline-block mt-3 text-[9px] font-black text-blue-600 uppercase border-b border-blue-600">Read Full Article</a>
+                        <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 group active:scale-95 transition-transform">
+                            <h5 class="text-xs font-black text-gray-800 mb-2 uppercase">BNS vs IPC: The Murder Trial Shift</h5>
+                            <p class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 italic">Exploring the procedural changes in homicide trials under the newly implemented Bharatiya Nyaya Sanhita...</p>
+                            <div class="mt-3 flex justify-between items-center">
+                                <span class="text-[9px] font-black text-indigo-600">READ ARTICLE <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                                <span class="text-[8px] text-gray-300">6 min read</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
             </div>
         </section>
+
         <section class="px-6 py-10 reveal">
             <div class="research-gloss p-8 shadow-2xl text-white">
-                <div class="stat-tag text-blue-600">Active Lab</div>
+                <div class="stat-tag text-blue-600">3 Papers</div>
                 <div class="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 border border-white/20">
                     <i class="fa-solid fa-atom text-blue-400 text-2xl"></i>
                 </div>
-                <h2 class="text-3xl font-black mb-6 tracking-tighter uppercase">Research Wing</h2>
-                
-                <div class="space-y-6">
-                    <div class="bg-white/5 p-4 rounded-2xl border border-white/10">
-                        <h4 class="text-blue-400 font-bold text-xs uppercase mb-2">01. BNS vs IPC Integration</h4>
-                        <p class="text-xs opacity-80 leading-relaxed">Detailed comparative analysis showing the transition from colonial IPC to Bhartiya Nyaya Sanhita. Example: Section 302 IPC (Murder) is now Section 101 BNS.</p>
-                    </div>
-
-                    <div class="bg-white/5 p-4 rounded-2xl border border-white/10">
-                        <h4 class="text-blue-400 font-bold text-xs uppercase mb-2 flex items-center">
-                            02. Legal Maxims 
-                            <button onclick="speakMaxims()" class="audio-btn"><i class="fa-solid fa-volume-high"></i> Listen</button>
-                        </h4>
-                        <p id="maxim-text" class="text-xs opacity-80 leading-relaxed italic">"Ignorantia juris non excusat" (Ignorance of law is no excuse) & "Ubi jus ibi remedium" (Where there is a right, there is a remedy).</p>
-                    </div>
-
-                    <div class="bg-white/5 p-4 rounded-2xl border border-white/10">
-                        <h4 class="text-blue-400 font-bold text-xs uppercase mb-2">03. Writ Petitions & Case Laws</h4>
-                        <p class="text-xs opacity-80 leading-relaxed">Understanding Article 32 & 226. Briefly explaining Mandamus, Habeas Corpus etc., with landmark references like <span class="italic text-white">ADM Jabalpur v. Shivkant Shukla.</span></p>
-                    </div>
+                <h2 class="text-3xl font-black mb-4 tracking-tighter uppercase">Research</h2>
+                <div class="text-sm opacity-80 leading-relaxed font-medium space-y-4">
+                    <p>Legal research is the systematic dissection of the "why" behind the law. At Calcutta Law Journal, our research wing goes beyond summaries; we analyze the evolving legal landscape especially the critical transition from IPC/CrPC to BNS.</p>
+                    <p>We provide high quality thesis summaries and academic papers to help students develop the sharp thinking required for High Courts and the Supreme Court. At Lawjournal.online, we uncover the intent of the legislature to ensure that justice is found within the law.</p>
                 </div>
-
                 <a href="research.html" class="mt-8 block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px] active:scale-95 transition shadow-lg">Enter Research Lab</a>
             </div>
         </section>
 
-        <section class="px-6 py-8 reveal">
-            <div class="flex items-center justify-between mb-6 px-2">
-                <h3 class="text-2xl font-black text-gray-800 uppercase tracking-tighter">Featured Articles</h3>
-                <span class="text-[10px] font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full uppercase">Recent</span>
-            </div>
-            
-            <div class="space-y-6">
-                <div class="glossy-card p-6 border-b-4 border-blue-500">
-                    <h4 class="text-lg font-black text-gray-800 leading-tight mb-3">The Digital Personal Data Protection Act: A New Era</h4>
-                    <p class="text-gray-500 text-xs leading-relaxed mb-6 line-clamp-3">The evolution of privacy laws in India has taken a massive turn with the 2023 Act. Understanding how your data is now a protected asset...</p>
-                    
-                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
-                        <img src="https://ui-avatars.com/api/?name=Arjun+Sharma&background=0D8ABC&color=fff" class="w-10 h-10 rounded-full border-2 border-white shadow-md">
-                        <div>
-                            <div class="flex items-center gap-1">
-                                <span class="text-xs font-black text-gray-800">Arjun Sharma</span>
-                                <i class="fa-solid fa-circle-check text-blue-500 text-[10px]"></i>
-                            </div>
-                            <p class="text-[8px] text-gray-400 font-bold uppercase">National Law University, Delhi</p>
-                        </div>
-                    </div>
+        <section class="px-6 py-8 space-y-8">
+            <div class="glossy-card p-8 reveal">
+                <div class="stat-tag text-blue-600">10+ Acts</div>
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600"><i class="fa-solid fa-scroll"></i></div>
+                    <h3 class="text-blue-600 font-black text-lg uppercase">The Bare Act Foundation</h3>
                 </div>
-
-                <div class="glossy-card p-6 border-b-4 border-indigo-500">
-                    <h4 class="text-lg font-black text-gray-800 leading-tight mb-3">Marital Rape: The Legal Lacuna in India</h4>
-                    <p class="text-gray-500 text-xs leading-relaxed mb-6 line-clamp-3">A deep dive into the constitutional validity of Exception 2 to Section 375 and the ongoing judicial debate in the High Courts...</p>
-                    
-                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
-                        <img src="https://ui-avatars.com/api/?name=Ishita+Roy&background=4F46E5&color=fff" class="w-10 h-10 rounded-full border-2 border-white shadow-md">
-                        <div>
-                            <div class="flex items-center gap-1">
-                                <span class="text-xs font-black text-gray-800">Ishita Roy</span>
-                                <i class="fa-solid fa-circle-check text-blue-500 text-[10px]"></i>
-                            </div>
-                            <p class="text-[8px] text-gray-400 font-bold uppercase">Amity Law School</p>
-                        </div>
-                    </div>
-                </div>
+                <p class="text-gray-600 text-sm leading-relaxed text-justify">
+                    A Bare Act is the rawest form of legislation, passed by Parliament. It is the skeletal structure of our democracy. For a law student, the Bare Act is the ultimate source of truth. mastering the language of sections, clauses, and provisos is essential for drafting, litigation, and competitive exams. lawjournal.online simplifies these acts without diluting their legal essence.
+                </p>
             </div>
-        </section>
 
-        <section class="px-6 py-8">
+            <div class="glossy-card p-8 reveal">
+                <div class="stat-tag text-pink-600">30+ Cases</div>
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-10 h-10 bg-pink-50 rounded-xl flex items-center justify-center text-pink-600"><i class="fa-solid fa-gavel"></i></div>
+                    <h3 class="text-pink-600 font-black text-lg uppercase">Landmark Case Laws</h3>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed text-justify">
+                    If Bare Acts are the skeleton, Case Laws are the flesh and blood. Precedents are binding in India, and landmark judgments show how judges breathe life into statutes to protect human souls. Studying cases like Kesavananda Bharati teaches students the "Art of Argument." It shows how a lawyer can take a single sentence from the Constitution and turn it into a shield for millions.
+                </p>
+            </div>
+
             <div class="glossy-card p-8 reveal border-l-4 border-indigo-600 bg-gradient-to-br from-indigo-50/50 to-white/80">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center text-white shadow-lg">
@@ -356,7 +318,7 @@
                 <p class="text-blue-500 font-black uppercase text-[10px] mt-1 tracking-widest">Law Student</p>
                 <p class="text-gray-400 font-bold text-[8px] mt-1 uppercase leading-tight">Surendranath Law College | University of Calcutta</p>
                 <p class="mt-8 text-gray-600 italic leading-relaxed font-serif text-lg">
-                    "deconstruct the complexities of Indian jurisprudence to bridge the gap between colonial era legislation and modern digital laws."
+                    "deconstruct the complexities of Indian jurisprudence to bridge the gap between colonial era legislation and modern digital laws. we simplify our legal DNA to prove that legal literacy is the most powerful tool for justice."
                 </p>
             </div>
         </section>
@@ -367,14 +329,6 @@
     </footer>
 
     <script>
-        function speakMaxims() {
-            const text = document.getElementById('maxim-text').innerText;
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.rate = 0.9;
-            utterance.pitch = 1;
-            window.speechSynthesis.speak(utterance);
-        }
-
         const hideSkeleton = () => {
             const sk = document.getElementById('skeleton-screen');
             if(sk) {
@@ -386,6 +340,13 @@
 
         window.addEventListener('load', hideSkeleton);
 
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                document.body.classList.remove('page-fade-out');
+                hideSkeleton();
+            }
+        });
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
@@ -393,6 +354,17 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && href !== '#' && !href.startsWith('http') && !href.startsWith('mailto')) {
+                    e.preventDefault();
+                    document.body.classList.add('page-fade-out');
+                    setTimeout(() => { window.location.href = href; }, 200);
+                }
+            });
+        });
 
         document.addEventListener('contextmenu', event => event.preventDefault());
         document.addEventListener('copy', (e) => e.preventDefault());
