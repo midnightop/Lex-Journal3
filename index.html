@@ -59,6 +59,29 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
 
+        .glossy-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            border-radius: 32px;
+            position: relative;
+        }
+
+        .stat-tag {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 9px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
         .research-gloss {
             background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #1e293b);
             background-size: 400% 400%;
@@ -93,18 +116,6 @@
             20%, 100% { transform: translateX(100%) rotate(45deg); }
         }
 
-        /* Article Card Styles */
-        .article-card {
-            background: white;
-            border: 1px solid #eef2f6;
-            border-radius: 24px;
-            padding: 24px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
-            transition: transform 0.3s ease;
-        }
-        .article-card:hover { transform: translateY(-5px); }
-        .verify-badge { color: #3b82f6; font-size: 10px; }
-
         #skeleton-screen {
             position: fixed;
             inset: 0;
@@ -117,6 +128,21 @@
         }
         .sk-item { background: #f1f5f9; border-radius: 15px; animation: pulse 1.5s infinite; }
         @keyframes pulse { 50% { opacity: 0.5; } }
+
+        /* Custom Audio Button Style */
+        .audio-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-size: 10px;
+            cursor: pointer;
+            margin-left: 8px;
+        }
+
+        /* Horizontal Scroll Hide Scrollbar */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body>
@@ -142,43 +168,72 @@
             <h1 class="text-5xl font-serif font-bold text-blue-600 leading-tight">Calcutta</h1>
             <h1 class="text-5xl font-serif font-bold text-gray-900 mb-8 leading-tight">Law Journal</h1>
             <p class="text-gray-800 text-xl font-serif italic mb-6">"Honestly? Law is hard. But it doesn't have to be boring."</p>
+            <p class="text-gray-500 text-sm leading-relaxed mb-8 max-w-md mx-auto">
+                Legal language shouldn't be a barrier to justice. We decode the DNA of the Indian legal system, translating complex colonial era jargon into simple, actionable English for every student and citizen.
+            </p>
             <div class="flex flex-col gap-4 max-w-xs mx-auto">
                 <a href="bare-acts.html" class="btn-glossy bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl text-center">Explore Bare Acts</a>
                 <a href="case-laws.html" class="btn-glossy bg-gradient-to-r from-pink-500 to-rose-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl text-center">Read Case Laws</a>
             </div>
         </header>
 
+        <section class="py-8 reveal">
+            <h3 class="px-8 text-xl font-black text-gray-800 uppercase tracking-tighter mb-4">Latest Insights</h3>
+            <div class="flex overflow-x-auto gap-5 px-8 pb-4 no-scrollbar">
+                <a href="articles-list.html" class="min-w-[280px] bg-white border border-gray-100 rounded-[24px] p-5 shadow-sm active:scale-95 transition">
+                    <div class="w-8 h-8 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center mb-4"><i class="fa-solid fa-gavel text-xs"></i></div>
+                    <h4 class="font-bold text-sm text-gray-900 line-clamp-2">BNS 2023: Key procedural changes every student must know.</h4>
+                    <p class="text-[10px] text-gray-400 mt-2">Article by Rey • 2 Min Read</p>
+                </a>
+                <a href="articles-list.html" class="min-w-[280px] bg-white border border-gray-100 rounded-[24px] p-5 shadow-sm active:scale-95 transition">
+                    <div class="w-8 h-8 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center mb-4"><i class="fa-solid fa-scroll text-xs"></i></div>
+                    <h4 class="font-bold text-sm text-gray-900 line-clamp-2">The Doctrine of Basic Structure: 50 Years later.</h4>
+                    <p class="text-[10px] text-gray-400 mt-2">Article by Ishita • 5 Min Read</p>
+                </a>
+                <a href="articles-list.html" class="min-w-[280px] bg-white border border-gray-100 rounded-[24px] p-5 shadow-sm active:scale-95 transition">
+                    <div class="w-8 h-8 bg-pink-50 text-pink-600 rounded-lg flex items-center justify-center mb-4"><i class="fa-solid fa-scale-unbalanced text-xs"></i></div>
+                    <h4 class="font-bold text-sm text-gray-900 line-clamp-2">Cyber Laws: Navigating the IT Act in 2026.</h4>
+                    <p class="text-[10px] text-gray-400 mt-2">Article by Arjun • 4 Min Read</p>
+                </a>
+            </div>
+            <div class="px-8 mt-2">
+                <a href="articles-list.html" class="block glossy-card p-4 border border-blue-100/50 bg-blue-50/20 active:scale-[0.98] transition">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h5 class="text-[10px] font-black text-blue-600 uppercase">Article Archive</h5>
+                            <p class="text-xs text-gray-500 font-medium">Browse through our curated collection of legal research and blogs.</p>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-blue-600"></i>
+                    </div>
+                </a>
+            </div>
+        </section>
+
         <section class="px-6 py-10 reveal">
             <div class="research-gloss p-8 shadow-2xl text-white">
+                <div class="stat-tag text-blue-600">Active Lab</div>
                 <div class="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 border border-white/20">
                     <i class="fa-solid fa-atom text-blue-400 text-2xl"></i>
                 </div>
                 <h2 class="text-3xl font-black mb-6 tracking-tighter uppercase">Research Wing</h2>
                 
                 <div class="space-y-6">
-                    <div class="flex gap-4">
-                        <div class="text-blue-400 font-black text-xl">01</div>
-                        <div>
-                            <h4 class="font-bold text-lg leading-tight uppercase">BNS vs IPC</h4>
-                            <p class="text-xs opacity-70 mt-1">Detailed comparison of colonial laws vs Bharatiya Nyaya Sanhita with old/new section mapping.</p>
-                        </div>
+                    <div class="bg-white/5 p-4 rounded-2xl border border-white/10">
+                        <h4 class="text-blue-400 font-bold text-xs uppercase mb-2">01. BNS vs IPC Integration</h4>
+                        <p class="text-xs opacity-80 leading-relaxed">Detailed comparative analysis showing the transition from colonial IPC to Bhartiya Nyaya Sanhita. Example: Section 302 IPC (Murder) is now Section 101 BNS.</p>
                     </div>
-                    <div class="flex gap-4">
-                        <div class="text-blue-400 font-black text-xl">02</div>
-                        <div class="flex-1">
-                            <h4 class="font-bold text-lg leading-tight uppercase flex items-center gap-2">
-                                Legal Maxims 
-                                <button onclick="speakMaxims()" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-[10px]"><i class="fa-solid fa-volume-high"></i></button>
-                            </h4>
-                            <p class="text-xs opacity-70 mt-1">Essential Latin maxims simplified with pronunciation and practical usage in courts.</p>
-                        </div>
+
+                    <div class="bg-white/5 p-4 rounded-2xl border border-white/10">
+                        <h4 class="text-blue-400 font-bold text-xs uppercase mb-2 flex items-center">
+                            02. Legal Maxims 
+                            <button onclick="speakMaxims()" class="audio-btn"><i class="fa-solid fa-volume-high"></i> Listen</button>
+                        </h4>
+                        <p id="maxim-text" class="text-xs opacity-80 leading-relaxed italic">"Ignorantia juris non excusat" (Ignorance of law is no excuse) & "Ubi jus ibi remedium" (Where there is a right, there is a remedy).</p>
                     </div>
-                    <div class="flex gap-4">
-                        <div class="text-blue-400 font-black text-xl">03</div>
-                        <div>
-                            <h4 class="font-bold text-lg leading-tight uppercase">Writ Petitions</h4>
-                            <p class="text-xs opacity-70 mt-1">Brief explanation of Article 32 & 226 with landmark case laws like Habeas Corpus cases.</p>
-                        </div>
+
+                    <div class="bg-white/5 p-4 rounded-2xl border border-white/10">
+                        <h4 class="text-blue-400 font-bold text-xs uppercase mb-2">03. Writ Petitions & Case Laws</h4>
+                        <p class="text-xs opacity-80 leading-relaxed">Understanding Article 32 & 226. Briefly explaining Mandamus, Habeas Corpus etc., with landmark references like <span class="italic text-white">ADM Jabalpur v. Shivkant Shukla.</span></p>
                     </div>
                 </div>
 
@@ -186,44 +241,44 @@
             </div>
         </section>
 
-        <section class="px-6 py-8">
-            <h3 class="text-2xl font-black text-gray-800 mb-6 px-2 uppercase tracking-tighter">Featured Articles</h3>
+        <section class="px-6 py-8 reveal">
+            <div class="flex items-center justify-between mb-6 px-2">
+                <h3 class="text-2xl font-black text-gray-800 uppercase tracking-tighter">Featured Articles</h3>
+                <span class="text-[10px] font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full uppercase">Recent</span>
+            </div>
+            
             <div class="space-y-6">
-                
-                <div class="article-card reveal">
-                    <h2 class="text-xl font-bold text-gray-900 leading-tight mb-3">Evolution of Privacy as a Fundamental Right</h2>
-                    <p class="text-gray-500 text-sm line-clamp-2 mb-6">The journey from M.P. Sharma to Justice K.S. Puttaswamy (Retd.) vs Union of India has redefined the scope of Article 21...</p>
+                <div class="glossy-card p-6 border-b-4 border-blue-500">
+                    <h4 class="text-lg font-black text-gray-800 leading-tight mb-3">The Digital Personal Data Protection Act: A New Era</h4>
+                    <p class="text-gray-500 text-xs leading-relaxed mb-6 line-clamp-3">The evolution of privacy laws in India has taken a massive turn with the 2023 Act. Understanding how your data is now a protected asset...</p>
                     
-                    <div class="flex items-center gap-3 border-t pt-4">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" class="w-10 h-10 rounded-full bg-blue-50" alt="Author">
-                        <div class="flex-1">
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                        <img src="https://ui-avatars.com/api/?name=Arjun+Sharma&background=0D8ABC&color=fff" class="w-10 h-10 rounded-full border-2 border-white shadow-md">
+                        <div>
                             <div class="flex items-center gap-1">
-                                <span class="font-black text-xs text-gray-800">Adv. Rohan Das</span>
-                                <i class="fa-solid fa-circle-check verify-badge"></i>
+                                <span class="text-xs font-black text-gray-800">Arjun Sharma</span>
+                                <i class="fa-solid fa-circle-check text-blue-500 text-[10px]"></i>
                             </div>
-                            <p class="text-[9px] text-gray-400 font-bold uppercase">Calcutta University</p>
+                            <p class="text-[8px] text-gray-400 font-bold uppercase">National Law University, Delhi</p>
                         </div>
-                        <a href="article1.html" class="bg-gray-900 text-white px-4 py-2 rounded-lg text-[10px] font-black uppercase">Read More</a>
                     </div>
                 </div>
 
-                <div class="article-card reveal">
-                    <h2 class="text-xl font-bold text-gray-900 leading-tight mb-3">The Impact of Digital Personal Data Protection Act</h2>
-                    <p class="text-gray-500 text-sm line-clamp-2 mb-6">How the new DPDP Act 2023 will change the landscape of corporate compliance and individual data sovereignty in India...</p>
+                <div class="glossy-card p-6 border-b-4 border-indigo-500">
+                    <h4 class="text-lg font-black text-gray-800 leading-tight mb-3">Marital Rape: The Legal Lacuna in India</h4>
+                    <p class="text-gray-500 text-xs leading-relaxed mb-6 line-clamp-3">A deep dive into the constitutional validity of Exception 2 to Section 375 and the ongoing judicial debate in the High Courts...</p>
                     
-                    <div class="flex items-center gap-3 border-t pt-4">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aria" class="w-10 h-10 rounded-full bg-blue-50" alt="Author">
-                        <div class="flex-1">
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                        <img src="https://ui-avatars.com/api/?name=Ishita+Roy&background=4F46E5&color=fff" class="w-10 h-10 rounded-full border-2 border-white shadow-md">
+                        <div>
                             <div class="flex items-center gap-1">
-                                <span class="font-black text-xs text-gray-800">Isha Sharma</span>
-                                <i class="fa-solid fa-circle-check verify-badge"></i>
+                                <span class="text-xs font-black text-gray-800">Ishita Roy</span>
+                                <i class="fa-solid fa-circle-check text-blue-500 text-[10px]"></i>
                             </div>
-                            <p class="text-[9px] text-gray-400 font-bold uppercase">Surendranath Law College</p>
+                            <p class="text-[8px] text-gray-400 font-bold uppercase">Amity Law School</p>
                         </div>
-                        <a href="article2.html" class="bg-gray-900 text-white px-4 py-2 rounded-lg text-[10px] font-black uppercase">Read More</a>
                     </div>
                 </div>
-
             </div>
         </section>
 
@@ -239,7 +294,7 @@
                     </div>
                 </div>
 
-                <p class="text-gray-700 font-semibold text-sm leading-relaxed mb-6">Join us to share your insights and contribute to the legal community.</p>
+                <p class="text-gray-700 font-semibold text-sm leading-relaxed mb-6">This is an open platform for your research, blogs in the legal field. Join us to share your insights and contribute to the legal community.</p>
 
                 <div class="grid grid-cols-1 gap-3 mb-8">
                     <div class="flex items-center gap-3 bg-white/60 p-3 rounded-xl border border-indigo-100">
@@ -250,6 +305,10 @@
                         <i class="fa-solid fa-file-pdf text-red-500 text-xs"></i>
                         <span class="text-[10px] font-black text-gray-600 uppercase tracking-tighter">Format: PDF only</span>
                     </div>
+                    <div class="flex items-center gap-3 bg-white/60 p-3 rounded-xl border border-indigo-100">
+                        <i class="fa-solid fa-scale-balanced text-blue-500 text-xs"></i>
+                        <span class="text-[10px] font-black text-gray-600 uppercase tracking-tighter">Topic: Exclusively Legal</span>
+                    </div>
                 </div>
 
                 <a href="mailto:bigdaddymidnightop@gmail.com" class="btn-glossy w-full block text-center py-4 bg-indigo-600 text-white font-black rounded-2xl uppercase text-xs shadow-xl active:scale-95 transition-all">
@@ -258,8 +317,8 @@
             </div>
         </section>
 
-        <section class="px-6 py-10 reveal">
-            <div class="p-10 text-center bg-white rounded-[32px] border border-gray-100 shadow-sm relative">
+        <section class="px-6 py-20 reveal">
+            <div class="glossy-card p-10 text-center bg-white shadow-2xl relative">
                 <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-3xl flex items-center justify-center text-white text-4xl mx-auto mb-6 shadow-xl">
                     <i class="fa-solid fa-graduation-cap"></i>
                 </div>
@@ -267,7 +326,7 @@
                 <p class="text-blue-500 font-black uppercase text-[10px] mt-1 tracking-widest">Law Student</p>
                 <p class="text-gray-400 font-bold text-[8px] mt-1 uppercase leading-tight">Surendranath Law College | University of Calcutta</p>
                 <p class="mt-8 text-gray-600 italic leading-relaxed font-serif text-lg">
-                    "legal literacy is the most powerful tool for justice."
+                    "deconstruct the complexities of Indian jurisprudence to bridge the gap between colonial era legislation and modern digital laws."
                 </p>
             </div>
         </section>
@@ -279,9 +338,10 @@
 
     <script>
         function speakMaxims() {
-            const text = "Essential Legal Maxims: Ignorantia juris non excusat, Res ipsa loquitur, and Audi alteram partem.";
+            const text = document.getElementById('maxim-text').innerText;
             const utterance = new SpeechSynthesisUtterance(text);
             utterance.rate = 0.9;
+            utterance.pitch = 1;
             window.speechSynthesis.speak(utterance);
         }
 
