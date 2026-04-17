@@ -7,47 +7,50 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700;900&display=swap');
         
         /* STRICT ANTI-COPY */
         * { -webkit-user-select: none !important; user-select: none !important; -webkit-touch-callout: none !important; }
 
         body { 
             font-family: 'Inter', sans-serif; 
-            background: #ffffff; 
+            background: #fafafa; /* Softer background for eyes */
             color: #1e293b; 
-            line-height: 1.8;
+            line-height: 1.6; /* Balanced line height */
             scroll-behavior: smooth;
         }
 
         .font-serif { font-family: 'Playfair Display', serif; }
 
         .glass-nav {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
         .content-section {
-            font-size: 17px;
+            font-size: 18px; /* Bigger font for readability */
             color: #334155;
-            text-align: justify;
+            text-align: left; /* Better for mobile reading */
         }
 
         .highlight-box {
-            background: #f1f5f9;
+            background: #ffffff;
             border-radius: 24px;
             padding: 25px;
             margin: 30px 0;
-            border-left: 5px solid #2563eb;
+            border: 1px solid #e2e8f0;
+            border-left: 6px solid #2563eb;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
 
         .author-card {
-            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            background: #ffffff;
             border: 1px solid #e2e8f0;
             border-radius: 30px;
             padding: 25px;
             margin-top: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
         }
 
         .share-fab {
@@ -73,10 +76,11 @@
             width: 0%; z-index: 1000;
         }
 
-        h2 { font-weight: 900; color: #0f172a; margin-top: 40px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: -0.02em; font-size: 1.25rem; }
-        ul { margin-bottom: 25px; }
-        li { margin-bottom: 15px; position: relative; padding-left: 25px; }
-        li::before { content: '•'; color: #2563eb; font-weight: bold; position: absolute; left: 0; font-size: 20px; }
+        h2 { font-weight: 900; color: #0f172a; margin-top: 45px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.05em; font-size: 1.1rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 8px; display: inline-block; }
+        ul { margin-bottom: 30px; }
+        li { margin-bottom: 20px; position: relative; padding-left: 30px; font-weight: 400; }
+        li::before { content: '→'; color: #2563eb; font-weight: bold; position: absolute; left: 0; }
+        strong { color: #0f172a; font-weight: 700; }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -84,37 +88,37 @@
     <div class="progress-bar" id="readingProgress"></div>
 
     <nav class="sticky top-0 z-50 glass-nav px-6 py-4 flex items-center justify-between">
-        <a href="../articles.html" class="w-10 h-10 flex items-center justify-center bg-slate-50 border border-slate-100 rounded-xl text-slate-800">
+        <a href="../articles.html" class="w-10 h-10 flex items-center justify-center bg-white border border-slate-200 rounded-xl text-slate-800">
             <i class="fa-solid fa-chevron-left"></i>
         </a>
         <div class="text-center">
             <span class="text-[8px] font-black uppercase tracking-[0.3em] text-slate-400 block">Lex Journal</span>
-            <span class="text-[10px] font-bold text-blue-600 uppercase">Academic Hub</span>
+            <span class="text-[10px] font-bold text-blue-600 uppercase">Reader Mode</span>
         </div>
         <div class="w-10"></div>
     </nav>
 
-    <main class="px-6 pt-12 pb-32 max-w-2xl mx-auto">
+    <main class="px-6 pt-10 pb-32 max-w-2xl mx-auto">
         
         <header class="mb-12">
             <h1 class="text-4xl font-serif font-bold text-slate-900 leading-tight mb-8">
                 The Advantages of Using Bare Acts
             </h1>
 
-            <div class="flex items-center gap-4 p-1 bg-slate-50 rounded-full pr-6 border border-slate-100 w-fit">
-                <img src="author1.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Ettisa+Basak&background=2563eb&color=fff'" class="w-12 h-12 rounded-full border-2 border-white shadow-sm object-cover">
+            <div class="flex items-center gap-4 p-1 bg-white rounded-full pr-6 border border-slate-200 w-fit shadow-sm">
+                <img src="author1.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Ettisa+Basak&background=2563eb&color=fff'" class="w-12 h-12 rounded-full border-2 border-white object-cover">
                 <div>
                     <div class="flex items-center gap-1">
                         <h4 class="font-black text-slate-800 text-xs">Ettisa Basak</h4>
                         <i class="fa-solid fa-circle-check text-blue-500 text-[10px]"></i>
                     </div>
-                    <p class="text-[7px] text-slate-400 font-bold uppercase">Sureswar Dutta Law College | University of Calcutta</p>
+                    <p class="text-[8px] text-slate-500 font-bold uppercase">Sureswar Dutta Law College | University of Calcutta</p>
                 </div>
             </div>
         </header>
 
         <div class="content-section">
-            <p class="mb-6 italic text-slate-500">
+            <p class="mb-8 text-lg text-slate-600 font-medium leading-relaxed">
                 The "good sides" of a Bare Act really come down to accuracy and clarity. Because they lack the dense opinions of legal scholars, they offer several practical benefits for anyone working with the law:
             </p>
 
@@ -128,7 +132,7 @@
             </ul>
 
             <div class="highlight-box">
-                <p class="text-slate-700 font-medium">
+                <p class="text-slate-800 font-semibold leading-relaxed">
                     A Bare Act is the most fundamental tool in a legal professional's arsenal. In simple terms, it is the exact text of a law as enacted by the legislature, presented without any interpretation, commentary, or case law. 
                     <br><br>
                     Think of it as the "raw ingredients" of law—just the sections, chapters, and clauses as they appear in the official government gazette.
@@ -148,15 +152,15 @@
             <p class="mb-6">For a student, mastering the Bare Act is the difference between "reading about law" and "practicing law."</p>
 
             <ul>
-                <li><strong>Exam Performance:</strong> Most competitive legal exams (like Judiciary or Bar exams) focus heavily on specific section numbers and technical phrasing found only in Bare Acts.</li>
+                <li><strong>Exam Performance:</strong> Most competitive legal exams focus heavily on specific section numbers and technical phrasing found only in Bare Acts.</li>
                 <li><strong>Developing Precision:</strong> Law is a profession of words. Reading Bare Acts trains a student to pay attention to punctuation, definitions, and the structure of a sentence.</li>
                 <li><strong>Research Skills:</strong> It helps students navigate the legal system. Knowing how to find a "Proviso" or an "Explanation" within a section is a vital skill for drafting and research.</li>
                 <li><strong>Building Arguments:</strong> By knowing the raw text, a student can find "loopholes" or specific exceptions that a summarized textbook might have omitted.</li>
             </ul>
 
-            <div class="bg-blue-600 text-white p-6 rounded-[30px] shadow-xl shadow-blue-100 mt-10">
-                <h4 class="font-black uppercase text-[10px] mb-2 opacity-80">Pro Tip</h4>
-                <p class="text-sm leading-relaxed font-semibold">
+            <div class="bg-slate-900 text-white p-8 rounded-[30px] shadow-xl mt-10">
+                <h4 class="font-black uppercase text-[10px] mb-3 text-blue-400 tracking-widest">Legal Insight</h4>
+                <p class="text-base leading-relaxed font-medium">
                     "When using a Bare Act, always look for the 'Interpretation Clause' (usually Section 2 or 3). It defines how specific words are used throughout that specific Act, which can often be different from their everyday dictionary meanings."
                 </p>
             </div>
@@ -164,7 +168,7 @@
 
         <div class="author-card">
             <div class="flex items-center gap-4 mb-6">
-                <img src="author1.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Ettisa+Basak&background=2563eb&color=fff'" class="w-16 h-16 rounded-2xl object-cover shadow-lg border-2 border-white">
+                <img src="author1.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Ettisa+Basak&background=2563eb&color=fff'" class="w-16 h-16 rounded-2xl object-cover shadow-md border-2 border-slate-50">
                 <div>
                     <div class="flex items-center gap-1">
                         <h3 class="font-black text-slate-900 text-lg leading-none">Ettisa Basak</h3>
@@ -176,13 +180,13 @@
                 </div>
             </div>
             
-            <p class="text-[13px] text-slate-600 mb-6 leading-relaxed italic">
-                "As a dedicated legal researcher, I believe that justice starts with understanding the literal word of law. My goal is to bridge the gap between complex legislation and student-friendly insights, ensuring that the 'raw ingredients' of our legal system—the Bare Acts—remain accessible and clear for every future legal professional."
+            <p class="text-[14px] text-slate-600 mb-6 leading-relaxed italic">
+                "As a dedicated legal researcher, I believe that justice starts with understanding the literal word of law. My goal is to bridge the gap between complex legislation and student-friendly insights."
             </p>
 
             <div class="flex gap-3">
-                <a href="https://www.instagram.com/ettisaaaaaa" target="_blank" class="flex-1 bg-white border border-slate-200 py-3 rounded-xl text-center text-[10px] font-black uppercase tracking-widest text-pink-600 shadow-sm active:scale-95 transition-all">
-                    <i class="fa-brands fa-instagram mr-2 text-sm"></i> Connect on Instagram
+                <a href="https://www.instagram.com/ettisaaaaaa" target="_blank" class="flex-1 bg-slate-50 border border-slate-200 py-3 rounded-xl text-center text-[10px] font-black uppercase tracking-widest text-pink-600 shadow-sm active:scale-95 transition-all">
+                    <i class="fa-brands fa-instagram mr-2 text-sm"></i> Instagram
                 </a>
             </div>
         </div>
@@ -194,7 +198,6 @@
     </div>
 
     <script>
-        // Reading Progress Logic
         window.onscroll = function() {
             var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -202,7 +205,6 @@
             document.getElementById("readingProgress").style.width = scrolled + "%";
         };
 
-        // Share Functionality
         function toggleShare() {
             if (navigator.share) {
                 navigator.share({
@@ -211,11 +213,10 @@
                 }).catch(console.error);
             } else {
                 navigator.clipboard.writeText(window.location.href);
-                alert('Article Link Copied to Clipboard!');
+                alert('Article Link Copied!');
             }
         }
 
-        // Hard Block Copy/Inspect
         document.onkeydown = function(e) {
             if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 85 || e.keyCode === 73 || e.keyCode === 83)) return false;
             if (event.keyCode == 123) return false;
