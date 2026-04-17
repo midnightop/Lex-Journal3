@@ -7,234 +7,245 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,800&family=Inter:wght@300;400;600;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700;900&display=swap');
         
-        * { -webkit-user-select: none !important; user-select: none !important; box-sizing: border-box; }
+        /* STRICT ANTI-COPY */
+        * { -webkit-user-select: none !important; user-select: none !important; -webkit-touch-callout: none !important; }
 
         body { 
             font-family: 'Inter', sans-serif; 
-            background: #0f172a; /* Deep Dark Theme for contrast */
-            color: #f1f5f9; 
-            line-height: 1.7;
-            overflow-x: hidden;
+            background: #fafafa; /* Paper White */
+            color: #1e293b; 
+            line-height: 1.6; 
+            scroll-behavior: smooth;
         }
 
         .font-serif { font-family: 'Playfair Display', serif; }
 
-        /* Animated Background Mesh */
-        .mesh-bg {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 0% 0%, #1e293b 0%, transparent 50%),
-                        radial-gradient(circle at 100% 100%, #1e1b4b 0%, transparent 50%);
-            z-index: -1;
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        /* High-End Glass Cards */
-        .glass-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 40px;
-            padding: 35px;
-            margin-bottom: 40px;
-            transition: all 0.4s ease;
+        .content-section {
+            font-size: 18px; /* High Readability size */
+            color: #334155;
+            text-align: left;
         }
 
-        .neon-border-blue { border-left: 8px solid #3b82f6; box-shadow: -10px 0 20px -10px rgba(59, 130, 246, 0.5); }
-        .neon-border-purple { border-left: 8px solid #a855f7; box-shadow: -10px 0 20px -10px rgba(168, 85, 247, 0.5); }
-        .neon-border-emerald { border-left: 8px solid #10b981; box-shadow: -10px 0 20px -10px rgba(16, 185, 129, 0.5); }
+        .graphic-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid #e2e8f0;
+            border-left: 6px solid #0f172a;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
 
-        /* Floating Icon Style */
-        .icon-sphere {
-            width: 60px; height: 60px;
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        .author-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 30px;
+            padding: 25px;
+            margin-top: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+
+        .share-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 25px;
+            background: #0f172a;
+            color: white;
+            width: 56px;
+            height: 56px;
             border-radius: 20px;
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
-            transform: rotate(-10deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.3);
+            z-index: 100;
         }
 
-        /* Timeline Roadmap */
-        .roadmap-item {
-            position: relative;
-            padding-left: 50px;
-            padding-bottom: 40px;
-            border-left: 2px dashed rgba(255,255,255,0.2);
+        .progress-bar {
+            position: fixed;
+            top: 0; left: 0; height: 4px;
+            background: #2563eb;
+            width: 0%; z-index: 1000;
+        }
+
+        h2 { font-weight: 900; color: #0f172a; margin-top: 45px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.05em; font-size: 1.1rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 8px; display: inline-block; }
+        
+        .timeline-box {
+            border-left: 2px dashed #e2e8f0;
+            padding-left: 20px;
             margin-left: 10px;
         }
-        .roadmap-dot {
-            position: absolute; left: -11px; top: 0;
-            width: 20px; height: 20px; border-radius: 50%;
-            background: #3b82f6; border: 4px solid #0f172a;
-            box-shadow: 0 0 15px #3b82f6;
-        }
 
-        /* Quote Box */
-        .mega-quote {
-            font-size: 24px;
-            font-weight: 800;
-            background: linear-gradient(90deg, #fff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-align: center;
-            margin: 60px 0;
-            padding: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
+        .step { margin-bottom: 25px; position: relative; }
+        .step-icon { position: absolute; left: -31px; top: 0; background: #fafafa; padding: 2px; }
 
-        /* Progress Bar */
-        #scrollProgress {
-            position: fixed; top: 0; left: 0; height: 5px;
-            background: linear-gradient(90deg, #3b82f6, #a855f7);
-            width: 0%; z-index: 2000;
-        }
-
-        /* Author Profile Neon */
-        .neon-profile {
-            background: linear-gradient(145deg, #1e293b, #0f172a);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 45px;
-            padding: 40px;
-            margin-top: 80px;
-            text-align: center;
-        }
-
-        .profile-img {
-            width: 100px; height: 100px; border-radius: 35px;
-            margin: -80px auto 20px; border: 5px solid #0f172a;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            object-cover: cover;
-        }
-
-        h2 { font-weight: 900; font-size: 1.4rem; color: #fff; margin-bottom: 15px; letter-spacing: -0.02em; }
-        p { color: #94a3b8; font-size: 1.05rem; }
+        strong { color: #0f172a; font-weight: 700; }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
 
-    <div id="scrollProgress"></div>
-    <div class="mesh-bg"></div>
+    <div class="progress-bar" id="readingProgress"></div>
 
-    <nav class="sticky top-0 z-50 px-6 py-5 flex items-center justify-between bg-slate-900/50 backdrop-blur-lg">
-        <a href="../articles.html" class="w-12 h-12 flex items-center justify-center bg-slate-800 rounded-2xl text-white">
-            <i class="fa-solid fa-arrow-left"></i>
+    <nav class="sticky top-0 z-50 glass-nav px-6 py-4 flex items-center justify-between">
+        <a href="../articles.html" class="w-10 h-10 flex items-center justify-center bg-white border border-slate-200 rounded-xl text-slate-800">
+            <i class="fa-solid fa-chevron-left"></i>
         </a>
-        <div class="text-right">
-            <span class="block text-[10px] font-black tracking-widest text-blue-500">LEX JOURNAL</span>
-            <span class="text-[12px] font-bold text-slate-400">ARTICLE #02</span>
+        <div class="text-center">
+            <span class="text-[8px] font-black uppercase tracking-[0.3em] text-slate-400 block">Lex Journal</span>
+            <span class="text-[10px] font-bold text-blue-600 uppercase">Reader Mode</span>
         </div>
+        <div class="w-10"></div>
     </nav>
 
-    <main class="px-6 pt-16 pb-32 max-w-3xl mx-auto">
+    <main class="px-6 pt-10 pb-32 max-w-2xl mx-auto">
         
-        <header class="mb-20">
-            <span class="inline-block px-4 py-1 rounded-full bg-blue-500/10 text-blue-400 text-[10px] font-black mb-6 tracking-widest">RESEARCH PAPER</span>
-            <h1 class="text-6xl font-serif font-bold text-white leading-[1.1] mb-10">
-                Why Law is <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Important.</span>
+        <header class="mb-12">
+            <h1 class="text-4xl font-serif font-bold text-slate-900 leading-tight mb-8">
+                Why Law is Important
             </h1>
-            
-            <div class="flex items-center gap-4">
-                <img src="author2.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Rey&background=3b82f6&color=fff'" class="w-14 h-14 rounded-2xl">
+
+            <div class="flex items-center gap-4 p-1 bg-white rounded-full pr-6 border border-slate-200 w-fit shadow-sm">
+                <img src="author2.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Rey&background=0f172a&color=fff'" class="w-12 h-12 rounded-full border-2 border-white object-cover shadow-sm">
                 <div>
-                    <div class="flex items-center gap-2">
-                        <span class="font-bold text-white">Rey</span>
-                        <i class="fa-solid fa-circle-check text-blue-400 text-xs"></i>
+                    <div class="flex items-center gap-1">
+                        <h4 class="font-black text-slate-800 text-xs">Rey</h4>
+                        <i class="fa-solid fa-circle-check text-blue-500 text-[10px]"></i>
                     </div>
-                    <p class="text-[9px] font-black uppercase tracking-tighter text-slate-500">Surendranath Law College</p>
+                    <p class="text-[7px] text-slate-500 font-bold uppercase">Surendranath Law College | University of Calcutta</p>
                 </div>
             </div>
         </header>
 
-        <div class="glass-card neon-border-blue">
-            <div class="icon-sphere"><i class="fa-solid fa-seedling text-white text-2xl"></i></div>
-            <h2>1. Where Law Came From</h2>
-            <p>Law didn’t just appear one day—it grew with human society 🌱. In the beginning, people lived in small groups where customs and traditions decided what was right or wrong. There were no written rules, but everyone followed shared beliefs to maintain peace.</p>
-            <p class="mt-4">As societies became larger, these informal systems were no longer enough. This led to the creation of written laws. Ancient civilizations introduced early legal systems like the 📜 <strong>Code of Hammurabi</strong>, which set out punishments and rules.</p>
-        </div>
-
-        <div class="glass-card neon-border-purple">
-            <div class="icon-sphere" style="background: linear-gradient(135deg, #a855f7, #6b21a8);"><i class="fa-solid fa-shield-halved text-white text-2xl"></i></div>
-            <h2>2. Why Law is Important</h2>
-            <p>Law is important because it keeps society stable 🏛️. Without it, there would be confusion and conflict. It sets boundaries and tells people what they can and cannot do.</p>
-            <p class="mt-4">It also protects individuals by ensuring that their rights are respected 🛡️. Whether it is freedom of speech or property, law gives people a sense of security. It creates a system where wrongdoers can be held accountable ⚖️.</p>
-        </div>
-
-        <div class="mega-quote font-serif">
-            "Law is the thread that weaves justice into the fabric of society."
-        </div>
-
-        <div class="glass-card neon-border-emerald">
-            <div class="icon-sphere" style="background: linear-gradient(135deg, #10b981, #065f46);"><i class="fa-solid fa-briefcase text-white text-2xl"></i></div>
-            <h2>3. How Law Helps</h2>
-            <p>In everyday life, law plays a practical role 💼. It helps resolve disputes—between individuals, companies, or even the government. It promotes equality by treating everyone under the same rules 🚦.</p>
-        </div>
-
-        <div class="glass-card bg-slate-800/40">
-            <h2 class="mb-10 flex items-center gap-3"><i class="fa-solid fa-landmark text-blue-400"></i> History of Indian Laws</h2>
+        <div class="content-section">
             
-            <div class="roadmap-item">
-                <div class="roadmap-dot"></div>
-                <h4 class="text-white font-bold">Ancient Era 🕉️</h4>
-                <p class="text-sm">Laws were based on religious texts like the <strong>Manusmriti</strong>, which guided social behavior.</p>
+            <div class="graphic-card">
+                <h2>1. Where Law Came From</h2>
+                <p class="mb-5">Law didn’t just appear one day—it grew with human society. In the beginning, people lived in small groups where customs and traditions decided what was right or wrong. There were no written rules, but everyone followed shared beliefs to maintain peace 🤝.</p>
+                <p>As societies became larger and more complex, these informal systems were no longer enough. People needed clear rules that applied to everyone. This led to the creation of written laws. Ancient civilizations introduced early legal systems, which set out punishments and rules. Over time, law became more structured and organized 📜.</p>
             </div>
 
-            <div class="roadmap-item">
-                <div class="roadmap-dot" style="background: #a855f7; box-shadow: 0 0 15px #a855f7;"></div>
-                <h4 class="text-white font-bold">Mughal Era 🕌</h4>
-                <p class="text-sm">Islamic law influenced administration and judicial governance.</p>
+            <div class="graphic-card" style="border-left-color: #2563eb;">
+                <h2>2. Why Law is Important</h2>
+                <p class="mb-5">Law is important because it keeps society stable 🏛️. Without it, there would be confusion and conflict, as everyone would act according to their own wishes. Law sets boundaries and tells people what they can and cannot do.</p>
+                <p>It also protects individuals by ensuring that their rights are respected 🛡️. Whether it is freedom of speech, safety, or property, law gives people a sense of security. It creates a system where justice can be delivered, and wrongdoers can be held accountable ⚖️.</p>
             </div>
 
-            <div class="roadmap-item">
-                <div class="roadmap-dot" style="background: #f43f5e; box-shadow: 0 0 15px #f43f5e;"></div>
-                <h4 class="text-white font-bold">British Rule 🇬🇧</h4>
-                <p class="text-sm">Codified laws were introduced. The <strong>Penal Code</strong> still forms the base of our criminal law today.</p>
+            <div class="graphic-card" style="border-left-color: #10b981;">
+                <h2>3. How Law Helps</h2>
+                <p class="mb-5">In everyday life, law plays a very practical role. It helps resolve disputes—whether between individuals, companies, or even the government 💼.</p>
+                <p class="mb-5">For example, if there is a disagreement over money or property, courts and legal systems provide a fair way to settle it ⚖️.</p>
+                <p>Law also promotes equality by treating everyone under the same rules. It regulates business, protects consumers, and ensures public safety. Without law, there would be no proper system to handle conflicts or maintain order 🚦.</p>
             </div>
 
-            <div class="roadmap-item" style="border-left: none;">
-                <div class="roadmap-dot" style="background: #10b981; box-shadow: 0 0 15px #10b981;"></div>
-                <h4 class="text-white font-bold">1947 & Beyond 🇮🇳</h4>
-                <p class="text-sm">India adopted the <strong>Constitution</strong>, the supreme law protecting our democracy.</p>
+            <div class="graphic-card" style="border-left-color: #f59e0b;">
+                <h2>4. History of Indian Laws</h2>
+                <p class="mb-8">India has a rich legal history 🇮🇳. In ancient times, laws were based on religious texts which guided social behavior.</p>
+                
+                <div class="timeline-box">
+                    <div class="step">
+                        <span class="step-icon">🕉️</span>
+                        <p class="text-sm"><strong>Ancient Era:</strong> Laws guided by religious texts and social behavior.</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-icon">🕌</span>
+                        <p class="text-sm"><strong>Mughal Era:</strong> Islamic law influenced administration.</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-icon">🇬🇧</span>
+                        <p class="text-sm"><strong>British Rule:</strong> Introduction of codified laws like the Penal Code.</p>
+                    </div>
+                    <div class="step" style="margin-bottom: 0;">
+                        <span class="step-icon">🇮🇳</span>
+                        <p class="text-sm"><strong>After 1947:</strong> Adoption of the <strong>Constitution</strong>, the highest law.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="graphic-card">
+                <h2>5. How Law Evolved to Today</h2>
+                <p class="mb-5">The legal system in India has continuously evolved. From ancient customs to modern legislation, law has adapted to changing needs of society 🔄.</p>
+                <p>The Constitution plays a central role by guiding the creation of laws and protecting citizens’ rights. Over time, new areas of law have developed, such as environmental law 🌳, cyber law 💻, and human rights law.</p>
+            </div>
+
+            <div class="graphic-card" style="border-left-color: #ef4444;">
+                <h2>6. Why Law is Important Today</h2>
+                <p class="mb-5">Today, law is more important than ever. With increasing population, technology, and globalization, society has become more complex. Law ensures that everything runs smoothly ⚙️.</p>
+                <p>It protects people from injustice, maintains peace, and supports development. Laws related to online safety, privacy, and environmental protection are especially important in today’s world 🛡️.</p>
+            </div>
+
+            <div class="bg-slate-900 text-white p-8 rounded-[30px] shadow-xl mt-10">
+                <h4 class="font-black uppercase text-[10px] mb-3 text-blue-400 tracking-widest text-center">Conclusion</h4>
+                <p class="text-base leading-relaxed font-medium text-center italic">
+                    "Law is not just a set of rules—it is what holds society together. From simple customs to the detailed legal systems we have today, law ensures order and fairness. Without law, society would struggle to function."
+                </p>
             </div>
         </div>
 
-        <div class="glass-card">
-            <div class="icon-sphere" style="background: linear-gradient(135deg, #f59e0b, #b45309);"><i class="fa-solid fa-microchip text-white text-2xl"></i></div>
-            <h2>Modern Evolution</h2>
-            <p>Today, law has adapted to modern challenges like 💻 <strong>Cyber Law</strong>, 🌳 <strong>Environmental Law</strong>, and 📱 <strong>Digital Privacy</strong>. It ensures that in a complex world, peace and development remain steady.</p>
-        </div>
-
-        <div class="neon-profile">
-            <img src="author2.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Rey&background=3b82f6&color=fff'" class="profile-img">
-            <h3 class="text-2xl font-black text-white">Rey</h3>
-            <p class="text-blue-400 text-[10px] font-black uppercase tracking-widest mt-1">Law Student & Researcher</p>
+        <div class="author-card">
+            <div class="flex items-center gap-4 mb-6">
+                <img src="author2.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Rey&background=0f172a&color=fff'" class="w-16 h-16 rounded-2xl object-cover shadow-md border-2 border-slate-50">
+                <div>
+                    <div class="flex items-center gap-1">
+                        <h3 class="font-black text-slate-900 text-lg leading-none">Rey</h3>
+                        <i class="fa-solid fa-circle-check text-blue-500 text-sm"></i>
+                    </div>
+                    <p class="text-[9px] text-slate-500 font-bold uppercase mt-2 tracking-tight">
+                        Surendranath Law College | University of Calcutta
+                    </p>
+                </div>
+            </div>
             
-            <p class="text-slate-400 text-sm italic my-8 px-4">
-                "Justice is not a destination, but a constant journey of understanding the laws that protect us all."
+            <p class="text-[14px] text-slate-600 mb-6 leading-relaxed italic">
+                "Passionate about deconstructing the complexities of Indian jurisprudence to bridge the gap between colonial era legislation and modern digital laws."
             </p>
 
-            <div class="flex flex-col gap-3">
-                <a href="https://www.instagram.com/midieeeeee" target="_blank" class="w-full bg-gradient-to-r from-pink-600 to-rose-600 py-4 rounded-2xl text-white font-black uppercase text-[10px] tracking-widest shadow-xl active:scale-95 transition-all">
-                    <i class="fa-brands fa-instagram mr-2 text-sm"></i> Connect on Instagram
+            <div class="flex gap-3">
+                <a href="https://www.instagram.com/midieeeeee" target="_blank" class="flex-1 bg-slate-50 border border-slate-200 py-3 rounded-xl text-center text-[10px] font-black uppercase tracking-widest text-pink-600 shadow-sm active:scale-95 transition-all">
+                    <i class="fa-brands fa-instagram mr-2 text-sm"></i> Instagram
                 </a>
             </div>
         </div>
 
     </main>
 
+    <div class="share-fab" onclick="toggleShare()">
+        <i class="fa-solid fa-share-nodes text-xl"></i>
+    </div>
+
     <script>
-        // Progress Bar Logic
+        // Reading Progress
         window.onscroll = function() {
             var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             var scrolled = (winScroll / height) * 100;
-            document.getElementById("scrollProgress").style.width = scrolled + "%";
+            document.getElementById("readingProgress").style.width = scrolled + "%";
         };
 
-        // Anti-Copy Script
+        // Share Function
+        function toggleShare() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Why Law is Important - Rey',
+                    url: window.location.href
+                }).catch(console.error);
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert('Article Link Copied!');
+            }
+        }
+
+        // Anti-Copy
         document.onkeydown = function(e) {
             if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 85 || e.keyCode === 73 || e.keyCode === 83)) return false;
+            if (event.keyCode == 123) return false;
         };
     </script>
 </body>
