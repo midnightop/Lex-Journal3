@@ -9,98 +9,190 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
         
-        /* Anti-Selection CSS */
+        /* --- STRICT ANTI-COPY PROTECTIONS --- */
         * {
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+            -webkit-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+            -webkit-touch-callout: none !important;
         }
 
-        body { font-family: 'Inter', sans-serif; background: #fcfdfe; color: #1e293b; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: #f8fafc; 
+            color: #1e293b; 
+            overflow-x: hidden;
+        }
+
         .font-serif { font-family: 'Playfair Display', serif; }
-        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
-        
-        .glossy-card {
+
+        .glass-nav {
             background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-            border-radius: 32px;
-            transition: transform 0.2s ease;
+            backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         }
-        
-        .btn-read {
-            background: linear-gradient(135deg, #2563eb, #4f46e5);
-            color: white; padding: 12px; border-radius: 16px;
-            font-size: 11px; font-weight: 900; text-transform: uppercase;
-            display: block; text-align: center;
+
+        /* High-End Glossy Card */
+        .premium-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.4));
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.8);
+            border-radius: 35px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+
+        .premium-card:active { transform: scale(0.96); }
+
+        .read-btn {
+            background: linear-gradient(90deg, #1e293b, #334155);
+            color: white;
+            padding: 14px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .chip {
+            padding: 6px 12px;
+            background: white;
+            border: 1px solid #f1f5f9;
+            border-radius: 12px;
+            font-size: 8px;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #64748b;
+        }
+
+        /* Subtle Animation for list loading */
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-card { animation: slideUp 0.6s ease forwards; }
+
     </style>
 </head>
-<body oncontextmenu="return false;"> <nav class="sticky top-0 z-50 glass-nav px-5 py-4 flex items-center gap-4">
-        <a href="../index.html" class="p-2 bg-white border border-gray-100 rounded-xl"><i class="fa-solid fa-chevron-left"></i></a>
-        <h1 class="font-black text-gray-800 text-lg tracking-tighter">Academic <span class="text-blue-600">Hub</span></h1>
+<body oncontextmenu="return false;" onselectstart="return false;" ondragstart="return false;">
+
+    <nav class="sticky top-0 z-50 glass-nav px-5 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-4">
+            <a href="../index.html" class="w-10 h-10 bg-white border border-slate-100 flex items-center justify-center rounded-2xl shadow-sm text-slate-800">
+                <i class="fa-solid fa-arrow-left text-sm"></i>
+            </a>
+            <div>
+                <h1 class="font-black text-slate-900 text-lg tracking-tighter leading-none">LEX <span class="text-blue-600">HUB</span></h1>
+                <p class="text-[8px] font-black text-slate-400 uppercase tracking-[0.2em] mt-1">Academic Repository</p>
+            </div>
+        </div>
+        <div class="w-10 h-10 bg-slate-900 rounded-2xl flex items-center justify-center text-white text-xs shadow-lg">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
     </nav>
 
-    <main class="px-6 py-8">
-        <header class="mb-10">
-            <h2 class="text-3xl font-serif font-bold text-gray-900 leading-tight">Featured <br><span class="text-blue-600">Insights</span></h2>
+    <main class="px-6 py-8 pb-32">
+        
+        <header class="mb-12">
+            <span class="text-[9px] font-black text-blue-600 uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full">Archive 2026</span>
+            <h2 class="text-4xl font-serif font-bold text-slate-900 mt-4 leading-tight">Featured <br>Legal <span class="italic text-blue-600">Discourse</span></h2>
+            <p class="text-slate-500 text-[11px] mt-4 leading-relaxed max-w-[280px]">Curated research papers and critical legal analysis from students across India.</p>
         </header>
 
-        <div id="articles-container" class="space-y-6">
-            <p class="text-xs text-gray-400">Loading latest articles...</p>
-        </div>
+        <div id="articles-hub" class="space-y-8">
+            </div>
+
     </main>
 
     <script>
-        document.addEventListener('keydown', function(e) {
-            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 85 || e.keyCode === 73 || e.keyCode === 83)) {
-                return false;
-            }
-        });
-    </script>
-
-    <script>
-        // Ye data aap ek alag file me bhi rakh sakte ho future me
-        const articlesData = [
+        // 1. DATA CENTER: Is list mein article add karoge toh Home + Articles dono jagah khud aa jayega.
+        const articleDatabase = [
             {
-                id: 1,
+                id: "01",
                 author: "Arjun Sharma",
-                university: "NLU Delhi | University Name",
-                title: "The Digital Personal Data Protection Act",
-                desc: "Detailed analysis of privacy regulations and corporate compliance in India...",
+                university: "NLU Delhi | Faculty of Law",
+                title: "Digital Sovereignty: The Data Protection Act",
+                desc: "Exploring the fundamental shift in privacy rights under the 2023 legislation and its impact on corporate accountability.",
                 link: "read/article1.html",
-                color: "blue-500"
+                accent: "#2563eb"
             },
             {
-                id: 2,
-                author: "Sneha Kapoor",
-                university: "GLC Mumbai | University Name",
-                title: "BNS Procedure Analysis",
-                desc: "Understanding the new criminal procedure codes and their impact...",
+                id: "02",
+                author: "Ishita Roy",
+                university: "Amity Law School | Kolkata",
+                title: "The Marital Rape Lacuna",
+                desc: "A constitutional analysis of Exception 2 to Section 375 and the evolving judicial stance in Indian High Courts.",
                 link: "read/article2.html",
-                color: "indigo-500"
+                accent: "#6366f1"
+            },
+            {
+                id: "03",
+                author: "Sneha Kapoor",
+                university: "GLC Mumbai | Mumbai University",
+                title: "BNS vs IPC: The Procedural Change",
+                desc: "An in-depth look at how the Bharatiya Nyaya Sanhita redefines criminal liability and arrest procedures.",
+                link: "read/article3.html",
+                accent: "#ec4899"
             }
         ];
 
-        const container = document.getElementById('articles-container');
-        container.innerHTML = articlesData.map(art => `
-            <div class="glossy-card p-6 border-b-4 border-${art.color}">
-                <div class="flex items-center gap-4 mb-6">
-                    <img src="https://ui-avatars.com/api/?name=${art.author.replace(' ', '+')}&background=0D8ABC&color=fff" class="w-14 h-14 rounded-2xl border-2 border-white shadow-md">
-                    <div>
-                        <h4 class="font-black text-gray-800 text-base">${art.author} <i class="fa-solid fa-circle-check text-blue-500 text-[10px] ml-1"></i></h4>
-                        <p class="text-[9px] text-gray-400 font-bold uppercase">${art.university}</p>
+        // 2. RENDERING ENGINE
+        const renderArticles = () => {
+            const container = document.getElementById('articles-hub');
+            container.innerHTML = articleDatabase.map((art, index) => `
+                <div class="premium-card p-6 animate-card" style="animation-delay: ${index * 0.1}s; border-left: 5px solid ${art.accent}">
+                    <div class="flex items-center gap-4 mb-6">
+                        <img src="https://ui-avatars.com/api/?name=${art.author.replace(' ', '+')}&background=${art.accent.replace('#','')}&color=fff" 
+                             class="w-14 h-14 rounded-[20px] shadow-md border-2 border-white">
+                        <div>
+                            <div class="flex items-center gap-1">
+                                <h4 class="font-black text-slate-800 text-sm">${art.author}</h4>
+                                <i class="fa-solid fa-circle-check text-blue-500 text-[10px]"></i>
+                            </div>
+                            <p class="text-[9px] text-slate-400 font-bold uppercase tracking-tighter">${art.university}</p>
+                        </div>
                     </div>
+
+                    <div class="bg-slate-50/50 rounded-3xl p-5 mb-6 border border-white/50 shadow-inner">
+                        <div class="flex gap-2 mb-3">
+                            <span class="chip">Research Paper</span>
+                            <span class="chip">New BNS</span>
+                        </div>
+                        <h3 class="text-lg font-black text-slate-900 leading-tight mb-3 uppercase tracking-tighter">${art.title}</h3>
+                        <p class="text-[11px] text-slate-500 leading-relaxed italic line-clamp-3">"${art.desc}"</p>
+                    </div>
+
+                    <a href="${art.link}" class="read-btn">
+                        Read Full Research <i class="fa-solid fa-arrow-right-long ml-2"></i>
+                    </a>
                 </div>
-                <div class="bg-white/60 rounded-2xl p-4 border border-white mb-6">
-                    <h5 class="text-sm font-black text-gray-800 mb-2 uppercase">${art.title}</h5>
-                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2 italic">${art.desc}</p>
-                </div>
-                <a href="${art.link}" class="btn-read">Read Full Article <i class="fa-solid fa-arrow-right ml-2"></i></a>
-            </div>
-        `).join('');
+            `).join('');
+        };
+
+        // Initialize
+        window.onload = renderArticles;
+
+        // 3. HARD ANTI-COPY SCRIPT
+        document.addEventListener('keydown', function(e) {
+            // Block Ctrl+C, Ctrl+U, Ctrl+I, Ctrl+S, Ctrl+P
+            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 85 || e.keyCode === 73 || e.keyCode === 83 || e.keyCode === 80)) {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        // Block F12 (Inspect Element)
+        document.onkeydown = function(e) {
+            if(event.keyCode == 123) { return false; }
+        }
     </script>
 </body>
 </html>
