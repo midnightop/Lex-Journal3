@@ -129,7 +129,6 @@
         .sk-item { background: #f1f5f9; border-radius: 15px; animation: pulse 1.5s infinite; }
         @keyframes pulse { 50% { opacity: 0.5; } }
 
-        /* Custom Audio Button Style */
         .audio-btn {
             background: rgba(255,255,255,0.1);
             border: 1px solid rgba(255,255,255,0.2);
@@ -140,9 +139,14 @@
             margin-left: 8px;
         }
 
-        /* Horizontal Scroll Hide Scrollbar */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        /* NEW: Custom Scrollbar for horizontal cards */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 <body>
@@ -178,37 +182,63 @@
         </header>
 
         <section class="py-8 reveal">
-            <h3 class="px-8 text-xl font-black text-gray-800 uppercase tracking-tighter mb-4">Latest Insights</h3>
-            <div class="flex overflow-x-auto gap-5 px-8 pb-4 no-scrollbar">
-                <a href="articles-list.html" class="min-w-[280px] bg-white border border-gray-100 rounded-[24px] p-5 shadow-sm active:scale-95 transition">
-                    <div class="w-8 h-8 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center mb-4"><i class="fa-solid fa-gavel text-xs"></i></div>
-                    <h4 class="font-bold text-sm text-gray-900 line-clamp-2">BNS 2023: Key procedural changes every student must know.</h4>
-                    <p class="text-[10px] text-gray-400 mt-2">Article by Rey • 2 Min Read</p>
-                </a>
-                <a href="articles-list.html" class="min-w-[280px] bg-white border border-gray-100 rounded-[24px] p-5 shadow-sm active:scale-95 transition">
-                    <div class="w-8 h-8 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center mb-4"><i class="fa-solid fa-scroll text-xs"></i></div>
-                    <h4 class="font-bold text-sm text-gray-900 line-clamp-2">The Doctrine of Basic Structure: 50 Years later.</h4>
-                    <p class="text-[10px] text-gray-400 mt-2">Article by Ishita • 5 Min Read</p>
-                </a>
-                <a href="articles-list.html" class="min-w-[280px] bg-white border border-gray-100 rounded-[24px] p-5 shadow-sm active:scale-95 transition">
-                    <div class="w-8 h-8 bg-pink-50 text-pink-600 rounded-lg flex items-center justify-center mb-4"><i class="fa-solid fa-scale-unbalanced text-xs"></i></div>
-                    <h4 class="font-bold text-sm text-gray-900 line-clamp-2">Cyber Laws: Navigating the IT Act in 2026.</h4>
-                    <p class="text-[10px] text-gray-400 mt-2">Article by Arjun • 4 Min Read</p>
-                </a>
+            <div class="px-6 mb-6">
+                <h3 class="text-2xl font-black text-gray-800 uppercase tracking-tighter">Student Insights</h3>
+                <p class="text-[10px] font-bold text-indigo-500 uppercase tracking-widest">Global Contributions</p>
             </div>
-            <div class="px-8 mt-2">
-                <a href="articles-list.html" class="block glossy-card p-4 border border-blue-100/50 bg-blue-50/20 active:scale-[0.98] transition">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <h5 class="text-[10px] font-black text-blue-600 uppercase">Article Archive</h5>
-                            <p class="text-xs text-gray-500 font-medium">Browse through our curated collection of legal research and blogs.</p>
+
+            <div class="flex overflow-x-auto gap-6 px-6 pb-6 no-scrollbar snap-x">
+                
+                <div class="min-w-[85vw] md:min-w-[400px] snap-center glossy-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="relative">
+                                <img src="https://ui-avatars.com/api/?name=Arjun+Sharma&background=0D8ABC&color=fff" class="w-16 h-16 rounded-2xl border-2 border-white shadow-lg">
+                                <div class="absolute -bottom-1 -right-1 bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center border-2 border-white text-[10px]">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-black text-gray-800 text-lg leading-tight">Arjun Sharma</h4>
+                                <p class="text-[9px] text-gray-400 font-bold uppercase tracking-tighter">National Law University | Delhi</p>
+                                <p class="text-[8px] text-blue-500 font-black uppercase mt-1">Specialization: Constitutional Law</p>
+                            </div>
                         </div>
-                        <i class="fa-solid fa-arrow-right text-blue-600"></i>
+
+                        <div class="bg-white/40 border border-white/60 p-4 rounded-2xl shadow-inner">
+                            <h5 class="text-xs font-black text-gray-700 uppercase mb-2">Digital Privacy 2024</h5>
+                            <p class="text-[11px] text-gray-500 leading-relaxed italic line-clamp-2">"The evolution of privacy laws in India has taken a massive turn with the 2023 Act..."</p>
+                            <a href="#" class="inline-block mt-3 text-[9px] font-black text-blue-600 uppercase border-b border-blue-600">Read Full Article</a>
+                        </div>
                     </div>
-                </a>
+                </div>
+
+                <div class="min-w-[85vw] md:min-w-[400px] snap-center glossy-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="relative">
+                                <img src="https://ui-avatars.com/api/?name=Ishita+Roy&background=4F46E5&color=fff" class="w-16 h-16 rounded-2xl border-2 border-white shadow-lg">
+                                <div class="absolute -bottom-1 -right-1 bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center border-2 border-white text-[10px]">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-black text-gray-800 text-lg leading-tight">Ishita Roy</h4>
+                                <p class="text-[9px] text-gray-400 font-bold uppercase tracking-tighter">Amity Law School | Kolkata</p>
+                                <p class="text-[8px] text-blue-500 font-black uppercase mt-1">Specialization: Criminal Reform</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white/40 border border-white/60 p-4 rounded-2xl shadow-inner">
+                            <h5 class="text-xs font-black text-gray-700 uppercase mb-2">Marital Rape Debate</h5>
+                            <p class="text-[11px] text-gray-500 leading-relaxed italic line-clamp-2">"A deep dive into the constitutional validity of Exception 2 to Section 375..."</p>
+                            <a href="#" class="inline-block mt-3 text-[9px] font-black text-blue-600 uppercase border-b border-blue-600">Read Full Article</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
-
         <section class="px-6 py-10 reveal">
             <div class="research-gloss p-8 shadow-2xl text-white">
                 <div class="stat-tag text-blue-600">Active Lab</div>
