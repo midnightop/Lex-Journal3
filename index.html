@@ -129,7 +129,7 @@
         .sk-item { background: #f1f5f9; border-radius: 15px; animation: pulse 1.5s infinite; }
         @keyframes pulse { 50% { opacity: 0.5; } }
 
-        /* Custom Scroll Style for Horizontal Cards */
+        /* No scrollbar utility */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
@@ -166,77 +166,6 @@
             </div>
         </header>
 
-        <section class="reveal">
-            <div class="px-8 flex justify-between items-end mb-6">
-                <div>
-                    <h3 class="text-2xl font-black text-gray-800 uppercase tracking-tighter">Top Articles</h3>
-                    <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">Student Contributions</p>
-                </div>
-                <div class="flex gap-2">
-                    <div class="w-2 h-2 rounded-full bg-blue-600"></div>
-                    <div class="w-2 h-2 rounded-full bg-gray-200"></div>
-                </div>
-            </div>
-
-            <div class="flex overflow-x-auto gap-6 px-8 pb-10 no-scrollbar snap-x snap-mandatory">
-                
-                <div class="min-w-[85vw] md:min-w-[400px] snap-center">
-                    <div class="glossy-card p-6 border-b-4 border-blue-500 bg-white/80">
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="relative">
-                                <img src="https://ui-avatars.com/api/?name=Arjun+S&background=0D8ABC&color=fff" class="w-14 h-14 rounded-2xl shadow-lg border-2 border-white">
-                                <div class="absolute -bottom-1 -right-1 bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center border-2 border-white text-[8px]">
-                                    <i class="fa-solid fa-check"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-black text-gray-800 text-base">Arjun Sharma</h4>
-                                <p class="text-[9px] text-gray-500 font-bold uppercase">National Law University | Delhi</p>
-                                <p class="text-[8px] text-blue-500 font-black uppercase tracking-tighter mt-1 px-2 py-0.5 bg-blue-50 rounded-full inline-block">5th Year Student</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 group active:scale-95 transition-transform">
-                            <h5 class="text-xs font-black text-gray-800 mb-2 uppercase">The Digital Personal Data Protection Act</h5>
-                            <p class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 italic">An in-depth analysis of how India's new data laws will impact social media privacy and corporate compliance...</p>
-                            <div class="mt-3 flex justify-between items-center">
-                                <span class="text-[9px] font-black text-blue-600">READ ARTICLE <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                                <span class="text-[8px] text-gray-300">4 min read</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="min-w-[85vw] md:min-w-[400px] snap-center">
-                    <div class="glossy-card p-6 border-b-4 border-indigo-500 bg-white/80">
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="relative">
-                                <img src="https://ui-avatars.com/api/?name=Sneha+K&background=4F46E5&color=fff" class="w-14 h-14 rounded-2xl shadow-lg border-2 border-white">
-                                <div class="absolute -bottom-1 -right-1 bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center border-2 border-white text-[8px]">
-                                    <i class="fa-solid fa-check"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-black text-gray-800 text-base">Sneha Kapoor</h4>
-                                <p class="text-[9px] text-gray-500 font-bold uppercase">GLC | Mumbai</p>
-                                <p class="text-[8px] text-indigo-500 font-black uppercase tracking-tighter mt-1 px-2 py-0.5 bg-indigo-50 rounded-full inline-block">Research Scholar</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 group active:scale-95 transition-transform">
-                            <h5 class="text-xs font-black text-gray-800 mb-2 uppercase">BNS vs IPC: The Murder Trial Shift</h5>
-                            <p class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 italic">Exploring the procedural changes in homicide trials under the newly implemented Bharatiya Nyaya Sanhita...</p>
-                            <div class="mt-3 flex justify-between items-center">
-                                <span class="text-[9px] font-black text-indigo-600">READ ARTICLE <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                                <span class="text-[8px] text-gray-300">6 min read</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
         <section class="px-6 py-10 reveal">
             <div class="research-gloss p-8 shadow-2xl text-white">
                 <div class="stat-tag text-blue-600">3 Papers</div>
@@ -246,9 +175,72 @@
                 <h2 class="text-3xl font-black mb-4 tracking-tighter uppercase">Research</h2>
                 <div class="text-sm opacity-80 leading-relaxed font-medium space-y-4">
                     <p>Legal research is the systematic dissection of the "why" behind the law. At Calcutta Law Journal, our research wing goes beyond summaries; we analyze the evolving legal landscape especially the critical transition from IPC/CrPC to BNS.</p>
-                    <p>We provide high quality thesis summaries and academic papers to help students develop the sharp thinking required for High Courts and the Supreme Court. At Lawjournal.online, we uncover the intent of the legislature to ensure that justice is found within the law.</p>
+                    <p>We provide high quality thesis summaries and academic papers to help students develop the sharp thinking required for High Courts and the Supreme Court.</p>
                 </div>
                 <a href="research.html" class="mt-8 block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px] active:scale-95 transition shadow-lg">Enter Research Lab</a>
+            </div>
+        </section>
+
+        <section class="reveal">
+            <div class="px-8 mb-6">
+                <h3 class="text-2xl font-black text-gray-800 uppercase tracking-tighter">Top Articles</h3>
+                <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">Featured Insights</p>
+            </div>
+
+            <div class="flex overflow-x-auto gap-6 px-8 pb-10 no-scrollbar snap-x snap-mandatory">
+                <div class="min-w-[85vw] md:min-w-[400px] snap-center">
+                    <div class="glossy-card p-6 border-b-4 border-blue-500 bg-white/80">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="relative">
+                                <img src="https://ui-avatars.com/api/?name=Arjun+S&background=0D8ABC&color=fff" class="w-14 h-14 rounded-2xl shadow-lg border-2 border-white">
+                                <div class="absolute -bottom-1 -right-1 bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center border-2 border-white text-[8px]"><i class="fa-solid fa-check"></i></div>
+                            </div>
+                            <div>
+                                <h4 class="font-black text-gray-800 text-base">Arjun Sharma</h4>
+                                <p class="text-[9px] text-gray-500 font-bold uppercase tracking-tight">NLU | Delhi</p>
+                                <p class="text-[8px] text-blue-500 font-black uppercase mt-1">Constitutional Law</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+                            <h5 class="text-xs font-black text-gray-800 mb-2 uppercase">Digital Data Protection Act</h5>
+                            <p class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 italic">Understanding the new era of privacy in the Indian judicial system...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="min-w-[85vw] md:min-w-[400px] snap-center">
+                    <div class="glossy-card p-6 border-b-4 border-indigo-500 bg-white/80">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="relative">
+                                <img src="https://ui-avatars.com/api/?name=Sneha+K&background=4F46E5&color=fff" class="w-14 h-14 rounded-2xl shadow-lg border-2 border-white">
+                                <div class="absolute -bottom-1 -right-1 bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center border-2 border-white text-[8px]"><i class="fa-solid fa-check"></i></div>
+                            </div>
+                            <div>
+                                <h4 class="font-black text-gray-800 text-base">Sneha Kapoor</h4>
+                                <p class="text-[9px] text-gray-500 font-bold uppercase tracking-tight">GLC | Mumbai</p>
+                                <p class="text-[8px] text-indigo-500 font-black uppercase mt-1">Criminal Procedure</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+                            <h5 class="text-xs font-black text-gray-800 mb-2 uppercase">Transition to BNS</h5>
+                            <p class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 italic">How the new Bharatiya Nyaya Sanhita redefines justice...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="px-6 py-4 reveal">
+            <div class="glossy-card p-8 bg-gradient-to-br from-gray-50 to-blue-50 border-none text-center shadow-xl">
+                <div class="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-blue-600 shadow-lg mx-auto mb-6">
+                    <i class="fa-solid fa-book-open text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-black text-gray-800 uppercase tracking-tighter">Academic Articles</h3>
+                <p class="text-[11px] text-gray-500 font-semibold mb-8 max-w-[250px] mx-auto">Dive deep into our full repository of legal papers, opinions, and academic blogs.</p>
+                
+                <a href="articles.html" class="btn-glossy bg-blue-600 text-white px-10 py-4 rounded-2xl font-black uppercase text-xs shadow-xl active:scale-95 transition-all block w-full">
+                    Open Articles Hub <i class="fa-solid fa-chevron-right ml-2"></i>
+                </a>
             </div>
         </section>
 
@@ -259,9 +251,7 @@
                     <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600"><i class="fa-solid fa-scroll"></i></div>
                     <h3 class="text-blue-600 font-black text-lg uppercase">The Bare Act Foundation</h3>
                 </div>
-                <p class="text-gray-600 text-sm leading-relaxed text-justify">
-                    A Bare Act is the rawest form of legislation, passed by Parliament. It is the skeletal structure of our democracy. For a law student, the Bare Act is the ultimate source of truth. mastering the language of sections, clauses, and provisos is essential for drafting, litigation, and competitive exams. lawjournal.online simplifies these acts without diluting their legal essence.
-                </p>
+                <p class="text-gray-600 text-sm leading-relaxed text-justify">A Bare Act is the rawest form of legislation, passed by Parliament...</p>
             </div>
 
             <div class="glossy-card p-8 reveal">
@@ -270,39 +260,17 @@
                     <div class="w-10 h-10 bg-pink-50 rounded-xl flex items-center justify-center text-pink-600"><i class="fa-solid fa-gavel"></i></div>
                     <h3 class="text-pink-600 font-black text-lg uppercase">Landmark Case Laws</h3>
                 </div>
-                <p class="text-gray-600 text-sm leading-relaxed text-justify">
-                    If Bare Acts are the skeleton, Case Laws are the flesh and blood. Precedents are binding in India, and landmark judgments show how judges breathe life into statutes to protect human souls. Studying cases like Kesavananda Bharati teaches students the "Art of Argument." It shows how a lawyer can take a single sentence from the Constitution and turn it into a shield for millions.
-                </p>
+                <p class="text-gray-600 text-sm leading-relaxed text-justify">Precedents are binding in India, and landmark judgments show how judges breathe life into statutes.</p>
             </div>
 
             <div class="glossy-card p-8 reveal border-l-4 border-indigo-600 bg-gradient-to-br from-indigo-50/50 to-white/80">
                 <div class="flex items-center gap-4 mb-6">
-                    <div class="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center text-white shadow-lg">
-                        <i class="fa-solid fa-pen-nib text-xl"></i>
-                    </div>
+                    <div class="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center text-white shadow-lg"><i class="fa-solid fa-pen-nib text-xl"></i></div>
                     <div>
                         <h3 class="text-indigo-900 font-black text-lg uppercase leading-none">Collaboration</h3>
                         <p class="text-[9px] text-indigo-500 font-bold uppercase tracking-widest mt-1">Open Research Platform</p>
                     </div>
                 </div>
-
-                <p class="text-gray-700 font-semibold text-sm leading-relaxed mb-6">This is an open platform for your research, blogs in the legal field. Join us to share your insights and contribute to the legal community.</p>
-
-                <div class="grid grid-cols-1 gap-3 mb-8">
-                    <div class="flex items-center gap-3 bg-white/60 p-3 rounded-xl border border-indigo-100">
-                        <i class="fa-solid fa-microchip text-indigo-500 text-xs"></i>
-                        <span class="text-[10px] font-black text-gray-600 uppercase tracking-tighter">Max 25% AI Content allowed</span>
-                    </div>
-                    <div class="flex items-center gap-3 bg-white/60 p-3 rounded-xl border border-indigo-100">
-                        <i class="fa-solid fa-file-pdf text-red-500 text-xs"></i>
-                        <span class="text-[10px] font-black text-gray-600 uppercase tracking-tighter">Format: PDF only</span>
-                    </div>
-                    <div class="flex items-center gap-3 bg-white/60 p-3 rounded-xl border border-indigo-100">
-                        <i class="fa-solid fa-scale-balanced text-blue-500 text-xs"></i>
-                        <span class="text-[10px] font-black text-gray-600 uppercase tracking-tighter">Topic: Exclusively Legal</span>
-                    </div>
-                </div>
-
                 <a href="mailto:bigdaddymidnightop@gmail.com" class="btn-glossy w-full block text-center py-4 bg-indigo-600 text-white font-black rounded-2xl uppercase text-xs shadow-xl active:scale-95 transition-all">
                     <i class="fa-solid fa-envelope mr-2"></i> Contact via Mail
                 </a>
@@ -311,15 +279,11 @@
 
         <section class="px-6 py-20 reveal">
             <div class="glossy-card p-10 text-center bg-white shadow-2xl relative">
-                <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-3xl flex items-center justify-center text-white text-4xl mx-auto mb-6 shadow-xl">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </div>
+                <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-3xl flex items-center justify-center text-white text-4xl mx-auto mb-6 shadow-xl"><i class="fa-solid fa-graduation-cap"></i></div>
                 <h3 class="text-2xl font-black text-gray-800">Rey</h3>
                 <p class="text-blue-500 font-black uppercase text-[10px] mt-1 tracking-widest">Law Student</p>
                 <p class="text-gray-400 font-bold text-[8px] mt-1 uppercase leading-tight">Surendranath Law College | University of Calcutta</p>
-                <p class="mt-8 text-gray-600 italic leading-relaxed font-serif text-lg">
-                    "deconstruct the complexities of Indian jurisprudence to bridge the gap between colonial era legislation and modern digital laws. we simplify our legal DNA to prove that legal literacy is the most powerful tool for justice."
-                </p>
+                <p class="mt-8 text-gray-600 italic leading-relaxed font-serif text-lg">"deconstruct the complexities of Indian jurisprudence..."</p>
             </div>
         </section>
     </main>
@@ -337,15 +301,7 @@
                 setTimeout(() => { if(sk.parentNode) sk.remove(); }, 300);
             }
         };
-
         window.addEventListener('load', hideSkeleton);
-
-        window.addEventListener('pageshow', (event) => {
-            if (event.persisted) {
-                document.body.classList.remove('page-fade-out');
-                hideSkeleton();
-            }
-        });
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
