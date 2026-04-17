@@ -14,9 +14,9 @@
 
         body { 
             font-family: 'Inter', sans-serif; 
-            background: #fafafa; /* Paper White */
+            background: #fafafa; 
             color: #1e293b; 
-            line-height: 1.6; 
+            line-height: 1.7; 
             scroll-behavior: smooth;
         }
 
@@ -29,19 +29,53 @@
         }
 
         .content-section {
-            font-size: 18px; /* High Readability size */
+            font-size: 18px;
             color: #334155;
             text-align: left;
         }
 
         .graphic-card {
             background: #ffffff;
-            border-radius: 24px;
-            padding: 25px;
-            margin: 30px 0;
+            border-radius: 28px;
+            padding: 30px;
+            margin: 35px 0;
             border: 1px solid #e2e8f0;
             border-left: 6px solid #0f172a;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+
+        /* Minimalist Roadmap */
+        .roadmap-container {
+            margin: 40px 0;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 24px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .roadmap-line {
+            border-left: 2px solid #0f172a;
+            margin-left: 20px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .roadmap-point {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .roadmap-point::before {
+            content: '';
+            position: absolute;
+            left: -41px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: #0f172a;
+            border: 4px solid #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px #0f172a;
         }
 
         .author-card {
@@ -63,8 +97,7 @@
             height: 56px;
             border-radius: 20px;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: center; justify-content: center;
             box-shadow: 0 10px 25px rgba(15, 23, 42, 0.3);
             z-index: 100;
         }
@@ -76,18 +109,9 @@
             width: 0%; z-index: 1000;
         }
 
-        h2 { font-weight: 900; color: #0f172a; margin-top: 45px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.05em; font-size: 1.1rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 8px; display: inline-block; }
-        
-        .timeline-box {
-            border-left: 2px dashed #e2e8f0;
-            padding-left: 20px;
-            margin-left: 10px;
-        }
-
-        .step { margin-bottom: 25px; position: relative; }
-        .step-icon { position: absolute; left: -31px; top: 0; background: #fafafa; padding: 2px; }
-
+        h2 { font-weight: 900; color: #0f172a; margin-top: 10px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.05em; font-size: 1.1rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 8px; display: inline-block; }
         strong { color: #0f172a; font-weight: 700; }
+        .conclusion-box { background: #0f172a; color: white; padding: 35px; border-radius: 30px; margin-top: 40px; text-align: center; }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -100,7 +124,7 @@
         </a>
         <div class="text-center">
             <span class="text-[8px] font-black uppercase tracking-[0.3em] text-slate-400 block">Lex Journal</span>
-            <span class="text-[10px] font-bold text-blue-600 uppercase">Reader Mode</span>
+            <span class="text-[10px] font-bold text-blue-600 uppercase">Academic Hub</span>
         </div>
         <div class="w-10"></div>
     </nav>
@@ -113,7 +137,7 @@
             </h1>
 
             <div class="flex items-center gap-4 p-1 bg-white rounded-full pr-6 border border-slate-200 w-fit shadow-sm">
-                <img src="author2.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Rey&background=0f172a&color=fff'" class="w-12 h-12 rounded-full border-2 border-white object-cover shadow-sm">
+                <img src="author2.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Rey&background=0f172a&color=fff'" class="w-12 h-12 rounded-full border-2 border-white object-cover">
                 <div>
                     <div class="flex items-center gap-1">
                         <h4 class="font-black text-slate-800 text-xs">Rey</h4>
@@ -128,63 +152,62 @@
             
             <div class="graphic-card">
                 <h2>1. Where Law Came From</h2>
-                <p class="mb-5">Law didn’t just appear one day—it grew with human society. In the beginning, people lived in small groups where customs and traditions decided what was right or wrong. There were no written rules, but everyone followed shared beliefs to maintain peace 🤝.</p>
-                <p>As societies became larger and more complex, these informal systems were no longer enough. People needed clear rules that applied to everyone. This led to the creation of written laws. Ancient civilizations introduced early legal systems, which set out punishments and rules. Over time, law became more structured and organized 📜.</p>
+                <p class="mb-5">Law didn’t just appear one day—it grew with human society. In the beginning, people lived in small groups where customs and traditions decided what was right or wrong. There were no written rules, but everyone followed shared beliefs to maintain peace.</p>
+                <p>As societies became larger and more complex, these informal systems were no longer enough. People needed clear rules that applied to everyone. This led to the creation of written laws. Ancient civilizations introduced early legal systems, which set out punishments and rules. Over time, law became more structured and organized.</p>
             </div>
 
-            <div class="graphic-card" style="border-left-color: #2563eb;">
-                <h2>2. Why Law is Important</h2>
-                <p class="mb-5">Law is important because it keeps society stable 🏛️. Without it, there would be confusion and conflict, as everyone would act according to their own wishes. Law sets boundaries and tells people what they can and cannot do.</p>
-                <p>It also protects individuals by ensuring that their rights are respected 🛡️. Whether it is freedom of speech, safety, or property, law gives people a sense of security. It creates a system where justice can be delivered, and wrongdoers can be held accountable ⚖️.</p>
-            </div>
-
-            <div class="graphic-card" style="border-left-color: #10b981;">
-                <h2>3. How Law Helps</h2>
-                <p class="mb-5">In everyday life, law plays a very practical role. It helps resolve disputes—whether between individuals, companies, or even the government 💼.</p>
-                <p class="mb-5">For example, if there is a disagreement over money or property, courts and legal systems provide a fair way to settle it ⚖️.</p>
-                <p>Law also promotes equality by treating everyone under the same rules. It regulates business, protects consumers, and ensures public safety. Without law, there would be no proper system to handle conflicts or maintain order 🚦.</p>
-            </div>
-
-            <div class="graphic-card" style="border-left-color: #f59e0b;">
-                <h2>4. History of Indian Laws</h2>
-                <p class="mb-8">India has a rich legal history 🇮🇳. In ancient times, laws were based on religious texts which guided social behavior.</p>
-                
-                <div class="timeline-box">
-                    <div class="step">
-                        <span class="step-icon">🕉️</span>
-                        <p class="text-sm"><strong>Ancient Era:</strong> Laws guided by religious texts and social behavior.</p>
+            <div class="roadmap-container">
+                <h3 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-6 text-center">The Evolution Roadmap</h3>
+                <div class="roadmap-line">
+                    <div class="roadmap-point">
+                        <h4 class="font-bold text-sm uppercase text-slate-900">Ancient Customs</h4>
+                        <p class="text-[13px] text-slate-500">Traditional beliefs and unwritten social norms.</p>
                     </div>
-                    <div class="step">
-                        <span class="step-icon">🕌</span>
-                        <p class="text-sm"><strong>Mughal Era:</strong> Islamic law influenced administration.</p>
+                    <div class="roadmap-point">
+                        <h4 class="font-bold text-sm uppercase text-slate-900">Early Codes</h4>
+                        <p class="text-[13px] text-slate-500">First written legal systems in ancient civilizations.</p>
                     </div>
-                    <div class="step">
-                        <span class="step-icon">🇬🇧</span>
-                        <p class="text-sm"><strong>British Rule:</strong> Introduction of codified laws like the Penal Code.</p>
+                    <div class="roadmap-point">
+                        <h4 class="font-bold text-sm uppercase text-slate-900">Codification</h4>
+                        <p class="text-[13px] text-slate-500">Systematic organization of laws under Mughal and British eras.</p>
                     </div>
-                    <div class="step" style="margin-bottom: 0;">
-                        <span class="step-icon">🇮🇳</span>
-                        <p class="text-sm"><strong>After 1947:</strong> Adoption of the <strong>Constitution</strong>, the highest law.</p>
+                    <div class="roadmap-point" style="margin-bottom: 0;">
+                        <h4 class="font-bold text-sm uppercase text-blue-600">The Constitution</h4>
+                        <p class="text-[13px] text-slate-500">The supreme law of modern democratic India.</p>
                     </div>
                 </div>
             </div>
 
             <div class="graphic-card">
+                <h2>2. Why Law is Important</h2>
+                <p class="mb-5">Law is important because it keeps society stable. Without it, there would be confusion and conflict, as everyone would act according to their own wishes. Law sets boundaries and tells people what they can and cannot do.</p>
+                <p>It also protects individuals by ensuring that their rights are respected. Whether it is freedom of speech, safety, or property, law gives people a sense of security. It creates a system where justice can be delivered, and wrongdoers can be held accountable.</p>
+            </div>
+
+            <div class="graphic-card">
+                <h2>3. How Law Helps</h2>
+                <p class="mb-5">In everyday life, law plays a very practical role. It helps resolve disputes—whether between individuals, companies, or even the government. For example, if there is a disagreement over money or property, courts and legal systems provide a fair way to settle it.</p>
+                <p>Law also promotes equality by treating everyone under the same rules. It regulates business, protects consumers, and ensures public safety. Without law, there would be no proper system to handle conflicts or maintain order.</p>
+            </div>
+
+            <div class="graphic-card">
+                <h2>4. History of Indian Laws</h2>
+                <p class="mb-6">India has a rich legal history. In ancient times, laws were based on religious texts which guided social behavior. During the Mughal era, Islamic law influenced administration. Later, under British rule, India saw the introduction of codified laws. One major example is the Penal Code, which still forms the base of criminal law in India today. After independence in 1947, India adopted the Constitution, which became the highest law of the country.</p>
+            </div>
+
+            <div class="graphic-card">
                 <h2>5. How Law Evolved to Today</h2>
-                <p class="mb-5">The legal system in India has continuously evolved. From ancient customs to modern legislation, law has adapted to changing needs of society 🔄.</p>
-                <p>The Constitution plays a central role by guiding the creation of laws and protecting citizens’ rights. Over time, new areas of law have developed, such as environmental law 🌳, cyber law 💻, and human rights law.</p>
+                <p class="mb-5">The legal system in India has continuously evolved. From ancient customs to modern legislation, law has adapted to changing needs of society. The Constitution plays a central role by guiding the creation of laws and protecting citizens’ rights. Over time, new areas of law have developed, such as environmental law, cyber law, and human rights law, to deal with modern challenges.</p>
             </div>
 
-            <div class="graphic-card" style="border-left-color: #ef4444;">
+            <div class="graphic-card">
                 <h2>6. Why Law is Important Today</h2>
-                <p class="mb-5">Today, law is more important than ever. With increasing population, technology, and globalization, society has become more complex. Law ensures that everything runs smoothly ⚙️.</p>
-                <p>It protects people from injustice, maintains peace, and supports development. Laws related to online safety, privacy, and environmental protection are especially important in today’s world 🛡️.</p>
+                <p class="mb-5">Today, law is more important than ever. With increasing population, technology, and globalization, society has become more complex. Law ensures that everything runs smoothly. It protects people from injustice, maintains peace, and supports development. Laws related to online safety, privacy, and environmental protection are especially important in today’s world.</p>
             </div>
 
-            <div class="bg-slate-900 text-white p-8 rounded-[30px] shadow-xl mt-10">
-                <h4 class="font-black uppercase text-[10px] mb-3 text-blue-400 tracking-widest text-center">Conclusion</h4>
-                <p class="text-base leading-relaxed font-medium text-center italic">
-                    "Law is not just a set of rules—it is what holds society together. From simple customs to the detailed legal systems we have today, law ensures order and fairness. Without law, society would struggle to function."
+            <div class="conclusion-box">
+                <p class="text-base leading-relaxed font-semibold italic">
+                    Law is not just a set of rules—it is what holds society together. From simple customs to the detailed legal systems we have today, law remains one of the most important foundations of modern life.
                 </p>
             </div>
         </div>
@@ -204,7 +227,7 @@
             </div>
             
             <p class="text-[14px] text-slate-600 mb-6 leading-relaxed italic">
-                "Passionate about deconstructing the complexities of Indian jurisprudence to bridge the gap between colonial era legislation and modern digital laws."
+                "Passionate about deconstructing the complexities of Indian jurisprudence to bridge the gap between historical legal foundations and modern legislation."
             </p>
 
             <div class="flex gap-3">
@@ -221,7 +244,6 @@
     </div>
 
     <script>
-        // Reading Progress
         window.onscroll = function() {
             var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -229,7 +251,6 @@
             document.getElementById("readingProgress").style.width = scrolled + "%";
         };
 
-        // Share Function
         function toggleShare() {
             if (navigator.share) {
                 navigator.share({
@@ -242,7 +263,6 @@
             }
         }
 
-        // Anti-Copy
         document.onkeydown = function(e) {
             if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 85 || e.keyCode === 73 || e.keyCode === 83)) return false;
             if (event.keyCode == 123) return false;
