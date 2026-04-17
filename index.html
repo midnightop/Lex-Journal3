@@ -59,29 +59,6 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
 
-        .glossy-card {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-            border-radius: 32px;
-            position: relative;
-        }
-
-        .stat-tag {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(0,0,0,0.05);
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 9px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
         .research-gloss {
             background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #1e293b);
             background-size: 400% 400%;
@@ -115,6 +92,18 @@
             0% { transform: translateX(-100%) rotate(45deg); }
             20%, 100% { transform: translateX(100%) rotate(45deg); }
         }
+
+        /* Article Card Styles */
+        .article-card {
+            background: white;
+            border: 1px solid #eef2f6;
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease;
+        }
+        .article-card:hover { transform: translateY(-5px); }
+        .verify-badge { color: #3b82f6; font-size: 10px; }
 
         #skeleton-screen {
             position: fixed;
@@ -153,9 +142,6 @@
             <h1 class="text-5xl font-serif font-bold text-blue-600 leading-tight">Calcutta</h1>
             <h1 class="text-5xl font-serif font-bold text-gray-900 mb-8 leading-tight">Law Journal</h1>
             <p class="text-gray-800 text-xl font-serif italic mb-6">"Honestly? Law is hard. But it doesn't have to be boring."</p>
-            <p class="text-gray-500 text-sm leading-relaxed mb-8 max-w-md mx-auto">
-                Legal language shouldn't be a barrier to justice. We decode the DNA of the Indian legal system, translating complex colonial era jargon into simple, actionable English for every student and citizen.
-            </p>
             <div class="flex flex-col gap-4 max-w-xs mx-auto">
                 <a href="bare-acts.html" class="btn-glossy bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl text-center">Explore Bare Acts</a>
                 <a href="case-laws.html" class="btn-glossy bg-gradient-to-r from-pink-500 to-rose-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl text-center">Read Case Laws</a>
@@ -164,42 +150,84 @@
 
         <section class="px-6 py-10 reveal">
             <div class="research-gloss p-8 shadow-2xl text-white">
-                <div class="stat-tag text-blue-600">3 Papers</div>
                 <div class="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 border border-white/20">
                     <i class="fa-solid fa-atom text-blue-400 text-2xl"></i>
                 </div>
-                <h2 class="text-3xl font-black mb-4 tracking-tighter uppercase">Research</h2>
-                <div class="text-sm opacity-80 leading-relaxed font-medium space-y-4">
-                    <p>Legal research is the systematic dissection of the "why" behind the law. At Calcutta Law Journal, our research wing goes beyond summaries; we analyze the evolving legal landscape especially the critical transition from IPC/CrPC to BNS.</p>
-                    <p>We provide high quality thesis summaries and academic papers to help students develop the sharp thinking required for High Courts and the Supreme Court. At Lawjournal.online, we uncover the intent of the legislature to ensure that justice is found within the law.</p>
+                <h2 class="text-3xl font-black mb-6 tracking-tighter uppercase">Research Wing</h2>
+                
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <div class="text-blue-400 font-black text-xl">01</div>
+                        <div>
+                            <h4 class="font-bold text-lg leading-tight uppercase">BNS vs IPC</h4>
+                            <p class="text-xs opacity-70 mt-1">Detailed comparison of colonial laws vs Bharatiya Nyaya Sanhita with old/new section mapping.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="text-blue-400 font-black text-xl">02</div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-lg leading-tight uppercase flex items-center gap-2">
+                                Legal Maxims 
+                                <button onclick="speakMaxims()" class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-[10px]"><i class="fa-solid fa-volume-high"></i></button>
+                            </h4>
+                            <p class="text-xs opacity-70 mt-1">Essential Latin maxims simplified with pronunciation and practical usage in courts.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="text-blue-400 font-black text-xl">03</div>
+                        <div>
+                            <h4 class="font-bold text-lg leading-tight uppercase">Writ Petitions</h4>
+                            <p class="text-xs opacity-70 mt-1">Brief explanation of Article 32 & 226 with landmark case laws like Habeas Corpus cases.</p>
+                        </div>
+                    </div>
                 </div>
+
                 <a href="research.html" class="mt-8 block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px] active:scale-95 transition shadow-lg">Enter Research Lab</a>
             </div>
         </section>
 
-        <section class="px-6 py-8 space-y-8">
-            <div class="glossy-card p-8 reveal">
-                <div class="stat-tag text-blue-600">10+ Acts</div>
-                <div class="flex items-center gap-4 mb-4">
-                    <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600"><i class="fa-solid fa-scroll"></i></div>
-                    <h3 class="text-blue-600 font-black text-lg uppercase">The Bare Act Foundation</h3>
+        <section class="px-6 py-8">
+            <h3 class="text-2xl font-black text-gray-800 mb-6 px-2 uppercase tracking-tighter">Featured Articles</h3>
+            <div class="space-y-6">
+                
+                <div class="article-card reveal">
+                    <h2 class="text-xl font-bold text-gray-900 leading-tight mb-3">Evolution of Privacy as a Fundamental Right</h2>
+                    <p class="text-gray-500 text-sm line-clamp-2 mb-6">The journey from M.P. Sharma to Justice K.S. Puttaswamy (Retd.) vs Union of India has redefined the scope of Article 21...</p>
+                    
+                    <div class="flex items-center gap-3 border-t pt-4">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" class="w-10 h-10 rounded-full bg-blue-50" alt="Author">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-1">
+                                <span class="font-black text-xs text-gray-800">Adv. Rohan Das</span>
+                                <i class="fa-solid fa-circle-check verify-badge"></i>
+                            </div>
+                            <p class="text-[9px] text-gray-400 font-bold uppercase">Calcutta University</p>
+                        </div>
+                        <a href="article1.html" class="bg-gray-900 text-white px-4 py-2 rounded-lg text-[10px] font-black uppercase">Read More</a>
+                    </div>
                 </div>
-                <p class="text-gray-600 text-sm leading-relaxed text-justify">
-                    A Bare Act is the rawest form of legislation, passed by Parliament. It is the skeletal structure of our democracy. For a law student, the Bare Act is the ultimate source of truth. mastering the language of sections, clauses, and provisos is essential for drafting, litigation, and competitive exams. lawjournal.online simplifies these acts without diluting their legal essence.
-                </p>
-            </div>
 
-            <div class="glossy-card p-8 reveal">
-                <div class="stat-tag text-pink-600">30+ Cases</div>
-                <div class="flex items-center gap-4 mb-4">
-                    <div class="w-10 h-10 bg-pink-50 rounded-xl flex items-center justify-center text-pink-600"><i class="fa-solid fa-gavel"></i></div>
-                    <h3 class="text-pink-600 font-black text-lg uppercase">Landmark Case Laws</h3>
+                <div class="article-card reveal">
+                    <h2 class="text-xl font-bold text-gray-900 leading-tight mb-3">The Impact of Digital Personal Data Protection Act</h2>
+                    <p class="text-gray-500 text-sm line-clamp-2 mb-6">How the new DPDP Act 2023 will change the landscape of corporate compliance and individual data sovereignty in India...</p>
+                    
+                    <div class="flex items-center gap-3 border-t pt-4">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aria" class="w-10 h-10 rounded-full bg-blue-50" alt="Author">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-1">
+                                <span class="font-black text-xs text-gray-800">Isha Sharma</span>
+                                <i class="fa-solid fa-circle-check verify-badge"></i>
+                            </div>
+                            <p class="text-[9px] text-gray-400 font-bold uppercase">Surendranath Law College</p>
+                        </div>
+                        <a href="article2.html" class="bg-gray-900 text-white px-4 py-2 rounded-lg text-[10px] font-black uppercase">Read More</a>
+                    </div>
                 </div>
-                <p class="text-gray-600 text-sm leading-relaxed text-justify">
-                    If Bare Acts are the skeleton, Case Laws are the flesh and blood. Precedents are binding in India, and landmark judgments show how judges breathe life into statutes to protect human souls. Studying cases like Kesavananda Bharati teaches students the "Art of Argument." It shows how a lawyer can take a single sentence from the Constitution and turn it into a shield for millions.
-                </p>
-            </div>
 
+            </div>
+        </section>
+
+        <section class="px-6 py-8">
             <div class="glossy-card p-8 reveal border-l-4 border-indigo-600 bg-gradient-to-br from-indigo-50/50 to-white/80">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center text-white shadow-lg">
@@ -211,7 +239,7 @@
                     </div>
                 </div>
 
-                <p class="text-gray-700 font-semibold text-sm leading-relaxed mb-6">This is an open platform for your research, blogs in the legal field. Join us to share your insights and contribute to the legal community.</p>
+                <p class="text-gray-700 font-semibold text-sm leading-relaxed mb-6">Join us to share your insights and contribute to the legal community.</p>
 
                 <div class="grid grid-cols-1 gap-3 mb-8">
                     <div class="flex items-center gap-3 bg-white/60 p-3 rounded-xl border border-indigo-100">
@@ -222,10 +250,6 @@
                         <i class="fa-solid fa-file-pdf text-red-500 text-xs"></i>
                         <span class="text-[10px] font-black text-gray-600 uppercase tracking-tighter">Format: PDF only</span>
                     </div>
-                    <div class="flex items-center gap-3 bg-white/60 p-3 rounded-xl border border-indigo-100">
-                        <i class="fa-solid fa-scale-balanced text-blue-500 text-xs"></i>
-                        <span class="text-[10px] font-black text-gray-600 uppercase tracking-tighter">Topic: Exclusively Legal</span>
-                    </div>
                 </div>
 
                 <a href="mailto:bigdaddymidnightop@gmail.com" class="btn-glossy w-full block text-center py-4 bg-indigo-600 text-white font-black rounded-2xl uppercase text-xs shadow-xl active:scale-95 transition-all">
@@ -234,8 +258,8 @@
             </div>
         </section>
 
-        <section class="px-6 py-20 reveal">
-            <div class="glossy-card p-10 text-center bg-white shadow-2xl relative">
+        <section class="px-6 py-10 reveal">
+            <div class="p-10 text-center bg-white rounded-[32px] border border-gray-100 shadow-sm relative">
                 <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-3xl flex items-center justify-center text-white text-4xl mx-auto mb-6 shadow-xl">
                     <i class="fa-solid fa-graduation-cap"></i>
                 </div>
@@ -243,7 +267,7 @@
                 <p class="text-blue-500 font-black uppercase text-[10px] mt-1 tracking-widest">Law Student</p>
                 <p class="text-gray-400 font-bold text-[8px] mt-1 uppercase leading-tight">Surendranath Law College | University of Calcutta</p>
                 <p class="mt-8 text-gray-600 italic leading-relaxed font-serif text-lg">
-                    "deconstruct the complexities of Indian jurisprudence to bridge the gap between colonial era legislation and modern digital laws. we simplify our legal DNA to prove that legal literacy is the most powerful tool for justice."
+                    "legal literacy is the most powerful tool for justice."
                 </p>
             </div>
         </section>
@@ -254,7 +278,13 @@
     </footer>
 
     <script>
-        // Skeleton logic with cleanup
+        function speakMaxims() {
+            const text = "Essential Legal Maxims: Ignorantia juris non excusat, Res ipsa loquitur, and Audi alteram partem.";
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 0.9;
+            window.speechSynthesis.speak(utterance);
+        }
+
         const hideSkeleton = () => {
             const sk = document.getElementById('skeleton-screen');
             if(sk) {
@@ -266,15 +296,6 @@
 
         window.addEventListener('load', hideSkeleton);
 
-        // Fix for Back Button Blank Page (BF Cache Fix)
-        window.addEventListener('pageshow', (event) => {
-            // Agar page cache se load hua hai toh reset karo
-            if (event.persisted) {
-                document.body.classList.remove('page-fade-out');
-                hideSkeleton();
-            }
-        });
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
@@ -282,18 +303,6 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                // Don't fade for external links or email/internal tags
-                if (href && href !== '#' && !href.startsWith('http') && !href.startsWith('mailto')) {
-                    e.preventDefault();
-                    document.body.classList.add('page-fade-out');
-                    setTimeout(() => { window.location.href = href; }, 200);
-                }
-            });
-        });
 
         document.addEventListener('contextmenu', event => event.preventDefault());
         document.addEventListener('copy', (e) => e.preventDefault());
