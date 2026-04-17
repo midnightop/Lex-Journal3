@@ -9,7 +9,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
         
-        /* --- ANTI-COPY --- */
         * { -webkit-user-select: none !important; user-select: none !important; -webkit-touch-callout: none !important; }
 
         body { 
@@ -27,7 +26,6 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         }
 
-        /* Cinematic Premium Card */
         .premium-card {
             background: white;
             border: 1px solid rgba(226, 232, 240, 0.8);
@@ -35,20 +33,14 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.02);
             position: relative;
             overflow: hidden;
-            opacity: 0; /* Starting for animation */
+            opacity: 0;
             transform: translateY(30px);
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .premium-card.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .premium-card.show { opacity: 1; transform: translateY(0); }
 
-        .premium-card:active {
-            transform: scale(0.97);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
+        .premium-card:active { transform: scale(0.97); }
 
         .read-btn {
             background: linear-gradient(90deg, #2563eb, #1d4ed8);
@@ -66,10 +58,6 @@
             box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
         }
 
-        /* Categories Bar Animation */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
         .loading-shimmer {
             background: linear-gradient(90deg, #f1f5f9 25%, #f8fafc 50%, #f1f5f9 75%);
             background-size: 200% 100%;
@@ -86,22 +74,16 @@
 
     <nav class="sticky top-0 z-50 glass-nav px-5 py-4 flex items-center justify-between">
         <div class="flex items-center gap-4">
-            <a href="../index.html" class="w-10 h-10 bg-white border border-slate-100 flex items-center justify-center rounded-2xl shadow-sm text-slate-800 active:scale-90 transition-transform">
+            <a href="../index.html" class="w-10 h-10 bg-white border border-slate-100 flex items-center justify-center rounded-2xl shadow-sm text-slate-800">
                 <i class="fa-solid fa-arrow-left text-sm"></i>
             </a>
-            <div>
-                <h1 class="font-black text-slate-900 text-lg tracking-tighter">LEX <span class="text-blue-600">ARCHIVE</span></h1>
-            </div>
-        </div>
-        <div class="w-10 h-10 bg-slate-50 border border-slate-100 rounded-2xl flex items-center justify-center text-slate-400">
-            <i class="fa-solid fa-filter text-xs"></i>
+            <h1 class="font-black text-slate-900 text-lg tracking-tighter">LEX <span class="text-blue-600">HUB</span></h1>
         </div>
     </nav>
 
     <main class="px-6 py-8 pb-32">
         <header class="mb-10">
             <h2 class="text-4xl font-serif font-bold text-slate-900 leading-tight">Academic <br><span class="text-blue-600 underline decoration-blue-100 underline-offset-8">Research Hub</span></h2>
-            <p class="text-slate-400 text-[10px] mt-4 font-bold uppercase tracking-[0.2em]">Validated Law Journals</p>
         </header>
 
         <div id="articles-hub" class="space-y-8">
@@ -110,41 +92,34 @@
     </main>
 
     <script>
-        // ---------------------------------------------------------
-        // DATA CENTER: Bas yahan naye articles add karte jao!
-        // ---------------------------------------------------------
+        // DATA CENTER - Yahan 2nd Article (Rey) add kar diya hai
         const articleDatabase = [
             {
                 id: "01",
                 author: "Ettisa Basak",
                 university: "Sureswar Dutta Law College | University of Calcutta",
                 title: "The Advantages of Using Bare Acts",
-                desc: "Understanding the accuracy, precision, and fundamental authority of Bare Acts in legal education.",
+                desc: "Accuracy, precision, and the fundamental authority of Bare Acts in legal education.",
                 link: "read/article1.html",
                 photo: "read/author1.jpg", 
                 accent: "#2563eb"
             },
             {
                 id: "02",
-                author: "Future Contributor",
-                university: "Law School Name | University",
-                title: "Upcoming Legal Research",
-                desc: "This slot is reserved for the next high-quality legal analysis. Coming soon...",
-                link: "#",
-                photo: "", 
-                accent: "#64748b"
+                author: "Rey",
+                university: "Surendranath Law College | University of Calcutta",
+                title: "Why Law is Important",
+                desc: "A deep dive into the origin, necessity, and evolution of legal systems in India.",
+                link: "read/article2.html",
+                photo: "read/author2.jpg", 
+                accent: "#0f172a"
             }
         ];
 
-        // ---------------------------------------------------------
-        // AUTO-RENDER & ANIMATION ENGINE
-        // ---------------------------------------------------------
         const container = document.getElementById('articles-hub');
 
         const renderArticles = () => {
-            // Clear skeleton
             container.innerHTML = "";
-
             articleDatabase.forEach((art, index) => {
                 const card = document.createElement('div');
                 card.className = `premium-card p-6`;
@@ -172,20 +147,13 @@
                         Open Research <i class="fa-solid fa-arrow-right-long ml-2"></i>
                     </a>
                 `;
-
                 container.appendChild(card);
-
-                // Trigger Animation with Delay
-                setTimeout(() => {
-                    card.classList.add('show');
-                }, index * 150); // 150ms delay between each card
+                setTimeout(() => { card.classList.add('show'); }, index * 150);
             });
         };
 
-        // Run Engine
         window.onload = renderArticles;
 
-        // Anti-Copy Logic
         document.onkeydown = function(e) {
             if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 85 || e.keyCode === 73 || e.keyCode === 83)) return false;
         };
