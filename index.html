@@ -112,6 +112,14 @@
             animation: shimmer 5s infinite;
         }
 
+        /* Peek Animation for Horizontal Cards */
+        @keyframes peekEffect {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(15px); }
+            100% { transform: translateX(0); }
+        }
+        .peek-nudge { animation: peekEffect 0.8s ease-in-out; }
+
         #skeleton-screen {
             position: fixed;
             inset: 0;
@@ -182,7 +190,7 @@
                 <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">Featured Scholars</p>
             </div>
 
-            <div id="home-articles-scroll" class="flex overflow-x-auto gap-6 px-8 pb-10 no-scrollbar snap-x snap-mandatory">
+            <div id="home-articles-scroll" class="flex overflow-x-auto gap-5 px-8 pb-10 no-scrollbar snap-x snap-mandatory">
                 </div>
         </section>
 
@@ -207,7 +215,7 @@
                     <h3 class="text-blue-600 font-black text-lg uppercase">The Bare Act Foundation</h3>
                 </div>
                 <p class="text-gray-600 text-sm leading-relaxed text-justify">
-                    A Bare Act is the rawest form of legislation, passed by Parliament. It is the skeletal structure of our democracy. For a law student, the Bare Act is the ultimate source of truth. mastering the language of sections, clauses, and provisos is essential for drafting, litigation, and competitive exams. lawjournal.online simplifies these acts without diluting their legal essence.
+                    A Bare Act is the rawest form of legislation, passed by Parliament. It is the skeletal structure of our democracy. mastering the language of sections, clauses, and provisos is essential for litigation.
                 </p>
             </div>
 
@@ -218,7 +226,7 @@
                     <h3 class="text-pink-600 font-black text-lg uppercase">Landmark Case Laws</h3>
                 </div>
                 <p class="text-gray-600 text-sm leading-relaxed text-justify">
-                    If Bare Acts are the skeleton, Case Laws are the flesh and blood. Precedents are binding in India, and landmark judgments show how judges breathe life into statutes to protect human souls. Studying cases like Kesavananda Bharati teaches students the "Art of Argument." It shows how a lawyer can take a single sentence from the Constitution and turn it into a shield for millions.
+                    If Bare Acts are the skeleton, Case Laws are the flesh and blood. Precedents are binding in India, and landmark judgments show how judges breathe life into statutes.
                 </p>
             </div>
 
@@ -230,26 +238,18 @@
                         <p class="text-[9px] text-indigo-500 font-bold uppercase tracking-widest mt-1">Open Research Platform</p>
                     </div>
                 </div>
-                <p class="text-gray-700 font-semibold text-sm leading-relaxed mb-6">This is an open platform for your research, blogs in the legal field. Join us to share your insights and contribute to the legal community.</p>
-                <div class="grid grid-cols-1 gap-3 mb-8">
-                    <div class="flex items-center gap-3 bg-white/60 p-3 rounded-xl border border-indigo-100"><i class="fa-solid fa-microchip text-indigo-500 text-xs"></i><span class="text-[10px] font-black text-gray-600 uppercase tracking-tighter">Max 25% AI Content allowed</span></div>
-                    <div class="flex items-center gap-3 bg-white/60 p-3 rounded-xl border border-indigo-100"><i class="fa-solid fa-file-pdf text-red-500 text-xs"></i><span class="text-[10px] font-black text-gray-600 uppercase tracking-tighter">Format: PDF only</span></div>
-                </div>
+                <p class="text-gray-700 font-semibold text-sm leading-relaxed mb-6">This is an open platform for your research, blogs in the legal field. Join us to share your insights.</p>
                 <a href="mailto:bigdaddymidnightop@gmail.com" class="btn-glossy w-full block text-center py-4 bg-indigo-600 text-white font-black rounded-2xl uppercase text-xs shadow-xl active:scale-95 transition-all">Contact via Mail</a>
             </div>
         </section>
 
         <section class="px-6 py-20 reveal">
             <div class="glossy-card p-10 text-center bg-white shadow-2xl relative">
-                <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-3xl flex items-center justify-center text-white text-4xl mx-auto mb-6 shadow-xl">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </div>
+                <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-3xl flex items-center justify-center text-white text-4xl mx-auto mb-6 shadow-xl"><i class="fa-solid fa-graduation-cap"></i></div>
                 <h3 class="text-2xl font-black text-gray-800">Rey</h3>
                 <p class="text-blue-500 font-black uppercase text-[10px] mt-1 tracking-widest">Law Student</p>
                 <p class="text-gray-400 font-bold text-[8px] mt-1 uppercase leading-tight">Surendranath Law College | University of Calcutta</p>
-                <p class="mt-8 text-gray-600 italic leading-relaxed font-serif text-lg">
-                    "deconstruct the complexities of Indian jurisprudence to bridge the gap between colonial era legislation and modern digital laws."
-                </p>
+                <p class="mt-8 text-gray-600 italic leading-relaxed font-serif text-lg">"deconstruct the complexities of Indian jurisprudence..."</p>
             </div>
         </section>
     </main>
@@ -264,7 +264,7 @@
                 author: "Ettisa Basak",
                 college: "Sureswar Dutta Law College | Calcutta",
                 title: "Advantages of Using Bare Acts",
-                desc: "Understanding the accuracy and precision of Bare Acts.",
+                desc: "Accuracy and precision of Bare Acts.",
                 photo: "pages/read/author1.jpg",
                 accent: "blue-500"
             },
@@ -272,7 +272,7 @@
                 author: "Rey",
                 college: "Surendranath Law College | Calcutta",
                 title: "Why Law is Important",
-                desc: "A journey through the origin and necessity of legal systems.",
+                desc: "Journey through origin and necessity of legal systems.",
                 photo: "pages/read/author2.jpg",
                 accent: "indigo-600"
             }
@@ -282,7 +282,7 @@
             const container = document.getElementById('home-articles-scroll');
             if(container) {
                 container.innerHTML = articleDatabase.map(art => `
-                    <div class="min-w-[85vw] md:min-w-[400px] snap-center">
+                    <div class="min-w-[78vw] md:min-w-[380px] snap-center">
                         <a href="pages/articles.html" class="block">
                             <div class="glossy-card p-6 border-b-4 border-${art.accent} bg-white/80 active:scale-95 transition-all duration-300">
                                 <div class="flex items-center gap-4 mb-6">
@@ -294,12 +294,12 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h4 class="font-black text-gray-800 text-base">${art.author}</h4>
-                                        <p class="text-[8px] text-gray-400 font-bold uppercase tracking-tighter">${art.college}</p>
+                                        <h4 class="font-black text-gray-800 text-sm">${art.author}</h4>
+                                        <p class="text-[8px] text-gray-400 font-bold uppercase leading-tight">${art.college}</p>
                                     </div>
                                 </div>
                                 <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
-                                    <h5 class="text-xs font-black text-gray-800 mb-2 uppercase text-blue-600">${art.title}</h5>
+                                    <h5 class="text-[11px] font-black text-gray-800 mb-2 uppercase text-blue-600">${art.title}</h5>
                                     <p class="text-[10px] text-gray-500 line-clamp-2 italic leading-relaxed">"${art.desc}"</p>
                                     <div class="mt-3 text-[9px] font-black text-blue-600 uppercase tracking-widest flex items-center">
                                         Read More <i class="fa-solid fa-chevron-right ml-2 text-[7px]"></i>
@@ -309,6 +309,12 @@
                         </a>
                     </div>
                 `).join('');
+
+                // Automatic Peek Nudge on Load
+                setTimeout(() => {
+                    container.classList.add('peek-nudge');
+                    setTimeout(() => container.classList.remove('peek-nudge'), 1000);
+                }, 1500);
             }
         };
 
@@ -325,6 +331,18 @@
             hideSkeleton();
             renderHomeArticles();
         });
+
+        // Trigger Peek Nudge on Scroll Up/Down
+        let lastScrollTop = 0;
+        window.addEventListener("scroll", function(){
+           let st = window.pageYOffset || document.documentElement.scrollTop;
+           const container = document.getElementById('home-articles-scroll');
+           if (Math.abs(st - lastScrollTop) > 100) {
+              container.classList.add('peek-nudge');
+              setTimeout(() => container.classList.remove('peek-nudge'), 800);
+           }
+           lastScrollTop = st <= 0 ? 0 : st;
+        }, false);
 
         window.addEventListener('pageshow', (event) => {
             if (event.persisted) {
