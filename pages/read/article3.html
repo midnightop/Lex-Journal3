@@ -9,7 +9,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,800&family=Inter:wght@400;500;600;700;900&display=swap');
         
-        /* FIXED: Added better touch handling and fixed overflow glitches */
         * { -webkit-user-select: none !important; user-select: none !important; box-sizing: border-box; }
 
         body { 
@@ -28,10 +27,8 @@
             border-bottom: 1px solid rgba(30, 58, 138, 0.1);
         }
 
-        /* FIXED: Content container spacing for mobile */
-        .content-section { font-size: 18px; color: #334155; text-align: left; }
+        .content-section { font-size: 18px; color: #334155; }
 
-        /* Premium Shadow Cards */
         .info-card {
             background: #ffffff;
             border-radius: 32px;
@@ -39,10 +36,8 @@
             margin: 32px 0;
             border: 1px solid #eef2f6;
             box-shadow: 0 10px 30px -10px rgba(30, 58, 138, 0.1);
-            position: relative;
         }
 
-        /* Roadmap Styling Fix */
         .roadmap-box {
             background: #ffffff;
             border-radius: 35px;
@@ -73,11 +68,9 @@
             margin-top: 80px;
         }
 
-        /* Progress Bar Fix */
         .progress-bar {
             position: fixed; top: 0; left: 0; height: 5px;
             background: #1e3a8a; width: 0%; z-index: 1000;
-            transition: width 0.1s ease-out;
         }
 
         .share-fab {
@@ -87,8 +80,7 @@
             box-shadow: 0 15px 30px rgba(30, 58, 138, 0.25); z-index: 100;
         }
 
-        h2 { font-weight: 900; color: #0f172a; margin-top: 40px; margin-bottom: 20px; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
-        .navy-pill { background: #1e3a8a; color: white; padding: 2px 10px; border-radius: 8px; font-size: 10px; margin-bottom: 8px; display: inline-block; }
+        h2 { font-weight: 900; color: #0f172a; margin-top: 40px; margin-bottom: 20px; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; border-left: 4px solid #1e3a8a; padding-left: 12px; }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -100,8 +92,8 @@
             <i class="fa-solid fa-arrow-left"></i>
         </a>
         <div class="text-center">
-            <span class="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400">Lawjournal.online</span>
-            <span class="block text-[11px] font-bold text-blue-900 uppercase">Analysis #03</span>
+            <span class="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400">Lex Journal</span>
+            <span class="block text-[11px] font-bold text-blue-900 uppercase">Constitutional Study</span>
         </div>
         <div class="w-10"></div>
     </nav>
@@ -109,99 +101,131 @@
     <main class="px-7 pt-12 pb-32 max-w-2xl mx-auto">
         
         <header class="mb-16">
-            <span class="navy-pill uppercase tracking-widest font-black">Constitutional Law</span>
             <h1 class="text-4xl font-serif font-bold text-slate-900 leading-tight mb-8">
                 The Constitution: <br>The Rules That Run a Nation
             </h1>
 
-            <div class="flex items-center gap-4 p-2 bg-white rounded-3xl border border-slate-100 shadow-sm w-fit pr-6">
+            <div class="flex items-center gap-4 p-2 bg-white rounded-3xl border border-slate-100 shadow-sm w-fit pr-8">
                 <img src="author3.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Bishal+Soren&background=1e3a8a&color=fff'" class="w-14 h-14 rounded-2xl object-cover shadow-sm">
                 <div>
-                    <div class="flex items-center gap-1">
+                    <div class="flex items-center gap-2">
                         <h4 class="font-black text-slate-800 text-sm">Bishal Soren</h4>
                         <i class="fa-solid fa-circle-check text-blue-700 text-[11px]"></i>
                     </div>
-                    <p class="text-[8px] text-slate-500 font-bold uppercase tracking-tight leading-none">Surendranath Law College | Calcutta</p>
+                    <p class="text-[8px] text-slate-500 font-bold uppercase tracking-tight leading-none mt-1">Surendranath Law College | University of Calcutta</p>
                 </div>
             </div>
         </header>
 
         <div class="content-section">
-            <p class="mb-10 text-lg text-slate-600 font-medium border-l-4 border-blue-900 pl-5 leading-relaxed">
+            <p class="mb-10 text-lg text-slate-600 font-medium italic leading-relaxed">
                 A constitution is the highest law of any country. It doesn't manage daily affairs—it sets the framework within which all other laws must operate. Think of it as the rulebook that governs the rulebook makers.
             </p>
 
             <div class="info-card">
                 <h2>What a constitution actually is</h2>
-                <p>It is a written (or sometimes unwritten) document that establishes the basic structure of government. It defines who holds power, how they get it, and what limits they face. If a law violates the constitution, courts can strike it down.</p>
+                <p class="mb-4">It establishes the basic structure of government. It defines who holds power, how they get it, and what limits they face. Every other law must stay within its boundaries—if a law violates the constitution, courts can strike it down. It also lists the fundamental rights citizens have that the government cannot take away.</p>
+                <p class="text-sm font-bold text-blue-900 italic">Etymology: From the Latin "constitutio" meaning an arrangement or established order.</p>
+            </div>
+
+            <h2>Types of Constitutions</h2>
+            <div class="grid grid-cols-1 gap-4 mb-10">
+                <div class="p-5 bg-white border border-slate-100 rounded-2xl">
+                    <p><strong>Written:</strong> A single document codifying everything. Examples: USA (1787), India (1950), Germany (1949).</p>
+                </div>
+                <div class="p-5 bg-white border border-slate-100 rounded-2xl">
+                    <p><strong>Unwritten:</strong> No single document; principles live in laws, court decisions, and conventions (e.g., The UK).</p>
+                </div>
             </div>
 
             <div class="roadmap-box">
-                <h3 class="text-center text-[10px] font-black uppercase text-slate-400 mb-8 tracking-[0.3em]">Evolution Roadmap</h3>
+                <h3 class="text-center text-[10px] font-black uppercase text-slate-400 mb-8 tracking-[0.3em]">Core Contents & Distribution</h3>
                 <div class="roadmap-line">
                     <div class="roadmap-item">
-                        <h4 class="font-bold text-slate-900">Structure</h4>
-                        <p class="text-sm text-slate-500">Defines the branches: executive, legislative, and judicial.</p>
+                        <h4 class="font-bold">Structure & Power</h4>
+                        <p class="text-sm text-slate-500">Defines branches (Executive, Legislative, Judicial) and who checks whom.</p>
                     </div>
                     <div class="roadmap-item">
-                        <h4 class="font-bold text-slate-900">Distribution</h4>
-                        <p class="text-sm text-slate-500">Who makes, enforces, and interprets the laws.</p>
+                        <h4 class="font-bold">Rights & Freedoms</h4>
+                        <p class="text-sm text-slate-500">Lists what the government cannot do to citizens (Free speech, No arbitrary detention).</p>
                     </div>
                     <div class="roadmap-item">
-                        <h4 class="font-bold text-slate-900">Fundamental Rights</h4>
-                        <p class="text-sm text-slate-500">The government cannot legally take these away.</p>
+                        <h4 class="font-bold">Amendment Rules</h4>
+                        <p class="text-sm text-slate-500">How the document itself can be changed—balancing stability and adaptability.</p>
                     </div>
                     <div class="roadmap-item" style="margin-bottom: 0;">
-                        <h4 class="font-bold text-blue-900">Supreme Authority</h4>
-                        <p class="text-sm text-slate-500">The final arbiter of all legal validity in a nation.</p>
+                        <h4 class="font-bold">Emergency Provisions</h4>
+                        <p class="text-sm text-slate-500">Procedures for war, natural disasters, or total breakdown of order.</p>
                     </div>
                 </div>
             </div>
 
             <h2>Why Constitutions Exist</h2>
-            <p class="mb-6">Without a constitution, power has no ceiling. Whoever controls the army or the economy can do whatever they want. A constitution solves this by making power conditional, temporary, and divided.</p>
+            <p class="mb-6">Without it, power has no ceiling. It makes power <span class="font-bold text-blue-900">conditional</span> (office held under rules), <span class="font-bold text-blue-900">temporary</span> (elections/term limits), and <span class="font-bold text-blue-900">divided</span>. Its real purpose is to make arbitrary power structurally difficult.</p>
 
-            <div class="info-card" style="border-left: 6px solid #f59e0b;">
-                <h2 style="color: #b45309;">Separation of Powers</h2>
-                <p class="text-sm mb-4 italic">As described by Montesquieu in the 18th century:</p>
+            <div class="info-card" style="border-top: 4px solid #f59e0b;">
+                <h2 style="border:none; padding:0; color:#b45309;">Separation of Powers</h2>
+                <p class="mb-4 italic text-sm">Philosophically described by Montesquieu:</p>
                 <ul class="space-y-3 text-[16px]">
-                    <li><strong>Legislature:</strong> Makes the laws (Parliament).</li>
-                    <li><strong>Executive:</strong> Implements the laws (President/PM).</li>
-                    <li><strong>Judiciary:</strong> Interprets the laws and resolves disputes.</li>
+                    <li><strong>Legislature:</strong> Makes the laws (Parliament/Congress).</li>
+                    <li><strong>Executive:</strong> Implements the laws (President/PM/Cabinet).</li>
+                    <li><strong>Judiciary:</strong> Interprets laws and resolves disputes (Courts).</li>
                 </ul>
             </div>
 
-            <h2>How Laws Get Amended</h2>
-            <p class="mb-6">Rigid constitutions are hard to change, protecting fundamental rights but sometimes trapping a country in outdated rules. Flexible ones are easier to change but offer less protection against temporary majorities.</p>
+            <h2>Rigid vs Flexible Amendments</h2>
+            <p class="mb-4"><strong>Rigid:</strong> Hard to change, requiring supermajorities (US Constitution amended only 27 times in 230 years). Protects rights but can trap a country in outdated rules.</p>
+            <p class="mb-10"><strong>Flexible:</strong> Easier to change, adapting fast to new needs but offering less protection against temporary majorities dismantling rights.</p>
+
+            <h2>Rights: Negative vs Positive</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                <div class="p-5 bg-slate-50 rounded-2xl">
+                    <h4 class="font-black text-xs text-slate-900 mb-2 uppercase">Negative Rights</h4>
+                    <p class="text-[13px]">Government MUST NOT do: Censorship, search without warrant, arbitrary arrest.</p>
+                </div>
+                <div class="p-5 bg-slate-50 rounded-2xl">
+                    <h4 class="font-black text-xs text-slate-900 mb-2 uppercase">Positive Rights</h4>
+                    <p class="text-[13px]">Government MUST provide: Education, Healthcare, minimum standard of living.</p>
+                </div>
+            </div>
 
             <h2>When Constitutions Fail</h2>
-            <p class="mb-10 text-justify">Paper rules mean nothing if institutions collapse. Failure modes include Executive Overreach, Judicial Capture, Emergency Abuse, and Constitutional Coups. Effectiveness depends on independent institutions and alert citizens.</p>
+            <p class="mb-6">Failure occurs when institutions get captured. Common modes: <strong>Executive overreach</strong>, <strong>Judicial capture</strong> (packing courts with loyalists), and <strong>Emergency abuse</strong>.</p>
 
-            <div class="bg-slate-900 text-white p-8 rounded-[40px] shadow-2xl mt-12 mb-16">
-                <p class="text-center text-lg italic font-serif leading-relaxed opacity-90">
-                    "A constitution is not a guarantee of good governance. It's a structural attempt to make bad governance harder to sustain."
+            <div class="bg-blue-900 text-white p-8 rounded-[40px] shadow-2xl mt-12 mb-16 text-center">
+                <p class="text-lg italic font-serif opacity-90 leading-relaxed">
+                    "The strength of any constitution comes down to three things: independent institutions, citizens who care, and leaders who treat it as a real constraint."
                 </p>
             </div>
+
+            <h2>Landmark Constitutions</h2>
+            <ul class="space-y-4 mb-10 text-sm">
+                <li><strong>USA (1787):</strong> Oldest written national constitution influential template.</li>
+                <li><strong>France (1789):</strong> Declaration of Rights—rights are universal, not privileges.</li>
+                <li><strong>India (1950):</strong> Longest written constitution—holds enormous diversity together.</li>
+                <li><strong>Germany (1949):</strong> Article 1 ("Human dignity is inviolable") cannot be amended at all.</li>
+            </ul>
         </div>
 
         <div class="author-card">
             <div class="flex items-center gap-5 mb-8">
                 <img src="author3.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Bishal+Soren&background=1e3a8a&color=fff'" class="w-20 h-20 rounded-[2.5rem] object-cover shadow-lg border-2 border-white">
                 <div>
-                    <h3 class="font-black text-slate-900 text-2xl">Bishal Soren</h3>
-                    <p class="text-[10px] text-slate-500 font-bold uppercase mt-1 tracking-widest">Surendranath Law College</p>
+                    <div class="flex items-center gap-2">
+                        <h3 class="font-black text-slate-900 text-2xl">Bishal Soren</h3>
+                        <i class="fa-solid fa-circle-check text-blue-700 text-lg"></i>
+                    </div>
+                    <p class="text-[9px] text-slate-500 font-bold uppercase mt-1 tracking-widest">Surendranath Law College | University of Calcutta</p>
                 </div>
             </div>
             
             <p class="text-base text-slate-600 mb-8 italic border-l-2 border-slate-200 pl-5">
-                "Justice is a structural effort. My research focuses on how constitutional frameworks safeguard democracy in an ever-changing world."
+                "A constitution is not a guarantee of good governance. It's a structural attempt to make bad governance harder to sustain."
             </p>
 
-            <div class="flex gap-4">
-                <a href="https://www.instagram.com/_aye4x_" target="_blank" class="flex-1 bg-white border border-slate-200 py-4 rounded-2xl text-center text-[10px] font-black uppercase tracking-widest text-pink-600 shadow-sm active:scale-95 transition-all">
-                    <i class="fa-brands fa-instagram mr-2"></i> Instagram
-                </a>
-            </div>
+            <a href="https://www.instagram.com/_aye4x_" target="_blank" class="block w-full bg-white border border-slate-200 py-4 rounded-2xl text-center text-[10px] font-black uppercase tracking-widest text-pink-600 shadow-sm active:scale-95 transition-all">
+                <i class="fa-brands fa-instagram mr-2"></i> Follow on Instagram
+            </a>
         </div>
 
     </main>
@@ -220,19 +244,12 @@
 
         function toggleShare() {
             if (navigator.share) {
-                navigator.share({
-                    title: 'The Constitution - Bishal Soren',
-                    url: window.location.href
-                }).catch(console.error);
+                navigator.share({ title: 'The Constitution - Bishal Soren', url: window.location.href }).catch(console.error);
             } else {
                 navigator.clipboard.writeText(window.location.href);
                 alert('Link Copied!');
             }
         }
-
-        document.onkeydown = function(e) {
-            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 85 || e.keyCode === 73 || e.keyCode === 83)) return false;
-        };
     </script>
 </body>
 </html>
