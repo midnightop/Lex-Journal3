@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Case Law | Law Journal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,800&family=Inter:wght@400;500;600;700;900&display=swap');
+        
+        * { -webkit-user-select: none !important; user-select: none !important; box-sizing: border-box; }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: #f8fafc; 
+            color: #1e293b; 
+            line-height: 1.8;
+            scroll-behavior: smooth;
+        }
+
+        .font-serif { font-family: 'Playfair Display', serif; }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(6, 95, 70, 0.1);
+        }
+
+        .content-section { font-size: 18px; color: #334155; }
+
+        .info-card {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 28px;
+            margin: 32px 0;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px -10px rgba(6, 95, 70, 0.1);
+        }
+
+        .roadmap-box {
+            background: #ffffff;
+            border-radius: 35px;
+            padding: 30px 20px;
+            border: 1px solid #eef2f6;
+            margin: 40px 0;
+        }
+
+        .roadmap-line {
+            border-left: 3px solid #065f46;
+            margin-left: 15px;
+            padding-left: 25px;
+        }
+
+        .roadmap-item { position: relative; margin-bottom: 35px; }
+        .roadmap-item::before {
+            content: ''; position: absolute; left: -36px; top: 6px;
+            width: 18px; height: 18px; background: #065f46;
+            border: 4px solid #fff; border-radius: 50%;
+            box-shadow: 0 0 0 2px #065f46;
+        }
+
+        .author-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+            border: 1px solid #dcfce7;
+            border-radius: 40px;
+            padding: 35px;
+            margin-top: 80px;
+        }
+
+        .progress-bar {
+            position: fixed; top: 0; left: 0; height: 5px;
+            background: #065f46; width: 0%; z-index: 1000;
+        }
+
+        .share-fab {
+            position: fixed; bottom: 30px; right: 25px;
+            background: #065f46; color: white; width: 60px; height: 60px;
+            border-radius: 22px; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 15px 30px rgba(6, 95, 70, 0.25); z-index: 100;
+        }
+
+        h2 { font-weight: 900; color: #064e3b; margin-top: 40px; margin-bottom: 20px; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; border-left: 4px solid #065f46; padding-left: 12px; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="progress-bar" id="readingProgress"></div>
+
+    <nav class="sticky top-0 z-50 glass-nav px-6 py-4 flex items-center justify-between">
+        <a href="../articles.html" class="w-10 h-10 flex items-center justify-center bg-emerald-50 border border-emerald-100 rounded-xl text-emerald-800">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div class="text-center">
+            <span class="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400">Lawjournal.online</span>
+            <span class="block text-[11px] font-bold text-emerald-900 uppercase">Case Law Research</span>
+        </div>
+        <div class="w-10"></div>
+    </nav>
+
+    <main class="px-7 pt-12 pb-32 max-w-2xl mx-auto">
+        
+        <header class="mb-16">
+            <h1 class="text-4xl font-serif font-bold text-slate-900 leading-tight mb-6">
+                What is Case Law?
+            </h1>
+            <p class="text-emerald-700 font-bold text-sm tracking-wide uppercase mb-8">
+                Learning about Indian legal cases and conducting in-depth research on them.
+            </p>
+
+            <div class="flex items-center gap-4 p-1 bg-white rounded-full border border-slate-200 shadow-sm w-fit pr-8">
+                <img src="author4.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Analdeep+Samanta&background=065f46&color=fff'" class="w-12 h-12 rounded-full border-2 border-white object-cover">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h4 class="font-black text-slate-800 text-sm">Analdeep Samanta</h4>
+                        <i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i>
+                    </div>
+                    <p class="text-[7px] text-slate-500 font-bold uppercase tracking-tight leading-none mt-1">South Calcutta Law College | University of Calcutta</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-section">
+            <p class="mb-10 text-lg text-slate-600 font-medium italic leading-relaxed">
+                Case law, also known as common law, is a legal system where court decisions in prior cases (precedents) are used to guide future rulings in similar situations.
+            </p>
+
+            <div class="info-card">
+                <h2>The core mechanism</h2>
+                <p>Courts analyze past decisions to determine how similar legal principles should be applied to new cases. It ensures that the law isn't just words on a page, but a living practice shaped by history.</p>
+            </div>
+
+            <h2>Main Features of Case Law</h2>
+            <div class="grid grid-cols-1 gap-4 mb-10">
+                <div class="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                    <p><strong>Stare Decisis:</strong> Following reasoning of past decisions to ensure consistency.</p>
+                </div>
+                <div class="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                    <p><strong>Binding Precedent:</strong> Lower courts must follow higher courts' decisions.</p>
+                </div>
+                <div class="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                    <p><strong>Persuasive Precedent:</strong> Non-binding influence from other jurisdictions.</p>
+                </div>
+                <div class="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                    <p><strong>Distinguishing:</strong> Highlighting factual differences to justify different outcomes.</p>
+                </div>
+            </div>
+
+            <h2>Important Sub-areas</h2>
+            <div class="roadmap-box">
+                <div class="roadmap-line">
+                    <div class="roadmap-item">
+                        <h4 class="font-bold">Contract Law</h4>
+                        <p class="text-sm text-slate-500">Landmark cases on consideration and good faith performance.</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <h4 class="font-bold">Tort Law</h4>
+                        <p class="text-sm text-slate-500">Defines negligence, product liability, and intentional torts.</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <h4 class="font-bold">Criminal Law</h4>
+                        <p class="text-sm text-slate-500">Precedent defines elements of crimes and mens rea (guilty mind).</p>
+                    </div>
+                    <div class="roadmap-item" style="margin-bottom: 0;">
+                        <h4 class="font-bold">Constitutional Law</h4>
+                        <p class="text-sm text-slate-500">Supreme Court interpretations on federalism and free speech.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Key Concepts & Definitions</h2>
+            <div class="space-y-4 mb-10">
+                <div class="p-6 bg-emerald-50 rounded-[30px] border border-emerald-100">
+                    <h4 class="font-black text-emerald-900 text-xs uppercase mb-2">Ratio Decidendi</h4>
+                    <p class="text-sm italic">The actual legal reasoning behind a decision—the part that is binding.</p>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-[30px] border border-slate-200">
+                    <h4 class="font-black text-slate-900 text-xs uppercase mb-2">Obiter Dictum</h4>
+                    <p class="text-sm italic">Observations made by a judge that are NOT essential or binding.</p>
+                </div>
+            </div>
+
+            <h2>Influential Figures</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                <div class="p-5 bg-white border border-slate-100 rounded-2xl">
+                    <h4 class="font-bold text-emerald-800">Judges</h4>
+                    <p class="text-[13px] text-slate-600">Ruth Bader Ginsburg (Gender Equality), Antonin Scalia (Originalism).</p>
+                </div>
+                <div class="p-5 bg-white border border-slate-100 rounded-2xl">
+                    <h4 class="font-bold text-emerald-800">Scholars</h4>
+                    <p class="text-[13px] text-slate-600">Ronald Dworkin (Integrity), Catharine MacKinnon (Feminist Theory).</p>
+                </div>
+            </div>
+
+            <div class="bg-emerald-900 text-white p-8 rounded-[40px] shadow-2xl mt-12 mb-16 text-center">
+                <p class="text-lg italic font-serif opacity-90 leading-relaxed">
+                    "Case law acts as a vital, evolving pillar of the legal system, providing binding precedents that ensure consistency and predictability."
+                </p>
+            </div>
+
+            <h2>Application in Practice</h2>
+            <ul class="space-y-4 mb-10 text-sm">
+                <li><i class="fa-solid fa-magnifying-glass mr-2 text-emerald-600"></i> <strong>Legal Research:</strong> Supporting arguments in court.</li>
+                <li><i class="fa-solid fa-gavel mr-2 text-emerald-600"></i> <strong>Decision Making:</strong> Judges analyzing past cases for current application.</li>
+                <li><i class="fa-solid fa-graduation-cap mr-2 text-emerald-600"></i> <strong>Legal Education:</strong> Teaching the core of legal reasoning.</li>
+            </ul>
+        </div>
+
+        <div class="author-card">
+            <div class="flex items-center gap-5 mb-8">
+                <img src="author4.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Analdeep+Samanta&background=065f46&color=fff'" class="w-20 h-20 rounded-[2.5rem] object-cover shadow-lg border-2 border-white">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h3 class="font-black text-slate-900 text-2xl">Analdeep Samanta</h3>
+                        <i class="fa-solid fa-circle-check text-emerald-600 text-lg"></i>
+                    </div>
+                    <p class="text-[9px] text-slate-500 font-bold uppercase mt-1 tracking-widest">South Calcutta Law College | University of Calcutta</p>
+                </div>
+            </div>
+            
+            <p class="text-base text-slate-600 mb-8 italic border-l-2 border-emerald-200 pl-5">
+                Focusing on the evolution of judicial precedents and their impact on modern Indian jurisprudence.
+            </p>
+
+            <a href="https://www.instagram.com/midieeeeee" target="_blank" class="block w-full bg-white border border-slate-200 py-4 rounded-2xl text-center text-[10px] font-black uppercase tracking-widest text-emerald-700 shadow-sm active:scale-95 transition-all">
+                <i class="fa-brands fa-instagram mr-2"></i> Follow on Instagram
+            </a>
+        </div>
+
+    </main>
+
+    <div class="share-fab" onclick="toggleShare()">
+        <i class="fa-solid fa-share-nodes text-xl"></i>
+    </div>
+
+    <script>
+        window.onscroll = function() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("readingProgress").style.width = scrolled + "%";
+        };
+
+        function toggleShare() {
+            if (navigator.share) {
+                navigator.share({ title: 'Case Law - Analdeep Samanta', url: window.location.href }).catch(console.error);
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert('Link Copied!');
+            }
+        }
+    </script>
+</body>
+                  </html>
+                  
