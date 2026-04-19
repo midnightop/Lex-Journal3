@@ -3,172 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Research Hub | Law Journal</title>
+    <title>Article Hub | Law Journal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;800&display=swap');
         
-        * { -webkit-user-select: none !important; user-select: none !important; -webkit-tap-highlight-color: transparent; }
+        * { -webkit-user-select: none !important; user-select: none !important; }
 
         body { 
             font-family: 'Inter', sans-serif; 
-            background: #0f172a; /* Dark background to make glass pop */
-            background-image: radial-gradient(circle at 0% 0%, #1e293b 0%, #0f172a 100%);
-            min-height: 100vh;
-            color: #f8fafc; 
+            background: #f1f5f9; 
+            color: #1e293b; 
         }
 
         .glass-nav {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Smooth Floating Animation */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(15px) scale(0.98); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
-        .glossy-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .premium-card {
+            background: white;
             border-radius: 24px;
-            padding: 20px;
-            position: relative;
-            animation: fadeInUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-        }
-
-        .author-img-container {
-            position: relative;
-            width: 48px;
-            height: 48px;
-        }
-
-        .author-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 14px;
-            object-cover: cover;
-            border: 1.5px solid rgba(255,255,255,0.2);
-        }
-
-        /* Fixed Blue Tick: Clean & Natural */
-        .verified-badge {
-            position: absolute;
-            bottom: -2px;
-            right: -2px;
-            font-size: 11px;
-            color: #3b82f6;
-            background: #0f172a; /* Matches body bg */
-            border-radius: 50%;
-            padding: 1px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: translateY(20px);
+            border: 1px solid rgba(0,0,0,0.05);
             display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .premium-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hover effect for desktop & active for mobile */
+        .premium-card:active, .premium-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #2563eb;
         }
 
         .read-btn {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #fff;
-            padding: 12px;
-            border-radius: 16px;
-            font-size: 10px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .premium-card:hover .read-btn {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
+
+        .badge {
+            font-size: 9px;
+            padding: 2px 8px;
+            border-radius: 10px;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: all 0.2s;
-        }
-
-        .read-btn:active {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(0.97);
-        }
-
-        .accent-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            box-shadow: 0 0 10px currentColor;
         }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
 
     <nav class="sticky top-0 z-50 glass-nav px-6 py-4 flex items-center justify-between">
-        <div class="flex items-center gap-4">
-            <button onclick="window.history.back()" class="w-10 h-10 bg-white/5 flex items-center justify-center rounded-xl border border-white/10 active:scale-90 transition-all">
-                <i class="fa-solid fa-arrow-left"></i>
-            </button>
-            <h1 class="font-black text-lg tracking-tighter">LAW <span class="text-blue-500">JOURNAL</span></h1>
+        <div class="flex items-center gap-3">
+            <a href="../index.html" class="w-9 h-9 bg-slate-100 flex items-center justify-center rounded-xl text-slate-800 transition-active:scale-90">
+                <i class="fa-solid fa-chevron-left text-xs"></i>
+            </a>
+            <h1 class="font-extrabold text-slate-900 text-base tracking-tight">LAW<span class="text-blue-600">HUB</span></h1>
+        </div>
+        <div class="flex gap-2">
+            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+            <span class="text-[10px] font-bold text-slate-400 uppercase">Live Journal</span>
         </div>
     </nav>
 
-    <main class="px-6 py-8 pb-32">
-        <h2 class="text-3xl font-serif font-bold mb-8">Research <span class="text-blue-500 italic">Hub</span></h2>
+    <main class="px-5 py-6 pb-20">
+        <header class="mb-8">
+            <p class="text-blue-600 font-bold text-[10px] uppercase tracking-[0.2em] mb-1">Curation 2026</p>
+            <h2 style="font-family: 'Playfair Display';" class="text-3xl font-bold text-slate-900 leading-tight">Expert Research</h2>
+        </header>
 
-        <div id="articles-hub" class="space-y-5">
-            </div>
+        <div id="articles-hub" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="h-40 bg-white rounded-3xl animate-pulse"></div>
+        </div>
     </main>
 
     <script>
-        // Fixing the "Back Button to Top" issue
-        if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'auto';
-        }
-
         const articleDatabase = [
-            { id: "01", author: "Ettisa Basak", univ: "Sureswar Dutta Law | CU", title: "Advantages of Bare Acts", link: "read/article1.html", photo: "read/author1.jpg", accent: "#3b82f6" },
-            { id: "02", author: "Rey", univ: "Surendranath Law | CU", title: "Why Law is Important", link: "read/article2.html", photo: "read/author2.jpg", accent: "#818cf8" },
-            { id: "03", author: "Bishal Soren", univ: "Surendranath Law | CU", title: "The Constitution", link: "read/article3.html", photo: "read/author3.jpg", accent: "#60a5fa" },
-            { id: "04", author: "Analdeep Samanta", univ: "South Calcutta Law | CU", title: "What is Case Law?", link: "read/article4.html", photo: "read/author4.jpg", accent: "#10b981" }
+            {
+                id: "01",
+                author: "Ettisa Basak",
+                university: "Sureswar Dutta Law College",
+                title: "Bare Acts Advantages",
+                desc: "Why accuracy and precision in Bare Acts are the pillars of legal education.",
+                link: "read/article1.html",
+                photo: "read/author1.jpg", 
+                tag: "Academic"
+            },
+            {
+                id: "02",
+                author: "Rey",
+                university: "Surendranath Law College",
+                title: "Necessity of Law",
+                desc: "Exploring the origin and evolution of legal systems in modern India.",
+                link: "read/article2.html",
+                photo: "read/author2.jpg", 
+                tag: "Evolution"
+            },
+            {
+                id: "03",
+                author: "Bishal Soren",
+                university: "Surendranath Law College",
+                title: "The Constitution",
+                desc: "Foundational rules and structural necessity of the Indian nation-state.",
+                link: "read/article3.html",
+                photo: "read/author3.jpg", 
+                tag: "Constitutional"
+             },
+            {
+                id: "04",
+                author: "Analdeep Samanta",
+                university: "South Calcutta Law College",
+                title: "Indian Case Laws",
+                desc: "A practical guide to conducting in-depth research on legal precedents.",
+                link: "read/article4.html",
+                photo: "read/author4.jpg", 
+                tag: "Research"
+            }
         ];
 
         const container = document.getElementById('articles-hub');
 
-        const render = () => {
-            container.innerHTML = articleDatabase.map((art, i) => `
-                <div class="glossy-card" style="animation-delay: ${i * 0.1}s">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="author-img-container">
-                                <img src="${art.photo}" onerror="this.src='https://ui-avatars.com/api/?name=${art.author.replace(' ', '+')}&background=334155&color=fff'" class="author-img">
-                                <span class="verified-badge"><i class="fa-solid fa-circle-check"></i></span>
+        const renderArticles = () => {
+            container.innerHTML = "";
+            articleDatabase.forEach((art, index) => {
+                const card = document.createElement('div');
+                card.className = `premium-card p-5`;
+                
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex items-center gap-3">
+                                <img src="${art.photo}" onerror="this.src='https://ui-avatars.com/api/?name=${art.author.replace(' ', '+')}&background=random&color=fff'" 
+                                     class="w-10 h-10 rounded-full object-cover ring-2 ring-slate-50">
+                                <div>
+                                    <h4 class="font-bold text-slate-800 text-xs">${art.author}</h4>
+                                    <p class="text-[9px] text-slate-400 font-medium">${art.university}</p>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="font-bold text-xs">${art.author}</h4>
-                                <p class="text-[8px] text-slate-400 font-bold uppercase tracking-tight">${art.univ}</p>
-                            </div>
+                            <span class="badge bg-blue-50 text-blue-600">${art.tag}</span>
                         </div>
-                        <div class="accent-dot" style="color: ${art.accent}; background: ${art.accent}"></div>
+
+                        <h3 class="text-base font-extrabold text-slate-900 leading-snug mb-2 group-hover:text-blue-600 transition-colors">
+                            ${art.title}
+                        </h3>
+                        <p class="text-[11px] text-slate-500 leading-relaxed line-clamp-2 mb-4">
+                            ${art.desc}
+                        </p>
                     </div>
 
-                    <h3 class="text-sm font-black uppercase tracking-tight mb-4 text-slate-100">${art.title}</h3>
-
-                    <a href="${art.link}" class="read-btn">
-                        Open File <i class="fa-solid fa-chevron-right text-[8px] opacity-50"></i>
+                    <a href="${art.link}" class="read-btn w-full py-3 rounded-xl text-[10px] font-extrabold uppercase tracking-wider flex items-center justify-center gap-2">
+                        Read Article <i class="fa-solid fa-arrow-right text-[8px]"></i>
                     </a>
-                </div>
-            `).join('');
+                `;
+                container.appendChild(card);
+                
+                // Staggered Animation
+                setTimeout(() => { 
+                    card.classList.add('show'); 
+                }, index * 100);
+            });
         };
 
-        render();
+        window.onload = renderArticles;
 
-        // Anti-glitch: Smooth transition when navigating
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.body.style.opacity = '0.5';
-                document.body.style.transition = 'opacity 0.2s';
-            });
-        });
+        // Security
+        document.onkeydown = (e) => {
+            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 85 || e.keyCode === 73)) return false;
+        };
     </script>
 </body>
 </html>
