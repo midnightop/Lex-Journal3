@@ -3,75 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Premium Law Journal</title>
+    <title>Law Journal | Research Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,800;1,800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
         
-        * { -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; }
+        * { -webkit-user-select: none !important; user-select: none !important; -webkit-tap-highlight-color: transparent; }
 
         body { 
-            font-family: 'Outfit', sans-serif; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
             background: #fdfdfd; 
-            background-image: radial-gradient(#e2e8f0 0.5px, transparent 0.5px);
-            background-size: 20px 20px;
             color: #0f172a; 
         }
 
-        /* Sleek Card Design */
-        .journal-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.03);
-            transition: all 0.4s cubic-bezier(0.15, 0.83, 0.66, 1);
+        .premium-card {
+            background: white;
+            border-radius: 28px;
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
             opacity: 0;
-            transform: translateY(15px);
+            transform: translateY(25px);
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+            overflow: hidden;
         }
 
-        .journal-card.show { opacity: 1; transform: translateY(0); }
+        .premium-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-        .journal-card:active {
+        .premium-card:active {
             transform: scale(0.96);
-            background: rgba(255, 255, 255, 1);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background: #f8fafc;
         }
 
-        .btn-gradient {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-            box-shadow: 0 4px 12px rgba(30, 41, 59, 0.15);
+        .accent-line {
+            position: absolute;
+            left: 0;
+            top: 20px;
+            bottom: 20px;
+            width: 4px;
+            border-radius: 0 4px 4px 0;
         }
 
-        .category-pill {
-            background: #f1f5f9;
-            color: #64748b;
-            font-size: 9px;
+        .read-more-btn {
+            background: #1e293b;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .premium-card:hover .read-more-btn {
+            background: #2563eb;
+            transform: translateX(5px);
+        }
+
+        .meta-text {
+            font-size: 10px;
             font-weight: 700;
-            letter-spacing: 0.5px;
-            padding: 4px 10px;
-            border-radius: 100px;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #94a3b8;
         }
     </style>
 </head>
 <body oncontextmenu="return false;">
 
-    <nav class="sticky top-0 z-50 bg-white/70 backdrop-blur-xl px-6 py-4 flex items-center justify-between border-b border-slate-100/50">
-        <h1 class="font-extrabold text-slate-900 text-lg tracking-tight">LAW <span class="text-blue-600">J.</span></h1>
-        <div class="w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center text-white text-[10px]">
-            <i class="fa-solid fa-bars"></i>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md px-6 py-5 flex items-center justify-between border-b border-slate-100">
+        <div class="flex items-center gap-3">
+            <a href="../index.html" class="w-10 h-10 bg-slate-50 flex items-center justify-center rounded-2xl text-slate-900 border border-slate-200">
+                <i class="fa-solid fa-arrow-left-long"></i>
+            </a>
+            <div>
+                <h1 class="font-extrabold text-slate-900 text-lg leading-none">JOURNAL</h1>
+                <p class="text-[10px] font-bold text-blue-600 tracking-widest uppercase mt-1">Research Hub</p>
+            </div>
+        </div>
+        <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center border border-blue-100">
+            <i class="fa-solid fa-book-open text-blue-600 text-sm"></i>
         </div>
     </nav>
 
-    <main class="px-5 py-6">
-        <header class="mb-6">
-            <p class="text-blue-600 font-bold text-[10px] uppercase tracking-widest mb-1">Featured Insights</p>
-            <h2 style="font-family: 'Playfair Display';" class="text-3xl font-extrabold text-slate-900 leading-none italic">The Archive</h2>
+    <main class="px-6 py-8 pb-24">
+        <header class="mb-10">
+            <h2 style="font-family: 'Playfair Display';" class="text-4xl text-slate-900">Legal <span class="italic text-blue-600">Perspectives</span></h2>
+            <p class="text-slate-500 text-sm mt-2 font-medium">Curated articles by top law students.</p>
         </header>
 
-        <div id="articles-hub" class="flex flex-col gap-4">
+        <div id="articles-hub" class="space-y-6">
             </div>
     </main>
 
@@ -80,42 +99,50 @@
             {
                 id: "01",
                 author: "Ettisa Basak",
-                university: "Sureswar Dutta Law",
+                university: "Sureswar Dutta Law College",
                 title: "The Power of Bare Acts",
-                desc: "Why original legislative texts are essential for legal professionals.",
+                desc: "Understanding why original legislative texts are indispensable for every legal professional.",
                 link: "read/article1.html",
-                accent: "blue-500",
-                readTime: "3m read"
+                photo: "read/author1.jpg", 
+                accent: "#3b82f6",
+                readTime: "3 min",
+                date: "Oct 24"
             },
             {
                 id: "02",
                 author: "Rey",
-                university: "Surendranath Law",
-                title: "Foundations of Law",
-                desc: "A deep dive into why law exists and how it maintains social fabric.",
+                university: "Surendranath Law College",
+                title: "Foundations of Jurisprudence",
+                desc: "A deep dive into why law exists and how it maintains the social fabric of India.",
                 link: "read/article2.html",
-                accent: "indigo-500",
-                readTime: "4m read"
+                photo: "read/author2.jpg", 
+                accent: "#8b5cf6",
+                readTime: "4 min",
+                date: "Oct 25"
             },
             {
                 id: "03",
                 author: "Bishal Soren",
-                university: "Surendranath Law",
-                title: "The Constitution",
-                desc: "Analyzing the structural backbone of our modern nation-state.",
+                university: "Surendranath Law College",
+                title: "Constitutional Framework",
+                desc: "Analyzing the 'Rule of Law' and the structural backbone of our democratic nation.",
                 link: "read/article3.html",
-                accent: "orange-500",
-                readTime: "5m read"
+                photo: "read/author3.jpg", 
+                accent: "#f59e0b",
+                readTime: "5 min",
+                date: "Oct 26"
              },
             {
                 id: "04",
                 author: "Analdeep Samanta",
-                university: "South Calcutta Law",
-                title: "Case Law Research",
-                desc: "How to research judgments effectively and build winning arguments.",
+                university: "South Calcutta Law College",
+                title: "Decoding Case Laws",
+                desc: "How to research judgments effectively and use them to build winning arguments.",
                 link: "read/article4.html",
-                accent: "emerald-500",
-                readTime: "4m read"
+                photo: "read/author4.jpg", 
+                accent: "#10b981",
+                readTime: "4 min",
+                date: "Oct 26"
             }
         ];
 
@@ -125,47 +152,56 @@
             container.innerHTML = "";
             articleDatabase.forEach((art, index) => {
                 const card = document.createElement('div');
-                card.className = `journal-card p-5 relative overflow-hidden`;
+                card.className = `premium-card relative p-6`;
                 
                 card.innerHTML = `
-                    <div class="flex justify-between items-start mb-3">
+                    <div class="accent-line" style="background: ${art.accent}"></div>
+                    
+                    <div class="flex justify-between items-start mb-5">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center text-slate-400">
-                                <i class="fa-solid fa-user-tie text-sm"></i>
+                            <div class="relative">
+                                <img src="${art.photo}" onerror="this.src='https://ui-avatars.com/api/?name=${art.author.replace(' ', '+')}&background=${art.accent.replace('#','')}&color=fff'" 
+                                     class="w-12 h-12 rounded-2xl object-cover shadow-sm ring-4 ring-slate-50">
+                                <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
                             </div>
                             <div>
-                                <h4 class="font-bold text-slate-900 text-xs">${art.author}</h4>
-                                <p class="text-[9px] text-slate-400 font-medium">${art.university}</p>
+                                <h4 class="font-bold text-slate-900 text-sm tracking-tight">${art.author}</h4>
+                                <p class="text-[10px] text-slate-400 font-semibold uppercase tracking-tighter">${art.university}</p>
                             </div>
                         </div>
-                        <span class="category-pill">${art.readTime}</span>
+                        <div class="text-right">
+                            <p class="meta-text">${art.date}</p>
+                            <p class="text-[9px] font-bold text-blue-600 mt-0.5">${art.readTime} read</p>
+                        </div>
                     </div>
 
-                    <div class="mb-4">
-                        <h3 class="text-[17px] font-extrabold text-slate-900 leading-tight mb-2">
+                    <div class="mb-6">
+                        <h3 class="text-xl font-extrabold text-slate-900 leading-tight mb-2 tracking-tight">
                             ${art.title}
                         </h3>
-                        <p class="text-[11px] text-slate-500 leading-relaxed line-clamp-2">
+                        <p class="text-[12px] text-slate-500 leading-relaxed font-medium">
                             ${art.desc}
                         </p>
                     </div>
 
-                    <div class="flex items-center gap-2">
-                        <a href="${art.link}" class="btn-gradient flex-1 py-3 rounded-2xl text-[10px] font-bold text-white text-center uppercase tracking-widest flex items-center justify-center gap-2">
-                            Explore <i class="fa-solid fa-arrow-right text-[8px]"></i>
-                        </a>
-                        <button class="w-11 h-11 rounded-2xl border border-slate-200 flex items-center justify-center text-slate-400">
-                            <i class="fa-regular fa-bookmark text-sm"></i>
-                        </button>
-                    </div>
+                    <a href="${art.link}" class="read-more-btn inline-flex items-center justify-between w-full p-4 rounded-2xl shadow-lg shadow-slate-200">
+                        <span class="text-[11px] font-extrabold uppercase tracking-widest">Open Research Hub</span>
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
                 `;
                 container.appendChild(card);
                 
-                setTimeout(() => { card.classList.add('show'); }, index * 100);
+                setTimeout(() => { 
+                    card.classList.add('show'); 
+                }, index * 120);
             });
         };
 
         window.onload = renderArticles;
+
+        document.onkeydown = (e) => {
+            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 85 || e.keyCode === 73)) return false;
+        };
     </script>
 </body>
 </html>
