@@ -3,210 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Premium Research Hub | Law Journal</title>
+    <title>Research Hub | Law Journal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,900&family=Inter:wght@400;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;800;900&display=swap');
         
         * { -webkit-user-select: none !important; user-select: none !important; -webkit-tap-highlight-color: transparent; }
 
         body { 
             font-family: 'Inter', sans-serif; 
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            background: #0f172a; /* Dark background to make glass pop */
+            background-image: radial-gradient(circle at 0% 0%, #1e293b 0%, #0f172a 100%);
             min-height: 100vh;
-            color: #1e293b; 
+            color: #f8fafc; 
         }
 
-        .glass-header {
-            background: rgba(255, 255, 255, 0.8);
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Smooth Floating Animation */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(15px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .glossy-card {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            border-radius: 30px;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            will-change: transform, opacity;
-            opacity: 0;
-            transform: translate3d(0, 20px, 0);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 20px;
+            position: relative;
+            animation: fadeInUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         }
 
-        .glossy-card.show { opacity: 1; transform: translate3d(0, 0, 0); }
-        .glossy-card:active { transform: scale(0.96) translate3d(0, 0, 0); }
+        .author-img-container {
+            position: relative;
+            width: 48px;
+            height: 48px;
+        }
 
-        .accent-bar {
-            position: absolute; left: 0; top: 20%; height: 60%; width: 5px;
-            border-radius: 0 10px 10px 0;
+        .author-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 14px;
+            object-cover: cover;
+            border: 1.5px solid rgba(255,255,255,0.2);
+        }
+
+        /* Fixed Blue Tick: Clean & Natural */
+        .verified-badge {
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            font-size: 11px;
+            color: #3b82f6;
+            background: #0f172a; /* Matches body bg */
+            border-radius: 50%;
+            padding: 1px;
+            display: flex;
         }
 
         .read-btn {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            color: white;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
             padding: 12px;
-            border-radius: 18px;
+            border-radius: 16px;
             font-size: 10px;
-            font-weight: 900;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.3);
+            transition: all 0.2s;
         }
 
-        .meta-tag {
-            background: rgba(255, 255, 255, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            padding: 4px 10px;
-            border-radius: 10px;
-            font-size: 8px;
-            font-weight: 800;
-            color: #64748b;
-            text-transform: uppercase;
+        .read-btn:active {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(0.97);
+        }
+
+        .accent-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px currentColor;
         }
     </style>
 </head>
-<body oncontextmenu="return false;">
+<body>
 
-    <nav class="sticky top-0 z-50 glass-header px-6 py-4 flex items-center justify-between">
+    <nav class="sticky top-0 z-50 glass-nav px-6 py-4 flex items-center justify-between">
         <div class="flex items-center gap-4">
-            <button onclick="window.history.back()" class="w-10 h-10 bg-white/50 border border-white flex items-center justify-center rounded-2xl shadow-sm active:scale-90 transition-transform">
-                <i class="fa-solid fa-chevron-left text-slate-800"></i>
+            <button onclick="window.history.back()" class="w-10 h-10 bg-white/5 flex items-center justify-center rounded-xl border border-white/10 active:scale-90 transition-all">
+                <i class="fa-solid fa-arrow-left"></i>
             </button>
-            <div>
-                <h1 class="font-black text-slate-900 text-lg tracking-tighter leading-none">LAW <span class="text-blue-600">JOURNAL</span></h1>
-                <p class="text-[8px] font-bold text-slate-400 uppercase tracking-[0.2em]">Research Archive</p>
-            </div>
+            <h1 class="font-black text-lg tracking-tighter">LAW <span class="text-blue-500">JOURNAL</span></h1>
         </div>
     </nav>
 
     <main class="px-6 py-8 pb-32">
-        <header class="mb-10">
-            <h2 class="text-4xl font-serif font-bold text-slate-900 leading-tight">
-                Curated <br><span class="text-blue-600">Legal Studies</span>
-            </h2>
-        </header>
+        <h2 class="text-3xl font-serif font-bold mb-8">Research <span class="text-blue-500 italic">Hub</span></h2>
 
-        <div id="articles-hub" class="space-y-6">
-            <div class="glossy-card p-6 h-48 bg-white/20 animate-pulse"></div>
-        </div>
+        <div id="articles-hub" class="space-y-5">
+            </div>
     </main>
 
     <script>
+        // Fixing the "Back Button to Top" issue
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'auto';
+        }
+
         const articleDatabase = [
-            {
-                id: "01",
-                author: "Ettisa Basak",
-                university: "Sureswar Dutta Law | CU",
-                title: "The Advantages of Bare Acts",
-                desc: "Accuracy and precision of raw legal texts in education.",
-                link: "read/article1.html",
-                photo: "read/author1.jpg", 
-                accent: "#3b82f6",
-                time: "5 min read",
-                tag: "Legal Tools"
-            },
-            {
-                id: "02",
-                author: "Rey",
-                university: "Surendranath Law | CU",
-                title: "Why Law is Important",
-                desc: "Journey through the evolution of legal systems in India.",
-                link: "read/article2.html",
-                photo: "read/author2.jpg", 
-                accent: "#6366f1",
-                time: "4 min read",
-                tag: "Jurisprudence"
-            },
-            {
-                id: "03",
-                author: "Bishal Soren",
-                university: "Surendranath Law | CU",
-                title: "The Constitution",
-                desc: "Analytical exploration of the foundational rules of nation-states.",
-                link: "read/article3.html",
-                photo: "read/author3.jpg", 
-                accent: "#1e3a8a",
-                time: "7 min read",
-                tag: "Constitutional"
-             },
-            {
-                id: "04",
-                author: "Analdeep Samanta",
-                university: "South Calcutta Law | CU",
-                title: "What is Case Law?",
-                desc: "In-depth research on Indian legal precedents and cases.",
-                link: "read/article4.html",
-                photo: "read/author4.jpg", 
-                accent: "#059669",
-                time: "6 min read",
-                tag: "Research"
-            }
+            { id: "01", author: "Ettisa Basak", univ: "Sureswar Dutta Law | CU", title: "Advantages of Bare Acts", link: "read/article1.html", photo: "read/author1.jpg", accent: "#3b82f6" },
+            { id: "02", author: "Rey", univ: "Surendranath Law | CU", title: "Why Law is Important", link: "read/article2.html", photo: "read/author2.jpg", accent: "#818cf8" },
+            { id: "03", author: "Bishal Soren", univ: "Surendranath Law | CU", title: "The Constitution", link: "read/article3.html", photo: "read/author3.jpg", accent: "#60a5fa" },
+            { id: "04", author: "Analdeep Samanta", univ: "South Calcutta Law | CU", title: "What is Case Law?", link: "read/article4.html", photo: "read/author4.jpg", accent: "#10b981" }
         ];
 
         const container = document.getElementById('articles-hub');
 
-        const renderArticles = () => {
-            container.innerHTML = "";
-            articleDatabase.forEach((art, index) => {
-                const card = document.createElement('div');
-                card.className = `glossy-card p-5 relative`;
-                
-                card.innerHTML = `
-                    <div class="accent-bar" style="background: ${art.accent}"></div>
-                    
-                    <div class="flex items-center justify-between mb-5">
+        const render = () => {
+            container.innerHTML = articleDatabase.map((art, i) => `
+                <div class="glossy-card" style="animation-delay: ${i * 0.1}s">
+                    <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center gap-3">
-                            <div class="relative">
-                                <img src="${art.photo}" onerror="this.src='https://ui-avatars.com/api/?name=${art.author.replace(' ', '+')}&background=${art.accent.replace('#','')}&color=fff'" 
-                                     class="w-12 h-12 rounded-[18px] shadow-lg border-2 border-white object-cover">
-                                <div class="absolute -bottom-1 -right-1 bg-white rounded-full p-0.5 shadow-sm">
-                                    <i class="fa-solid fa-circle-check text-blue-500 text-[10px]"></i>
-                                </div>
+                            <div class="author-img-container">
+                                <img src="${art.photo}" onerror="this.src='https://ui-avatars.com/api/?name=${art.author.replace(' ', '+')}&background=334155&color=fff'" class="author-img">
+                                <span class="verified-badge"><i class="fa-solid fa-circle-check"></i></span>
                             </div>
                             <div>
-                                <h4 class="font-black text-slate-800 text-xs">${art.author}</h4>
-                                <p class="text-[7px] text-slate-400 font-bold uppercase tracking-tight">${art.university}</p>
+                                <h4 class="font-bold text-xs">${art.author}</h4>
+                                <p class="text-[8px] text-slate-400 font-bold uppercase tracking-tight">${art.univ}</p>
                             </div>
                         </div>
-                        <div class="flex flex-col items-end gap-1">
-                            <span class="meta-tag">${art.tag}</span>
-                            <span class="text-[7px] font-black text-slate-300 uppercase">${art.time}</span>
-                        </div>
+                        <div class="accent-dot" style="color: ${art.accent}; background: ${art.accent}"></div>
                     </div>
 
-                    <div class="mb-5">
-                        <h3 class="text-base font-black text-slate-900 leading-snug mb-1 uppercase tracking-tighter">${art.title}</h3>
-                        <p class="text-[10px] text-slate-500 leading-relaxed italic line-clamp-2">"${art.desc}"</p>
-                    </div>
+                    <h3 class="text-sm font-black uppercase tracking-tight mb-4 text-slate-100">${art.title}</h3>
 
-                    <a href="${art.link}" class="read-btn" style="background: linear-gradient(135deg, ${art.accent} 0%, #000 200%)">
-                        Access Full Research <i class="fa-solid fa-arrow-right-long ml-2"></i>
+                    <a href="${art.link}" class="read-btn">
+                        Open File <i class="fa-solid fa-chevron-right text-[8px] opacity-50"></i>
                     </a>
-                `;
-                container.appendChild(card);
-                
-                // Optimized staggered animation
-                requestAnimationFrame(() => {
-                    setTimeout(() => { card.classList.add('show'); }, index * 80);
-                });
-            });
+                </div>
+            `).join('');
         };
 
-        window.onload = renderArticles;
+        render();
 
-        // Smooth Back Navigation
-        window.addEventListener('popstate', function() {
-            document.body.style.opacity = '0';
-            setTimeout(() => { location.reload(); }, 100);
+        // Anti-glitch: Smooth transition when navigating
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.body.style.opacity = '0.5';
+                document.body.style.transition = 'opacity 0.2s';
+            });
         });
     </script>
 </body>
