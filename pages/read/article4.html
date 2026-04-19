@@ -81,6 +81,8 @@
         }
 
         h2 { font-weight: 900; color: #064e3b; margin-top: 40px; margin-bottom: 20px; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; border-left: 4px solid #065f46; padding-left: 12px; }
+        
+        .case-title { font-weight: 800; color: #065f46; margin-bottom: 8px; font-size: 1.1rem; }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -122,27 +124,22 @@
 
         <div class="content-section">
             <p class="mb-10 text-lg text-slate-600 font-medium italic leading-relaxed">
-                Case law, also known as common law, is a legal system where court decisions in prior cases (precedents) are used to guide future rulings in similar situations.
+                Case law, also known as common law, is a legal system where court decisions in prior cases (precedents) are used to guide future rulings in similar situations. Courts analyze past decisions to determine how similar legal principles should be applied to new cases.
             </p>
-
-            <div class="info-card">
-                <h2>The core mechanism</h2>
-                <p>Courts analyze past decisions to determine how similar legal principles should be applied to new cases. It ensures that the law isn't just words on a page, but a living practice shaped by history.</p>
-            </div>
 
             <h2>Main Features of Case Law</h2>
             <div class="grid grid-cols-1 gap-4 mb-10">
                 <div class="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
-                    <p><strong>Stare Decisis:</strong> Following reasoning of past decisions to ensure consistency.</p>
+                    <p><strong>Stare Decisis:</strong> The principle of following precedent, where courts generally follow the reasoning of past decisions in similar cases to ensure consistency and predictability in the law.</p>
                 </div>
                 <div class="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
-                    <p><strong>Binding Precedent:</strong> Lower courts must follow higher courts' decisions.</p>
+                    <p><strong>Doctrine of Binding Precedent:</strong> Lower courts are bound by the decisions of higher courts within the same hierarchy, creating a system of vertical precedent.</p>
                 </div>
                 <div class="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
-                    <p><strong>Persuasive Precedent:</strong> Non-binding influence from other jurisdictions.</p>
+                    <p><strong>Persuasive Precedent:</strong> Decisions from courts in other jurisdictions (horizontal precedent) can be persuasive but not binding, influencing legal reasoning.</p>
                 </div>
                 <div class="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
-                    <p><strong>Distinguishing:</strong> Highlighting factual differences to justify different outcomes.</p>
+                    <p><strong>Distinguishing Cases:</strong> Courts may distinguish a precedent from the case at hand by highlighting factual differences that justify a different outcome.</p>
                 </div>
             </div>
 
@@ -151,59 +148,79 @@
                 <div class="roadmap-line">
                     <div class="roadmap-item">
                         <h4 class="font-bold">Contract Law</h4>
-                        <p class="text-sm text-slate-500">Landmark cases on consideration and good faith performance.</p>
+                        <p class="text-sm text-slate-500">Landmark cases establish principles like consideration (bargained-for exchange) and good faith performance.</p>
                     </div>
                     <div class="roadmap-item">
-                        <h4 class="font-bold">Tort Law</h4>
-                        <p class="text-sm text-slate-500">Defines negligence, product liability, and intentional torts.</p>
+                        <h4 class="font-bold">Tort & Property Law</h4>
+                        <p class="text-sm text-slate-500">Defines negligence, product liability, and rights associated with property ownership.</p>
                     </div>
                     <div class="roadmap-item">
                         <h4 class="font-bold">Criminal Law</h4>
-                        <p class="text-sm text-slate-500">Precedent defines elements of crimes and mens rea (guilty mind).</p>
+                        <p class="text-sm text-slate-500">Precedent defines elements of various crimes, mens rea (guilty mind), and criminal defenses.</p>
                     </div>
                     <div class="roadmap-item" style="margin-bottom: 0;">
                         <h4 class="font-bold">Constitutional Law</h4>
-                        <p class="text-sm text-slate-500">Supreme Court interpretations on federalism and free speech.</p>
+                        <p class="text-sm text-slate-500">Supreme Court decisions interpret the constitution, shaping principles on federalism and free speech.</p>
                     </div>
                 </div>
             </div>
 
-            <h2>Key Concepts & Definitions</h2>
-            <div class="space-y-4 mb-10">
-                <div class="p-6 bg-emerald-50 rounded-[30px] border border-emerald-100">
-                    <h4 class="font-black text-emerald-900 text-xs uppercase mb-2">Ratio Decidendi</h4>
-                    <p class="text-sm italic">The actual legal reasoning behind a decision—the part that is binding.</p>
-                </div>
-                <div class="p-6 bg-slate-50 rounded-[30px] border border-slate-200">
-                    <h4 class="font-black text-slate-900 text-xs uppercase mb-2">Obiter Dictum</h4>
-                    <p class="text-sm italic">Observations made by a judge that are NOT essential or binding.</p>
-                </div>
+            <h2>Key Concepts</h2>
+            <div class="info-card">
+                <ul class="space-y-4 text-sm">
+                    <li><strong>Precedent:</strong> A court decision that serves as an example or authority for future cases.</li>
+                    <li><strong>Ratio Decidendi:</strong> The legal reasoning behind a decision, which becomes the binding precedent.</li>
+                    <li><strong>Obiter Dictum:</strong> Comments made by a judge that are not essential to the outcome and not binding.</li>
+                    <li><strong>Overturning Precedent:</strong> Higher courts may overturn precedent if it no longer reflects the law.</li>
+                </ul>
             </div>
 
             <h2>Influential Figures</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-                <div class="p-5 bg-white border border-slate-100 rounded-2xl">
-                    <h4 class="font-bold text-emerald-800">Judges</h4>
-                    <p class="text-[13px] text-slate-600">Ruth Bader Ginsburg (Gender Equality), Antonin Scalia (Originalism).</p>
+                <div class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+                    <h4 class="font-black text-emerald-900 text-[10px] uppercase mb-2">Judges</h4>
+                    <p class="text-[13px]">Ruth Bader Ginsburg (gender equality), Antonin Scalia (originalism).</p>
                 </div>
-                <div class="p-5 bg-white border border-slate-100 rounded-2xl">
-                    <h4 class="font-bold text-emerald-800">Scholars</h4>
-                    <p class="text-[13px] text-slate-600">Ronald Dworkin (Integrity), Catharine MacKinnon (Feminist Theory).</p>
+                <div class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+                    <h4 class="font-black text-emerald-900 text-[10px] uppercase mb-2">Legal Scholars</h4>
+                    <p class="text-[13px]">Ronald Dworkin (law as integrity), Catharine MacKinnon (feminist legal theory).</p>
                 </div>
             </div>
 
-            <div class="bg-emerald-900 text-white p-8 rounded-[40px] shadow-2xl mt-12 mb-16 text-center">
+            <h2>Five Most Famous and Important Civil Cases in India</h2>
+            
+            <div class="space-y-8">
+                <div class="p-6 bg-white border border-slate-100 rounded-3xl shadow-sm">
+                    <div class="case-title">1. Kesavananda Bharati v. State of Kerala (1973)</div>
+                    <p class="text-sm text-slate-600">The Supreme Court ruled that Parliament cannot alter the “basic structure” or fundamental framework of the Constitution. This principle ensures core values remain inviolable.</p>
+                </div>
+
+                <div class="p-6 bg-white border border-slate-100 rounded-3xl shadow-sm">
+                    <div class="case-title">2. NLSA v. Union of India (2014)</div>
+                    <p class="text-sm text-slate-600">The Supreme Court declared transgender people as the ‘Third Gender,’ upholding equality and fundamental rights under the Constitution.</p>
+                </div>
+
+                <div class="p-6 bg-white border border-slate-100 rounded-3xl shadow-sm">
+                    <div class="case-title">3. Hussainara Khatoon v. State of Bihar (1979)</div>
+                    <p class="text-sm text-slate-600">Affirmed that keeping people behind bars for long periods without trial is not fair. Provided a solution for poor people unable to afford bail.</p>
+                </div>
+
+                <div class="p-6 bg-white border border-slate-100 rounded-3xl shadow-sm">
+                    <div class="case-title">4. Indian Council for Environment Legal Action v. UOI (1996)</div>
+                    <p class="text-sm text-slate-600">A significant PIL regarding industrial pollution in Bichhri village, highlighting the environmental impact of chemical plants on residents.</p>
+                </div>
+
+                <div class="p-6 bg-white border border-slate-100 rounded-3xl shadow-sm">
+                    <div class="case-title">5. Citizens for Democracy v. State of Assam (1995)</div>
+                    <p class="text-sm text-slate-600">Mandated that prisoners in transit must be free from handcuffs, except under specific judicial supervision and justification.</p>
+                </div>
+            </div>
+
+            <div class="bg-emerald-900 text-white p-8 rounded-[40px] shadow-2xl mt-16 mb-16 text-center">
                 <p class="text-lg italic font-serif opacity-90 leading-relaxed">
-                    "Case law acts as a vital, evolving pillar of the legal system, providing binding precedents that ensure consistency and predictability."
+                    "Case law acts as a vital, evolving pillar of the legal system, providing binding precedents that ensure consistency and predictability in legal interpretation."
                 </p>
             </div>
-
-            <h2>Application in Practice</h2>
-            <ul class="space-y-4 mb-10 text-sm">
-                <li><i class="fa-solid fa-magnifying-glass mr-2 text-emerald-600"></i> <strong>Legal Research:</strong> Supporting arguments in court.</li>
-                <li><i class="fa-solid fa-gavel mr-2 text-emerald-600"></i> <strong>Decision Making:</strong> Judges analyzing past cases for current application.</li>
-                <li><i class="fa-solid fa-graduation-cap mr-2 text-emerald-600"></i> <strong>Legal Education:</strong> Teaching the core of legal reasoning.</li>
-            </ul>
         </div>
 
         <div class="author-card">
@@ -218,10 +235,6 @@
                 </div>
             </div>
             
-            <p class="text-base text-slate-600 mb-8 italic border-l-2 border-emerald-200 pl-5">
-                Focusing on the evolution of judicial precedents and their impact on modern Indian jurisprudence.
-            </p>
-
             <a href="https://www.instagram.com/midieeeeee" target="_blank" class="block w-full bg-white border border-slate-200 py-4 rounded-2xl text-center text-[10px] font-black uppercase tracking-widest text-emerald-700 shadow-sm active:scale-95 transition-all">
                 <i class="fa-brands fa-instagram mr-2"></i> Follow on Instagram
             </a>
@@ -251,5 +264,4 @@
         }
     </script>
 </body>
-                  </html>
-                  
+</html>
