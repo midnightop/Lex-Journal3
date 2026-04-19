@@ -7,90 +7,87 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
         
         * { -webkit-user-select: none !important; user-select: none !important; -webkit-tap-highlight-color: transparent; }
 
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            background: #fdfdfd; 
+            background: #f8fafc; 
             color: #0f172a; 
         }
 
+        /* Compact Premium Card */
         .premium-card {
             background: white;
-            border-radius: 28px;
-            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            border-radius: 22px;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
             opacity: 0;
-            transform: translateY(25px);
-            border: 1px solid #f1f5f9;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+            transform: translateY(15px);
+            border: 1px solid #edf2f7;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            position: relative;
             overflow: hidden;
+            margin-bottom: 12px; /* Cards ke beech ka gap kam kiya */
         }
 
-        .premium-card.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .premium-card.show { opacity: 1; transform: translateY(0); }
 
-        .premium-card:active {
-            transform: scale(0.96);
-            background: #f8fafc;
-        }
+        .premium-card:active { transform: scale(0.97); background: #fdfdfd; }
 
-        .accent-line {
+        .accent-bar {
             position: absolute;
             left: 0;
-            top: 20px;
-            bottom: 20px;
-            width: 4px;
-            border-radius: 0 4px 4px 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
         }
 
         .read-more-btn {
-            background: #1e293b;
-            color: white;
+            background: #f1f5f9;
+            color: #1e293b;
             transition: all 0.3s ease;
+            border-radius: 14px;
         }
 
         .premium-card:hover .read-more-btn {
             background: #2563eb;
-            transform: translateX(5px);
+            color: white;
         }
 
-        .meta-text {
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #94a3b8;
+        /* Animation for entrance */
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
         }
+        .animate-text { animation: slideIn 0.5s ease forwards; }
     </style>
 </head>
 <body oncontextmenu="return false;">
 
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md px-6 py-5 flex items-center justify-between border-b border-slate-100">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-lg px-5 py-3 flex items-center justify-between border-b border-slate-100">
         <div class="flex items-center gap-3">
-            <a href="../index.html" class="w-10 h-10 bg-slate-50 flex items-center justify-center rounded-2xl text-slate-900 border border-slate-200">
-                <i class="fa-solid fa-arrow-left-long"></i>
+            <a href="../index.html" class="w-8 h-8 bg-slate-50 flex items-center justify-center rounded-xl text-slate-900 border border-slate-200">
+                <i class="fa-solid fa-chevron-left text-xs"></i>
             </a>
-            <div>
-                <h1 class="font-extrabold text-slate-900 text-lg leading-none">JOURNAL</h1>
-                <p class="text-[10px] font-bold text-blue-600 tracking-widest uppercase mt-1">Research Hub</p>
-            </div>
+            <h1 class="font-extrabold text-slate-900 text-sm tracking-tight uppercase">Law<span class="text-blue-600">Journal</span></h1>
         </div>
-        <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center border border-blue-100">
-            <i class="fa-solid fa-book-open text-blue-600 text-sm"></i>
+        <div class="flex items-center gap-2 bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
+            <div class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></div>
+            <span class="text-[9px] font-black text-blue-700 uppercase tracking-widest">Active</span>
         </div>
     </nav>
 
-    <main class="px-6 py-8 pb-24">
-        <header class="mb-10">
-            <h2 style="font-family: 'Playfair Display';" class="text-4xl text-slate-900">Legal <span class="italic text-blue-600">Perspectives</span></h2>
-            <p class="text-slate-500 text-sm mt-2 font-medium">Curated articles by top law students.</p>
+    <main class="px-5 py-4 pb-20">
+        <header class="mb-5 flex justify-between items-end">
+            <div>
+                <h2 style="font-family: 'Playfair Display';" class="text-2xl text-slate-900 leading-none">Research <span class="italic text-blue-600">Hub</span></h2>
+                <p class="text-slate-400 text-[10px] font-bold uppercase tracking-wider mt-1">Academic Insights</p>
+            </div>
+            <i class="fa-solid fa-layer-group text-slate-200 text-2xl"></i>
         </header>
 
-        <div id="articles-hub" class="space-y-6">
+        <div id="articles-hub" class="space-y-3">
             </div>
     </main>
 
@@ -101,11 +98,11 @@
                 author: "Ettisa Basak",
                 university: "Sureswar Dutta Law College",
                 title: "The Power of Bare Acts",
-                desc: "Understanding why original legislative texts are indispensable for every legal professional.",
+                desc: "Understanding why original legislative texts are essential for legal professionals.",
                 link: "read/article1.html",
                 photo: "read/author1.jpg", 
                 accent: "#3b82f6",
-                readTime: "3 min",
+                readTime: "3m",
                 date: "Oct 24"
             },
             {
@@ -113,11 +110,11 @@
                 author: "Rey",
                 university: "Surendranath Law College",
                 title: "Foundations of Jurisprudence",
-                desc: "A deep dive into why law exists and how it maintains the social fabric of India.",
+                desc: "A deep dive into why law exists and how it maintains the social fabric.",
                 link: "read/article2.html",
                 photo: "read/author2.jpg", 
                 accent: "#8b5cf6",
-                readTime: "4 min",
+                readTime: "4m",
                 date: "Oct 25"
             },
             {
@@ -125,11 +122,11 @@
                 author: "Bishal Soren",
                 university: "Surendranath Law College",
                 title: "Constitutional Framework",
-                desc: "Analyzing the 'Rule of Law' and the structural backbone of our democratic nation.",
+                desc: "Analyzing the 'Rule of Law' and the structural backbone of our nation.",
                 link: "read/article3.html",
                 photo: "read/author3.jpg", 
                 accent: "#f59e0b",
-                readTime: "5 min",
+                readTime: "5m",
                 date: "Oct 26"
              },
             {
@@ -137,11 +134,11 @@
                 author: "Analdeep Samanta",
                 university: "South Calcutta Law College",
                 title: "Decoding Case Laws",
-                desc: "How to research judgments effectively and use them to build winning arguments.",
+                desc: "How to research judgments effectively and build winning arguments.",
                 link: "read/article4.html",
                 photo: "read/author4.jpg", 
                 accent: "#10b981",
-                readTime: "4 min",
+                readTime: "4m",
                 date: "Oct 26"
             }
         ];
@@ -152,56 +149,49 @@
             container.innerHTML = "";
             articleDatabase.forEach((art, index) => {
                 const card = document.createElement('div');
-                card.className = `premium-card relative p-6`;
+                card.className = `premium-card p-4`;
                 
                 card.innerHTML = `
-                    <div class="accent-line" style="background: ${art.accent}"></div>
+                    <div class="accent-bar" style="background: ${art.accent}"></div>
                     
-                    <div class="flex justify-between items-start mb-5">
-                        <div class="flex items-center gap-3">
-                            <div class="relative">
-                                <img src="${art.photo}" onerror="this.src='https://ui-avatars.com/api/?name=${art.author.replace(' ', '+')}&background=${art.accent.replace('#','')}&color=fff'" 
-                                     class="w-12 h-12 rounded-2xl object-cover shadow-sm ring-4 ring-slate-50">
-                                <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
-                            </div>
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center gap-2">
+                            <img src="${art.photo}" onerror="this.src='https://ui-avatars.com/api/?name=${art.author.replace(' ', '+')}&background=${art.accent.replace('#','')}&color=fff'" 
+                                 class="w-9 h-9 rounded-xl object-cover ring-2 ring-slate-50 shadow-sm">
                             <div>
-                                <h4 class="font-bold text-slate-900 text-sm tracking-tight">${art.author}</h4>
-                                <p class="text-[10px] text-slate-400 font-semibold uppercase tracking-tighter">${art.university}</p>
+                                <h4 class="font-bold text-slate-800 text-[11px] leading-tight">${art.author}</h4>
+                                <p class="text-[9px] text-slate-400 font-medium">${art.university}</p>
                             </div>
                         </div>
-                        <div class="text-right">
-                            <p class="meta-text">${art.date}</p>
-                            <p class="text-[9px] font-bold text-blue-600 mt-0.5">${art.readTime} read</p>
+                        <div class="text-right flex flex-col items-end">
+                            <span class="text-[9px] font-extrabold text-slate-300 uppercase tracking-tighter">${art.date}</span>
+                            <span class="text-[9px] font-bold text-blue-500 bg-blue-50 px-1.5 rounded-md">${art.readTime}</span>
                         </div>
                     </div>
 
-                    <div class="mb-6">
-                        <h3 class="text-xl font-extrabold text-slate-900 leading-tight mb-2 tracking-tight">
+                    <div class="mb-4">
+                        <h3 class="text-base font-extrabold text-slate-900 leading-tight mb-1 tracking-tight">
                             ${art.title}
                         </h3>
-                        <p class="text-[12px] text-slate-500 leading-relaxed font-medium">
+                        <p class="text-[11px] text-slate-500 leading-snug line-clamp-2">
                             ${art.desc}
                         </p>
                     </div>
 
-                    <a href="${art.link}" class="read-more-btn inline-flex items-center justify-between w-full p-4 rounded-2xl shadow-lg shadow-slate-200">
-                        <span class="text-[11px] font-extrabold uppercase tracking-widest">Open Research Hub</span>
-                        <i class="fa-solid fa-arrow-right-long"></i>
+                    <a href="${art.link}" class="read-more-btn flex items-center justify-center w-full py-2.5 gap-2">
+                        <span class="text-[10px] font-black uppercase tracking-widest">Read Article</span>
+                        <i class="fa-solid fa-arrow-right-long text-[10px]"></i>
                     </a>
                 `;
                 container.appendChild(card);
                 
                 setTimeout(() => { 
                     card.classList.add('show'); 
-                }, index * 120);
+                }, index * 80); // Fast cascade animation
             });
         };
 
         window.onload = renderArticles;
-
-        document.onkeydown = (e) => {
-            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 85 || e.keyCode === 73)) return false;
-        };
     </script>
 </body>
 </html>
