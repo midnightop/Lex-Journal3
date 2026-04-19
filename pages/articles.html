@@ -163,10 +163,13 @@
                             <div class="relative">
                                 <img src="${art.photo}" onerror="this.src='https://ui-avatars.com/api/?name=${art.author.replace(' ', '+')}&background=${art.accent.replace('#','')}&color=fff'" 
                                      class="w-12 h-12 rounded-2xl object-cover shadow-sm ring-4 ring-slate-50">
-                                <div class="absolute -bottom-1 -right-1 w-4 h-4 class="fa-solid fa-circle-check text-blue-500 text-[10px] ml-1" border-2 border-white rounded-full"></div>
+                                <div class="absolute -bottom-1 -right-1 w-4 h-4  border-2 border-white rounded-full"></div>
                             </div>
                             <div>
-                                <h4 class="font-bold text-slate-900 text-sm tracking-tight">${art.author}</h4>
+                                <div class="flex items-center gap-1.5">
+                                    <h4 class="font-bold text-slate-900 text-sm tracking-tight">${art.author}</h4>
+                                    <i class="fa-solid fa-circle-check text-blue-500 text-[11px]"></i>
+                                </div>
                                 <p class="text-[10px] text-slate-400 font-semibold uppercase tracking-tighter">${art.university}</p>
                             </div>
                         </div>
