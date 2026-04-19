@@ -29,33 +29,30 @@
         .premium-card {
             background: white;
             border: 1px solid rgba(226, 232, 240, 0.8);
-            border-radius: 35px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border-radius: 28px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
             position: relative;
             overflow: hidden;
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: translateY(20px);
+            transition: all 0.4s ease-out;
         }
 
         .premium-card.show { opacity: 1; transform: translateY(0); }
 
-        .premium-card:active { transform: scale(0.97); }
-
         .read-btn {
             background: linear-gradient(90deg, #2563eb, #1d4ed8);
             color: white;
-            padding: 15px;
-            border-radius: 20px;
-            font-size: 10px;
+            padding: 10px;
+            border-radius: 14px;
+            font-size: 9px;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+            gap: 6px;
         }
 
         .loading-shimmer {
@@ -72,34 +69,33 @@
 </head>
 <body oncontextmenu="return false;">
 
-    <nav class="sticky top-0 z-50 glass-nav px-5 py-4 flex items-center justify-between">
-        <div class="flex items-center gap-4">
-            <a href="../index.html" class="w-10 h-10 bg-white border border-slate-100 flex items-center justify-center rounded-2xl shadow-sm text-slate-800">
-                <i class="fa-solid fa-arrow-left text-sm"></i>
+    <nav class="sticky top-0 z-50 glass-nav px-5 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <a href="../index.html" class="w-8 h-8 bg-white border border-slate-100 flex items-center justify-center rounded-xl shadow-sm text-slate-800">
+                <i class="fa-solid fa-arrow-left text-xs"></i>
             </a>
-            <h1 class="font-black text-slate-900 text-lg tracking-tighter">LAW <span class="text-blue-600">JOURNAL</span></h1>
+            <h1 class="font-black text-slate-900 text-base tracking-tighter">LAW <span class="text-blue-600">JOURNAL</span></h1>
         </div>
     </nav>
 
-    <main class="px-6 py-8 pb-32">
-        <header class="mb-10">
-            <h2 class="text-4xl font-serif font-bold text-slate-900 leading-tight">Article <br><span class="text-blue-600 underline decoration-blue-100 underline-offset-8">Research Hub</span></h2>
+    <main class="px-5 py-6 pb-24">
+        <header class="mb-6">
+            <h2 class="text-3xl font-serif font-bold text-slate-900 leading-tight">Research <span class="text-blue-600">Hub</span></h2>
         </header>
 
-        <div id="articles-hub" class="space-y-8">
-            <div class="premium-card p-6 h-64 loading-shimmer"></div>
+        <div id="articles-hub" class="space-y-4">
+            <div class="premium-card p-4 h-40 loading-shimmer"></div>
         </div>
     </main>
 
     <script>
-        // DATA CENTER - Yahan 2nd Article (Rey) add kar diya hai
         const articleDatabase = [
             {
                 id: "01",
                 author: "Ettisa Basak",
-                university: "Sureswar Dutta Law College | University of Calcutta",
-                title: "The Advantages of Using Bare Acts",
-                desc: "Accuracy, precision, and the fundamental authority of Bare Acts in legal education.",
+                university: "Sureswar Dutta Law | CU",
+                title: "Advantages of Bare Acts",
+                desc: "Accuracy and precision of raw legal texts in education.",
                 link: "read/article1.html",
                 photo: "read/author1.jpg", 
                 accent: "#2563eb"
@@ -107,19 +103,19 @@
             {
                 id: "02",
                 author: "Rey",
-                university: "Surendranath Law College | University of Calcutta",
+                university: "Surendranath Law | CU",
                 title: "Why Law is Important",
-                desc: "A deep dive into the origin, necessity, and evolution of legal systems in India.",
+                desc: "Journey through the evolution of legal systems in India.",
                 link: "read/article2.html",
                 photo: "read/author2.jpg", 
                 accent: "#0f172a"
             },
-             {
+            {
                 id: "03",
                 author: "Bishal Soren",
-                university: "Surendranath Law College | University of Calcutta",
-                title: "The constitution: The Rules That Run a Nation ",
-                desc: "An analytical exploration of the foundational rules, structural necessity, and the historical evolution of modern nation-states.",
+                university: "Surendranath Law | CU",
+                title: "The Constitution",
+                desc: "Analytical exploration of the foundational rules of nation-states.",
                 link: "read/article3.html",
                 photo: "read/author3.jpg", 
                 accent: "#1e3a8a"
@@ -127,9 +123,9 @@
             {
                 id: "04",
                 author: "Analdeep Samanta",
-                university: "South Calcutta Law College | University of Calcutta",
-                title: "What is case law? ",
-                desc: "Learning about Indian legal cases and conducting in-depth research on them.",
+                university: "South Calcutta Law | CU",
+                title: "What is Case Law?",
+                desc: "In-depth research on Indian legal precedents and cases.",
                 link: "read/article4.html",
                 photo: "read/author4.jpg", 
                 accent: "#065f46"
@@ -142,41 +138,40 @@
             container.innerHTML = "";
             articleDatabase.forEach((art, index) => {
                 const card = document.createElement('div');
-                card.className = `premium-card p-6`;
-                card.style.borderLeft = `6px solid ${art.accent}`;
+                card.className = `premium-card p-4`;
+                card.style.borderLeft = `5px solid ${art.accent}`;
                 
                 card.innerHTML = `
-                    <div class="flex items-center gap-4 mb-6">
-                        <img src="${art.photo}" onerror="this.src='https://ui-avatars.com/api/?name=${art.author.replace(' ', '+')}&background=2563eb&color=fff'" 
-                             class="w-14 h-14 rounded-[22px] shadow-md border-2 border-white object-cover">
-                        <div>
-                            <div class="flex items-center gap-1">
-                                <h4 class="font-black text-slate-800 text-sm">${art.author}</h4>
-                                <i class="fa-solid fa-circle-check text-blue-500 text-[10px]"></i>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <img src="${art.photo}" onerror="this.src='https://ui-avatars.com/api/?name=${art.author.replace(' ', '+')}&background=2563eb&color=fff'" 
+                                 class="w-10 h-10 rounded-xl shadow-sm border border-white object-cover">
+                            <div>
+                                <div class="flex items-center gap-1">
+                                    <h4 class="font-black text-slate-800 text-xs">${art.author}</h4>
+                                    <i class="fa-solid fa-circle-check text-blue-500 text-[8px]"></i>
+                                </div>
+                                <p class="text-[7px] text-slate-400 font-bold uppercase">${art.university}</p>
                             </div>
-                            <p class="text-[8px] text-slate-400 font-bold uppercase tracking-tight">${art.university}</p>
                         </div>
+                        <span class="text-[9px] font-bold text-slate-300">#${art.id}</span>
                     </div>
 
-                    <div class="bg-slate-50/50 rounded-3xl p-5 mb-6 border border-slate-100 shadow-inner">
-                        <h3 class="text-lg font-black text-slate-900 leading-tight mb-2 uppercase tracking-tighter">${art.title}</h3>
-                        <p class="text-[11px] text-slate-500 leading-relaxed italic line-clamp-2">"${art.desc}"</p>
+                    <div class="mb-4">
+                        <h3 class="text-sm font-black text-slate-900 leading-tight mb-1 uppercase tracking-tighter">${art.title}</h3>
+                        <p class="text-[10px] text-slate-500 leading-tight line-clamp-1 italic">"${art.desc}"</p>
                     </div>
 
                     <a href="${art.link}" class="read-btn">
-                        Open Research <i class="fa-solid fa-arrow-right-long ml-2"></i>
+                        Read Article <i class="fa-solid fa-arrow-right ml-2"></i>
                     </a>
                 `;
                 container.appendChild(card);
-                setTimeout(() => { card.classList.add('show'); }, index * 150);
+                setTimeout(() => { card.classList.add('show'); }, index * 100);
             });
         };
 
         window.onload = renderArticles;
-
-        document.onkeydown = function(e) {
-            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 85 || e.keyCode === 73 || e.keyCode === 83)) return false;
-        };
     </script>
 </body>
 </html>
