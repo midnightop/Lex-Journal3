@@ -6,140 +6,31 @@
     
     <title>Law Journal | Open Platform for Law Students</title>
     <meta name="description" content="An open platform for law students to publish articles, research papers, and blogs. Access Bare Acts, Case Laws, and legal articles curated by students.">
-    <meta name="keywords" content="Law Journal, Legal Research, Bare Acts, Case Law, Law Student Publication">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap');
         
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: #fcfdfe; 
-            color: #1e293b; 
-            overflow-x: hidden; 
-            -webkit-tap-highlight-color: transparent;
-            touch-action: manipulation;
-            -webkit-user-select: none;
-            user-select: none;
-            animation: fadeInBody 0.3s ease-in;
-        }
-
+        * { -webkit-user-select: none !important; user-select: none !important; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Inter', sans-serif; background: #fcfdfe; color: #1e293b; overflow-x: hidden; animation: fadeInBody 0.3s ease-in; }
         @keyframes fadeInBody { from { opacity: 0; } to { opacity: 1; } }
 
-        .page-fade-out {
-            opacity: 0 !important;
-            transform: scale(0.99);
-            transition: opacity 0.2s ease-out, transform 0.2s ease-out !important;
-        }
-
         .font-serif { font-family: 'Playfair Display', serif; }
-
-        .reveal { 
-            opacity: 0; 
-            transform: translateY(20px); 
-            transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-            will-change: transform, opacity;
-        }
+        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        }
+        .glass-nav { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
 
-        .terms-btn {
-            background: white;
-            border: 1.5px solid #e2e8f0;
-            color: #64748b;
-            padding: 6px 16px;
-            border-radius: 12px;
-            font-size: 10px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
+        .glossy-card { background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 32px; position: relative; }
+        .research-gloss { background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #1e293b); background-size: 400% 400%; animation: gradientShift 15s ease infinite; border-radius: 35px; border: 1px solid rgba(255, 255, 255, 0.1); position: relative; }
+        @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-        .glossy-card {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-            border-radius: 32px;
-            position: relative;
-        }
-
-        .stat-tag {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(0,0,0,0.05);
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 9px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .research-gloss {
-            background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #1e293b);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            border-radius: 35px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .btn-glossy {
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.2s ease;
-        }
-        .btn-glossy::after {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            transform: rotate(45deg);
-            animation: shimmer 5s infinite;
-        }
-
-        @keyframes shimmer { from { left: -50%; } to { left: 150%; } }
-
-        @keyframes peekEffect {
-            0% { transform: translateX(0); }
-            50% { transform: translateX(12px); }
-            100% { transform: translateX(0); }
-        }
-        .peek-nudge { animation: peekEffect 0.8s ease-in-out; }
-
-        #skeleton-screen {
-            position: fixed;
-            inset: 0;
-            background: #fcfdfe;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            gap: 20px;
-        }
+        .btn-glossy { position: relative; overflow: hidden; transition: transform 0.2s ease; }
+        #skeleton-screen { position: fixed; inset: 0; background: #fcfdfe; z-index: 9999; display: flex; flex-direction: column; padding: 20px; gap: 20px; }
         .sk-item { background: #f1f5f9; border-radius: 15px; animation: pulse 1.5s infinite; }
         @keyframes pulse { 50% { opacity: 0.5; } }
-
         .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -157,200 +48,97 @@
             </div>
             <span class="font-black text-gray-800 tracking-tighter text-lg">Law <span class="text-blue-600">Journal</span></span>
         </div>
-        <a href="terms.html" class="terms-btn">Terms</a>
+        <a href="terms.html" class="terms-btn bg-white border border-slate-200 px-4 py-2 rounded-xl text-[10px] font-black uppercase">Terms</a>
     </nav>
 
     <main>
         <header class="pt-12 pb-10 px-8 text-center reveal active">
-            <h1 class="text-5xl font-serif font-bold text-blue-600 leading-tight tracking-tight">Law Journal</h1>
-            <h1 class="text-5xl font-serif font-bold text-gray-900 mb-8 leading-tight tracking-tight">The Scholars Hub</h1>
-            
-            <p class="text-gray-800 text-xl font-serif italic mb-6">"Student friendly platform, made by students for students."</p>
-            
+            <h1 class="text-5xl font-serif font-bold text-blue-600 leading-tight">Law Journal</h1>
+            <p class="text-gray-800 text-xl font-serif italic mb-6 mt-4">"Student friendly platform, made by students for students."</p>
             <p class="text-gray-500 text-sm leading-relaxed mb-8 max-w-md mx-auto">
-                Law Journal is an open platform for every law student struggling to publish their articles, research papers, or blogs. We provide high-quality Bare Acts, Case Laws, and academic papers to develop the sharp thinking required for the legal fraternity.
+                An open platform for every law student struggling to publish their articles or research. Access high-quality Bare Acts, Case Laws, and academic papers.
             </p>
-            
             <div class="flex flex-col gap-4 max-w-xs mx-auto">
-                <a href="bare-acts.html" class="btn-glossy bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl text-center">Explore Bare Acts</a>
-                <a href="case-laws.html" class="btn-glossy bg-gradient-to-r from-pink-500 to-rose-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl text-center">Read Case Laws</a>
+                <a href="bare-acts.html" class="btn-glossy bg-blue-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl text-center">Explore Bare Acts</a>
+                <a href="case-laws.html" class="btn-glossy bg-rose-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl text-center">Read Case Laws</a>
             </div>
         </header>
 
         <section class="px-6 py-10 reveal">
             <div class="research-gloss p-8 shadow-2xl text-white">
-                <div class="stat-tag text-blue-600">3 Papers</div>
-                <div class="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 border border-white/20">
-                    <i class="fa-solid fa-atom text-blue-400 text-2xl"></i>
-                </div>
-                <h2 class="text-3xl font-black mb-4 tracking-tighter uppercase">Research</h2>
-                <div class="text-sm opacity-80 leading-relaxed font-medium space-y-4">
-                    <p>Legal research is the systematic dissection of the "why" behind the law. This is an open platform for every law student who needs a stage to publish their insights on the evolving legal landscape.</p>
-                </div>
-                <a href="research.html" class="mt-8 block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px] active:scale-95 transition shadow-lg">Enter Research Lab</a>
+                <h2 class="text-3xl font-black mb-4 tracking-tighter uppercase">Our Mission</h2>
+                <p class="text-sm opacity-80 leading-relaxed font-medium mb-8">
+                    We provide a dedicated space for law students who face difficulties in publishing their research papers or blogs.
+                </p>
+                <a href="research.html" class="block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px]">Enter Research Lab</a>
             </div>
         </section>
 
-        <section class="reveal">
-            <div class="px-8 mb-6">
-                <h3 class="text-2xl font-black text-gray-800 uppercase tracking-tighter">Top Articles</h3>
-                <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">Featured by Students</p>
-            </div>
-
-            <div id="home-articles-scroll" class="flex overflow-x-auto gap-5 px-8 pb-10 no-scrollbar snap-x snap-mandatory">
+        <section class="reveal px-8 mb-10">
+            <h3 class="text-2xl font-black text-gray-800 uppercase tracking-tighter">Top Articles</h3>
+            <div id="home-articles-scroll" class="flex overflow-x-auto gap-5 py-6 no-scrollbar snap-x snap-mandatory">
                 </div>
         </section>
-
-        <section class="px-6 py-4 reveal">
-            <div class="glossy-card p-8 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 border-none text-center">
-                <div class="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-blue-600 shadow-lg mx-auto mb-6">
-                    <i class="fa-solid fa-newspaper text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-black text-gray-800 uppercase tracking-tighter">Article Hub</h3>
-                <p class="text-[11px] text-gray-500 font-semibold mb-8 max-w-[250px] mx-auto">Access our complete archive of legal research, blogs, and student papers.</p>
-                <a href="pages/articles.html" class="btn-glossy bg-blue-600 text-white px-10 py-4 rounded-2xl font-black uppercase text-xs shadow-xl active:scale-95 transition-all block w-full">
-                    Open Articles <i class="fa-solid fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-        </section>
-
-        <section class="px-6 py-4 reveal">
-            <div class="glossy-card p-6 border-l-4 border-indigo-600 bg-gradient-to-br from-indigo-50/50 to-white/80">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-md">
-                        <i class="fa-solid fa-pen-nib text-lg"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-indigo-900 font-black text-md uppercase leading-none">Collaboration</h3>
-                        <p class="text-[8px] text-indigo-500 font-bold uppercase tracking-widest mt-1">Open Research Platform</p>
-                    </div>
-                </div>
-
-                <p class="text-gray-700 font-semibold text-[12px] leading-snug mb-4">Share your legal research and insights with our community.</p>
-
-                <div class="flex flex-wrap gap-2 mb-5">
-                    <div class="flex items-center gap-2 bg-white/60 px-3 py-1.5 rounded-lg border border-indigo-100">
-                        <i class="fa-solid fa-microchip text-indigo-500 text-[10px]"></i>
-                        <span class="text-[9px] font-black text-gray-600 uppercase">Max 25% AI</span>
-                    </div>
-                    <div class="flex items-center gap-2 bg-white/60 px-3 py-1.5 rounded-lg border border-indigo-100">
-                        <i class="fa-solid fa-file-pdf text-red-500 text-[10px]"></i>
-                        <span class="text-[9px] font-black text-gray-600 uppercase">PDF Only</span>
-                    </div>
-                    <div class="flex items-center gap-2 bg-white/60 px-3 py-1.5 rounded-lg border border-indigo-100">
-                        <i class="fa-solid fa-scale-balanced text-blue-500 text-[10px]"></i>
-                        <span class="text-[9px] font-black text-gray-600 uppercase">Legal Only</span>
-                    </div>
-                </div>
-
-                <a href="mailto:bigdaddymidnightop@gmail.com" class="btn-glossy w-full block text-center py-3 bg-indigo-600 text-white font-black rounded-xl uppercase text-[10px] shadow-lg active:scale-95 transition-all">
-                    <i class="fa-solid fa-envelope mr-2"></i> Contact via Mail
-                </a>
-            </div>
-        </section>
-
     </main>
-
-    <footer class="py-12 text-center">
-        <p class="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em]">&copy; 2026 lawjournal.online </p>
-    </footer>
 
     <script>
         const articleDatabase = [
-            {
-                author: "Ettisa Basak",
-                college: "Sureswar Dutta Law | CU",
-                title: "Advantages of Bare Acts",
-                desc: "Accuracy and precision of raw legislation.",
-                photo: "pages/read/author1.jpg",
-                accent: "blue-500"
-            },
-            {
-                author: "Rey",
-                college: "Surendranath Law | CU",
-                title: "Why Law is Important",
-                desc: "Journey through the evolution of legal systems.",
-                photo: "pages/read/author2.jpg",
-                accent: "indigo-600"
-            },
-             {
-                author: "Analdeep Samanta",
-                college: "South calcutta Law | CU",
-                title: "What is case law",
-                desc: "Learning about Indian legal cases and conducting in-depth research on them.",
-                photo: "pages/read/author4.jpg",
-                accent: "emerald-700"
-             }
+            { author: "Ettisa Basak", college: "SDLC | CU", title: "Bare Acts Benefits", photo: "pages/read/author1.jpg", accent: "blue-500" },
+            { author: "Rey", college: "Surendranath | CU", title: "Legal Evolution", photo: "pages/read/author2.jpg", accent: "indigo-600" }
         ];
+
+        // --- BACK BUTTON LOGIC START ---
+        // Jab bhi koi popup ya search khule, history mein state push karo
+        function handleBackNavigation(type) {
+            window.history.pushState({ activeOverlay: type }, "");
+        }
+
+        window.onpopstate = function(event) {
+            // Agar search overlay khula hai toh band karo
+            const searchOverlay = document.getElementById('search-overlay'); // Agar aapke paas hai
+            if (searchOverlay && searchOverlay.classList.contains('active')) {
+                searchOverlay.classList.remove('active');
+                return;
+            }
+            
+            // Agar modal/popup khula hai toh band karo
+            const modal = document.getElementById('article-modal'); // Aapka popup ID
+            if (modal && modal.classList.contains('active')) {
+                modal.classList.remove('active');
+                document.body.classList.remove('modal-open');
+            }
+        };
+        // --- BACK BUTTON LOGIC END ---
 
         const renderHomeArticles = () => {
             const container = document.getElementById('home-articles-scroll');
             if(container) {
                 container.innerHTML = articleDatabase.map(art => `
-                    <div class="min-w-[78vw] md:min-w-[380px] snap-center">
-                        <a href="pages/articles.html" class="block">
-                            <div class="glossy-card p-6 border-b-4 border-${art.accent} bg-white/80 active:scale-95 transition-all duration-300">
-                                <div class="flex items-center gap-4 mb-6">
-                                    <div class="relative">
-                                        <img src="${art.photo}" onerror="this.src='https://ui-avatars.com/api/?name=${art.author.replace(' ', '+')}&background=0f172a&color=fff'" 
-                                             class="w-14 h-14 rounded-2xl shadow-lg border-2 border-white object-cover">
-                                        <div class="absolute -bottom-1 -right-1 bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center border-2 border-white text-[8px]">
-                                            <i class="fa-solid fa-check"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-black text-gray-800 text-sm">${art.author}</h4>
-                                        <p class="text-[8px] text-gray-400 font-bold uppercase leading-tight">${art.college}</p>
-                                    </div>
-                                </div>
-                                <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
-                                    <h5 class="text-[11px] font-black text-gray-800 mb-2 uppercase text-blue-600">${art.title}</h5>
-                                    <p class="text-[10px] text-gray-500 line-clamp-2 italic leading-relaxed">"${art.desc}"</p>
-                                    <div class="mt-3 text-[9px] font-black text-blue-600 uppercase tracking-widest flex items-center">
-                                        Read More <i class="fa-solid fa-chevron-right ml-2 text-[7px]"></i>
-                                    </div>
-                                </div>
+                    <div class="min-w-[78vw] snap-center glossy-card p-6 border-b-4 border-${art.accent}">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="${art.photo}" class="w-12 h-12 rounded-xl object-cover" onerror="this.src='https://ui-avatars.com/api/?name=${art.author}'">
+                            <div>
+                                <h4 class="font-black text-gray-800 text-sm">${art.author}</h4>
+                                <p class="text-[8px] text-gray-400 font-bold uppercase">${art.college}</p>
                             </div>
-                        </a>
+                        </div>
+                        <h5 class="text-xs font-black text-blue-600 uppercase mb-2">${art.title}</h5>
+                        <a href="pages/articles.html" class="text-[9px] font-bold uppercase flex items-center">Read More <i class="fa-solid fa-chevron-right ml-2"></i></a>
                     </div>
                 `).join('');
             }
         };
 
-        const hideSkeleton = () => {
-            const sk = document.getElementById('skeleton-screen');
-            if(sk) {
-                sk.style.transition = 'opacity 0.3s ease';
-                sk.style.opacity = '0';
-                setTimeout(() => { if(sk.parentNode) sk.remove(); }, 300);
-            }
-        };
-
         window.addEventListener('load', () => {
-            hideSkeleton();
+            const sk = document.getElementById('skeleton-screen');
+            if(sk) setTimeout(() => sk.remove(), 500);
             renderHomeArticles();
         });
 
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href && href !== '#' && !href.startsWith('http') && !href.startsWith('mailto')) {
-                    e.preventDefault();
-                    document.body.classList.add('page-fade-out');
-                    setTimeout(() => { window.location.href = href; }, 200);
-                }
-            });
-        });
-
-        document.addEventListener('contextmenu', event => event.preventDefault());
     </script>
 </body>
 </html>
