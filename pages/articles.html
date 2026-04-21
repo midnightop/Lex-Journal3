@@ -11,12 +11,11 @@
         
         * { -webkit-user-select: none !important; user-select: none !important; -webkit-tap-highlight-color: transparent; }
 
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; color: #0f172a; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #fdfdfd; color: #0f172a; }
 
         .premium-card {
             background: white; border-radius: 32px; transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-            opacity: 0; transform: translateY(20px); border: 1px solid #e2e8f0; position: relative;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.02);
+            opacity: 0; transform: translateY(20px); border: 1px solid #f1f5f9; position: relative;
         }
         .premium-card.show { opacity: 1; transform: translateY(0); }
         .premium-card:active { transform: scale(0.97); }
@@ -34,7 +33,7 @@
         body.modal-open { overflow: hidden; }
 
         .modal-container {
-            background: #ffffff; width: 100%; max-width: 500px; max-height: 90vh; border-radius: 40px 40px 0 0;
+            background: #ffffff; width: 100%; max-width: 500px; max-height: 88vh; border-radius: 40px 40px 0 0;
             position: relative; display: flex; flex-direction: column; overflow: hidden;
             animation: slideUp 0.4s cubic-bezier(0.3, 1.2, 0.5, 1);
         }
@@ -49,9 +48,10 @@
             display: flex; align-items: center; justify-content: center; color: #64748b;
         }
 
-        .count-badge {
-            background: #1e293b; color: white; font-size: 10px; font-weight: 800;
-            padding: 6px 12px; border-radius: 12px;
+        .count-circle {
+            background: #2563eb; color: white; width: 24px; height: 24px;
+            display: flex; items-center: center; justify-content: center;
+            border-radius: 50%; font-size: 11px; font-weight: 800;
         }
     </style>
 </head>
@@ -59,12 +59,12 @@
 
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md px-6 py-5 flex items-center justify-between border-b border-slate-100">
         <div class="flex items-center gap-3">
-            <a href="../index.html" class="w-10 h-10 bg-slate-100 flex items-center justify-center rounded-2xl text-slate-900 border border-slate-200">
+            <a href="../index.html" class="w-10 h-10 bg-slate-50 flex items-center justify-center rounded-2xl border border-slate-200">
                 <i class="fa-solid fa-arrow-left"></i>
             </a>
             <div>
-                <h1 class="font-extrabold text-slate-900 text-lg">LAW HUB</h1>
-                <p class="text-[9px] font-black text-blue-600 tracking-widest uppercase">Research Articles</p>
+                <h1 class="font-extrabold text-slate-900 text-lg">RESEARCH HUB</h1>
+                <p class="text-[9px] font-black text-blue-600 tracking-widest uppercase">Lawjournal.online</p>
             </div>
         </div>
         <button onclick="toggleSearch()" class="w-11 h-11 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 border border-slate-200">
@@ -75,17 +75,16 @@
     <div id="search-overlay">
         <div class="flex items-center gap-4 mb-4">
             <button onclick="toggleSearch()" class="text-slate-900 text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <input type="text" id="search-input" placeholder="Search articles or authors..." class="flex-1 bg-slate-100 p-4 rounded-2xl font-bold outline-none border-2 border-transparent focus:border-blue-500">
+            <input type="text" id="search-input" placeholder="Search articles..." class="flex-1 bg-slate-100 p-4 rounded-2xl font-bold outline-none border-2 border-transparent focus:border-blue-500">
         </div>
-        <div id="search-results" class="flex-1 overflow-auto"></div>
+        <div id="search-results" class="flex-1 overflow-auto px-2"></div>
     </div>
 
     <main class="px-6 py-8 pb-20">
         <header class="mb-10">
-            <h2 style="font-family: 'Playfair Display';" class="text-4xl text-slate-900 leading-tight">Featured <br><span class="italic text-blue-600">Legal Scholars</span></h2>
-            <p class="text-slate-400 text-sm mt-1 font-semibold">University of Calcutta Affiliated Journals</p>
+            <h2 style="font-family: 'Playfair Display';" class="text-4xl text-slate-900 leading-tight">Legal <br><span class="italic text-blue-600">Perspectives</span></h2>
+            <p class="text-slate-400 text-sm mt-1 font-semibold">Curated by Calcutta University Scholars</p>
         </header>
-
         <div id="articles-hub" class="space-y-6"></div>
     </main>
 
@@ -95,12 +94,11 @@
                 <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Scholar Profile</span>
                 <button onclick="closeModal()" class="exit-btn"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            
             <div class="modal-body">
                 <div id="modal-profile-header"></div>
                 <div class="mt-8">
                     <h3 class="text-xs font-black text-slate-900 uppercase tracking-widest mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-book text-blue-600"></i> Read Articles
+                        <i class="fa-solid fa-book-open text-blue-600"></i> Read Articles
                     </h3>
                     <div id="modal-articles-list"></div>
                 </div>
@@ -117,35 +115,46 @@
                 insta: "@ettisa_basak",
                 photo: "read/author1.jpg",
                 accent: "#3b82f6",
-                bio: "Law student at Sureswar Dutta Law College, currently pursuing legal studies under the prestigious University of Calcutta. Dedicated to exploring legal reforms and legislative drafting.",
+                bio: "Law student at Sureswar Dutta Law College under the University of Calcutta. Specialized in Bare Acts research and legislative interpretation.",
                 articles: [
-                    { title: "The Power of Bare Acts", desc: "Understanding why original legislative texts are indispensable.", link: "read/article1.html", date: "17 Apr 2026", time: "11 min", status: "published" },
-                    { title: "Constitutional Morality", desc: "Analyzing the evolving nature of judicial interpretations.", link: "#", date: "May 2026", time: "15 min", status: "locked" }
+                    { title: "The Power of Bare Acts", desc: "Understanding why original legislative texts are indispensable for legal professionals.", link: "read/article1.html", date: "17 Apr 2026", time: "11 min", status: "published" },
+                    { title: "Judicial Activism", desc: "A look into the evolution of court powers in India.", link: "#", date: "May 2026", time: "15 min", status: "locked" }
                 ]
             },
             {
                 id: "auth2",
                 author: "Rey",
                 university: "Surendranath Law College",
-                insta: "@rey_legal_hub",
+                insta: "@rey_legal",
                 photo: "read/author2.jpg",
                 accent: "#8b5cf6",
-                bio: "Scholar at Surendranath Law College under the University of Calcutta. Focused on foundations of jurisprudence and criminal justice systems in India.",
+                bio: "Legal scholar at Surendranath Law College, University of Calcutta. Exploring the philosophy behind Indian Jurisprudence.",
                 articles: [
-                    { title: "Foundations of Jurisprudence", desc: "A deep dive into why law exists and maintains social fabric.", link: "read/article2.html", date: "18 Apr 2026", time: "10 min", status: "published" },
-                    { title: "IPC vs BNS: A Review", desc: "Comparison between traditional and new criminal codes.", link: "#", date: "June 2026", time: "20 min", status: "locked" }
+                    { title: "Foundations of Jurisprudence", desc: "A deep dive into why law exists and how it maintains the social fabric of India.", link: "read/article2.html", date: "18 Apr 2026", time: "10 min", status: "published" }
                 ]
             },
             {
                 id: "auth3",
                 author: "Analdeep Samanta",
                 university: "South Calcutta Law College",
-                insta: "@analdeep_official",
+                insta: "@analdeep_s",
                 photo: "read/author4.jpg",
                 accent: "#10b981",
-                bio: "Legal enthusiast at South Calcutta Law College, University of Calcutta. Specializes in judicial research and case law analysis.",
+                bio: "Student at South Calcutta Law College, University of Calcutta. Researcher of Case Laws and judicial precedents.",
                 articles: [
-                    { title: "What Is Case Law", desc: "In-depth guide to conducting legal research through precedents.", link: "read/article4.html", date: "20 Apr 2026", time: "15 min", status: "published" }
+                    { title: "What Is Case Law", desc: "Learning about Indian legal cases and conducting in depth research on them.", link: "read/article4.html", date: "20 Apr 2026", time: "15 min", status: "published" }
+                ]
+            },
+            {
+                id: "auth4",
+                author: "Bishal Soren",
+                university: "Surendranath Law College",
+                insta: "@bishal_soren",
+                photo: "read/author3.jpg",
+                accent: "#f59e0b",
+                bio: "Scholar at Surendranath Law College under the University of Calcutta. Analyzing Constitutional frameworks and the Rule of Law.",
+                articles: [
+                    { title: "Constitutional Framework", desc: "Analyzing the 'Rule of Law' and the structural backbone of our democratic nation.", link: "read/article3.html", date: "19 Apr 2026", time: "13 min", status: "published" }
                 ]
             }
         ];
@@ -160,10 +169,9 @@
         const openModal = (id) => {
             const data = authorData.find(a => a.id === id);
             document.body.classList.add('modal-open');
-            
             document.getElementById('modal-profile-header').innerHTML = `
                 <div class="flex items-center gap-5">
-                    <img src="${data.photo}" class="w-20 h-20 rounded-[28px] object-cover ring-4 ring-slate-50" onerror="this.src='https://ui-avatars.com/api/?name=${data.author.replace(' ', '+')}&background=${data.accent.replace('#','')}&color=fff'">
+                    <img src="${data.photo}" class="w-20 h-20 rounded-[28px] object-cover ring-4 ring-slate-50" onerror="this.src='https://ui-avatars.com/api/?name=${data.author.replace(' ', '+')}&background=3b82f6&color=fff'">
                     <div>
                         <div class="flex items-center gap-2">
                             <h2 class="text-xl font-extrabold text-slate-900">${data.author}</h2>
@@ -187,14 +195,14 @@
                             <span class="text-[9px] font-black text-blue-600 uppercase tracking-widest">${art.date} • ${art.time}</span>
                         </div>
                         <h4 class="text-[16px] font-bold text-slate-900 leading-tight mb-3">${art.title}</h4>
-                        <a href="${art.link}" class="inline-block text-[10px] font-black text-slate-900 border-b-2 border-slate-900 pb-0.5">READ MORE</a>
+                        <a href="${art.link}" class="inline-block text-[10px] font-black text-slate-900 border-b-2 border-slate-900 pb-0.5 uppercase">Read Full Article</a>
                     </div>`;
                 } else {
                     html += `
                     <div class="inner-card locked-card">
                         <div class="flex justify-between items-center mb-2">
-                            <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Upcoming ${art.date}</span>
-                            <i class="fa-solid fa-lock text-[9px] text-slate-400"></i>
+                            <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Upcoming</span>
+                            <i class="fa-solid fa-lock text-[9px]"></i>
                         </div>
                         <h4 class="text-[16px] font-bold text-slate-400 leading-tight">${art.title}</h4>
                     </div>`;
@@ -227,12 +235,12 @@
                                 <p class="text-[9px] font-bold text-slate-400 uppercase">${data.university}</p>
                             </div>
                         </div>
-                        <div class="count-badge">${data.articles.length} ARTICLES</div>
+                        <div class="count-circle">${data.articles.length}</div>
                     </div>
                     <h3 class="text-xl font-extrabold text-slate-900 leading-tight mb-2">${data.articles[0].title}</h3>
                     <p class="text-xs text-slate-500 font-medium line-clamp-2">${data.articles[0].desc}</p>
                     <div class="mt-6 flex items-center justify-between text-[10px] font-black uppercase text-blue-600 tracking-widest">
-                        <span>View All Research</span>
+                        <span>Open Articles</span>
                         <i class="fa-solid fa-chevron-right"></i>
                     </div>
                 `;
@@ -241,7 +249,6 @@
             });
         };
 
-        // Live Search logic
         document.getElementById('search-input').addEventListener('input', (e) => {
             const val = e.target.value.toLowerCase();
             const res = document.getElementById('search-results');
