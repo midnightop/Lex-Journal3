@@ -35,7 +35,6 @@
             display: none; position: fixed; inset: 0; background: white; z-index: 2000; padding: 20px; flex-direction: column;
         }
         #search-overlay.active { display: flex; animation: fadeIn 0.2s ease; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         #article-modal {
             display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85);
@@ -58,11 +57,14 @@
 
         .search-item { padding: 16px; border-bottom: 1px solid #f1f5f9; cursor: pointer; }
         
-        /* Insta Link Style */
-        .insta-btn {
-            text-decoration: none; display: inline-block; transition: transform 0.2s;
-        }
+        .insta-btn { text-decoration: none; display: inline-block; transition: transform 0.2s; }
         .insta-btn:active { transform: scale(0.9); }
+
+        /* Fancy Tags */
+        .status-tag {
+            font-size: 7px; font-weight: 900; padding: 2px 6px; border-radius: 4px;
+            background: #f1f5f9; color: #64748b; letter-spacing: 0.5px;
+        }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -92,7 +94,7 @@
 
     <main class="px-5 py-6 pb-20">
         <header class="mb-8 pl-1">
-            <h2 style="font-family: 'Playfair Display';" class="text-3xl text-slate-900 leading-tight">Legal <br><span class="italic text-blue-600">Thought Leaders</span></h2>
+            <h2 style="font-family: 'Playfair Display';" class="text-3xl text-slate-900 leading-tight text-center">Legal <span class="italic text-blue-600">Scholars</span></h2>
         </header>
         <div id="articles-hub" class="space-y-5"></div>
     </main>
@@ -121,12 +123,12 @@
                 id: "auth1",
                 author: "Ettisa Basak",
                 university: "CALCUTTA UNIVERSITY STUDENT",
-                insta: "ettisa_basak", // ID only
+                insta: "ettisa_basak",
                 photo: "read/author1.jpg",
-                bio: "Law student specializing in Bare Acts research and legislative interpretation under the University of Calcutta.",
+                bio: "Law student at Sureswar Dutta Law College under University of Calcutta. Specialized in Bare Acts research.",
                 articles: [
-                    { title: "The Power of Bare Acts", desc: "Understanding why original legislative texts are indispensable for legal professionals.", link: "read/article1.html", date: "17 Apr 2026", status: "published" },
-                    { title: "Judicial Activism", desc: "A look into the evolution of court powers in India.", link: "#", date: "May 2026", status: "locked" }
+                    { title: "The Power of Bare Acts", desc: "Understanding why original legislative texts are indispensable for legal professionals.", link: "read/article1.html", date: "17 Apr 2026", time: "11 min", status: "published" },
+                    { title: "Judicial Activism", desc: "A look into the evolution of court powers in India.", link: "#", date: "Coming Soon", time: "15 min", status: "locked" }
                 ]
             },
             {
@@ -137,7 +139,7 @@
                 photo: "read/author2.jpg",
                 bio: "Exploring the philosophy behind Indian Jurisprudence and Social Law structures.",
                 articles: [
-                    { title: "Foundations of Jurisprudence", desc: "A deep dive into why law exists and how it maintains the social fabric of India.", link: "read/article2.html", date: "18 Apr 2026", status: "published" }
+                    { title: "Foundations of Jurisprudence", desc: "A deep dive into why law exists and how it maintains the social fabric of India.", link: "read/article2.html", date: "18 Apr 2026", time: "10 min", status: "published" }
                 ]
             },
             {
@@ -148,7 +150,7 @@
                 photo: "read/author4.jpg",
                 bio: "Researcher of Indian legal cases and judicial precedents with a focus on procedural law.",
                 articles: [
-                    { title: "What Is Case Law", desc: "Learning about Indian legal cases and conducting in depth research on them.", link: "read/article4.html", date: "20 Apr 2026", status: "published" }
+                    { title: "What Is Case Law", desc: "Learning about Indian legal cases and conducting in depth research on them.", link: "read/article4.html", date: "20 Apr 2026", time: "15 min", status: "published" }
                 ]
             },
             {
@@ -159,7 +161,7 @@
                 photo: "read/author3.jpg",
                 bio: "Analyzing the structural backbone of the Indian Constitution and democratic nation-building.",
                 articles: [
-                    { title: "Constitutional Framework", desc: "Analyzing the 'Rule of Law' and the structural backbone of our democratic nation.", link: "read/article3.html", date: "19 Apr 2026", status: "published" }
+                    { title: "Constitutional Framework", desc: "Analyzing the 'Rule of Law' and the structural backbone of our democratic nation.", link: "read/article3.html", date: "19 Apr 2026", time: "13 min", status: "published" }
                 ]
             }
         ];
@@ -219,10 +221,13 @@
                 const isPub = art.status === 'published';
                 html += `
                 <div class="p-4 ${isPub ? 'bg-slate-50' : 'bg-white border-dashed opacity-60'} rounded-2xl border border-slate-100 mb-3">
-                    <span class="text-[8px] font-black text-blue-600 uppercase">${art.date}</span>
-                    <h4 class="text-sm font-bold text-slate-900 my-0.5">${art.title}</h4>
-                    <p class="text-[11px] text-slate-500 mb-3 line-clamp-2 leading-relaxed">${art.desc}</p>
-                    ${isPub ? `<a href="${art.link}" class="w-full py-2.5 bg-white border border-slate-200 rounded-lg text-[9px] font-black text-center block uppercase active:scale-95 transition-transform tracking-wider">Open Paper</a>` : '<span class="text-[9px] font-bold text-slate-400 uppercase">Coming Soon</span>'}
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-[8px] font-black text-blue-600 uppercase tracking-widest">${art.date} • ${art.time} read</span>
+                        <span class="status-tag uppercase">${isPub ? 'Peer Reviewed' : 'In Review'}</span>
+                    </div>
+                    <h4 class="text-sm font-bold text-slate-900 my-1">${art.title}</h4>
+                    <p class="text-[11px] text-slate-500 mb-3 line-clamp-2 leading-relaxed font-medium">${art.desc}</p>
+                    ${isPub ? `<a href="${art.link}" class="w-full py-2.5 bg-white border border-slate-200 rounded-lg text-[9px] font-black text-center block uppercase tracking-wider active:bg-blue-600 active:text-white transition-all">Read Research <i class="fa-solid fa-chevron-right text-[7px] ml-1"></i></a>` : ''}
                 </div>`;
             });
             document.getElementById('modal-articles-list').innerHTML = html;
@@ -285,7 +290,7 @@
                         <h3 class="text-[16px] font-extrabold text-slate-900 leading-tight mb-1 tracking-tight">${data.articles[0].title}</h3>
                         <p class="text-[11px] text-slate-500 font-medium leading-relaxed line-clamp-2">${data.articles[0].desc}</p>
                     </div>
-                    <div class="action-link">Explore Portfolio <i class="fa-solid fa-arrow-right text-[9px]"></i></div>
+                    <div class="action-link">View Portfolio <i class="fa-solid fa-arrow-right text-[9px]"></i></div>
                 `;
                 container.appendChild(card);
                 setTimeout(() => card.classList.add('show'), index * 120);
