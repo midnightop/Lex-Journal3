@@ -11,135 +11,100 @@
         
         * { -webkit-user-select: none !important; user-select: none !important; -webkit-tap-highlight-color: transparent; }
 
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background: #fdfdfd; 
-            color: #0f172a; 
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; color: #0f172a; }
 
         .premium-card {
-            background: white;
-            border-radius: 28px;
-            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-            opacity: 0;
-            transform: translateY(25px);
-            border: 1px solid #f1f5f9;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
-            overflow: hidden;
-            cursor: pointer;
+            background: white; border-radius: 32px; transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            opacity: 0; transform: translateY(20px); border: 1px solid #e2e8f0; position: relative;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.02);
         }
-
         .premium-card.show { opacity: 1; transform: translateY(0); }
-        .premium-card:active { transform: scale(0.96); }
+        .premium-card:active { transform: scale(0.97); }
 
-        .accent-line {
-            position: absolute; left: 0; top: 20px; bottom: 20px; width: 4px; border-radius: 0 4px 4px 0;
-        }
-
-        /* Search Overlay Styles */
         #search-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: white;
-            z-index: 2000;
-            padding: 20px;
-            flex-direction: column;
+            display: none; position: fixed; inset: 0; background: white; z-index: 2000; padding: 20px; flex-direction: column;
         }
-
         #search-overlay.active { display: flex; }
 
-        /* Modal Styles */
         #article-modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
-            padding: 15px;
-            align-items: center;
-            justify-content: center;
+            display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px); z-index: 1000; padding: 15px; align-items: flex-end; justify-content: center;
         }
-
         #article-modal.active { display: flex; }
         body.modal-open { overflow: hidden; }
 
         .modal-container {
-            background: #f8fafc;
-            width: 100%;
-            max-width: 500px;
-            max-height: 85vh;
-            border-radius: 35px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            animation: modalSlide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: #ffffff; width: 100%; max-width: 500px; max-height: 90vh; border-radius: 40px 40px 0 0;
+            position: relative; display: flex; flex-direction: column; overflow: hidden;
+            animation: slideUp 0.4s cubic-bezier(0.3, 1.2, 0.5, 1);
         }
+        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
 
-        @keyframes modalSlide {
-            from { transform: translateY(100px) scale(0.9); opacity: 0; }
-            to { transform: translateY(0) scale(1); opacity: 1; }
-        }
-
-        .modal-header { padding: 25px; background: white; border-radius: 35px 35px 0 0; border-bottom: 1px solid #f1f5f9; }
-        .modal-body { padding: 20px; overflow-y: auto; flex: 1; }
-        .inner-article-card { background: white; border-radius: 20px; padding: 20px; margin-bottom: 15px; border: 1px solid #e2e8f0; }
-
+        .modal-body { padding: 25px; overflow-y: auto; flex: 1; }
+        .inner-card { background: #f8fafc; border-radius: 24px; padding: 18px; border: 1px solid #f1f5f9; margin-bottom: 12px; }
+        .locked-card { background: #fff; border: 1px dashed #cbd5e1; opacity: 0.6; }
+        
         .exit-btn {
-            position: absolute; top: -60px; right: 10px; background: white; width: 45px; height: 45px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #1e293b;
+            background: #f1f5f9; width: 40px; height: 40px; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; color: #64748b;
         }
 
-        .suggestion-item {
-            padding: 15px;
-            border-bottom: 1px solid #f1f5f9;
-            cursor: pointer;
-            transition: background 0.2s;
+        .count-badge {
+            background: #1e293b; color: white; font-size: 10px; font-weight: 800;
+            padding: 6px 12px; border-radius: 12px;
         }
-        .suggestion-item:active { background: #f8fafc; }
     </style>
 </head>
 <body oncontextmenu="return false;">
 
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md px-6 py-5 flex items-center justify-between border-b border-slate-100">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md px-6 py-5 flex items-center justify-between border-b border-slate-100">
         <div class="flex items-center gap-3">
-            <a href="../index.html" class="w-10 h-10 bg-slate-50 flex items-center justify-center rounded-2xl text-slate-900 border border-slate-200">
-                <i class="fa-solid fa-arrow-left-long"></i>
+            <a href="../index.html" class="w-10 h-10 bg-slate-100 flex items-center justify-center rounded-2xl text-slate-900 border border-slate-200">
+                <i class="fa-solid fa-arrow-left"></i>
             </a>
             <div>
-                <h1 class="font-extrabold text-slate-900 text-lg leading-none">ARTICLES</h1>
-                <p class="text-[10px] font-bold text-blue-600 tracking-widest uppercase mt-1">Lawjournal.online</p>
+                <h1 class="font-extrabold text-slate-900 text-lg">LAW HUB</h1>
+                <p class="text-[9px] font-black text-blue-600 tracking-widest uppercase">Research Articles</p>
             </div>
         </div>
-        <button onclick="toggleSearch()" class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center border border-slate-200 text-slate-600 active:scale-90 transition-transform">
+        <button onclick="toggleSearch()" class="w-11 h-11 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 border border-slate-200">
             <i class="fa-solid fa-magnifying-glass"></i>
         </button>
     </nav>
 
     <div id="search-overlay">
-        <div class="flex items-center gap-4 mb-6">
-            <button onclick="toggleSearch()" class="text-slate-400 text-xl"><i class="fa-solid fa-chevron-left"></i></button>
-            <input type="text" id="search-input" placeholder="Search articles or authors..." 
-                   class="flex-1 bg-slate-100 border-none rounded-2xl px-5 py-3 font-semibold focus:ring-2 focus:ring-blue-500 outline-none">
+        <div class="flex items-center gap-4 mb-4">
+            <button onclick="toggleSearch()" class="text-slate-900 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <input type="text" id="search-input" placeholder="Search articles or authors..." class="flex-1 bg-slate-100 p-4 rounded-2xl font-bold outline-none border-2 border-transparent focus:border-blue-500">
         </div>
-        <div id="search-results" class="overflow-y-auto">
-            </div>
+        <div id="search-results" class="flex-1 overflow-auto"></div>
     </div>
 
-    <main class="px-6 py-8 pb-24 relative">
+    <main class="px-6 py-8 pb-20">
         <header class="mb-10">
-            <h2 style="font-family: 'Playfair Display';" class="text-4xl text-slate-900">Legal <span class="italic text-blue-600">Perspectives</span></h2>
-            <p class="text-slate-500 text-sm mt-2 font-medium">Curated articles by law students.</p>
+            <h2 style="font-family: 'Playfair Display';" class="text-4xl text-slate-900 leading-tight">Featured <br><span class="italic text-blue-600">Legal Scholars</span></h2>
+            <p class="text-slate-400 text-sm mt-1 font-semibold">University of Calcutta Affiliated Journals</p>
         </header>
+
         <div id="articles-hub" class="space-y-6"></div>
     </main>
 
     <div id="article-modal">
         <div class="modal-container">
-            <button class="exit-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
-            <div class="modal-header" id="modal-header-info"></div>
-            <div class="modal-body" id="modal-list"></div>
+            <div class="flex justify-between items-center p-6 border-b border-slate-50">
+                <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Scholar Profile</span>
+                <button onclick="closeModal()" class="exit-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="modal-body">
+                <div id="modal-profile-header"></div>
+                <div class="mt-8">
+                    <h3 class="text-xs font-black text-slate-900 uppercase tracking-widest mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-book text-blue-600"></i> Read Articles
+                    </h3>
+                    <div id="modal-articles-list"></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -149,121 +114,93 @@
                 id: "auth1",
                 author: "Ettisa Basak",
                 university: "Sureswar Dutta Law College",
+                insta: "@ettisa_basak",
                 photo: "read/author1.jpg",
                 accent: "#3b82f6",
+                bio: "Law student at Sureswar Dutta Law College, currently pursuing legal studies under the prestigious University of Calcutta. Dedicated to exploring legal reforms and legislative drafting.",
                 articles: [
-                    { title: "The Power of Bare Acts", desc: "Understanding why original legislative texts are indispensable.", link: "read/article1.html", date: "17 Apr 2026", time: "11 min" },
-                    { title: "Legal Drafting 101", desc: "Tips for writing concise legal documents.", link: "#", date: "19 Apr 2026", time: "8 min" }
+                    { title: "The Power of Bare Acts", desc: "Understanding why original legislative texts are indispensable.", link: "read/article1.html", date: "17 Apr 2026", time: "11 min", status: "published" },
+                    { title: "Constitutional Morality", desc: "Analyzing the evolving nature of judicial interpretations.", link: "#", date: "May 2026", time: "15 min", status: "locked" }
                 ]
             },
             {
                 id: "auth2",
                 author: "Rey",
                 university: "Surendranath Law College",
+                insta: "@rey_legal_hub",
                 photo: "read/author2.jpg",
                 accent: "#8b5cf6",
+                bio: "Scholar at Surendranath Law College under the University of Calcutta. Focused on foundations of jurisprudence and criminal justice systems in India.",
                 articles: [
-                    { title: "Foundations of Jurisprudence", desc: "A deep dive into why law exists and maintains social fabric.", link: "read/article2.html", date: "18 Apr 2026", time: "10 min" }
+                    { title: "Foundations of Jurisprudence", desc: "A deep dive into why law exists and maintains social fabric.", link: "read/article2.html", date: "18 Apr 2026", time: "10 min", status: "published" },
+                    { title: "IPC vs BNS: A Review", desc: "Comparison between traditional and new criminal codes.", link: "#", date: "June 2026", time: "20 min", status: "locked" }
                 ]
             },
             {
                 id: "auth3",
                 author: "Analdeep Samanta",
                 university: "South Calcutta Law College",
+                insta: "@analdeep_official",
                 photo: "read/author4.jpg",
                 accent: "#10b981",
+                bio: "Legal enthusiast at South Calcutta Law College, University of Calcutta. Specializes in judicial research and case law analysis.",
                 articles: [
-                    { title: "What Is Case Law", desc: "Learning about Indian legal cases and in-depth research.", link: "read/article4.html", date: "20 Apr 2026", time: "15 min" },
-                    { title: "PIL Framework", desc: "How Public Interest Litigation changed India.", link: "#", date: "21 Apr 2026", time: "12 min" }
-                ]
-            },
-            {
-                id: "auth4",
-                author: "Bishal Soren",
-                university: "Surendranath Law College",
-                photo: "read/author3.jpg",
-                accent: "#f59e0b",
-                articles: [
-                    { title: "Constitutional Framework", desc: "Analyzing the 'Rule of Law' in our democratic nation.", link: "read/article3.html", date: "19 Apr 2026", time: "13 min" }
+                    { title: "What Is Case Law", desc: "In-depth guide to conducting legal research through precedents.", link: "read/article4.html", date: "20 Apr 2026", time: "15 min", status: "published" }
                 ]
             }
         ];
 
         const container = document.getElementById('articles-hub');
         const modal = document.getElementById('article-modal');
-        const searchOverlay = document.getElementById('search-overlay');
-        const searchInput = document.getElementById('search-input');
-        const searchResults = document.getElementById('search-results');
 
-        // Toggle Search Overlay
         function toggleSearch() {
-            searchOverlay.classList.toggle('active');
-            if(searchOverlay.classList.contains('active')) {
-                searchInput.focus();
-            } else {
-                searchInput.value = "";
-                searchResults.innerHTML = "";
-            }
+            document.getElementById('search-overlay').classList.toggle('active');
         }
 
-        // Search Logic
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase();
-            searchResults.innerHTML = "";
-            
-            if(query.length < 1) return;
-
-            authorData.forEach(auth => {
-                auth.articles.forEach(art => {
-                    if(art.title.toLowerCase().includes(query) || auth.author.toLowerCase().includes(query)) {
-                        const div = document.createElement('div');
-                        div.className = 'suggestion-item';
-                        div.innerHTML = `
-                            <p class="text-xs font-bold text-blue-600 uppercase tracking-tighter">${auth.author}</p>
-                            <h5 class="text-sm font-bold text-slate-800">${art.title}</h5>
-                        `;
-                        div.onclick = () => {
-                            toggleSearch();
-                            openModal(auth.id);
-                        };
-                        searchResults.appendChild(div);
-                    }
-                });
-            });
-        });
-
-        // Modal Logic
-        const openModal = (authId) => {
-            const data = authorData.find(a => a.id === authId);
+        const openModal = (id) => {
+            const data = authorData.find(a => a.id === id);
             document.body.classList.add('modal-open');
             
-            document.getElementById('modal-header-info').innerHTML = `
-                <div class="flex items-center gap-4">
-                    <img src="${data.photo}" class="w-14 h-14 rounded-2xl object-cover ring-4 ring-slate-50" onerror="this.src='https://ui-avatars.com/api/?name=${data.author.replace(' ', '+')}&background=${data.accent.replace('#','')}&color=fff'">
+            document.getElementById('modal-profile-header').innerHTML = `
+                <div class="flex items-center gap-5">
+                    <img src="${data.photo}" class="w-20 h-20 rounded-[28px] object-cover ring-4 ring-slate-50" onerror="this.src='https://ui-avatars.com/api/?name=${data.author.replace(' ', '+')}&background=${data.accent.replace('#','')}&color=fff'">
                     <div>
-                        <h4 class="font-bold text-slate-900">${data.author}</h4>
-                        <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">${data.university}</p>
-                    </div>
-                </div>
-            `;
-
-            let articlesHtml = "";
-            data.articles.forEach(art => {
-                articlesHtml += `
-                    <div class="inner-article-card shadow-sm">
-                        <div class="flex justify-between mb-3">
-                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">${art.date}</span>
-                            <span class="text-[9px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">${art.time} read</span>
+                        <div class="flex items-center gap-2">
+                            <h2 class="text-xl font-extrabold text-slate-900">${data.author}</h2>
+                            <i class="fa-solid fa-circle-check text-blue-500 text-sm"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-slate-900 leading-tight mb-2">${art.title}</h3>
-                        <p class="text-xs text-slate-500 mb-4 font-medium leading-relaxed">${art.desc}</p>
-                        <a href="${art.link}" class="inline-flex items-center gap-2 text-[11px] font-extrabold text-blue-600 uppercase tracking-tighter">
-                            Read Full Article <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter mt-1">${data.university}</p>
+                        <a href="https://instagram.com" class="inline-flex items-center gap-1.5 mt-3 text-[11px] font-bold text-pink-600 bg-pink-50 px-3 py-1.5 rounded-full">
+                            <i class="fa-brands fa-instagram"></i> ${data.insta}
                         </a>
                     </div>
-                `;
+                </div>
+                <p class="mt-6 text-sm text-slate-500 font-medium leading-relaxed">${data.bio}</p>
+            `;
+
+            let html = "";
+            data.articles.forEach(art => {
+                if(art.status === 'published') {
+                    html += `
+                    <div class="inner-card">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-[9px] font-black text-blue-600 uppercase tracking-widest">${art.date} • ${art.time}</span>
+                        </div>
+                        <h4 class="text-[16px] font-bold text-slate-900 leading-tight mb-3">${art.title}</h4>
+                        <a href="${art.link}" class="inline-block text-[10px] font-black text-slate-900 border-b-2 border-slate-900 pb-0.5">READ MORE</a>
+                    </div>`;
+                } else {
+                    html += `
+                    <div class="inner-card locked-card">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Upcoming ${art.date}</span>
+                            <i class="fa-solid fa-lock text-[9px] text-slate-400"></i>
+                        </div>
+                        <h4 class="text-[16px] font-bold text-slate-400 leading-tight">${art.title}</h4>
+                    </div>`;
+                }
             });
-            document.getElementById('modal-list').innerHTML = articlesHtml;
+            document.getElementById('modal-articles-list').innerHTML = html;
             modal.classList.add('active');
         };
 
@@ -272,41 +209,57 @@
             document.body.classList.remove('modal-open');
         };
 
-        const renderAuthors = () => {
+        const render = () => {
             container.innerHTML = "";
             authorData.forEach((data, index) => {
                 const card = document.createElement('div');
-                card.className = `premium-card relative p-6`;
+                card.className = `premium-card p-6`;
                 card.onclick = () => openModal(data.id);
-                
                 card.innerHTML = `
-                    <div class="accent-line" style="background: ${data.accent}"></div>
-                    <div class="flex justify-between items-start">
+                    <div class="flex justify-between items-start mb-6">
                         <div class="flex items-center gap-3">
-                            <img src="${data.photo}" onerror="this.src='https://ui-avatars.com/api/?name=${data.author.replace(' ', '+')}&background=${data.accent.replace('#','')}&color=fff'" 
-                                     class="w-12 h-12 rounded-2xl object-cover shadow-sm">
+                            <img src="${data.photo}" class="w-12 h-12 rounded-2xl object-cover shadow-sm" onerror="this.src='https://ui-avatars.com/api/?name=${data.author.replace(' ', '+')}'">
                             <div>
-                                <h4 class="font-bold text-slate-900 text-sm">${data.author}</h4>
-                                <p class="text-[10px] text-slate-400 font-semibold uppercase">${data.university}</p>
+                                <div class="flex items-center gap-1.5">
+                                    <h4 class="font-bold text-slate-900 text-sm">${data.author}</h4>
+                                    <i class="fa-solid fa-circle-check text-blue-500 text-[11px]"></i>
+                                </div>
+                                <p class="text-[9px] font-bold text-slate-400 uppercase">${data.university}</p>
                             </div>
                         </div>
-                        <div class="bg-slate-900 text-white px-3 py-1 rounded-full flex items-center gap-2 shadow-lg">
-                             <span class="text-[10px] font-bold">${data.articles.length} Articles</span>
-                             <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                        </div>
+                        <div class="count-badge">${data.articles.length} ARTICLES</div>
                     </div>
-                    <div class="mt-4">
-                        <h3 class="text-lg font-extrabold text-slate-900 leading-tight">${data.articles[0].title}</h3>
-                        <p class="text-[12px] text-slate-500 mt-1 line-clamp-1">${data.articles[0].desc}</p>
+                    <h3 class="text-xl font-extrabold text-slate-900 leading-tight mb-2">${data.articles[0].title}</h3>
+                    <p class="text-xs text-slate-500 font-medium line-clamp-2">${data.articles[0].desc}</p>
+                    <div class="mt-6 flex items-center justify-between text-[10px] font-black uppercase text-blue-600 tracking-widest">
+                        <span>View All Research</span>
+                        <i class="fa-solid fa-chevron-right"></i>
                     </div>
                 `;
                 container.appendChild(card);
-                setTimeout(() => { card.classList.add('show'); }, index * 100);
+                setTimeout(() => card.classList.add('show'), index * 100);
             });
         };
 
-        window.onload = renderAuthors;
-        window.onclick = (e) => { if(e.target == modal) closeModal(); };
+        // Live Search logic
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            const val = e.target.value.toLowerCase();
+            const res = document.getElementById('search-results');
+            res.innerHTML = "";
+            if(!val) return;
+            authorData.forEach(d => {
+                if(d.author.toLowerCase().includes(val) || d.articles.some(a => a.title.toLowerCase().includes(val))) {
+                    res.innerHTML += `
+                    <div class="p-4 border-b border-slate-100 active:bg-slate-50" onclick="toggleSearch(); openModal('${d.id}')">
+                        <p class="text-[10px] font-black text-blue-600 uppercase">${d.author}</p>
+                        <p class="font-bold text-slate-800 text-sm">${d.articles[0].title}</p>
+                    </div>`;
+                }
+            });
+        });
+
+        window.onload = render;
+        window.onclick = (e) => e.target == modal ? closeModal() : null;
     </script>
 </body>
 </html>
