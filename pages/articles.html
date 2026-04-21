@@ -11,27 +11,27 @@
         
         * { -webkit-user-select: none !important; user-select: none !important; -webkit-tap-highlight-color: transparent; }
 
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #fdfdfd; color: #0f172a; overflow-x: hidden; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #fcfcfc; color: #0f172a; overflow-x: hidden; }
 
+        /* Compact & Sleek Card Styling */
         .premium-card {
-            background: white; border-radius: 35px; transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-            opacity: 0; transform: translateY(20px); border: 1px solid #f1f5f9; position: relative;
-            box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.05);
+            background: white; border-radius: 28px; transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            opacity: 0; transform: translateY(15px); border: 1px solid #f1f5f9; position: relative;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
         }
         .premium-card.show { opacity: 1; transform: translateY(0); }
-        .premium-card:active { transform: scale(0.97); }
+        .premium-card:active { transform: scale(0.97); background: #fafafa; }
 
+        /* Integrated Article Count */
         .count-badge {
-            background: rgba(37, 99, 235, 0.08); color: #2563eb;
-            padding: 8px 16px; border-radius: 18px; font-size: 11px; font-weight: 800;
-            border: 1px solid rgba(37, 99, 235, 0.1); text-align: center; line-height: 1.2;
+            color: #2563eb; font-size: 11px; font-weight: 800;
+            text-align: right; line-height: 1.1;
         }
 
-        .action-btn {
-            background: #0f172a; color: white; padding: 18px 20px; border-radius: 24px;
-            font-size: 13px; font-weight: 800; letter-spacing: 0.5px;
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.2);
+        /* Minimal Action Link */
+        .action-link {
+            color: #2563eb; font-size: 11px; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 0.5px; display: flex; align-items: center; justify-content: flex-end; gap: 6px;
         }
 
         /* Search Overlay */
@@ -50,62 +50,62 @@
         body.modal-open { overflow: hidden; }
 
         .modal-container {
-            background: #ffffff; width: 100%; max-width: 500px; max-height: 88vh; border-radius: 40px 40px 0 0;
+            background: #ffffff; width: 100%; max-width: 500px; max-height: 88vh; border-radius: 35px 35px 0 0;
             position: relative; display: flex; flex-direction: column; overflow: hidden;
             animation: slideUp 0.4s cubic-bezier(0.3, 1.2, 0.5, 1);
         }
         @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
 
         .exit-btn {
-            background: #f1f5f9; width: 42px; height: 42px; border-radius: 50%; 
+            background: #f1f5f9; width: 38px; height: 38px; border-radius: 50%; 
             display: flex; align-items: center; justify-content: center; color: #64748b;
         }
 
-        .search-item { padding: 15px; border-bottom: 1px solid #f1f5f9; cursor: pointer; }
+        .search-item { padding: 16px; border-bottom: 1px solid #f1f5f9; cursor: pointer; }
     </style>
 </head>
 <body oncontextmenu="return false;">
 
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md px-6 py-5 flex items-center justify-between border-b border-slate-100">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md px-6 py-4 flex items-center justify-between border-b border-slate-100">
         <div class="flex items-center gap-3">
-            <a href="../index.html" class="w-10 h-10 bg-slate-50 flex items-center justify-center rounded-2xl border border-slate-200 text-slate-900">
-                <i class="fa-solid fa-arrow-left"></i>
+            <a href="../index.html" class="w-9 h-9 bg-slate-50 flex items-center justify-center rounded-xl border border-slate-200 text-slate-900">
+                <i class="fa-solid fa-arrow-left text-sm"></i>
             </a>
             <div>
-                <h1 class="font-extrabold text-slate-900 text-lg tracking-tight uppercase">Research Hub</h1>
-                <p class="text-[9px] font-black text-blue-600 tracking-widest uppercase">Lawjournal.online</p>
+                <h1 class="font-extrabold text-slate-900 text-md tracking-tight uppercase">Research Hub</h1>
+                <p class="text-[8px] font-black text-blue-600 tracking-widest uppercase">Lawjournal.online</p>
             </div>
         </div>
-        <button onclick="toggleSearch(true)" class="w-11 h-11 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 border border-slate-200 active:scale-90 transition-all">
-            <i class="fa-solid fa-magnifying-glass"></i>
+        <button onclick="toggleSearch(true)" class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 border border-slate-200">
+            <i class="fa-solid fa-magnifying-glass text-sm"></i>
         </button>
     </nav>
 
     <div id="search-overlay">
-        <div class="flex items-center gap-4 mb-6">
-            <button onclick="toggleSearch(false)" class="text-slate-900 text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <input type="text" id="search-input" placeholder="Search research topics..." class="flex-1 bg-slate-100 border-none rounded-2xl px-5 py-4 font-bold outline-none border-2 border-transparent focus:border-blue-500">
+        <div class="flex items-center gap-4 mb-5">
+            <button onclick="toggleSearch(false)" class="text-slate-900 text-lg"><i class="fa-solid fa-xmark"></i></button>
+            <input type="text" id="search-input" placeholder="Search topics..." class="flex-1 bg-slate-100 border-none rounded-xl px-4 py-3 font-bold outline-none border-2 border-transparent focus:border-blue-500 text-sm">
         </div>
         <div id="search-results" class="flex-1 overflow-y-auto"></div>
     </div>
 
-    <main class="px-6 py-8 pb-24">
-        <header class="mb-10">
-            <h2 style="font-family: 'Playfair Display';" class="text-4xl text-slate-900 leading-tight">Legal <br><span class="italic text-blue-600">Thought Leaders</span></h2>
+    <main class="px-5 py-6 pb-20">
+        <header class="mb-8 pl-1">
+            <h2 style="font-family: 'Playfair Display';" class="text-3xl text-slate-900 leading-tight">Legal <br><span class="italic text-blue-600">Thought Leaders</span></h2>
         </header>
-        <div id="articles-hub" class="space-y-8"></div>
+        <div id="articles-hub" class="space-y-5"></div>
     </main>
 
     <div id="article-modal">
         <div class="modal-container">
-            <div class="flex justify-between items-center p-6 border-b border-slate-50">
-                <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Author Profile</span>
-                <button onclick="closeModal()" class="exit-btn"><i class="fa-solid fa-xmark"></i></button>
+            <div class="flex justify-between items-center p-5 border-b border-slate-50">
+                <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Scholar Profile</span>
+                <button onclick="closeModal()" class="exit-btn"><i class="fa-solid fa-xmark text-sm"></i></button>
             </div>
-            <div class="modal-body overflow-y-auto p-6">
+            <div class="modal-body overflow-y-auto p-5">
                 <div id="modal-profile-header"></div>
-                <div class="mt-8">
-                    <h3 class="text-xs font-black text-slate-900 uppercase tracking-widest mb-4 flex items-center gap-2">
+                <div class="mt-6">
+                    <h3 class="text-[11px] font-black text-slate-900 uppercase tracking-widest mb-3 flex items-center gap-2">
                         <i class="fa-solid fa-scroll text-blue-600"></i> Publications
                     </h3>
                     <div id="modal-articles-list"></div>
@@ -169,15 +169,13 @@
         const searchInput = document.getElementById('search-input');
         const searchResults = document.getElementById('search-results');
 
-        // HISTORY API: PopState for Back Button handling
+        // History handling
         window.onpopstate = function(event) {
-            // Close search if open
             if (searchOverlay.classList.contains('active')) {
                 searchOverlay.classList.remove('active');
                 searchInput.value = "";
                 searchResults.innerHTML = "";
             }
-            // Close modal if open
             if (modal.classList.contains('active')) {
                 modal.classList.remove('active');
                 document.body.classList.remove('modal-open');
@@ -193,10 +191,7 @@
                 searchOverlay.classList.remove('active');
                 searchInput.value = "";
                 searchResults.innerHTML = "";
-                // If user clicked X button, remove the state
-                if (window.history.state && window.history.state.searchOpen) {
-                    window.history.back();
-                }
+                if (window.history.state && window.history.state.searchOpen) window.history.back();
             }
         }
 
@@ -206,29 +201,29 @@
             document.body.classList.add('modal-open');
             
             document.getElementById('modal-profile-header').innerHTML = `
-                <div class="flex items-center gap-5">
-                    <img src="${data.photo}" class="w-20 h-20 rounded-[28px] object-cover shadow-lg" onerror="this.src='https://ui-avatars.com/api/?name=${data.author}'">
+                <div class="flex items-center gap-4">
+                    <img src="${data.photo}" class="w-16 h-16 rounded-2xl object-cover shadow-md" onerror="this.src='https://ui-avatars.com/api/?name=${data.author}'">
                     <div>
-                        <div class="flex items-center gap-2">
-                            <h2 class="text-xl font-extrabold text-slate-900">${data.author}</h2>
-                            <i class="fa-solid fa-circle-check text-blue-500"></i>
+                        <div class="flex items-center gap-1.5">
+                            <h2 class="text-lg font-extrabold text-slate-900">${data.author}</h2>
+                            <i class="fa-solid fa-circle-check text-blue-500 text-xs"></i>
                         </div>
-                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">${data.university}</p>
-                        <span class="text-[10px] font-bold text-pink-600 bg-pink-50 px-3 py-1 rounded-full mt-2 inline-block">${data.insta}</span>
+                        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-tighter">${data.university}</p>
+                        <span class="text-[9px] font-bold text-pink-600 bg-pink-50 px-2.5 py-1 rounded-full mt-2 inline-block">${data.insta}</span>
                     </div>
                 </div>
-                <p class="mt-6 text-sm text-slate-500 font-medium leading-relaxed">${data.bio}</p>
+                <p class="mt-5 text-xs text-slate-500 font-medium leading-relaxed">${data.bio}</p>
             `;
 
             let html = "";
             data.articles.forEach(art => {
                 const isPub = art.status === 'published';
                 html += `
-                <div class="p-5 ${isPub ? 'bg-slate-50' : 'bg-white border-dashed opacity-60'} rounded-3xl border border-slate-100 mb-4">
-                    <span class="text-[9px] font-black text-blue-600 uppercase">${art.date}</span>
-                    <h4 class="text-md font-bold text-slate-900 my-1">${art.title}</h4>
-                    <p class="text-xs text-slate-500 mb-4 line-clamp-2">${art.desc}</p>
-                    ${isPub ? `<a href="${art.link}" class="w-full py-3 bg-white border border-slate-200 rounded-xl text-[10px] font-black text-center block uppercase tracking-widest">Read Full Article</a>` : '<span class="text-[10px] font-bold text-slate-400 uppercase">Coming Soon</span>'}
+                <div class="p-4 ${isPub ? 'bg-slate-50' : 'bg-white border-dashed opacity-60'} rounded-2xl border border-slate-100 mb-3">
+                    <span class="text-[8px] font-black text-blue-600 uppercase">${art.date}</span>
+                    <h4 class="text-sm font-bold text-slate-900 my-0.5">${art.title}</h4>
+                    <p class="text-[11px] text-slate-500 mb-3 line-clamp-2 leading-relaxed">${art.desc}</p>
+                    ${isPub ? `<a href="${art.link}" class="w-full py-2.5 bg-white border border-slate-200 rounded-lg text-[9px] font-black text-center block uppercase active:scale-95 transition-transform tracking-wider">Open Paper</a>` : '<span class="text-[9px] font-bold text-slate-400 uppercase">Coming Soon</span>'}
                 </div>`;
             });
             document.getElementById('modal-articles-list').innerHTML = html;
@@ -239,13 +234,10 @@
             if (modal.classList.contains('active')) {
                 modal.classList.remove('active');
                 document.body.classList.remove('modal-open');
-                if (window.history.state && window.history.state.modalOpen) {
-                    window.history.back();
-                }
+                if (window.history.state && window.history.state.modalOpen) window.history.back();
             }
         }
 
-        // Search logic implementation
         searchInput.addEventListener('input', (e) => {
             const val = e.target.value.toLowerCase();
             searchResults.innerHTML = "";
@@ -255,13 +247,14 @@
                 author.articles.forEach(art => {
                     if(art.title.toLowerCase().includes(val) || author.author.toLowerCase().includes(val)) {
                         const item = document.createElement('div');
-                        item.className = "search-item active:bg-slate-50";
+                        item.className = "search-item";
                         item.innerHTML = `
-                            <p class="text-[9px] font-black text-blue-600 uppercase tracking-widest">${author.author}</p>
-                            <h5 class="text-sm font-bold text-slate-800">${art.title}</h5>
+                            <p class="text-[8px] font-black text-blue-600 uppercase tracking-widest">${author.author}</p>
+                            <h5 class="text-xs font-bold text-slate-800">${art.title}</h5>
                         `;
                         item.onclick = () => {
-                            toggleSearch(false);
+                            searchOverlay.classList.remove('active');
+                            searchInput.value = "";
                             openModal(author.id);
                         };
                         searchResults.appendChild(item);
@@ -274,25 +267,31 @@
             container.innerHTML = "";
             authorData.forEach((data, index) => {
                 const card = document.createElement('div');
-                card.className = `premium-card p-6`;
+                card.className = `premium-card p-5`;
                 card.onclick = () => openModal(data.id);
                 card.innerHTML = `
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="flex items-center gap-3">
-                            <img src="${data.photo}" class="w-14 h-14 rounded-2xl object-cover shadow-sm" onerror="this.src='https://ui-avatars.com/api/?name=${data.author}'">
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="flex items-center gap-2.5">
+                            <img src="${data.photo}" class="w-11 h-11 rounded-xl object-cover shadow-sm" onerror="this.src='https://ui-avatars.com/api/?name=${data.author}'">
                             <div>
-                                <div class="flex items-center gap-1.5">
-                                    <h4 class="font-bold text-slate-900 text-[15px]">${data.author}</h4>
-                                    <i class="fa-solid fa-circle-check text-blue-500 text-[12px]"></i>
+                                <div class="flex items-center gap-1">
+                                    <h4 class="font-bold text-slate-900 text-[13px] tracking-tight">${data.author}</h4>
+                                    <i class="fa-solid fa-circle-check text-blue-500 text-[10px]"></i>
                                 </div>
-                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">${data.university}</p>
+                                <p class="text-[8px] font-bold text-slate-400 uppercase tracking-tighter">${data.university}</p>
                             </div>
                         </div>
-                        <div class="count-badge">0${data.articles.length}<br><span class="text-[8px] opacity-60 uppercase">Articles</span></div>
+                        <div class="count-badge">0${data.articles.length}<br><span class="text-[7px] opacity-60 uppercase">Papers</span></div>
                     </div>
-                    <h3 class="text-2xl font-extrabold text-slate-900 leading-tight mb-2">${data.articles[0].title}</h3>
-                    <p class="text-[14px] text-slate-500 font-medium leading-relaxed mb-8 line-clamp-2">${data.articles[0].desc}</p>
-                    <button class="action-btn w-full uppercase">View Author Portfolio <i class="fa-solid fa-arrow-right"></i></button>
+                    
+                    <div class="mb-4">
+                        <h3 class="text-[16px] font-extrabold text-slate-900 leading-tight mb-1 tracking-tight">${data.articles[0].title}</h3>
+                        <p class="text-[11px] text-slate-500 font-medium leading-relaxed line-clamp-2">${data.articles[0].desc}</p>
+                    </div>
+
+                    <div class="action-link">
+                        Explore Portfolio <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                    </div>
                 `;
                 container.appendChild(card);
                 setTimeout(() => card.classList.add('show'), index * 120);
