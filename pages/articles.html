@@ -34,11 +34,14 @@
             box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.2);
         }
 
+        /* Search Overlay */
         #search-overlay {
             display: none; position: fixed; inset: 0; background: white; z-index: 2000; padding: 20px; flex-direction: column;
         }
-        #search-overlay.active { display: flex; }
+        #search-overlay.active { display: flex; animation: fadeIn 0.2s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
+        /* Modal Styles */
         #article-modal {
             display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(15px); z-index: 1000; padding: 15px; align-items: flex-end; justify-content: center;
@@ -57,6 +60,8 @@
             background: #f1f5f9; width: 42px; height: 42px; border-radius: 50%; 
             display: flex; align-items: center; justify-content: center; color: #64748b;
         }
+
+        .search-item { padding: 15px; border-bottom: 1px solid #f1f5f9; cursor: pointer; }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -71,15 +76,15 @@
                 <p class="text-[9px] font-black text-blue-600 tracking-widest uppercase">Lawjournal.online</p>
             </div>
         </div>
-        <button onclick="toggleSearch(true)" class="w-11 h-11 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 border border-slate-200">
+        <button onclick="toggleSearch(true)" class="w-11 h-11 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 border border-slate-200 active:scale-90 transition-all">
             <i class="fa-solid fa-magnifying-glass"></i>
         </button>
     </nav>
 
     <div id="search-overlay">
         <div class="flex items-center gap-4 mb-6">
-            <button onclick="toggleSearch(false)" class="text-slate-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <input type="text" id="search-input" placeholder="Search research topics..." class="flex-1 bg-slate-100 border-none rounded-2xl px-5 py-4 font-bold outline-none">
+            <button onclick="toggleSearch(false)" class="text-slate-900 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <input type="text" id="search-input" placeholder="Search research topics..." class="flex-1 bg-slate-100 border-none rounded-2xl px-5 py-4 font-bold outline-none border-2 border-transparent focus:border-blue-500">
         </div>
         <div id="search-results" class="flex-1 overflow-y-auto"></div>
     </div>
@@ -160,14 +165,46 @@
 
         const container = document.getElementById('articles-hub');
         const modal = document.getElementById('article-modal');
+        const searchOverlay = document.getElementById('search-overlay');
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
 
-        // HISTORY API LOGIC: Push state when opening modal
+        // HISTORY API: PopState for Back Button handling
+        window.onpopstate = function(event) {
+            // Close search if open
+            if (searchOverlay.classList.contains('active')) {
+                searchOverlay.classList.remove('active');
+                searchInput.value = "";
+                searchResults.innerHTML = "";
+            }
+            // Close modal if open
+            if (modal.classList.contains('active')) {
+                modal.classList.remove('active');
+                document.body.classList.remove('modal-open');
+            }
+        };
+
+        function toggleSearch(show) {
+            if (show) {
+                window.history.pushState({ searchOpen: true }, "");
+                searchOverlay.classList.add('active');
+                searchInput.focus();
+            } else {
+                searchOverlay.classList.remove('active');
+                searchInput.value = "";
+                searchResults.innerHTML = "";
+                // If user clicked X button, remove the state
+                if (window.history.state && window.history.state.searchOpen) {
+                    window.history.back();
+                }
+            }
+        }
+
         function openModal(id) {
             const data = authorData.find(a => a.id === id);
-            
             window.history.pushState({ modalOpen: true }, "");
-            
             document.body.classList.add('modal-open');
+            
             document.getElementById('modal-profile-header').innerHTML = `
                 <div class="flex items-center gap-5">
                     <img src="${data.photo}" class="w-20 h-20 rounded-[28px] object-cover shadow-lg" onerror="this.src='https://ui-avatars.com/api/?name=${data.author}'">
@@ -185,16 +222,13 @@
 
             let html = "";
             data.articles.forEach(art => {
-                const isPublished = art.status === 'published';
+                const isPub = art.status === 'published';
                 html += `
-                <div class="p-5 ${isPublished ? 'bg-slate-50' : 'bg-white border-dashed opacity-60'} rounded-3xl border border-slate-100 mb-4">
-                    <div class="flex justify-between items-center mb-1">
-                        <span class="text-[9px] font-black text-blue-600 uppercase">${art.date}</span>
-                        ${!isPublished ? '<i class="fa-solid fa-lock text-[10px]"></i>' : ''}
-                    </div>
+                <div class="p-5 ${isPub ? 'bg-slate-50' : 'bg-white border-dashed opacity-60'} rounded-3xl border border-slate-100 mb-4">
+                    <span class="text-[9px] font-black text-blue-600 uppercase">${art.date}</span>
                     <h4 class="text-md font-bold text-slate-900 my-1">${art.title}</h4>
                     <p class="text-xs text-slate-500 mb-4 line-clamp-2">${art.desc}</p>
-                    ${isPublished ? `<a href="${art.link}" class="w-full py-3 bg-white border border-slate-200 rounded-xl text-[10px] font-black text-center block uppercase tracking-widest active:scale-95 transition-transform">Read Full Article</a>` : '<span class="text-[10px] font-bold text-slate-400 uppercase">Coming Soon</span>'}
+                    ${isPub ? `<a href="${art.link}" class="w-full py-3 bg-white border border-slate-200 rounded-xl text-[10px] font-black text-center block uppercase tracking-widest">Read Full Article</a>` : '<span class="text-[10px] font-bold text-slate-400 uppercase">Coming Soon</span>'}
                 </div>`;
             });
             document.getElementById('modal-articles-list').innerHTML = html;
@@ -211,13 +245,30 @@
             }
         }
 
-        // Close modal when hardware back button is pressed
-        window.onpopstate = function(event) {
-            if (modal.classList.contains('active')) {
-                modal.classList.remove('active');
-                document.body.classList.remove('modal-open');
-            }
-        };
+        // Search logic implementation
+        searchInput.addEventListener('input', (e) => {
+            const val = e.target.value.toLowerCase();
+            searchResults.innerHTML = "";
+            if(!val) return;
+
+            authorData.forEach(author => {
+                author.articles.forEach(art => {
+                    if(art.title.toLowerCase().includes(val) || author.author.toLowerCase().includes(val)) {
+                        const item = document.createElement('div');
+                        item.className = "search-item active:bg-slate-50";
+                        item.innerHTML = `
+                            <p class="text-[9px] font-black text-blue-600 uppercase tracking-widest">${author.author}</p>
+                            <h5 class="text-sm font-bold text-slate-800">${art.title}</h5>
+                        `;
+                        item.onclick = () => {
+                            toggleSearch(false);
+                            openModal(author.id);
+                        };
+                        searchResults.appendChild(item);
+                    }
+                });
+            });
+        });
 
         const render = () => {
             container.innerHTML = "";
@@ -247,10 +298,6 @@
                 setTimeout(() => card.classList.add('show'), index * 120);
             });
         };
-
-        function toggleSearch(show) {
-            document.getElementById('search-overlay').classList.toggle('active', show);
-        }
 
         window.onload = render;
         window.onclick = (e) => e.target == modal ? closeModal() : null;
