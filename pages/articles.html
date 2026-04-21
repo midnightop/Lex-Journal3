@@ -13,21 +13,49 @@
 
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: #fdfdfd; color: #0f172a; }
 
+        /* Card Stylings */
         .premium-card {
-            background: white; border-radius: 32px; transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            background: white; border-radius: 35px; transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
             opacity: 0; transform: translateY(20px); border: 1px solid #f1f5f9; position: relative;
+            box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.05);
         }
         .premium-card.show { opacity: 1; transform: translateY(0); }
         .premium-card:active { transform: scale(0.97); }
 
-        #search-overlay {
-            display: none; position: fixed; inset: 0; background: white; z-index: 2000; padding: 20px; flex-direction: column;
+        /* Article Count Badge */
+        .count-badge {
+            background: rgba(37, 99, 235, 0.08);
+            color: #2563eb;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 800;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            letter-spacing: 0.5px;
         }
-        #search-overlay.active { display: flex; }
 
+        /* Action Button */
+        .action-btn {
+            background: #0f172a;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.3);
+        }
+        .premium-card:active .action-btn { background: #2563eb; transform: translateY(-2px); }
+
+        /* Modal Styles */
         #article-modal {
             display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(12px); z-index: 1000; padding: 15px; align-items: flex-end; justify-content: center;
+            backdrop-filter: blur(15px); z-index: 1000; padding: 15px; align-items: flex-end; justify-content: center;
         }
         #article-modal.active { display: flex; }
         body.modal-open { overflow: hidden; }
@@ -39,19 +67,9 @@
         }
         @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
 
-        .modal-body { padding: 25px; overflow-y: auto; flex: 1; }
-        .inner-card { background: #f8fafc; border-radius: 24px; padding: 18px; border: 1px solid #f1f5f9; margin-bottom: 12px; }
-        .locked-card { background: #fff; border: 1px dashed #cbd5e1; opacity: 0.6; }
-        
         .exit-btn {
             background: #f1f5f9; width: 40px; height: 40px; border-radius: 50%; 
             display: flex; align-items: center; justify-content: center; color: #64748b;
-        }
-
-        .count-circle {
-            background: #2563eb; color: white; width: 24px; height: 24px;
-            display: flex; items-center: center; justify-content: center;
-            border-radius: 50%; font-size: 11px; font-weight: 800;
         }
     </style>
 </head>
@@ -63,8 +81,8 @@
                 <i class="fa-solid fa-arrow-left"></i>
             </a>
             <div>
-                <h1 class="font-extrabold text-slate-900 text-lg">RESEARCH HUB</h1>
-                <p class="text-[9px] font-black text-blue-600 tracking-widest uppercase">Lawjournal.online</p>
+                <h1 class="font-extrabold text-slate-900 text-lg tracking-tight">RESEARCH HUB</h1>
+                <p class="text-[9px] font-black text-blue-600 tracking-widest uppercase">Calcutta Law Journal</p>
             </div>
         </div>
         <button onclick="toggleSearch()" class="w-11 h-11 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 border border-slate-200">
@@ -72,20 +90,16 @@
         </button>
     </nav>
 
-    <div id="search-overlay">
-        <div class="flex items-center gap-4 mb-4">
-            <button onclick="toggleSearch()" class="text-slate-900 text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <input type="text" id="search-input" placeholder="Search articles..." class="flex-1 bg-slate-100 p-4 rounded-2xl font-bold outline-none border-2 border-transparent focus:border-blue-500">
-        </div>
-        <div id="search-results" class="flex-1 overflow-auto px-2"></div>
-    </div>
-
-    <main class="px-6 py-8 pb-20">
+    <main class="px-6 py-8 pb-24">
         <header class="mb-10">
-            <h2 style="font-family: 'Playfair Display';" class="text-4xl text-slate-900 leading-tight">Legal <br><span class="italic text-blue-600">Perspectives</span></h2>
-            <p class="text-slate-400 text-sm mt-1 font-semibold">Curated by Calcutta University Scholars</p>
+            <h2 style="font-family: 'Playfair Display';" class="text-4xl text-slate-900 leading-tight">Legal <br><span class="italic text-blue-600">Thought Leaders</span></h2>
+            <div class="flex items-center gap-2 mt-2">
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                <p class="text-slate-400 text-[10px] font-bold uppercase tracking-widest">4 Scholars Verified</p>
+            </div>
         </header>
-        <div id="articles-hub" class="space-y-6"></div>
+
+        <div id="articles-hub" class="space-y-8"></div>
     </main>
 
     <div id="article-modal">
@@ -94,11 +108,11 @@
                 <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Scholar Profile</span>
                 <button onclick="closeModal()" class="exit-btn"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body overflow-y-auto p-6" id="modal-content-area">
                 <div id="modal-profile-header"></div>
                 <div class="mt-8">
                     <h3 class="text-xs font-black text-slate-900 uppercase tracking-widest mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-book-open text-blue-600"></i> Read Articles
+                        <i class="fa-solid fa-scroll text-blue-600"></i> Journal Archive
                     </h3>
                     <div id="modal-articles-list"></div>
                 </div>
@@ -162,23 +176,19 @@
         const container = document.getElementById('articles-hub');
         const modal = document.getElementById('article-modal');
 
-        function toggleSearch() {
-            document.getElementById('search-overlay').classList.toggle('active');
-        }
-
         const openModal = (id) => {
             const data = authorData.find(a => a.id === id);
             document.body.classList.add('modal-open');
             document.getElementById('modal-profile-header').innerHTML = `
                 <div class="flex items-center gap-5">
-                    <img src="${data.photo}" class="w-20 h-20 rounded-[28px] object-cover ring-4 ring-slate-50" onerror="this.src='https://ui-avatars.com/api/?name=${data.author.replace(' ', '+')}&background=3b82f6&color=fff'">
+                    <img src="${data.photo}" class="w-20 h-20 rounded-[28px] object-cover shadow-lg" onerror="this.src='https://ui-avatars.com/api/?name=${data.author.replace(' ', '+')}&background=2563eb&color=fff'">
                     <div>
                         <div class="flex items-center gap-2">
                             <h2 class="text-xl font-extrabold text-slate-900">${data.author}</h2>
-                            <i class="fa-solid fa-circle-check text-blue-500 text-sm"></i>
+                            <i class="fa-solid fa-circle-check text-blue-500"></i>
                         </div>
-                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter mt-1">${data.university}</p>
-                        <a href="https://instagram.com" class="inline-flex items-center gap-1.5 mt-3 text-[11px] font-bold text-pink-600 bg-pink-50 px-3 py-1.5 rounded-full">
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">${data.university}</p>
+                        <a href="#" class="inline-flex items-center gap-1.5 mt-3 text-[10px] font-bold text-pink-600 bg-pink-50 px-3 py-1.5 rounded-full">
                             <i class="fa-brands fa-instagram"></i> ${data.insta}
                         </a>
                     </div>
@@ -190,21 +200,23 @@
             data.articles.forEach(art => {
                 if(art.status === 'published') {
                     html += `
-                    <div class="inner-card">
+                    <div class="p-5 bg-slate-50 rounded-3xl border border-slate-100 mb-4">
                         <div class="flex justify-between items-center mb-2">
-                            <span class="text-[9px] font-black text-blue-600 uppercase tracking-widest">${art.date} • ${art.time}</span>
+                            <span class="text-[9px] font-black text-blue-600 uppercase tracking-widest">${art.date}</span>
+                            <span class="text-[9px] font-bold text-slate-400 italic">${art.time} read</span>
                         </div>
-                        <h4 class="text-[16px] font-bold text-slate-900 leading-tight mb-3">${art.title}</h4>
-                        <a href="${art.link}" class="inline-block text-[10px] font-black text-slate-900 border-b-2 border-slate-900 pb-0.5 uppercase">Read Full Article</a>
+                        <h4 class="text-md font-bold text-slate-900 mb-2">${art.title}</h4>
+                        <p class="text-xs text-slate-500 mb-4 line-clamp-2">${art.desc}</p>
+                        <a href="${art.link}" class="w-full py-3 bg-white border border-slate-200 rounded-xl text-[10px] font-black text-center block uppercase tracking-widest">Explore Paper</a>
                     </div>`;
                 } else {
                     html += `
-                    <div class="inner-card locked-card">
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Upcoming</span>
-                            <i class="fa-solid fa-lock text-[9px]"></i>
+                    <div class="p-5 border border-dashed border-slate-200 rounded-3xl mb-4 opacity-60">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-[9px] font-bold text-slate-400 uppercase">Upcoming Publication</span>
+                            <i class="fa-solid fa-lock text-[10px] text-slate-300"></i>
                         </div>
-                        <h4 class="text-[16px] font-bold text-slate-400 leading-tight">${art.title}</h4>
+                        <h4 class="text-md font-bold text-slate-300">${art.title}</h4>
                     </div>`;
                 }
             });
@@ -226,44 +238,33 @@
                 card.innerHTML = `
                     <div class="flex justify-between items-start mb-6">
                         <div class="flex items-center gap-3">
-                            <img src="${data.photo}" class="w-12 h-12 rounded-2xl object-cover shadow-sm" onerror="this.src='https://ui-avatars.com/api/?name=${data.author.replace(' ', '+')}'">
+                            <img src="${data.photo}" class="w-12 h-12 rounded-2xl object-cover ring-2 ring-slate-50 shadow-sm" onerror="this.src='https://ui-avatars.com/api/?name=${data.author.replace(' ', '+')}'">
                             <div>
                                 <div class="flex items-center gap-1.5">
                                     <h4 class="font-bold text-slate-900 text-sm">${data.author}</h4>
                                     <i class="fa-solid fa-circle-check text-blue-500 text-[11px]"></i>
                                 </div>
-                                <p class="text-[9px] font-bold text-slate-400 uppercase">${data.university}</p>
+                                <p class="text-[9px] font-bold text-slate-400 uppercase">CU Affiliated Student</p>
                             </div>
                         </div>
-                        <div class="count-circle">${data.articles.length}</div>
+                        <div class="count-badge">${data.articles.length < 10 ? '0' + data.articles.length : data.articles.length} ARTICLES</div>
                     </div>
-                    <h3 class="text-xl font-extrabold text-slate-900 leading-tight mb-2">${data.articles[0].title}</h3>
-                    <p class="text-xs text-slate-500 font-medium line-clamp-2">${data.articles[0].desc}</p>
-                    <div class="mt-6 flex items-center justify-between text-[10px] font-black uppercase text-blue-600 tracking-widest">
-                        <span>Open Articles</span>
-                        <i class="fa-solid fa-chevron-right"></i>
+                    
+                    <div class="space-y-2 mb-6">
+                        <h3 class="text-xl font-extrabold text-slate-900 leading-tight">${data.articles[0].title}</h3>
+                        <p class="text-[12px] text-slate-500 font-medium leading-relaxed line-clamp-2">
+                            ${data.articles[0].desc}
+                        </p>
                     </div>
+
+                    <button class="action-btn w-full uppercase">
+                        View Author Portfolio <i class="fa-solid fa-arrow-right"></i>
+                    </button>
                 `;
                 container.appendChild(card);
-                setTimeout(() => card.classList.add('show'), index * 100);
+                setTimeout(() => card.classList.add('show'), index * 120);
             });
         };
-
-        document.getElementById('search-input').addEventListener('input', (e) => {
-            const val = e.target.value.toLowerCase();
-            const res = document.getElementById('search-results');
-            res.innerHTML = "";
-            if(!val) return;
-            authorData.forEach(d => {
-                if(d.author.toLowerCase().includes(val) || d.articles.some(a => a.title.toLowerCase().includes(val))) {
-                    res.innerHTML += `
-                    <div class="p-4 border-b border-slate-100 active:bg-slate-50" onclick="toggleSearch(); openModal('${d.id}')">
-                        <p class="text-[10px] font-black text-blue-600 uppercase">${d.author}</p>
-                        <p class="font-bold text-slate-800 text-sm">${d.articles[0].title}</p>
-                    </div>`;
-                }
-            });
-        });
 
         window.onload = render;
         window.onclick = (e) => e.target == modal ? closeModal() : null;
