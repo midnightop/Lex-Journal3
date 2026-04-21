@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>Law Journal | Open Platform for Law Students & Researchers</title>
-    <meta name="description" content="Law Journal is an open platform for law students to publish articles and research papers. Access Bare Acts, Case Laws, and academic blogs curated by students for students.">
-    <meta name="keywords" content="Law Journal, Legal Research, Bare Acts, Case Law, Law Students Platform, University of Calcutta, Calcutta Law Journal">
-    
+    <title>Law Journal | Open Platform for Law Students</title>
+    <meta name="description" content="An open platform for law students to publish articles, research papers, and blogs. Access Bare Acts, Case Laws, and legal articles curated by students.">
+    <meta name="keywords" content="Law Journal, Legal Research, Bare Acts, Case Law, Law Student Publication">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -116,7 +116,14 @@
             animation: shimmer 5s infinite;
         }
 
-        @keyframes shimmer { 0% { left: -50%; } 100% { left: 150%; } }
+        @keyframes shimmer { from { left: -50%; } to { left: 150%; } }
+
+        @keyframes peekEffect {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(12px); }
+            100% { transform: translateX(0); }
+        }
+        .peek-nudge { animation: peekEffect 0.8s ease-in-out; }
 
         #skeleton-screen {
             position: fixed;
@@ -156,32 +163,29 @@
     <main>
         <header class="pt-12 pb-10 px-8 text-center reveal active">
             <h1 class="text-5xl font-serif font-bold text-blue-600 leading-tight tracking-tight">Law Journal</h1>
-            <h1 class="text-3xl font-serif font-bold text-gray-900 mb-8 leading-tight">The Scholars' Choice</h1>
+            <h1 class="text-5xl font-serif font-bold text-gray-900 mb-8 leading-tight tracking-tight">The Scholars Hub</h1>
             
-            <p class="text-gray-800 text-lg font-serif italic mb-6">"Student friendly platform, made by students for students."</p>
+            <p class="text-gray-800 text-xl font-serif italic mb-6">"Student friendly platform, made by students for students."</p>
             
-            <div class="bg-blue-50/50 p-6 rounded-[30px] border border-blue-100 mb-8 max-w-md mx-auto">
-                <p class="text-gray-600 text-sm leading-relaxed font-medium">
-                    This is an open platform for every law student who is struggling to find a place to publish their articles, research papers, or blogs. We provide the voice you need to reach the legal community.
-                </p>
-            </div>
-
+            <p class="text-gray-500 text-sm leading-relaxed mb-8 max-w-md mx-auto">
+                Law Journal is an open platform for every law student struggling to publish their articles, research papers, or blogs. We provide high-quality Bare Acts, Case Laws, and academic papers to develop the sharp thinking required for the legal fraternity.
+            </p>
+            
             <div class="flex flex-col gap-4 max-w-xs mx-auto">
-                <a href="bare-acts.html" class="btn-glossy bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl text-center">Bare Acts</a>
-                <a href="case-laws.html" class="btn-glossy bg-gradient-to-r from-pink-500 to-rose-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl text-center">Case Laws</a>
-                <a href="pages/articles.html" class="btn-glossy bg-gray-900 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl text-center">Legal Articles</a>
+                <a href="bare-acts.html" class="btn-glossy bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl text-center">Explore Bare Acts</a>
+                <a href="case-laws.html" class="btn-glossy bg-gradient-to-r from-pink-500 to-rose-600 text-white py-4 rounded-2xl font-black uppercase text-sm shadow-xl text-center">Read Case Laws</a>
             </div>
         </header>
 
         <section class="px-6 py-10 reveal">
             <div class="research-gloss p-8 shadow-2xl text-white">
-                <div class="stat-tag text-blue-600">Verified</div>
+                <div class="stat-tag text-blue-600">3 Papers</div>
                 <div class="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 border border-white/20">
                     <i class="fa-solid fa-atom text-blue-400 text-2xl"></i>
                 </div>
-                <h2 class="text-3xl font-black mb-4 tracking-tighter uppercase">Our Mission</h2>
+                <h2 class="text-3xl font-black mb-4 tracking-tighter uppercase">Research</h2>
                 <div class="text-sm opacity-80 leading-relaxed font-medium space-y-4">
-                    <p>We provide a dedicated space for law students who face difficulties in publishing their legal research. Whether it's a deep dive into the BNS or a case law analysis, we are here to showcase your hard work to the world.</p>
+                    <p>Legal research is the systematic dissection of the "why" behind the law. This is an open platform for every law student who needs a stage to publish their insights on the evolving legal landscape.</p>
                 </div>
                 <a href="research.html" class="mt-8 block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px] active:scale-95 transition shadow-lg">Enter Research Lab</a>
             </div>
@@ -189,12 +193,25 @@
 
         <section class="reveal">
             <div class="px-8 mb-6">
-                <h3 class="text-2xl font-black text-gray-800 uppercase tracking-tighter">Student Research</h3>
-                <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">Global Publication Hub</p>
+                <h3 class="text-2xl font-black text-gray-800 uppercase tracking-tighter">Top Articles</h3>
+                <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">Featured by Students</p>
             </div>
 
             <div id="home-articles-scroll" class="flex overflow-x-auto gap-5 px-8 pb-10 no-scrollbar snap-x snap-mandatory">
                 </div>
+        </section>
+
+        <section class="px-6 py-4 reveal">
+            <div class="glossy-card p-8 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 border-none text-center">
+                <div class="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-blue-600 shadow-lg mx-auto mb-6">
+                    <i class="fa-solid fa-newspaper text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-black text-gray-800 uppercase tracking-tighter">Article Hub</h3>
+                <p class="text-[11px] text-gray-500 font-semibold mb-8 max-w-[250px] mx-auto">Access our complete archive of legal research, blogs, and student papers.</p>
+                <a href="pages/articles.html" class="btn-glossy bg-blue-600 text-white px-10 py-4 rounded-2xl font-black uppercase text-xs shadow-xl active:scale-95 transition-all block w-full">
+                    Open Articles <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
         </section>
 
         <section class="px-6 py-4 reveal">
@@ -234,9 +251,8 @@
 
     </main>
 
-    <footer class="py-12 text-center border-t border-gray-100">
+    <footer class="py-12 text-center">
         <p class="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em]">&copy; 2026 lawjournal.online </p>
-        <p class="text-[8px] font-bold text-gray-300 uppercase mt-2">Built for Law Students by Students</p>
     </footer>
 
     <script>
@@ -244,24 +260,24 @@
             {
                 author: "Ettisa Basak",
                 college: "Sureswar Dutta Law | CU",
-                title: "Bare Acts Benefits",
-                desc: "Accuracy and precision of raw legislation for researchers.",
+                title: "Advantages of Bare Acts",
+                desc: "Accuracy and precision of raw legislation.",
                 photo: "pages/read/author1.jpg",
                 accent: "blue-500"
             },
             {
                 author: "Rey",
                 college: "Surendranath Law | CU",
-                title: "Legal System Evolution",
-                desc: "A journey through the important legal milestones of India.",
+                title: "Why Law is Important",
+                desc: "Journey through the evolution of legal systems.",
                 photo: "pages/read/author2.jpg",
                 accent: "indigo-600"
             },
-            {
+             {
                 author: "Analdeep Samanta",
                 college: "South calcutta Law | CU",
-                title: "What is Case Law",
-                desc: "Understanding judicial precedents and conducting research.",
+                title: "What is case law",
+                desc: "Learning about Indian legal cases and conducting in-depth research on them.",
                 photo: "pages/read/author4.jpg",
                 accent: "emerald-700"
              }
