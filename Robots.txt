@@ -1,0 +1,12 @@
+# Law Journal Robots.txt
+# All search engines are allowed to crawl the site
+User-agent: *
+Allow: /
+
+# Blocking files that are not useful for search results
+Disallow: /README.md
+Disallow: /ads.txt
+Disallow: /skeleton-screen/
+
+# Direct path to your Sitemap
+Sitemap: https://lawjournal.online/sitemap.xml
