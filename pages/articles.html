@@ -13,7 +13,6 @@
 
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: #fcfcfc; color: #0f172a; overflow-x: hidden; }
 
-        /* Compact & Sleek Card Styling */
         .premium-card {
             background: white; border-radius: 28px; transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
             opacity: 0; transform: translateY(15px); border: 1px solid #f1f5f9; position: relative;
@@ -22,26 +21,22 @@
         .premium-card.show { opacity: 1; transform: translateY(0); }
         .premium-card:active { transform: scale(0.97); background: #fafafa; }
 
-        /* Integrated Article Count */
         .count-badge {
             color: #2563eb; font-size: 11px; font-weight: 800;
             text-align: right; line-height: 1.1;
         }
 
-        /* Minimal Action Link */
         .action-link {
             color: #2563eb; font-size: 11px; font-weight: 800; text-transform: uppercase;
             letter-spacing: 0.5px; display: flex; align-items: center; justify-content: flex-end; gap: 6px;
         }
 
-        /* Search Overlay */
         #search-overlay {
             display: none; position: fixed; inset: 0; background: white; z-index: 2000; padding: 20px; flex-direction: column;
         }
         #search-overlay.active { display: flex; animation: fadeIn 0.2s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* Modal Styles */
         #article-modal {
             display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(15px); z-index: 1000; padding: 15px; align-items: flex-end; justify-content: center;
@@ -62,6 +57,12 @@
         }
 
         .search-item { padding: 16px; border-bottom: 1px solid #f1f5f9; cursor: pointer; }
+        
+        /* Insta Link Style */
+        .insta-btn {
+            text-decoration: none; display: inline-block; transition: transform 0.2s;
+        }
+        .insta-btn:active { transform: scale(0.9); }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -120,45 +121,45 @@
                 id: "auth1",
                 author: "Ettisa Basak",
                 university: "CALCUTTA UNIVERSITY STUDENT",
-                insta: "@ettisa_basak",
+                insta: "ettisa_basak", // ID only
                 photo: "read/author1.jpg",
                 bio: "Law student specializing in Bare Acts research and legislative interpretation under the University of Calcutta.",
                 articles: [
-                    { title: "The Power of Bare Acts", desc: "Understanding why original legislative texts are indispensable for legal professionals.", link: "read/article1.html", date: "17 Apr 2026", time: "11 min", status: "published" },
-                    { title: "Judicial Activism", desc: "A look into the evolution of court powers in India.", link: "#", date: "May 2026", time: "15 min", status: "locked" }
+                    { title: "The Power of Bare Acts", desc: "Understanding why original legislative texts are indispensable for legal professionals.", link: "read/article1.html", date: "17 Apr 2026", status: "published" },
+                    { title: "Judicial Activism", desc: "A look into the evolution of court powers in India.", link: "#", date: "May 2026", status: "locked" }
                 ]
             },
             {
                 id: "auth2",
                 author: "Rey",
                 university: "SURENDRANATH LAW COLLEGE",
-                insta: "@rey_legal",
+                insta: "rey_legal",
                 photo: "read/author2.jpg",
                 bio: "Exploring the philosophy behind Indian Jurisprudence and Social Law structures.",
                 articles: [
-                    { title: "Foundations of Jurisprudence", desc: "A deep dive into why law exists and how it maintains the social fabric of India.", link: "read/article2.html", date: "18 Apr 2026", time: "10 min", status: "published" }
+                    { title: "Foundations of Jurisprudence", desc: "A deep dive into why law exists and how it maintains the social fabric of India.", link: "read/article2.html", date: "18 Apr 2026", status: "published" }
                 ]
             },
             {
                 id: "auth3",
                 author: "Analdeep Samanta",
                 university: "SOUTH CALCUTTA LAW COLLEGE",
-                insta: "@analdeep_s",
+                insta: "analdeep_s",
                 photo: "read/author4.jpg",
                 bio: "Researcher of Indian legal cases and judicial precedents with a focus on procedural law.",
                 articles: [
-                    { title: "What Is Case Law", desc: "Learning about Indian legal cases and conducting in depth research on them.", link: "read/article4.html", date: "20 Apr 2026", time: "15 min", status: "published" }
+                    { title: "What Is Case Law", desc: "Learning about Indian legal cases and conducting in depth research on them.", link: "read/article4.html", date: "20 Apr 2026", status: "published" }
                 ]
             },
             {
                 id: "auth4",
                 author: "Bishal Soren",
                 university: "SURENDRANATH LAW COLLEGE",
-                insta: "@bishal_soren",
+                insta: "bishal_soren",
                 photo: "read/author3.jpg",
                 bio: "Analyzing the structural backbone of the Indian Constitution and democratic nation-building.",
                 articles: [
-                    { title: "Constitutional Framework", desc: "Analyzing the 'Rule of Law' and the structural backbone of our democratic nation.", link: "read/article3.html", date: "19 Apr 2026", time: "13 min", status: "published" }
+                    { title: "Constitutional Framework", desc: "Analyzing the 'Rule of Law' and the structural backbone of our democratic nation.", link: "read/article3.html", date: "19 Apr 2026", status: "published" }
                 ]
             }
         ];
@@ -169,12 +170,10 @@
         const searchInput = document.getElementById('search-input');
         const searchResults = document.getElementById('search-results');
 
-        // History handling
         window.onpopstate = function(event) {
             if (searchOverlay.classList.contains('active')) {
                 searchOverlay.classList.remove('active');
                 searchInput.value = "";
-                searchResults.innerHTML = "";
             }
             if (modal.classList.contains('active')) {
                 modal.classList.remove('active');
@@ -189,8 +188,6 @@
                 searchInput.focus();
             } else {
                 searchOverlay.classList.remove('active');
-                searchInput.value = "";
-                searchResults.innerHTML = "";
                 if (window.history.state && window.history.state.searchOpen) window.history.back();
             }
         }
@@ -209,7 +206,9 @@
                             <i class="fa-solid fa-circle-check text-blue-500 text-xs"></i>
                         </div>
                         <p class="text-[9px] font-bold text-slate-400 uppercase tracking-tighter">${data.university}</p>
-                        <span class="text-[9px] font-bold text-pink-600 bg-pink-50 px-2.5 py-1 rounded-full mt-2 inline-block">${data.insta}</span>
+                        <a href="https://instagram.com/${data.insta}" target="_blank" class="insta-btn text-[9px] font-bold text-pink-600 bg-pink-50 px-2.5 py-1 rounded-full mt-2 inline-block">
+                            <i class="fa-brands fa-instagram mr-1"></i>@${data.insta}
+                        </a>
                     </div>
                 </div>
                 <p class="mt-5 text-xs text-slate-500 font-medium leading-relaxed">${data.bio}</p>
@@ -254,7 +253,6 @@
                         `;
                         item.onclick = () => {
                             searchOverlay.classList.remove('active');
-                            searchInput.value = "";
                             openModal(author.id);
                         };
                         searchResults.appendChild(item);
@@ -283,15 +281,11 @@
                         </div>
                         <div class="count-badge">0${data.articles.length}<br><span class="text-[7px] opacity-60 uppercase">Papers</span></div>
                     </div>
-                    
                     <div class="mb-4">
                         <h3 class="text-[16px] font-extrabold text-slate-900 leading-tight mb-1 tracking-tight">${data.articles[0].title}</h3>
                         <p class="text-[11px] text-slate-500 font-medium leading-relaxed line-clamp-2">${data.articles[0].desc}</p>
                     </div>
-
-                    <div class="action-link">
-                        Explore Portfolio <i class="fa-solid fa-arrow-right text-[9px]"></i>
-                    </div>
+                    <div class="action-link">Explore Portfolio <i class="fa-solid fa-arrow-right text-[9px]"></i></div>
                 `;
                 container.appendChild(card);
                 setTimeout(() => card.classList.add('show'), index * 120);
