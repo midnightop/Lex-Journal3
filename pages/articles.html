@@ -24,67 +24,80 @@
             opacity: 0;
             transform: translateY(25px);
             border: 1px solid #f1f5f9;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
             overflow: hidden;
             cursor: pointer;
         }
 
-        .premium-card.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .premium-card:active {
-            transform: scale(0.96);
-        }
+        .premium-card.show { opacity: 1; transform: translateY(0); }
+        .premium-card:active { transform: scale(0.96); }
 
         .accent-line {
-            position: absolute;
-            left: 0;
-            top: 20px;
-            bottom: 20px;
-            width: 4px;
-            border-radius: 0 4px 4px 0;
+            position: absolute; left: 0; top: 20px; bottom: 20px; width: 4px; border-radius: 0 4px 4px 0;
         }
+
+        /* Search Overlay Styles */
+        #search-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: white;
+            z-index: 2000;
+            padding: 20px;
+            flex-direction: column;
+        }
+
+        #search-overlay.active { display: flex; }
 
         /* Modal Styles */
         #article-modal {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(8px);
-            z-index: 100;
-            padding: 20px;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            padding: 15px;
             align-items: center;
             justify-content: center;
         }
 
-        #article-modal.active {
-            display: flex;
-        }
+        #article-modal.active { display: flex; }
+        body.modal-open { overflow: hidden; }
 
-        .modal-content {
-            background: white;
+        .modal-container {
+            background: #f8fafc;
             width: 100%;
-            max-width: 450px;
-            border-radius: 32px;
-            padding: 30px;
-            transform: scale(0.9);
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            max-width: 500px;
+            max-height: 85vh;
+            border-radius: 35px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            animation: modalSlide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        #article-modal.active .modal-content {
-            transform: scale(1);
+        @keyframes modalSlide {
+            from { transform: translateY(100px) scale(0.9); opacity: 0; }
+            to { transform: translateY(0) scale(1); opacity: 1; }
         }
 
-        .meta-text {
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #94a3b8;
+        .modal-header { padding: 25px; background: white; border-radius: 35px 35px 0 0; border-bottom: 1px solid #f1f5f9; }
+        .modal-body { padding: 20px; overflow-y: auto; flex: 1; }
+        .inner-article-card { background: white; border-radius: 20px; padding: 20px; margin-bottom: 15px; border: 1px solid #e2e8f0; }
+
+        .exit-btn {
+            position: absolute; top: -60px; right: 10px; background: white; width: 45px; height: 45px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #1e293b;
         }
+
+        .suggestion-item {
+            padding: 15px;
+            border-bottom: 1px solid #f1f5f9;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .suggestion-item:active { background: #f8fafc; }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -99,157 +112,201 @@
                 <p class="text-[10px] font-bold text-blue-600 tracking-widest uppercase mt-1">Lawjournal.online</p>
             </div>
         </div>
-        <button class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center border border-slate-200 active:scale-90 transition-transform">
-            <i class="fa-solid fa-magnifying-glass text-slate-600 text-sm"></i>
+        <button onclick="toggleSearch()" class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center border border-slate-200 text-slate-600 active:scale-90 transition-transform">
+            <i class="fa-solid fa-magnifying-glass"></i>
         </button>
     </nav>
 
-    <main class="px-6 py-8 pb-24 relative overflow-hidden">
+    <div id="search-overlay">
+        <div class="flex items-center gap-4 mb-6">
+            <button onclick="toggleSearch()" class="text-slate-400 text-xl"><i class="fa-solid fa-chevron-left"></i></button>
+            <input type="text" id="search-input" placeholder="Search articles or authors..." 
+                   class="flex-1 bg-slate-100 border-none rounded-2xl px-5 py-3 font-semibold focus:ring-2 focus:ring-blue-500 outline-none">
+        </div>
+        <div id="search-results" class="overflow-y-auto">
+            </div>
+    </div>
+
+    <main class="px-6 py-8 pb-24 relative">
         <header class="mb-10">
             <h2 style="font-family: 'Playfair Display';" class="text-4xl text-slate-900">Legal <span class="italic text-blue-600">Perspectives</span></h2>
             <p class="text-slate-500 text-sm mt-2 font-medium">Curated articles by law students.</p>
         </header>
-
-        <div id="articles-hub" class="space-y-6">
-            </div>
+        <div id="articles-hub" class="space-y-6"></div>
     </main>
 
-    <div id="article-modal" onclick="closeModal(event)">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div id="modal-body">
-                </div>
-            <button onclick="closeModal()" class="mt-6 w-full py-3 text-slate-400 font-bold text-xs uppercase tracking-widest">Close Preview</button>
+    <div id="article-modal">
+        <div class="modal-container">
+            <button class="exit-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-header" id="modal-header-info"></div>
+            <div class="modal-body" id="modal-list"></div>
         </div>
     </div>
 
     <script>
-        const articleDatabase = [
+        const authorData = [
             {
-                id: "01",
+                id: "auth1",
                 author: "Ettisa Basak",
                 university: "Sureswar Dutta Law College",
-                title: "The Power of Bare Acts",
-                desc: "Understanding why original legislative texts are indispensable for every legal professional.",
-                link: "read/article1.html",
-                photo: "read/author1.jpg", 
+                photo: "read/author1.jpg",
                 accent: "#3b82f6",
-                readTime: "11 min",
-                date: "17 Apr 2026"
+                articles: [
+                    { title: "The Power of Bare Acts", desc: "Understanding why original legislative texts are indispensable.", link: "read/article1.html", date: "17 Apr 2026", time: "11 min" },
+                    { title: "Legal Drafting 101", desc: "Tips for writing concise legal documents.", link: "#", date: "19 Apr 2026", time: "8 min" }
+                ]
             },
             {
-                id: "02",
+                id: "auth2",
                 author: "Rey",
                 university: "Surendranath Law College",
-                title: "Foundations of Jurisprudence",
-                desc: "A deep dive into why law exists and how it maintains the social fabric of India.",
-                link: "read/article2.html",
-                photo: "read/author2.jpg", 
+                photo: "read/author2.jpg",
                 accent: "#8b5cf6",
-                readTime: "10 min",
-                date: "18 apr 2026"
+                articles: [
+                    { title: "Foundations of Jurisprudence", desc: "A deep dive into why law exists and maintains social fabric.", link: "read/article2.html", date: "18 Apr 2026", time: "10 min" }
+                ]
             },
             {
-                id: "03",
+                id: "auth3",
                 author: "Analdeep Samanta",
                 university: "South Calcutta Law College",
-                title: "What Is Case Law",
-                desc: "Learning about Indian legal cases and conducting in depth research on them.",
-                link: "read/article4.html",
-                photo: "read/author4.jpg", 
+                photo: "read/author4.jpg",
                 accent: "#10b981",
-                readTime: "15 min",
-                date: "20 apr 2026"
-             },
+                articles: [
+                    { title: "What Is Case Law", desc: "Learning about Indian legal cases and in-depth research.", link: "read/article4.html", date: "20 Apr 2026", time: "15 min" },
+                    { title: "PIL Framework", desc: "How Public Interest Litigation changed India.", link: "#", date: "21 Apr 2026", time: "12 min" }
+                ]
+            },
             {
-                id: "04",
+                id: "auth4",
                 author: "Bishal Soren",
                 university: "Surendranath Law College",
-                title: "Constitutional Framework",
-                desc: "Analyzing the 'Rule of Law' and the structural backbone of our democratic nation.",
-                link: "read/article3.html",
-                photo: "read/author3.jpg", 
+                photo: "read/author3.jpg",
                 accent: "#f59e0b",
-                readTime: "13 min",
-                date: "19 apr 2026"
+                articles: [
+                    { title: "Constitutional Framework", desc: "Analyzing the 'Rule of Law' in our democratic nation.", link: "read/article3.html", date: "19 Apr 2026", time: "13 min" }
+                ]
             }
         ];
 
         const container = document.getElementById('articles-hub');
         const modal = document.getElementById('article-modal');
-        const modalBody = document.getElementById('modal-body');
+        const searchOverlay = document.getElementById('search-overlay');
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
 
-        const openModal = (id) => {
-            const art = articleDatabase.find(a => a.id === id);
-            modalBody.innerHTML = `
-                <div class="flex items-center gap-4 mb-6">
-                    <img src="${art.photo}" onerror="this.src='https://ui-avatars.com/api/?name=${art.author.replace(' ', '+')}&background=${art.accent.replace('#','')}&color=fff'" class="w-16 h-16 rounded-2xl object-cover">
+        // Toggle Search Overlay
+        function toggleSearch() {
+            searchOverlay.classList.toggle('active');
+            if(searchOverlay.classList.contains('active')) {
+                searchInput.focus();
+            } else {
+                searchInput.value = "";
+                searchResults.innerHTML = "";
+            }
+        }
+
+        // Search Logic
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            searchResults.innerHTML = "";
+            
+            if(query.length < 1) return;
+
+            authorData.forEach(auth => {
+                auth.articles.forEach(art => {
+                    if(art.title.toLowerCase().includes(query) || auth.author.toLowerCase().includes(query)) {
+                        const div = document.createElement('div');
+                        div.className = 'suggestion-item';
+                        div.innerHTML = `
+                            <p class="text-xs font-bold text-blue-600 uppercase tracking-tighter">${auth.author}</p>
+                            <h5 class="text-sm font-bold text-slate-800">${art.title}</h5>
+                        `;
+                        div.onclick = () => {
+                            toggleSearch();
+                            openModal(auth.id);
+                        };
+                        searchResults.appendChild(div);
+                    }
+                });
+            });
+        });
+
+        // Modal Logic
+        const openModal = (authId) => {
+            const data = authorData.find(a => a.id === authId);
+            document.body.classList.add('modal-open');
+            
+            document.getElementById('modal-header-info').innerHTML = `
+                <div class="flex items-center gap-4">
+                    <img src="${data.photo}" class="w-14 h-14 rounded-2xl object-cover ring-4 ring-slate-50" onerror="this.src='https://ui-avatars.com/api/?name=${data.author.replace(' ', '+')}&background=${data.accent.replace('#','')}&color=fff'">
                     <div>
-                        <h4 class="font-bold text-slate-900">${art.author}</h4>
-                        <p class="text-[10px] text-blue-600 font-bold uppercase tracking-wider">${art.university}</p>
-                    </div>
-                </div>
-                <h3 class="text-2xl font-extrabold text-slate-900 leading-tight mb-4">${art.title}</h3>
-                <p class="text-slate-500 text-sm leading-relaxed mb-8">${art.desc} This research explores the fundamental aspects and practical implications in modern Indian law.</p>
-                
-                <a href="${art.link}" class="flex items-center justify-between bg-slate-900 text-white p-5 rounded-2xl shadow-xl shadow-blue-100 hover:bg-blue-600 transition-colors">
-                    <span class="text-xs font-bold uppercase tracking-widest">Read Full Article</span>
-                    <i class="fa-solid fa-arrow-right-long"></i>
-                </a>
-
-                <div class="mt-8 pt-6 border-t border-slate-100">
-                    <p class="text-[10px] font-bold text-slate-400 uppercase mb-3">More from this Author</p>
-                    <div class="bg-slate-50 p-3 rounded-xl flex items-center justify-between">
-                        <span class="text-xs font-semibold text-slate-600">Legal Research Methods...</span>
-                        <i class="fa-solid fa-lock text-[10px] text-slate-300"></i>
+                        <h4 class="font-bold text-slate-900">${data.author}</h4>
+                        <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">${data.university}</p>
                     </div>
                 </div>
             `;
+
+            let articlesHtml = "";
+            data.articles.forEach(art => {
+                articlesHtml += `
+                    <div class="inner-article-card shadow-sm">
+                        <div class="flex justify-between mb-3">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">${art.date}</span>
+                            <span class="text-[9px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">${art.time} read</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 leading-tight mb-2">${art.title}</h3>
+                        <p class="text-xs text-slate-500 mb-4 font-medium leading-relaxed">${art.desc}</p>
+                        <a href="${art.link}" class="inline-flex items-center gap-2 text-[11px] font-extrabold text-blue-600 uppercase tracking-tighter">
+                            Read Full Article <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                        </a>
+                    </div>
+                `;
+            });
+            document.getElementById('modal-list').innerHTML = articlesHtml;
             modal.classList.add('active');
         };
 
-        const closeModal = (e) => {
+        const closeModal = () => {
             modal.classList.remove('active');
+            document.body.classList.remove('modal-open');
         };
 
-        const renderArticles = () => {
+        const renderAuthors = () => {
             container.innerHTML = "";
-            articleDatabase.forEach((art, index) => {
+            authorData.forEach((data, index) => {
                 const card = document.createElement('div');
                 card.className = `premium-card relative p-6`;
-                card.onclick = () => openModal(art.id);
+                card.onclick = () => openModal(data.id);
                 
                 card.innerHTML = `
-                    <div class="accent-line" style="background: ${art.accent}"></div>
-                    <div class="flex justify-between items-start mb-5">
+                    <div class="accent-line" style="background: ${data.accent}"></div>
+                    <div class="flex justify-between items-start">
                         <div class="flex items-center gap-3">
-                            <img src="${art.photo}" onerror="this.src='https://ui-avatars.com/api/?name=${art.author.replace(' ', '+')}&background=${art.accent.replace('#','')}&color=fff'" 
-                                     class="w-12 h-12 rounded-2xl object-cover shadow-sm ring-4 ring-slate-50">
+                            <img src="${data.photo}" onerror="this.src='https://ui-avatars.com/api/?name=${data.author.replace(' ', '+')}&background=${data.accent.replace('#','')}&color=fff'" 
+                                     class="w-12 h-12 rounded-2xl object-cover shadow-sm">
                             <div>
-                                <div class="flex items-center gap-1.5">
-                                    <h4 class="font-bold text-slate-900 text-sm tracking-tight">${art.author}</h4>
-                                    <i class="fa-solid fa-circle-check text-blue-500 text-[11px]"></i>
-                                </div>
-                                <p class="text-[10px] text-slate-400 font-semibold uppercase tracking-tighter">${art.university}</p>
+                                <h4 class="font-bold text-slate-900 text-sm">${data.author}</h4>
+                                <p class="text-[10px] text-slate-400 font-semibold uppercase">${data.university}</p>
                             </div>
                         </div>
-                        <div class="text-right">
-                            <p class="meta-text">${art.date}</p>
+                        <div class="bg-slate-900 text-white px-3 py-1 rounded-full flex items-center gap-2 shadow-lg">
+                             <span class="text-[10px] font-bold">${data.articles.length} Articles</span>
+                             <i class="fa-solid fa-chevron-right text-[8px]"></i>
                         </div>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-extrabold text-slate-900 leading-tight mb-2 tracking-tight">${art.title}</h3>
-                        <p class="text-[12px] text-slate-500 line-clamp-2 font-medium">${art.desc}</p>
-                    </div>
-                    <div class="mt-4 flex items-center text-blue-600 font-bold text-[10px] uppercase tracking-widest">
-                        View Profile & Articles <i class="fa-solid fa-chevron-right ml-2 text-[8px]"></i>
+                    <div class="mt-4">
+                        <h3 class="text-lg font-extrabold text-slate-900 leading-tight">${data.articles[0].title}</h3>
+                        <p class="text-[12px] text-slate-500 mt-1 line-clamp-1">${data.articles[0].desc}</p>
                     </div>
                 `;
                 container.appendChild(card);
-                setTimeout(() => { card.classList.add('show'); }, index * 120);
+                setTimeout(() => { card.classList.add('show'); }, index * 100);
             });
         };
 
-        window.onload = renderArticles;
+        window.onload = renderAuthors;
+        window.onclick = (e) => { if(e.target == modal) closeModal(); };
     </script>
 </body>
 </html>
