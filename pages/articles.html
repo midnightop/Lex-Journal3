@@ -22,35 +22,26 @@
         .premium-card.show { opacity: 1; transform: translateY(0); }
         .premium-card:active { transform: scale(0.97); }
 
-        /* Article Count Badge */
         .count-badge {
-            background: rgba(37, 99, 235, 0.08);
-            color: #2563eb;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 10px;
-            font-weight: 800;
+            background: rgba(37, 99, 235, 0.08); color: #2563eb;
+            padding: 4px 12px; border-radius: 12px; font-size: 10px; font-weight: 800;
             border: 1px solid rgba(37, 99, 235, 0.1);
-            letter-spacing: 0.5px;
         }
 
-        /* Action Button */
         .action-btn {
-            background: #0f172a;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: all 0.3s ease;
+            background: #0f172a; color: white; padding: 12px 20px; border-radius: 20px;
+            font-size: 11px; font-weight: 800; letter-spacing: 1px;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
             box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.3);
         }
-        .premium-card:active .action-btn { background: #2563eb; transform: translateY(-2px); }
+
+        /* Search Overlay */
+        #search-overlay {
+            display: none; position: fixed; inset: 0; background: white; z-index: 2000; padding: 20px; flex-direction: column;
+        }
+        #search-overlay.active { display: flex; animation: fadeIn 0.3s ease; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         /* Modal Styles */
         #article-modal {
@@ -71,31 +62,48 @@
             background: #f1f5f9; width: 40px; height: 40px; border-radius: 50%; 
             display: flex; align-items: center; justify-content: center; color: #64748b;
         }
+
+        .search-result-item {
+            padding: 15px; border-bottom: 1px solid #f1f5f9; animation: slideIn 0.3s ease;
+        }
+        @keyframes slideIn { from { transform: translateX(-10px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
     </style>
 </head>
 <body oncontextmenu="return false;">
 
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md px-6 py-5 flex items-center justify-between border-b border-slate-100">
         <div class="flex items-center gap-3">
-            <a href="../index.html" class="w-10 h-10 bg-slate-50 flex items-center justify-center rounded-2xl border border-slate-200">
+            <a href="../index.html" class="w-10 h-10 bg-slate-50 flex items-center justify-center rounded-2xl border border-slate-200 text-slate-900">
                 <i class="fa-solid fa-arrow-left"></i>
             </a>
             <div>
-                <h1 class="font-extrabold text-slate-900 text-lg tracking-tight">RESEARCH HUB</h1>
-                <p class="text-[9px] font-black text-blue-600 tracking-widest uppercase">Calcutta Law Journal</p>
+                <h1 class="font-extrabold text-slate-900 text-lg tracking-tight uppercase">Research Hub</h1>
+                <p class="text-[9px] font-black text-blue-600 tracking-widest uppercase">Lawjournal.online</p>
             </div>
         </div>
-        <button onclick="toggleSearch()" class="w-11 h-11 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 border border-slate-200">
+        <button onclick="toggleSearch(true)" class="w-11 h-11 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 border border-slate-200 active:scale-90 transition-all">
             <i class="fa-solid fa-magnifying-glass"></i>
         </button>
     </nav>
+
+    <div id="search-overlay">
+        <div class="flex items-center gap-4 mb-6">
+            <button onclick="toggleSearch(false)" class="w-10 h-10 flex items-center justify-center text-slate-400 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <input type="text" id="search-input" placeholder="Search articles or authors..." 
+                   class="flex-1 bg-slate-100 border-none rounded-2xl px-5 py-4 font-bold text-slate-800 outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div id="search-results" class="flex-1 overflow-y-auto space-y-2">
+            </div>
+    </div>
 
     <main class="px-6 py-8 pb-24">
         <header class="mb-10">
             <h2 style="font-family: 'Playfair Display';" class="text-4xl text-slate-900 leading-tight">Legal <br><span class="italic text-blue-600">Thought Leaders</span></h2>
             <div class="flex items-center gap-2 mt-2">
                 <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                <p class="text-slate-400 text-[10px] font-bold uppercase tracking-widest">4 Scholars Verified</p>
+                <p class="text-slate-400 text-[10px] font-bold uppercase tracking-widest">Verified Academic Content</p>
             </div>
         </header>
 
@@ -105,14 +113,14 @@
     <div id="article-modal">
         <div class="modal-container">
             <div class="flex justify-between items-center p-6 border-b border-slate-50">
-                <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Scholar Profile</span>
+                <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Academic Portfolio</span>
                 <button onclick="closeModal()" class="exit-btn"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="modal-body overflow-y-auto p-6" id="modal-content-area">
+            <div class="modal-body overflow-y-auto p-6">
                 <div id="modal-profile-header"></div>
                 <div class="mt-8">
                     <h3 class="text-xs font-black text-slate-900 uppercase tracking-widest mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-scroll text-blue-600"></i> Journal Archive
+                        <i class="fa-solid fa-scroll text-blue-600"></i> Research Papers
                     </h3>
                     <div id="modal-articles-list"></div>
                 </div>
@@ -128,7 +136,6 @@
                 university: "Sureswar Dutta Law College",
                 insta: "@ettisa_basak",
                 photo: "read/author1.jpg",
-                accent: "#3b82f6",
                 bio: "Law student at Sureswar Dutta Law College under the University of Calcutta. Specialized in Bare Acts research and legislative interpretation.",
                 articles: [
                     { title: "The Power of Bare Acts", desc: "Understanding why original legislative texts are indispensable for legal professionals.", link: "read/article1.html", date: "17 Apr 2026", time: "11 min", status: "published" },
@@ -141,7 +148,6 @@
                 university: "Surendranath Law College",
                 insta: "@rey_legal",
                 photo: "read/author2.jpg",
-                accent: "#8b5cf6",
                 bio: "Legal scholar at Surendranath Law College, University of Calcutta. Exploring the philosophy behind Indian Jurisprudence.",
                 articles: [
                     { title: "Foundations of Jurisprudence", desc: "A deep dive into why law exists and how it maintains the social fabric of India.", link: "read/article2.html", date: "18 Apr 2026", time: "10 min", status: "published" }
@@ -153,7 +159,6 @@
                 university: "South Calcutta Law College",
                 insta: "@analdeep_s",
                 photo: "read/author4.jpg",
-                accent: "#10b981",
                 bio: "Student at South Calcutta Law College, University of Calcutta. Researcher of Case Laws and judicial precedents.",
                 articles: [
                     { title: "What Is Case Law", desc: "Learning about Indian legal cases and conducting in depth research on them.", link: "read/article4.html", date: "20 Apr 2026", time: "15 min", status: "published" }
@@ -165,7 +170,6 @@
                 university: "Surendranath Law College",
                 insta: "@bishal_soren",
                 photo: "read/author3.jpg",
-                accent: "#f59e0b",
                 bio: "Scholar at Surendranath Law College under the University of Calcutta. Analyzing Constitutional frameworks and the Rule of Law.",
                 articles: [
                     { title: "Constitutional Framework", desc: "Analyzing the 'Rule of Law' and the structural backbone of our democratic nation.", link: "read/article3.html", date: "19 Apr 2026", time: "13 min", status: "published" }
@@ -175,22 +179,62 @@
 
         const container = document.getElementById('articles-hub');
         const modal = document.getElementById('article-modal');
+        const searchOverlay = document.getElementById('search-overlay');
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+
+        // Search Toggle Logic
+        function toggleSearch(show) {
+            if(show) {
+                searchOverlay.classList.add('active');
+                searchInput.focus();
+            } else {
+                searchOverlay.classList.remove('active');
+                searchInput.value = "";
+                searchResults.innerHTML = "";
+            }
+        }
+
+        // Live Search Filter
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            searchResults.innerHTML = "";
+            if(!query) return;
+
+            authorData.forEach(author => {
+                author.articles.forEach(art => {
+                    if(art.title.toLowerCase().includes(query) || author.author.toLowerCase().includes(query)) {
+                        const div = document.createElement('div');
+                        div.className = "search-result-item bg-slate-50 rounded-2xl cursor-pointer active:scale-95 transition-all";
+                        div.innerHTML = `
+                            <p class="text-[9px] font-black text-blue-600 uppercase tracking-widest">${author.author}</p>
+                            <h5 class="text-sm font-bold text-slate-800">${art.title}</h5>
+                        `;
+                        div.onclick = () => {
+                            toggleSearch(false);
+                            openModal(author.id);
+                        };
+                        searchResults.appendChild(div);
+                    }
+                });
+            });
+        });
 
         const openModal = (id) => {
             const data = authorData.find(a => a.id === id);
             document.body.classList.add('modal-open');
             document.getElementById('modal-profile-header').innerHTML = `
                 <div class="flex items-center gap-5">
-                    <img src="${data.photo}" class="w-20 h-20 rounded-[28px] object-cover shadow-lg" onerror="this.src='https://ui-avatars.com/api/?name=${data.author.replace(' ', '+')}&background=2563eb&color=fff'">
+                    <img src="${data.photo}" class="w-20 h-20 rounded-[28px] object-cover shadow-lg" onerror="this.src='https://ui-avatars.com/api/?name=${data.author.replace(' ', '+')}'">
                     <div>
                         <div class="flex items-center gap-2">
                             <h2 class="text-xl font-extrabold text-slate-900">${data.author}</h2>
                             <i class="fa-solid fa-circle-check text-blue-500"></i>
                         </div>
                         <p class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">${data.university}</p>
-                        <a href="#" class="inline-flex items-center gap-1.5 mt-3 text-[10px] font-bold text-pink-600 bg-pink-50 px-3 py-1.5 rounded-full">
-                            <i class="fa-brands fa-instagram"></i> ${data.insta}
-                        </a>
+                        <div class="flex items-center gap-2 mt-3">
+                            <span class="text-[10px] font-bold text-pink-600 bg-pink-50 px-3 py-1.5 rounded-full"><i class="fa-brands fa-instagram"></i> ${data.insta}</span>
+                        </div>
                     </div>
                 </div>
                 <p class="mt-6 text-sm text-slate-500 font-medium leading-relaxed">${data.bio}</p>
@@ -202,18 +246,18 @@
                     html += `
                     <div class="p-5 bg-slate-50 rounded-3xl border border-slate-100 mb-4">
                         <div class="flex justify-between items-center mb-2">
-                            <span class="text-[9px] font-black text-blue-600 uppercase tracking-widest">${art.date}</span>
+                            <span class="text-[9px] font-black text-blue-600 uppercase">${art.date}</span>
                             <span class="text-[9px] font-bold text-slate-400 italic">${art.time} read</span>
                         </div>
                         <h4 class="text-md font-bold text-slate-900 mb-2">${art.title}</h4>
                         <p class="text-xs text-slate-500 mb-4 line-clamp-2">${art.desc}</p>
-                        <a href="${art.link}" class="w-full py-3 bg-white border border-slate-200 rounded-xl text-[10px] font-black text-center block uppercase tracking-widest">Explore Paper</a>
+                        <a href="${art.link}" class="w-full py-3 bg-white border border-slate-200 rounded-xl text-[10px] font-black text-center block uppercase tracking-widest active:bg-slate-50">Explore Research</a>
                     </div>`;
                 } else {
                     html += `
                     <div class="p-5 border border-dashed border-slate-200 rounded-3xl mb-4 opacity-60">
                         <div class="flex justify-between items-center mb-1">
-                            <span class="text-[9px] font-bold text-slate-400 uppercase">Upcoming Publication</span>
+                            <span class="text-[9px] font-bold text-slate-400 uppercase">In Review</span>
                             <i class="fa-solid fa-lock text-[10px] text-slate-300"></i>
                         </div>
                         <h4 class="text-md font-bold text-slate-300">${art.title}</h4>
@@ -244,7 +288,7 @@
                                     <h4 class="font-bold text-slate-900 text-sm">${data.author}</h4>
                                     <i class="fa-solid fa-circle-check text-blue-500 text-[11px]"></i>
                                 </div>
-                                <p class="text-[9px] font-bold text-slate-400 uppercase">CU Affiliated Student</p>
+                                <p class="text-[9px] font-bold text-slate-400 uppercase tracking-tighter">Calcutta University Student</p>
                             </div>
                         </div>
                         <div class="count-badge">${data.articles.length < 10 ? '0' + data.articles.length : data.articles.length} ARTICLES</div>
