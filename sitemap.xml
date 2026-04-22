@@ -4,24 +4,45 @@
 
   <url>
     <loc>https://lawjournal.online/index.html</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-04-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://lawjournal.online/bare-acts.html</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-04-22</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://lawjournal.online/case-laws.html</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-04-22</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://lawjournal.online/research.html</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-04-22</lastmod>
     <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://lawjournal.online/acts/constitution-articles.html</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://lawjournal.online/acts/ipc-sections.html</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://lawjournal.online/acts/hma-sections.html</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://lawjournal.online/acts/contract-sections.html</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.85</priority>
   </url>
 
   <url>
@@ -31,16 +52,6 @@
   </url>
   <url>
     <loc>https://lawjournal.online/bns-sections.html</loc>
-    <lastmod>2026-04-21</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://lawjournal.online/ipc-sections.html</loc>
-    <lastmod>2026-04-21</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://lawjournal.online/constitution-sections.html</loc>
     <lastmod>2026-04-21</lastmod>
     <priority>0.8</priority>
   </url>
