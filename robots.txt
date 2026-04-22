@@ -1,12 +1,16 @@
-# Law Journal Robots.txt
-# All search engines are allowed to crawl the site
+# Law Journal Robots.txt - Optimized for Legal Acts & Research
 User-agent: *
 Allow: /
+# Explicitly allowing the acts folder for better indexing of Constitution, IPC, etc.
+Allow: /acts/
+Allow: /pages/read/
 
 # Blocking files that are not useful for search results
 Disallow: /README.md
 Disallow: /ads.txt
 Disallow: /skeleton-screen/
+Disallow: /assets/css/
+Disallow: /assets/js/
 
 # Direct path to your Sitemap
 Sitemap: https://lawjournal.online/sitemap.xml
