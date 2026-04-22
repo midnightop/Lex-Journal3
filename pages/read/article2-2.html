@@ -22,27 +22,24 @@
         .highlight-red { border-left: 5px solid #ef4444; background: #fffcfc; }
         .highlight-blue { border-left: 5px solid #3b82f6; background: #fcfdff; }
 
-        h2 { font-weight: 900; color: #0f172a; margin: 45px 0 20px 0; font-size: 1.6rem; line-height: 1.2; border-bottom: 3px solid #f1f5f9; padding-bottom: 10px; display: block; }
+        h2 { font-weight: 900; color: #0f172a; margin: 45px 0 20px 0; font-size: 1.6rem; line-height: 1.2; padding-bottom: 10px; display: block; }
         h3 { font-weight: 800; color: #1e293b; margin: 30px 0 15px 0; font-size: 1.2rem; }
 
         .comparison-table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 14px; overflow: hidden; border-radius: 12px; }
         .comparison-table th, .comparison-table td { border: 1px solid #f1f5f9; padding: 16px; text-align: left; }
         .comparison-table th { background: #f8fafc; color: #475569; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
 
-        .share-strip { position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); background: #0f172a; padding: 12px 25px; border-radius: 50px; display: flex; gap: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); z-index: 1000; transition: all 0.3s ease; }
-        .share-icon { color: white; font-size: 18px; transition: transform 0.2s; }
-        .share-icon:active { transform: scale(0.8); }
+        /* Floating Corner Share Button */
+        .share-fab { 
+            position: fixed; bottom: 30px; right: 25px; 
+            background: #2563eb; color: white; width: 56px; height: 56px; 
+            border-radius: 20px; display: flex; align-items: center; justify-content: center; 
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3); z-index: 1000; 
+        }
 
         .progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: #ef4444; width: 0%; z-index: 1000; }
         .conclusion-box { background: #0f172a; color: white; padding: 35px; border-radius: 30px; margin-top: 50px; }
     </style>
-
-
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2978948668893594"
-     crossorigin="anonymous"></script>
-
-    
 </head>
 <body oncontextmenu="return false;">
 
@@ -59,7 +56,7 @@
         <div class="w-10"></div>
     </nav>
 
-    <main class="px-6 pt-10 pb-40 max-w-2xl mx-auto">
+    <main class="px-6 pt-10 pb-40 max-w-2xl mx-auto text-left">
         
         <header class="mb-12">
             <div class="flex items-center gap-2 mb-4">
@@ -70,8 +67,8 @@
                 The Death of IPC 302: How Section 103 BNS Redefines Murder in 2026
             </h1>
             
-            <div class="flex items-center gap-4 p-1 bg-slate-50 rounded-full pr-6 border border-slate-100 w-fit">
-                <img src="author2.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Rey&background=0f172a&color=fff'" class="w-12 h-12 rounded-full object-cover">
+            <div class="flex items-center gap-4 p-1 bg-white rounded-full pr-6 border border-slate-200 w-fit shadow-sm">
+                <img src="author2.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Rey&background=0f172a&color=fff'" class="w-12 h-12 rounded-full object-cover border-2 border-white">
                 <div>
                     <h4 class="font-black text-slate-800 text-[11px]">Rey</h4>
                     <p class="text-[8px] text-slate-500 font-bold uppercase">Surendranath Law College | Calcutta University</p>
@@ -81,28 +78,26 @@
 
         <div class="content-section text-[17px] text-slate-700">
             
-            <p class="mb-6">If you’ve spent any time in an Indian courtroom or even watching a legal drama, the term "302" was synonymous with the ultimate crime. But as we navigate 2026, the Indian Penal Code (IPC) has officially been retired to the archives of history. In its place stands the **Bharatiya Nyaya Sanhita (BNS)**. For legal practitioners, students, and the general public, the shift from IPC 302 to **Section 103 BNS** is the most significant statutory change of our generation.</p>
+            <p class="mb-6">If you have spent any time in an Indian courtroom or even watching a legal drama, the term 302 was synonymous with the ultimate crime. But as we navigate 2026, the Indian Penal Code (IPC) has officially been retired to the archives of history. In its place stands the Bharatiya Nyaya Sanhita (BNS). For legal practitioners, students, and the general public, the shift from IPC 302 to Section 103 BNS is the most significant statutory change of our generation.</p>
 
             <div class="graphic-card highlight-red">
-                <h2 class="mt-0">1. Section 103(1): The New Home for Murder</h2>
-                <p class="mb-4">Section 103(1) of the BNS is the direct replacement for the old Section 302. While the transition might seem like a simple renumbering exercise, the intent behind the BNS was to simplify the language and make the code more "Indian" in its application. However, the gravity of the offense remains untouched.</p>
-                <p class="font-bold text-slate-900">What constitutes Murder now?</p>
-                <p>The definition of murder is now found in **Section 101 BNS** (which replaces IPC 300). If a person causes death with the intention of causing death, or causing such bodily injury that they know is likely to result in death, they are charged under Section 103.</p>
+                <h2 class="mt-0 text-slate-900 uppercase text-xs tracking-widest mb-4">1. Section 103(1): The New Home for Murder</h2>
+                <p class="mb-4">Section 103(1) of the BNS is the direct replacement for the old Section 302. While the transition might seem like a simple renumbering exercise, the intent behind the BNS was to simplify the language and make the code more Indian in its application. However, the gravity of the offense remains untouched.</p>
+                <p class="font-bold text-slate-900 mb-2">What constitutes Murder now?</p>
+                <p>The definition of murder is now found in Section 101 BNS. If a person causes death with the intention of causing death, or causing such bodily injury that they know is likely to result in death, they are charged under Section 103.</p>
                 <p class="mt-4 p-4 bg-red-50 rounded-xl border border-red-100 text-red-900 font-bold text-sm italic">
                     The Punishment: Death Penalty or Imprisonment for Life, and a mandatory fine.
                 </p>
             </div>
 
-            
+            <h2 class="text-slate-900 uppercase text-xs tracking-widest mb-4">2. The Mob Lynching Clause: Section 103(2)</h2>
+            <p class="mb-6">This is where the BNS truly evolves beyond the British-era IPC. For years, the Indian judiciary struggled to deal with Mob Lynching using fragmented sections like Unlawful Assembly. In 2026, we finally have a standalone statutory weapon against group-based violence.</p>
 
-            <h2>2. The Mob Lynching Clause: Section 103(2)</h2>
-            <p class="mb-6">This is where the BNS truly evolves beyond the British-era IPC. For years, the Indian judiciary struggled to deal with "Mob Lynching" using fragmented sections like Unlawful Assembly (IPC 149). In 2026, we finally have a standalone statutory weapon against group-based violence.</p>
-
-            <h3>How Section 103(2) Works:</h3>
-            <p class="mb-4">If a group of <strong>five or more persons</strong> acts in concert to commit murder based on the victim's identity—be it Race, Caste, Community, Sex, Place of Birth, or Language—every member of that crowd is held equally liable for murder.</p>
+            <h3 class="font-bold text-slate-900 text-sm mb-3">How Section 103(2) Works:</h3>
+            <p class="mb-4">If a group of five or more persons acts in concert to commit murder based on the victims identity—be it Race, Caste, Community, Sex, Place of Birth, or Language—every member of that crowd is held equally liable for murder.</p>
             
             <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 mb-8">
-                <p class="text-sm font-medium italic">"The BNS has removed the 'safety in numbers' excuse. If you are part of a mob that takes a life, the law views you as a murderer, plain and simple."</p>
+                <p class="text-sm font-medium italic">"The BNS has removed the safety in numbers excuse. If you are part of a mob that takes a life, the law views you as a murderer, plain and simple."</p>
             </div>
 
             <table class="comparison-table">
@@ -110,81 +105,68 @@
                     <tr>
                         <th>Old System (IPC)</th>
                         <th>New System (BNS 2026)</th>
-                        <th>Significance</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Section 302</td>
                         <td>Section 103(1)</td>
-                        <td>Primary Punishment for Murder</td>
                     </tr>
                     <tr>
                         <td>Section 149 (Vicarious)</td>
                         <td>Section 103(2)</td>
-                        <td>Specific Mob Lynching Penalty</td>
                     </tr>
                     <tr>
                         <td>Scattered Definitions</td>
                         <td>Section 101</td>
-                        <td>Streamlined Definition of Murder</td>
                     </tr>
                 </tbody>
             </table>
 
-            <h2>3. What Happens to Old IPC 302 Cases?</h2>
-            <p class="mb-6">One of the most frequent questions I get from juniors is about the "Pending Cases." If a crime was committed before the BNS came into force, will it be converted to Section 103? The answer lies in the principle of **Non-Retroactivity**. CrPC and IPC will still apply to trials for offenses committed before the transition date. However, all new FIRs registered in 2026 are being filed strictly under BNS 103.</p>
+            <h2 class="text-slate-900 uppercase text-xs tracking-widest mb-4">3. What Happens to Old IPC 302 Cases?</h2>
+            <p class="mb-6">One of the most frequent questions arises about the pending cases. If a crime was committed before the BNS came into force, will it be converted to Section 103? The answer lies in the principle of Non-Retroactivity. CrPC and IPC will still apply to trials for offenses committed before the transition date. However, all new FIRs registered in 2026 are being filed strictly under BNS 103.</p>
 
-            <h2>4. Survival of Precedents: The Bachan Singh Doctrine</h2>
-            <p class="mb-6">Law students often fear that renumbering laws means throwing away decades of case law. That is a myth. The <strong>"Rarest of Rare"</strong> doctrine established in <em>Bachan Singh v. State of Punjab</em> remains the gold standard for judges deciding between Life Imprisonment and the Death Penalty under Section 103 BNS. The philosophy of the court hasn't changed; only the statutory tool has.</p>
+            <h2 class="text-slate-900 uppercase text-xs tracking-widest mb-4">4. Survival of Precedents</h2>
+            <p class="mb-6">Law students often fear that renumbering laws means throwing away decades of case law. That is a myth. The Rarest of Rare doctrine established in Bachan Singh v State of Punjab remains the gold standard for judges deciding between Life Imprisonment and the Death Penalty under Section 103 BNS. The philosophy of the court has not changed; only the statutory tool has.</p>
 
             <div class="graphic-card highlight-blue">
-                <h2 class="mt-0">Pro-Tip for Drafting</h2>
-                <p>When drafting your first few BNS-based petitions, make sure to cross-reference the IPC sections in brackets for the first year. It helps the court transition smoothly. Use the format: <strong>"Section 103 BNS (erstwhile Section 302 IPC)"</strong>.</p>
+                <h2 class="mt-0 text-slate-900 uppercase text-xs tracking-widest mb-4">Pro-Tip for Drafting</h2>
+                <p>When drafting your first few BNS-based petitions, make sure to cross-reference the IPC sections in brackets for the first year. It helps the court transition smoothly. Use the format: Section 103 BNS (erstwhile Section 302 IPC).</p>
             </div>
-
-            <h2>5. The Societal Impact of BNS 103</h2>
-            <p class="mb-6">The introduction of Section 103(2) is a direct response to modern social challenges. By making mob violence a capital offense with specific grounds (like language or community), the legislature is using the BNS as a tool for social engineering and communal harmony. In 2026, the "Intent" of the law is not just to punish, but to deter group-think crimes.</p>
-
-            <h2>6. Conclusion: A New Era of Justice</h2>
-            <p class="mb-6">Moving from IPC 302 to BNS 103 is a rite of passage for every Indian lawyer. It marks the end of a colonial legacy and the beginning of a homegrown legal framework. While the transition may feel overwhelming at first, the core values of justice, intent, and punishment remain constant. Stay updated, keep researching, and embrace the Sanhita.</p>
 
             <div class="conclusion-box">
                 <p class="text-xl font-black mb-4 uppercase tracking-widest text-center">Ready to Research?</p>
-                <p class="text-sm opacity-90 leading-relaxed text-center italic">
+                <p class="text-sm opacity-90 leading-relaxed text-center italic mb-8">
                     "Law is not a stagnant pool; it is a flowing river. Transitioning to BNS is simply learning to navigate a new turn in that river."
                 </p>
                 <div class="mt-8 flex justify-center">
-                    <a href="../acts/bns-sections.html" class="bg-white text-slate-900 px-8 py-3 rounded-2xl font-black text-[10px] uppercase tracking-widest shadow-xl active:scale-95 transition-all">Explore Full BNS Index</a>
+                    <a href="acts/bns-sections.html" class="bg-white text-slate-900 px-8 py-3 rounded-2xl font-black text-[10px] uppercase tracking-widest shadow-xl active:scale-95 transition-all">Explore Full BNS Index</a>
                 </div>
             </div>
         </div>
 
-        <div class="mt-16 p-8 bg-slate-50 rounded-[40px] border border-slate-200">
+        <div class="author-card mt-16 p-8 bg-slate-50 rounded-[40px] border border-slate-200">
             <div class="flex items-center gap-6 mb-6">
-                <img src="author2.jpg" class="w-20 h-20 rounded-[25px] object-cover shadow-lg border-4 border-white">
+                <img src="author2.jpg" class="w-20 h-20 rounded-[25px] object-cover shadow-lg border-4 border-white" onerror="this.src='https://ui-avatars.com/api/?name=Rey'">
                 <div>
                     <h3 class="font-black text-slate-900 text-xl leading-none m-0">Rey</h3>
                     <p class="text-[9px] text-blue-600 font-black uppercase mt-3 tracking-widest">Jurisprudence Researcher</p>
                 </div>
             </div>
             <p class="text-[14px] text-slate-600 leading-relaxed italic">
-                "Specializing in the transition between colonial law and modern Indian legislation. My goal is to simplify the law for every citizen."
+                Specializing in the transition between colonial law and modern Indian legislation. My goal is to simplify the law for every citizen.
             </p>
             <div class="flex gap-3 mt-8">
-                <a href="https://www.instagram.com/midieeeeee" target="_blank" class="flex-1 bg-white border border-slate-200 py-4 rounded-2xl text-center text-[10px] font-black uppercase tracking-widest text-pink-600 shadow-sm">
-                    <i class="fa-brands fa-instagram mr-2 text-lg"></i> Follow on Instagram
+                <a href="https://www.instagram.com/midieeeeee" target="_blank" class="flex-1 bg-white border border-slate-200 py-4 rounded-2xl text-center text-[10px] font-black uppercase tracking-widest text-pink-600 shadow-sm active:scale-95 transition-all">
+                    <i class="fa-brands fa-instagram mr-2 text-lg"></i> Instagram
                 </a>
             </div>
         </div>
 
     </main>
 
-    <div class="share-strip">
-        <a href="#" onclick="shareWhatsApp()" class="share-icon"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="#" onclick="shareTwitter()" class="share-icon"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="#" onclick="copyLink()" class="share-icon"><i class="fa-solid fa-link"></i></a>
-        <span class="text-[8px] font-black text-slate-500 uppercase self-center tracking-widest">Share Article</span>
+    <div class="share-fab" onclick="nativeShare()">
+        <i class="fa-solid fa-share-nodes text-xl"></i>
     </div>
 
     <script>
@@ -196,18 +178,20 @@
             document.getElementById("readingProgress").style.width = scrolled + "%";
         };
 
-        // Share Functions
-        const artTitle = encodeURIComponent("Section 103 BNS: The New Murder Law Explained | Law Journal");
-        const artUrl = encodeURIComponent(window.location.href);
-
-        function shareWhatsApp() { window.open(`https://api.whatsapp.com/send?text=${artTitle}%20${artUrl}`); }
-        function shareTwitter() { window.open(`https://twitter.com/intent/tweet?text=${artTitle}&url=${artUrl}`); }
-        function copyLink() {
-            navigator.clipboard.writeText(window.location.href);
-            alert("Article Link Copied to Clipboard!");
+        // Native Share Logic (Mobile Friendly)
+        function nativeShare() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Section 103 BNS vs IPC 302 - Law Journal',
+                    url: window.location.href
+                }).catch(console.error);
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert("Link Copied!");
+            }
         }
 
-        // Anti-Copy/DevTools Protection
+        // Anti-Copy Logic
         document.onkeydown = function(e) {
             if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 85 || e.keyCode === 73 || e.keyCode === 83)) return false;
             if (event.keyCode == 123) return false;
