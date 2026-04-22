@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Constitution of India | Digital Compendium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: radial-gradient(circle at top left, #1a1c2c, #4a192c);
+            min-height: 100vh;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .search-suggestion {
+            background: rgba(20, 20, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+            z-index: 1000;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); }
+        ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 10px; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <header class="flex flex-col md:flex-row justify-between items-center mb-12 sticky top-0 z-50 py-4 px-6 glass-card">
+        <div>
+            <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+                Constitution of India
+            </h1>
+            <p class="text-xs text-gray-400">448 Articles • 25 Parts • 12 Schedules</p>
+        </div>
+
+        <div class="relative w-full md:w-96 mt-4 md:mt-0">
+            <div class="relative">
+                <input type="text" id="searchInput" placeholder="Search Article, Schedule or Topic..." 
+                    class="w-full bg-white/10 border border-white/20 rounded-full py-2 px-10 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                <i class="fa fa-search absolute left-4 top-3 text-gray-400"></i>
+            </div>
+            <div id="suggestionBox" class="hidden absolute w-full mt-2 rounded-xl p-2 search-suggestion max-h-60 overflow-y-auto">
+                </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto">
+        
+        <section class="mb-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-card p-6">
+                <h3 class="text-blue-400 font-bold mb-2"><i class="fa fa-book-open mr-2"></i> The Structure</h3>
+                <p class="text-sm text-gray-300">Originally 395 Articles, now expanded to ~448 via various amendments, organized into 25 Parts.</p>
+            </div>
+            <div class="glass-card p-6">
+                <h3 class="text-purple-400 font-bold mb-2"><i class="fa fa-gavel mr-2"></i> 12 Schedules</h3>
+                <p class="text-sm text-gray-300">Contains categorized lists like States, Salaries, Oaths, and Allocation of seats in Rajya Sabha.</p>
+            </div>
+            <div class="glass-card p-6">
+                <h3 class="text-pink-400 font-bold mb-2"><i class="fa fa-pen-nib mr-2"></i> Amendments</h3>
+                <p class="text-sm text-gray-300">Article 368 gives Parliament the power to amend, keeping the 'Basic Structure' intact.</p>
+            </div>
+        </section>
+
+        <h2 class="text-xl font-semibold mb-6 border-l-4 border-blue-500 pl-4">Key Provisions & Articles</h2>
+        <div id="contentGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            </div>
+    </main>
+
+    <script>
+        // Sample Data Structure (You would expand this to include all 448)
+        const constitutionData = [
+            { id: "Art 1", title: "Name and territory of the Union", category: "Part I", desc: "India, that is Bharat, shall be a Union of States." },
+            { id: "Art 14", title: "Equality before law", category: "Part III", desc: "The State shall not deny to any person equality before the law." },
+            { id: "Art 21", title: "Protection of life and liberty", category: "Part III", desc: "No person shall be deprived of his life or personal liberty except according to procedure established by law." },
+            { id: "Art 32", title: "Constitutional Remedies", category: "Part III", desc: "Right to move the Supreme Court for enforcement of Fundamental Rights." },
+            { id: "Art 44", title: "Uniform Civil Code", category: "Part IV", desc: "The State shall endeavour to secure for the citizens a uniform civil code." },
+            { id: "Art 51A", title: "Fundamental Duties", category: "Part IVA", desc: "Added by 42nd Amendment, list of 11 duties for citizens." },
+            { id: "Sched 1", title: "The States & UTs", category: "Schedules", desc: "Lists the states and territories of India." },
+            { id: "Sched 10", title: "Anti-Defection Law", category: "Schedules", desc: "Provisions as to disqualification on ground of defection." }
+        ];
+
+        const grid = document.getElementById('contentGrid');
+        const searchInput = document.getElementById('searchInput');
+        const suggestionBox = document.getElementById('suggestionBox');
+
+        // Function to render cards
+        function renderCards(data) {
+            grid.innerHTML = data.map(item => `
+                <div class="glass-card p-6 flex flex-col">
+                    <span class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-2">${item.category}</span>
+                    <h4 class="text-lg font-bold mb-2">${item.id}: ${item.title}</h4>
+                    <p class="text-gray-400 text-sm flex-grow">${item.desc}</p>
+                    <button class="mt-4 text-xs text-blue-300 hover:text-white transition-colors">READ FULL TEXT →</button>
+                </div>
+            `).join('');
+        }
+
+        // Search and Suggestion Logic
+        searchInput.addEventListener('input', (e) => {
+            const val = e.target.value.toLowerCase();
+            if (val.length > 0) {
+                const filtered = constitutionData.filter(item => 
+                    item.title.toLowerCase().includes(val) || 
+                    item.id.toLowerCase().includes(val)
+                );
+                
+                suggestionBox.classList.remove('hidden');
+                suggestionBox.innerHTML = filtered.map(item => `
+                    <div class="p-2 hover:bg-white/10 cursor-pointer rounded text-sm border-b border-white/5" onclick="selectItem('${item.id}')">
+                        <span class="text-blue-400 font-bold">${item.id}</span> - ${item.title}
+                    </div>
+                `).join('');
+
+                renderCards(filtered);
+            } else {
+                suggestionBox.classList.add('hidden');
+                renderCards(constitutionData);
+            }
+        });
+
+        function selectItem(id) {
+            const item = constitutionData.find(i => i.id === id);
+            searchInput.value = item.title;
+            suggestionBox.classList.add('hidden');
+            renderCards([item]);
+        }
+
+        // Initial Render
+        renderCards(constitutionData);
+    </script>
+</body>
+</html>
