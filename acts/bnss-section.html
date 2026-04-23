@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,11 +23,6 @@
         .comparison-badge {
             background: #eff6ff; color: #2563eb; border: 1px solid #dbeafe;
             padding: 4px 10px; border-radius: 8px; font-size: 10px; font-weight: 800;
-        }
-
-        .judicial-box {
-            background: #f0f7ff; border-radius: 20px; padding: 16px; margin-top: 16px;
-            border-left: 4px solid #2563eb;
         }
 
         #search-overlay {
@@ -61,7 +57,7 @@
     <div id="search-overlay">
         <div class="flex items-center gap-4 mb-6">
             <button onclick="toggleSearch(false)" class="text-slate-900 text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <input type="text" id="search-input" placeholder="Search Section, Case or Year..." class="flex-1 bg-slate-100 border-none rounded-2xl px-5 py-4 font-bold outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+            <input type="text" id="search-input" placeholder="Search BNSS Section or Keyword..." class="flex-1 bg-slate-100 border-none rounded-2xl px-5 py-4 font-bold outline-none focus:ring-2 focus:ring-blue-500 text-sm">
         </div>
         <div id="search-results" class="flex-1 overflow-y-auto no-scrollbar"></div>
     </div>
@@ -86,7 +82,8 @@
             </div>
         </div>
 
-        <div id="bnss-container" class="space-y-6"></div>
+        <div id="bnss-container" class="space-y-6">
+            </div>
     </main>
 
     <script>
@@ -103,46 +100,23 @@
             }
         }
 
+        // BNSS DB with key landmark sections
         const bnssDB = [
-            { id: "1", title: "Short title, commencement and application", crpc: "CrPC Sec 1", desc: "Defines the territorial scope and commencement of the Sanhita.", highlight: "Foundation", lens: "Ref: Maneka Gandhi v. Union of India (1978) - Procedural law must be just and fair." },
-            { id: "105", title: "Recording of Search and Seizure", crpc: "New Provision", desc: "Mandates videography of search and seizure processes.", highlight: "Forensic Tech", lens: "Ref: Shafhi Mohammad v. State of HP (2018) - SC push for tech in investigation is now statutory." },
-            { id: "173", title: "Registration of FIR (Zero FIR)", crpc: "CrPC Sec 154", desc: "Mandatory FIR registration and introduction of Zero FIR/E-FIR.", highlight: "Digital/Zero FIR", lens: "Ref: Lalita Kumari v. Govt. of UP (2014) - Mandatory FIR principle codified and updated." },
-            { id: "530", title: "Trial and Proceedings in Electronic Mode", crpc: "New Provision", desc: "Enables judicial proceedings via video conferencing.", highlight: "Digital India", lens: "Ref: State of Maharashtra v. Praful Desai (2003) - Validation of digital evidence now part of law." }
+            { id: "1", title: "Short title, commencement and application", crpc: "CrPC Sec 1", desc: "Defines the application of Bharatiya Nagarik Suraksha Sanhita across India.", highlight: "Procedural Foundation" },
+            { id: "173", title: "Information in cognizable cases (Zero FIR)", crpc: "CrPC Sec 154", desc: "Mandates registration of FIR irrespective of the jurisdiction of the police station (Zero FIR).", highlight: "Digital/Zero FIR" },
+            { id: "105", title: "Recording of Search and Seizure", crpc: "New Provision", desc: "Mandatory videography of search and seizure processes to ensure transparency.", highlight: "Forensic Tech" },
+            { id: "530", title: "Trial and Proceedings in Electronic Mode", crpc: "New Provision", desc: "Allows all trials, inquiries, and proceedings to be held in electronic mode using digital technology.", highlight: "Digital India" }
         ];
 
-        // Intelligent Generator for Diverse Data
+        // Generator for all 531 Sections
         for(let i=1; i<=531; i++) {
             if(!bnssDB.find(x => x.id == i)) {
-                let cat = "General Provision";
-                let caseLine = "Interpretation must align with Art. 21 (Fair Procedure).";
-                let tag = "Procedural Reform";
-
-                // Dynamic Logic for 531 Sections
-                if(i >= 35 && i <= 62) {
-                    cat = "Arrest Protocols";
-                    caseLine = "Ref: D.K. Basu v. State of West Bengal (1997) - Guidelines on custodial safety apply.";
-                    tag = "Liberty Focus";
-                } else if(i >= 173 && i <= 196) {
-                    cat = "Investigation";
-                    caseLine = "Ref: State of Haryana v. Bhajan Lal (1992) - Principles of investigation powers.";
-                    tag = "Police Duty";
-                } else if(i >= 480 && i <= 495) {
-                    cat = "Bails & Bonds";
-                    caseLine = "Ref: Satender Kumar Antil v. CBI (2022) - Bail is the rule, jail is the exception.";
-                    tag = "Personal Liberty";
-                } else if(i >= 223 && i <= 235) {
-                    cat = "Trial Procedure";
-                    caseLine = "Ref: Willie Slaney v. State of MP (1956) - On the fairness of framing charges.";
-                    tag = "Fair Trial";
-                }
-
                 bnssDB.push({
                     id: i.toString(),
-                    title: `BNSS Section ${i}: ${cat}`,
-                    crpc: `Mapped to CrPC Framework`,
-                    desc: `This section governs the procedural requirements and judicial protocols as defined under Section ${i} of the BNSS, 2023.`,
-                    highlight: tag,
-                    lens: `Judicial Lens: ${caseLine} This ensures state power is checked by constitutional safeguards.`
+                    title: `BNSS Section ${i} Provision`,
+                    crpc: `Mapped to CrPC`,
+                    desc: `Detailed procedural guideline under Section ${i} of the BNSS, 2023. This section streamlines criminal investigations and judicial inquiries.`,
+                    highlight: "Procedural Reform"
                 });
             }
         }
@@ -160,20 +134,9 @@
                     </div>
                     <h3 class="text-xl font-extrabold text-slate-900 mb-2 leading-tight">${item.title}</h3>
                     <p class="text-[13px] text-slate-500 font-medium leading-relaxed mb-4">${item.desc}</p>
-                    
-                    <div class="bg-slate-50 border-t border-slate-100 py-3 flex items-center gap-2">
+                    <div class="bg-slate-50 border-t border-slate-100 pt-4 flex items-center gap-2">
                         <i class="fa-solid fa-bolt-lightning text-blue-600 text-[10px]"></i>
                         <span class="text-[10px] font-black text-slate-400 uppercase tracking-tighter">Focus: ${item.highlight}</span>
-                    </div>
-
-                    <div class="judicial-box">
-                        <div class="flex items-center gap-2 mb-2">
-                            <i class="fa-solid fa-gavel text-blue-600 text-[10px]"></i>
-                            <span class="text-[9px] font-black text-slate-900 uppercase tracking-widest">Judicial Lens & Case Law</span>
-                        </div>
-                        <p class="text-[11px] text-slate-600 font-bold italic leading-relaxed">
-                            ${item.lens}
-                        </p>
                     </div>
                 </div>
             `).join('');
@@ -184,7 +147,7 @@
             resultsBox.innerHTML = "";
             if(!val) return;
 
-            const matches = bnssDB.filter(x => x.title.toLowerCase().includes(val) || x.id === val || x.lens.toLowerCase().includes(val)).slice(0, 20);
+            const matches = bnssDB.filter(x => x.title.toLowerCase().includes(val) || x.id.includes(val)).slice(0, 20);
             resultsBox.innerHTML = matches.map(m => `
                 <div class="p-4 border-b border-slate-50 flex justify-between items-center" onclick="selectResult('${m.id}')">
                     <div>
@@ -203,7 +166,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        window.onload = () => render(bnssDB.sort((a,b)=>parseInt(a.id)-parseInt(b.id)).slice(0, 15));
+        window.onload = () => render(bnssDB.slice(0, 15));
     </script>
 </body>
 </html>
