@@ -4,166 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <title>Submission Portal | Calcutta Law Journal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <title>Submission Portal | Law Journal</title>
     <style>
         body { 
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Inter', sans-serif;
             -webkit-user-select: none; user-select: none;
-            touch-action: none; /* Disable pinch zoom */
+            overflow-x: hidden; /* Prevent horizontal lag */
         }
-        .legal-font { font-family: 'Playfair Display', serif; }
-        .glass-nav { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(15px); border-bottom: 2px solid #f1f5f9; }
-        .hover-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .hover-card:hover { transform: translateY(-12px) scale(1.02); shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1); }
-        .bg-mesh { background-color: #ffffff; background-image: radial-gradient(at 0% 0%, #f1f5f9 0, transparent 50%), radial-gradient(at 50% 0%, #e2e8f0 0, transparent 50%); }
+        .serif { font-family: 'Playfair Display', serif; }
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); }
+        /* Speed optimization */
+        * { transition: none !important; } 
+        .hover-effect:active { background: #f8fafc; transform: scale(0.98); }
     </style>
 </head>
-<body class="bg-mesh text-slate-900" oncontextmenu="return false;">
+<body class="bg-gray-50 text-slate-900" oncontextmenu="return false;">
 
-    <nav class="sticky top-0 z-50 glass-nav py-4 animate__animated animate__fadeInDown">
-        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="bg-slate-900 p-2 rounded-lg">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3437/3437299.png" class="w-5 h-5 invert" alt="logo">
-                </div>
-                <span class="font-extrabold text-lg tracking-tighter text-slate-800">CLJ <span class="text-blue-600">PORTAL</span></span>
-            </div>
-            <div class="flex items-center gap-6">
-                <div class="hidden lg:block text-right border-r pr-6 border-slate-200">
-                    <p class="text-[10px] uppercase text-blue-600 font-black tracking-[0.2em] mb-0.5">Chief Editorial Board</p>
-                    <p class="text-xs font-bold text-slate-500">bigdaddymidnightop@gmail.com</p>
-                </div>
-                <a href="mailto:bigdaddymidnightop@gmail.com" class="bg-blue-600 hover:bg-slate-900 text-white text-xs font-black py-3 px-8 rounded-full transition-all shadow-xl shadow-blue-100 uppercase tracking-widest">
-                    Submit Manuscript
-                </a>
-            </div>
+    <nav class="sticky top-0 z-50 glass border-b border-gray-200 py-3">
+        <div class="max-w-xl mx-auto px-4 flex justify-between items-center">
+            <span class="font-extrabold text-sm tracking-tight text-blue-600">LAWJOURNAL.ONLINE</span>
+            <a href="mailto:bigdaddymidnightop@gmail.com" class="bg-blue-600 text-white text-[10px] font-bold py-2 px-4 rounded-full shadow-md">
+                SUBMIT NOW
+            </a>
         </div>
     </nav>
 
-    <main class="max-w-5xl mx-auto px-6 pt-20 pb-32">
+    <main class="max-w-xl mx-auto px-4 pt-10 pb-20">
         
-        <section class="mb-20 animate__animated animate__fadeIn">
-            <div class="inline-block px-4 py-1.5 mb-6 rounded-full bg-blue-50 border border-blue-100">
-                <span class="text-blue-700 text-[10px] font-black uppercase tracking-[0.3em]">Academic Excellence 2026</span>
-            </div>
-            <h1 class="legal-font text-6xl md:text-7xl mb-8 text-slate-900 leading-[1.1]">Submission <br><span class="text-blue-600 underline decoration-slate-200">Protocols & Mission.</span></h1>
-            <p class="text-slate-500 leading-relaxed text-xl max-w-3xl font-medium">
-                Calcutta Law Journal ka uddeshya legal scholars aur students ko ek aisi platform dena hai jahan unki research global standards ko meet kare. 
-                Hum strictly peer-reviewed content ko promote karte hain jo modern jurisprudence ko challenge kare.
-            </p>
-        </section>
+        <header class="mb-10">
+            <p class="text-[10px] font-bold text-blue-500 uppercase tracking-widest mb-1">Academic Portal</p>
+            <h1 class="serif text-3xl text-slate-900 leading-tight mb-3">Submission Terms</h1>
+            <p class="text-sm text-slate-500 leading-relaxed">Please ensure your manuscript follows our mission protocols before mailing the Chief Editors.</p>
+        </header>
 
-        <section class="grid md:grid-cols-2 gap-8 mb-16">
-            <div class="hover-card bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 animate__animated animate__fadeInUp">
-                <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-8">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2103/2103633.png" class="w-8 h-8" alt="ai">
+        <div class="space-y-4 mb-10">
+            <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex gap-4 items-center">
+                <img src="https://cdn-icons-png.flaticon.com/512/2103/2103633.png" class="w-8 h-8" alt="ai">
+                <div class="flex-1">
+                    <h3 class="text-sm font-bold">AI Usage (Max 25%)</h3>
+                    <p class="text-xs text-slate-500">Only 25% AI content is permitted. Human-led research only.</p>
                 </div>
-                <h3 class="font-extrabold text-2xl mb-4 text-slate-800 italic">01. Intellectual Integrity</h3>
-                <p class="text-slate-500 leading-relaxed mb-4 text-sm font-semibold uppercase tracking-wide text-blue-600">AI Limit: 25%</p>
-                <p class="text-slate-500 leading-relaxed">Har submission original hona chahiye. AI tools (ChatGPT/Gemini) ka upyog sirf structure refine karne ke liye 25% tak allow hai. Baaki 75% purely human research honi chahiye.</p>
             </div>
 
-            <div class="hover-card bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
-                <div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center mb-8">
-                    <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" class="w-8 h-8" alt="pdf">
+            <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex gap-4 items-center">
+                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" class="w-8 h-8" alt="pdf">
+                <div class="flex-1">
+                    <h3 class="text-sm font-bold">Format: PDF Only</h3>
+                    <p class="text-xs text-slate-500">Docx or screenshots will be summarily rejected.</p>
                 </div>
-                <h3 class="font-extrabold text-2xl mb-4 text-slate-800 italic">02. Technical Compliance</h3>
-                <p class="text-slate-500 leading-relaxed mb-4 text-sm font-semibold uppercase tracking-wide text-red-600">Format: PDF (A4)</p>
-                <p class="text-slate-500 leading-relaxed">Citations aur Bluebook formatting ko maintain karne ke liye hum sirf PDF files accept karte hain. Word files ya screenshots turant reject ho jayenge.</p>
             </div>
 
-            <div class="hover-card bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
-                <div class="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center mb-8">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1051/1051370.png" class="w-8 h-8" alt="law">
+            <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex gap-4 items-center">
+                <img src="https://cdn-icons-png.flaticon.com/512/1051/1051370.png" class="w-8 h-8" alt="law">
+                <div class="flex-1">
+                    <h3 class="text-sm font-bold">Niche: Legal Research</h3>
+                    <p class="text-xs text-slate-500">Only Law, Maxims, and Constitutional analysis.</p>
                 </div>
-                <h3 class="font-extrabold text-2xl mb-4 text-slate-800 italic">03. Niche Authority</h3>
-                <p class="text-slate-500 leading-relaxed mb-4 text-sm font-semibold uppercase tracking-wide text-slate-600">Scope: Strictly Legal</p>
-                <p class="text-slate-500 leading-relaxed">Hum sirf Corporate Law, Constitutional Law, Legal Maxims, aur Landmark Case Analysis par research papers accept karte hain. General topics allow nahi hain.</p>
             </div>
 
-            <div class="hover-card bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
-                <div class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center mb-8">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1998/1998087.png" class="w-8 h-8" alt="ads">
+            <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex gap-4 items-center">
+                <img src="https://cdn-icons-png.flaticon.com/512/1998/1998087.png" class="w-8 h-8" alt="ads">
+                <div class="flex-1">
+                    <h3 class="text-sm font-bold">Commercial Rights</h3>
+                    <p class="text-xs text-slate-500">We may run advertisements on published content.</p>
                 </div>
-                <h3 class="font-extrabold text-2xl mb-4 text-slate-800 italic">04. Commercial Consent</h3>
-                <p class="text-slate-500 leading-relaxed mb-4 text-sm font-semibold uppercase tracking-wide text-green-600">Monetization: Enabled</p>
-                <p class="text-slate-500 leading-relaxed">Submission ka matlab hai ki aap humein permission dete hain ki hum platform maintenance ke liye aapke content par ads aur promotional material run kar sakein.</p>
             </div>
-        </section>
+        </div>
 
-        <div class="text-center py-12 mb-32 bg-slate-900 rounded-[3rem] shadow-2xl animate__animated animate__pulse animate__infinite animate__slower">
-            <h2 class="text-white text-3xl font-black mb-8 italic">Tayyar hain submit karne ke liye?</h2>
-            <a href="mailto:bigdaddymidnightop@gmail.com" class="inline-flex items-center gap-4 bg-white text-slate-900 font-black py-5 px-14 rounded-2xl hover:bg-blue-600 hover:text-white transition-all transform hover:scale-105">
-                <span>SEND TO EDITORIAL BOARD</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        <div class="text-center mb-12">
+            <a href="mailto:bigdaddymidnightop@gmail.com" class="block w-full bg-slate-900 text-white font-bold py-4 rounded-xl text-sm mb-4">
+                Proceed to Submit Manuscript
+            </a>
+            <a href="terms.html" class="inline-block text-xs font-bold text-slate-400 border-b border-slate-200 pb-1">
+                Read Website Terms & Conditions
             </a>
         </div>
 
-        <div class="max-w-2xl mx-auto bg-slate-50 border-2 border-dashed border-slate-200 rounded-[2rem] p-12 text-center mb-32">
-            <p class="text-xs font-black text-slate-400 uppercase tracking-[0.3em] mb-4">Important Document</p>
-            <h3 class="text-2xl font-bold mb-6">Website Terms & Conditions</h3>
-            <p class="text-slate-500 mb-8 text-sm">Privacy laws aur user usage policy padhne ke liye niche button par click karein. Yeh journal ke rules se alag website ke general rules hain.</p>
-            <a href="terms.html" class="inline-block bg-transparent border-2 border-slate-900 text-slate-900 font-black py-3 px-12 rounded-xl hover:bg-slate-900 hover:text-white transition-all">
-                Read Website Policy
-            </a>
+        <div class="pt-8 border-t border-gray-200">
+            <h2 class="text-lg font-bold mb-6 text-center">Global Recognition</h2>
+            
+            <div class="space-y-4">
+                <div class="p-6 bg-white border border-gray-200 rounded-2xl text-center">
+                    <p class="text-[9px] font-black text-blue-600 uppercase tracking-widest mb-1">Recognition as Publication</p>
+                    <p class="text-xl font-black text-slate-900 mb-3">ISSN Archive</p>
+                    <span class="bg-slate-100 px-4 py-2 rounded-lg font-mono font-bold text-lg tracking-widest">2026-0423</span>
+                </div>
+
+                <div class="p-6 bg-slate-900 text-white rounded-2xl text-center">
+                    <p class="text-[9px] font-bold text-blue-400 uppercase tracking-widest mb-1">Recognition as Journal</p>
+                    <p class="text-xl font-bold mb-3">NSL New Delhi</p>
+                    <p class="text-[10px] text-slate-400 leading-relaxed italic">Listed by the National Science Library for international distribution.</p>
+                </div>
+            </div>
         </div>
-
-        <section class="space-y-12">
-            <div class="text-center">
-                <h2 class="legal-font text-4xl text-slate-900 mb-2">Platform Credentials</h2>
-                <div class="h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-10">
-                <div class="p-12 bg-white border border-slate-200 rounded-[3.5rem] shadow-sm relative overflow-hidden group">
-                    <div class="relative z-10">
-                        <img src="https://cdn-icons-png.flaticon.com/512/9047/9047805.png" class="w-14 h-14 mb-8" alt="issn">
-                        <h4 class="text-xs font-black text-blue-600 uppercase tracking-[0.3em] mb-4">Official Publication Registry</h4>
-                        <p class="text-4xl font-black text-slate-900 mb-2">ISSN Archive</p>
-                        <p class="text-sm font-bold text-slate-400 mb-8 italic uppercase">Recognition as Publication</p>
-                        <div class="inline-flex bg-slate-100 border border-slate-200 py-4 px-8 rounded-2xl">
-                            <span class="font-mono text-2xl font-black tracking-[0.2em] text-slate-800">2026-0423</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-12 bg-slate-900 text-white rounded-[3.5rem] shadow-2xl relative overflow-hidden group">
-                    <div class="relative z-10">
-                        <img src="https://cdn-icons-png.flaticon.com/512/2436/2436633.png" class="w-14 h-14 mb-8" alt="nsl">
-                        <h4 class="text-xs font-black text-blue-400 uppercase tracking-[0.3em] mb-4">Journal Accreditation</h4>
-                        <p class="text-4xl font-black mb-2 leading-none">NSL New Delhi</p>
-                        <p class="text-sm font-bold text-blue-300 mb-8 italic uppercase tracking-wider">Recognition as Journal</p>
-                        <p class="text-slate-400 leading-relaxed text-sm mb-6">Listed and recognised by the National Science Library, CSIR-NIScPR, New Delhi for international dissemination of legal serials.</p>
-                        <div class="flex items-center gap-3">
-                            <div class="w-3 h-3 bg-green-500 rounded-full animate-ping"></div>
-                            <span class="text-xs font-bold uppercase tracking-widest text-green-400 tracking-widest">Active Academic Node</span>
-                        </div>
-                    </div>
-                    <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-blue-600/10 rounded-full blur-3xl"></div>
-                </div>
-            </div>
-        </section>
 
     </main>
 
-    <footer class="py-16 border-t border-slate-100 bg-white text-center">
-        <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.5em] mb-4">Calcutta Law Journal • lawjournal.online</p>
-        <p class="text-[9px] text-slate-300 font-bold uppercase tracking-widest">Authorized Academic Portal</p>
+    <footer class="py-10 text-center border-t border-gray-100">
+        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-[0.3em]">LAWJOURNAL.ONLINE • 2026</p>
     </footer>
 
     <script>
-        // Disable Developer Tools & Text Protection
+        // Speed & Security
         document.onkeydown = function(e) {
-            if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 67 || e.keyCode == 85 || e.keyCode == 83 || e.keyCode == 73))) {
-                return false;
-            }
+            if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 67 || e.keyCode == 85 || e.keyCode == 83))) return false;
         };
-        // Disable Zooming
-        document.addEventListener('wheel', function(e) {
-            if (e.ctrlKey) e.preventDefault();
-        }, { passive: false });
     </script>
 </body>
 </html>
