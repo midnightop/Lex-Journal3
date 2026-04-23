@@ -3,112 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Submission Guidelines | Law Journal</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <title>Submission Portal | Law Journal</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600;700;900&display=swap');
+        
         body { 
-            font-family: 'Inter', sans-serif;
-            -webkit-user-select: none; user-select: none;
-            overflow-x: hidden; /* Prevent horizontal lag */
+            font-family: 'Inter', sans-serif; 
+            background-color: #fcfdfe; 
+            color: #1a1a1a;
+            overflow-x: hidden;
+            -webkit-user-select: none;
+            user-select: none;
+            touch-action: pan-x pan-y; /* Anti-zoom fix */
         }
-        .serif { font-family: 'Playfair Display', serif; }
-        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); }
-        /* Speed optimization */
-        * { transition: none !important; } 
-        .hover-effect:active { background: #f8fafc; transform: scale(0.98); }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .fade-in-section {
+            animation: fadeInUp 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+            opacity: 0;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .legal-card {
+            background: white;
+            border: 1px solid #f1f5f9;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .legal-card:hover {
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.05);
+            border-color: #e2e8f0;
+            transform: translateY(-5px);
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-slate-900" oncontextmenu="return false;">
+<body class="selection:bg-blue-100">
 
-    <nav class="sticky top-0 z-50 glass border-b border-gray-200 py-3">
-        <div class="max-w-xl mx-auto px-4 flex justify-between items-center">
-            <span class="font-extrabold text-sm tracking-tight text-blue-600">LAWJOURNAL.ONLINE</span>
-            <a href="mailto:bigdaddymidnightop@gmail.com" class="bg-blue-600 text-white text-[10px] font-bold py-2 px-4 rounded-full shadow-md">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-100 px-5 py-4 md:px-16 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div class="p-1.5 bg-blue-600 rounded text-white text-xs">
+                <i class="fa-solid fa-pen-nib"></i>
+            </div>
+            <span class="font-black tracking-tighter text-sm uppercase italic">CLJ <span class="text-blue-600 text-xs">Submission</span></span>
+        </div>
+        <div class="flex items-center gap-4">
+             <a href="mailto:bigdaddymidnightop@gmail.com" class="hidden md:block text-[10px] font-bold text-gray-400 hover:text-blue-600 transition uppercase tracking-widest">
+                bigdaddymidnightop@gmail.com
+            </a>
+            <a href="mailto:bigdaddymidnightop@gmail.com" class="bg-slate-900 text-white text-[10px] font-bold py-2 px-4 rounded-full hover:bg-blue-600 transition">
                 SUBMIT NOW
             </a>
         </div>
     </nav>
 
-    <main class="max-w-xl mx-auto px-4 pt-10 pb-20">
-        
-        <header class="mb-10">
-            <p class="text-[10px] font-bold text-blue-500 uppercase tracking-widest mb-1">Academic Portal</p>
-            <h1 class="serif text-3xl text-slate-900 leading-tight mb-3">Submission Terms</h1>
-            <p class="text-sm text-slate-500 leading-relaxed">Please ensure your manuscript follows our mission protocols before mailing the Chief Editors.</p>
-        </header>
+    <header class="pt-16 pb-12 px-6 text-center max-w-4xl mx-auto fade-in-section">
+        <h4 class="text-blue-600 font-black text-[9px] uppercase tracking-[0.4em] mb-3">Academic Mission 2026</h4>
+        <h1 class="text-4xl md:text-7xl font-serif font-bold leading-tight tracking-tight mb-6">Submission Terms & <br><span class="italic text-gray-400 font-medium text-3xl md:text-6xl text-blue-600">Editorial Guidelines</span></h1>
+        <div class="h-1 w-16 bg-blue-600 mx-auto rounded-full"></div>
+    </header>
 
-        <div class="space-y-4 mb-10">
-            <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex gap-4 items-center">
-                <img src="https://cdn-icons-png.flaticon.com/512/2103/2103633.png" class="w-8 h-8" alt="ai">
-                <div class="flex-1">
-                    <h3 class="text-sm font-bold">AI Usage (Max 25%)</h3>
-                    <p class="text-xs text-slate-500">Only 25% AI content is permitted. Human-led research only.</p>
-                </div>
-            </div>
+    <main class="max-w-4xl mx-auto px-5 pb-24 space-y-6">
 
-            <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex gap-4 items-center">
-                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" class="w-8 h-8" alt="pdf">
-                <div class="flex-1">
-                    <h3 class="text-sm font-bold">Format: PDF Only</h3>
-                    <p class="text-xs text-slate-500">Docx or screenshots will be summarily rejected.</p>
+        <div class="grid md:grid-cols-2 gap-4">
+            <section class="legal-card p-6 md:p-8 rounded-3xl fade-in-section" style="animation-delay: 0.1s;">
+                <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center mb-5 text-blue-600">
+                    <i class="fa-solid fa-robot"></i>
                 </div>
-            </div>
+                <h3 class="text-lg font-black uppercase tracking-tighter mb-2 italic">01. AI Threshold</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">Manuscripts must not exceed <span class="font-bold text-slate-800">25% AI assistance</span>. We prioritize original human jurisprudence and analytical reasoning.</p>
+            </section>
 
-            <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex gap-4 items-center">
-                <img src="https://cdn-icons-png.flaticon.com/512/1051/1051370.png" class="w-8 h-8" alt="law">
-                <div class="flex-1">
-                    <h3 class="text-sm font-bold">Niche: Legal Research</h3>
-                    <p class="text-xs text-slate-500">Only Law, Maxims, and Constitutional analysis.</p>
+            <section class="legal-card p-6 md:p-8 rounded-3xl fade-in-section" style="animation-delay: 0.2s;">
+                <div class="w-10 h-10 bg-red-50 rounded-xl flex items-center justify-center mb-5 text-red-500">
+                    <i class="fa-solid fa-file-pdf"></i>
                 </div>
-            </div>
+                <h3 class="text-lg font-black uppercase tracking-tighter mb-2 italic">02. PDF Format</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">To maintain Bluebook citation integrity, submissions are accepted in <span class="font-bold text-slate-800">PDF format only</span>. Other extensions will be ignored.</p>
+            </section>
 
-            <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex gap-4 items-center">
-                <img src="https://cdn-icons-png.flaticon.com/512/1998/1998087.png" class="w-8 h-8" alt="ads">
-                <div class="flex-1">
-                    <h3 class="text-sm font-bold">Commercial Rights</h3>
-                    <p class="text-xs text-slate-500">We may run advertisements on published content.</p>
+            <section class="legal-card p-6 md:p-8 rounded-3xl fade-in-section" style="animation-delay: 0.3s;">
+                <div class="w-10 h-10 bg-slate-100 rounded-xl flex items-center justify-center mb-5 text-slate-700">
+                    <i class="fa-solid fa-scale-balanced"></i>
                 </div>
-            </div>
+                <h3 class="text-lg font-black uppercase tracking-tighter mb-2 italic">03. Niche Scope</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">Submissions must focus on <span class="font-bold text-slate-800">Case Law, Legal Maxims, or Constitutional Policy</span>. Generic content falls outside our scope.</p>
+            </section>
+
+            <section class="legal-card p-6 md:p-8 rounded-3xl fade-in-section" style="animation-delay: 0.4s;">
+                <div class="w-10 h-10 bg-green-50 rounded-xl flex items-center justify-center mb-5 text-green-600">
+                    <i class="fa-solid fa-rectangle-ad"></i>
+                </div>
+                <h3 class="text-lg font-black uppercase tracking-tighter mb-2 italic">04. Promo Rights</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">Authors grant us the right to run <span class="font-bold text-slate-800">advertisements</span> on published works to sustain our open-access hosting fees.</p>
+            </section>
         </div>
 
-        <div class="text-center mb-12">
-            <a href="mailto:bigdaddymidnightop@gmail.com" class="block w-full bg-slate-900 text-white font-bold py-4 rounded-xl text-sm mb-4">
-                Proceed to Submit Manuscript
+        <div class="text-center py-10 fade-in-section" style="animation-delay: 0.5s;">
+            <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-4">Ready to reach the Editorial Board?</p>
+            <a href="mailto:bigdaddymidnightop@gmail.com" class="inline-flex items-center gap-3 bg-slate-900 text-white font-bold py-4 px-10 rounded-2xl hover:bg-blue-600 transition-all text-sm shadow-xl">
+                <span>SUBMIT MANUSCRIPT</span>
+                <i class="fa-solid fa-paper-plane text-[10px]"></i>
             </a>
-            <a href="terms.html" class="inline-block text-xs font-bold text-slate-400 border-b border-slate-200 pb-1">
-                Read Website Terms & Conditions
-            </a>
         </div>
 
-        <div class="pt-8 border-t border-gray-200">
-            <h2 class="text-lg font-bold mb-6 text-center">Global Recognition</h2>
-            
-            <div class="space-y-4">
-                <div class="p-6 bg-white border border-gray-200 rounded-2xl text-center">
-                    <p class="text-[9px] font-black text-blue-600 uppercase tracking-widest mb-1">Recognition as Publication</p>
-                    <p class="text-xl font-black text-slate-900 mb-3">ISSN Archive</p>
-                    <span class="bg-slate-100 px-4 py-2 rounded-lg font-mono font-bold text-lg tracking-widest">2026-0423</span>
+        <section class="legal-card p-8 rounded-[2rem] border-2 border-dashed border-blue-50 text-center fade-in-section" style="animation-delay: 0.6s;">
+            <h2 class="text-xl font-black uppercase tracking-tighter mb-2">Website Terms & Conditions</h2>
+            <p class="text-gray-400 text-xs mb-6">Read our general platform usage and privacy policies.</p>
+            <a href="terms.html" class="inline-block border-2 border-slate-900 text-slate-900 font-bold py-2 px-8 rounded-xl text-xs hover:bg-slate-900 hover:text-white transition">
+                READ TERMS
+            </a>
+        </section>
+
+        <section class="pt-10 space-y-6 fade-in-section" style="animation-delay: 0.7s;">
+            <h2 class="text-2xl font-black uppercase tracking-tighter text-center">Global Recognition</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="legal-card p-8 rounded-[2rem] text-center">
+                    <h4 class="text-blue-600 font-black text-[9px] uppercase tracking-widest mb-2">Recognition as Publication</h4>
+                    <p class="text-2xl font-black text-slate-900 mb-4">ISSN Archive</p>
+                    <div class="inline-block bg-slate-100 px-5 py-2 rounded-xl font-mono font-bold text-xl tracking-widest text-slate-800">
+                        2026-0423
+                    </div>
                 </div>
 
-                <div class="p-6 bg-slate-900 text-white rounded-2xl text-center">
-                    <p class="text-[9px] font-bold text-blue-400 uppercase tracking-widest mb-1">Recognition as Journal</p>
-                    <p class="text-xl font-bold mb-3">NSL New Delhi</p>
-                    <p class="text-[10px] text-slate-400 leading-relaxed italic">Listed by the National Science Library for international distribution.</p>
+                <div class="legal-card p-8 rounded-[2rem] bg-slate-900 text-white text-center">
+                    <h4 class="text-blue-400 font-black text-[9px] uppercase tracking-widest mb-2">Recognition as Journal</h4>
+                    <p class="text-2xl font-black mb-4">NSL New Delhi</p>
+                    <p class="text-[10px] text-slate-400 italic">Recognised by the National Science Library for international academic dissemination.</p>
                 </div>
             </div>
-        </div>
+        </section>
 
     </main>
 
-    <footer class="py-10 text-center border-t border-gray-100">
-        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-[0.3em]">LAWJOURNAL.ONLINE • 2026</p>
+    <footer class="py-16 text-center border-t border-gray-100 bg-white">
+        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-[0.4em] mb-2">Chief Editor Contact</p>
+        <p class="text-[11px] font-black text-slate-600 mb-6 uppercase">bigdaddymidnightop@gmail.com</p>
+        <p class="text-[9px] font-black text-gray-300 uppercase tracking-[0.5em]">&copy; 2026 Calcutta Law Journal • lawjournal.online</p>
     </footer>
 
     <script>
-        // Speed & Security
+        // Anti-Copy & Security
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('copy', e => e.preventDefault());
         document.onkeydown = function(e) {
-            if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 67 || e.keyCode == 85 || e.keyCode == 83))) return false;
+            if (e.ctrlKey && [67, 85, 83, 73].includes(e.keyCode)) return false;
+            if (e.key === 'F12') return false;
         };
     </script>
 </body>
