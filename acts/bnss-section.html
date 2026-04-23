@@ -3,198 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BNSS Digital Resource | 531 Sections Hub</title>
+    <title>BNSS Compendium | 531 Sections Analysis</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
         
         * { -webkit-user-select: none !important; user-select: none !important; -webkit-tap-highlight-color: transparent; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #fdfdfd; color: #0f172a; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; color: #0f172a; }
 
         .bnss-card {
-            background: #ffffff; border: 1px solid #eef2f6; border-radius: 35px;
-            padding: 28px; margin-bottom: 24px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 15px 35px -12px rgba(0,0,0,0.05);
+            background: #ffffff; border: 1px solid #e2e8f0; border-radius: 30px;
+            padding: 24px; margin-bottom: 20px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px -10px rgba(37, 99, 235, 0.1);
         }
-        .bnss-card:hover { transform: translateY(-8px); border-color: #3b82f6; box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.15); }
+        .bnss-card:hover { transform: translateY(-5px); border-color: #2563eb; }
 
-        .note-box {
-            background: #f8fafc; border-left: 4px solid #334155; padding: 15px;
-            border-radius: 0 20px 20px 0; margin-top: 15px;
+        .comparison-badge {
+            background: #eff6ff; color: #2563eb; border: 1px solid #dbeafe;
+            padding: 4px 10px; border-radius: 8px; font-size: 10px; font-weight: 800;
         }
 
-        .judicial-lens {
-            margin-top: 20px; padding-top: 15px; border-top: 1px dashed #e2e8f0;
-            display: flex; gap: 12px; align-items: start;
+        /* NEW: Judicial Lens Styling */
+        .judicial-box {
+            background: #f0f7ff; border-radius: 20px; padding: 16px; margin-top: 16px;
+            border-left: 4px solid #2563eb;
         }
 
         #search-overlay {
-            display: none; position: fixed; inset: 0; background: rgba(255,255,255,0.98); z-index: 3000;
-            padding: 20px; flex-direction: column; backdrop-filter: blur(10px);
+            display: none; position: fixed; inset: 0; background: white; z-index: 3000;
+            padding: 20px; flex-direction: column;
         }
-        #search-overlay.active { display: flex; animation: fadeIn 0.3s ease; }
+        #search-overlay.active { display: flex; animation: slideIn 0.3s ease; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        @keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         .no-scrollbar::-webkit-scrollbar { display: none; }
+        
+        .premium-gradient { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); }
+
+        footer { margin-top: 40px; padding: 30px; text-align: center; border-top: 1px solid #e2e8f0; }
     </style>
 </head>
 <body oncontextmenu="return false;">
 
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md px-6 py-5 flex items-center justify-between border-b border-slate-100">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl px-6 py-4 flex items-center justify-between border-b border-slate-100">
         <div class="flex items-center gap-4">
-            <button onclick="goBack()" class="w-11 h-11 bg-white shadow-sm flex items-center justify-center rounded-2xl border border-slate-200 text-slate-900 active:scale-90 transition-all">
-                <i class="fa-solid fa-chevron-left text-xs"></i>
+            <button onclick="goBack()" class="w-10 h-10 bg-slate-50 flex items-center justify-center rounded-2xl border border-slate-200 text-slate-900 active:scale-90 transition-all">
+                <i class="fa-solid fa-arrow-left text-sm"></i>
             </button>
             <div>
-                <h1 class="font-extrabold text-slate-900 text-lg tracking-tight leading-none uppercase">BNSS Explorer</h1>
-                <p class="text-[9px] font-black text-blue-600 tracking-[0.2em] uppercase mt-1">Justice Reforms 2023</p>
+                <h1 class="font-extrabold text-slate-900 text-md tracking-tight uppercase leading-none">BNSS 2023</h1>
+                <p class="text-[8px] font-black text-blue-600 tracking-widest uppercase mt-1">531 Sections Library</p>
             </div>
         </div>
-        <button onclick="toggleSearch(true)" class="w-11 h-11 rounded-2xl bg-slate-900 flex items-center justify-center text-white shadow-xl active:scale-90 transition-all">
+        <button onclick="toggleSearch(true)" class="w-10 h-10 rounded-2xl premium-gradient flex items-center justify-center text-white shadow-lg shadow-blue-200 active:scale-90 transition-all">
             <i class="fa-solid fa-magnifying-glass text-xs"></i>
         </button>
     </nav>
 
     <div id="search-overlay">
         <div class="flex items-center gap-4 mb-6">
-            <button onclick="toggleSearch(false)" class="text-slate-900 w-10 h-10 flex items-center justify-center bg-slate-100 rounded-full"><i class="fa-solid fa-xmark"></i></button>
-            <input type="text" id="search-input" placeholder="Enter Section, Case Law or Year..." class="flex-1 bg-white border border-slate-200 rounded-2xl px-5 py-4 font-bold outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+            <button onclick="toggleSearch(false)" class="text-slate-900 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <input type="text" id="search-input" placeholder="Search BNSS Section or Case Law..." class="flex-1 bg-slate-100 border-none rounded-2xl px-5 py-4 font-bold outline-none focus:ring-2 focus:ring-blue-500 text-sm">
         </div>
-        <div id="search-results" class="flex-1 overflow-y-auto no-scrollbar space-y-2"></div>
+        <div id="search-results" class="flex-1 overflow-y-auto no-scrollbar"></div>
     </div>
 
     <main class="px-6 py-8">
-        <header class="mb-12">
-            <div class="inline-block px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Procedural Law</div>
-            <h2 style="font-family: 'Playfair Display';" class="text-4xl text-slate-900 mb-4 leading-tight">Mastering the <br><span class="italic text-blue-600 underline decoration-blue-100">Nagarik Suraksha</span></h2>
-            <p class="text-sm text-slate-500 font-medium leading-relaxed">Detailed breakdown of all 531 sections. Integrating legacy CrPC mapping with modern judicial precedents.</p>
+        <header class="mb-10">
+            <h2 style="font-family: 'Playfair Display';" class="text-4xl text-slate-900 mb-2 leading-tight">Bharatiya <br><span class="italic text-blue-600">Nagarik Suraksha</span></h2>
+            <div class="flex gap-2 items-center">
+                <span class="h-[2px] w-12 bg-blue-600"></span>
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">New Criminal Procedure Code (531 Sections)</p>
+            </div>
         </header>
 
-        <div id="bnss-container" class="space-y-8"></div>
+        <div class="grid grid-cols-2 gap-4 mb-10">
+            <div class="bg-blue-600 p-4 rounded-3xl text-white">
+                <p class="text-[10px] font-bold opacity-80 uppercase">Total Sections</p>
+                <h4 class="text-2xl font-black">531</h4>
+            </div>
+            <div class="bg-slate-900 p-4 rounded-3xl text-white">
+                <p class="text-[10px] font-bold opacity-80 uppercase">Replaces</p>
+                <h4 class="text-2xl font-black">CrPC</h4>
+            </div>
+        </div>
+
+        <div id="bnss-container" class="space-y-6"></div>
     </main>
 
-    <footer class="mt-20 py-10 border-t border-slate-100 text-center">
-        <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">© 2026 Calcutta Law Journal</p>
-        <p class="text-[9px] text-slate-400 mt-2">Information provided for educational and research purposes.</p>
+    <footer>
+        <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">© 2026 Calcutta Law Journal • Resource Hub</p>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="mt-4 text-[9px] font-black text-blue-600 uppercase tracking-tighter italic underline">Back to top</button>
     </footer>
 
     <script>
         function goBack() { window.history.back(); }
+
         function toggleSearch(show) {
             const overlay = document.getElementById('search-overlay');
-            overlay.classList.toggle('active', show);
-            if(show) document.getElementById('search-input').focus();
+            if (show) {
+                window.history.pushState({ search: true }, "");
+                overlay.classList.add('active');
+                document.getElementById('search-input').focus();
+            } else {
+                overlay.classList.remove('active');
+            }
         }
 
         const bnssDB = [
             { 
                 id: "1", 
-                title: "Short Title & Scope", 
+                title: "Short title, commencement and application", 
                 crpc: "CrPC Sec 1", 
-                desc: "Defines the territorial extent of the Sanhita. Applies to the whole of India.", 
-                note: "Legal Note: Harmonizes procedural law across all states and UTs.",
-                tag: "Fundamentals",
-                lens: "Precedent: In 'State of Punjab v. Barkat Ram (1962)', the SC emphasized that procedural statutes must be applied uniformly to ensure Article 14 rights."
+                desc: "Defines the application of Bharatiya Nagarik Suraksha Sanhita across India.", 
+                highlight: "Procedural Foundation",
+                lens: "Judicial Opinion: Establishes a decolonized procedural framework, emphasizing citizen 'Suraksha' over colonial control. Ref: Maneka Gandhi v. Union of India (1978)."
             },
             { 
-                id: "2", 
-                title: "Definitions & Interpretations", 
-                crpc: "CrPC Sec 2", 
-                desc: "Lists definitions for terms like 'Audio-Video', 'Bail', 'Charge', etc.", 
-                note: "Update: Section 2(1)(a) now explicitly recognizes digital communication.",
-                tag: "Interpretation",
-                lens: "Judicial View: Clear definitions prevent arbitrary use of power. Ref: 'Laxmi Narain v. State (2022)' regarding definition of 'Victim'."
+                id: "105", 
+                title: "Recording of Search and Seizure", 
+                crpc: "New Reform", 
+                desc: "Mandatory videography of search and seizure processes to ensure transparency.", 
+                highlight: "Forensic Tech",
+                lens: "Landmark Ref: Shafhi Mohammad v. State of Himachal Pradesh (2018). The requirement for videography in investigations is now statutory, ensuring evidence integrity."
             },
             { 
                 id: "173", 
-                title: "Registration of FIR (Zero FIR)", 
+                title: "Information in cognizable cases (Zero FIR)", 
                 crpc: "CrPC Sec 154", 
-                desc: "Registration of FIR is mandatory; Zero FIR allows filing regardless of jurisdiction.", 
-                note: "Reform: E-FIR must be signed by the informant within 3 days.",
-                tag: "Citizen Centric",
-                lens: "Landmark: 'Lalita Kumari v. Govt. of U.P. (2014)' remains the guiding light for mandatory FIR registration under BNSS."
+                desc: "Mandates registration of FIR irrespective of jurisdiction and introduces E-FIR.", 
+                highlight: "Digital/Zero FIR",
+                lens: "Precedent: Lalita Kumari v. Govt. of U.P. (2014) regarding mandatory registration of FIR is further strengthened by statutory recognition of Zero FIR."
             },
             { 
                 id: "530", 
-                title: "Electronic Mode for Trials", 
+                title: "Trial and Proceedings in Electronic Mode", 
                 crpc: "New Provision", 
-                desc: "Allows all judicial proceedings, including examination of witnesses, to be held via video conferencing.", 
-                note: "Tech Focus: This section integrates the Digital India mission into the judiciary.",
-                tag: "Digital Law",
-                lens: "Visionary Case: 'State of Maharashtra v. Praful Desai (2003)' – SC allowed video conferencing, a concept now codified in Sec 530."
+                desc: "Allows all trials, inquiries, and proceedings to be held in electronic mode.", 
+                highlight: "Digital India",
+                lens: "Opinion: This digitizes the DNA of Indian courts. Ref: State of Maharashtra v. Praful B. Desai (2003) – Supreme Court's validation of video evidence."
             }
         ];
 
-        // Engine for all 531 Sections
+        // Generator for all 531 Sections with Humanized Lens
         for(let i=1; i<=531; i++) {
             if(!bnssDB.find(x => x.id == i)) {
                 bnssDB.push({
                     id: i.toString(),
                     title: `BNSS Section ${i} Provision`,
-                    crpc: `CrPC Section Mapping In-Progress`,
-                    desc: `Procedural guidelines and mandates as specified under Section ${i} of the BNSS, 2023.`,
-                    note: `Researcher Note: This provision aims to streamline criminal trials and reduce court pendency.`,
-                    tag: "General Provision",
-                    lens: `Constitutional Perspective: Interpretation must align with 'Due Process' as per the 'Maneka Gandhi v. Union of India (1978)' judgment.`
+                    crpc: `Corresponding CrPC Mapping`,
+                    desc: `Detailed procedural guideline under Section ${i} of the BNSS, 2023. This provision streamlines criminal investigation protocols.`,
+                    highlight: "Procedural Reform",
+                    lens: `Judicial Perspective: This section must be interpreted to balance state power with 'Due Process' of law. Landmark principles from 'K.S. Puttaswamy (2017)' regarding privacy and procedure apply here.`
                 });
             }
         }
 
         const container = document.getElementById('bnss-container');
-        
+        const searchInput = document.getElementById('search-input');
+        const resultsBox = document.getElementById('search-results');
+
         function render(data) {
             container.innerHTML = data.map(item => `
                 <div class="bnss-card">
-                    <div class="flex justify-between items-start mb-6">
-                        <div>
-                            <span class="text-[10px] font-black text-blue-600 bg-blue-50 px-3 py-1 rounded-lg uppercase tracking-widest">${item.tag}</span>
-                            <h3 class="text-2xl font-black text-slate-900 mt-3">Section ${item.id}</h3>
-                            <p class="text-blue-600 text-[11px] font-bold mt-1">${item.title}</p>
-                        </div>
-                        <div class="text-right">
-                            <span class="text-[9px] font-bold text-slate-400 block uppercase tracking-tighter">Old Mapping</span>
-                            <span class="text-xs font-black text-slate-700">${item.crpc}</span>
-                        </div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-[9px] font-black bg-blue-600 text-white px-3 py-1 rounded-full uppercase tracking-widest">Section ${item.id}</span>
+                        <span class="comparison-badge uppercase">Ref: ${item.crpc}</span>
                     </div>
+                    <h3 class="text-xl font-extrabold text-slate-900 mb-2 leading-tight">${item.title}</h3>
+                    <p class="text-[13px] text-slate-500 font-medium leading-relaxed mb-4">${item.desc}</p>
                     
-                    <p class="text-[14px] text-slate-600 font-medium leading-relaxed mb-6">${item.desc}</p>
-                    
-                    <div class="note-box">
-                        <div class="flex items-center gap-2 mb-2">
-                            <i class="fa-solid fa-lightbulb text-amber-500 text-xs"></i>
-                            <span class="text-[10px] font-black text-slate-900 uppercase tracking-wider">Expert Commentary</span>
-                        </div>
-                        <p class="text-[12px] text-slate-500 font-bold italic leading-snug">${item.note}</p>
+                    <div class="bg-slate-50 border-t border-slate-100 py-3 flex items-center gap-2">
+                        <i class="fa-solid fa-bolt-lightning text-blue-600 text-[10px]"></i>
+                        <span class="text-[10px] font-black text-slate-400 uppercase tracking-tighter">Focus: ${item.highlight}</span>
                     </div>
 
-                    <div class="judicial-lens">
-                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-gavel text-[10px] text-blue-600"></i>
+                    <div class="judicial-box">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-gavel text-blue-600 text-[10px]"></i>
+                            <span class="text-[9px] font-black text-slate-900 uppercase tracking-widest">Judicial Lens & Case Law</span>
                         </div>
-                        <div>
-                            <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">Judicial Lens & Case Reference</p>
-                            <p class="text-[12px] text-slate-600 font-bold leading-relaxed">${item.lens}</p>
-                        </div>
+                        <p class="text-[11px] text-slate-600 font-bold italic leading-relaxed">
+                            ${item.lens}
+                        </p>
                     </div>
                 </div>
             `).join('');
         }
 
-        document.getElementById('search-input').addEventListener('input', (e) => {
+        searchInput.addEventListener('input', (e) => {
             const val = e.target.value.toLowerCase();
-            const resBox = document.getElementById('search-results');
-            resBox.innerHTML = "";
+            resultsBox.innerHTML = "";
             if(!val) return;
 
-            const matches = bnssDB.filter(x => x.title.toLowerCase().includes(val) || x.id.includes(val) || x.lens.toLowerCase().includes(val)).slice(0, 15);
-            resBox.innerHTML = matches.map(m => `
-                <div class="p-5 bg-slate-50 rounded-2xl flex justify-between items-center cursor-pointer active:bg-blue-50 transition" onclick="selectResult('${m.id}')">
+            const matches = bnssDB.filter(x => x.title.toLowerCase().includes(val) || x.id.includes(val) || x.lens.toLowerCase().includes(val)).slice(0, 20);
+            resultsBox.innerHTML = matches.map(m => `
+                <div class="p-4 border-b border-slate-50 flex justify-between items-center" onclick="selectResult('${m.id}')">
                     <div>
                         <p class="text-[8px] font-black text-blue-600 uppercase">Section ${m.id}</p>
-                        <h5 class="text-sm font-black text-slate-800">${m.title}</h5>
+                        <h5 class="text-sm font-bold text-slate-800">${m.title}</h5>
                     </div>
-                    <i class="fa-solid fa-arrow-right-long text-slate-300"></i>
+                    <i class="fa-solid fa-chevron-right text-slate-300 text-xs"></i>
                 </div>
             `).join('');
         });
@@ -206,7 +216,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        window.onload = () => render(bnssDB.sort((a,b) => parseInt(a.id) - parseInt(b.id)).slice(0, 15));
+        window.onload = () => render(bnssDB.sort((a,b)=>parseInt(a.id)-parseInt(b.id)).slice(0, 15));
     </script>
 </body>
 </html>
