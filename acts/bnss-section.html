@@ -24,7 +24,7 @@
             padding: 4px 10px; border-radius: 8px; font-size: 10px; font-weight: 800;
         }
 
-        /* NEW: Judicial Lens Styling */
+        /* Judicial Lens Styling */
         .judicial-box {
             background: #f0f7ff; border-radius: 20px; padding: 16px; margin-top: 16px;
             border-left: 4px solid #2563eb;
@@ -40,8 +40,6 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         
         .premium-gradient { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); }
-
-        footer { margin-top: 40px; padding: 30px; text-align: center; border-top: 1px solid #e2e8f0; }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -64,7 +62,7 @@
     <div id="search-overlay">
         <div class="flex items-center gap-4 mb-6">
             <button onclick="toggleSearch(false)" class="text-slate-900 text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <input type="text" id="search-input" placeholder="Search BNSS Section or Case Law..." class="flex-1 bg-slate-100 border-none rounded-2xl px-5 py-4 font-bold outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+            <input type="text" id="search-input" placeholder="Search Section, Case Law or Keyword..." class="flex-1 bg-slate-100 border-none rounded-2xl px-5 py-4 font-bold outline-none focus:ring-2 focus:ring-blue-500 text-sm">
         </div>
         <div id="search-results" class="flex-1 overflow-y-auto no-scrollbar"></div>
     </div>
@@ -92,11 +90,6 @@
         <div id="bnss-container" class="space-y-6"></div>
     </main>
 
-    <footer>
-        <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">© 2026 Calcutta Law Journal • Resource Hub</p>
-        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="mt-4 text-[9px] font-black text-blue-600 uppercase tracking-tighter italic underline">Back to top</button>
-    </footer>
-
     <script>
         function goBack() { window.history.back(); }
 
@@ -118,44 +111,44 @@
                 crpc: "CrPC Sec 1", 
                 desc: "Defines the application of Bharatiya Nagarik Suraksha Sanhita across India.", 
                 highlight: "Procedural Foundation",
-                lens: "Judicial Opinion: Establishes a decolonized procedural framework, emphasizing citizen 'Suraksha' over colonial control. Ref: Maneka Gandhi v. Union of India (1978)."
+                lens: "Judicial Opinion: Establishes a decolonized procedural framework. Ref: Maneka Gandhi v. Union of India (1978)."
             },
             { 
                 id: "105", 
                 title: "Recording of Search and Seizure", 
                 crpc: "New Reform", 
-                desc: "Mandatory videography of search and seizure processes to ensure transparency.", 
+                desc: "Mandatory videography of search and seizure processes using electronic devices.", 
                 highlight: "Forensic Tech",
-                lens: "Landmark Ref: Shafhi Mohammad v. State of Himachal Pradesh (2018). The requirement for videography in investigations is now statutory, ensuring evidence integrity."
+                lens: "Landmark Ref: Shafhi Mohammad v. State of Himachal Pradesh (2018). Videography is now a statutory mandate for investigation integrity."
             },
             { 
                 id: "173", 
                 title: "Information in cognizable cases (Zero FIR)", 
                 crpc: "CrPC Sec 154", 
-                desc: "Mandates registration of FIR irrespective of jurisdiction and introduces E-FIR.", 
+                desc: "Mandates registration of FIR irrespective of jurisdiction and introduces E-FIR protocols.", 
                 highlight: "Digital/Zero FIR",
-                lens: "Precedent: Lalita Kumari v. Govt. of U.P. (2014) regarding mandatory registration of FIR is further strengthened by statutory recognition of Zero FIR."
+                lens: "Precedent: Lalita Kumari v. Govt. of U.P. (2014) regarding mandatory FIR is codified and expanded with Zero FIR."
             },
             { 
                 id: "530", 
                 title: "Trial and Proceedings in Electronic Mode", 
                 crpc: "New Provision", 
-                desc: "Allows all trials, inquiries, and proceedings to be held in electronic mode.", 
+                desc: "Allows all judicial proceedings to be held in electronic mode via video conferencing.", 
                 highlight: "Digital India",
-                lens: "Opinion: This digitizes the DNA of Indian courts. Ref: State of Maharashtra v. Praful B. Desai (2003) – Supreme Court's validation of video evidence."
+                lens: "Opinion: Codifies the principle from State of Maharashtra v. Praful B. Desai (2003) for a digital-first judiciary."
             }
         ];
 
-        // Generator for all 531 Sections with Humanized Lens
+        // Generator for all 531 Sections
         for(let i=1; i<=531; i++) {
             if(!bnssDB.find(x => x.id == i)) {
                 bnssDB.push({
                     id: i.toString(),
                     title: `BNSS Section ${i} Provision`,
                     crpc: `Corresponding CrPC Mapping`,
-                    desc: `Detailed procedural guideline under Section ${i} of the BNSS, 2023. This provision streamlines criminal investigation protocols.`,
+                    desc: `Detailed procedural mandate as specified under Section ${i} of the BNSS, 2023.`,
                     highlight: "Procedural Reform",
-                    lens: `Judicial Perspective: This section must be interpreted to balance state power with 'Due Process' of law. Landmark principles from 'K.S. Puttaswamy (2017)' regarding privacy and procedure apply here.`
+                    lens: `Judicial Perspective: Interpretation must align with fair procedure as per Art. 21. Ref: K.S. Puttaswamy (2017).`
                 });
             }
         }
