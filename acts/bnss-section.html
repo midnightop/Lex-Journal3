@@ -24,7 +24,6 @@
             padding: 4px 10px; border-radius: 8px; font-size: 10px; font-weight: 800;
         }
 
-        /* Judicial Lens Styling */
         .judicial-box {
             background: #f0f7ff; border-radius: 20px; padding: 16px; margin-top: 16px;
             border-left: 4px solid #2563eb;
@@ -62,7 +61,7 @@
     <div id="search-overlay">
         <div class="flex items-center gap-4 mb-6">
             <button onclick="toggleSearch(false)" class="text-slate-900 text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <input type="text" id="search-input" placeholder="Search Section, Case Law or Keyword..." class="flex-1 bg-slate-100 border-none rounded-2xl px-5 py-4 font-bold outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+            <input type="text" id="search-input" placeholder="Search Section, Case or Year..." class="flex-1 bg-slate-100 border-none rounded-2xl px-5 py-4 font-bold outline-none focus:ring-2 focus:ring-blue-500 text-sm">
         </div>
         <div id="search-results" class="flex-1 overflow-y-auto no-scrollbar"></div>
     </div>
@@ -105,50 +104,45 @@
         }
 
         const bnssDB = [
-            { 
-                id: "1", 
-                title: "Short title, commencement and application", 
-                crpc: "CrPC Sec 1", 
-                desc: "Defines the application of Bharatiya Nagarik Suraksha Sanhita across India.", 
-                highlight: "Procedural Foundation",
-                lens: "Judicial Opinion: Establishes a decolonized procedural framework. Ref: Maneka Gandhi v. Union of India (1978)."
-            },
-            { 
-                id: "105", 
-                title: "Recording of Search and Seizure", 
-                crpc: "New Reform", 
-                desc: "Mandatory videography of search and seizure processes using electronic devices.", 
-                highlight: "Forensic Tech",
-                lens: "Landmark Ref: Shafhi Mohammad v. State of Himachal Pradesh (2018). Videography is now a statutory mandate for investigation integrity."
-            },
-            { 
-                id: "173", 
-                title: "Information in cognizable cases (Zero FIR)", 
-                crpc: "CrPC Sec 154", 
-                desc: "Mandates registration of FIR irrespective of jurisdiction and introduces E-FIR protocols.", 
-                highlight: "Digital/Zero FIR",
-                lens: "Precedent: Lalita Kumari v. Govt. of U.P. (2014) regarding mandatory FIR is codified and expanded with Zero FIR."
-            },
-            { 
-                id: "530", 
-                title: "Trial and Proceedings in Electronic Mode", 
-                crpc: "New Provision", 
-                desc: "Allows all judicial proceedings to be held in electronic mode via video conferencing.", 
-                highlight: "Digital India",
-                lens: "Opinion: Codifies the principle from State of Maharashtra v. Praful B. Desai (2003) for a digital-first judiciary."
-            }
+            { id: "1", title: "Short title, commencement and application", crpc: "CrPC Sec 1", desc: "Defines the territorial scope and commencement of the Sanhita.", highlight: "Foundation", lens: "Ref: Maneka Gandhi v. Union of India (1978) - Procedural law must be just and fair." },
+            { id: "105", title: "Recording of Search and Seizure", crpc: "New Provision", desc: "Mandates videography of search and seizure processes.", highlight: "Forensic Tech", lens: "Ref: Shafhi Mohammad v. State of HP (2018) - SC push for tech in investigation is now statutory." },
+            { id: "173", title: "Registration of FIR (Zero FIR)", crpc: "CrPC Sec 154", desc: "Mandatory FIR registration and introduction of Zero FIR/E-FIR.", highlight: "Digital/Zero FIR", lens: "Ref: Lalita Kumari v. Govt. of UP (2014) - Mandatory FIR principle codified and updated." },
+            { id: "530", title: "Trial and Proceedings in Electronic Mode", crpc: "New Provision", desc: "Enables judicial proceedings via video conferencing.", highlight: "Digital India", lens: "Ref: State of Maharashtra v. Praful Desai (2003) - Validation of digital evidence now part of law." }
         ];
 
-        // Generator for all 531 Sections
+        // Intelligent Generator for Diverse Data
         for(let i=1; i<=531; i++) {
             if(!bnssDB.find(x => x.id == i)) {
+                let cat = "General Provision";
+                let caseLine = "Interpretation must align with Art. 21 (Fair Procedure).";
+                let tag = "Procedural Reform";
+
+                // Dynamic Logic for 531 Sections
+                if(i >= 35 && i <= 62) {
+                    cat = "Arrest Protocols";
+                    caseLine = "Ref: D.K. Basu v. State of West Bengal (1997) - Guidelines on custodial safety apply.";
+                    tag = "Liberty Focus";
+                } else if(i >= 173 && i <= 196) {
+                    cat = "Investigation";
+                    caseLine = "Ref: State of Haryana v. Bhajan Lal (1992) - Principles of investigation powers.";
+                    tag = "Police Duty";
+                } else if(i >= 480 && i <= 495) {
+                    cat = "Bails & Bonds";
+                    caseLine = "Ref: Satender Kumar Antil v. CBI (2022) - Bail is the rule, jail is the exception.";
+                    tag = "Personal Liberty";
+                } else if(i >= 223 && i <= 235) {
+                    cat = "Trial Procedure";
+                    caseLine = "Ref: Willie Slaney v. State of MP (1956) - On the fairness of framing charges.";
+                    tag = "Fair Trial";
+                }
+
                 bnssDB.push({
                     id: i.toString(),
-                    title: `BNSS Section ${i} Provision`,
-                    crpc: `Corresponding CrPC Mapping`,
-                    desc: `Detailed procedural mandate as specified under Section ${i} of the BNSS, 2023.`,
-                    highlight: "Procedural Reform",
-                    lens: `Judicial Perspective: Interpretation must align with fair procedure as per Art. 21. Ref: K.S. Puttaswamy (2017).`
+                    title: `BNSS Section ${i}: ${cat}`,
+                    crpc: `Mapped to CrPC Framework`,
+                    desc: `This section governs the procedural requirements and judicial protocols as defined under Section ${i} of the BNSS, 2023.`,
+                    highlight: tag,
+                    lens: `Judicial Lens: ${caseLine} This ensures state power is checked by constitutional safeguards.`
                 });
             }
         }
@@ -190,7 +184,7 @@
             resultsBox.innerHTML = "";
             if(!val) return;
 
-            const matches = bnssDB.filter(x => x.title.toLowerCase().includes(val) || x.id.includes(val) || x.lens.toLowerCase().includes(val)).slice(0, 20);
+            const matches = bnssDB.filter(x => x.title.toLowerCase().includes(val) || x.id === val || x.lens.toLowerCase().includes(val)).slice(0, 20);
             resultsBox.innerHTML = matches.map(m => `
                 <div class="p-4 border-b border-slate-50 flex justify-between items-center" onclick="selectResult('${m.id}')">
                     <div>
