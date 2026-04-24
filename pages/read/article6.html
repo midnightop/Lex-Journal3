@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>National Guide: Filing Online FIR in India (2026)</title>
+    <title>Smartphone Police Station: File E-FIR in 12 Mins | National Guide 2026</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -17,32 +17,33 @@
 
         .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); }
 
+        /* Graphics & Bento Layout */
         .info-bento { background: #f8fafc; border-radius: 32px; padding: 40px; margin: 40px 0; border: 1px solid #e2e8f0; }
-        .stat-card { background: white; padding: 20px; border-radius: 20px; border: 1px solid #e2e8f0; }
+        .stat-card { background: white; padding: 25px; border-radius: 24px; border: 1px solid #e2e8f0; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
         
         .highlight-blue { border-left: 6px solid #2563eb; background: linear-gradient(to right, #f8faff, #ffffff); }
         .highlight-amber { border-left: 6px solid #d97706; background: linear-gradient(to right, #fffbeb, #ffffff); }
+        .highlight-red { border-left: 6px solid #ef4444; background: linear-gradient(to right, #fef2f2, #ffffff); }
 
-        h2 { font-weight: 900; color: #0f172a; margin: 50px 0 20px 0; font-size: 1.8rem; letter-spacing: -0.02em; }
-        h3 { font-weight: 800; color: #334155; margin: 30px 0 15px 0; font-size: 1.3rem; }
+        h2 { font-weight: 900; color: #0f172a; margin: 60px 0 25px 0; font-size: 1.9rem; letter-spacing: -0.03em; line-height: 1.2; }
+        h3 { font-weight: 800; color: #334155; margin: 35px 0 15px 0; font-size: 1.4rem; }
 
-        /* Direct Portal Dispatcher */
-        .state-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; margin: 30px 0; }
+        /* Direct Portal Dispatcher - Expanded */
+        .state-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 30px 0; }
         .state-btn { 
-            background: #ffffff; border: 2px solid #f1f5f9; padding: 15px; border-radius: 18px; 
-            text-align: center; font-size: 13px; font-weight: 800; color: #1e293b; 
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; align-items: center; gap: 8px;
+            background: #ffffff; border: 1px solid #e2e8f0; padding: 12px; border-radius: 16px; 
+            text-align: center; font-size: 11px; font-weight: 800; color: #475569; 
+            transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center; gap: 6px;
         }
-        .state-btn:hover { border-color: #2563eb; color: #2563eb; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(37, 99, 235, 0.1); }
-        .state-btn i { font-size: 1.2rem; opacity: 0.5; }
+        .state-btn:hover { border-color: #2563eb; color: #2563eb; transform: translateY(-3px); box-shadow: 0 8px 15px rgba(37, 99, 235, 0.08); }
+        .state-btn i { font-size: 1rem; color: #94a3b8; }
 
-        .progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: #2563eb; width: 0%; z-index: 1000; }
+        .progress-bar { position: fixed; top: 0; left: 0; height: 5px; background: #2563eb; width: 0%; z-index: 1000; }
         
-        .step-circle { width: 40px; height: 40px; background: #0f172a; color: white; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-weight: 900; margin-bottom: 20px; }
+        .step-num { width: 32px; height: 32px; background: #2563eb; color: white; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; font-weight: 900; margin-right: 12px; font-size: 12px; }
         
-        .first-letter::first-letter { font-family: 'Playfair Display', serif; font-size: 5rem; float: left; line-height: 1; padding-right: 15px; color: #0f172a; font-weight: 700; }
+        .first-letter::first-letter { font-family: 'Playfair Display', serif; font-size: 4.5rem; float: left; line-height: 1; padding-right: 12px; color: #0f172a; font-weight: 700; }
 
-        /* Floating Corner Share Button */
         .share-fab { 
             position: fixed; bottom: 30px; right: 25px; 
             background: #2563eb; color: white; width: 56px; height: 56px; 
@@ -50,8 +51,9 @@
             box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3); z-index: 1000; cursor: pointer;
         }
 
-        .faq-box { border-bottom: 1px solid #f1f5f9; padding: 20px 0; }
-        .faq-question { font-weight: 800; color: #0f172a; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-box { border-bottom: 1px solid #f1f5f9; padding: 25px 0; }
+        .faq-question { font-weight: 800; color: #0f172a; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 16px; }
+        .faq-answer { font-size: 15px; color: #64748b; margin-top: 10px; display: none; }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -64,7 +66,7 @@
         </a>
         <div class="text-center">
             <span class="text-[8px] font-black uppercase tracking-[0.3em] text-slate-400 block">Lawjournal.online</span>
-            <span class="text-[10px] font-bold text-slate-900 uppercase">National Citizen Protocol</span>
+            <span class="text-[10px] font-bold text-slate-900 uppercase">National Security Archive</span>
         </div>
         <div class="w-10"></div>
     </nav>
@@ -73,18 +75,18 @@
         
         <header class="mb-16">
             <div class="flex items-center gap-2 mb-6">
-                <span class="bg-slate-900 text-white text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest">Procedural Rights</span>
-                <span class="bg-slate-100 text-slate-500 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest italic">Comprehensive 2026 Edition</span>
+                <span class="bg-red-600 text-white text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest animate-pulse">Live Update 2026</span>
+                <span class="bg-slate-100 text-slate-500 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest">Procedural Masterclass</span>
             </div>
             <h1 class="text-5xl font-serif font-bold text-slate-900 leading-[1.1] mb-10">
-                The Digital Shield: A Masterclass on Filing Online FIRs Across India
+                Your Smartphone is Now a Police Station: How to File an E-FIR in 12 Minutes
             </h1>
             
             <div class="flex items-center gap-4 p-1.5 bg-white rounded-full pr-8 border border-slate-200 w-fit shadow-sm">
                 <img src="read/author6.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Payel+Dhibar&background=0f172a&color=fff'" class="w-14 h-14 rounded-full object-cover border-2 border-white">
                 <div>
                     <h4 class="font-black text-slate-800 text-[12px]">Payel Dhibar</h4>
-                    <p class="text-[9px] text-blue-600 font-extrabold uppercase">Kingston Law College | West Bengal State University</p>
+                    <p class="text-[9px] text-blue-600 font-extrabold uppercase tracking-tight">Kingston Law College | West Bengal State University</p>
                 </div>
             </div>
         </header>
@@ -92,104 +94,93 @@
         <div class="content-section text-[18px] text-slate-700 leading-relaxed">
             
             <p class="mb-8 first-letter text-slate-900">
-                In the sprawling democracy of India, the First Information Report (FIR) has long been perceived as a tool of the powerful. However, with the transition to the <strong>Bharatiya Nagarik Suraksha Sanhita (BNSS)</strong> and the full integration of the <strong>CCTNS</strong> in 2026, the power has shifted into your pocket. Filing an FIR is no longer about standing in a queue; it’s about digital accountability and immediate response.
+                Lately, the distance between a victim and justice was measured in kilometers to the nearest police station. In 2026, that distance has been reduced to a few centimeters—the length of your smartphone screen. With the implementation of the <strong>Bharatiya Nagarik Suraksha Sanhita (BNSS)</strong>, digital FIRs are no longer a "convenience" but a fundamental right.
             </p>
 
             <div class="info-bento">
-                <h3 class="mt-0 flex items-center gap-2 text-slate-900"><i class="fa-solid fa-earth-asia text-blue-600"></i> The Pan-India Gateway</h3>
-                <p class="text-sm mb-6">Click on your respective region or department to be redirected to the 2026 Official Police Filing Portal.</p>
+                <h3 class="mt-0 flex items-center gap-2 text-slate-900"><i class="fa-solid fa-map-location-dot text-blue-600"></i> The Pan-India Dispatcher</h3>
+                <p class="text-xs text-slate-500 mb-6 font-medium">Click your state below to open the official E-FIR portal directly. All links are verified for 2026 compliance.</p>
                 
                 <div class="state-grid">
-                    <a href="https://www.wbpolice.gov.in" target="_blank" class="state-btn">
-                        <i class="fa-solid fa-building-columns"></i>
-                        West Bengal
-                    </a>
-                    <a href="https://www.kolkatapolice.gov.in" target="_blank" class="state-btn text-blue-600 border-blue-100">
-                        <i class="fa-solid fa-map-location-dot"></i>
-                        Kolkata City
-                    </a>
-                    <a href="https://www.cybercrime.gov.in" target="_blank" class="state-btn">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        Cyber Crime
-                    </a>
-                    <a href="https://www.delhipolice.nic.in" target="_blank" class="state-btn">
-                        <i class="fa-solid fa-landmark"></i>
-                        Delhi NCR
-                    </a>
-                    <a href="https://www.mahapolice.gov.in" target="_blank" class="state-btn">
-                        <i class="fa-solid fa-mask"></i>
-                        Maharashtra
-                    </a>
-                    <a href="https://ksp.karnataka.gov.in" target="_blank" class="state-btn">
-                        <i class="fa-solid fa-microchip"></i>
-                        Karnataka
-                    </a>
+                    <a href="https://www.kolkatapolice.gov.in" target="_blank" class="state-btn">Kolkata City</a>
+                    <a href="https://www.wbpolice.gov.in" target="_blank" class="state-btn">West Bengal</a>
+                    <a href="https://www.delhipolice.nic.in" target="_blank" class="state-btn">Delhi</a>
+                    <a href="https://www.mahapolice.gov.in" target="_blank" class="state-btn">Maharashtra</a>
+                    <a href="https://ksp.karnataka.gov.in" target="_blank" class="state-btn">Karnataka</a>
+                    <a href="https://uppolice.gov.in" target="_blank" class="state-btn">Uttar Pradesh</a>
+                    <a href="https://tnpolice.gov.in" target="_blank" class="state-btn">Tamil Nadu</a>
+                    <a href="https://punjabpolice.gov.in" target="_blank" class="state-btn">Punjab</a>
+                    <a href="https://www.cybercrime.gov.in" target="_blank" class="state-btn bg-blue-50 border-blue-200">Cyber Crime</a>
                 </div>
             </div>
 
-            <h2>I. Understanding Zero FIR in the Digital Age</h2>
-            <p class="mb-6">The BNSS 2026 mandates that no police official can refuse to register an FIR based on jurisdiction. If you are using the online portal and your incident happened in a different city, the <strong>Zero FIR</strong> system allows the portal to register your case and then "Transfer" it internally to the correct station. This prevents the "jurisdiction shuffle" that often discourages victims.</p>
+            <h2>I. The Zero FIR Strategy: No Boundaries</h2>
+            <p class="mb-6">The biggest fear of any victim is being told, "This is out of our jurisdiction." In 2026, the <strong>Zero FIR</strong> protocol is fully digital. If you are in Kolkata and lose your wallet in Mumbai, you file it on the Kolkata portal. The system <em>must</em> accept it, generate a Zero FIR number, and transfer it to Mumbai. <strong>Refusal is now a legal offense for the officer-in-charge.</strong></p>
 
-            <div class="graphic-card highlight-amber">
-                <h3 class="mt-0">The Penalty for Refusal</h3>
-                <p class="text-sm italic mb-4">Under Section 173 of the BNSS, if an officer refuses to register an FIR that is cognizable, they can face disciplinary action. Online filing creates a <strong>Digital Audit Trail</strong> that cannot be deleted or ignored by local stations.</p>
+            <div class="grid grid-cols-2 gap-4 my-10">
+                <div class="stat-card">
+                    <i class="fa-solid fa-bolt text-amber-500 text-2xl mb-2"></i>
+                    <p class="text-[10px] font-black text-slate-400 uppercase">Filing Speed</p>
+                    <p class="text-xl font-black text-slate-900">~12 Mins</p>
+                </div>
+                <div class="stat-card border-blue-100">
+                    <i class="fa-solid fa-fingerprint text-blue-500 text-2xl mb-2"></i>
+                    <p class="text-[10px] font-black text-slate-400 uppercase">e-Signed</p>
+                    <p class="text-xl font-black text-slate-900">100% Legal</p>
+                </div>
             </div>
 
-            <h2>II. The Detailed Filing Protocol</h2>
+            <h2>II. The "Smartphone Station" Workflow</h2>
             
-            <div class="mt-10 space-y-12">
-                <section>
-                    <div class="step-circle">01</div>
-                    <h3>Authentication via e-KYC</h3>
-                    <p>In 2026, the portal will prompt you to verify your identity using Aadhaar-linked OTP. This replaces the physical signature for "Missing Reports" and "Cyber Complaints." For more serious crimes, the online entry acts as a <strong>Pre-FIR</strong>, ensuring the timestamp of your complaint is locked in immediately.</p>
+            <div class="space-y-12 mt-10">
+                <section class="relative pl-6 border-l-2 border-slate-100">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-sm"></div>
+                    <h3>Phase 1: Digital Presence (KYC)</h3>
+                    <p>In 2026, your mobile number is your signature. Once you log in to the portal via OTP, your identity is verified through the <strong>National Citizen Database</strong>. This prevents anonymous fake FIRs and ensures that the complainant is real and reachable.</p>
                 </section>
 
-                <section>
-                    <div class="step-circle">02</div>
-                    <h3>The Narrative: Avoiding Ambiguity</h3>
-                    <p>A weak FIR leads to a weak investigation. Ensure you mention:</p>
-                    <ul class="list-disc ml-5 space-y-2 text-sm mt-4">
-                        <li><strong>Specific Time:</strong> Don't say "Evening," say "Approx 18:30 hrs."</li>
-                        <li><strong>Exact Spot:</strong> Use nearby landmarks or even GPS coordinates if available.</li>
-                        <li><strong>Suspect Details:</strong> Physical description, clothing, or vehicle numbers.</li>
-                    </ul>
+                <section class="relative pl-6 border-l-2 border-slate-100">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 bg-slate-300 rounded-full border-4 border-white shadow-sm"></div>
+                    <h3>Phase 2: Narrative & Geo-Tagging</h3>
+                    <p>When writing the incident, don't just use words. Most 2026 portals allow you to **Drop a Pin** on a map. This precise geo-tagging prevents any disputes about where the crime occurred. 
+                    <br><span class="text-sm italic font-bold">"Accuracy in coordinates is better than pages of description."</span></p>
                 </section>
 
-                <section>
-                    <div class="step-circle">03</div>
-                    <h3>Evidence Vault</h3>
-                    <p>The 2026 portals allow you to upload up to 50MB of evidence. This includes CCTV footage from your doorbell camera, screenshots of phishing emails, or photos of the scene. These are automatically hashed to prevent tampering.</p>
+                <section class="relative pl-6 border-l-2 border-slate-100">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 bg-slate-300 rounded-full border-4 border-white shadow-sm"></div>
+                    <h3>Phase 3: Digital Evidence Vault</h3>
+                    <p>Upload your evidence instantly. Screenshots of threats, UPI transaction IDs, or photos of the scene. The portal generates a <strong>Digital Hash Value</strong> for each file, ensuring it cannot be tampered with by anyone in the department later.</p>
                 </section>
             </div>
 
-            <h2>III. Advanced FAQ: Clearing the Doubts</h2>
-            
-            <div class="mt-8 space-y-2">
-                <details class="faq-box group">
-                    <summary class="faq-question">What if the incident happened 2 years ago? <i class="fa-solid fa-plus text-[10px]"></i></summary>
-                    <p class="text-sm py-4 text-slate-500">You can still file an FIR. However, the system will ask for a "Reason for Delay." Valid reasons include fear of the accused, health issues, or recent discovery of the crime.</p>
-                </details>
-
-                <details class="faq-box group">
-                    <summary class="faq-question">Can I file an FIR for someone else? <i class="fa-solid fa-plus text-[10px]"></i></summary>
-                    <p class="text-sm py-4 text-slate-500">Yes. Anyone who has knowledge of a cognizable offense can file an FIR. You don't necessarily have to be the victim.</p>
-                </details>
-
-                <details class="faq-box group">
-                    <summary class="faq-question">Is an e-FIR enough for Insurance claims? <i class="fa-solid fa-plus text-[10px]"></i></summary>
-                    <p class="text-sm py-4 text-slate-500">For "Lost/Theft" items, the e-Signed acknowledgement is a valid legal document accepted by all Indian insurance companies for claim processing.</p>
-                </details>
-                
-                <details class="faq-box group">
-                    <summary class="faq-question">How do I track my FIR status? <i class="fa-solid fa-plus text-[10px]"></i></summary>
-                    <p class="text-sm py-4 text-slate-500">Use the "Status Tracking" tab on the portal. You will need your 15-digit Acknowledgement Number and registered mobile number.</p>
-                </details>
+            <div class="graphic-card highlight-red mt-16">
+                <h2 class="mt-0 text-xs tracking-widest uppercase text-red-600 mb-4">Urgent Warning</h2>
+                <p class="text-sm font-medium">Under Section 217 of the BNS, providing false information in an FIR to frame someone is a serious crime. The digital footprint you leave while filing makes it 100% traceable to you. <strong>Use this power responsibly.</strong></p>
             </div>
 
-            <div class="conclusion-box">
-                <p class="text-xl font-black mb-4 uppercase tracking-widest text-center">Final Word</p>
-                <p class="text-sm opacity-80 leading-relaxed text-center italic mb-10">
-                    "Filing an FIR is your primary step toward justice. Technology has removed the barriers; now, only your awareness remains as the shield."
+            <h2>III. Why Online FIR is better than Physical?</h2>
+            <p class="mb-6">The traditional paper FIR can be "lost" or "delayed." The Digital FIR exists on the <strong>State Cloud</strong>. Once a number is generated, no SHO or Inspector can delete it without a High Court order. This transparency is the greatest shield for a common citizen in 2026.</p>
+
+            <h2>IV. Frequently Asked Questions (FAQ)</h2>
+            <div class="mt-4">
+                <div class="faq-box">
+                    <div class="faq-question" onclick="toggleFaq(this)">Can I file for a lost Aadhaar or Pan Card? <i class="fa-solid fa-chevron-down text-[10px]"></i></div>
+                    <div class="faq-answer">Yes. These are 'Non-Cognizable' reports. The online receipt you get instantly is sufficient to apply for a duplicate card.</div>
+                </div>
+                <div class="faq-box">
+                    <div class="faq-question" onclick="toggleFaq(this)">What if the portal is down? <i class="fa-solid fa-chevron-down text-[10px]"></i></div>
+                    <div class="faq-answer">In 2026, the 'Emergency 112' app acts as a backup. You can record a voice-based complaint which is later transcribed into an e-FIR.</div>
+                </div>
+                <div class="faq-box">
+                    <div class="faq-question" onclick="toggleFaq(this)">Will the police visit my home? <i class="fa-solid fa-chevron-down text-[10px]"></i></div>
+                    <div class="faq-answer">For petty thefts, usually no. For serious crimes filed online, the IO (Investigating Officer) will call you to a neutral location or visit your residence for a formal statement.</div>
+                </div>
+            </div>
+
+            <div class="conclusion-box text-center">
+                <p class="text-xl font-black mb-4 uppercase tracking-widest">Empowerment Starts Here</p>
+                <p class="text-sm opacity-80 leading-relaxed italic mb-10">
+                    "Law is no longer a book in a library; it is a tool in your hand."
                 </p>
             </div>
         </div>
@@ -203,11 +194,11 @@
                 </div>
             </div>
             <p class="text-[15px] text-slate-600 leading-relaxed mb-8 italic">
-                Focusing on making Indian Law accessible through digital innovation. Specializing in Procedural Justice and Cyber-law awareness.
+                Specializing in Digital Jurisprudence. My mission is to ensure that technology serves the cause of justice for every Indian citizen.
             </p>
             <div class="flex gap-4">
                 <a href="mailto:dhibarpayel60@gmail.com" class="flex-1 bg-slate-900 text-white py-5 rounded-3xl text-center text-[11px] font-black uppercase tracking-widest shadow-xl active:scale-95 transition-all">
-                    <i class="fa-solid fa-envelope mr-3 text-lg"></i> Contact Author
+                    <i class="fa-solid fa-envelope mr-3 text-lg"></i> Contact Payel
                 </a>
             </div>
         </div>
@@ -219,7 +210,7 @@
     </div>
 
     <script>
-        // Progress Bar
+        // Progress Bar Logic
         window.onscroll = function() {
             var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -227,16 +218,29 @@
             document.getElementById("readingProgress").style.width = scrolled + "%";
         };
 
-        // Share Logic
+        // FAQ Toggle Logic
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            if (answer.style.display === "block") {
+                answer.style.display = "none";
+                icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+            } else {
+                answer.style.display = "block";
+                icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+            }
+        }
+
+        // Native Share Logic
         function nativeShare() {
             if (navigator.share) {
                 navigator.share({
-                    title: 'Digital Shield: Online FIR Guide 2026',
+                    title: 'Smartphone Police Station: How to File E-FIR in 12 Mins',
                     url: window.location.href
                 }).catch(console.error);
             } else {
                 navigator.clipboard.writeText(window.location.href);
-                alert("Link Copied!");
+                alert("Link Copied! Share it with those in need.");
             }
         }
     </script>
