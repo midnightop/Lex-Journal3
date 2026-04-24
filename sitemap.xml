@@ -155,18 +155,16 @@
   </url>
 
 
-         <url>
+        <url>
     <loc>https://lawjournal.online/pages/read/article2-3.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Law Journal Online</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-04-24</news:publication_date>
-      <news:title>Raghav Chadha Joins BJP: Decoding the Constitutional Legitimacy of the 2/3rd Merger</news:title>
-    </news:news>
+    <lastmod>2026-04-25</lastmod>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/author2.jpg</image:loc>
+      <image:title> Raghav Chadha Joins BJP: Decoding the Constitutional Legitimacy of the 2/3rd Merger</image:title>
+    </image:image>
   </url>
-
+        
 
         
           <url>
