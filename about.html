@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>About Us & Editorial Vision | Law Journal</title>
+    <title>About Us | Law Journal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap');
         
         body { 
             font-family: 'Inter', sans-serif; 
-            background-color: #f8fafc; /* Lighter slate background for premium feel */
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23e2e8f0' fill-opacity='0.3'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 0l5 20h-10l5-20zM11 50l5 20H6l5-20zm42 0l5 20h-10l5-20zM0 11l20 5v-10l-20 5zm0 42l20 5v-10l-20 5zm50-42l20 5v-10l-20 5zm0 42l20 5v-10l-20 5z'/%3E%3C/g%3E%3C/svg%3E"); /* Subtle academic pattern */
-            color: #111827;
+            background-color: #f8fafc; 
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 24px 24px;
+            color: #1a1a1a;
             overflow-x: hidden;
             -webkit-user-select: none;
             user-select: none;
@@ -23,230 +24,177 @@
         .font-serif { font-family: 'Playfair Display', serif; }
         
         .fade-in-section {
-            animation: fadeInUp 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 0;
         }
         
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .legal-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            position: relative;
-            overflow: hidden;
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 1);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
         }
         
-        .legal-card:hover {
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
-            border-color: #dbeafe;
-            transform: translateY(-8px) scale(1.01);
-        }
-
-        /* Subtle glow effect on hover */
-        .legal-card::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% -20%, rgba(37, 99, 235, 0.05), transparent 70%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        
-        .legal-card:hover::after {
-            opacity: 1;
-        }
-
-        .icon-box {
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-            border: 1px solid #bfdbfe;
+        .glass-card:hover {
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 1);
+            border-color: rgba(219, 234, 254, 0.8);
+            transform: translateY(-4px);
         }
     </style>
 </head>
 <body class="selection:bg-blue-100 selection:text-blue-900">
 
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100 px-6 py-4 md:px-16 flex justify-between items-center">
-        <div class="flex items-center gap-2.5">
-            <div class="p-2 bg-blue-600 rounded-xl text-white text-xs shadow-md shadow-blue-500/20">
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50 px-5 py-3 md:px-12 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div class="p-1.5 bg-blue-600 rounded-lg text-white text-[10px] shadow-sm">
                 <i class="fa-solid fa-pen-nib"></i>
             </div>
-            <span class="font-extrabold tracking-tighter text-base uppercase italic text-gray-950">Law <span class="text-blue-600 text-sm">Journal</span></span>
+            <span class="font-black tracking-tighter text-xs uppercase italic text-gray-900">Law <span class="text-blue-600">Journal</span></span>
         </div>
         <div class="flex items-center gap-4">
-             <a href="mailto:admin@lawjournal.online" class="hidden md:block text-xs font-semibold text-gray-500 hover:text-blue-600 transition uppercase tracking-widest">
+             <a href="mailto:admin@lawjournal.online" class="hidden md:block text-[9px] font-bold text-gray-400 hover:text-blue-600 transition uppercase tracking-widest">
                 admin@lawjournal.online
             </a>
-            <a href="mailto:admin@lawjournal.online" class="bg-gray-950 text-white text-[11px] font-bold py-2.5 px-6 rounded-full hover:bg-blue-600 transition shadow-lg shadow-gray-950/10 hover:shadow-blue-500/20 hover:-translate-y-0.5">
+            <a href="mailto:admin@lawjournal.online" class="bg-gray-900 text-white text-[9px] font-bold py-2 px-5 rounded-full hover:bg-blue-600 transition shadow-md hover:-translate-y-0.5">
                 SUBMIT NOW
             </a>
         </div>
     </nav>
 
-    <header class="pt-20 pb-16 px-6 text-center max-w-5xl mx-auto fade-in-section">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 mb-4 shadow-inner shadow-blue-100/50">
-            <span class="relative flex h-2 w-2">
-                <span class="animate-ping absolute inline-flex h-100 w-100 rounded-full bg-blue-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+    <header class="pt-14 pb-10 px-5 text-center max-w-4xl mx-auto fade-in-section">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-gray-200 mb-4 shadow-sm">
+            <span class="relative flex h-1.5 w-1.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-600"></span>
             </span>
-            <h4 class="text-blue-700 font-bold text-xs uppercase tracking-widest">Established 2026</h4>
+            <h4 class="text-gray-600 font-bold text-[8px] uppercase tracking-[0.2em]">Established 2026</h4>
         </div>
-        <h1 class="text-5xl md:text-8xl font-serif font-bold leading-tight tracking-tighter mb-8 text-gray-950">About Us & <br><span class="italic text-gray-400 font-medium text-4xl md:text-7xl text-blue-600">The Editorial Vision</span></h1>
-        <div class="h-1.5 w-24 bg-blue-600 mx-auto rounded-full shadow-lg shadow-blue-500/20"></div>
+        <h1 class="text-3xl md:text-5xl font-serif font-bold leading-tight tracking-tight mb-4 text-gray-900">About Us & <br><span class="italic text-gray-400 font-medium text-2xl md:text-4xl text-blue-600">The Editorial Vision</span></h1>
+        <div class="h-1 w-12 bg-blue-600 mx-auto rounded-full opacity-80"></div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-6 pb-28 space-y-10">
-
-        <section class="legal-card p-10 md:p-16 rounded-[2.5rem] fade-in-section" style="animation-delay: 0.1s;">
-            <div class="flex flex-col md:flex-row md:items-center gap-8 mb-8 border-b border-gray-100 pb-8">
-                <div class="w-16 h-16 icon-box rounded-3xl flex items-center justify-center text-blue-600 flex-shrink-0 shadow-inner">
-                    <i class="fa-solid fa-book-open-reader text-2xl"></i>
-                </div>
-                <h2 class="text-3xl md:text-4xl font-extrabold uppercase tracking-tighter text-gray-950 leading-none">Our Origin & <span class="italic font-medium text-blue-600 font-serif normal-case">Mission</span></h2>
-            </div>
+    <main class="max-w-5xl mx-auto px-5 pb-20">
+        
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
             
-            <div class="space-y-6 text-gray-700 text-base leading-relaxed max-w-none">
-                <p>
-                    Founded in <span class="font-bold text-gray-950">2026</span>, Law Journal emerged from a simple yet powerful realization: emerging law students and young professionals often lack an accessible, respectful platform to voice their academic research. While many established journals cater primarily to seasoned academics, we built this platform to democratize legal scholarship.
-                </p>
-                <p class="font-medium text-gray-900 bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-inner">
-                    <i class="fa-solid fa-quote-left text-blue-200 mr-2"></i>
-                    We strongly believe that every student's analytical reasoning deserves a proper stage, genuine recognition, and the utmost respect. Our mission is to bridge the gap in legal publishing by providing an inclusive, open-access environment where both passionate law students and experienced professionals can share their insights with the global legal community.
-                    <i class="fa-solid fa-quote-right text-blue-200 ml-1"></i>
-                </p>
-            </div>
-        </section>
-
-        <div class="grid md:grid-cols-3 gap-6 fade-in-section" style="animation-delay: 0.2s;">
-            <div class="legal-card p-8 rounded-3xl group">
-                <div class="w-12 h-12 bg-indigo-50 border border-indigo-100 rounded-2xl flex items-center justify-center mb-6 text-indigo-600 group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300 shadow-inner">
-                    <i class="fa-solid fa-users text-lg"></i>
+            <section class="md:col-span-12 glass-card p-6 md:p-10 rounded-[2rem] fade-in-section flex flex-col md:flex-row gap-8 items-start" style="animation-delay: 0.1s;">
+                <div class="w-12 h-12 bg-blue-50/80 border border-blue-100 rounded-2xl flex items-center justify-center text-blue-600 flex-shrink-0">
+                    <i class="fa-solid fa-book-open-reader text-xl"></i>
                 </div>
-                <h3 class="text-lg font-extrabold uppercase tracking-tight mb-3 italic text-gray-950 group-hover:text-indigo-600 transition-colors">Inclusivity</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">Providing a respectful and equal platform for every student and professional to showcase their legal expertise without bias.</p>
-            </div>
-            
-            <div class="legal-card p-8 rounded-3xl group">
-                <div class="w-12 h-12 bg-emerald-50 border border-emerald-100 rounded-2xl flex items-center justify-center mb-6 text-emerald-600 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-inner">
-                    <i class="fa-solid fa-scale-balanced text-lg"></i>
-                </div>
-                <h3 class="text-lg font-extrabold uppercase tracking-tight mb-3 italic text-gray-950 group-hover:text-emerald-600 transition-colors">Integrity</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">Maintaining absolute transparency and fairness through our rigorous Double-Blind Peer Review process.</p>
-            </div>
-
-            <div class="legal-card p-8 rounded-3xl group">
-                <div class="w-12 h-12 bg-orange-50 border border-orange-100 rounded-2xl flex items-center justify-center mb-6 text-orange-600 group-hover:scale-110 group-hover:bg-orange-600 group-hover:text-white transition-all duration-300 shadow-inner">
-                    <i class="fa-solid fa-lock-open text-lg"></i>
-                </div>
-                <h3 class="text-lg font-extrabold uppercase tracking-tight mb-3 italic text-gray-950 group-hover:text-orange-600 transition-colors">Open Access</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">Ensuring 100% free access to all published research, removing paywalls to let knowledge reach its rightful audience globally.</p>
-            </div>
-        </div>
-
-        <section class="space-y-8 pt-8 fade-in-section" style="animation-delay: 0.4s;">
-            <div class="text-center">
-                <h2 class="text-3xl md:text-4xl font-extrabold uppercase tracking-tighter text-gray-950 leading-none">The Editorial <span class="italic font-medium text-blue-600 font-serif normal-case">Board</span></h2>
-                <div class="h-1 w-16 bg-blue-600 mx-auto rounded-full mt-4 shadow-lg shadow-blue-500/20"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-6">
-                
-                <div class="legal-card p-10 rounded-[2.5rem] border-l-4 border-blue-600 flex flex-col justify-between">
-                    <div>
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-6">
-                            <i class="fa-solid fa-star text-blue-500 text-[10px]"></i>
-                            <h4 class="text-blue-700 font-bold text-[10px] uppercase tracking-widest">Editor-In-Chief</h4>
-                        </div>
-                        <h3 class="text-4xl font-extrabold text-gray-950 tracking-tighter mb-4">Rey</h3>
-                    </div>
-                    
-                    <div class="border-t border-gray-100 pt-6 mt-6">
-                        <p class="text-xs font-extrabold text-gray-900 uppercase tracking-tight mb-1">Surendranath Law College</p>
-                        <p class="text-[11px] text-yellow-700 font-bold italic tracking-wide uppercase">University of Calcutta</p>
+                <div>
+                    <h2 class="text-xl font-black uppercase tracking-tighter text-gray-900 mb-4">Our Origin & <span class="italic text-blue-600 font-serif font-medium normal-case">Mission</span></h2>
+                    <div class="grid md:grid-cols-2 gap-6 text-gray-500 text-xs leading-relaxed">
+                        <p>
+                            Founded in <span class="font-bold text-gray-900">2026</span>, Law Journal emerged from a simple yet powerful realization: emerging law students and young professionals often lack an accessible, respectful platform to voice their academic research. While many established journals cater primarily to seasoned academics, we built this platform to democratize legal scholarship.
+                        </p>
+                        <p class="bg-gray-50/50 p-4 rounded-xl border border-gray-100/50">
+                            We strongly believe that every student's analytical reasoning deserves a proper stage, genuine recognition, and the utmost respect. Our mission is to bridge the gap in legal publishing by providing an inclusive, open-access environment where both passionate law students and experienced professionals can share their insights with the global legal community.
+                        </p>
                     </div>
                 </div>
-
-                <div class="legal-card p-10 rounded-[2.5rem]">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-200 mb-6">
-                        <i class="fa-solid fa-graduation-cap text-gray-500 text-[10px]"></i>
-                        <h4 class="text-gray-600 font-bold text-[10px] uppercase tracking-widest">Core Committee</h4>
-                    </div>
-                    <h3 class="text-xl font-extrabold text-gray-950 tracking-tight mb-4 leading-snug">Editorial & <br>Review Team</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                        Our journal's academic integrity is upheld by two dedicated Senior Editors and a fixed panel of expert Peer Reviewers. This permanent team is committed to guiding authors through the publication process, ensuring that every manuscript is evaluated with fairness, objectivity, and academic rigor.
-                    </p>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="space-y-8 pt-8 fade-in-section" style="animation-delay: 0.5s;">
-            <div class="text-center">
-                <h2 class="text-3xl md:text-4xl font-extrabold uppercase tracking-tighter text-gray-950 leading-none">Official <span class="italic font-medium text-blue-600 font-serif normal-case">Channels</span></h2>
-                <div class="h-1 w-16 bg-blue-600 mx-auto rounded-full mt-4 shadow-lg shadow-blue-500/20"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-6">
-                <a href="https://www.instagram.com/lawjournal.online" target="_blank" class="legal-card p-8 rounded-3xl flex items-center gap-6 hover:bg-pink-50/50 transition-all duration-500 group border hover:border-pink-100">
-                    <div class="w-14 h-14 bg-pink-50 border border-pink-100 text-pink-600 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-gradient-to-tr group-hover:from-yellow-400 group-hover:via-pink-500 group-hover:to-purple-600 group-hover:text-white transition-all duration-300 shadow-inner group-hover:shadow-lg group-hover:shadow-pink-500/20">
-                        <i class="fa-brands fa-instagram text-2xl"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-1 group-hover:text-pink-700 transition-colors">Follow Us</h4>
-                        <p class="text-base font-bold text-gray-950 group-hover:text-pink-900 transition-colors">@lawjournal.online</p>
-                    </div>
-                    <i class="fa-solid fa-arrow-right text-gray-300 ml-auto group-hover:text-pink-400 group-hover:translate-x-1 transition-all"></i>
-                </a>
-
-                <a href="mailto:admin@lawjournal.online" class="legal-card p-8 rounded-3xl flex items-center gap-6 hover:bg-blue-50/50 transition-all duration-500 group border hover:border-blue-100">
-                    <div class="w-14 h-14 bg-blue-50 border border-blue-100 text-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-inner group-hover:shadow-lg group-hover:shadow-blue-500/20">
-                        <i class="fa-solid fa-envelope text-2xl"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-1 group-hover:text-blue-700 transition-colors">Email Us</h4>
-                        <p class="text-base font-bold text-gray-950 group-hover:text-blue-900 transition-colors">admin@lawjournal.online</p>
-                    </div>
-                    <i class="fa-solid fa-arrow-right text-gray-300 ml-auto group-hover:text-blue-400 group-hover:translate-x-1 transition-all"></i>
-                </a>
-            </div>
-        </section>
-
-        <div class="grid md:grid-cols-2 gap-6 pt-10 fade-in-section" style="animation-delay: 0.7s;">
-            <section class="legal-card p-8 rounded-[2.2rem] border border-gray-100 text-center bg-gray-50/50">
-                <h2 class="text-xl font-extrabold uppercase tracking-tight text-gray-950 mb-2 leading-none">Submission Guidelines</h2>
-                <p class="text-gray-500 text-xs mb-6 max-w-sm mx-auto leading-relaxed">Review our comprehensive manuscript formatting rules and selection criteria.</p>
-                <a href="guidelines.html" class="inline-block bg-white border border-gray-200 text-gray-950 font-bold py-3 px-8 rounded-xl text-xs hover:border-gray-950 hover:bg-gray-950 hover:text-white transition shadow-sm hover:shadow-lg hover:-translate-y-0.5">
-                    READ GUIDELINES
-                </a>
             </section>
 
-            <section class="legal-card p-8 rounded-[2.2rem] border border-gray-100 text-center bg-gray-50/50">
-                <h2 class="text-xl font-extrabold uppercase tracking-tight text-gray-950 mb-2 leading-none">Terms & Conditions</h2>
-                <p class="text-gray-500 text-xs mb-6 max-w-sm mx-auto leading-relaxed">Read our general platform usage rules, privacy policies, and copyright terms.</p>
-                <a href="terms.html" class="inline-block bg-white border border-gray-200 text-gray-950 font-bold py-3 px-8 rounded-xl text-xs hover:border-gray-950 hover:bg-gray-950 hover:text-white transition shadow-sm hover:shadow-lg hover:-translate-y-0.5">
-                    READ TERMS
-                </a>
-            </section>
-        </div>
+            <div class="md:col-span-4 glass-card p-6 rounded-[1.5rem] fade-in-section group" style="animation-delay: 0.2s;">
+                <div class="w-8 h-8 bg-indigo-50 border border-indigo-100/50 rounded-xl flex items-center justify-center mb-4 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                    <i class="fa-solid fa-users text-sm"></i>
+                </div>
+                <h3 class="text-sm font-black uppercase tracking-tight mb-2 italic text-gray-900">Inclusivity</h3>
+                <p class="text-gray-500 text-[11px] leading-relaxed">Providing a respectful and equal platform for every student and professional to showcase their legal expertise without bias.</p>
+            </div>
+            
+            <div class="md:col-span-4 glass-card p-6 rounded-[1.5rem] fade-in-section group" style="animation-delay: 0.3s;">
+                <div class="w-8 h-8 bg-emerald-50 border border-emerald-100/50 rounded-xl flex items-center justify-center mb-4 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                    <i class="fa-solid fa-scale-balanced text-sm"></i>
+                </div>
+                <h3 class="text-sm font-black uppercase tracking-tight mb-2 italic text-gray-900">Integrity</h3>
+                <p class="text-gray-500 text-[11px] leading-relaxed">Maintaining absolute transparency and fairness through our rigorous Double-Blind Peer Review process.</p>
+            </div>
 
+            <div class="md:col-span-4 glass-card p-6 rounded-[1.5rem] fade-in-section group" style="animation-delay: 0.4s;">
+                <div class="w-8 h-8 bg-orange-50 border border-orange-100/50 rounded-xl flex items-center justify-center mb-4 text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-colors duration-300">
+                    <i class="fa-solid fa-lock-open text-sm"></i>
+                </div>
+                <h3 class="text-sm font-black uppercase tracking-tight mb-2 italic text-gray-900">Open Access</h3>
+                <p class="text-gray-500 text-[11px] leading-relaxed">Ensuring 100% free access to all published research, removing paywalls to let knowledge reach its rightful audience globally.</p>
+            </div>
+
+            <div class="md:col-span-5 glass-card p-6 rounded-[2rem] fade-in-section border-l-4 border-l-blue-600 flex flex-col justify-between relative overflow-hidden" style="animation-delay: 0.5s;">
+                <div class="absolute -right-4 -top-4 opacity-[0.03] text-9xl pointer-events-none">
+                    <i class="fa-solid fa-gavel"></i>
+                </div>
+                <div>
+                    <h4 class="text-blue-600 font-black text-[9px] uppercase tracking-widest mb-4">Editor-In-Chief</h4>
+                    <h3 class="text-3xl font-black text-gray-900 tracking-tighter mb-1">Rey</h3>
+                </div>
+                <div class="mt-8 pt-4 border-t border-gray-100">
+                    <p class="text-[11px] font-black text-gray-800 uppercase tracking-tight">Surendranath Law College</p>
+                    <p class="text-[9px] text-gray-500 font-bold italic tracking-wider uppercase mt-0.5">University of Calcutta</p>
+                </div>
+            </div>
+
+            <div class="md:col-span-7 glass-card p-6 rounded-[2rem] fade-in-section" style="animation-delay: 0.6s;">
+                <h4 class="text-gray-400 font-black text-[9px] uppercase tracking-widest mb-4">Core Committee</h4>
+                <h3 class="text-lg font-black text-gray-900 tracking-tight mb-3">Editorial & Review Team</h3>
+                <p class="text-xs text-gray-500 leading-relaxed">
+                    Our journal's academic integrity is upheld by two dedicated Senior Editors and a fixed panel of expert Peer Reviewers. This permanent team is committed to guiding authors through the publication process, ensuring that every manuscript is evaluated with fairness, objectivity, and academic rigor.
+                </p>
+            </div>
+
+            <a href="https://www.instagram.com/lawjournal.online" target="_blank" class="md:col-span-6 glass-card p-5 rounded-[1.5rem] fade-in-section flex items-center gap-4 group" style="animation-delay: 0.7s;">
+                <div class="w-10 h-10 bg-pink-50 text-pink-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-gradient-to-tr group-hover:from-yellow-400 group-hover:via-pink-500 group-hover:to-purple-600 group-hover:text-white transition-all duration-300">
+                    <i class="fa-brands fa-instagram text-lg"></i>
+                </div>
+                <div>
+                    <h4 class="text-[9px] font-bold uppercase tracking-widest text-gray-400 mb-0.5">Official Instagram</h4>
+                    <p class="text-xs font-bold text-gray-900">@lawjournal.online</p>
+                </div>
+                <i class="fa-solid fa-arrow-right text-gray-300 ml-auto text-xs group-hover:text-pink-500 group-hover:translate-x-1 transition-all"></i>
+            </a>
+
+            <a href="mailto:admin@lawjournal.online" class="md:col-span-6 glass-card p-5 rounded-[1.5rem] fade-in-section flex items-center gap-4 group" style="animation-delay: 0.8s;">
+                <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                    <i class="fa-solid fa-envelope text-lg"></i>
+                </div>
+                <div>
+                    <h4 class="text-[9px] font-bold uppercase tracking-widest text-gray-400 mb-0.5">Editorial Email</h4>
+                    <p class="text-xs font-bold text-gray-900">admin@lawjournal.online</p>
+                </div>
+                <i class="fa-solid fa-arrow-right text-gray-300 ml-auto text-xs group-hover:text-blue-500 group-hover:translate-x-1 transition-all"></i>
+            </a>
+
+            <div class="md:col-span-12 grid grid-cols-2 gap-5 mt-2 fade-in-section" style="animation-delay: 0.9s;">
+                <a href="guidelines.html" class="glass-card p-5 rounded-[1.5rem] flex flex-col justify-center items-center text-center hover:bg-white transition-colors">
+                    <h2 class="text-[11px] font-black uppercase tracking-tight text-gray-900 mb-1">Submission Guidelines</h2>
+                    <p class="text-gray-400 text-[9px] mb-3 max-w-[150px]">Formatting rules and criteria.</p>
+                    <span class="text-[9px] font-bold text-blue-600 uppercase tracking-widest">Read <i class="fa-solid fa-chevron-right text-[8px] ml-1"></i></span>
+                </a>
+
+                <a href="terms.html" class="glass-card p-5 rounded-[1.5rem] flex flex-col justify-center items-center text-center hover:bg-white transition-colors">
+                    <h2 class="text-[11px] font-black uppercase tracking-tight text-gray-900 mb-1">Terms & Conditions</h2>
+                    <p class="text-gray-400 text-[9px] mb-3 max-w-[150px]">Platform usage and policies.</p>
+                    <span class="text-[9px] font-bold text-blue-600 uppercase tracking-widest">Read <i class="fa-solid fa-chevron-right text-[8px] ml-1"></i></span>
+                </a>
+            </div>
+
+        </div>
     </main>
 
-    <footer class="py-20 text-center border-t border-gray-100 bg-white/60 backdrop-blur-md">
-        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.5em] mb-3">Contact Editor-In-Chief</p>
-        <p class="text-xs font-extrabold text-gray-800 mb-8 uppercase tracking-wider border border-gray-100 inline-block px-4 py-1.5 rounded-full bg-white shadow-inner">admin@lawjournal.online</p>
-        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.5em]">&copy; 2026 • lawjournal.online</p>
+    <footer class="py-12 text-center border-t border-gray-200/50 bg-white/50 backdrop-blur-md">
+        <p class="text-[8px] font-bold text-gray-400 uppercase tracking-[0.4em] mb-2">Contact Editor-In-Chief</p>
+        <p class="text-[10px] font-black text-gray-800 mb-6 uppercase tracking-widest">admin@lawjournal.online</p>
+        <p class="text-[8px] font-bold text-gray-400 uppercase tracking-[0.4em]">&copy; 2026 • lawjournal.online</p>
     </footer>
 
     <script>
-        // Anti-Copy & Security (Enhanced)
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.addEventListener('copy', e => e.preventDefault());
         document.onkeydown = function(e) {
-            // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
             if (
                 e.key === 'F12' ||
                 (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) ||
