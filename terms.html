@@ -2,50 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Terms of Service | Law Journal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap');
         
         body { 
             font-family: 'Inter', sans-serif; 
-            background-color: #fcfdfe; 
+            background-color: #f8fafc; 
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 24px 24px;
             color: #1a1a1a;
             overflow-x: hidden;
             -webkit-user-select: none;
             user-select: none;
+            touch-action: pan-x pan-y;
         }
         .font-serif { font-family: 'Playfair Display', serif; }
         
         .fade-in-section {
-            animation: fadeInUp 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 0;
         }
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .legal-card {
-            background: white;
-            border: 1px solid #f1f5f9;
-            transition: all 0.5s ease;
-            position: relative;
-            overflow: hidden;
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 1);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
         }
-        .legal-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 4px; height: 0;
-            background: #2563eb;
-            transition: height 0.5s ease;
-        }
-        .legal-card:hover::before { height: 100%; }
-        .legal-card:hover {
-            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.05);
-            border-color: #e2e8f0;
+        .glass-card:hover {
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 1);
+            border-color: rgba(219, 234, 254, 0.8);
+            transform: translateY(-4px);
         }
 
         .page-fade-out { opacity: 0 !important; transition: opacity 0.3s; }
@@ -53,160 +49,154 @@
 </head>
 <body class="selection:bg-blue-100 selection:text-blue-900">
 
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100 px-6 py-5 md:px-16 flex justify-between items-center">
-        <div class="flex items-center gap-3">
-            <div class="p-2 bg-blue-600 rounded-lg text-white">
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50 px-5 py-3 md:px-12 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div class="p-1.5 bg-blue-600 rounded-lg text-white text-[10px] shadow-sm">
                 <i class="fa-solid fa-gavel"></i>
             </div>
-            <span class="font-black tracking-tighter text-xl uppercase italic">Law <span class="text-blue-600">Journal</span></span>
+            <span class="font-black tracking-tighter text-xs uppercase italic text-gray-900">Law <span class="text-blue-600">Journal</span></span>
         </div>
-        <a href="index.html" class="group flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-blue-600 transition">
+        <a href="index.html" class="group flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-gray-500 hover:text-blue-600 transition">
             <i class="fa-solid fa-arrow-left transition group-hover:-translate-x-1"></i> Return Home
         </a>
     </nav>
 
-    <header class="pt-24 pb-20 px-6 text-center max-w-4xl mx-auto fade-in-section">
-        <h4 class="text-blue-600 font-black text-[10px] uppercase tracking-[0.4em] mb-4">Official Documentation</h4>
-        <h1 class="text-5xl md:text-8xl font-serif font-bold leading-tight tracking-tight mb-8">User Agreement & <br><span class="italic text-gray-400 font-medium text-4xl md:text-7xl">Platform Ethics</span></h1>
-        <div class="h-1 w-24 bg-blue-600 mx-auto rounded-full"></div>
+    <header class="pt-16 pb-12 px-5 text-center max-w-4xl mx-auto fade-in-section">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-gray-200 mb-4 shadow-sm">
+            <h4 class="text-gray-600 font-bold text-[8px] uppercase tracking-[0.2em]">Official Documentation</h4>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-serif font-bold leading-tight tracking-tight mb-4 text-gray-900">User Agreement & <br><span class="italic text-gray-400 font-medium text-3xl md:text-5xl text-blue-600">Platform Ethics</span></h1>
+        <div class="h-1 w-12 bg-blue-600 mx-auto rounded-full opacity-80"></div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-6 pb-24 space-y-12">
+    <main class="max-w-5xl mx-auto px-5 pb-20">
+        
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
 
-        <section class="legal-card p-10 md:p-16 rounded-[2rem] fade-in-section" style="animation-delay: 0.1s;">
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="md:col-span-2">
-                    <h2 class="text-3xl font-black uppercase tracking-tighter mb-6 flex items-center gap-3">
-                        <span class="text-blue-600">01.</span> General Information
-                    </h2>
-                    <p class="text-gray-500 text-lg leading-relaxed text-justify">
-                        This digital platform, <b>Lawjournal.online</b> (hereinafter referred to as "the Blog"), is an academic initiative designed to serve as a supplementary study aid for law students and enthusiasts engaged in legal academia. By accessing this platform, you acknowledge that you are seeking educational insights for personal study and not professional legal representation.
-                    </p>
-                </div>
-                <div class="space-y-4 flex flex-col justify-center">
-                    <a href="mailto:admin@lawjournal.online" class="p-5 bg-gray-900 text-white rounded-2xl flex items-center justify-between group hover:bg-blue-600 transition-all">
-                        <span class="text-[10px] font-bold uppercase tracking-widest">Email Support</span>
-                        <i class="fa-solid fa-envelope group-hover:rotate-12 transition"></i>
-                    </a>
-                    <a href="https://www.instagram.com/midieeeeee" target="_blank" class="p-5 bg-blue-50 text-blue-700 rounded-2xl flex items-center justify-between group hover:bg-blue-100 transition-all">
-                        <span class="text-[10px] font-bold uppercase tracking-widest">Instagram</span>
-                        <i class="fa-brands fa-instagram group-hover:scale-125 transition"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="legal-card p-10 md:p-16 rounded-[2rem] border-l-8 border-red-500 fade-in-section" style="animation-delay: 0.2s;">
-            <h2 class="text-3xl font-black uppercase tracking-tighter mb-6 flex items-center gap-3">
-                <span class="text-red-500">02.</span> Intellectual Property Claims
-            </h2>
-            <p class="text-gray-500 text-lg leading-relaxed mb-8">
-                We take intellectual property seriously. If you are a copyright holder and find content that belongs to you or your organization, you may submit a <b>Notice of Infringement</b>. 
-            </p>
-            <div class="bg-red-50 border border-red-100 p-8 rounded-3xl">
-                <h4 class="text-red-900 font-bold uppercase text-xs tracking-widest mb-4">Procedure for Removal:</h4>
-                <p class="text-red-800 text-sm leading-relaxed mb-4">Please contact the administrator via the official support channels with: 1. Identification of the copyrighted work, 2. The URL on our site, and 3. Proof of ownership. Valid requests are typically processed within 48 to 72 business hours.</p>
-            </div>
-        </section>
-
-        <section class="legal-card p-10 md:p-16 rounded-[2rem] fade-in-section" style="animation-delay: 0.3s;">
-            <h2 class="text-3xl font-black uppercase tracking-tighter mb-6 flex items-center gap-3">
-                <span class="text-blue-600">03.</span> Anti-Bot & Automated Access
-            </h2>
-            <p class="text-gray-500 text-lg leading-relaxed mb-6">
-                Unauthorized data mining is strictly prohibited. To maintain the integrity of our hosting environment and protect our proprietary summaries:
-            </p>
-            <ul class="space-y-4">
-                <li class="flex gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
-                    <i class="fa-solid fa-ban text-red-500 mt-1"></i>
-                    <span class="text-sm font-medium text-gray-700">The use of AI crawlers, scrapers, or automated harvesting software is forbidden without prior written consent.</span>
-                </li>
-                <li class="flex gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
-                    <i class="fa-solid fa-gavel text-blue-500 mt-1"></i>
-                    <span class="text-sm font-medium text-gray-700">Violations will result in an immediate IP-based access block and may lead to legal reporting under Indian Cyber Laws.</span>
-                </li>
-            </ul>
-        </section>
-
-        <section class="legal-card p-10 md:p-16 rounded-[2rem] fade-in-section" style="animation-delay: 0.4s;">
-            <h2 class="text-3xl font-black uppercase tracking-tighter mb-6 flex items-center gap-3">
-                <span class="text-blue-600">04.</span> User Conduct
-            </h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-4">
-                    <h5 class="font-black text-xs uppercase tracking-widest text-gray-400 italic">Prohibited Actions:</h5>
-                    <p class="text-gray-500 text-sm leading-relaxed">Users shall not attempt to inject malicious code, disrupt the site’s performance, or redistribute the content of this Blog on commercial platforms or for-profit academic portals.</p>
-                </div>
-                <div class="space-y-4">
-                    <h5 class="font-black text-xs uppercase tracking-widest text-gray-400 italic">Permitted Use:</h5>
-                    <p class="text-gray-500 text-sm leading-relaxed">Printing for personal study, referencing in moot court memos (with proper citation), and sharing links for peer-to-peer non-commercial learning is encouraged.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="legal-card p-10 md:p-16 rounded-[2rem] fade-in-section" style="animation-delay: 0.5s;">
-            <h2 class="text-3xl font-black uppercase tracking-tighter mb-6 flex items-center gap-3">
-                <span class="text-blue-600">05.</span> Disclaimer of Liability
-            </h2>
-            <div class="p-8 bg-amber-50 rounded-[2rem] border-2 border-dashed border-amber-200">
-                <p class="text-amber-900 font-bold mb-4 italic">"The law is a living organism, constantly evolving through judicial precedents."</p>
-                <p class="text-amber-800 text-sm md:text-base leading-relaxed">
-                    The information provided is <b>"AS IS"</b>. While we strive for academic rigor, we do not guarantee that every summary is updated with the latest Supreme Court or High Court amendments. We shall not be held liable for any academic failures or adverse legal outcomes based on reliance upon this content.
+            <div class="md:col-span-8 glass-card p-8 rounded-[2rem] fade-in-section" style="animation-delay: 0.1s;">
+                <h2 class="text-lg font-black uppercase tracking-tighter mb-4 flex items-center gap-2 text-gray-900">
+                    <span class="text-blue-600">01.</span> General Information
+                </h2>
+                <p class="text-gray-600 text-[11px] leading-relaxed text-justify">
+                    This digital platform, <b class="text-gray-900">Lawjournal.online</b> (hereinafter referred to as "the Blog"), is an academic initiative designed to serve as a supplementary study aid for law students and enthusiasts engaged in legal academia. By accessing this platform, you acknowledge that you are seeking educational insights for personal study and not professional legal representation.
                 </p>
             </div>
-        </section>
 
-        <section class="legal-card p-10 md:p-16 rounded-[2rem] fade-in-section" style="animation-delay: 0.6s;">
-            <h2 class="text-3xl font-black uppercase tracking-tighter mb-6 flex items-center gap-3">
-                <span class="text-blue-600">06.</span> Third-Party Content
-            </h2>
-            <p class="text-gray-500 text-lg leading-relaxed">
-                The Blog may contain links to external sites. We do not control, endorse, or take responsibility for the privacy practices or the content of these external entities. Always refer to original Bare Acts for litigation purposes.
-            </p>
-        </section>
+            <div class="md:col-span-4 flex flex-col gap-5 fade-in-section" style="animation-delay: 0.15s;">
+                <a href="mailto:admin@lawjournal.online" class="flex-1 glass-card p-6 bg-gray-900/5 hover:bg-blue-600 text-gray-900 hover:text-white rounded-[2rem] border border-gray-200 flex items-center justify-between group transition-all duration-300">
+                    <span class="text-[10px] font-black uppercase tracking-widest">Email Support</span>
+                    <i class="fa-solid fa-envelope text-sm group-hover:rotate-12 transition"></i>
+                </a>
+                <a href="https://www.instagram.com/midieeeeee" target="_blank" class="flex-1 glass-card p-6 bg-blue-50/50 hover:bg-blue-100 text-blue-700 rounded-[2rem] border border-blue-100 flex items-center justify-between group transition-all duration-300">
+                    <span class="text-[10px] font-black uppercase tracking-widest">Instagram</span>
+                    <i class="fa-brands fa-instagram text-lg group-hover:scale-125 transition"></i>
+                </a>
+            </div>
 
-        <section class="legal-card p-10 md:p-16 rounded-[2rem] fade-in-section" style="animation-delay: 0.7s;">
-            <h2 class="text-3xl font-black uppercase tracking-tighter mb-6 flex items-center gap-3">
-                <span class="text-blue-600">07.</span> Right to Amend
-            </h2>
-            <p class="text-gray-500 text-lg leading-relaxed mb-8">
-                We reserve the right to modify these Terms of Service at any time without prior notice. Continued use of the platform after changes have been posted constitutes your acceptance of the revised agreement.
-            </p>
-            <div class="h-px w-full bg-gray-100 my-8"></div>
-            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.3em]">Last Updated: April 2026</p>
-        </section>
+            <div class="md:col-span-12 glass-card p-8 rounded-[2rem] border-l-4 border-l-red-500 fade-in-section" style="animation-delay: 0.2s;">
+                <h2 class="text-lg font-black uppercase tracking-tighter mb-4 flex items-center gap-2 text-gray-900">
+                    <span class="text-red-500">02.</span> Intellectual Property Claims
+                </h2>
+                <p class="text-gray-600 text-[11px] leading-relaxed mb-5">
+                    We take intellectual property seriously. If you are a copyright holder and find content that belongs to you or your organization, you may submit a <b class="text-gray-900">Notice of Infringement</b>. 
+                </p>
+                <div class="bg-red-50/50 border border-red-100/50 p-5 rounded-2xl">
+                    <h4 class="text-red-800 font-black uppercase text-[9px] tracking-widest mb-2">Procedure for Removal:</h4>
+                    <p class="text-red-700/80 text-[10px] leading-relaxed">Please contact the administrator via the official support channels with: 1. Identification of the copyrighted work, 2. The URL on our site, and 3. Proof of ownership. Valid requests are typically processed within 48 to 72 business hours.</p>
+                </div>
+            </div>
 
+            <div class="md:col-span-6 glass-card p-8 rounded-[2rem] fade-in-section" style="animation-delay: 0.3s;">
+                <h2 class="text-lg font-black uppercase tracking-tighter mb-4 flex items-center gap-2 text-gray-900">
+                    <span class="text-blue-600">03.</span> Anti-Bot & Access
+                </h2>
+                <p class="text-gray-600 text-[11px] leading-relaxed mb-4">
+                    Unauthorized data mining is strictly prohibited. To maintain the integrity of our hosting environment and protect our proprietary summaries:
+                </p>
+                <ul class="space-y-3">
+                    <li class="flex gap-3 p-3 bg-gray-50/50 rounded-xl border border-gray-100">
+                        <i class="fa-solid fa-ban text-red-500 text-[10px] mt-0.5"></i>
+                        <span class="text-[10px] font-medium text-gray-600 leading-relaxed">The use of AI crawlers, scrapers, or automated harvesting software is forbidden without prior written consent.</span>
+                    </li>
+                    <li class="flex gap-3 p-3 bg-gray-50/50 rounded-xl border border-gray-100">
+                        <i class="fa-solid fa-gavel text-blue-500 text-[10px] mt-0.5"></i>
+                        <span class="text-[10px] font-medium text-gray-600 leading-relaxed">Violations will result in an immediate IP-based access block and may lead to legal reporting.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-6 glass-card p-8 rounded-[2rem] fade-in-section flex flex-col justify-center" style="animation-delay: 0.4s;">
+                <h2 class="text-lg font-black uppercase tracking-tighter mb-5 flex items-center gap-2 text-gray-900">
+                    <span class="text-blue-600">04.</span> User Conduct
+                </h2>
+                <div class="space-y-5">
+                    <div>
+                        <h5 class="font-black text-[9px] uppercase tracking-widest text-red-400 mb-1">Prohibited Actions:</h5>
+                        <p class="text-gray-600 text-[11px] leading-relaxed">Users shall not attempt to inject malicious code, disrupt the site’s performance, or redistribute the content of this Blog on commercial platforms or for-profit academic portals.</p>
+                    </div>
+                    <div>
+                        <h5 class="font-black text-[9px] uppercase tracking-widest text-green-500 mb-1">Permitted Use:</h5>
+                        <p class="text-gray-600 text-[11px] leading-relaxed">Printing for personal study, referencing in moot court memos (with proper citation), and sharing links for peer-to-peer non-commercial learning is encouraged.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-12 glass-card p-8 rounded-[2rem] fade-in-section" style="animation-delay: 0.5s;">
+                <h2 class="text-lg font-black uppercase tracking-tighter mb-4 flex items-center gap-2 text-gray-900">
+                    <span class="text-blue-600">05.</span> Disclaimer of Liability
+                </h2>
+                <div class="p-6 bg-amber-50/50 rounded-[1.5rem] border border-dashed border-amber-200">
+                    <p class="text-amber-700 font-bold mb-3 italic text-xs">"The law is a living organism, constantly evolving through judicial precedents."</p>
+                    <p class="text-amber-800/80 text-[11px] leading-relaxed">
+                        The information provided is <b class="text-amber-900">"AS IS"</b>. While we strive for academic rigor, we do not guarantee that every summary is updated with the latest Supreme Court or High Court amendments. We shall not be held liable for any academic failures or adverse legal outcomes based on reliance upon this content.
+                    </p>
+                </div>
+            </div>
+
+            <div class="md:col-span-6 glass-card p-8 rounded-[2rem] fade-in-section" style="animation-delay: 0.6s;">
+                <h2 class="text-lg font-black uppercase tracking-tighter mb-3 flex items-center gap-2 text-gray-900">
+                    <span class="text-blue-600">06.</span> Third-Party Content
+                </h2>
+                <p class="text-gray-600 text-[11px] leading-relaxed">
+                    The Blog may contain links to external sites. We do not control, endorse, or take responsibility for the privacy practices or the content of these external entities. Always refer to original Bare Acts for litigation purposes.
+                </p>
+            </div>
+
+            <div class="md:col-span-6 glass-card p-8 rounded-[2rem] fade-in-section flex flex-col justify-between" style="animation-delay: 0.7s;">
+                <div>
+                    <h2 class="text-lg font-black uppercase tracking-tighter mb-3 flex items-center gap-2 text-gray-900">
+                        <span class="text-blue-600">07.</span> Right to Amend
+                    </h2>
+                    <p class="text-gray-600 text-[11px] leading-relaxed">
+                        We reserve the right to modify these Terms of Service at any time without prior notice. Continued use of the platform constitutes your acceptance.
+                    </p>
+                </div>
+                <div class="mt-5 pt-4 border-t border-gray-100">
+                    <p class="text-[9px] text-gray-400 font-black uppercase tracking-[0.3em]">Last Updated: April 2026</p>
+                </div>
+            </div>
+
+            <div class="md:col-span-12 mt-6 fade-in-section" style="animation-delay: 0.8s;">
+                <div class="max-w-md mx-auto p-1">
+                    <div class="glass-card border border-dashed border-gray-300 rounded-[2rem] p-8 text-center bg-white/50">
+                        <h3 class="text-lg font-black uppercase tracking-tighter mb-2 text-gray-900">
+                            Submission Guidelines
+                        </h3>
+                        <p class="text-gray-400 text-[9px] font-bold uppercase tracking-widest mb-6 leading-relaxed">
+                            Review our academic protocols <br> for article submission.
+                        </p>
+                        <a href="submission-guideline.html" class="inline-block bg-white border border-gray-300 text-gray-900 font-black py-2.5 px-8 rounded-xl text-[10px] hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-300 uppercase tracking-widest shadow-sm">
+                            Read Guidelines
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </main>
 
-
-
-    
-
-<div class="max-w-md mx-auto p-4 animate__animated animate__fadeIn">
-    <div class="border-2 border-dashed border-gray-200 rounded-[2rem] p-8 text-center bg-white shadow-sm">
-        
-        <h3 class="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-4 text-slate-900">
-            SUBMISSION GUIDELINES
-        </h3>
-
-        <p class="text-slate-400 text-[11px] font-bold uppercase tracking-widest mb-8 leading-relaxed">
-            Review our academic protocols <br> for article submission.
-        </p>
-
-        <a href="submission-guideline.html" class="inline-block bg-white border-2 border-slate-900 text-slate-900 font-black py-3 px-10 rounded-xl text-xs hover:bg-slate-900 hover:text-white transition-all duration-300 uppercase tracking-widest">
-            Read Guidelines
-        </a>
-        
-    </div>
-</div>
-
-
-
-
-    
-    
-    <footer class="py-20 text-center border-t border-gray-100">
-        <p class="text-[10px] font-black text-gray-400 uppercase tracking-[0.5em]">&copy; 2026 lawjournal.online</p>
+    <footer class="py-12 text-center border-t border-gray-200/50 bg-white/50 backdrop-blur-md">
+        <p class="text-[9px] font-black text-gray-400 uppercase tracking-[0.4em]">&copy; 2026 lawjournal.online</p>
     </footer>
 
     <script>
@@ -229,8 +219,13 @@
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.addEventListener('copy', e => e.preventDefault());
         document.onkeydown = function(e) {
-            if (e.ctrlKey && [67, 86, 85, 83, 73, 74].includes(e.keyCode)) return false;
-            if (e.key === 'F12') return false;
+            if (
+                e.key === 'F12' ||
+                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) ||
+                (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S'))
+            ) {
+                return false;
+            }
         };
     </script>
 </body>
