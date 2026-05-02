@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>About Us | Law Journal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600;700;900&display=swap');
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fcfdfe; 
+            color: #1a1a1a;
+            overflow-x: hidden;
+            -webkit-user-select: none;
+            user-select: none;
+            touch-action: pan-x pan-y; /* Anti-zoom fix */
+        }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .fade-in-section {
+            animation: fadeInUp 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+            opacity: 0;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .legal-card {
+            background: white;
+            border: 1px solid #f1f5f9;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .legal-card:hover {
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.05);
+            border-color: #e2e8f0;
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="selection:bg-blue-100">
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-100 px-5 py-4 md:px-16 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div class="p-1.5 bg-blue-600 rounded text-white text-xs">
+                <i class="fa-solid fa-pen-nib"></i>
+            </div>
+            <span class="font-black tracking-tighter text-sm uppercase italic">Law <span class="text-blue-600 text-xs">Journal</span></span>
+        </div>
+        <div class="flex items-center gap-4">
+             <a href="mailto:admin@lawjournal.online" class="hidden md:block text-[10px] font-bold text-gray-400 hover:text-blue-600 transition uppercase tracking-widest">
+                admin@lawjournal.online
+            </a>
+            <a href="mailto:admin@lawjournal.online" class="bg-slate-900 text-white text-[10px] font-bold py-2 px-4 rounded-full hover:bg-blue-600 transition">
+                SUBMIT NOW
+            </a>
+        </div>
+    </nav>
+
+    <header class="pt-16 pb-12 px-6 text-center max-w-4xl mx-auto fade-in-section">
+        <h4 class="text-blue-600 font-black text-[9px] uppercase tracking-[0.4em] mb-3">Established 2026</h4>
+        <h1 class="text-4xl md:text-7xl font-serif font-bold leading-tight tracking-tight mb-6">About Us & <br><span class="italic text-gray-400 font-medium text-3xl md:text-6xl text-blue-600">The Editorial Vision</span></h1>
+        <div class="h-1 w-16 bg-blue-600 mx-auto rounded-full"></div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-5 pb-24 space-y-8">
+
+        <section class="legal-card p-8 md:p-12 rounded-[2rem] fade-in-section" style="animation-delay: 0.1s;">
+            <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-blue-600">
+                <i class="fa-solid fa-book-open-reader text-xl"></i>
+            </div>
+            <h2 class="text-2xl font-black uppercase tracking-tighter mb-4">Our Origin & Mission</h2>
+            <p class="text-gray-500 text-sm leading-relaxed mb-4">
+                Founded in <span class="font-bold text-slate-800">2026</span>, Law Journal emerged from a simple yet powerful realization: emerging law students and young professionals often lack an accessible, respectful platform to voice their academic research. While many established journals cater primarily to seasoned academics, we built this platform to democratize legal scholarship.
+            </p>
+            <p class="text-gray-500 text-sm leading-relaxed">
+                We strongly believe that every student's analytical reasoning deserves a proper stage, genuine recognition, and the utmost respect. Our mission is to bridge the gap in legal publishing by providing an inclusive, open-access environment where both passionate law students and experienced professionals can share their insights with the global legal community.
+            </p>
+        </section>
+
+        <div class="grid md:grid-cols-3 gap-4 fade-in-section" style="animation-delay: 0.2s;">
+            <div class="legal-card p-6 rounded-3xl">
+                <div class="w-10 h-10 bg-indigo-50 rounded-xl flex items-center justify-center mb-4 text-indigo-600">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <h3 class="text-sm font-black uppercase tracking-tighter mb-2 italic">Inclusivity</h3>
+                <p class="text-gray-500 text-[11px] leading-relaxed">Providing a respectful and equal platform for every student and professional to showcase their legal expertise without bias.</p>
+            </div>
+            
+            <div class="legal-card p-6 rounded-3xl">
+                <div class="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center mb-4 text-emerald-600">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                </div>
+                <h3 class="text-sm font-black uppercase tracking-tighter mb-2 italic">Integrity</h3>
+                <p class="text-gray-500 text-[11px] leading-relaxed">Maintaining absolute transparency and fairness through our rigorous Double-Blind Peer Review process.</p>
+            </div>
+
+            <div class="legal-card p-6 rounded-3xl">
+                <div class="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center mb-4 text-orange-600">
+                    <i class="fa-solid fa-lock-open"></i>
+                </div>
+                <h3 class="text-sm font-black uppercase tracking-tighter mb-2 italic">Open Access</h3>
+                <p class="text-gray-500 text-[11px] leading-relaxed">Ensuring 100% free access to all published research, removing paywalls to let knowledge reach its rightful audience globally.</p>
+            </div>
+        </div>
+
+        <section class="space-y-6 pt-6 fade-in-section" style="animation-delay: 0.4s;">
+            <h2 class="text-2xl font-black uppercase tracking-tighter text-center">The Editorial Board</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                
+                <div class="legal-card p-8 rounded-[2rem] border-l-4 border-blue-600">
+                    <h4 class="text-blue-600 font-black text-[9px] uppercase tracking-widest mb-2">Editor-In-Chief</h4>
+                    <h3 class="text-2xl font-black text-slate-900 mb-2">Rey</h3>
+                    <p class="text-xs font-bold text-slate-700">Surendranath Law College</p>
+                    <p class="text-[10px] text-gray-500 italic mt-1">University of Calcutta</p>
+                </div>
+
+                <div class="legal-card p-8 rounded-[2rem]">
+                    <h4 class="text-slate-400 font-black text-[9px] uppercase tracking-widest mb-2">Core Committee</h4>
+                    <h3 class="text-lg font-black text-slate-900 mb-2">Editorial & Review Team</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">
+                        Our journal's academic integrity is upheld by two dedicated Senior Editors and a fixed panel of expert Peer Reviewers. This permanent team guides authors through the publication process, ensuring every manuscript is evaluated with absolute fairness and academic rigor.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="pt-10 space-y-6 fade-in-section" style="animation-delay: 0.6s;">
+            <h2 class="text-2xl font-black uppercase tracking-tighter text-center">Global Recognition</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="legal-card p-8 rounded-[2rem] text-center">
+                    <h4 class="text-blue-600 font-black text-[9px] uppercase tracking-widest mb-2">Recognition as Publication</h4>
+                    <p class="text-2xl font-black text-slate-900 mb-4">ISSN Archive</p>
+                    <div class="inline-block bg-slate-100 px-5 py-2 rounded-xl font-mono font-bold text-xl tracking-widest text-slate-800">
+                        2398-7416
+                    </div>
+                </div>
+
+                <div class="legal-card p-8 rounded-[2rem] bg-slate-900 text-white text-center">
+                    <h4 class="text-blue-400 font-black text-[9px] uppercase tracking-widest mb-2">Recognition as Journal</h4>
+                    <p class="text-2xl font-black mb-4">NSL New Delhi</p>
+                    <p class="text-[10px] text-slate-400 italic">Recognised by the National Science Library for international academic dissemination.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid md:grid-cols-2 gap-4 pt-4 fade-in-section" style="animation-delay: 0.8s;">
+            <section class="legal-card p-6 rounded-[2rem] border-2 border-dashed border-blue-50 text-center">
+                <h2 class="text-lg font-black uppercase tracking-tighter mb-2">Submission Guidelines</h2>
+                <p class="text-gray-400 text-[10px] mb-4">Review our manuscript formatting and acceptance criteria.</p>
+                <a href="guidelines.html" class="inline-block border-2 border-slate-900 text-slate-900 font-bold py-2 px-6 rounded-xl text-[10px] hover:bg-slate-900 hover:text-white transition">
+                    READ GUIDELINES
+                </a>
+            </section>
+
+            <section class="legal-card p-6 rounded-[2rem] border-2 border-dashed border-blue-50 text-center">
+                <h2 class="text-lg font-black uppercase tracking-tighter mb-2">Terms & Conditions</h2>
+                <p class="text-gray-400 text-[10px] mb-4">Read our general platform usage and privacy policies.</p>
+                <a href="terms.html" class="inline-block border-2 border-slate-900 text-slate-900 font-bold py-2 px-6 rounded-xl text-[10px] hover:bg-slate-900 hover:text-white transition">
+                    READ TERMS
+                </a>
+            </section>
+        </div>
+
+    </main>
+
+    <footer class="py-16 text-center border-t border-gray-100 bg-white">
+        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-[0.4em] mb-2"> Contact Editor-In-Chief</p>
+        <p class="text-[11px] font-black text-slate-600 mb-6 uppercase">admin@lawjournal.online</p>
+        <p class="text-[9px] font-black text-gray-300 uppercase tracking-[0.5em]">&copy; 2026 • lawjournal.online</p>
+    </footer>
+
+    <script>
+        // Anti-Copy & Security
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('copy', e => e.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && [67, 85, 83, 73].includes(e.keyCode)) return false;
+            if (e.key === 'F12') return false;
+        };
+    </script>
+</body>
+              </html>
+              
