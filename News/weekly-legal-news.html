@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="overflow-y-scroll">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -7,121 +7,93 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* Page back aane par stable rahega */
-        html { overflow-y: scroll; }
-    </style>
 </head>
-<body class="bg-slate-50 font-sans antialiased text-slate-800">
+<body class="bg-[#f8fafc] font-sans antialiased text-gray-800">
 
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-200 px-6 py-4">
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 px-6 py-4">
         <div class="max-w-3xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-lg font-black tracking-tighter text-blue-700 uppercase">
-                LawJournal<span class="text-slate-800">.online</span>
+            <a href="index.html" class="text-xl font-black tracking-tighter text-blue-700 uppercase">
+                LawJournal<span class="text-gray-800">.online</span>
             </a>
-            <a href="weekly-categories.html" class="text-xs font-bold text-slate-500 hover:text-blue-600 transition-colors flex items-center">
-                <i class="fa-solid fa-arrow-left mr-1.5"></i> Back
+            <a href="javascript:history.back()" class="text-sm font-bold text-gray-500 hover:text-blue-600 transition-colors flex items-center">
+                <i class="fa-solid fa-arrow-left-long mr-2"></i> Back
             </a>
         </div>
     </nav>
 
-    <main class="max-w-3xl mx-auto px-4 py-10">
+    <main class="max-w-2xl mx-auto px-4 py-12">
         
-        <div class="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-6 md:p-10 relative">
+        <div class="mb-8">
+            <h1 class="text-3xl font-black text-gray-900 tracking-tight">Weekly Wrap-Up</h1>
+            <p class="text-sm text-gray-500 mt-1 font-medium">All your essential legal updates in one place.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
             
-            <div class="border-b border-slate-100 pb-6 mb-6">
-                <div class="flex items-center justify-between mb-3">
-                    <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-widest flex items-center">
-                        <i class="fa-solid fa-bolt text-amber-500 mr-1.5"></i> This Week's Digest
-                    </span>
-                    <span class="text-[11px] text-slate-500 font-bold flex items-center">
-                        <i class="fa-regular fa-calendar mr-1.5"></i> May 4, 2026
-                    </span>
+            <div class="bg-gray-50/50 px-6 py-4 border-b border-gray-100 flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center gap-4 text-xs font-semibold text-gray-500">
+                    <span class="flex items-center"><i class="fa-regular fa-calendar mr-1.5 text-blue-500"></i> May 4, 2026</span>
+                    <span class="flex items-center"><i class="fa-regular fa-clock mr-1.5 text-blue-500"></i> 3:35 PM IST</span>
                 </div>
-                <h1 class="text-2xl font-black text-slate-900 leading-tight">
-                    Top Legal Updates & Judgments
-                </h1>
-                <p class="text-xs text-slate-500 mt-2 font-medium">Read time: 5 mins • Context for all major news this week</p>
+                <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">
+                    5 Min Read
+                </span>
             </div>
 
-            <div class="space-y-6">
-
-                <div class="flex gap-4">
-                    <div class="mt-1">
-                        <div class="w-8 h-8 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center text-xs">
-                            <i class="fa-solid fa-gavel"></i>
+            <div class="p-6 md:p-8">
+                <h2 class="text-xl font-bold text-gray-900 mb-6 leading-snug">
+                    Inside this week's digest:
+                </h2>
+                
+                <div class="space-y-6">
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 shrink-0 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 mt-1">
+                            <i class="fa-solid fa-scale-balanced text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-bold text-gray-900 mb-1">BNS Transition & Bail Provisions</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                Supreme Court's latest clarification on how pending FIRs will be treated and the preservation of statutory bail rights during the shift from IPC to Bharatiya Nyaya Sanhita.
+                            </p>
                         </div>
                     </div>
-                    <div>
-                        <span class="text-[10px] font-bold text-rose-500 uppercase tracking-wider block mb-1">Criminal Law</span>
-                        <h2 class="text-sm font-bold text-slate-800 mb-2">SC Clarifies BNS Transition & Bail Rights</h2>
-                        <ul class="space-y-1.5">
-                            <li class="flex items-start text-xs text-slate-600 leading-relaxed">
-                                <i class="fa-solid fa-circle text-[4px] text-slate-300 mt-2 mr-2"></i>
-                                <span>Fundamental rights regarding statutory bail remain intact during the IPC to BNS shift.</span>
-                            </li>
-                            <li class="flex items-start text-xs text-slate-600 leading-relaxed">
-                                <i class="fa-solid fa-circle text-[4px] text-slate-300 mt-2 mr-2"></i>
-                                <span>BNSS procedures strictly apply if the investigation started after the cutoff date.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
 
-                <div class="h-px bg-slate-100 ml-12"></div>
-
-                <div class="flex gap-4">
-                    <div class="mt-1">
-                        <div class="w-8 h-8 rounded-full bg-cyan-50 text-cyan-600 flex items-center justify-center text-xs">
-                            <i class="fa-solid fa-car-burst"></i>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 shrink-0 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 mt-1">
+                            <i class="fa-solid fa-file-shield text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-bold text-gray-900 mb-1">Motor Vehicles Act (Sec 184, 194 & 129)</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                New digital enforcement guidelines for dangerous driving and overloading, plus stricter implementation protocols for helmet rules across major metros.
+                            </p>
                         </div>
                     </div>
-                    <div>
-                        <span class="text-[10px] font-bold text-cyan-600 uppercase tracking-wider block mb-1">Motor Vehicles Act</span>
-                        <h2 class="text-sm font-bold text-slate-800 mb-2">New Directives for Sec 184 & 194 E-Challans</h2>
-                        <ul class="space-y-1.5">
-                            <li class="flex items-start text-xs text-slate-600 leading-relaxed">
-                                <i class="fa-solid fa-circle text-[4px] text-slate-300 mt-2 mr-2"></i>
-                                <span>High Court mandates stricter proof for dangerous driving penalties (Sec 184).</span>
-                            </li>
-                            <li class="flex items-start text-xs text-slate-600 leading-relaxed">
-                                <i class="fa-solid fa-circle text-[4px] text-slate-300 mt-2 mr-2"></i>
-                                <span>Immediate digital permit suspension enabled for overloading commercial vehicles.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
 
-                <div class="h-px bg-slate-100 ml-12"></div>
-
-                <div class="flex gap-4">
-                    <div class="mt-1">
-                        <div class="w-8 h-8 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center text-xs">
-                            <i class="fa-solid fa-book-open"></i>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 shrink-0 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 mt-1">
+                            <i class="fa-solid fa-book-bookmark text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-bold text-gray-900 mb-1">Legal Maxims in Practice</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                A brief analysis of recent judgments demonstrating the application of core maxims in contemporary cybercrime and corporate fraud cases.
+                            </p>
                         </div>
                     </div>
-                    <div>
-                        <span class="text-[10px] font-bold text-purple-600 uppercase tracking-wider block mb-1">Legal Maxims</span>
-                        <h2 class="text-sm font-bold text-slate-800 mb-2">Application of 'Mens Rea' in Cybercrimes</h2>
-                        <ul class="space-y-1.5">
-                            <li class="flex items-start text-xs text-slate-600 leading-relaxed">
-                                <i class="fa-solid fa-circle text-[4px] text-slate-300 mt-2 mr-2"></i>
-                                <span>Recent judgments highlight the practical use of <em>Actus Non Facit Reum Nisi Mens Sit Rea</em>.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
 
+                </div>
             </div>
 
-            <div class="mt-8 pt-6 border-t border-slate-100">
-                <a href="weekly-digest-full.html" class="block w-full bg-slate-900 text-white text-center py-3.5 rounded-xl font-bold uppercase text-xs tracking-wider hover:bg-blue-600 transition-colors active:bg-blue-700">
-                    Read Full Digest Now
+            <div class="p-6 md:p-8 bg-gray-50 border-t border-gray-100">
+                <a href="weekly-digest-full.html" class="block w-full bg-[#0f172a] text-white text-center py-4 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-blue-600 transition-colors shadow-md">
+                    Read the Full Digest
                 </a>
             </div>
 
         </div>
+
     </main>
 
 </body>
