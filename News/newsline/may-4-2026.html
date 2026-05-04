@@ -3,258 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Comprehensive Weekly Legal Digest | Law Journal</title>
+    <title>Detailed Weekly Analysis | Law Journal</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* Reading Progress Bar */
-        #progress-bar {
+        /* Smooth Scroll & Selection marker */
+        ::selection {
+            background-color: #fde047;
+            color: #000;
+        }
+        
+        /* Progress Bar Top */
+        #scroll-progress {
             position: fixed;
             top: 0;
             left: 0;
             height: 4px;
-            background: linear-gradient(to right, #2563eb, #3b82f6);
-            z-index: 9999;
+            background: #2563eb;
+            z-index: 100;
             width: 0%;
-            transition: width 0.1s ease-out;
         }
 
-        /* Marker Selection Style */
-        ::selection {
-            background-color: #fef08a; /* Yellow marker color */
-            color: #0f172a;
+        /* Glossy Glass Effect */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
         }
 
-        /* Custom Highlighted Text Tag */
-        mark.custom-highlight {
-            background-color: #fef08a;
-            color: inherit;
-            padding: 0.1em 0.2em;
+        /* Marker UI */
+        .marker-highlight {
+            background-color: #fde047;
+            padding: 2px 4px;
             border-radius: 4px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
-
-        /* Glossy Note */
-        .glossy-note {
-            background: linear-gradient(135deg, rgba(239, 246, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-        }
-
-        /* Floating Highlight Button */
-        #highlight-btn {
-            display: none;
-            position: absolute;
-            z-index: 1000;
-            background-color: #1e293b;
-            color: white;
-            border-radius: 8px;
-            padding: 6px 12px;
-            font-size: 12px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-        #highlight-btn:hover { background-color: #3b82f6; }
     </style>
 </head>
-<body class="bg-[#f8fafc] font-sans antialiased text-slate-800 relative">
+<body class="bg-slate-50 text-slate-900 font-sans selection:bg-yellow-200">
 
-    <div id="progress-bar"></div>
+    <div id="scroll-progress"></div>
 
-    <button id="highlight-btn"><i class="fa-solid fa-highlighter mr-1.5"></i> Mark Text</button>
-
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200/50 px-6 py-4">
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 px-4 md:px-8 py-4">
         <div class="max-w-4xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-xl font-black tracking-tighter text-blue-700 uppercase drop-shadow-sm">
+            <a href="index.html" class="text-xl font-black text-blue-700 tracking-tighter uppercase">
                 LawJournal<span class="text-slate-800">.online</span>
             </a>
-            <a href="weekly-categories.html" class="text-xs font-bold text-slate-500 hover:text-blue-600 transition-colors flex items-center bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200/50">
-                <i class="fa-solid fa-arrow-left-long mr-2"></i> Feed
-            </a>
+            
+            <button onclick="window.history.back()" class="flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-blue-600 transition-all bg-slate-100 px-4 py-2 rounded-full border border-slate-200">
+                <i class="fa-solid fa-chevron-left"></i> BACK
+            </button>
         </div>
     </nav>
 
-    <main class="max-w-3xl mx-auto px-5 py-10 md:py-16">
+    <main class="max-w-3xl mx-auto px-6 py-12">
         
-        <header class="mb-12 border-b border-slate-200 pb-10 text-center md:text-left">
-            <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 text-[11px] font-semibold text-slate-500 mb-6">
-                <span class="bg-blue-100 text-blue-800 px-3 py-1.5 rounded-full font-black uppercase tracking-widest">
-                    Weekly Digest
-                </span>
-                <span class="flex items-center"><i class="fa-regular fa-calendar mr-1.5 text-blue-600"></i> May 4, 2026</span>
-                <span class="flex items-center"><i class="fa-regular fa-clock mr-1.5 text-blue-600"></i> 10 Min Read</span>
+        <header class="mb-12">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-blue-600 text-white text-[10px] font-black px-3 py-1 rounded-md uppercase tracking-widest">In-Depth Analysis</span>
+                <span class="text-slate-400 text-xs font-bold"><i class="fa-regular fa-calendar-check mr-1"></i> MAY 04, 2026</span>
             </div>
-            <h1 class="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-[1.1] mb-6">
-                Weekly Wrap-Up: BNS Transition, Stricter MV Act Rules & 'Mens Rea' in the Digital Age
+            <h1 class="text-3xl md:text-5xl font-black text-slate-900 leading-[1.1] mb-6">
+                Weekly Legal Brief: The Transition to BNS and E-Challan Jurisprudence
             </h1>
-            <p class="text-base text-slate-500 font-medium leading-relaxed max-w-2xl">
-                A comprehensive and highly detailed breakdown of the Supreme Court's latest clarifications on procedural transitions, new high court directives on traffic enforcement, and the modern application of traditional legal maxims in cyber law.
+            <p class="text-lg text-slate-500 font-medium leading-relaxed">
+                A detailed look at the procedural shifts in Indian Criminal Law and the evolving standards for digital evidence in traffic violations.
             </p>
         </header>
 
-        <article class="space-y-16 text-[17px] leading-[1.8] text-slate-700">
+        <div id="article-content" class="space-y-12 text-[18px] leading-[1.8] text-slate-700">
             
             <section>
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 border border-blue-100 shadow-sm">
-                        <i class="fa-solid fa-scale-balanced text-lg"></i>
-                    </div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900">1. Navigating the BNS Transition & Bail Rights</h2>
-                </div>
-                
-                <div class="space-y-6">
-                    <p>
-                        In what is being termed a crucial bridging judgment this week, the Supreme Court addressed the ongoing systemic friction regarding the transition from the Indian Penal Code, 1860 (IPC) to the newly implemented <strong>Bharatiya Nyaya Sanhita (BNS)</strong>. With trial courts facing a backlog of clarification petitions, the Apex Court stepped in to lay down a definitive roadmap.
-                    </p>
-                    <p>
-                        The core issue debated was the handling of FIRs registered after the cutoff date for offenses committed before it, and the preservation of statutory bail rights. The bench explicitly clarified that the transition phase cannot be used as an administrative excuse to dilute an accused's right to liberty. 
-                    </p>
-                    <p>
-                        Furthermore, the Court held that if an investigation is initiated after the enforcement date, the investigative procedures laid out in the <strong>Bharatiya Nagarik Suraksha Sanhita (BNSS)</strong> will strictly apply, completely overriding the older CrPC mechanisms, regardless of when the alleged substantive crime occurred. This ensures uniformity in evidence collection, particularly digital evidence under the Bharatiya Sakshya Adhiniyam (BSA).
-                    </p>
-                    
-                    <div class="glossy-note p-6 rounded-2xl mt-8 border-l-4 border-l-blue-600 shadow-md">
-                        <h4 class="text-sm font-black text-blue-900 uppercase mb-3 flex items-center">
-                            <i class="fa-solid fa-pen-nib mr-2 text-blue-600"></i> Semester/Exam Focus
-                        </h4>
-                        <p class="text-sm text-slate-800 leading-relaxed font-medium">
-                            Pay special attention to the comparative differences between default bail under <strong>Sec 167(2) of CrPC</strong> and its corresponding provision in <strong>Section 187 of BNSS</strong>. Also, track how the relief for undertrials (previously Sec 436A CrPC) is interpreted under the new BNSS Section 479 framework. This transition mechanism is guaranteed to be a long question in upcoming papers.
-                        </p>
-                    </div>
-                </div>
+                <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                    <span class="w-8 h-8 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center text-sm font-black">01</span>
+                    The BNSS Procedural Overhaul
+                </h2>
+                <p>
+                    The Supreme Court recently addressed a series of petitions clarifying how pending investigations must move from the old CrPC to the <strong>Bharatiya Nagarik Suraksha Sanhita (BNSS)</strong>. The court ruled that if an offense was committed under the IPC but the investigation began after the new laws came into force, the procedural steps (like search, seizure, and arrest) must strictly follow the BNSS.
+                </p>
+                <p class="mt-4">
+                    Crucially, the right to statutory bail under the new laws has been held as a fundamental protection that cannot be bypassed during this administrative transition. For students, it is vital to understand that while the "Crime" is IPC, the "Process" is now BNSS.
+                </p>
             </section>
 
-            <section>
-                <div class="flex items-center gap-4 mb-6 border-t border-slate-200 pt-12">
-                    <div class="w-12 h-12 rounded-full bg-cyan-50 flex items-center justify-center text-cyan-600 border border-cyan-100 shadow-sm">
-                        <i class="fa-solid fa-file-shield text-lg"></i>
-                    </div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900">2. Stricter Proof for Sec 184 & 194 MV Act E-Challans</h2>
-                </div>
-                
-                <div class="space-y-6">
-                    <p>
-                        In a bid to balance road safety with the prevention of arbitrary digital harassment, several State High Courts—including recent notable observations by the Calcutta High Court regarding traffic management on arterial roads—have issued fresh directives to traffic enforcement authorities concerning the automated generation of e-challans under the Motor Vehicles Act, 1988.
-                    </p>
-                    
-                    <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm my-6">
-                        <h3 class="font-bold text-slate-900 mb-4 border-b pb-2">Key Section-wise Directives:</h3>
-                        <ul class="list-none space-y-5">
-                            <li class="flex items-start">
-                                <span class="bg-cyan-100 text-cyan-800 font-bold px-2 py-0.5 rounded text-xs mr-3 mt-1 shrink-0">Sec 184</span>
-                                <div>
-                                    <strong class="text-slate-800 block mb-1">Dangerous Driving:</strong> 
-                                    Courts have mandated that AI-camera generated challans for dangerous driving must be accompanied by a minimum 5 to 10-second video clip as strict evidentiary proof. Mere photographic evidence of overspeeding or crossing a stop-line will not automatically fulfill the threshold of 'dangerous driving' unless reckless weaving or endangerment is clearly visible.
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="bg-cyan-100 text-cyan-800 font-bold px-2 py-0.5 rounded text-xs mr-3 mt-1 shrink-0">Sec 194</span>
-                                <div>
-                                    <strong class="text-slate-800 block mb-1">Overloading of Vehicles:</strong> 
-                                    Commercial vehicles found overloading will now face much faster repercussions. Integrating RTO databases directly with highway toll plazas allows for an immediate digital suspension of transport permits for up to 30 days upon repeated offenses, bypassing lengthy manual issuance of notices.
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="bg-cyan-100 text-cyan-800 font-bold px-2 py-0.5 rounded text-xs mr-3 mt-1 shrink-0">Sec 129</span>
-                                <div>
-                                    <strong class="text-slate-800 block mb-1">Protective Headgear:</strong> 
-                                    A renewed push is being made for the strict enforcement of standard safety helmets for pillion riders as well, with digital challans automatically capturing non-compliance at major metropolitan intersections.
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <section class="border-t border-slate-100 pt-10">
+                <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                    <span class="w-8 h-8 bg-cyan-50 text-cyan-600 rounded-lg flex items-center justify-center text-sm font-black">02</span>
+                    E-Challan Evidence Standards (MV Act)
+                </h2>
+                <p>
+                    With the rise of AI-powered traffic cameras, several High Courts have observed that "automatic challans" cannot be the sole basis for conviction in contested cases. Specifically, under <strong>Section 184 (Dangerous Driving)</strong>, the court has mandated that authorities must provide clear video evidence showing the nature of the danger, rather than just a still photo of a vehicle. 
+                </p>
+                <p class="mt-4">
+                    This week, new guidelines also streamline the process for <strong>Section 194 (Overloading)</strong>, where digital records from toll-plaza weight sensors will now be automatically linked to a vehicle's digital permit, allowing for real-time suspensions.
+                </p>
             </section>
 
-            <section>
-                <div class="flex items-center gap-4 mb-6 border-t border-slate-200 pt-12">
-                    <div class="w-12 h-12 rounded-full bg-purple-50 flex items-center justify-center text-purple-600 border border-purple-100 shadow-sm">
-                        <i class="fa-solid fa-book-bookmark text-lg"></i>
-                    </div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900">3. Practical Application of 'Mens Rea' in Cybercrimes</h2>
-                </div>
+            <section class="border-t border-slate-100 pt-10 pb-10">
+                <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                    <span class="w-8 h-8 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center text-sm font-black">03</span>
+                    Mens Rea in Cyber Financial Crimes
+                </h2>
+                <p>
+                    A landmark interpretation of <em>Actus Non Facit Reum Nisi Mens Sit Rea</em> was applied to "Mule Account" holders. The court emphasized that innocent victims whose bank accounts were used by scammers without their knowledge should not face the same harsh penalties as the actual conspirators.
+                </p>
                 
-                <div class="space-y-6">
-                    <p>
-                        The foundational cornerstone of criminal jurisprudence—<em><strong>"Actus Non Facit Reum Nisi Mens Sit Rea"</strong></em> (An act does not make a person guilty unless the mind is also guilty)—saw a highly relevant modern interpretation in a recent state-level cyber fraud judgment.
-                    </p>
-                    <p>
-                        With the exponential rise in digital financial frauds, investigative agencies have increasingly been freezing the bank accounts of individuals whose credentials were used as 'mule accounts' by scammers. Often, these account holders are students, low-income workers, or victims of phishing who had no explicit knowledge or criminal intent (complete lack of <em>Mens Rea</em>) regarding the illicit transactions passing through their accounts.
-                    </p>
-                    <p>
-                        The court ruled that innocent victims of identity theft or those manipulated into sharing account access cannot be prosecuted under the same severe penal provisions as the masterminds. While the <em>Actus Reus</em> (the physical act of the money transferring through the account) is present, the prosecution bears the burden of proving that the account holder had actual, conscious knowledge of the fraudulent nature of the funds to establish <em>Mens Rea</em>.
-                    </p>
-                    <p class="text-sm italic text-slate-500 bg-slate-50 p-4 rounded-xl border border-slate-100">
-                        *Note: However, the court also cautioned that turning a blind eye for monetary compensation (willful blindness) will not protect an individual, as the maxim <strong>"Ignorantia juris non excusat"</strong> (Ignorance of the law is no excuse) operates parallelly when basic due diligence is deliberately ignored.
+                <div class="glass-panel p-8 rounded-3xl mt-8 border-l-4 border-l-blue-600">
+                    <h4 class="text-blue-700 font-black text-xs uppercase tracking-widest mb-3">Student Note</h4>
+                    <p class="text-sm text-slate-600 italic font-medium leading-relaxed">
+                        "While studying these cases, always look for the 'Intent'. Modern cyber law is increasingly focusing on the distinction between negligence and actual criminal intent."
                     </p>
                 </div>
             </section>
 
-        </article>
+        </div>
 
-        <footer class="mt-16 pt-10 border-t border-slate-200 text-center">
-            <h3 class="text-xl font-bold text-slate-900 mb-3">End of this week's digest.</h3>
-            <p class="text-sm text-slate-500 mb-8">Review the highlighted points for your research, or head back to explore more case laws.</p>
-            
-            <a href="index.html" onclick="window.location.href='index.html'; return false;" class="inline-flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-blue-600 transition-colors shadow-lg active:scale-95 cursor-pointer">
-                <i class="fa-solid fa-house"></i> Return to Homepage
+        <div class="mt-16 pt-10 border-t border-slate-200 text-center">
+            <p class="text-slate-400 text-xs font-bold mb-6 uppercase tracking-widest">End of Digest</p>
+            <a href="index.html" class="inline-flex items-center gap-3 bg-blue-700 text-white px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-slate-900 transition-all shadow-xl shadow-blue-200 active:scale-95">
+                <i class="fa-solid fa-house"></i> GO BACK TO HOME
             </a>
-        </footer>
-
+        </div>
     </main>
 
     <script>
-        // 1. Reading Progress Bar Logic
-        window.onscroll = function() {
-            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            let scrolled = (winScroll / height) * 100;
-            document.getElementById("progress-bar").style.width = scrolled + "%";
-        };
-
-        // 2. Custom Highlighter Tool Logic
-        const highlightBtn = document.getElementById('highlight-btn');
-        let currentRange = null;
-
-        // Show button when text is selected
-        document.addEventListener('mouseup', (e) => {
-            let selection = window.getSelection();
-            if (selection.toString().length > 0 && selection.rangeCount > 0) {
-                currentRange = selection.getRangeAt(0);
-                
-                // Position the button near the cursor
-                highlightBtn.style.display = 'block';
-                highlightBtn.style.left = e.pageX + 'px';
-                highlightBtn.style.top = (e.pageY - 40) + 'px';
-            } else {
-                highlightBtn.style.display = 'none';
-            }
+        // Progress Bar logic
+        window.addEventListener('scroll', () => {
+            const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = window.scrollY;
+            const progress = (scrolled / scrollable) * 100;
+            document.getElementById('scroll-progress').style.width = `${progress}%`;
         });
 
-        // Hide button when clicking elsewhere
-        document.addEventListener('mousedown', (e) => {
-            if (e.target.id !== 'highlight-btn') {
-                highlightBtn.style.display = 'none';
+        // Anti-Zoom & Stability Check
+        document.addEventListener('touchstart', function(event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
             }
-        });
-
-        // Apply highlight when button is clicked
-        highlightBtn.addEventListener('click', () => {
-            if (currentRange) {
-                try {
-                    let mark = document.createElement('mark');
-                    mark.className = 'custom-highlight';
-                    currentRange.surroundContents(mark);
-                } catch (e) {
-                    alert("Please select text within a single paragraph to highlight perfectly.");
-                }
-                window.getSelection().removeAllRanges();
-                highlightBtn.style.display = 'none';
-            }
-        });
+        }, { passive: false });
     </script>
 </body>
 </html>
