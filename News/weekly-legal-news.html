@@ -1,61 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>This Week's Legal Digest | Law Journal</title>
+    <title>Weekly Legal Digest | Law Journal</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Ye page jump hone se rokega jab user back aayega */
+        html { overflow-y: scroll; }
+    </style>
 </head>
 <body class="bg-gray-50 font-sans antialiased text-gray-800">
 
-    <main class="max-w-3xl mx-auto px-4 py-8">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100 px-6 py-3">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-xl font-black tracking-tighter text-blue-700 uppercase">
+                LawJournal<span class="text-gray-800">.online</span>
+            </a>
+            <a href="weekly-categories.html" class="text-xs font-bold text-gray-500 hover:text-blue-600 transition-colors flex items-center">
+                <i class="fa-solid fa-arrow-left mr-1.5"></i> Back
+            </a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-4 py-8">
         
-        <div class="mb-6 border-b border-gray-200 pb-3">
-            <h1 class="text-lg font-black text-gray-800 uppercase tracking-tight">Weekly Legal Digest</h1>
-            <p class="text-xs text-gray-500 mt-1">One quick read for all top updates.</p>
+        <div class="mb-6 flex justify-between items-end border-b border-gray-200 pb-3">
+            <div>
+                <h1 class="text-xl font-black text-gray-900 uppercase tracking-tight">Weekly Legal Digest</h1>
+                <p class="text-xs text-gray-500 mt-1">Top updates for May 4, 2026</p>
+            </div>
         </div>
 
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all duration-300 relative overflow-hidden">
-            
-            <div class="flex flex-wrap items-center gap-3 text-[11px] text-gray-500 font-semibold mb-4 border-b border-gray-100 pb-3">
-                <span class="bg-blue-50 text-blue-600 border border-blue-100 px-2.5 py-1 rounded text-[10px] font-black uppercase tracking-widest flex items-center">
-                    <i class="fa-solid fa-star text-amber-400 mr-1"></i> Featured This Week
-                </span>
-                <span class="flex items-center"><i class="fa-regular fa-calendar text-gray-400 mr-1.5"></i> May 4, 2026</span>
-                <span class="flex items-center"><i class="fa-regular fa-clock text-gray-400 mr-1.5"></i> 3:30 PM IST</span>
-                <span class="flex items-center text-blue-600"><i class="fa-solid fa-book-open-reader mr-1.5"></i> 5 min read</span>
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
-            <h2 class="text-lg font-bold text-gray-900 mb-4 leading-snug">
-                Weekly Wrap-Up: BNS Transition, MV Act Rules & Landmark Maxims
-            </h2>
-            
-            <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 mb-5">
-                <p class="text-[11px] font-bold text-gray-700 uppercase mb-3 tracking-wider">What's covered in this digest:</p>
-                <ul class="space-y-2.5">
-                    <li class="flex items-start text-xs text-gray-600">
-                        <i class="fa-solid fa-gavel text-blue-500 mt-0.5 mr-2"></i>
-                        <span><strong>Criminal Law:</strong> Supreme Court's clarification on pending FIRs and bail rights during the shift from IPC to Bharatiya Nyaya Sanhita (BNS).</span>
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-200 hover:border-blue-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group">
+                
+                <div class="flex items-center justify-between mb-3 border-b border-gray-100 pb-2">
+                    <span class="bg-blue-50 text-blue-700 px-2 py-0.5 rounded text-[9px] font-black uppercase tracking-widest">
+                        Criminal Law
+                    </span>
+                    <span class="text-[10px] text-gray-400 font-bold flex items-center">
+                        <i class="fa-regular fa-calendar mr-1"></i> May 4
+                    </span>
+                </div>
+
+                <h2 class="text-base font-bold text-gray-900 mb-3 leading-tight group-hover:text-blue-700 transition-colors">
+                    Supreme Court on BNS Transition & Bail Rights
+                </h2>
+                
+                <ul class="space-y-2 mb-4 flex-grow">
+                    <li class="flex items-start text-[11px] text-gray-600">
+                        <i class="fa-solid fa-gavel text-blue-500 mt-0.5 mr-1.5 text-[10px]"></i>
+                        <span class="leading-snug">SC clarifies rules for pending FIRs.</span>
                     </li>
-                    <li class="flex items-start text-xs text-gray-600">
-                        <i class="fa-solid fa-car-burst text-blue-500 mt-0.5 mr-2"></i>
-                        <span><strong>MV Act Updates:</strong> New high court directives on digital suspension of permits for overloading (Sec 194) and dangerous driving (Sec 184).</span>
-                    </li>
-                    <li class="flex items-start text-xs text-gray-600">
-                        <i class="fa-solid fa-book-open text-blue-500 mt-0.5 mr-2"></i>
-                        <span><strong>Legal Maxims:</strong> Practical application of <em>'Actus Non Facit Reum Nisi Mens Sit Rea'</em> in recent state-level cybercrime judgments.</span>
+                    <li class="flex items-start text-[11px] text-gray-600">
+                        <i class="fa-solid fa-scale-balanced text-blue-500 mt-0.5 mr-1.5 text-[10px]"></i>
+                        <span class="leading-snug">Impacts statutory bail under BNSS.</span>
                     </li>
                 </ul>
+
+                <div class="mt-auto flex items-center justify-between pt-3 border-t border-gray-50">
+                    <span class="text-[10px] text-gray-500 font-semibold"><i class="fa-regular fa-clock text-gray-400 mr-1"></i> 3 min read</span>
+                    <a href="bns-digest.html" class="bg-gray-900 text-white px-4 py-1.5 rounded-lg font-bold uppercase text-[9px] tracking-wider hover:bg-blue-600 transition-colors active:scale-95">
+                        Read <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
             </div>
 
-            <a href="weekly-digest-may4.html" class="inline-flex items-center justify-center gap-2 bg-gray-900 text-white px-6 py-2.5 rounded-lg font-bold uppercase text-[10px] tracking-wider hover:bg-blue-600 transition-colors shadow-sm active:scale-95">
-                Read Full Digest <i class="fa-solid fa-arrow-right"></i>
-            </a>
-            
-        </div>
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-200 hover:border-cyan-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group">
+                
+                <div class="flex items-center justify-between mb-3 border-b border-gray-100 pb-2">
+                    <span class="bg-cyan-50 text-cyan-700 px-2 py-0.5 rounded text-[9px] font-black uppercase tracking-widest">
+                        MV Act
+                    </span>
+                    <span class="text-[10px] text-gray-400 font-bold flex items-center">
+                        <i class="fa-regular fa-calendar mr-1"></i> May 2
+                    </span>
+                </div>
 
+                <h2 class="text-base font-bold text-gray-900 mb-3 leading-tight group-hover:text-cyan-700 transition-colors">
+                    Sec 194 & 184: New E-Challan Directives
+                </h2>
+                
+                <ul class="space-y-2 mb-4 flex-grow">
+                    <li class="flex items-start text-[11px] text-gray-600">
+                        <i class="fa-solid fa-car-burst text-cyan-500 mt-0.5 mr-1.5 text-[10px]"></i>
+                        <span class="leading-snug">Strict proof needed for dangerous driving.</span>
+                    </li>
+                    <li class="flex items-start text-[11px] text-gray-600">
+                        <i class="fa-solid fa-file-invoice text-cyan-500 mt-0.5 mr-1.5 text-[10px]"></i>
+                        <span class="leading-snug">Digital suspension for overloading vehicles.</span>
+                    </li>
+                </ul>
+
+                <div class="mt-auto flex items-center justify-between pt-3 border-t border-gray-50">
+                    <span class="text-[10px] text-gray-500 font-semibold"><i class="fa-regular fa-clock text-gray-400 mr-1"></i> 2 min read</span>
+                    <a href="mv-act-digest.html" class="bg-gray-900 text-white px-4 py-1.5 rounded-lg font-bold uppercase text-[9px] tracking-wider hover:bg-cyan-600 transition-colors active:scale-95">
+                        Read <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-200 hover:border-purple-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group">
+                
+                <div class="flex items-center justify-between mb-3 border-b border-gray-100 pb-2">
+                    <span class="bg-purple-50 text-purple-700 px-2 py-0.5 rounded text-[9px] font-black uppercase tracking-widest">
+                        Maxims
+                    </span>
+                    <span class="text-[10px] text-gray-400 font-bold flex items-center">
+                        <i class="fa-regular fa-calendar mr-1"></i> May 1
+                    </span>
+                </div>
+
+                <h2 class="text-base font-bold text-gray-900 mb-3 leading-tight group-hover:text-purple-700 transition-colors">
+                    Actus Non Facit Reum Nisi Mens Sit Rea
+                </h2>
+                
+                <ul class="space-y-2 mb-4 flex-grow">
+                    <li class="flex items-start text-[11px] text-gray-600">
+                        <i class="fa-solid fa-book-open text-purple-500 mt-0.5 mr-1.5 text-[10px]"></i>
+                        <span class="leading-snug">Application in modern cybercrime cases.</span>
+                    </li>
+                    <li class="flex items-start text-[11px] text-gray-600">
+                        <i class="fa-solid fa-lightbulb text-purple-500 mt-0.5 mr-1.5 text-[10px]"></i>
+                        <span class="leading-snug">State-level judgments analysis.</span>
+                    </li>
+                </ul>
+
+                <div class="mt-auto flex items-center justify-between pt-3 border-t border-gray-50">
+                    <span class="text-[10px] text-gray-500 font-semibold"><i class="fa-regular fa-clock text-gray-400 mr-1"></i> 4 min read</span>
+                    <a href="maxims-digest.html" class="bg-gray-900 text-white px-4 py-1.5 rounded-lg font-bold uppercase text-[9px] tracking-wider hover:bg-purple-600 transition-colors active:scale-95">
+                        Read <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
     </main>
 
 </body>
