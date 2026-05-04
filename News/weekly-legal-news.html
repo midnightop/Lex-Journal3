@@ -3,115 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weekly Legal News Categories | Law Journal</title>
-    <meta name="description" content="Explore weekly legal updates, Supreme Court judgments, and latest developments in Bharatiya Nyaya Sanhita (BNS) and Indian laws.">
+    <title>Supreme Court Ruling on BNS | Law Journal</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        /* Custom Glossy Effect */
-        .glossy-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-    </style>
 </head>
 <body class="bg-gray-50 font-sans antialiased text-gray-800 selection:bg-blue-200 selection:text-blue-900">
 
-    <nav class="bg-white shadow-sm px-6 py-4 mb-8">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
+    <nav class="bg-white shadow-sm px-6 py-4 mb-8 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="index.html" class="text-2xl font-black tracking-tighter text-blue-700 uppercase">
                 LawJournal<span class="text-gray-800">.online</span>
             </a>
-            <a href="index.html" class="text-sm font-bold text-gray-500 hover:text-blue-600 transition-colors">
-                <i class="fa-solid fa-house mr-1"></i> Back to Home
+            <a href="weekly-legal-news.html" class="text-sm font-bold text-gray-500 hover:text-blue-600 transition-colors">
+                <i class="fa-solid fa-arrow-left mr-1"></i> All Categories
             </a>
         </div>
     </nav>
 
-    <main class="max-w-6xl mx-auto px-4 py-8 mb-16">
+    <main class="max-w-7xl mx-auto px-4 py-4 mb-16 flex flex-col lg:flex-row gap-8">
         
-        <div class="text-center mb-14">
-            <div class="inline-block bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4">
-                This Week's Updates
-            </div>
-            <h1 class="text-4xl md:text-5xl font-black text-gray-900 uppercase tracking-tight mb-4">
-                Legal News Categories
-            </h1>
-            <p class="text-gray-500 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-                Stay updated with the latest developments in the Indian legal system. Select a category below to read this week's top stories, landmark judgments, and critical case analyses.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            <a href="sc-weekly-updates.html" class="group block glossy-card p-8 bg-gradient-to-br from-indigo-50 to-blue-50 rounded-3xl border-2 border-indigo-100 hover:border-indigo-400 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="w-14 h-14 bg-indigo-600 text-white rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform">
-                        <i class="fa-solid fa-scale-balanced text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 uppercase">Supreme Court</h3>
-                </div>
-                <p class="text-sm text-gray-500 leading-relaxed mb-6">Latest landmark judgments, PILs, and crucial orders directly from the Apex Court.</p>
-                <span class="text-xs font-bold text-indigo-600 uppercase flex items-center gap-1 group-hover:text-indigo-800">
-                    View News <i class="fa-solid fa-arrow-right group-hover:translate-x-1.5 transition-transform"></i>
-                </span>
-            </a>
-
-            <a href="bns-criminal-law-news.html" class="group block glossy-card p-8 bg-gradient-to-br from-rose-50 to-pink-50 rounded-3xl border-2 border-rose-100 hover:border-rose-400 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="w-14 h-14 bg-rose-500 text-white rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform">
-                        <i class="fa-solid fa-gavel text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 uppercase">Criminal Law</h3>
-                </div>
-                <p class="text-sm text-gray-500 leading-relaxed mb-6">Track the latest implementation updates, debates, and cases under BNS, BNSS, and BSA.</p>
-                <span class="text-xs font-bold text-rose-600 uppercase flex items-center gap-1 group-hover:text-rose-800">
-                    View News <i class="fa-solid fa-arrow-right group-hover:translate-x-1.5 transition-transform"></i>
-                </span>
-            </a>
-
-            <a href="high-court-judgments.html" class="group block glossy-card p-8 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl border-2 border-emerald-100 hover:border-emerald-400 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="w-14 h-14 bg-emerald-600 text-white rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform">
-                        <i class="fa-solid fa-landmark-dome text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 uppercase">High Courts</h3>
-                </div>
-                <p class="text-sm text-gray-500 leading-relaxed mb-6">Significant rulings, state-level policy interpretations, and regional legal updates.</p>
-                <span class="text-xs font-bold text-emerald-600 uppercase flex items-center gap-1 group-hover:text-emerald-800">
-                    View News <i class="fa-solid fa-arrow-right group-hover:translate-x-1.5 transition-transform"></i>
-                </span>
-            </a>
-
-            <a href="corporate-tech-law.html" class="group block glossy-card p-8 bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl border-2 border-amber-100 hover:border-amber-400 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="w-14 h-14 bg-amber-500 text-white rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform">
-                        <i class="fa-solid fa-building-shield text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 uppercase">Corporate Law</h3>
-                </div>
-                <p class="text-sm text-gray-500 leading-relaxed mb-6">Updates on company law tribunals, commercial disputes, and tech regulations.</p>
-                <span class="text-xs font-bold text-amber-600 uppercase flex items-center gap-1 group-hover:text-amber-800">
-                    View News <i class="fa-solid fa-arrow-right group-hover:translate-x-1.5 transition-transform"></i>
-                </span>
-            </a>
+        <article class="lg:w-2/3 bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100 relative">
             
-            <a href="legal-maxims-updates.html" class="group block glossy-card p-8 bg-gradient-to-br from-purple-50 to-fuchsia-50 rounded-3xl border-2 border-purple-100 hover:border-purple-400 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="w-14 h-14 bg-purple-600 text-white rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform">
-                        <i class="fa-solid fa-book-open text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 uppercase">Legal Maxims</h3>
-                </div>
-                <p class="text-sm text-gray-500 leading-relaxed mb-6">Discover new interpretations of Latin legal maxims used in recent judicial pronouncements.</p>
-                <span class="text-xs font-bold text-purple-600 uppercase flex items-center gap-1 group-hover:text-purple-800">
-                    View News <i class="fa-solid fa-arrow-right group-hover:translate-x-1.5 transition-transform"></i>
-                </span>
-            </a>
+            <button class="absolute top-8 right-8 w-10 h-10 bg-gray-50 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-full flex items-center justify-center transition-colors shadow-sm" title="Save for Notes">
+                <i class="fa-regular fa-bookmark text-lg"></i>
+            </button>
 
-            <a href="mv-act
-              
+            <div class="mb-8 pr-12">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="bg-rose-100 text-rose-700 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider">Criminal Law</span>
+                    <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider"><i class="fa-solid fa-book-open mr-1"></i> BNS Focus</span>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-black text-gray-900 leading-tight mb-4">
+                    Supreme Court Clarifies Bail Provisions Under Bharatiya Nyaya Sanhita (BNS)
+                </h1>
+                <div class="flex flex-wrap items-center gap-4 text-xs text-gray-500 font-bold border-b border-gray-100 pb-6">
+                    <span><i class="fa-regular fa-calendar text-blue-500 mr-1"></i> May 4, 2026</span>
+                    <span><i class="fa-solid fa-scale-balanced text-blue-500 mr-1"></i> Supreme Court of India</span>
+                    <span class="bg-gray-100 px-2 py-1 rounded-md text-gray-600"><i class="fa-regular fa-clock mr-1"></i> 3 min read</span>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500 p-5 rounded-r-2xl mb-8">
+                <h4 class="text-sm font-black text-blue-800 uppercase mb-2 flex items-center">
+                    <i class="fa-solid fa-bolt text-amber-500 mr-2"></i> TL;DR - Quick Summary
+                </h4>
+                <p class="text-sm text-gray-700 font-medium leading-relaxed">
+                    The Supreme Court ruled that fundamental rights regarding statutory bail will remain unchanged during the IPC to BNS transition. If an investigation started after the new laws came into effect, BNSS procedures will apply strictly.
+                </p>
+            </div>
+
+            <div class="prose prose-blue max-w-none text-gray-600 leading-relaxed space-y-6">
+                <p class="text-base font-medium text-gray-800">
+                    In a landmark ruling this week, the Apex Court provided crucial clarifications regarding the transition from the Indian Penal Code (IPC) to the newly implemented Bharatiya Nyaya Sanhita (BNS).
+                </p>
+                
+                <h3 class="text-xl font-bold text-gray-800 mt-8 mb-4 border-b pb-2">Key Takeaways for Law Students</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <i class="fa-solid fa-check-circle text-emerald-500 mt-1 mr-3"></i>
+                        <span><strong>Pending Investigations:</strong> Will continue to be governed by the BNSS procedural framework if initiated after the cutoff date.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fa-solid fa-check-circle text-emerald-500 mt-1 mr-3"></i>
+                        <span><strong>Statutory Bail:</strong> The right to default bail remains a fundamental right and cannot be diluted during the transition phase.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fa-solid fa-check-circle text-emerald-500 mt-1 mr-3"></i>
+                        <span><strong>Digital Evidence:</strong> Strict adherence to the new digital evidence protocols under the Bharatiya Sakshya Adhiniyam (BSA) is mandatory.</span>
+                    </li>
+                </ul>
+
+                <div class="mt-8 bg-yellow-50 p-6 rounded-2xl border border-yellow-200">
+                    <h4 class="text-sm font-bold text-yellow-800 uppercase mb-2">📌 Exam Point of View</h4>
+                    <p class="text-sm text-yellow-900">Keep an eye on the comparative differences between <strong>Sec 436A of CrPC</strong> and the corresponding provisions in <strong>BNSS</strong>. This judgment is highly likely to feature in upcoming semester exams and competitive tests.</p>
+                </div>
+            </div>
+        </article>
+
+        <aside class="lg:w-1/3 space-y-6">
+            
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
+                <h3 class="text-base font-black text-gray-900 uppercase border-b border-gray-100 pb-3 mb-4 flex items-center justify-between">
+                    Trending Updates <i class="fa-solid fa-fire text-orange-500"></i>
+                </h3>
+                
+                <a href="#" class="group block mb-4 pb-4 border-b border-gray-50 last:border-0 last:pb-0 last:mb-0">
+                    <span class="text-[10px] font-bold text-cyan-500 uppercase tracking-wider">MV Act</span>
+                    <h4 class="text-sm font-bold text-gray-800 group-hover:text-blue-600 transition-colors mt-1 leading-snug">
+                        New Guidelines Issued for Sec 194 MV Act Challans Across Metros
+                    </h4>
+                </a>
+
+                <a href="#" class="group block mb-4 pb-4 border-b border-gray-50 last:border-0 last:pb-0 last:mb-0">
+                    <span class="text-[10px] font-bold text-purple-500 uppercase tracking-wider">Legal Maxims</span>
+                    <h4 class="text-sm font-bold text-gray-800 group-hover:text-blue-600 transition-colors mt-1 leading-snug">
+                        Understanding 'Actus Non Facit Reum Nisi Mens Sit Rea' in Context of BNS
+                    </h4>
+                </a>
+            </div>
+
+            <div class="bg-gradient-to-br from-blue-600 to-indigo-700 p-6 rounded-3xl text-center text-white shadow-lg">
+                <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
+                    <i class="fa-solid fa-file-pdf text-xl"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Download Case Brief</h3>
+                <p class="text-xs text-blue-100 mb-6 px-2">Get a concise 2-page PDF summary of this judgment for your semester notes.</p>
+                <button class="w-full bg-white text-blue-700 text-xs font-black uppercase py-3 rounded-xl hover:bg-gray-50 transition-colors shadow-md active:scale-95">
+                    Download PDF <i class="fa-solid fa-download ml-1"></i>
+                </button>
+            </div>
+
+        </aside>
+
+    </main>
+
+</body>
+</html>
