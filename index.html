@@ -324,4 +324,121 @@
     </main>
 
     <footer class="py-12 text-center" role="contentinfo">
-        <p class="text-[10px] font-black text-gray-40
+        <p class="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em]">&copy; 2026 lawjournal.online </p>
+    </footer>
+
+    <script>
+        const articleDatabase = [
+            {
+                author: "Ettisa Basak",
+                college: "Sureswar Dutta Law | CU",
+                title: "Advantages of Bare Acts",
+                desc: "Accuracy and precision of raw legislation.",
+                photo: "pages/read/author1.jpg",
+                accent: "blue-500"
+            },
+            {
+                author: "Rey",
+                college: "Surendranath Law | CU",
+                title: "Why Law is Important",
+                desc: "Journey through the evolution of legal systems.",
+                photo: "pages/read/author2.jpg",
+                accent: "indigo-600"
+            },
+            {
+                author: "Analdeep Samanta",
+                college: "South calcutta Law | CU",
+                title: "What is case law",
+                desc: "Learning about Indian legal cases and conducting in-depth research on them.",
+                photo: "pages/read/author4.jpg",
+                accent: "emerald-700"
+            },
+            {
+                author: "Anusmita Das",
+                college: "Durgapur Institute of Legal | KNU",
+                title: "What is legal notice",
+                desc: "The definitive guide to legal communication, pre-litigation strategies, and 2026 digital rules.",
+                photo: "pages/read/author5.jpg",
+                accent: "blue-700"
+            }, 
+            {
+                author: "Payel Dhibar",
+                college: "Kingston Law College | WBSU",
+                title: "How to File an E-FIR ",
+                desc: "Your Smartphone is Now a Police Station file E-FIR in 12 Minutes",
+                photo: "pages/read/author6.jpg",
+                accent: "red-600"
+            }
+        ];
+
+        const renderHomeArticles = () => {
+            const container = document.getElementById('home-articles-scroll');
+            if(container) {
+                container.innerHTML = articleDatabase.map(art => `
+                    <div class="min-w-[78vw] md:min-w-[380px] snap-center" role="listitem">
+                        <a href="pages/articles.html" class="block" aria-label="Read ${art.title} by ${art.author}">
+                            <div class="glossy-card p-6 border-b-4 border-${art.accent} bg-white/80 active:scale-95 transition-all duration-300">
+                                <div class="flex items-center gap-4 mb-6">
+                                    <div class="relative">
+                                        <img src="${art.photo}" 
+                                             alt="Profile photo of ${art.author}"
+                                             loading="lazy"
+                                             decoding="async"
+                                             onerror="this.src='https://ui-avatars.com/api/?name=${art.author.replace(' ', '+')}&background=0f172a&color=fff'" 
+                                             class="w-14 h-14 rounded-2xl shadow-lg border-2 border-white object-cover">
+                                        <div class="absolute -bottom-1 -right-1 bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center border-2 border-white text-[8px]" aria-hidden="true">
+                                            <i class="fa-solid fa-check" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-black text-gray-800 text-sm">${art.author}</h4>
+                                        <p class="text-[8px] text-gray-400 font-bold uppercase leading-tight">${art.college}</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+                                    <h5 class="text-[11px] font-black text-gray-800 mb-2 uppercase text-blue-600">${art.title}</h5>
+                                    <p class="text-[10px] text-gray-500 line-clamp-2 italic leading-relaxed">"${art.desc}"</p>
+                                    <div class="mt-3 text-[9px] font-black text-slate-400 uppercase tracking-widest flex items-center justify-between">
+                                        <span>Read Article</span>
+                                        <i class="fa-solid fa-arrow-right text-blue-500" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                `).join('');
+            }
+        };
+
+        window.addEventListener('load', function() {
+            const skeleton = document.getElementById('skeleton-screen');
+            if (skeleton) {
+                skeleton.style.opacity = '0';
+                skeleton.style.transition = 'opacity 0.4s ease';
+                setTimeout(() => {
+                    skeleton.style.display = 'none';
+                    skeleton.remove();
+                }, 400);
+            }
+            
+            if (typeof renderHomeArticles === 'function') {
+                renderHomeArticles();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealElements = document.querySelectorAll('.reveal:not(.active)');
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            revealElements.forEach(el => revealObserver.observe(el));
+        });
+    </script>
+</body>
+</html>
