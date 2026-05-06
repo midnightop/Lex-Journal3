@@ -1,7 +1,7 @@
 # Law Journal Robots.txt - Optimized for Legal Acts & Research
+
 User-agent: *
 Allow: /
-# Explicitly allowing the acts folder for better indexing of Constitution, IPC, etc.
 Allow: /acts/
 Allow: /pages/read/
 
@@ -11,6 +11,25 @@ Disallow: /ads.txt
 Disallow: /skeleton-screen/
 Disallow: /assets/css/
 Disallow: /assets/js/
+Disallow: /admin/
+Disallow: /private/
 
-# Direct path to your Sitemap
+# Google
+User-agent: Googlebot
+Allow: /
+Allow: /acts/
+Allow: /pages/read/
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# Good Bots explicitly allowed
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: SemrushBot
+Allow: /
+
+# Sitemap
 Sitemap: https://lawjournal.online/sitemap.xml
