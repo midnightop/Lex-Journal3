@@ -2,10 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Law Journal | Article Hub</title>
+    <meta name="description" content="Explore legal articles, bare acts analysis, and research papers written by top law students across India.">
+    <link rel="apple-touch-icon" href="/favicon.ico">
+    <link rel="canonical" href="https://lawjournal.online/pages/articles.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"></noscript>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
         
@@ -17,6 +28,7 @@
             background: white; border-radius: 28px; transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
             opacity: 0; transform: translateY(15px); border: 1px solid #f1f5f9; position: relative;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            cursor: pointer;
         }
         .premium-card.show { opacity: 1; transform: translateY(0); }
         .premium-card:active { transform: scale(0.97); background: #fafafa; }
@@ -53,9 +65,11 @@
         .exit-btn {
             background: #f1f5f9; width: 38px; height: 38px; border-radius: 50%; 
             display: flex; align-items: center; justify-content: center; color: #64748b;
+            border: none; cursor: pointer;
         }
 
-        .search-item { padding: 16px; border-bottom: 1px solid #f1f5f9; cursor: pointer; }
+        .search-item { padding: 16px; border-bottom: 1px solid #f1f5f9; cursor: pointer; outline: none; }
+        .search-item:focus { background: #f8fafc; }
         
         .insta-btn { text-decoration: none; display: inline-block; transition: transform 0.2s; }
         .insta-btn:active { transform: scale(0.9); }
@@ -66,62 +80,74 @@
             background: #f1f5f9; color: #64748b; letter-spacing: 0.5px;
         }
     </style>
-    
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2978948668893594"
-     crossorigin="anonymous"></script>
-
-    
 </head>
 <body oncontextmenu="return false;">
 
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md px-6 py-4 flex items-center justify-between border-b border-slate-100">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md px-6 py-4 flex items-center justify-between border-b border-slate-100" aria-label="Main Navigation">
         <div class="flex items-center gap-3">
-            <a href="../index.html" class="w-9 h-9 bg-slate-50 flex items-center justify-center rounded-xl border border-slate-200 text-slate-900">
-                <i class="fa-solid fa-arrow-left text-sm"></i>
+            <a href="../index.html" aria-label="Go back to Home" class="w-9 h-9 bg-slate-50 flex items-center justify-center rounded-xl border border-slate-200 text-slate-900">
+                <i class="fa-solid fa-arrow-left text-sm" aria-hidden="true"></i>
             </a>
             <div>
                 <h1 class="font-extrabold text-slate-900 text-md tracking-tight uppercase">Articles </h1>
                 <p class="text-[8px] font-black text-blue-600 tracking-widest uppercase">Lawjournal.online</p>
             </div>
         </div>
-        <button onclick="toggleSearch(true)" class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 border border-slate-200">
-            <i class="fa-solid fa-magnifying-glass text-sm"></i>
+        <button onclick="toggleSearch(true)" aria-label="Open Search" class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 border border-slate-200">
+            <i class="fa-solid fa-magnifying-glass text-sm" aria-hidden="true"></i>
         </button>
     </nav>
 
-    <div id="search-overlay">
+    <div id="search-overlay" aria-hidden="true" role="dialog" aria-modal="true">
         <div class="flex items-center gap-4 mb-5">
-            <button onclick="toggleSearch(false)" class="text-slate-900 text-lg"><i class="fa-solid fa-xmark"></i></button>
-            <input type="text" id="search-input" placeholder="Search topics..." class="flex-1 bg-slate-100 border-none rounded-xl px-4 py-3 font-bold outline-none border-2 border-transparent focus:border-blue-500 text-sm">
+            <button onclick="toggleSearch(false)" aria-label="Close Search" class="text-slate-900 text-lg"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+            <input type="text" id="search-input" aria-label="Search topics or authors" placeholder="Search topics..." class="flex-1 bg-slate-100 border-none rounded-xl px-4 py-3 font-bold outline-none border-2 border-transparent focus:border-blue-500 text-sm">
         </div>
-        <div id="search-results" class="flex-1 overflow-y-auto"></div>
+        <div id="search-results" class="flex-1 overflow-y-auto" role="list"></div>
     </div>
 
     <main class="px-5 py-6 pb-20">
         <header class="mb-8 pl-1">
             <h2 style="font-family: 'Playfair Display';" class="text-3xl text-slate-900 leading-tight text-center">Legal <span class="italic text-blue-600">Articles</span></h2>
         </header>
-        <div id="articles-hub" class="space-y-5"></div>
+        <div id="articles-hub" class="space-y-5" role="list"></div>
     </main>
 
-    <div id="article-modal">
+    <div id="article-modal" aria-hidden="true" role="dialog" aria-modal="true">
         <div class="modal-container">
             <div class="flex justify-between items-center p-5 border-b border-slate-50">
                 <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Student Profile</span>
-                <button onclick="closeModal()" class="exit-btn"><i class="fa-solid fa-xmark text-sm"></i></button>
+                <button onclick="closeModal()" aria-label="Close Profile" class="exit-btn"><i class="fa-solid fa-xmark text-sm" aria-hidden="true"></i></button>
             </div>
             <div class="modal-body overflow-y-auto p-5">
                 <div id="modal-profile-header"></div>
                 <div class="mt-6">
                     <h3 class="text-[11px] font-black text-slate-900 uppercase tracking-widest mb-3 flex items-center gap-2">
-                        <i class="fa-solid fa-scroll text-blue-600"></i> Articles
+                        <i class="fa-solid fa-scroll text-blue-600" aria-hidden="true"></i> Articles
                     </h3>
                     <div id="modal-articles-list"></div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        let adLoaded = false;
+        function loadAdSense() {
+            if (!adLoaded) {
+                adLoaded = true;
+                const adScript = document.createElement('script');
+                adScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2978948668893594";
+                adScript.async = true;
+                adScript.crossOrigin = "anonymous";
+                document.body.appendChild(adScript);
+            }
+        }
+        window.addEventListener('scroll', loadAdSense, { once: true });
+        window.addEventListener('touchstart', loadAdSense, { once: true });
+        window.addEventListener('mousemove', loadAdSense, { once: true });
+        setTimeout(loadAdSense, 4000);
+    </script>
 
     <script>
         const authorData = [
@@ -146,26 +172,9 @@
                 bio: "Exploring the philosophy behind Indian Jurisprudence and Social Law structures.",
                 articles: [
                     { title: "Foundations of Jurisprudence", desc: "A deep dive into why law exists and how it maintains the social fabric of India.", link: "read/article2.html", date: "18 Apr 2026", time: "10 min", status: "published" },
-             
-                    
-                    { 
-                        title: "BNS Section 103: Murder Law", 
-                        desc: "Is the new Murder Law different from IPC 302? Exploring punishments and Mob Lynching clauses in 2026.", 
-                        link: "read/article2-2.html", 
-                        date: "22 Apr 2026", 
-                        time: "12 min", 
-                        status: "published" 
-                    },
-                     { 
-                        title: "The 10th Schedule: Decoding India's Anti-Defection Law", 
-                        desc: "A concise 2026 guide to the 10th Schedule. Learn how the merger rule, Speaker's power, and modern loopholes like resignation strategy shape Indian politics and legislative stability.", 
-                        link: "read/article2-3.html", 
-                        date: "25 Apr 2026", 
-                        time: "10 min", 
-                        status: "published" 
-                     }
+                    { title: "BNS Section 103: Murder Law", desc: "Is the new Murder Law different from IPC 302? Exploring punishments and Mob Lynching clauses in 2026.", link: "read/article2-2.html", date: "22 Apr 2026", time: "12 min", status: "published" },
+                    { title: "The 10th Schedule: Decoding India's Anti-Defection Law", desc: "A concise 2026 guide to the 10th Schedule. Learn how the merger rule, Speaker's power, and modern loopholes like resignation strategy shape Indian politics and legislative stability.", link: "read/article2-3.html", date: "25 Apr 2026", time: "10 min", status: "published" }
                 ]
-                    
             },
             {
                 id: "auth3",
@@ -178,8 +187,7 @@
                     { title: "What Is Case Law", desc: "Learning about Indian legal cases and conducting in depth research on them.", link: "read/article4.html", date: "20 Apr 2026", time: "15 min", status: "published" }
                 ]
             },
-
-                        {
+            {
                 id: "auth5",
                 author: "Anusmita Das",
                 university: "DURGAPUR INSTITUTE OF LEGAL STUDIES",
@@ -187,68 +195,23 @@
                 photo: "read/author5.jpg",
                 bio: "Focusing on the practical application of the BNSS and the evolution of digital procedural laws in India.",
                 articles: [
-                    { 
-                        title: "What is a Legal Notice?", 
-                        desc: "The definitive guide to legal communication, pre-litigation strategies, and 2026 digital rules.", 
-                        link: "read/article5.html", 
-                        date: "22 Apr 2026", 
-                        time: "11 min", 
-                        status: "published" 
-                    },
-                      { 
-                        title: "Legal Recovery and Action for Hacked Social Media Accounts in India", 
-                        desc: "​A strategic guide designed for victims of account hacking on Instagram, YouTube, and Facebook. It bridges the gap between technical recovery (selfie verification/email reverts) and legal enforcement under the Bharatiya Nyaya Sanhita (BNS) and Information Technology Act.", 
-                        link: "read/article5-2.html", 
-                        date: "24 Apr 2026", 
-                        time: "17 min", 
-                        status: "published" 
-                      },
-        
-            
-             { 
-                        title: "New Labour Laws India 2026: Salary Structure & 4 New Labour Codes", 
-                        desc: "Detailed guide on India's New Labour Laws 2026. Understand the 4 Labour Codes, New Salary Structure, and impact on PF and working hours", 
-                        link: "read/article5-3.html", 
-                        date: "24 Apr 2026", 
-                        time: "14 min", 
-                        status: "published" 
-                      }
+                    { title: "What is a Legal Notice?", desc: "The definitive guide to legal communication, pre-litigation strategies, and 2026 digital rules.", link: "read/article5.html", date: "22 Apr 2026", time: "11 min", status: "published" },
+                    { title: "Legal Recovery and Action for Hacked Social Media Accounts in India", desc: "​A strategic guide designed for victims of account hacking on Instagram, YouTube, and Facebook. It bridges the gap between technical recovery (selfie verification/email reverts) and legal enforcement under the Bharatiya Nyaya Sanhita (BNS) and Information Technology Act.", link: "read/article5-2.html", date: "24 Apr 2026", time: "17 min", status: "published" },
+                    { title: "New Labour Laws India 2026: Salary Structure & 4 New Labour Codes", desc: "Detailed guide on India's New Labour Laws 2026. Understand the 4 Labour Codes, New Salary Structure, and impact on PF and working hours", link: "read/article5-3.html", date: "24 Apr 2026", time: "14 min", status: "published" }
                 ]
-                        },
-
-            {
-   
-                id: "auth6",
-    
-                    author: "Payel Dhibar",
-                    university: "KINGSTON LAW COLLEGE | WBSU",
-                    gmail: "dhibarpayel60@gmail.com",
-                    photo: "read/author6.jpg",
-                    bio: "A legal researcher dedicated to bridging the gap between complex Indian statutes and the common citizen.",
-                    articles: [
-        { 
-            title: "How to file FIR Online", 
-            desc: "A complete step-by-step guide to filing digital complaints and FIRs in India under 2026 regulations.", 
-            link: "read/article6.html", 
-            date: "24 Apr 2026", 
-            time: "18 min", 
-            status: "published" 
-        },
-                         { 
-            title: "How to File Consumer Case Online Against Amazon or Flipkart", 
-            desc: "online consumer complaint against Amazon, Flipkart, or any e-commerce site in India. This 2026 guide covers using the National Consumer Helpline (NCH) and the E-Daakhil portal to get your refund and compensation for fraud without needing a lawyer.", 
-            link: "read/article6-2.html", 
-            date: "26 Apr 2026", 
-            time: "13 min", 
-            status: "published" 
-                         }
-    ]
             },
-
-
-            
-            
-            
+            {
+                id: "auth6",
+                author: "Payel Dhibar",
+                university: "KINGSTON LAW COLLEGE | WBSU",
+                gmail: "dhibarpayel60@gmail.com",
+                photo: "read/author6.jpg",
+                bio: "A legal researcher dedicated to bridging the gap between complex Indian statutes and the common citizen.",
+                articles: [
+                    { title: "How to file FIR Online", desc: "A complete step-by-step guide to filing digital complaints and FIRs in India under 2026 regulations.", link: "read/article6.html", date: "24 Apr 2026", time: "18 min", status: "published" },
+                    { title: "How to File Consumer Case Online Against Amazon or Flipkart", desc: "online consumer complaint against Amazon, Flipkart, or any e-commerce site in India. This 2026 guide covers using the National Consumer Helpline (NCH) and the E-Daakhil portal to get your refund and compensation for fraud without needing a lawyer.", link: "read/article6-2.html", date: "26 Apr 2026", time: "13 min", status: "published" }
+                ]
+            },
             {
                 id: "auth4",
                 author: "Bishal Soren",
@@ -271,10 +234,12 @@
         window.onpopstate = function(event) {
             if (searchOverlay.classList.contains('active')) {
                 searchOverlay.classList.remove('active');
+                searchOverlay.setAttribute('aria-hidden', 'true');
                 searchInput.value = "";
             }
             if (modal.classList.contains('active')) {
                 modal.classList.remove('active');
+                modal.setAttribute('aria-hidden', 'true');
                 document.body.classList.remove('modal-open');
             }
         };
@@ -283,9 +248,11 @@
             if (show) {
                 window.history.pushState({ searchOpen: true }, "");
                 searchOverlay.classList.add('active');
+                searchOverlay.setAttribute('aria-hidden', 'false');
                 searchInput.focus();
             } else {
                 searchOverlay.classList.remove('active');
+                searchOverlay.setAttribute('aria-hidden', 'true');
                 if (window.history.state && window.history.state.searchOpen) window.history.back();
             }
         }
@@ -294,19 +261,19 @@
             const data = authorData.find(a => a.id === id);
             window.history.pushState({ modalOpen: true }, "");
             document.body.classList.add('modal-open');
+            modal.setAttribute('aria-hidden', 'false');
             
+            // ✅ Fix: Added alt tags, handled spaced names in avatars, and conditional insta button
             document.getElementById('modal-profile-header').innerHTML = `
                 <div class="flex items-center gap-4">
-                    <img src="${data.photo}" class="w-16 h-16 rounded-2xl object-cover shadow-md" onerror="this.src='https://ui-avatars.com/api/?name=${data.author}'">
+                    <img src="${data.photo}" alt="Profile picture of ${data.author}" loading="lazy" decoding="async" class="w-16 h-16 rounded-2xl object-cover shadow-md" onerror="this.src='https://ui-avatars.com/api/?name=${data.author.replace(/ /g, '+')}'">
                     <div>
                         <div class="flex items-center gap-1.5">
                             <h2 class="text-lg font-extrabold text-slate-900">${data.author}</h2>
-                            <i class="fa-solid fa-circle-check text-blue-500 text-xs"></i>
+                            <i class="fa-solid fa-circle-check text-blue-500 text-xs" aria-hidden="true"></i>
                         </div>
                         <p class="text-[9px] font-bold text-slate-400 uppercase tracking-tighter">${data.university}</p>
-                        <a href="https://instagram.com/${data.insta}" target="_blank" class="insta-btn text-[9px] font-bold text-pink-600 bg-pink-50 px-2.5 py-1 rounded-full mt-2 inline-block">
-                            <i class="fa-brands fa-instagram mr-1"></i>@${data.insta}
-                        </a>
+                        ${data.insta ? `<a href="https://instagram.com/${data.insta}" target="_blank" rel="noopener noreferrer" class="insta-btn text-[9px] font-bold text-pink-600 bg-pink-50 px-2.5 py-1 rounded-full mt-2 inline-block"><i class="fa-brands fa-instagram mr-1" aria-hidden="true"></i>@${data.insta}</a>` : ''}
                     </div>
                 </div>
                 <p class="mt-5 text-xs text-slate-500 font-medium leading-relaxed">${data.bio}</p>
@@ -323,7 +290,7 @@
                     </div>
                     <h4 class="text-sm font-bold text-slate-900 my-1">${art.title}</h4>
                     <p class="text-[11px] text-slate-500 mb-3 line-clamp-2 leading-relaxed font-medium">${art.desc}</p>
-                    ${isPub ? `<a href="${art.link}" class="w-full py-2.5 bg-white border border-slate-200 rounded-lg text-[9px] font-black text-center block uppercase tracking-wider active:bg-blue-600 active:text-white transition-all">Read Article <i class="fa-solid fa-chevron-right text-[7px] ml-1"></i></a>` : ''}
+                    ${isPub ? `<a href="${art.link}" aria-label="Read full article: ${art.title}" class="w-full py-2.5 bg-white border border-slate-200 rounded-lg text-[9px] font-black text-center block uppercase tracking-wider active:bg-blue-600 active:text-white transition-all">Read Article <i class="fa-solid fa-chevron-right text-[7px] ml-1" aria-hidden="true"></i></a>` : ''}
                 </div>`;
             });
             document.getElementById('modal-articles-list').innerHTML = html;
@@ -333,6 +300,7 @@
         function closeModal() {
             if (modal.classList.contains('active')) {
                 modal.classList.remove('active');
+                modal.setAttribute('aria-hidden', 'true');
                 document.body.classList.remove('modal-open');
                 if (window.history.state && window.history.state.modalOpen) window.history.back();
             }
@@ -348,14 +316,19 @@
                     if(art.title.toLowerCase().includes(val) || author.author.toLowerCase().includes(val)) {
                         const item = document.createElement('div');
                         item.className = "search-item";
+                        // ✅ Fix: Added accessibility for search results
+                        item.setAttribute('role', 'button');
+                        item.setAttribute('tabindex', '0');
                         item.innerHTML = `
                             <p class="text-[8px] font-black text-blue-600 uppercase tracking-widest">${author.author}</p>
                             <h5 class="text-xs font-bold text-slate-800">${art.title}</h5>
                         `;
-                        item.onclick = () => {
+                        const triggerItem = () => {
                             searchOverlay.classList.remove('active');
                             openModal(author.id);
                         };
+                        item.onclick = triggerItem;
+                        item.onkeydown = (e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); triggerItem(); } };
                         searchResults.appendChild(item);
                     }
                 });
@@ -367,15 +340,23 @@
             authorData.forEach((data, index) => {
                 const card = document.createElement('div');
                 card.className = `premium-card p-5`;
-                card.onclick = () => openModal(data.id);
+                // ✅ Fix: Added keyboard accessibility to cards
+                card.setAttribute('role', 'button');
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('aria-label', `Open profile and articles by ${data.author}`);
+                
+                const triggerModal = () => openModal(data.id);
+                card.onclick = triggerModal;
+                card.onkeydown = (e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); triggerModal(); } };
+
                 card.innerHTML = `
                     <div class="flex justify-between items-center mb-4">
                         <div class="flex items-center gap-2.5">
-                            <img src="${data.photo}" class="w-11 h-11 rounded-xl object-cover shadow-sm" onerror="this.src='https://ui-avatars.com/api/?name=${data.author}'">
+                            <img src="${data.photo}" alt="${data.author}" loading="lazy" decoding="async" class="w-11 h-11 rounded-xl object-cover shadow-sm" onerror="this.src='https://ui-avatars.com/api/?name=${data.author.replace(/ /g, '+')}'">
                             <div>
                                 <div class="flex items-center gap-1">
                                     <h4 class="font-bold text-slate-900 text-[13px] tracking-tight">${data.author}</h4>
-                                    <i class="fa-solid fa-circle-check text-blue-500 text-[10px]"></i>
+                                    <i class="fa-solid fa-circle-check text-blue-500 text-[10px]" aria-hidden="true"></i>
                                 </div>
                                 <p class="text-[8px] font-bold text-slate-400 uppercase tracking-tighter">${data.university}</p>
                             </div>
@@ -386,7 +367,7 @@
                         <h3 class="text-[16px] font-extrabold text-slate-900 leading-tight mb-1 tracking-tight">${data.articles[0].title}</h3>
                         <p class="text-[11px] text-slate-500 font-medium leading-relaxed line-clamp-2">${data.articles[0].desc}</p>
                     </div>
-                    <div class="action-link">View Portfolio <i class="fa-solid fa-arrow-right text-[9px]"></i></div>
+                    <div class="action-link">View Portfolio <i class="fa-solid fa-arrow-right text-[9px]" aria-hidden="true"></i></div>
                 `;
                 container.appendChild(card);
                 setTimeout(() => card.classList.add('show'), index * 120);
@@ -394,7 +375,7 @@
         };
 
         window.onload = render;
-        window.onclick = (e) => e.target == modal ? closeModal() : null;
+        window.onclick = (e) => { if (e.target == modal) closeModal(); };
     </script>
 </body>
 </html>
