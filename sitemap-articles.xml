@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ╔══════════════════════════════════════════════════╗
+  ║   LAWJOURNAL.ONLINE — ARTICLES SITEMAP           ║
+  ║   All research articles and legal analysis       ║
+  ╚══════════════════════════════════════════════════╝
+-->
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Article 1 — Bare Acts -->
+  <url>
+    <loc>https://lawjournal.online/pages/read/article1.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/author1.jpg</image:loc>
+      <image:title>The Power of Bare Acts in Legal Research — Ettisa Basak</image:title>
+      <image:caption>Article by Ettisa Basak on importance of Bare Acts for law students and lawyers</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Article 2 — Why Law is Important -->
+  <url>
+    <loc>https://lawjournal.online/pages/read/article2.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/author2.jpg</image:loc>
+      <image:title>Why Law is Important in Modern Society — Rey</image:title>
+      <image:caption>Legal analysis article by Rey on the role of law in society</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Article 2-2 — BNS Section 103 Murder Law -->
+  <url>
+    <loc>https://lawjournal.online/pages/read/article2-2.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/author2.jpg</image:loc>
+      <image:title>Section 103 BNS: New Murder Law Analysis — Rey</image:title>
+      <image:caption>Deep analysis of BNS Section 103 replacing IPC Section 302 on murder</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Article 2-3 — Raghav Chadha BJP Merger (TRENDING / HIGH PRIORITY) -->
+  <url>
+    <loc>https://lawjournal.online/pages/read/article2-3.html</loc>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/author2.jpg</image:loc>
+      <image:title>Raghav Chadha Joins BJP: Constitutional Validity of 2/3rd Merger Rule</image:title>
+      <image:caption>Constitutional analysis of anti-defection law and 2/3rd merger provision under Tenth Schedule</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Article 2-4 — Mamata Banerjee Defeat 2026 (LATEST / HIGH PRIORITY) -->
+  <url>
+    <loc>https://lawjournal.online/pages/read/article2-4/mamata-banerjee-defeat-2026.html</loc>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/article2-4/cover-image.jpg</image:loc>
+      <image:title>Mamata Banerjee Defeat 2026 — Legal and Political Analysis</image:title>
+      <image:caption>In-depth legal and constitutional analysis of 2026 West Bengal election outcome</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Article 3 — Legal Research -->
+  <url>
+    <loc>https://lawjournal.online/pages/read/article3.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/author3.jpg</image:loc>
+      <image:title>How to Do Legal Research in India — Bishal Soren</image:title>
+      <image:caption>Guide to legal research methodology by Bishal Soren</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Article 4 — What is Case Law -->
+  <url>
+    <loc>https://lawjournal.online/pages/read/article4.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/author4.jpg</image:loc>
+      <image:title>What is Case Law and How to Use It — Analdeep Samanta</image:title>
+      <image:caption>Explainer on case law and judicial precedent by Analdeep Samanta</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Article 5 — Legal Notice Procedure -->
+  <url>
+    <loc>https://lawjournal.online/pages/read/article5.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/author5.jpg</image:loc>
+      <image:title>What is a Legal Notice? 2026 Procedure and BNSS Rules — Anusmita Das</image:title>
+      <image:caption>Complete guide to sending legal notices under BNSS 2026 by Anusmita Das</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Article 5-2 -->
+  <url>
+    <loc>https://lawjournal.online/pages/read/article5-2.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Article 5-3 — New Labour Laws 2026 -->
+  <url>
+    <loc>https://lawjournal.online/pages/read/article5-3.html</loc>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/author5.jpg</image:loc>
+      <image:title>New Labour Laws 2026: Complete Comparison and Analysis — Anusmita Das</image:title>
+      <image:caption>Detailed comparison of old vs new Labour Codes 2026 by Anusmita Das</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Article 6 — E-FIR Guide -->
+  <url>
+    <loc>https://lawjournal.online/pages/read/article6.html</loc>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/author6.jpg</image:loc>
+      <image:title>File Pan-India E-FIR in 12 Minutes: Complete Smartphone Guide — Payel Dhibar</image:title>
+      <image:caption>Step-by-step guide to filing E-FIR online using smartphone across India by Payel Dhibar</image:caption>
+    </image:image>
+  </url>
+
+</urlset>
+    
