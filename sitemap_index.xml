@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main Pages Sitemap -->
+  <sitemap>
+    <loc>https://lawjournal.online/sitemap-main.xml</loc>
+    <lastmod>2026-05-08</lastmod>
+  </sitemap>
+
+  <!-- Acts & Law Sitemap -->
+  <sitemap>
+    <loc>https://lawjournal.online/sitemap-acts.xml</loc>
+    <lastmod>2026-05-08</lastmod>
+  </sitemap>
+
+  <!-- Articles Sitemap -->
+  <sitemap>
+    <loc>https://lawjournal.online/sitemap-articles.xml</loc>
+    <lastmod>2026-05-08</lastmod>
+  </sitemap>
+
+  <!-- News Sitemap (for Google News) -->
+  <sitemap>
+    <loc>https://lawjournal.online/sitemap-news.xml</loc>
+    <lastmod>2026-05-08</lastmod>
+  </sitemap>
+
+  <!-- Image Sitemap -->
+  <sitemap>
+    <loc>https://lawjournal.online/sitemap-images.xml</loc>
+    <lastmod>2026-05-08</lastmod>
+  </sitemap>
+
+</sitemapindex>
