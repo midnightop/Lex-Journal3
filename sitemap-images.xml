@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ╔══════════════════════════════════════════════════╗
+  ║   LAWJOURNAL.ONLINE — IMAGE SITEMAP              ║
+  ║   Helps images rank on Google Image Search       ║
+  ╚══════════════════════════════════════════════════╝
+-->
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://lawjournal.online/pages/read/article1.html</loc>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/author1.jpg</image:loc>
+      <image:title>Ettisa Basak — Law Journal Online Author</image:title>
+      <image:caption>Author photo of Ettisa Basak, contributor at Law Journal Online</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://lawjournal.online/pages/read/article2.html</loc>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/author2.jpg</image:loc>
+      <image:title>Rey — Legal Analyst, Law Journal Online</image:title>
+      <image:caption>Author photo of Rey, legal analyst and contributor at Law Journal Online</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://lawjournal.online/pages/read/article2-3.html</loc>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/author2.jpg</image:loc>
+      <image:title>Raghav Chadha BJP Merger — Anti-Defection Constitutional Analysis</image:title>
+      <image:caption>Analysis cover image for Raghav Chadha BJP merger article, Law Journal Online</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://lawjournal.online/pages/read/article2-4/mamata-banerjee-defeat-2026.html</loc>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/article2-4/cover-image.jpg</image:loc>
+      <image:title>Mamata Banerjee Defeat 2026 — West Bengal Election Legal Analysis</image:title>
+      <image:caption>Cover image for legal analysis article on 2026 West Bengal election results</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://lawjournal.online/pages/read/article3.html</loc>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/author3.jpg</image:loc>
+      <image:title>Bishal Soren — Law Journal Online Author</image:title>
+      <image:caption>Author photo of Bishal Soren, contributor at Law Journal Online</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://lawjournal.online/pages/read/article4.html</loc>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/author4.jpg</image:loc>
+      <image:title>Analdeep Samanta — Law Journal Online Author</image:title>
+      <image:caption>Author photo of Analdeep Samanta, contributor at Law Journal Online</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://lawjournal.online/pages/read/article5.html</loc>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/author5.jpg</image:loc>
+      <image:title>Anusmita Das — Law Journal Online Author</image:title>
+      <image:caption>Author photo of Anusmita Das, legal writer at Law Journal Online</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://lawjournal.online/pages/read/article5-3.html</loc>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/author5.jpg</image:loc>
+      <image:title>New Labour Laws 2026 India — Comparison Chart</image:title>
+      <image:caption>Visual comparison of old and new Labour Codes 2026, Law Journal Online</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://lawjournal.online/pages/read/article6.html</loc>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/author6.jpg</image:loc>
+      <image:title>Payel Dhibar — Law Journal Online Author</image:title>
+      <image:caption>Author photo of Payel Dhibar, legal guide writer at Law Journal Online</image:caption>
+    </image:image>
+  </url>
+
+</urlset>
