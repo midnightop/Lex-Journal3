@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║   LAWJOURNAL.ONLINE — GOOGLE NEWS SITEMAP                    ║
+  ║   Submit at: search.google.com/search-console > Sitemaps     ║
+  ║   IMPORTANT: Only articles from last 2 days should be here   ║
+  ║   Update this file daily with new articles                   ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- LATEST: Mamata Banerjee Defeat 2026 Legal Analysis -->
+  <url>
+    <loc>https://lawjournal.online/pages/read/article2-4/mamata-banerjee-defeat-2026.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Law Journal Online</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-05-08</news:publication_date>
+      <news:title>Mamata Banerjee Defeat 2026: Legal and Constitutional Analysis of West Bengal Election</news:title>
+      <news:keywords>Mamata Banerjee, West Bengal election 2026, constitutional law, election law India, TMC, political analysis</news:keywords>
+    </news:news>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/article2-4/cover-image.jpg</image:loc>
+      <image:title>Mamata Banerjee Defeat 2026 — Legal Analysis</image:title>
+    </image:image>
+  </url>
+
+  <!-- TRENDING: Raghav Chadha Joins BJP — Constitutional Analysis -->
+  <url>
+    <loc>https://lawjournal.online/pages/read/article2-3.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Law Journal Online</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-05-01</news:publication_date>
+      <news:title>Raghav Chadha Joins BJP: Decoding the Constitutional Legitimacy of the 2/3rd Merger Rule</news:title>
+      <news:keywords>Raghav Chadha, BJP, anti-defection law, Tenth Schedule, merger rule, constitutional law, AAP</news:keywords>
+    </news:news>
+    <image:image>
+      <image:loc>https://lawjournal.online/pages/read/author2.jpg</image:loc>
+      <image:title>Raghav Chadha BJP Merger — Constitutional Analysis</image:title>
+    </image:image>
+  </url>
+
+</urlset>
