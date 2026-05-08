@@ -1,35 +1,22 @@
-# Law Journal Robots.txt - Optimized for Legal Acts & Research
+# ================================================================
+# robots.txt — lawjournal.online
+# Last Updated: 2026-05-08
+# ================================================================
 
+# Allow all search engines
 User-agent: *
 Allow: /
-Allow: /acts/
-Allow: /pages/read/
 
-# Blocking files that are not useful for search results
-Disallow: /README.md
-Disallow: /ads.txt
-Disallow: /skeleton-screen/
-Disallow: /assets/css/
-Disallow: /assets/js/
+# Block admin/private folders (add your own if needed)
 Disallow: /admin/
 Disallow: /private/
+Disallow: /drafts/
+Disallow: /*.json$
+Disallow: /*.xml$
 
-# Google
-User-agent: Googlebot
-Allow: /
-Allow: /acts/
-Allow: /pages/read/
+# ★ SITEMAP LOCATIONS — Google, Bing, Yahoo will auto-discover
+Sitemap: https://lawjournal.online/sitemap_index.xml
+Sitemap: https://lawjournal.online/sitemap-news.xml
 
-# Bing
-User-agent: Bingbot
-Allow: /
-
-# Good Bots explicitly allowed
-User-agent: AhrefsBot
-Allow: /
-
-User-agent: SemrushBot
-Allow: /
-
-# Sitemap
-Sitemap: https://lawjournal.online/sitemap.xml
+# Crawl delay (optional — remove if site is fast)
+Crawl-delay: 1
