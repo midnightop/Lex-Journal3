@@ -3,401 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#1e293b">
+    <meta name="theme-color" content="#ffffff">
     <title>Privacy Policy | Lawjournal.online</title>
-    <meta name="description" content="Official Privacy Policy of Lawjournal.online – Detailed information on data collection, Google AdSense, cookies, and user rights.">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://lawjournal.online/privacy-policy.html">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2978948668893594" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background: #f8fafc;
-            color: #334155;
-            overflow-x: hidden;
-            -webkit-tap-highlight-color: transparent;
+            background-color: #f9fafb;
+            color: #1f2937;
+            line-height: 1.5;
         }
-        .font-serif { font-family: 'Playfair Display', serif; }
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.9);
+
+        /* Glass Navigation */
+        .nav-blur {
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
-        }
-        
-        /* Modern Button style */
-        .home-btn {
-            background: transparent;
-            border: 2px solid #334155;
-            color: #1e293b;
-            padding: 8px 18px;
-            border-radius: 99px;
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .home-btn:hover {
-            background: #1e293b;
-            color: white;
-            transform: translateY(-1px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        /* Updated Card Structure */
-        .policy-section {
+        /* Premium Card Style */
+        .content-card {
             background: white;
-            border-radius: 20px;
-            padding: 32px;
-            margin-bottom: 24px;
-            border: 1px solid rgba(241, 245, 249, 0.8);
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.03);
-            transition: transform 0.3s ease;
-        }
-        .policy-section:hover {
-            transform: translateY(-2px);
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            padding: 20px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
         }
 
-        /* Typography Refinements */
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-        .section-number {
-            font-size: 13px;
-            font-weight: 900;
-            color: white;
-            background: #3b82f6; /* Accent color */
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-        }
-        .section-title {
-            font-size: 22px;
-            font-weight: 800;
-            color: #0f172a;
-            letter-spacing: -0.03em;
-        }
-        .section-text {
-            font-size: 15px;
-            color: #475569;
-            line-height: 1.9;
-            font-weight: 400;
-        }
-        .section-text strong {
-            color: #0f172a;
-            font-weight: 600;
-        }
-
-        /* Modernized Highlight Box */
-        .highlight-box {
-            background: #eff6ff;
-            border-left: 4px solid #3b82f6;
-            border-radius: 12px;
-            padding: 18px 22px;
-            margin-top: 18px;
-        }
-        .highlight-box p {
-            font-size: 14px;
-            color: #1e3a8a;
-            font-weight: 500;
-            line-height: 1.7;
-        }
-
-        /* Tag Styling */
-        .tag {
-            display: inline-block;
-            background: #f1f5f9;
-            color: #475569;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 5px 12px;
-            border-radius: 99px;
-            margin: 4px 4px 4px 0;
-            transition: all 0.2s ease;
-        }
-        .tag:hover {
-            background: #e2e8f0;
-            color: #1e293b;
-        }
-
-        /* Reveal Animation Base Class */
+        /* Animations */
         .reveal {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+            transform: translateY(10px);
+            transition: all 0.5s ease-out;
         }
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* List Styling */
-        .list-dot {
-            width: 7px;
-            height: 7px;
-            background: #94a3b8;
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 10px; }
+
+        .section-tag {
+            font-size: 10px;
+            font-weight: 700;
+            color: #3b82f6;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .dot-indicator {
+            width: 5px; height: 5px;
+            background: #3b82f6;
             border-radius: 50%;
             display: inline-block;
-            margin-right: 12px;
+            margin-right: 10px;
+            margin-top: 8px;
             flex-shrink: 0;
-            margin-top: 10px;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Modern Nav -->
-    <nav class="sticky top-0 z-50 glass-nav px-6 py-4 flex justify-between items-center">
-        <div class="flex items-center gap-3">
-            <div class="w-11 h-11 bg-gradient-to-br from-slate-800 to-slate-950 rounded-xl flex items-center justify-center text-white shadow-md">
-                <i class="fa-solid fa-scale-balanced text-base"></i>
+    <!-- Simple & Clean Nav -->
+    <nav class="sticky top-0 z-50 nav-blur px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center text-white">
+                <i class="fa-solid fa-scale-balanced text-xs"></i>
             </div>
-            <a href="/">
-                <span class="font-black text-slate-950 tracking-tighter text-xl">Lawjournal<span class="text-blue-600">.online</span></span>
-            </a>
+            <span class="font-bold text-slate-900 tracking-tight text-base">Lawjournal<span class="text-blue-600">.online</span></span>
         </div>
-        <a href="/" class="home-btn">← Back Home</a>
+        <a href="/" class="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full hover:bg-slate-200 transition-all">← Home</a>
     </nav>
 
-    <main class="px-6 pb-20 max-w-3xl mx-auto">
+    <main class="max-w-xl mx-auto px-4 pt-8 pb-12">
 
-        <!-- Animated Header Area -->
-        <div class="pt-16 pb-12 text-center reveal active">
-            <p class="text-[11px] font-bold text-blue-600 uppercase tracking-[0.25em] mb-4">Official Documentation</p>
-            <h1 class="text-5xl font-black text-slate-950 tracking-tighter leading-tight mb-4" style="font-family: 'Playfair Display', serif;">
-                Privacy Policy
-            </h1>
-            <p class="text-sm text-slate-500 font-medium bg-slate-100 inline-block px-4 py-1.5 rounded-full">Effective Date: May 8, 2026</p>
-        </div>
+        <!-- Header -->
+        <header class="mb-8 reveal active">
+            <h1 class="text-2xl font-800 text-slate-900 tracking-tight mb-1">Privacy Policy</h1>
+            <p class="text-[12px] text-slate-400 font-medium">Last updated: May 8, 2026</p>
+        </header>
 
-        <!-- Section 1: Intro (Integrated Style) -->
-        <div class="policy-section reveal active" style="background: #1e293b; border: none;">
-            <p class="text-[11px] font-black uppercase tracking-widest text-blue-400 mb-3">Overview</p>
-            <p style="font-size: 15px; line-height: 1.9; color: #f1f5f9; font-weight: 400;">
-                At Lawjournal.online ("we", "our", "us"), we hold your privacy in high regard. This comprehensive Privacy Policy outlines how we collect, process, and safeguard the data generated when you visit or interact with our platform. By accessing Lawjournal.online, you acknowledge and agree to the practices described herein.
+        <!-- Intro Section -->
+        <div class="content-card bg-slate-900 border-none reveal active">
+            <p class="text-[13px] leading-relaxed text-slate-300">
+                Welcome to <span class="text-white font-semibold">Lawjournal.online</span>. We respect your privacy and are committed to protecting it through our compliance with this policy.
             </p>
         </div>
 
-        <!-- Section 2: Data Collection (Content Structure Improved) -->
-        <div class="policy-section reveal">
-            <div class="section-header">
-                <div class="section-number">01</div>
-                <div class="section-title">Information We Collect</div>
-            </div>
-            <p class="section-text mb-5">To optimize your experience and our services, we collect limited, non-sensitive information:</p>
-            <div class="space-y-4">
+        <!-- Section 1 -->
+        <div class="content-card reveal">
+            <span class="section-tag">01. Collection</span>
+            <h2 class="text-base font-bold mb-3">Information We Collect</h2>
+            <div class="space-y-3">
                 <div class="flex items-start">
-                    <span class="list-dot"></span>
-                    <p class="section-text"><strong>Usage Analytics:</strong> Information such as pages viewed, duration of visit, device configuration, browser type, and a truncated IP address are collected automatically via third-party analytics services.</p>
+                    <span class="dot-indicator"></span>
+                    <p class="text-[13px] text-slate-600"><span class="font-semibold text-slate-800">Automatic Data:</span> IP address, browser type, and usage patterns via cookies.</p>
                 </div>
                 <div class="flex items-start">
-                    <span class="list-dot"></span>
-                    <p class="section-text"><strong>Cookies & Tracking:</strong> Small data files are utilized to recognize your browser, remember user preferences, and facilitate essential advertising functions.</p>
-                </div>
-                <div class="flex items-start">
-                    <span class="list-dot"></span>
-                    <p class="section-text"><strong>Communication Data:</strong> Should you choose to contact us directly at <a href="mailto:admin@lawjournal.online" class="text-blue-600 font-medium">admin@lawjournal.online</a>, we retain your email address and message contents solely for correspondence purposes.</p>
+                    <span class="dot-indicator"></span>
+                    <p class="text-[13px] text-slate-600"><span class="font-semibold text-slate-800">Email:</span> Only when you reach out to us for support.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Section 3: AdSense (Content Refined) -->
-        <div class="policy-section reveal">
-            <div class="section-header">
-                <div class="section-number">02</div>
-                <div class="section-title">Google AdSense & Advertising</div>
-            </div>
-            <p class="section-text">
-                We implement <strong>Google AdSense</strong> to deliver advertisements across our website. To provide relevant content, Google utilizes cookies (including the DoubleClick cookie) to serve ads based on your visit history to Lawjournal.online and other destinations on the internet.
+        <!-- Section 2: AdSense (Important) -->
+        <div class="content-card reveal" style="border-left: 3px solid #3b82f6;">
+            <span class="section-tag">02. Advertising</span>
+            <h2 class="text-base font-bold mb-2">Google AdSense</h2>
+            <p class="text-[13px] text-slate-600 leading-relaxed">
+                We use Google AdSense to show ads. Google uses cookies to serve ads based on your visits to this and other sites.
             </p>
-            <div class="highlight-box">
-                <p>
-                    <i class="fa-solid fa-circle-info mr-2.5 text-blue-600"></i>
-                    <strong>Your Choice:</strong> You are not required to accept personalized advertising. You can manage your preferences or opt-out entirely by visiting <strong>Google's Ad Settings</strong> page at <span class="underline text-blue-800">www.google.com/settings/ads</span>.
+            <div class="mt-3 p-3 bg-blue-50 rounded-lg">
+                <p class="text-[12px] text-blue-700 font-medium italic">
+                    You can opt-out of personalized ads via Google Ad Settings.
                 </p>
             </div>
-            <div class="mt-5">
-                <span class="tag">DoubleClick Cookie</span>
-                <span class="tag">Interest-based Ads</span>
-                <span class="tag">Third-party Vendors</span>
-                <span class="tag">CCPA/GDPR Compliant</span>
-            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="content-card reveal">
+            <span class="section-tag">03. Usage</span>
+            <h2 class="text-base font-bold mb-3">How We Use Data</h2>
+            <ul class="space-y-2">
+                <li class="flex items-start">
+                    <i class="fa-solid fa-check text-[10px] text-green-500 mt-1 mr-2"></i>
+                    <p class="text-[13px] text-slate-600">To improve our website articles and layout.</p>
+                </li>
+                <li class="flex items-start">
+                    <i class="fa-solid fa-check text-[10px] text-green-500 mt-1 mr-2"></i>
+                    <p class="text-[13px] text-slate-600">To show relevant ads through AdSense.</p>
+                </li>
+                <li class="flex items-start">
+                    <i class="fa-solid fa-check text-[10px] text-green-500 mt-1 mr-2"></i>
+                    <p class="text-[13px] text-slate-600">We <b>never</b> sell your data to third parties.</p>
+                </li>
+            </ul>
         </div>
 
         <!-- Section 4 -->
-        <div class="policy-section reveal">
-            <div class="section-header">
-                <div class="section-number">03</div>
-                <div class="section-title">How We Use Your Information</div>
-            </div>
-            <p class="section-text mb-5">The data we collect is utilized strictly for legitimate business operations:</p>
-            <div class="space-y-4">
-                <div class="flex items-start">
-                    <span class="list-dot"></span>
-                    <p class="section-text">To maintain, analyze, and optimize the Lawjournal.online user experience.</p>
-                </div>
-                <div class="flex items-start">
-                    <span class="list-dot"></span>
-                    <p class="section-text">To serve relevant, non-intrusive advertisements via the Google AdSense network.</p>
-                </div>
-                <div class="flex items-start">
-                    <span class="list-dot"></span>
-                    <p class="section-text">To monitor site security and prevent malicious activity.</p>
-                </div>
-                <div class="flex items-start">
-                    <span class="list-dot"></span>
-                    <p class="section-text">To respond efficiently to your support requests or inquiries sent by email.</p>
-                </div>
-                <div class="flex items-start">
-                    <span class="list-dot"></span>
-                    <p class="section-text">We maintain a strict policy against selling, trading, or transferring your personal data to outside parties.</p>
-                </div>
-            </div>
+        <div class="content-card reveal">
+            <span class="section-tag">04. Cookies</span>
+            <h2 class="text-base font-bold mb-2">Cookie Policy</h2>
+            <p class="text-[13px] text-slate-600 leading-relaxed">
+                Cookies help us analyze web traffic. You can choose to accept or decline cookies in your browser settings.
+            </p>
         </div>
 
         <!-- Section 5 -->
-        <div class="policy-section reveal">
-            <div class="section-header">
-                <div class="section-number">04</div>
-                <div class="section-title">Cookies Policy</div>
-            </div>
-            <p class="section-text">
-                Our platform uses small text files called cookies to improve performance. We categorize our cookie usage into three primary groups:
-            </p>
-            <div class="space-y-4 mt-5">
-                <div class="flex items-start">
-                    <span class="list-dot"></span>
-                    <p class="section-text"><strong>Essential:</strong> Required for fundamental site security and functionality.</p>
-                </div>
-                <div class="flex items-start">
-                    <span class="list-dot"></span>
-                    <p class="section-text"><strong>Analytics:</strong> Implemented via Google Analytics to help us understand anonymous user behavior and improve the platform.</p>
-                </div>
-                <div class="flex items-start">
-                    <span class="list-dot"></span>
-                    <p class="section-text"><strong>Advertising:</strong> Used by Google AdSense to serve, manage, and track the effectiveness of ads.</p>
-                </div>
-            </div>
-            <div class="highlight-box mt-5">
-                <p>Most browsers automatically accept cookies, but you may modify your browser setting to decline cookies if you prefer. However, this may prevent you from taking full advantage of the website.</p>
-            </div>
-        </div>
-
-        <!-- Section 6: Third-Party Links -->
-        <div class="policy-section reveal">
-            <div class="section-header">
-                <div class="section-number">05</div>
-                <div class="section-title">Third-Party Links</div>
-            </div>
-            <p class="section-text">
-                Lawjournal.online may provide links to external legal resources, databases, and court websites. We do not operate these external sites and have no control over their content. We strongly advise you to review the Privacy Policy of every site you visit, as we are not responsible for their data practices.
+        <div class="content-card reveal">
+            <span class="section-tag">05. External Links</span>
+            <h2 class="text-base font-bold mb-2">Third-Party Sites</h2>
+            <p class="text-[13px] text-slate-600 leading-relaxed">
+                Our content may link to other legal websites. We are not responsible for their privacy practices.
             </p>
         </div>
 
-        <!-- Section 7 -->
-        <div class="policy-section reveal">
-            <div class="section-header">
-                <div class="section-number">06</div>
-                <div class="section-title">Children's Privacy</div>
-            </div>
-            <p class="section-text">
-                Our services are directed toward legal professionals and adults. We do not knowingly collect personal information from children under the age of 13. If we become aware that a child under 13 has provided us with personal information, we will delete this data immediately from our servers.
-            </p>
-        </div>
-
-        <!-- Section 8 -->
-        <div class="policy-section reveal">
-            <div class="section-header">
-                <div class="section-number">07</div>
-                <div class="section-title">Your Data Rights</div>
-            </div>
-            <p class="section-text mb-5">Depending on your location, you may have specific legal rights regarding your data:</p>
-            <div class="space-y-4">
-                <div class="flex items-start">
-                    <span class="list-dot"></span>
-                    <p class="section-text">The right to access the data we may hold about you.</p>
-                </div>
-                <div class="flex items-start">
-                    <span class="list-dot"></span>
-                    <p class="section-text">The right to object to or restrict the processing of your data.</p>
-                </div>
-                <div class="flex items-start">
-                    <span class="list-dot"></span>
-                    <p class="section-text">The right to opt-out of personalized advertising tracking (via Google).</p>
-                </div>
-                <div class="flex items-start">
-                    <span class="list-dot"></span>
-                    <p class="section-text">To exercise these rights, please contact our privacy team.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Contact (Modernized Styling) -->
-        <div class="policy-section reveal" style="background: #eff6ff; border: 2px solid #bfdbfe;">
-            <div class="text-center py-4">
-                <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-5 border border-blue-200">
-                    <i class="fa-solid fa-envelope text-blue-600 text-xl"></i>
-                </div>
-                <p class="text-[11px] font-bold text-slate-500 uppercase tracking-widest mb-2">Privacy Question?</p>
-                <p class="text-2xl font-extrabold text-slate-950 mb-1.5">Contact Us</p>
-                <a href="mailto:admin@lawjournal.online" class="text-base text-blue-700 font-semibold hover:underline">admin@lawjournal.online</a>
-                <p class="text-xs text-slate-500 mt-4 font-medium bg-white inline-block px-3 py-1 rounded-full border border-slate-100">Average response time: 48 hours</p>
+        <!-- Contact Section -->
+        <div class="mt-8 text-center reveal">
+            <p class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-3">Need Help?</p>
+            <div class="inline-flex items-center gap-2 bg-white border border-slate-200 px-4 py-2 rounded-2xl shadow-sm">
+                <i class="fa-solid fa-envelope text-blue-600 text-sm"></i>
+                <span class="text-[13px] font-semibold text-slate-800">admin@lawjournal.online</span>
             </div>
         </div>
 
     </main>
 
-    <!-- Modern Footer -->
-    <footer class="py-12 px-6 text-center border-t border-slate-100 bg-white">
-        <div class="flex justify-center gap-7 mb-6 flex-wrap">
-            <a href="/terms.html" class="text-[11px] font-bold text-slate-500 uppercase tracking-widest hover:text-blue-600 transition-colors">Terms</a>
-            <a href="/privacy-policy.html" class="text-[11px] font-bold text-blue-600 uppercase tracking-widest">Privacy</a>
-            <a href="/about.html" class="text-[11px] font-bold text-slate-500 uppercase tracking-widest hover:text-blue-600 transition-colors">Contact</a>
+    <!-- Footer -->
+    <footer class="py-10 border-t border-slate-100 text-center">
+        <div class="flex justify-center gap-5 mb-4">
+            <a href="#" class="text-[11px] font-medium text-slate-500">Terms</a>
+            <a href="#" class="text-[11px] font-medium text-slate-900 border-b-2 border-blue-600">Privacy</a>
+            <a href="#" class="text-[11px] font-medium text-slate-500">Contact</a>
         </div>
-        <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.25em]">© 2026 LAWJOURNAL.ONLINE</p>
+        <p class="text-[10px] font-bold text-slate-300 uppercase tracking-widest">© 2026 LAWJOURNAL.ONLINE</p>
     </footer>
 
     <script>
-        // Smooth Staggered Reveal animation on scroll
-        const reveals = document.querySelectorAll('.reveal');
-        
-        const observer = new IntersectionObserver((entries) => {
-            let delay = 0;
-            const delayIncrement = 90; // Milliseconds between animations
+        // Scroll reveal logic
+        const observerOptions = {
+            threshold: 0.1
+        };
 
-            entries.forEach((entry) => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Apply delay only when they reveal
-                    setTimeout(() => {
-                        entry.target.classList.add('active');
-                    }, delay);
-                    delay += delayIncrement;
-                    
-                    // Stop observing once revealed
-                    observer.unobserve(entry.target);
+                    entry.target.classList.add('active');
                 }
             });
-        }, { 
-            threshold: 0.15 // Section must be 15% visible
-        });
-        
-        reveals.forEach(el => observer.observe(el));
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 
 </body>
