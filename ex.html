@@ -3,116 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday!</title>
-    <!-- Hum yahan ek sundar cursive font use kar rahe hain -->
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <title>Happy Birthday Pamphlet</title>
+    <!-- Fonts for Name and Birthday Text -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1a1a2e; /* Dark elegant background */
+            font-family: 'Poppins', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #0d0d0d; /* Dark theme so colors pop */
-            font-family: 'Pacifico', cursive;
+            min-height: 100vh;
             overflow: hidden;
             position: relative;
+            padding: 20px;
         }
 
-        .container {
+        /* Pamphlet / Card Design */
+        .pamphlet-card {
+            background: rgba(255, 255, 255, 0.95);
+            width: 100%;
+            max-width: 450px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
             text-align: center;
-            perspective: 1000px;
+            padding: 40px 30px;
+            position: relative;
             z-index: 10;
+            /* Entry Animation */
+            animation: slideUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            transform: translateY(100px);
+            opacity: 0;
         }
 
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Photo Section */
+        .photo-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(45deg, #ff0055, #00aaff);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            /* Soft rotation animation */
+            animation: pulseGlow 3s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 10px #ff0055; }
+            100% { box-shadow: 0 0 25px #00aaff; }
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            background-color: #eee;
+        }
+
+        /* Name Text */
+        .name-text {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        /* Animated Happy Birthday Text */
         .hbd-text {
-            font-size: 6rem;
-            margin: 0;
-            padding: 0 20px;
-            color: transparent;
-            /* Colorful Animated Gradient */
-            background-image: linear-gradient(
-                to right, 
-                #ff0055, #ffaa00, #00ffaa, #00aaff, #aa00ff, #ff0055
-            );
+            font-family: 'Dancing Script', cursive;
+            font-size: 45px;
+            margin: 10px 0 20px 0;
+            background: linear-gradient(to right, #ff0077, #ff9900, #ff0077);
             background-size: 200% auto;
             -webkit-background-clip: text;
             background-clip: text;
-            /* Combine two animations: The color flow and the entry bounce */
-            animation: 
-                dropIn 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards,
-                shine 3s linear infinite;
-            opacity: 0;
-            filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.2));
+            color: transparent;
+            animation: shine 2.5s linear infinite;
         }
 
-        /* Gradient Color Shifting Animation */
         @keyframes shine {
-            to {
-                background-position: 200% center;
-            }
+            to { background-position: 200% center; }
         }
 
-        /* 3D Entry Animation */
-        @keyframes dropIn {
-            0% {
-                opacity: 0;
-                transform: translateY(-80px) scale(0.7) rotateX(-40deg);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1) rotateX(0deg);
-            }
+        /* Editable Description / Message Area */
+        .message-box {
+            background-color: #f8f9fa;
+            border: 2px dashed #bdc3c7;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 14px;
+            color: #555;
+            min-height: 80px;
+            outline: none;
+            transition: all 0.3s;
         }
 
-        /* Chote chamakte sitare (Sparkles) ka style */
-        .sparkle {
+        .message-box:focus {
+            border-color: #ff0055;
+            background-color: #fff;
+        }
+
+        .message-box[aria-placeholder]:empty:before {
+            content: attr(aria-placeholder);
+            color: #a0a0a0;
+        }
+
+        /* Confetti / Sparkles Animation in Background */
+        .confetti {
             position: absolute;
-            width: 4px;
-            height: 4px;
-            background: white;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #fff, 0 0 20px #fff;
-            animation: twinkle 2s infinite ease-in-out alternate;
+            width: 8px;
+            height: 8px;
+            background-color: #fff;
+            opacity: 0.7;
+            animation: fall linear infinite;
         }
 
-        @keyframes twinkle {
-            0% { transform: scale(0); opacity: 0; }
-            100% { transform: scale(1.5); opacity: 0.8; }
-        }
-
-        /* Mobile screen ke liye adjustment */
-        @media (max-width: 600px) {
-            .hbd-text {
-                font-size: 3.5rem;
-                line-height: 1.4;
-            }
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1 class="hbd-text">Happy Birthday!</h1>
+    <!-- Main Pamphlet Card -->
+    <div class="pamphlet-card">
+        
+        <!-- Photo -->
+        <div class="photo-container">
+            <!-- Exact path given by you -->
+            <img src="pages/read/author1" alt="Ettisa Basak" onerror="this.src='https://via.placeholder.com/150?text=Photo'">
+        </div>
+
+        <!-- Name -->
+        <h2 class="name-text">Ettisa Basak</h2>
+
+        <!-- Animated Text -->
+        <h1 class="hbd-text">FUCK YOU BABBY!</h1>
+
+        <!-- Type your custom message here -->
+        <div class="message-box" contenteditable="true" aria-placeholder="Yahan apna message likho... (Click to type)"></div>
     </div>
 
-    <!-- Background mein halke-halke sitare laane ke liye thoda sa JavaScript -->
+    <!-- Script for background Confetti animation -->
     <script>
-        for(let i = 0; i < 30; i++) {
-            let sparkle = document.createElement('div');
-            sparkle.className = 'sparkle';
-            // Random position set karna
-            sparkle.style.top = Math.random() * 100 + 'vh';
-            sparkle.style.left = Math.random() * 100 + 'vw';
-            // Random animation delay taaki sab ek sath na chamke
-            sparkle.style.animationDelay = (Math.random() * 2) + 's';
-            // Random colors (pink, blue, yellow)
-            let colors = ['#ff0055', '#00aaff', '#ffaa00', '#ffffff'];
-            sparkle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            sparkle.style.boxShadow = `0 0 10px ${sparkle.style.backgroundColor}`;
+        const colors = ['#ff0055', '#00aaff', '#ffcc00', '#00ffaa', '#cc00ff'];
+        for (let i = 0; i < 40; i++) {
+            let confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            confetti.style.animationDelay = Math.random() * 2 + 's';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
             
-            document.body.appendChild(sparkle);
+            // Randomly make them square or circular
+            if (Math.random() > 0.5) {
+                confetti.style.borderRadius = '50%';
+            }
+            
+            document.body.appendChild(confetti);
         }
     </script>
 
