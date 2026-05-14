@@ -3,389 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>University of Calcutta - Portal</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Happy Birthday!</title>
+    <!-- Hum yahan ek sundar cursive font use kar rahe hain -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <style>
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        body {
-            background-color: #fafafa;
-            color: #333;
-        }
-
-        /* --- Header Section --- */
-        .top-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 30px;
-            background-color: #fff;
-            border-bottom: 2px solid #524785; /* Purple line */
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo {
-            width: 70px;
-            height: 70px;
-        }
-
-        .uni-title h1 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 4px;
-        }
-
-        .uni-title p {
-            font-size: 13px;
-            font-weight: 500;
-            color: #000;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .portal-name {
-            font-size: 18px;
-            font-weight: 500;
-            color: #333;
-        }
-
-        .theme-toggle {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-            background: #fff;
-            cursor: pointer;
-            font-size: 14px;
-            color: #555;
-            transition: all 0.3s;
-        }
-
-        .theme-toggle:hover {
-            background: #f0f0f0;
-        }
-
-        /* --- Main Content Section --- */
-        .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        /* Portal Cards Grid */
-        .portal-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .portal-card {
-            display: flex;
-            align-items: center;
-            padding: 20px;
-            border-radius: 12px;
-            color: #fff;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
-            position: relative;
-        }
-
-        .portal-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-        }
-
-        .portal-card .icon-wrapper {
-            width: 60px;
-            height: 60px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 12px;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-right: 20px;
-            font-size: 30px;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .card-text h3 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .card-text p {
-            font-size: 13px;
-            opacity: 0.9;
-        }
-
-        .card-arrow {
-            position: absolute;
-            right: 20px;
-            font-size: 12px;
-            opacity: 0.7;
-        }
-
-        /* Card Specific Colors */
-        .card-student { background-color: #3b4255; }
-        .card-student .icon-wrapper { color: #0ea5e9; }
-
-        .card-admin { background-color: #f14646; }
-        .card-admin .icon-wrapper { color: #333; }
-
-        .card-teacher { background-color: #2ed364; }
-        .card-teacher .icon-wrapper { color: #0284c7; }
-
-        .card-college { background-color: #ebb505; }
-        .card-college .icon-wrapper { color: #0284c7; }
-
-        /* --- Updates Section --- */
-        .updates-section {
-            margin-top: 40px;
-        }
-
-        .updates-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 20px;
-        }
-
-        .updates-title h2 {
-            font-size: 18px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .updates-title p {
-            font-size: 14px;
-            color: #666;
-        }
-
-        .tabs {
-            display: flex;
-            background: #fff;
-            border-radius: 20px;
-            padding: 4px;
-            border: 1px solid #ebebeb;
-        }
-
-        .tab-btn {
-            border: none;
-            background: none;
-            padding: 6px 16px;
-            border-radius: 16px;
-            font-size: 13px;
-            font-weight: 500;
-            color: #666;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .tab-btn.active {
-            background-color: #2563eb;
-            color: #fff;
-        }
-
-        /* Info Cards */
-        .info-card {
-            background: #fff;
-            border: 1px solid #eaebec;
-            border-radius: 10px;
-            margin-bottom: 15px;
+            background-color: #0d0d0d; /* Dark theme so colors pop */
+            font-family: 'Pacifico', cursive;
             overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            position: relative;
         }
 
-        .info-card-content {
-            padding: 15px 20px;
-        }
-
-        .info-card-content h3 {
-            font-size: 15px;
-            font-weight: 600;
-            color: #222;
-            margin-bottom: 4px;
-        }
-
-        .info-card-content p {
-            font-size: 13px;
-            color: #777;
-        }
-
-        /* Specific styling for News card */
-        .news-card .info-card-header {
-            background-color: #f1fcf5;
-            padding: 15px 20px;
-            border-bottom: 1px solid #e2f2e8;
-        }
-        
-        .news-card .info-card-header h3 {
-            font-size: 15px;
-            font-weight: 600;
-            color: #222;
-            margin-bottom: 4px;
-        }
-        
-        .news-card .info-card-header p {
-            font-size: 13px;
-            color: #777;
-        }
-
-        .news-card .info-card-body {
-            padding: 20px;
+        .container {
             text-align: center;
-            font-size: 14px;
-            color: #555;
-            background-color: #fff;
+            perspective: 1000px;
+            z-index: 10;
         }
 
-        /* --- Responsive Design --- */
-        @media (max-width: 900px) {
-            .portal-grid {
-                grid-template-columns: 1fr;
+        .hbd-text {
+            font-size: 6rem;
+            margin: 0;
+            padding: 0 20px;
+            color: transparent;
+            /* Colorful Animated Gradient */
+            background-image: linear-gradient(
+                to right, 
+                #ff0055, #ffaa00, #00ffaa, #00aaff, #aa00ff, #ff0055
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            /* Combine two animations: The color flow and the entry bounce */
+            animation: 
+                dropIn 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards,
+                shine 3s linear infinite;
+            opacity: 0;
+            filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.2));
+        }
+
+        /* Gradient Color Shifting Animation */
+        @keyframes shine {
+            to {
+                background-position: 200% center;
             }
-            .top-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
+        }
+
+        /* 3D Entry Animation */
+        @keyframes dropIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-80px) scale(0.7) rotateX(-40deg);
             }
-            .header-right {
-                width: 100%;
-                justify-content: space-between;
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotateX(0deg);
             }
-            .updates-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
+        }
+
+        /* Chote chamakte sitare (Sparkles) ka style */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #fff, 0 0 20px #fff;
+            animation: twinkle 2s infinite ease-in-out alternate;
+        }
+
+        @keyframes twinkle {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1.5); opacity: 0.8; }
+        }
+
+        /* Mobile screen ke liye adjustment */
+        @media (max-width: 600px) {
+            .hbd-text {
+                font-size: 3.5rem;
+                line-height: 1.4;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="top-header">
-        <div class="header-left">
-            <img src="https://d2xe8shibzpjog.cloudfront.net/logo/cupg_logo_only.png" alt="University Logo" class="logo">
-            <div class="uni-title">
-                <h1>University of Calcutta</h1>
-                <p>87/1, COLLEGE STREET, KOLKATA-700 073</p>
-            </div>
-        </div>
-        <div class="header-right">
-            <div class="portal-name">PG & MISC. EXAMINATION PORTAL</div>
-            <button class="theme-toggle">Light mode <i class="fas fa-moon"></i></button>
-        </div>
-    </header>
-
-    <!-- Main Content -->
     <div class="container">
-        
-        <!-- Portal Grid -->
-        <div class="portal-grid">
-            
-            <!-- Student Portal -->
-            <div class="portal-card card-student">
-                <div class="icon-wrapper"><i class="fas fa-user-graduate"></i></div>
-                <div class="card-text">
-                    <h3>Student Portal</h3>
-                    <p>Click to continue as <strong>Student</strong>.</p>
-                </div>
-                <i class="fas fa-chevron-right card-arrow"></i>
-            </div>
-
-            <!-- Administrator Portal -->
-            <div class="portal-card card-admin">
-                <div class="icon-wrapper"><i class="fas fa-university"></i></div>
-                <div class="card-text">
-                    <h3>Administrator Portal</h3>
-                    <p>Click to continue as <strong>Administrator</strong>.</p>
-                </div>
-                <i class="fas fa-chevron-right card-arrow"></i>
-            </div>
-
-            <!-- Teacher Portal -->
-            <div class="portal-card card-teacher">
-                <div class="icon-wrapper"><i class="fas fa-chalkboard-teacher"></i></div>
-                <div class="card-text">
-                    <h3>Teacher Portal</h3>
-                    <p>Click to continue as <strong>Teacher</strong>.</p>
-                </div>
-                <i class="fas fa-chevron-right card-arrow"></i>
-            </div>
-
-            <!-- College/Department Portal -->
-            <div class="portal-card card-college">
-                <div class="icon-wrapper"><i class="fas fa-laptop-code"></i></div>
-                <div class="card-text">
-                    <h3>College/Department Portal</h3>
-                    <p>Click to continue as <strong>College/Department</strong>.</p>
-                </div>
-                <i class="fas fa-chevron-right card-arrow"></i>
-            </div>
-
-        </div>
-
-        <!-- Updates & Info Section -->
-        <div class="updates-section">
-            <div class="updates-header">
-                <div class="updates-title">
-                    <h2>Important information & updates</h2>
-                    <p>Instructions, HelpDesk details, and latest news in one place.</p>
-                </div>
-                <div class="tabs">
-                    <button class="tab-btn active">All</button>
-                    <button class="tab-btn">Instructions</button>
-                    <button class="tab-btn">HelpDesk</button>
-                    <button class="tab-btn">News</button>
-                </div>
-            </div>
-
-            <!-- Helpdesk Card -->
-            <div class="info-card">
-                <div class="info-card-content">
-                    <h3>Technical HelpDesk Details</h3>
-                    <p>Contact information for technical support.</p>
-                </div>
-            </div>
-
-            <!-- News Card -->
-            <div class="info-card news-card">
-                <div class="info-card-header">
-                    <h3>News</h3>
-                    <p>Latest announcements and important updates.</p>
-                </div>
-                <div class="info-card-body">
-                    No news found.
-                </div>
-            </div>
-
-        </div>
+        <h1 class="hbd-text">Happy Birthday!</h1>
     </div>
+
+    <!-- Background mein halke-halke sitare laane ke liye thoda sa JavaScript -->
+    <script>
+        for(let i = 0; i < 30; i++) {
+            let sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            // Random position set karna
+            sparkle.style.top = Math.random() * 100 + 'vh';
+            sparkle.style.left = Math.random() * 100 + 'vw';
+            // Random animation delay taaki sab ek sath na chamke
+            sparkle.style.animationDelay = (Math.random() * 2) + 's';
+            // Random colors (pink, blue, yellow)
+            let colors = ['#ff0055', '#00aaff', '#ffaa00', '#ffffff'];
+            sparkle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            sparkle.style.boxShadow = `0 0 10px ${sparkle.style.backgroundColor}`;
+            
+            document.body.appendChild(sparkle);
+        }
+    </script>
 
 </body>
 </html>
