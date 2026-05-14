@@ -3,209 +3,386 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Research & Articles | CLJ</title>
-    <meta name="description" content="Explore the CLJ Legal Vault: Deep dive into the BNS vs IPC transition, BNSS 2023 sections, Legal Maxims, and Constitutional Writs.">
-    <link rel="apple-touch-icon" href="/favicon.ico">
-    <link rel="canonical" href="https://lawjournal.online/pages/research.html">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"></noscript>
-    
+    <title>Application Form - University of Calcutta</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700;900&display=swap');
-        
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #f0f2f5; 
-            -webkit-tap-highlight-color: transparent; 
-            user-select: none;
-            overflow-x: hidden;
+        body {
+            background: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
         }
 
-        .reveal { 
-            opacity: 0; 
-            transform: translateY(30px); 
-            transition: all 0.8s cubic-bezier(0.2, 1, 0.2, 1); 
-        }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .glass-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+        .cupg-wrapper {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 11px;
+            color: #000;
+            line-height: 1.2;
+            border: 2px solid #000;
+            padding: 15px;
+            margin: 0 auto;
+            max-width: 850px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
 
-        .btn-premium {
-            transition: all 0.3s ease;
-            position: relative;
+        .cupg-wrapper table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        /* Standard table cell borders */
+        .cupg-wrapper td {
+            padding: 3px !important;
+        }
+
+        /* Utility to remove borders */
+        .cupg-wrapper .no-border, 
+        .cupg-wrapper .no-border td,
+        .cupg-wrapper table.no-border td {
+            border: none !important;
+        }
+
+        .cupg-wrapper .text-center { text-align: center; }
+        .cupg-wrapper .text-right { text-align: right; }
+        .cupg-wrapper .text-left { text-align: left; }
+        .cupg-wrapper .bold { font-weight: bold; }
+
+        .cupg-wrapper .header-title {
+            font-size: 20px;
+            text-transform: uppercase;
+            margin-bottom: 0px;
+        }
+
+        .cupg-wrapper .photo-box {
+            border: 1px solid #000;
+            width: 110px;
+            height: 130px;
+            display: inline-block;
             overflow: hidden;
         }
-        .btn-premium:active { transform: scale(0.96); }
+
+        .cupg-wrapper .sign-box {
+            border: 1px solid #000;
+            width: 110px;
+            height: 40px;
+            display: inline-block;
+            margin-top: 5px;
+            overflow: hidden;
+        }
         
-        /* Subtle background glow for cards */
-        .glow-red { box-shadow: 0 0 20px rgba(239, 68, 68, 0.1); }
-        .glow-amber { box-shadow: 0 0 20px rgba(245, 158, 11, 0.1); }
-        .glow-blue { box-shadow: 0 0 20px rgba(30, 58, 138, 0.1); }
-        .glow-purple { box-shadow: 0 0 20px rgba(147, 51, 234, 0.1); }
-        .glow-indigo { box-shadow: 0 0 20px rgba(79, 70, 229, 0.1); }
+        .print-btn-container {
+            text-align: center;
+            margin-top: 30px;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+
+        .btn-print {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .btn-print:hover {
+            background-color: #0056b3;
+        }
+        
+        @media print {
+            body { background: none; margin: 0; padding: 0; }
+            .page-body { padding: 0 !important; background: none !important; }
+            .cupg-wrapper { 
+                border: 2px solid #000 !important; 
+                padding: 15px !important; 
+                margin: 0 !important; 
+                max-width: 100% !important; 
+                box-shadow: none !important;
+            }
+            .no-print { display: none !important; }
+        }
     </style>
 </head>
-<body class="pb-24">
+<body>
 
-    <nav class="sticky top-0 z-50 bg-white/70 backdrop-blur-xl px-6 py-5 flex justify-between items-center border-b border-gray-200/50" aria-label="Main Navigation">
-        <h1 class="font-black text-gray-900 text-2xl tracking-tighter">CLJ <span class="text-blue-600">RESEARCH</span></h1>
-        <a href="index.html" aria-label="Go back to Home page" class="text-[11px] font-black uppercase tracking-widest text-white bg-gray-900 px-6 py-2.5 rounded-full shadow-lg active:scale-90 transition">Home</a>
-    </nav>
-
-    <header class="pt-20 pb-16 px-8 text-center bg-gradient-to-b from-white to-transparent">
-        <h1 class="text-6xl md:text-8xl font-serif font-bold text-gray-900 leading-none">Legal <br><span class="text-blue-600 italic">Vault</span></h1>
-        <p class="mt-6 text-gray-400 text-[10px] font-black uppercase tracking-[0.5em] ml-1">Curated Legal Intelligence</p>
-    </header>
-
-    <main class="px-6 space-y-12 max-w-xl mx-auto mt-4">
+<div class="page-body">
+    <div id="divToPrint1" class="cupg-wrapper">
+        <!-- Header Section -->
+        <table class="no-border">
+            <tr>
+                <td width="15%" class="text-center" valign="middle">
+                    <img src="https://quickchart.io/qr?text=Name%20%3A%20AKTAR%20ANJUM%20%0ARoll%20No%20%3A%20L02/LLB/251283%0ARegistration%20No.%20%3A%20137-1111-0266-21%0ASemester%20%3A%20%20Semester%20-%20I%0A%20Session%20%3A%20%202025%0A%20Status%20%3A%20Submitted%0A%20Application%20Id%20%3A%20LLB/SM01/25/0283R&size=400" width="80" height="80" alt="QR Code">
+                </td>
+                <td width="60%" class="text-center" valign="middle">
+                    <img src="https://d2xe8shibzpjog.cloudfront.net/logo/cupg_logo_only.png" width="90" alt="University Logo">
+                    <div class="bold header-title">UNIVERSITY OF CALCUTTA</div>
+                    <div style="font-size: 13px;">87/1, College Street, Kolkata - 700073, West Bengal, India</div>
+                    <div class="bold" style="font-size: 13px; margin-top: 5px; text-decoration: underline;">Application Form</div>
+                </td>
+                <td width="25%" class="text-right" valign="top">
+                    <div class="photo-box">
+                        <img src="https://d2xe8shibzpjog.cloudfront.net/Photo_Signature/cuogdemo/photo/cuogdemo1778770845CU0002320.jpg" width="110" height="130" style="object-fit: cover;" alt="Student Photo">
+                    </div>
+                    <br>
+                    <div class="sign-box">
+                        <img src="https://d2xe8shibzpjog.cloudfront.net/Photo_Signature/cuogdemo/signature/cuogdemo1778770852CU0002320.jpg" width="110" height="40" style="object-fit: contain;" alt="Student Signature">
+                    </div>
+                </td>
+            </tr>
+        </table>
         
-        <div class="reveal glass-card glow-red p-8 rounded-[3rem] relative overflow-hidden group">
-            <div class="absolute -right-4 -top-4 w-24 h-24 bg-red-500/5 rounded-full group-hover:scale-150 transition-transform duration-700" aria-hidden="true"></div>
-            <div class="flex items-center gap-6 mb-6">
-                <div class="w-16 h-16 bg-red-600 rounded-3xl flex items-center justify-center text-white shadow-xl shadow-red-200 group-hover:rotate-12 transition-transform" aria-hidden="true">
-                    <i class="fa-solid fa-gavel text-2xl" aria-hidden="true"></i>
-                </div>
-                <div>
-                    <h2 class="font-black text-gray-900 text-2xl leading-none">BNS vs IPC</h2>
-                    <span class="text-[10px] font-black text-red-600 uppercase mt-2 inline-block tracking-widest">Criminal Code 2023</span>
-                </div>
-            </div>
-            <p class="text-gray-500 text-sm md:text-base mb-8 leading-relaxed font-medium">
-                Deep dive into the Bharatiya Nyaya Sanhita. Understanding the shift from colonial laws to modern Indian justice.
-            </p>
-            <a href="bns-comparison.html" aria-label="Explore BNS vs IPC comparison" class="btn-premium w-full block text-center py-5 bg-red-600 text-white rounded-[2rem] font-black text-xs uppercase tracking-[0.25em] shadow-xl shadow-red-200">
-                Explore Reform
-            </a>
-        </div>
-
-        <div class="reveal glass-card glow-amber p-8 rounded-[3rem] relative overflow-hidden group">
-            <div class="absolute -right-4 -top-4 w-24 h-24 bg-amber-500/5 rounded-full group-hover:scale-150 transition-transform duration-700" aria-hidden="true"></div>
-            <div class="flex items-center gap-6 mb-6">
-                <div class="w-16 h-16 bg-amber-500 rounded-3xl flex items-center justify-center text-white shadow-xl shadow-amber-200 group-hover:rotate-12 transition-transform" aria-hidden="true">
-                    <i class="fa-solid fa-scroll text-2xl" aria-hidden="true"></i>
-                </div>
-                <div>
-                    <h2 class="font-black text-gray-900 text-2xl leading-none">Legal Maxims</h2>
-                    <span class="text-[10px] font-black text-amber-600 uppercase mt-2 inline-block tracking-widest">Latin Foundations</span>
-                </div>
-            </div>
-            <p class="text-gray-500 text-sm md:text-base mb-8 leading-relaxed font-medium">
-                The language of Law. A comprehensive dictionary of Latin maxims used in high court and supreme court pleadings.
-            </p>
-            <a href="legal-maxims-page.html" aria-label="Study Legal Maxims" class="btn-premium w-full block text-center py-5 bg-amber-500 text-white rounded-[2rem] font-black text-xs uppercase tracking-[0.25em] shadow-xl shadow-amber-200">
-                Study Maxims
-            </a>
-        </div>
-
-        <div class="reveal glass-card glow-blue p-8 rounded-[3rem] relative overflow-hidden group">
-            <div class="absolute -right-4 -top-4 w-24 h-24 bg-blue-500/5 rounded-full group-hover:scale-150 transition-transform duration-700" aria-hidden="true"></div>
-            <div class="flex items-center gap-6 mb-6">
-                <div class="w-16 h-16 bg-blue-700 rounded-3xl flex items-center justify-center text-white shadow-xl shadow-blue-200 group-hover:rotate-12 transition-transform" aria-hidden="true">
-                    <i class="fa-solid fa-shield-halved text-2xl" aria-hidden="true"></i>
-                </div>
-                <div>
-                    <h2 class="font-black text-gray-900 text-2xl leading-none">Const. Writs</h2>
-                    <span class="text-[10px] font-black text-blue-700 uppercase mt-2 inline-block tracking-widest">Fundamental Remedies</span>
-                </div>
-            </div>
-            <p class="text-gray-500 text-sm md:text-base mb-8 leading-relaxed font-medium">
-                Protecting Liberty through Article 32 & 226. Analysis of Habeas Corpus, Mandamus, and other judicial orders.
-            </p>
-            <a href="constitutional-writs.html" aria-label="View Constitutional Writs remedies" class="btn-premium w-full block text-center py-5 bg-blue-700 text-white rounded-[2rem] font-black text-xs uppercase tracking-[0.25em] shadow-xl shadow-blue-200">
-                View Remedies
-            </a>
-        </div>
-
-        <div class="reveal glass-card glow-indigo p-8 rounded-[3rem] relative overflow-hidden group">
-            <div class="absolute -right-4 -top-4 w-24 h-24 bg-indigo-500/10 rounded-full group-hover:scale-[2.5] transition-transform duration-700" aria-hidden="true"></div>
-            
-            <div class="flex items-center gap-6 mb-6">
-                <div class="w-16 h-16 bg-gradient-to-br from-indigo-600 to-violet-700 rounded-3xl flex items-center justify-center text-white shadow-xl shadow-indigo-200 group-hover:rotate-[15deg] transition-transform duration-500" aria-hidden="true">
-                    <i class="fa-solid fa-gavel text-2xl" aria-hidden="true"></i>
-                </div>
-                <div>
-                    <h2 class="font-black text-gray-900 text-2xl leading-none">BNSS, 2023</h2>
-                    <span class="text-[10px] font-black text-indigo-600 uppercase mt-2 inline-block tracking-widest">Criminal Procedure</span>
-                </div>
-            </div>
-
-            <p class="text-gray-500 text-sm md:text-base mb-8 leading-relaxed font-medium">
-                Comprehensive analysis of the 531 SECTIONS. Exploring the shift from CrPC to the new procedural framework of BHARATIYA NAGARIK SURAKSHA SANHITA.
-            </p>
-
-            <a href="acts/bnss-section.html" aria-label="Access all 531 sections of BNSS" class="btn-premium w-full block text-center py-5 bg-gradient-to-r from-indigo-700 to-violet-800 text-white rounded-[2rem] font-black text-xs uppercase tracking-[0.25em] shadow-xl shadow-indigo-200 hover:shadow-indigo-400 transition-all">
-                Access 531 Sections
-            </a>
-        </div>
-
-        <div class="reveal glass-card glow-purple p-8 rounded-[3rem] relative overflow-hidden group">
-            <div class="absolute -right-4 -top-4 w-24 h-24 bg-purple-500/5 rounded-full group-hover:scale-150 transition-transform duration-700" aria-hidden="true"></div>
-            <div class="flex items-center justify-between mb-6">
-                <div class="flex items-center gap-6">
-                    <div class="w-16 h-16 bg-purple-600 rounded-3xl flex items-center justify-center text-white shadow-xl shadow-purple-200 group-hover:rotate-12 transition-transform" aria-hidden="true">
-                        <i class="fa-solid fa-file-pdf text-2xl" aria-hidden="true"></i>
+        <!-- Application Details -->
+        <table class="no-border" style="margin-top: 0px; border-bottom: 1px solid #000 !important;">
+            <tr>
+                <td width="70%"> 
+                    <div style="font-size: 15px; font-weight: bold; text-decoration: underline; margin-bottom: 10px;">
+                        Application Id : LLB/SM01/25/0283R
                     </div>
-                    <div>
-                        <h2 class="font-black text-gray-900 text-2xl leading-none">Society Rights</h2>
-                        <span class="text-[10px] font-black text-purple-600 uppercase mt-2 inline-block tracking-widest">PDF Resources</span>
+                    <strong>Examination -</strong> 5-year B.A. LL.B Semester - I Examination, 2025
+                </td>
+                <td class="text-right" valign="top">
+                    <strong>Date -</strong> 14/05/2026
+                </td>
+            </tr>
+        </table>
+        
+        <!-- Addressee -->
+        <table class="no-border" style="width: 100%; margin-top: 5px;">
+            <tr>
+                <td width="70%" valign="top">
+                    <div style="font-size: 11px;">
+                        To<br>
+                        The Controller of Examinations<br>
+                        <span>University of Calcutta</span><br><br>
+                        Sir / Madam,<br>
+                        I request permission to present myself at the ensuing examination and furnish the required particulars as follows:
                     </div>
-                </div>
-            </div>
-            <p class="text-gray-500 text-sm md:text-base mb-8 leading-relaxed font-medium border-t border-gray-100 pt-6">
-                Legal Protections for the Common Man. Download our detailed thesis on societal rights and duties.
-            </p>
-            <a href="https://drive.google.com/file/d/1rhLqLQLmC6z4Hv6V3beyTY2n2KRAuxqj/view" target="_blank" rel="noopener noreferrer" aria-label="Download Society Rights PDF" class="btn-premium w-full block text-center py-5 bg-purple-600 text-white rounded-[2rem] font-black text-xs uppercase tracking-[0.25em] shadow-xl shadow-purple-200">
-                Download PDF
-            </a>
+                </td>
+                <td width="30%" class="text-right" valign="top"> 
+                    <div style="font-size: 11px; font-weight: bold; text-decoration: underline; margin-right: 10px; margin-top: 5px;">
+                        Attendance Status : Collegiate 
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Personal Details -->
+        <table style="margin-top: 5px; font-size: 10px;">
+            <tr>
+                <td width="50%"><strong>Name :</strong> AKTAR ANJUM</td>
+                <td width="50%"><strong>Roll No. :</strong> L02/LLB/251283</td>
+            </tr>
+            <tr>
+                <td><strong>Father's/Mother's/Guardian's Name :</strong> ABDUR RAHAMAN</td>
+                <td><strong>Physically Challenged :</strong> No</td>
+            </tr>
+            <tr>
+                <td><strong>Registration No. :</strong> 137-1111-0266-21</td>
+                <td><strong>Mobile :</strong> 8240091378</td>
+            </tr>
+            <tr>
+                <td><strong>Date of Birth :</strong> 06/12/2000</td>
+                <td><strong>E-mail :</strong> <span style="font-size: 10px;">aktarop9@gmail.com</span></td>
+            </tr>
+            <tr>
+                <td><strong>Gender :</strong> MALE</td>
+                <td><strong>ABC Id :</strong> </td>
+            </tr> 
+            <tr>
+                <td colspan="2"><strong>College Name :</strong> SURENDRANATH LAW COLLEGE (L02)</td>
+            </tr> 
+        </table>
+        
+        <!-- Subject Details -->
+        <div class="text-center bold" style="margin-top: 5px; margin-bottom: 5px; font-size: 12px;">
+            Subject(s) to appear & Fees to be deposited:
         </div>
+        <table class="text-center" style="border: 1px solid #000; border-collapse: collapse; width: 100%; font-size: 10px;">
+            <thead>
+                <tr class="text-center bold" style="background: #f0f0f0; border: 1px solid #000;">
+                    <td rowspan="2" width="5%" style="border: 1px solid #000;">Srl. No.</td>
+                    <td rowspan="2" width="15%" style="border: 1px solid #000;">Subject Code</td>
+                    <td rowspan="2" width="45%" style="border: 1px solid #000;">Subject Name</td>
+                    <td rowspan="2" width="10%" style="border: 1px solid #000;">COMPONENT<br>(TH/PR)</td>
+                    <td colspan="2" width="25%" style="border: 1px solid #000;">Fee Details</td>
+                </tr>
+                <tr class="text-center bold" style="background: #f0f0f0; border: 1px solid #000;">
+                    <td style="border: 1px solid #000;">Particulars</td>
+                    <td style="border: 1px solid #000;">Amount</td>
+                </tr> 
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center" style="border: 1px solid #000;">1</td>
+                    <td class="text-center" style="border: 1px solid #000;">Paper-I</td>
+                    <td class="text-center" style="border: 1px solid #000;">English–I</td>
+                    <td class="text-center" style="border: 1px solid #000;">TH</td>
+                    <td class="text-center" style="border: 1px solid #000; font-size: 8px;"></td>
+                    <td class="text-center bold" style="border: 1px solid #000; font-size: 10px;"></td>
+                </tr>
+                <tr>
+                    <td class="text-center" style="border: 1px solid #000;">2</td>
+                    <td class="text-center" style="border: 1px solid #000;">Paper-II</td>
+                    <td class="text-center" style="border: 1px solid #000;">Political Science–I</td>
+                    <td class="text-center" style="border: 1px solid #000;">TH</td>
+                    <td class="text-center" style="border: 1px solid #000; font-size: 8px;">
+                        <span>Total fees to be deposited by the candidate to the college</span>
+                    </td>
+                    <td class="text-center bold" style="border: 1px solid #000; font-size: 10px;">
+                        <span>250</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-center" style="border: 1px solid #000;">3</td>
+                    <td class="text-center" style="border: 1px solid #000;">Paper-III</td>
+                    <td class="text-center" style="border: 1px solid #000;">Sociology–I</td>
+                    <td class="text-center" style="border: 1px solid #000;">TH</td>
+                    <td class="text-center" style="border: 1px solid #000; font-size: 8px;">
+                        <span>Delay Fine</span>
+                    </td>
+                    <td class="text-center bold" style="border: 1px solid #000; font-size: 10px;"></td>
+                </tr>
+                <tr>
+                    <td class="text-center" style="border: 1px solid #000;">4</td>
+                    <td class="text-center" style="border: 1px solid #000;">Paper-IV</td>
+                    <td class="text-center" style="border: 1px solid #000;">General Principles of Contract</td>
+                    <td class="text-center" style="border: 1px solid #000;">TH</td>
+                    <td class="text-center" style="border: 1px solid #000; font-size: 8px;">
+                        <span>Short Percentage Condonation Fee</span>
+                    </td>
+                    <td class="text-center bold" style="border: 1px solid #000; font-size: 10px;"></td>
+                </tr>
+                <tr>
+                    <td class="text-center" style="border: 1px solid #000;">5</td>
+                    <td class="text-center" style="border: 1px solid #000;">Paper-V</td>
+                    <td class="text-center" style="border: 1px solid #000;">Family Law–I</td>
+                    <td class="text-center" style="border: 1px solid #000;">TH</td>
+                    <td class="text-center" style="border: 1px solid #000; font-size: 8px;">
+                        <span style="font-weight: bold; text-decoration: underline;">Total</span>
+                    </td>
+                    <td class="text-center bold" style="border: 1px solid #000; font-size: 10px;">
+                        <span style="text-decoration: underline;">250</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Declaration Section -->
+        <div style="font-size: 10px; margin-top: 10px; line-height: 1.2;"> 
+            I declare that if any of the statement made in the above is found to be untrue or if it appears that, in the opinion of the University, I have contravened the provisions of the University Rules and Regulations relating to the examination to which I now seek admission, my candidature for the examination shall be liable to be cancelled by the University.
+        </div>
+        
+        <table class="no-border" style="margin-top: 15px;">
+            <tr>
+                <td width="50%" valign="bottom">Date:</td>
+                <td class="text-right" width="50%" valign="bottom" style="font-size: 13px;">
+                    <div style="border-top: 1px dashed #000; display: inline-block; width: 250px;"></div><br>
+                    Full Signature of the applicant with Date
+                </td>
+            </tr>
+        </table>
+        
+        <!-- Important Notes -->
+        <div style="font-size: 10px; margin-top: 5px;">
+            <strong>N.B.</strong><br>
+            1. Candidates are required to submit the form to their College only.<br>
+            2. For any change or correction, please contact your college. <br>
+            3. Fees once paid are non-refundable. 
+        </div>
+        
+        <!-- Challan Tear-off Section -->
+        <div style="text-align: center; margin: 15px 0; border-top: 2px dashed #000; position: relative;">
+            <span style="position: absolute; top: -14px; left: 50%; background: #fff; padding: 0 15px; transform: translateX(-50%);">
+                <i style="font-size: 20px;">✂</i> <strong>CHALLAN COPY FOR CANDIDATE</strong>
+            </span>
+        </div>
+        
+        <div style="border: 1px solid #000; padding: 10px; margin-top: 5px;">
+            <p style="margin: 0; line-height: 1.4; text-align: justify; font-size: 11px;">
+                Received an amount of Rs.<strong>250.00</strong> 
+                from <strong>AKTAR ANJUM</strong> 
+                having Registration No. <strong>137-1111-0266-21</strong> 
+                and Roll No. <strong>L02/LLB/251283</strong> 
+                as examination & other relevant fees for 
+                <strong>5-year B.A. LL.B Semester - I Examination, 2025</strong>,
+                after proper verification of all conditions including attendance as prerequisite of the candidate (as per extant regulation) to sit for the said examination.
+            </p>
+            <table class="no-border" style="margin-top: 15px;">
+                <tr>
+                    <td width="50%" valign="bottom">Date:</td>
+                    <td class="text-right" width="50%" valign="bottom" style="font-size: 13px;">
+                        <div style="border-top: 1px solid #000; display: inline-block; width: 300px;"></div><br>
+                        (Signature of HOD, University/Principal of College)
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Print Button Section -->
+    <div class="no-print print-btn-container">
+        <button class="btn-print" onclick="printEnrollConfirmpage()">
+            🖨️ Print Form
+        </button>
+    </div>
+</div>
 
-    </main>
-
-    <script>
-        let adLoaded = false;
-        function loadAdSense() {
-            if (!adLoaded) {
-                adLoaded = true;
-                const adScript = document.createElement('script');
-                adScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2978948668893594";
-                adScript.async = true;
-                adScript.crossOrigin = "anonymous";
-                document.body.appendChild(adScript);
-            }
-        }
-        window.addEventListener('scroll', loadAdSense, { once: true });
-        window.addEventListener('touchstart', loadAdSense, { once: true });
-        window.addEventListener('mousemove', loadAdSense, { once: true });
-        setTimeout(loadAdSense, 4000);
-    </script>
-
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
+<script>
+    function printEnrollConfirmpage() {
+        var divToPrint = document.getElementById('divToPrint1');
+        var newWin = window.open("", "_blank");
+        
+        // Injecting CSS into the print window securely
+        var style = `
+            <style>
+                .cupg-wrapper {
+                    font-family: "Times New Roman", Times, serif;
+                    font-size: 11px;
+                    color: #000;
+                    line-height: 1.2;
+                    border: 2px solid #000;
+                    padding: 15px;
+                    margin: 0;
+                    background: #fff;
                 }
-            });
-        }, { threshold: 0.1 });
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                    margin-bottom: 5px;
+                }
+                td {
+                    padding: 3px !important;
+                }
+                .no-border, .no-border td, table.no-border td {
+                    border: none !important;
+                }
+                .text-center { text-align: center; }
+                .text-right { text-align: right; }
+                .text-left { text-align: left; }
+                .bold { font-weight: bold; }
+                .header-title { font-size: 20px; text-transform: uppercase; margin-bottom: 0px; }
+                .photo-box { border: 1px solid #000; width: 110px; height: 130px; display: inline-block; }
+                .sign-box { border: 1px solid #000; width: 110px; height: 40px; display: inline-block; margin-top: 5px; }
+                @media print {
+                    @page { margin: 1cm; }
+                }
+            </style>
+        `;
+        
+        newWin.document.write('<!DOCTYPE html><html><head><title>Print Form</title>' + style + '</head><body>' + divToPrint.outerHTML + '</body></html>');
+        newWin.document.close();
+        newWin.focus();
+        
+        // Added timeout to ensure images load before printing
+        setTimeout(function() { 
+            newWin.print(); 
+            newWin.close(); 
+        }, 750);
+    }
+</script>
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    </script>
 </body>
 </html>
