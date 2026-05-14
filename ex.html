@@ -3,386 +3,389 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application Form - University of Calcutta</title>
+    <title>University of Calcutta - Portal</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            background: #f4f4f4;
+        * {
             margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
         }
 
-        .cupg-wrapper {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 11px;
+        body {
+            background-color: #fafafa;
+            color: #333;
+        }
+
+        /* --- Header Section --- */
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #fff;
+            border-bottom: 2px solid #524785; /* Purple line */
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+        }
+
+        .uni-title h1 {
+            font-size: 24px;
+            font-weight: 700;
             color: #000;
-            line-height: 1.2;
-            border: 2px solid #000;
-            padding: 15px;
-            margin: 0 auto;
-            max-width: 850px;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 4px;
         }
 
-        .cupg-wrapper table {
-            border-collapse: collapse;
-            width: 100%;
+        .uni-title p {
+            font-size: 13px;
+            font-weight: 500;
+            color: #000;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .portal-name {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            background: #fff;
+            cursor: pointer;
+            font-size: 14px;
+            color: #555;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: #f0f0f0;
+        }
+
+        /* --- Main Content Section --- */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Portal Cards Grid */
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .portal-card {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-radius: 12px;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+
+        .portal-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .portal-card .icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+            font-size: 30px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .card-text h3 {
+            font-size: 18px;
+            font-weight: 600;
             margin-bottom: 5px;
         }
 
-        /* Standard table cell borders */
-        .cupg-wrapper td {
-            padding: 3px !important;
+        .card-text p {
+            font-size: 13px;
+            opacity: 0.9;
         }
 
-        /* Utility to remove borders */
-        .cupg-wrapper .no-border, 
-        .cupg-wrapper .no-border td,
-        .cupg-wrapper table.no-border td {
-            border: none !important;
+        .card-arrow {
+            position: absolute;
+            right: 20px;
+            font-size: 12px;
+            opacity: 0.7;
         }
 
-        .cupg-wrapper .text-center { text-align: center; }
-        .cupg-wrapper .text-right { text-align: right; }
-        .cupg-wrapper .text-left { text-align: left; }
-        .cupg-wrapper .bold { font-weight: bold; }
+        /* Card Specific Colors */
+        .card-student { background-color: #3b4255; }
+        .card-student .icon-wrapper { color: #0ea5e9; }
 
-        .cupg-wrapper .header-title {
-            font-size: 20px;
-            text-transform: uppercase;
-            margin-bottom: 0px;
+        .card-admin { background-color: #f14646; }
+        .card-admin .icon-wrapper { color: #333; }
+
+        .card-teacher { background-color: #2ed364; }
+        .card-teacher .icon-wrapper { color: #0284c7; }
+
+        .card-college { background-color: #ebb505; }
+        .card-college .icon-wrapper { color: #0284c7; }
+
+        /* --- Updates Section --- */
+        .updates-section {
+            margin-top: 40px;
         }
 
-        .cupg-wrapper .photo-box {
-            border: 1px solid #000;
-            width: 110px;
-            height: 130px;
-            display: inline-block;
-            overflow: hidden;
+        .updates-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 20px;
         }
 
-        .cupg-wrapper .sign-box {
-            border: 1px solid #000;
-            width: 110px;
-            height: 40px;
-            display: inline-block;
-            margin-top: 5px;
-            overflow: hidden;
-        }
-        
-        .print-btn-container {
-            text-align: center;
-            margin-top: 30px;
-            border-top: 1px solid #ccc;
-            padding-top: 20px;
+        .updates-title h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
         }
 
-        .btn-print {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            font-size: 16px;
+        .updates-title p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .tabs {
+            display: flex;
+            background: #fff;
+            border-radius: 20px;
+            padding: 4px;
+            border: 1px solid #ebebeb;
+        }
+
+        .tab-btn {
             border: none;
+            background: none;
+            padding: 6px 16px;
+            border-radius: 16px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #666;
             cursor: pointer;
-            border-radius: 5px;
+            transition: all 0.3s;
         }
 
-        .btn-print:hover {
-            background-color: #0056b3;
+        .tab-btn.active {
+            background-color: #2563eb;
+            color: #fff;
+        }
+
+        /* Info Cards */
+        .info-card {
+            background: #fff;
+            border: 1px solid #eaebec;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .info-card-content {
+            padding: 15px 20px;
+        }
+
+        .info-card-content h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 4px;
+        }
+
+        .info-card-content p {
+            font-size: 13px;
+            color: #777;
+        }
+
+        /* Specific styling for News card */
+        .news-card .info-card-header {
+            background-color: #f1fcf5;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e2f2e8;
         }
         
-        @media print {
-            body { background: none; margin: 0; padding: 0; }
-            .page-body { padding: 0 !important; background: none !important; }
-            .cupg-wrapper { 
-                border: 2px solid #000 !important; 
-                padding: 15px !important; 
-                margin: 0 !important; 
-                max-width: 100% !important; 
-                box-shadow: none !important;
+        .news-card .info-card-header h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 4px;
+        }
+        
+        .news-card .info-card-header p {
+            font-size: 13px;
+            color: #777;
+        }
+
+        .news-card .info-card-body {
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+            background-color: #fff;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 900px) {
+            .portal-grid {
+                grid-template-columns: 1fr;
             }
-            .no-print { display: none !important; }
+            .top-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            .header-right {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .updates-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="page-body">
-    <div id="divToPrint1" class="cupg-wrapper">
-        <!-- Header Section -->
-        <table class="no-border">
-            <tr>
-                <td width="15%" class="text-center" valign="middle">
-                    <img src="https://quickchart.io/qr?text=Name%20%3A%20AKTAR%20ANJUM%20%0ARoll%20No%20%3A%20L02/LLB/251283%0ARegistration%20No.%20%3A%20137-1111-0266-21%0ASemester%20%3A%20%20Semester%20-%20I%0A%20Session%20%3A%20%202025%0A%20Status%20%3A%20Submitted%0A%20Application%20Id%20%3A%20LLB/SM01/25/0283R&size=400" width="80" height="80" alt="QR Code">
-                </td>
-                <td width="60%" class="text-center" valign="middle">
-                    <img src="https://d2xe8shibzpjog.cloudfront.net/logo/cupg_logo_only.png" width="90" alt="University Logo">
-                    <div class="bold header-title">UNIVERSITY OF CALCUTTA</div>
-                    <div style="font-size: 13px;">87/1, College Street, Kolkata - 700073, West Bengal, India</div>
-                    <div class="bold" style="font-size: 13px; margin-top: 5px; text-decoration: underline;">Application Form</div>
-                </td>
-                <td width="25%" class="text-right" valign="top">
-                    <div class="photo-box">
-                        <img src="https://d2xe8shibzpjog.cloudfront.net/Photo_Signature/cuogdemo/photo/cuogdemo1778770845CU0002320.jpg" width="110" height="130" style="object-fit: cover;" alt="Student Photo">
-                    </div>
-                    <br>
-                    <div class="sign-box">
-                        <img src="https://d2xe8shibzpjog.cloudfront.net/Photo_Signature/cuogdemo/signature/cuogdemo1778770852CU0002320.jpg" width="110" height="40" style="object-fit: contain;" alt="Student Signature">
-                    </div>
-                </td>
-            </tr>
-        </table>
-        
-        <!-- Application Details -->
-        <table class="no-border" style="margin-top: 0px; border-bottom: 1px solid #000 !important;">
-            <tr>
-                <td width="70%"> 
-                    <div style="font-size: 15px; font-weight: bold; text-decoration: underline; margin-bottom: 10px;">
-                        Application Id : LLB/SM01/25/0283R
-                    </div>
-                    <strong>Examination -</strong> 5-year B.A. LL.B Semester - I Examination, 2025
-                </td>
-                <td class="text-right" valign="top">
-                    <strong>Date -</strong> 14/05/2026
-                </td>
-            </tr>
-        </table>
-        
-        <!-- Addressee -->
-        <table class="no-border" style="width: 100%; margin-top: 5px;">
-            <tr>
-                <td width="70%" valign="top">
-                    <div style="font-size: 11px;">
-                        To<br>
-                        The Controller of Examinations<br>
-                        <span>University of Calcutta</span><br><br>
-                        Sir / Madam,<br>
-                        I request permission to present myself at the ensuing examination and furnish the required particulars as follows:
-                    </div>
-                </td>
-                <td width="30%" class="text-right" valign="top"> 
-                    <div style="font-size: 11px; font-weight: bold; text-decoration: underline; margin-right: 10px; margin-top: 5px;">
-                        Attendance Status : Collegiate 
-                    </div>
-                </td>
-            </tr>
-        </table>
+    <!-- Header -->
+    <header class="top-header">
+        <div class="header-left">
+            <img src="https://d2xe8shibzpjog.cloudfront.net/logo/cupg_logo_only.png" alt="University Logo" class="logo">
+            <div class="uni-title">
+                <h1>University of Calcutta</h1>
+                <p>87/1, COLLEGE STREET, KOLKATA-700 073</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="portal-name">PG & MISC. EXAMINATION PORTAL</div>
+            <button class="theme-toggle">Light mode <i class="fas fa-moon"></i></button>
+        </div>
+    </header>
 
-        <!-- Personal Details -->
-        <table style="margin-top: 5px; font-size: 10px;">
-            <tr>
-                <td width="50%"><strong>Name :</strong> AKTAR ANJUM</td>
-                <td width="50%"><strong>Roll No. :</strong> L02/LLB/251283</td>
-            </tr>
-            <tr>
-                <td><strong>Father's/Mother's/Guardian's Name :</strong> ABDUR RAHAMAN</td>
-                <td><strong>Physically Challenged :</strong> No</td>
-            </tr>
-            <tr>
-                <td><strong>Registration No. :</strong> 137-1111-0266-21</td>
-                <td><strong>Mobile :</strong> 8240091378</td>
-            </tr>
-            <tr>
-                <td><strong>Date of Birth :</strong> 06/12/2000</td>
-                <td><strong>E-mail :</strong> <span style="font-size: 10px;">aktarop9@gmail.com</span></td>
-            </tr>
-            <tr>
-                <td><strong>Gender :</strong> MALE</td>
-                <td><strong>ABC Id :</strong> </td>
-            </tr> 
-            <tr>
-                <td colspan="2"><strong>College Name :</strong> SURENDRANATH LAW COLLEGE (L02)</td>
-            </tr> 
-        </table>
+    <!-- Main Content -->
+    <div class="container">
         
-        <!-- Subject Details -->
-        <div class="text-center bold" style="margin-top: 5px; margin-bottom: 5px; font-size: 12px;">
-            Subject(s) to appear & Fees to be deposited:
+        <!-- Portal Grid -->
+        <div class="portal-grid">
+            
+            <!-- Student Portal -->
+            <div class="portal-card card-student">
+                <div class="icon-wrapper"><i class="fas fa-user-graduate"></i></div>
+                <div class="card-text">
+                    <h3>Student Portal</h3>
+                    <p>Click to continue as <strong>Student</strong>.</p>
+                </div>
+                <i class="fas fa-chevron-right card-arrow"></i>
+            </div>
+
+            <!-- Administrator Portal -->
+            <div class="portal-card card-admin">
+                <div class="icon-wrapper"><i class="fas fa-university"></i></div>
+                <div class="card-text">
+                    <h3>Administrator Portal</h3>
+                    <p>Click to continue as <strong>Administrator</strong>.</p>
+                </div>
+                <i class="fas fa-chevron-right card-arrow"></i>
+            </div>
+
+            <!-- Teacher Portal -->
+            <div class="portal-card card-teacher">
+                <div class="icon-wrapper"><i class="fas fa-chalkboard-teacher"></i></div>
+                <div class="card-text">
+                    <h3>Teacher Portal</h3>
+                    <p>Click to continue as <strong>Teacher</strong>.</p>
+                </div>
+                <i class="fas fa-chevron-right card-arrow"></i>
+            </div>
+
+            <!-- College/Department Portal -->
+            <div class="portal-card card-college">
+                <div class="icon-wrapper"><i class="fas fa-laptop-code"></i></div>
+                <div class="card-text">
+                    <h3>College/Department Portal</h3>
+                    <p>Click to continue as <strong>College/Department</strong>.</p>
+                </div>
+                <i class="fas fa-chevron-right card-arrow"></i>
+            </div>
+
         </div>
-        <table class="text-center" style="border: 1px solid #000; border-collapse: collapse; width: 100%; font-size: 10px;">
-            <thead>
-                <tr class="text-center bold" style="background: #f0f0f0; border: 1px solid #000;">
-                    <td rowspan="2" width="5%" style="border: 1px solid #000;">Srl. No.</td>
-                    <td rowspan="2" width="15%" style="border: 1px solid #000;">Subject Code</td>
-                    <td rowspan="2" width="45%" style="border: 1px solid #000;">Subject Name</td>
-                    <td rowspan="2" width="10%" style="border: 1px solid #000;">COMPONENT<br>(TH/PR)</td>
-                    <td colspan="2" width="25%" style="border: 1px solid #000;">Fee Details</td>
-                </tr>
-                <tr class="text-center bold" style="background: #f0f0f0; border: 1px solid #000;">
-                    <td style="border: 1px solid #000;">Particulars</td>
-                    <td style="border: 1px solid #000;">Amount</td>
-                </tr> 
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="text-center" style="border: 1px solid #000;">1</td>
-                    <td class="text-center" style="border: 1px solid #000;">Paper-I</td>
-                    <td class="text-center" style="border: 1px solid #000;">English–I</td>
-                    <td class="text-center" style="border: 1px solid #000;">TH</td>
-                    <td class="text-center" style="border: 1px solid #000; font-size: 8px;"></td>
-                    <td class="text-center bold" style="border: 1px solid #000; font-size: 10px;"></td>
-                </tr>
-                <tr>
-                    <td class="text-center" style="border: 1px solid #000;">2</td>
-                    <td class="text-center" style="border: 1px solid #000;">Paper-II</td>
-                    <td class="text-center" style="border: 1px solid #000;">Political Science–I</td>
-                    <td class="text-center" style="border: 1px solid #000;">TH</td>
-                    <td class="text-center" style="border: 1px solid #000; font-size: 8px;">
-                        <span>Total fees to be deposited by the candidate to the college</span>
-                    </td>
-                    <td class="text-center bold" style="border: 1px solid #000; font-size: 10px;">
-                        <span>250</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center" style="border: 1px solid #000;">3</td>
-                    <td class="text-center" style="border: 1px solid #000;">Paper-III</td>
-                    <td class="text-center" style="border: 1px solid #000;">Sociology–I</td>
-                    <td class="text-center" style="border: 1px solid #000;">TH</td>
-                    <td class="text-center" style="border: 1px solid #000; font-size: 8px;">
-                        <span>Delay Fine</span>
-                    </td>
-                    <td class="text-center bold" style="border: 1px solid #000; font-size: 10px;"></td>
-                </tr>
-                <tr>
-                    <td class="text-center" style="border: 1px solid #000;">4</td>
-                    <td class="text-center" style="border: 1px solid #000;">Paper-IV</td>
-                    <td class="text-center" style="border: 1px solid #000;">General Principles of Contract</td>
-                    <td class="text-center" style="border: 1px solid #000;">TH</td>
-                    <td class="text-center" style="border: 1px solid #000; font-size: 8px;">
-                        <span>Short Percentage Condonation Fee</span>
-                    </td>
-                    <td class="text-center bold" style="border: 1px solid #000; font-size: 10px;"></td>
-                </tr>
-                <tr>
-                    <td class="text-center" style="border: 1px solid #000;">5</td>
-                    <td class="text-center" style="border: 1px solid #000;">Paper-V</td>
-                    <td class="text-center" style="border: 1px solid #000;">Family Law–I</td>
-                    <td class="text-center" style="border: 1px solid #000;">TH</td>
-                    <td class="text-center" style="border: 1px solid #000; font-size: 8px;">
-                        <span style="font-weight: bold; text-decoration: underline;">Total</span>
-                    </td>
-                    <td class="text-center bold" style="border: 1px solid #000; font-size: 10px;">
-                        <span style="text-decoration: underline;">250</span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <!-- Declaration Section -->
-        <div style="font-size: 10px; margin-top: 10px; line-height: 1.2;"> 
-            I declare that if any of the statement made in the above is found to be untrue or if it appears that, in the opinion of the University, I have contravened the provisions of the University Rules and Regulations relating to the examination to which I now seek admission, my candidature for the examination shall be liable to be cancelled by the University.
-        </div>
-        
-        <table class="no-border" style="margin-top: 15px;">
-            <tr>
-                <td width="50%" valign="bottom">Date:</td>
-                <td class="text-right" width="50%" valign="bottom" style="font-size: 13px;">
-                    <div style="border-top: 1px dashed #000; display: inline-block; width: 250px;"></div><br>
-                    Full Signature of the applicant with Date
-                </td>
-            </tr>
-        </table>
-        
-        <!-- Important Notes -->
-        <div style="font-size: 10px; margin-top: 5px;">
-            <strong>N.B.</strong><br>
-            1. Candidates are required to submit the form to their College only.<br>
-            2. For any change or correction, please contact your college. <br>
-            3. Fees once paid are non-refundable. 
-        </div>
-        
-        <!-- Challan Tear-off Section -->
-        <div style="text-align: center; margin: 15px 0; border-top: 2px dashed #000; position: relative;">
-            <span style="position: absolute; top: -14px; left: 50%; background: #fff; padding: 0 15px; transform: translateX(-50%);">
-                <i style="font-size: 20px;">✂</i> <strong>CHALLAN COPY FOR CANDIDATE</strong>
-            </span>
-        </div>
-        
-        <div style="border: 1px solid #000; padding: 10px; margin-top: 5px;">
-            <p style="margin: 0; line-height: 1.4; text-align: justify; font-size: 11px;">
-                Received an amount of Rs.<strong>250.00</strong> 
-                from <strong>AKTAR ANJUM</strong> 
-                having Registration No. <strong>137-1111-0266-21</strong> 
-                and Roll No. <strong>L02/LLB/251283</strong> 
-                as examination & other relevant fees for 
-                <strong>5-year B.A. LL.B Semester - I Examination, 2025</strong>,
-                after proper verification of all conditions including attendance as prerequisite of the candidate (as per extant regulation) to sit for the said examination.
-            </p>
-            <table class="no-border" style="margin-top: 15px;">
-                <tr>
-                    <td width="50%" valign="bottom">Date:</td>
-                    <td class="text-right" width="50%" valign="bottom" style="font-size: 13px;">
-                        <div style="border-top: 1px solid #000; display: inline-block; width: 300px;"></div><br>
-                        (Signature of HOD, University/Principal of College)
-                    </td>
-                </tr>
-            </table>
+
+        <!-- Updates & Info Section -->
+        <div class="updates-section">
+            <div class="updates-header">
+                <div class="updates-title">
+                    <h2>Important information & updates</h2>
+                    <p>Instructions, HelpDesk details, and latest news in one place.</p>
+                </div>
+                <div class="tabs">
+                    <button class="tab-btn active">All</button>
+                    <button class="tab-btn">Instructions</button>
+                    <button class="tab-btn">HelpDesk</button>
+                    <button class="tab-btn">News</button>
+                </div>
+            </div>
+
+            <!-- Helpdesk Card -->
+            <div class="info-card">
+                <div class="info-card-content">
+                    <h3>Technical HelpDesk Details</h3>
+                    <p>Contact information for technical support.</p>
+                </div>
+            </div>
+
+            <!-- News Card -->
+            <div class="info-card news-card">
+                <div class="info-card-header">
+                    <h3>News</h3>
+                    <p>Latest announcements and important updates.</p>
+                </div>
+                <div class="info-card-body">
+                    No news found.
+                </div>
+            </div>
+
         </div>
     </div>
-    
-    <!-- Print Button Section -->
-    <div class="no-print print-btn-container">
-        <button class="btn-print" onclick="printEnrollConfirmpage()">
-            🖨️ Print Form
-        </button>
-    </div>
-</div>
-
-<script>
-    function printEnrollConfirmpage() {
-        var divToPrint = document.getElementById('divToPrint1');
-        var newWin = window.open("", "_blank");
-        
-        // Injecting CSS into the print window securely
-        var style = `
-            <style>
-                .cupg-wrapper {
-                    font-family: "Times New Roman", Times, serif;
-                    font-size: 11px;
-                    color: #000;
-                    line-height: 1.2;
-                    border: 2px solid #000;
-                    padding: 15px;
-                    margin: 0;
-                    background: #fff;
-                }
-                table {
-                    border-collapse: collapse;
-                    width: 100%;
-                    margin-bottom: 5px;
-                }
-                td {
-                    padding: 3px !important;
-                }
-                .no-border, .no-border td, table.no-border td {
-                    border: none !important;
-                }
-                .text-center { text-align: center; }
-                .text-right { text-align: right; }
-                .text-left { text-align: left; }
-                .bold { font-weight: bold; }
-                .header-title { font-size: 20px; text-transform: uppercase; margin-bottom: 0px; }
-                .photo-box { border: 1px solid #000; width: 110px; height: 130px; display: inline-block; }
-                .sign-box { border: 1px solid #000; width: 110px; height: 40px; display: inline-block; margin-top: 5px; }
-                @media print {
-                    @page { margin: 1cm; }
-                }
-            </style>
-        `;
-        
-        newWin.document.write('<!DOCTYPE html><html><head><title>Print Form</title>' + style + '</head><body>' + divToPrint.outerHTML + '</body></html>');
-        newWin.document.close();
-        newWin.focus();
-        
-        // Added timeout to ensure images load before printing
-        setTimeout(function() { 
-            newWin.print(); 
-            newWin.close(); 
-        }, 750);
-    }
-</script>
 
 </body>
 </html>
