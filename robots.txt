@@ -1,22 +1,9 @@
-# ================================================================
-# robots.txt — lawjournal.online
-# Last Updated: 2026-05-08
-# ================================================================
-
-# Allow all search engines
 User-agent: *
 Allow: /
 
-# Block admin/private folders (add your own if needed)
 Disallow: /admin/
 Disallow: /private/
 Disallow: /drafts/
-Disallow: /*.json$
-Disallow: /*.xml$
 
-# ★ SITEMAP LOCATIONS — Google, Bing, Yahoo will auto-discover
 Sitemap: https://lawjournal.online/sitemap_index.xml
 Sitemap: https://lawjournal.online/sitemap-news.xml
-
-# Crawl delay (optional — remove if site is fast)
-Crawl-delay: 1
