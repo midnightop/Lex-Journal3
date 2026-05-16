@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Pamphlet</title>
-    <!-- Fonts for Name and Birthday Text -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Law Journal | International Law & Justice</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -13,174 +14,392 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #8B3A3A;      /* Burgundy / Maroon */
+            --secondary: #D4AF8E;    /* Vintage Gold */
+            --cream: #F5F1E8;        /* Classic Sepia Background */
+            --dark: #1a1a1a;
+            --accent: #C9945C;       /* Light Tan */
+            --border: #D4B5A0;
+        }
+
         body {
-            background-color: #1a1a2e; /* Dark elegant background */
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Lora', serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* HERO SECTION WITH LADY JUSTICE BACKGROUND */
+        .hero {
+            position: relative;
+            height: 100vh;
             display: flex;
-            justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            padding: 0 8%;
+            background: linear-gradient(135deg, var(--cream) 0%, #FFFBF5 100%);
             overflow: hidden;
-            position: relative;
-            padding: 20px;
         }
 
-        /* Pamphlet / Card Design */
-        .pamphlet-card {
-            background: rgba(255, 255, 255, 0.95);
-            width: 100%;
-            max-width: 450px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            text-align: center;
-            padding: 40px 30px;
-            position: relative;
-            z-index: 10;
-            /* Entry Animation */
-            animation: slideUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-            transform: translateY(100px);
-            opacity: 0;
-        }
-
-        @keyframes slideUp {
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        /* Photo Section */
-        .photo-container {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 20px auto;
-            border-radius: 50%;
-            padding: 5px;
-            background: linear-gradient(45deg, #ff0055, #00aaff);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            /* Soft rotation animation */
-            animation: pulseGlow 3s infinite alternate;
-        }
-
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 10px #ff0055; }
-            100% { box-shadow: 0 0 25px #00aaff; }
-        }
-
-        .photo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid #fff;
-            background-color: #eee;
-        }
-
-        /* Name Text */
-        .name-text {
-            font-size: 24px;
-            font-weight: 600;
-            color: #2c3e50;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
-
-        /* Animated Happy Birthday Text */
-        .hbd-text {
-            font-family: 'Dancing Script', cursive;
-            font-size: 45px;
-            margin: 10px 0 20px 0;
-            background: linear-gradient(to right, #ff0077, #ff9900, #ff0077);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: shine 2.5s linear infinite;
-        }
-
-        @keyframes shine {
-            to { background-position: 200% center; }
-        }
-
-        /* Editable Description / Message Area */
-        .message-box {
-            background-color: #f8f9fa;
-            border: 2px dashed #bdc3c7;
-            border-radius: 10px;
-            padding: 15px;
-            font-size: 14px;
-            color: #555;
-            min-height: 80px;
-            outline: none;
-            transition: all 0.3s;
-        }
-
-        .message-box:focus {
-            border-color: #ff0055;
-            background-color: #fff;
-        }
-
-        .message-box[aria-placeholder]:empty:before {
-            content: attr(aria-placeholder);
-            color: #a0a0a0;
-        }
-
-        /* Confetti / Sparkles Animation in Background */
-        .confetti {
+        /* Animated Vintage Lady Justice Background */
+        .hero::after {
+            content: '⚖️';
             position: absolute;
-            width: 8px;
-            height: 8px;
-            background-color: #fff;
-            opacity: 0.7;
-            animation: fall linear infinite;
+            right: 10%;
+            font-size: 28rem;
+            opacity: 0.15;
+            color: var(--primary);
+            filter: drop-shadow(0 10px 20px rgba(139, 58, 58, 0.2));
+            animation: floatLady 6s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
         }
 
-        @keyframes fall {
-            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        @keyframes floatLady {
+            0%, 100% { transform: translateY(0) rotate(-3deg); }
+            50% { transform: translateY(-30px) rotate(3deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            max-width: 650px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--accent);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* The Custom 'intro-DUCTION' Stacked Layout Style from Canva */
+        .main-title {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 25px;
+        }
+
+        .title-script {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 3.5rem;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .title-block {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            font-size: 5rem;
+            color: var(--primary);
+            line-height: 0.85;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 45px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px; /* Scholarly square-ish look */
+            transition: all 0.4s ease;
+            border: 2px solid var(--primary);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(139, 58, 58, 0.15);
+        }
+
+        /* COUNTRIES GRID SECTION */
+        .journal-section {
+            padding: 100px 8%;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .country-card {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 35px;
+            border-radius: 4px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .country-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(139, 58, 58, 0.08);
+            border-color: var(--primary);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .flag {
+            font-size: 2.5rem;
+        }
+
+        .traffic-badge {
+            font-size: 0.8rem;
+            background: rgba(212, 175, 142, 0.2);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .country-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .country-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        .read-more-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s ease;
+        }
+
+        .country-card:hover .read-more-link {
+            gap: 15px;
+        }
+
+        /* GLOBAL / MISC CARD STYLE (Full Width Feature) */
+        .global-card {
+            grid-column: 1 / -1; /* Forces it to span all columns */
+            background: linear-gradient(135deg, #FFFBF5 0%, #EFEBE0 100%);
+            border: 2px dashed var(--primary);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .global-info {
+            flex: 2;
+        }
+
+        .global-flag {
+            font-size: 5rem;
+            flex: 1;
+            text-align: center;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--dark);
+            padding: 40px;
+            text-align: center;
+            border-top: 4px solid var(--primary);
+        }
+
+        .footer-text {
+            color: #888;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 5%;
+                text-align: center;
+            }
+            .hero::after {
+                font-size: 18rem;
+                right: 5%;
+                top: 30%;
+            }
+            .title-block { font-size: 3.5rem; }
+            .title-script { font-size: 2.5rem; }
+            .global-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Main Pamphlet Card -->
-    <div class="pamphlet-card">
-        
-        <!-- Photo -->
-        <div class="photo-container">
-            <!-- Exact path given by you -->
-            <img src="pages/read/author1.jpg" alt="Ettisa Basak" onerror="this.src='https://via.placeholder.com/150?text=Photo'">
+    <section class="hero">
+        <div class="hero-content">
+            <div class="subtitle">lawjournal.online</div>
+            
+            <h1 class="main-title">
+                <span class="title-script">international</span>
+                <span class="title-block">LAW & JUSTICE</span>
+            </h1>
+            
+            <p>A scholarly space dedicated to global legal updates, structural jurisprudence analysis, and high-traffic legal reports across international borders.</p>
+            <a href="#dispatch" class="cta-button">View Journal</a>
+        </div>
+    </section>
+
+    <section class="journal-section" id="dispatch">
+        <div class="section-header">
+            <h2>Global Legal Briefs</h2>
+            <p>"The law is reason, free from passion"</p>
         </div>
 
-        <!-- Name -->
-        <h2 class="name-text">Ettisa Basak</h2>
+        <div class="grid-container">
+            <div class="country-card">
+                <div>
+                    <div class="card-top">
+                        <span class="flag">🇺🇸</span>
+                        <span class="traffic-badge">High Traffic</span>
+                    </div>
+                    <h3>United States</h3>
+                    <p>Federal case analysis, Supreme Court landmark decisions, and constitutional transitions.</p>
+                </div>
+                <a href="#" class="read-more-link">Explore Dossier →</a>
+            </div>
 
-        <!-- Animated Text -->
-        <h1 class="hbd-text">FUCK YOU BABBY!</h1>
+            <div class="country-card">
+                <div>
+                    <div class="card-top">
+                        <span class="flag">🇳🇱</span>
+                        <span class="traffic-badge">98 Daily Req</span>
+                    </div>
+                    <h3>Netherlands</h3>
+                    <p>International Court of Justice updates, EU trade policies, and digital data regulations.</p>
+                </div>
+                <a href="#" class="read-more-link">Explore Dossier →</a>
+            </div>
 
-        <!-- Type your custom message here -->
-        <div class="message-box" contenteditable="true" aria-placeholder="You are sexy af 😏"></div>
-    </div>
+            <div class="country-card">
+                <div>
+                    <div class="card-top">
+                        <span class="flag">🇩🇪</span>
+                        <span class="traffic-badge">Stable Traffic</span>
+                    </div>
+                    <h3>Germany</h3>
+                    <p>EU statutory compliance reports, continental corporate law, and economic frameworks.</p>
+                </div>
+                <a href="#" class="read-more-link">Explore Dossier →</a>
+            </div>
 
-    <!-- Script for background Confetti animation -->
-    <script>
-        const colors = ['#ff0055', '#00aaff', '#ffcc00', '#00ffaa', '#cc00ff'];
-        for (let i = 0; i < 40; i++) {
-            let confetti = document.createElement('div');
-            confetti.className = 'confetti';
-            confetti.style.left = Math.random() * 100 + 'vw';
-            confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
-            confetti.style.animationDelay = Math.random() * 2 + 's';
-            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            
-            // Randomly make them square or circular
-            if (Math.random() > 0.5) {
-                confetti.style.borderRadius = '50%';
-            }
-            
-            document.body.appendChild(confetti);
-        }
-    </script>
+            <div class="country-card">
+                <div>
+                    <div class="card-top">
+                        <span class="flag">🇨🇦</span>
+                        <span class="traffic-badge">Active</span>
+                    </div>
+                    <h3>Canada</h3>
+                    <p>Bilingual policy frameworks, Supreme Court reviews, and cross-border trade legalities.</p>
+                </div>
+                <a href="#" class="read-more-link">Explore Dossier →</a>
+            </div>
+
+            <div class="country-card">
+                <div>
+                    <div class="card-top">
+                        <span class="flag">🇸🇬</span>
+                        <span class="traffic-badge">Hub Traffic</span>
+                    </div>
+                    <h3>Singapore</h3>
+                    <p>Asia-Pacific corporate arbitration updates and maritime legal adjustments.</p>
+                </div>
+                <a href="#" class="read-more-link">Explore Dossier →</a>
+            </div>
+
+            <div class="country-card">
+                <div>
+                    <div class="card-top">
+                        <span class="flag">🇨🇭</span>
+                        <span class="traffic-badge">Premium</span>
+                    </div>
+                    <h3>Switzerland</h3>
+                    <p>International banking compliance, neutral diplomatic jurisprudence, and global treaty archives.</p>
+                </div>
+                <a href="#" class="read-more-link">Explore Dossier →</a>
+            </div>
+
+            <div class="country-card global-card">
+                <div class="global-info">
+                    <div class="card-top">
+                        <span class="traffic-badge" style="background: rgba(139, 58, 58, 0.15);">Universal Coverage</span>
+                    </div>
+                    <h3>Global Legal Dispatch</h3>
+                    <p>Miscellaneous international reports, human rights tribunals, and multi-jurisdictional updates from around the globe that do not fit into specific country briefs.</p>
+                    <a href="#" class="read-more-link">Open Global Archives →</a>
+                </div>
+                <div class="global-flag">🌐</div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p class="footer-text">© 2026 lawjournal.online • All Rights Reserved</p>
+    </footer>
 
 </body>
 </html>
