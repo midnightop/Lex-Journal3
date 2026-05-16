@@ -56,77 +56,42 @@
             box-shadow: 0 20px 40px rgba(139, 58, 58, 0.05);
         }
 
-        /* ─── PERFECT UPPER OVERLAY BLEND SYSTEM ─── */
+        /* ─── MODERN STACKED LAYOUT (PHOTO UPAR, TEXT NEECHE) ─── */
         .hero-container {
-            position: relative;
             width: 100%;
-            overflow: hidden;
-            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 142, 0.15) 0%, transparent 80%);
+            max-width: 800px; /* Layout ko clean rakhne ke liye width limits */
+            margin: 0 auto;
         }
 
-        /* Glass card overlay with enhanced transparency for perfect background blending */
         .text-overlay-card {
-            position: relative;
-            z-index: 10;
-            background: rgba(252, 253, 254, 0.45); 
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: rgba(252, 253, 254, 0.75); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
-        /* Desktop Positioning (Right-Centered) */
-        .bg-justice-wrapper {
-            position: absolute;
-            right: 5%;         
-            top: 50%;
-            transform: translateY(-50%);
-            width: 460px;      
-            height: auto;
-            z-index: 1;        
-            pointer-events: none; 
-            animation: modernFloat 6s ease-in-out infinite;
-            will-change: transform;
+        .image-top-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: -20px; /* Card ke sath halka overlap premium look ke liye */
         }
 
         .lady-justice-png {
             width: 100%;
+            max-width: 320px; /* Standard visible size */
             height: auto;
             object-fit: contain;
-            mix-blend-mode: multiply; /* Blends white/light elements smoothly into the background */
-            opacity: 0.75;            
-            filter: drop-shadow(0 10px 30px rgba(139, 58, 58, 0.05));
+            animation: modernFloat 5s ease-in-out infinite;
+            will-change: transform;
+            filter: drop-shadow(0 15px 35px rgba(139, 58, 58, 0.06));
         }
 
-        /* MOBILE RESPONSIVE FIX (Locks the image on top and centered) */
-        @media (max-width: 768px) {
-            .bg-justice-wrapper {
-                position: absolute;
-                width: 100%;        
-                max-width: 340px;   
-                right: 50%;         
-                top: 35%;           /* Placed exactly over the heading/text background area */
-                transform: translate(50%, -50%); /* Perfectly centered horizontally */
-                opacity: 0.65;      
-            }
-            
-            .text-overlay-card {
-                background: rgba(252, 253, 254, 0.35); 
-                padding: 2.5rem 1.25rem !important;
-            }
-        }
-
-        /* Desktop continuous float animation */
+        /* Smooth Floating Animation (No complex translates) */
         @keyframes modernFloat {
-            0%, 100% { transform: translateY(-50%) translateX(0px) rotate(0deg); }
-            50% { transform: translateY(-53%) translateX(-4px) rotate(1.5deg); }
-        }
-
-        /* Mobile continuous float override using standard translate mechanics */
-        @media (max-width: 768px) {
-            @keyframes modernFloat {
-                0%, 100% { transform: translate(50%, -50%) scale(1) rotate(0deg); }
-                50% { transform: translate(50%, -53%) scale(1.02) rotate(1deg); }
-            }
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-12px) scale(1.02); }
         }
 
         /* MODAL POPUP STYLING */
@@ -171,32 +136,31 @@
         <a href="terms.html" class="bg-white border border-slate-200 text-slate-500 text-[10px] font-black uppercase tracking-wider px-4 py-1.5 rounded-xl shadow-sm">Terms</a>
     </nav>
 
-    <div class="hero-container py-12 md:py-20 px-4">
-        <header class="max-w-6xl mx-auto rounded-[2.5rem] p-8 md:p-16 text-overlay-card grid grid-cols-1 md:grid-cols-12 gap-6 reveal active">
-            <div class="text-left md:col-span-9 space-y-6">
-                <div class="flex flex-col space-y-1">
-                    <span class="font-serif italic text-3xl md:text-4xl text-amber-700 tracking-wide">international</span>
-                    <h1 class="text-5xl md:text-7xl font-black tracking-tight uppercase text-slate-900 leading-none">
-                        Law & Justice
-                    </h1>
-                </div>
-
-                <p class="text-gray-800 text-xl font-serif italic leading-relaxed max-w-2xl">
-                    Global jurisprudence shouldn't be locked inside exhausting, dry white PDFs. We built lawjournal.online as a modern structural hub for cross-border treaties and human rights frameworks.
-                </p>
-
-                <p class="text-gray-500 text-sm leading-relaxed max-w-prose">
-                    Analyzing sovereign interactions, international trade litigation, and ongoing updates from the International Court of Justice (ICJ). We turn intricate jurisdictional jargon into clean, strategic insights.
-                </p>
-            </div>
-        </header>
-
-        <div class="bg-justice-wrapper">
+    <div class="hero-container py-8 px-4 text-center">
+        
+        <div class="image-top-container">
             <img src="lady-justice.png" 
-                 alt="Lady Justice Background Blend" 
+                 alt="Lady Justice Logo" 
                  class="lady-justice-png"
-                 onerror="this.style.display='none';">
+                 onerror="this.src='https://ui-avatars.com/api/?name=⚖️&background=f1f5f9&color=94a3b8&size=256';">
         </div>
+
+        <header class="rounded-[2.5rem] p-6 md:p-12 text-overlay-card space-y-6 reveal active mx-auto">
+            <div class="flex flex-col items-center space-y-1">
+                <span class="font-serif italic text-2xl md:text-3xl text-amber-700 tracking-wide">international</span>
+                <h1 class="text-4xl md:text-6xl font-black tracking-tight uppercase text-slate-900 leading-none">
+                    Law & Justice
+                </h1>
+            </div>
+
+            <p class="text-gray-800 text-lg md:text-xl font-serif italic leading-relaxed max-w-2xl mx-auto">
+                Global jurisprudence shouldn't be locked inside exhausting, dry white PDFs. We built lawjournal.online as a modern structural hub for cross-border treaties and human rights frameworks.
+            </p>
+
+            <p class="text-gray-500 text-sm leading-relaxed max-w-prose mx-auto">
+                Analyzing sovereign interactions, international trade litigation, and ongoing updates from the International Court of Justice (ICJ). We turn intricate jurisdictional jargon into clean, strategic insights.
+            </p>
+        </header>
     </div>
 
     <section class="px-6 py-12 max-w-6xl mx-auto reveal" id="jurisdictions">
