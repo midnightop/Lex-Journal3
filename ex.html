@@ -2,400 +2,551 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Law Journal | International Law & Justice</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#fcfdfe">
+
+    <title>Law Journal | Indian Bare Acts, BNS, BNSS, BSA & Legal Research</title>
+    <meta name="description" content="Law Journal Online – India's modern legal platform for Bare Acts, BNS, BNSS, BSA, Case Laws, and student research papers. Explore Constitution, IPC, HMA, Contract Act and more in simple English.">
+    <meta name="keywords" content="law journal, law Journal online, Indian law, law research, open platform for law, publish law research, how to publish law research paper, free publish law research paper, bare acts, BNS, BNSS, BSA, Bharatiya Nyaya Sanhita, IPC, constitution of India, case laws, legal research, law students India, Ettisa Basak, Analdeep Samanta, Anusmita Das, Payel Dhibar, Rey, Sureswar Dutta Law, Surendranath Law, South Calcutta Law, Durgapur Institute of Legal, Kingston Law College, CU, KNU, WBSU, legal research India, University of Calcutta, law college in Kolkata, Law College near me, how to be advocate, how to be a lawyer, law India, Law institute near me, law syllabus, Kolkata University law, new criminal laws India 2024">
+    <meta name="author" content="Lawjournal.online">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://lawjournal.online/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lawjournal.online">
+    <meta property="og:title" content="Law Journal | Indian Bare Acts, BNS, BNSS, BSA & Legal Research">
+    <meta property="og:description" content="India's modern legal platform for Bare Acts, BNS, BNSS, BSA, Case Laws, and student research papers. Decode the Indian legal system in simple English.">
+    <meta property="og:url" content="https://lawjournal.online/">
+    <meta property="og:image" content="https://lawjournal.online/pages/read/author0.jpg">
+    <meta property="og:locale" content="en_IN">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Law Journal | Indian Bare Acts, BNS, BNSS & Legal Research">
+    <meta name="twitter:description" content="India's modern legal platform for Bare Acts, BNS, BNSS, BSA, Case Laws, and student research papers.">
+    <meta name="twitter:image" content="https://lawjournal.online/pages/read/author0.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Lawjournal.online",
+      "url": "https://lawjournal.online/",
+      "description": "India's modern legal platform for Bare Acts, BNS, BNSS, BSA, Case Laws, and student research papers.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://lawjournal.online/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"></noscript>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"></noscript>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: #fcfdfe; 
+            color: #1e293b; 
+            overflow-x: hidden; 
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            -webkit-user-select: none;
+            user-select: none;
+            animation: fadeInBody 0.3s ease-in;
         }
-
-        :root {
-            --primary: #8B3A3A;       /* Deep Luxury Maroon */
-            --bg-gradient: linear-gradient(135deg, #fbf9f6 0%, #f3ece3 100%);
-            --card-bg: rgba(255, 255, 255, 0.7); /* Glassmorphism Base */
-            --text-dark: #1e1b18;
-            --accent: #C9945C;        /* Premium Tan/Gold */
-            --radius-lg: 24px;        /* Smooth Rounded Shapes */
-            --radius-md: 16px;
+        @keyframes fadeInBody { from { opacity: 0; } to { opacity: 1; } }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            will-change: transform, opacity;
         }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: var(--bg-gradient);
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         }
-
-        /* MODERN HERO SECTION */
-        .hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 8%;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 600px;
-            z-index: 10;
-        }
-
-        .subtitle {
-            font-size: 0.95rem;
-            color: var(--accent);
-            letter-spacing: 2px;
+        .terms-btn {
+            background: white;
+            border: 1.5px solid #e2e8f0;
+            color: #64748b;
+            padding: 6px 16px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 900;
             text-transform: uppercase;
-            font-weight: 700;
-            margin-bottom: 20px;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
-
-        /* Canva Title Structure Style (Modernized) */
-        .main-title {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-            margin-bottom: 25px;
+        .glossy-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            border-radius: 32px;
+            position: relative;
         }
-
-        .title-script {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 3.8rem;
-            color: var(--accent);
-            line-height: 1;
-        }
-
-        .title-block {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 700;
-            font-size: 4.8rem;
-            color: var(--primary);
-            line-height: 0.9;
-            letter-spacing: -2px;
-        }
-
-        .hero p {
-            font-size: 1.05rem;
-            color: #5c554e;
-            margin-bottom: 35px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 16px 38px;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 50px; /* Fully Rounded Modern Button */
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 8px 30px rgba(139, 58, 58, 0.2);
-            font-size: 0.95rem;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(139, 58, 58, 0.3);
-        }
-
-        /* LADY JUSTICE PNG CONTAINER & ANIMATION */
-        .hero-right {
+        .stat-tag {
             position: absolute;
-            right: 5%;
-            width: 45%;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 5;
+            top: 20px;
+            right: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 9px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
-
-        .lady-justice-png {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-            /* Smooth 3D-like floating setup */
-            animation: modernFloat 5s ease-in-out infinite;
-            filter: drop-shadow(0 20px 50px rgba(139, 58, 58, 0.15));
-            opacity: 0.9;
+        .research-gloss {
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #1e293b);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            border-radius: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
         }
-
-        @keyframes modernFloat {
-            0%, 100% {
-                transform: translateY(0) rotate(-1deg);
-            }
-            50% {
-                transform: translateY(-25px) rotate(1deg);
-            }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-
-        /* MODERN ROUNDED GRID SECTION */
-        .journal-section {
-            padding: 80px 8% 120px 8%;
+        .btn-glossy {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s ease;
         }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 12px;
-        }
-
-        .section-header p {
-            color: #7c7267;
-            font-size: 1rem;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        /* Glassmorphism Cards with Round Shapes */
-        .country-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(12px); /* Premium Blur Effect */
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            padding: 35px;
-            border-radius: var(--radius-lg); /* Big Round Corners */
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        #skeleton-screen {
+            position: fixed;
+            inset: 0;
+            background: #fcfdfe;
+            z-index: 9999;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            padding: 20px;
+            gap: 20px;
         }
+        .sk-item { background: #f1f5f9; border-radius: 15px; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 50% { opacity: 0.5; } }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        .country-card:hover {
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.9);
-            border-color: rgba(139, 58, 58, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        /* ADVANCED MODERN ANIMATION FOR LADY JUSTICE PNG */
+        .lady-justice-float {
+            animation: gpuFloat 6s ease-in-out infinite;
+            will-change: transform;
+            filter: drop-shadow(0 20px 40px rgba(30, 41, 59, 0.12));
         }
-
-        .card-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .flag-sphere {
-            width: 50px;
-            height: 50px;
-            background: white;
-            border-radius: 50%; /* Circular Flag Badge */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .traffic-badge {
-            font-size: 0.75rem;
-            background: #fff;
-            color: var(--primary);
-            padding: 6px 14px;
-            border-radius: 30px; /* Rounded pill style */
-            font-weight: 600;
-            border: 1px solid rgba(139, 58, 58, 0.15);
-        }
-
-        .country-card h3 {
-            font-size: 1.45rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .country-card p {
-            color: #61584f;
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-        }
-
-        .read-more-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: transform 0.3s ease;
-        }
-
-        .country-card:hover .read-more-link {
-            transform: translateX(5px);
-        }
-
-        /* GLOBAL FEATURE CARD */
-        .global-card {
-            grid-column: 1 / -1;
-            background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(243,236,227,0.5) 100%);
-            border: 2px rgba(139, 58, 58, 0.2) solid;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .global-info { flex: 2; }
-        .global-icon { font-size: 4.5rem; flex: 0.5; text-align: center; }
-
-        /* FOOTER */
-        .footer {
-            background: white;
-            padding: 35px;
-            text-align: center;
-            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-            box-shadow: 0 -10px 30px rgba(0,0,0,0.02);
-        }
-
-        .footer-text {
-            color: #8c8175;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        /* RESPONSIVE SETUP */
-        @media (max-width: 992px) {
-            .hero { flex-direction: column; justify-content: center; text-align: center; padding-top: 80px; }
-            .hero-right { position: relative; width: 80%; height: 40vh; right: 0; margin-top: 40px; }
-            .title-block { font-size: 3.5rem; }
-            .title-script { font-size: 2.8rem; }
-            .global-card { flex-direction: column; text-align: center; }
+        @keyframes gpuFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(1deg); }
         }
     </style>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2978948668893594" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 </head>
-<body>
 
-    <section class="hero">
-        <div class="hero-content">
-            <div class="subtitle">lawjournal.online</div>
-            <h1 class="main-title">
-                <span class="title-script">international</span>
-                <span class="title-block">LAW & JUSTICE</span>
-            </h1>
-            <p>Experience an advanced legal ecosystem. Track premium, high-traffic analytics and international judicial reports inside a fluid digital layout.</p>
-            <a href="#dispatch" class="cta-button">Explore Analytics</a>
+<body oncontextmenu="return false;">
+
+    <div id="skeleton-screen" aria-hidden="true">
+        <div class="h-12 w-full sk-item"></div>
+        <div class="h-40 w-3/4 mx-auto sk-item mt-10"></div>
+        <div class="h-64 w-full sk-item"></div>
+    </div>
+
+    <nav class="sticky top-0 z-50 glass-nav px-5 py-3 flex justify-between items-center" aria-label="Main Navigation">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-gradient-to-br from-slate-900 to-blue-900 rounded-xl flex items-center justify-center text-white shadow-lg" aria-hidden="true">
+                <i class="fa-solid fa-scale-balanced text-sm" aria-hidden="true"></i>
+            </div>
+            <a href="/" aria-label="Lawjournal.online Home">
+                <span class="font-black text-gray-800 tracking-tighter text-lg">Lawjournal<span class="text-blue-600">.online</span></span>
+            </a>
         </div>
-        
-        <div class="hero-right">
-            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1000&auto=format&fit=crop" alt="Lady Justice" class="lady-justice-png">
+        <a href="terms.html" class="terms-btn" aria-label="Terms and Conditions">Terms</a>
+    </nav>
+
+    <main id="main-content">
+
+        <header class="pt-16 pb-12 px-6 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center reveal active">
+            <div class="text-left md:col-span-7 space-y-6">
+                
+                <div class="flex flex-col space-y-1">
+                    <span class="font-serif italic text-3xl md:text-4xl text-amber-700 tracking-wide">international</span>
+                    <h1 class="text-5xl md:text-7xl font-black tracking-tight uppercase text-slate-900 leading-none">
+                        Law & Justice
+                    </h1>
+                </div>
+
+                <p class="text-gray-800 text-xl font-serif italic leading-relaxed">
+                    Law is exhausting blank white PDFs and dry pages, so we built lawjournal.online, a modern student-friendly home for Bare Acts and Legal Research that actually makes sense.
+                </p>
+
+                <p class="text-gray-500 text-sm leading-relaxed max-w-prose">
+                    We decode the DNA of the Indian legal system, turning complex jargon and new criminal laws (BNS, BNSS, BSA) into simple English. This is an Open Platform to share thoughts, study case laws, and publish research papers.
+                </p>
+
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="bare-acts.html" class="btn-glossy px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold uppercase text-xs tracking-wider shadow-xl hover:bg-blue-700 transition-colors" aria-label="Explore Indian Bare Acts">Explore Bare Acts</a>
+                    <a href="case-laws.html" class="btn-glossy px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-2xl font-bold uppercase text-xs tracking-wider shadow-sm hover:bg-gray-50 transition-colors" aria-label="Read Indian Case Laws">Read Case Laws</a>
+                </div>
+            </div>
+
+            <div class="md:col-span-5 flex justify-center relative">
+                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=600&auto=format&fit=crop" 
+                     alt="Lady Justice Graphic Layout" 
+                     class="lady-justice-float w-72 h-72 md:w-full md:h-auto object-contain rounded-3xl border border-slate-100 shadow-sm">
+            </div>
+        </header>
+
+        <section class="px-6 py-10 reveal" aria-label="International Legal Traffic Analytics">
+            <div class="max-w-6xl mx-auto mb-8">
+                <h2 class="text-2xl font-black text-gray-800 uppercase tracking-tighter">Live Jurisdictions</h2>
+                <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">Real-time Structural analytics</p>
+            </div>
+
+            <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="glossy-card p-6 bg-white/80 border-b-4 border-blue-500 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-3xl">🇺🇸</span>
+                        <span class="text-[9px] font-black bg-blue-50 text-blue-600 px-3 py-1 rounded-full uppercase tracking-wider">533 Requests</span>
+                    </div>
+                    <h3 class="text-base font-bold text-gray-800 uppercase tracking-tight">United States</h3>
+                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">Supreme Court structural benchmarks, federal case workflows, and policy updates.</p>
+                </div>
+
+                <div class="glossy-card p-6 bg-white/80 border-b-4 border-indigo-600 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-3xl">🇳🇱</span>
+                        <span class="text-[9px] font-black bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full uppercase tracking-wider">98 Requests</span>
+                    </div>
+                    <h3 class="text-base font-bold text-gray-800 uppercase tracking-tight">Netherlands</h3>
+                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">International tribunals, EU trade litigation directives, and maritime adjustments.</p>
+                </div>
+
+                <div class="glossy-card p-6 bg-white/80 border-b-4 border-emerald-700 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-3xl">🇩🇪</span>
+                        <span class="text-[9px] font-black bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full uppercase tracking-wider">Stable</span>
+                    </div>
+                    <h3 class="text-base font-bold text-gray-800 uppercase tracking-tight">Germany</h3>
+                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">Continental corporate statutory compliance and trade framework optimization.</p>
+                </div>
+
+                <div class="glossy-card p-6 bg-white/80 border-b-4 border-blue-700 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-3xl">🇨🇦</span>
+                        <span class="text-[9px] font-black bg-slate-50 text-blue-700 px-3 py-1 rounded-full uppercase tracking-wider">Active</span>
+                    </div>
+                    <h3 class="text-base font-bold text-gray-800 uppercase tracking-tight">Canada</h3>
+                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">Bilingual policy evaluation, federal court logs, and environmental jurisprudence.</p>
+                </div>
+
+                <div class="glossy-card p-6 bg-white/80 border-b-4 border-amber-600 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-3xl">🇸🇬</span>
+                        <span class="text-[9px] font-black bg-amber-50 text-amber-600 px-3 py-1 rounded-full uppercase tracking-wider">Hub Traffic</span>
+                    </div>
+                    <h3 class="text-base font-bold text-gray-800 uppercase tracking-tight">Singapore</h3>
+                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">Asia-Pacific commercial arbitration data models and financial regulatory shifts.</p>
+                </div>
+
+                <div class="glossy-card p-6 bg-white/80 border-b-4 border-purple-600 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-3xl">🇨🇭</span>
+                        <span class="text-[9px] font-black bg-purple-50 text-purple-600 px-3 py-1 rounded-full uppercase tracking-wider">Premium</span>
+                    </div>
+                    <h3 class="text-base font-bold text-gray-800 uppercase tracking-tight">Switzerland</h3>
+                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">Global financial compliance documentation and sovereign treaty management logs.</p>
+                </div>
+
+                <div class="md:col-span-3 glossy-card p-6 bg-gradient-to-r from-slate-50 to-gray-100 border-2 border-dashed border-slate-300 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div class="space-y-1">
+                        <h3 class="text-lg font-black text-slate-800 uppercase tracking-tight flex items-center gap-2">
+                            <span>🌐</span> Global Legal Dispatch
+                        </h3>
+                        <p class="text-xs text-gray-500 max-w-xl">Cross-border multi-jurisdictional updates, transnational treaty tracking, and miscellaneous legal reports from any uncovered global territories.</p>
+                    </div>
+                    <span class="text-[9px] font-black bg-slate-900 text-white px-4 py-2 rounded-xl uppercase tracking-widest whitespace-nowrap">Unified Stream</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="reveal" aria-label="Top Student Articles">
+            <div class="px-8 mb-6 max-w-6xl mx-auto">
+                <h2 class="text-2xl font-black text-gray-800 uppercase tracking-tighter">Top Articles</h2>
+                <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">Featured by Students</p>
+            </div>
+
+            <div id="home-articles-scroll" class="max-w-6xl mx-auto flex overflow-x-auto gap-5 px-8 pb-10 no-scrollbar snap-x snap-mandatory" role="list" aria-label="Student legal articles">
+                </div>
+        </section>
+
+        <section class="px-6 py-10 reveal" aria-label="Legal Research">
+            <div class="max-w-6xl mx-auto research-gloss p-8 shadow-2xl text-white">
+                <div class="stat-tag text-blue-600">5 Papers</div>
+                <div class="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 border border-white/20" aria-hidden="true">
+                    <i class="fa-solid fa-atom text-blue-400 text-2xl" aria-hidden="true"></i>
+                </div>
+                <h2 class="text-3xl font-black mb-4 tracking-tighter uppercase">Research</h2>
+                <div class="text-sm opacity-80 leading-relaxed font-medium space-y-4">
+                    <p>Legal research is the systematic dissection of the "why" behind the law. At Lawjournal.online, our research wing goes beyond summaries; we analyze the evolving legal landscape especially the critical transition from IPC/CrPC to BNS. email: admin@lawjournal.online</p>
+                </div>
+                <a href="research.html" class="mt-8 block text-center py-4 bg-white text-gray-900 font-black rounded-xl uppercase text-[10px] active:scale-95 transition shadow-lg" aria-label="View Legal Research Archive">Research Archive</a>
+            </div>
+        </section>
+
+        <section class="px-6 py-4 reveal" aria-label="Legal Blogs">
+            <div class="max-w-6xl mx-auto group glossy-card p-6 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl text-center flex flex-col items-center gap-4 border-2 border-emerald-200 hover:border-emerald-400 hover:shadow-2xl hover:shadow-emerald-900/10 hover:-translate-y-2 transition-all duration-500 ease-out">
+                <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-emerald-600 shadow-md group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300" aria-hidden="true">
+                    <i class="fa-solid fa-newspaper text-xl" aria-hidden="true"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-gray-800 uppercase tracking-tight">Legal Blogs</h2>
+                    <p class="text-xs text-gray-500 mt-2 max-w-sm leading-relaxed">
+                        Access our complete archive of legal research, scholarly articles, and student publications for academic excellence.
+                    </p>
+                </div>
+                <a href="pages/articles.html" class="btn-glossy w-full max-w-xs flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-600 text-white py-3 rounded-xl font-bold uppercase text-xs shadow-lg active:scale-95 hover:shadow-emerald-500/50 transition-all mt-2 border border-emerald-400/50" aria-label="Browse Legal Articles Archive">
+                    Articles Archive <i class="fa-solid fa-arrow-right group-hover:translate-x-1.5 transition-transform duration-300" aria-hidden="true"></i>
+                </a>
+            </div>
+        </section>
+
+        <section class="px-5 py-4 reveal" aria-label="Constitution of India">
+            <div class="max-w-6xl mx-auto premium-card p-6" onclick="location.href='acts/constitution-articles.html'" style="cursor: pointer; background: white; border-radius: 28px; border: 1px solid #f1f5f9; box-shadow: 0 4px 20px rgba(0,0,0,0.02);" role="button" tabindex="0" aria-label="Explore The Constitution of India">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 shadow-sm border border-blue-100" aria-hidden="true">
+                            <i class="fa-solid fa-scale-balanced text-xl" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h2 style="font-family: 'Playfair Display';" class="text-xl font-black text-slate-900 leading-tight">The Constitution <br>of India</h2>
+                            <p class="text-[8px] font-black text-blue-600 tracking-[0.2em] uppercase mt-1">The Grundnorm</p>
+                        </div>
+                    </div>
+                    <div class="count-badge text-right">
+                        <span class="text-xs font-bold text-blue-600">448+</span><br>
+                        <span class="text-[7px] font-black opacity-60 uppercase tracking-widest">Articles</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <p class="text-[12px] text-slate-500 font-medium leading-relaxed">
+                        A comprehensive digital compendium of the supreme law of India. This module provides an <span class="text-slate-900 font-bold">in-depth analysis</span> of the entire constitutional framework.
+                    </p>
+                    <div class="flex flex-wrap gap-2 py-1">
+                        <span class="text-[8px] font-black bg-slate-100 text-slate-500 px-2 py-1 rounded-md uppercase tracking-wider">Landmark Case Laws</span>
+                        <span class="text-[8px] font-black bg-slate-100 text-slate-500 px-2 py-1 rounded-md uppercase tracking-wider">12 Schedules</span>
+                        <span class="text-[8px] font-black bg-slate-100 text-slate-500 px-2 py-1 rounded-md uppercase tracking-wider">Latest Amendments</span>
+                    </div>
+                    <div class="bg-blue-50/50 p-3 rounded-xl border border-blue-100/50">
+                        <p class="text-[11px] text-blue-800 font-semibold leading-relaxed">
+                            <i class="fa-solid fa-quote-left mr-1 opacity-50" aria-hidden="true"></i>
+                            We have explored every section with detailed explanations and historical judicial precedents.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-5 pt-4 border-t border-slate-50 flex items-center justify-between">
+                    <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-blue-500" aria-hidden="true"></i> Secure Archive
+                    </span>
+                    <div class="text-blue-600 font-extrabold text-[10px] uppercase tracking-wider flex items-center gap-1">
+                        Begin Research <i class="fa-solid fa-chevron-right text-[7px] ml-1" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-md mx-auto p-4 reveal" aria-label="Collaboration Guidelines">
+            <div class="border-2 border-dashed border-gray-200 rounded-[2.5rem] p-8 md:p-10 text-center bg-white shadow-sm">
+                <h2 class="text-3xl font-black uppercase tracking-tighter mb-2 text-slate-900">
+                    COLLABORATION
+                </h2>
+                <p class="text-slate-400 text-[10px] font-bold uppercase tracking-widest mb-8">
+                    Partner with us for legal research
+                </p>
+
+                <div class="text-left space-y-3 mb-10 px-2">
+                    <div class="flex items-center gap-3">
+                        <div class="w-1.5 h-1.5 bg-blue-600 rounded-full" aria-hidden="true"></div>
+                        <p class="text-[11px] font-bold text-slate-600 uppercase tracking-tight">1. 25% AI Content Only</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-1.5 h-1.5 bg-blue-600 rounded-full" aria-hidden="true"></div>
+                        <p class="text-[11px] font-bold text-slate-600 uppercase tracking-tight">2. PDF Format Only</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-1.5 h-1.5 bg-blue-600 rounded-full" aria-hidden="true"></div>
+                        <p class="text-[11px] font-bold text-slate-600 uppercase tracking-tight">3. Strictly Legal Subjects</p>
+                    </div>
+                     <div class="flex items-center gap-3">
+                        <div class="w-1.5 h-1.5 bg-blue-600 rounded-full" aria-hidden="true"></div>
+                        <p class="text-[11px] font-bold text-slate-600 uppercase tracking-tight">4. Certificate of Publication Provided</p>
+                     </div>
+                </div>
+
+                <p class="text-[9px] font-black text-gray-400 uppercase tracking-[0.2em] mb-6">
+                    Read more and submit your work
+                </p>
+
+                <a href="submission-guideline.html" class="block w-full bg-[#111827] text-white font-black py-4 rounded-2xl text-[11px] uppercase tracking-[0.2em] hover:bg-blue-600 transition-all shadow-xl shadow-gray-200" aria-label="Proceed to Submission Guidelines">
+                    Proceed to Submission
+                </a>
+            </div>
+        </section>
+
+        <section class="max-w-md mx-auto p-4 reveal" aria-label="Contact Section">
+            <div class="glossy-card p-6 bg-gradient-to-br from-slate-50 to-gray-50 rounded-3xl text-left flex items-center gap-4 border border-slate-200">
+                <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-red-700 shadow-sm" aria-hidden="true">
+                    <i class="fa-solid fa-envelope text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="text-sm font-black uppercase tracking-tight text-slate-800">Contact Mail</h3>
+                    <p class="text-gray-500 text-xs mt-1 leading-relaxed">Email/mail <span class="font-bold text-slate-900">admin@lawjournal.online</span></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-8 px-6 text-center border-t border-gray-100 mt-12">
+        <div class="flex justify-center gap-6 mb-4 flex-wrap">
+            <a href="/terms.html" class="text-[10px] font-black text-gray-400 uppercase tracking-widest hover:text-blue-600 transition-colors">Terms</a>
+            <a href="/privacy-policy.html" class="text-[10px] font-black text-gray-400 uppercase tracking-widest hover:text-blue-600 transition-colors">Privacy Policy</a>
+            <a href="/about.html" class="text-[10px] font-black text-gray-400 uppercase tracking-widest hover:text-blue-600 transition-colors">Contact</a>
         </div>
-    </section>
-
-    <section class="journal-section" id="dispatch">
-        <div class="section-header">
-            <h2>Live Jurisdictions</h2>
-            <p>Real-time structural transitions and statutory analysis</p>
-        </div>
-
-        <div class="grid-container">
-            <div class="country-card">
-                <div>
-                    <div class="card-top">
-                        <div class="flag-sphere">🇺🇸</div>
-                        <span class="traffic-badge">533 Requests</span>
-                    </div>
-                    <h3>United States</h3>
-                    <p>Supreme Court structural benchmarks, federal case workflows, and policy updates.</p>
-                </div>
-                <a href="#" class="read-more-link">Open Dossier →</a>
-            </div>
-
-            <div class="country-card">
-                <div>
-                    <div class="card-top">
-                        <div class="flag-sphere">🇳🇱</div>
-                        <span class="traffic-badge">98 Requests</span>
-                    </div>
-                    <h3>Netherlands</h3>
-                    <p>International tribunals, EU trade litigation directives, and maritime adjustments.</p>
-                </div>
-                <a href="#" class="read-more-link">Open Dossier →</a>
-            </div>
-
-            <div class="country-card">
-                <div>
-                    <div class="card-top">
-                        <div class="flag-sphere">🇩🇪</div>
-                        <span class="traffic-badge">Stable</span>
-                    </div>
-                    <h3>Germany</h3>
-                    <p>Continental corporate statutory compliance and trade framework optimization.</p>
-                </div>
-                <a href="#" class="read-more-link">Open Dossier →</a>
-            </div>
-
-            <div class="country-card">
-                <div>
-                    <div class="card-top">
-                        <div class="flag-sphere">🇨🇦</div>
-                        <span class="traffic-badge">Active</span>
-                    </div>
-                    <h3>Canada</h3>
-                    <p>Bilingual policy evaluation, federal court logs, and environmental jurisprudence.</p>
-                </div>
-                <a href="#" class="read-more-link">Open Dossier →</a>
-            </div>
-
-            <div class="country-card">
-                <div>
-                    <div class="card-top">
-                        <div class="flag-sphere">🇸🇬</div>
-                        <span class="traffic-badge">Hub Traffic</span>
-                    </div>
-                    <h3>Singapore</h3>
-                    <p>Asia-Pacific commercial arbitration data models and financial regulatory shifts.</p>
-                </div>
-                <a href="#" class="read-more-link">Open Dossier →</a>
-            </div>
-
-            <div class="country-card">
-                <div>
-                    <div class="card-top">
-                        <div class="flag-sphere">🇨🇭</div>
-                        <span class="traffic-badge">Premium</span>
-                    </div>
-                    <h3>Switzerland</h3>
-                    <p>Global financial compliance documentation and sovereign treaty management logs.</p>
-                </div>
-                <a href="#" class="read-more-link">Open Dossier →</a>
-            </div>
-
-            <div class="country-card global-card">
-                <div class="global-info">
-                    <div class="card-top">
-                        <span class="traffic-badge" style="background: rgba(139, 58, 58, 0.1);">Universal Coverage</span>
-                    </div>
-                    <h3>Global Legal Dispatch</h3>
-                    <p>Cross-border multi-jurisdictional updates, transnational treaty tracking, and miscellaneous legal items from any uncovered territories worldwide.</p>
-                    <a href="#" class="read-more-link">Access Unified Stream →</a>
-                </div>
-                <div class="global-icon">🌐</div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <p class="footer-text">© 2026 lawjournal.online • Advanced Legal Interface</p>
+        <p class="text-[9px] font-black text-gray-300 uppercase tracking-[0.2em]">© 2026 LAWJOURNAL.ONLINE</p>
     </footer>
+    
+    <script>
+        const articleDatabase = [
+            {
+                author: "Ettisa Basak",
+                college: "Sureswar Dutta Law | CU",
+                title: "Advantages of Bare Acts",
+                desc: "Accuracy and precision of raw legislation.",
+                photo: "pages/read/author1.jpg",
+                accent: "blue-500"
+            },
+            {
+                author: "Rey",
+                college: "Surendranath Law | CU",
+                title: "Why Law is Important",
+                desc: "Journey through the evolution of legal systems.",
+                photo: "pages/read/author2-1.jpg",
+                accent: "indigo-600"
+            },
+            {
+                author: "Analdeep Samanta",
+                college: "South calcutta Law | CU",
+                title: "What is case law",
+                desc: "Learning about Indian legal cases and conducting in-depth research on them.",
+                photo: "pages/read/author4.jpg",
+                accent: "emerald-700"
+            },
+            {
+                author: "Anusmita Das",
+                college: "Durgapur Institute of Legal | KNU",
+                title: "What is legal notice",
+                desc: "The definitive guide to legal communication, pre-litigation strategies, and 2026 digital rules.",
+                photo: "pages/read/author5.jpg",
+                accent: "blue-700"
+            }, 
+            {
+                author: "Payel Dhibar",
+                college: "Kingston Law College | WBSU",
+                title: "How to File an E-FIR ",
+                desc: "Your Smartphone is Now a Police Station file E-FIR in 12 Minutes",
+                photo: "pages/read/author6.jpg",
+                accent: "red-600"
+            }
+        ];
 
+        const renderHomeArticles = () => {
+            const container = document.getElementById('home-articles-scroll');
+            if(container) {
+                container.innerHTML = articleDatabase.map(art => `
+                    <div class="min-w-[78vw] md:min-w-[380px] snap-center" role="listitem">
+                        <a href="pages/articles.html" class="block" aria-label="Read ${art.title} by ${art.author}">
+                            <div class="glossy-card p-6 border-b-4 border-${art.accent} bg-white/80 active:scale-95 transition-all duration-300">
+                                <div class="flex items-center gap-4 mb-6">
+                                    <div class="relative">
+                                        <img src="${art.photo}" 
+                                             alt="Profile photo of ${art.author}"
+                                             loading="lazy"
+                                             decoding="async"
+                                             onerror="this.src='https://ui-avatars.com/api/?name=${art.author.replace(' ', '+')}&background=0f172a&color=fff'" 
+                                             class="w-14 h-14 rounded-2xl shadow-lg border-2 border-white object-cover">
+                                        <div class="absolute -bottom-1 -right-1 bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center border-2 border-white text-[8px]" aria-hidden="true">
+                                            <i class="fa-solid fa-check" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-black text-gray-800 text-sm">${art.author}</h4>
+                                        <p class="text-[8px] text-gray-400 font-bold uppercase leading-tight">${art.college}</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+                                    <h5 class="text-[11px] font-black text-gray-800 mb-2 uppercase text-blue-600">${art.title}</h5>
+                                    <p class="text-[10px] text-gray-500 line-clamp-2 italic leading-relaxed">"${art.desc}"</p>
+                                    <div class="mt-3 text-[9px] font-black text-slate-400 uppercase tracking-widest flex items-center justify-between">
+                                        <span>Read Article</span>
+                                        <i class="fa-solid fa-arrow-right text-blue-500" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                `).join('');
+            }
+        };
+
+        window.addEventListener('load', function() {
+            const skeleton = document.getElementById('skeleton-screen');
+            if (skeleton) {
+                skeleton.style.opacity = '0';
+                skeleton.style.transition = 'opacity 0.4s ease';
+                setTimeout(() => {
+                    skeleton.style.display = 'none';
+                    skeleton.remove();
+                }, 400);
+            }
+            
+            if (typeof renderHomeArticles === 'function') {
+                renderHomeArticles();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealElements = document.querySelectorAll('.reveal:not(.active)');
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            revealElements.forEach(el => revealObserver.observe(el));
+        });
+    </script>
 </body>
 </html>
