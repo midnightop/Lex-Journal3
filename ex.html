@@ -56,33 +56,33 @@
             box-shadow: 0 20px 40px rgba(139, 58, 58, 0.05);
         }
 
-        /* ─── LADY JUSTICE BACKGROUND BLEND CODE ─── */
+        /* ─── CLEAN BACKGROUND BLEND SYSTEM (NO STOCK PHOTO) ─── */
         .hero-container {
             position: relative;
             width: 100%;
             overflow: hidden;
-            background: radial-gradient(circle at 80% 50%, rgba(212, 175, 142, 0.12) 0%, transparent 65%);
+            background: radial-gradient(circle at 85% 50%, rgba(212, 175, 142, 0.15) 0%, transparent 70%);
         }
 
-        /* Yeh text block ko image ke upar rakhega aur glass effect dega */
+        /* Glass card overlay jo text ko clean readability dega */
         .text-overlay-card {
             position: relative;
             z-index: 10;
-            background: rgba(252, 253, 254, 0.65);
-            backdrop-filter: blur(14px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: rgba(252, 253, 254, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
         }
 
-        /* Background floating PNG container */
+        /* Tumhari apni uploaded PNG ka floating area */
         .bg-justice-wrapper {
             position: absolute;
-            right: -5%;
-            bottom: -5%;
-            width: 550px;
+            right: 2%;
+            bottom: -8%;
+            width: 520px;
             height: auto;
-            z-index: 1; /* Text ke peeche rahega */
-            pointer-events: none; /* Ispe click nahi hoga, text smoothly select ho sakega */
-            animation: modernFloat 8s ease-in-out infinite;
+            z-index: 1; /* Pure text aur buttons ke peeche rhega */
+            pointer-events: none; /* Mouse selection ko disturb nahi karega */
+            animation: modernFloat 7s ease-in-out infinite;
             will-change: transform;
         }
 
@@ -90,28 +90,29 @@
             width: 100%;
             height: auto;
             object-fit: contain;
-            mix-blend-mode: multiply; /* Pure blend effect transparent/white background ke liye */
-            opacity: 0.85; /* Text readability maintain rakhne ke liye mild opacity */
-            filter: drop-shadow(0 20px 50px rgba(15, 23, 42, 0.1));
+            mix-blend-mode: multiply; /* White elements ko background ke sath blend karega */
+            opacity: 0.9; /* Shandar glow aur high visual quality ke liye */
+            filter: drop-shadow(0 15px 40px rgba(139, 58, 58, 0.08));
         }
 
-        /* Mobile adjustments taaki image text ke niche overlap na kare messy tarike se */
+        /* Responsive Mobile Layout Adjustments */
         @media (max-width: 768px) {
             .bg-justice-wrapper {
-                width: 320px;
-                right: -10px;
-                bottom: -20px;
-                opacity: 0.35; /* Mobile par text chhota hota hai isliye opacity kam rakhi hai */
+                width: 280px;
+                right: -5%;
+                bottom: -5%;
+                opacity: 0.4; /* Mobile screen par text reading easy rakhne ke liye mild opacity */
             }
             .text-overlay-card {
                 background: rgba(252, 253, 254, 0.8);
+                padding: 1.5rem !important;
             }
         }
 
-        /* Smooth Floating Animation */
+        /* Dynamic Smooth Floating Animation */
         @keyframes modernFloat {
-            0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
-            50% { transform: translateY(-20px) scale(1.02) rotate(1deg); }
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+            50% { transform: translateY(-18px) rotate(1.5deg) scale(1.01); }
         }
 
         /* MODAL POPUP STYLING */
@@ -157,8 +158,8 @@
     </nav>
 
     <div class="hero-container py-12 md:py-20 px-4">
-        <header class="max-w-6xl mx-auto rounded-[2.5rem] p-8 md:p-12 text-overlay-card grid grid-cols-1 md:grid-cols-12 gap-6 reveal active">
-            <div class="text-left md:col-span-8 space-y-6">
+        <header class="max-w-6xl mx-auto rounded-[2.5rem] p-8 md:p-16 text-overlay-card grid grid-cols-1 md:grid-cols-12 gap-6 reveal active">
+            <div class="text-left md:col-span-9 space-y-6">
                 <div class="flex flex-col space-y-1">
                     <span class="font-serif italic text-3xl md:text-4xl text-amber-700 tracking-wide">international</span>
                     <h1 class="text-5xl md:text-7xl font-black tracking-tight uppercase text-slate-900 leading-none">
@@ -182,9 +183,10 @@
         </header>
 
         <div class="bg-justice-wrapper">
-            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=600&auto=format&fit=crop" 
+            <img src="lady-justice.png" 
                  alt="Lady Justice Background Blend" 
-                 class="lady-justice-png">
+                 class="lady-justice-png"
+                 onerror="this.style.display='none'; console.log('Apni PNG file ka path src mein update karein')">
         </div>
     </div>
 
