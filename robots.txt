@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Allow: /.well-known/security.txt
 
 Disallow: /admin/
 Disallow: /private/
