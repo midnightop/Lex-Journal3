@@ -56,7 +56,7 @@
             box-shadow: 0 20px 40px rgba(139, 58, 58, 0.05);
         }
 
-        /* ─── FIXED LADY JUSTICE BACKGROUND OVERLAY SYSTEM ─── */
+        /* ─── PERFECT UPPER OVERLAY BLEND SYSTEM ─── */
         .hero-container {
             position: relative;
             width: 100%;
@@ -64,25 +64,25 @@
             background: radial-gradient(circle at 50% 50%, rgba(212, 175, 142, 0.15) 0%, transparent 80%);
         }
 
-        /* Transparent Glass overlay jo background text ko image ke sath safe blending dega */
+        /* Glass card overlay with enhanced transparency for perfect background blending */
         .text-overlay-card {
             position: relative;
             z-index: 10;
-            background: rgba(252, 253, 254, 0.4); 
+            background: rgba(252, 253, 254, 0.45); 
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
-        /* Image position completely aligned with text layers */
+        /* Desktop Positioning (Right-Centered) */
         .bg-justice-wrapper {
             position: absolute;
             right: 5%;         
             top: 50%;
             transform: translateY(-50%);
-            width: 480px;      
+            width: 460px;      
             height: auto;
-            z-index: 1;        /* Text ke exact peeche */
+            z-index: 1;        
             pointer-events: none; 
             animation: modernFloat 6s ease-in-out infinite;
             will-change: transform;
@@ -92,29 +92,41 @@
             width: 100%;
             height: auto;
             object-fit: contain;
-            mix-blend-mode: multiply; /* Perfect black/ink opacity blend over paper texture */
+            mix-blend-mode: multiply; /* Blends white/light elements smoothly into the background */
             opacity: 0.75;            
             filter: drop-shadow(0 10px 30px rgba(139, 58, 58, 0.05));
         }
 
-        /* RESPONSIVE MOBILE POSITION FIX */
+        /* MOBILE RESPONSIVE FIX (Locks the image on top and centered) */
         @media (max-width: 768px) {
             .bg-justice-wrapper {
-                width: 320px;       
-                right: -15%;        /* Mobile scale layout integration */
-                top: 40%;
-                transform: translateY(-50%);
-                opacity: 0.55;      
+                position: absolute;
+                width: 100%;        
+                max-width: 340px;   
+                right: 50%;         
+                top: 35%;           /* Placed exactly over the heading/text background area */
+                transform: translate(50%, -50%); /* Perfectly centered horizontally */
+                opacity: 0.65;      
             }
+            
             .text-overlay-card {
-                background: rgba(252, 253, 254, 0.45);
-                padding: 2rem 1.5rem !important; /* Proper text wrapper alignment */
+                background: rgba(252, 253, 254, 0.35); 
+                padding: 2.5rem 1.25rem !important;
             }
         }
 
+        /* Desktop continuous float animation */
         @keyframes modernFloat {
             0%, 100% { transform: translateY(-50%) translateX(0px) rotate(0deg); }
-            50% { transform: translateY(-54%) translateX(-5px) rotate(1deg); }
+            50% { transform: translateY(-53%) translateX(-4px) rotate(1.5deg); }
+        }
+
+        /* Mobile continuous float override using standard translate mechanics */
+        @media (max-width: 768px) {
+            @keyframes modernFloat {
+                0%, 100% { transform: translate(50%, -50%) scale(1) rotate(0deg); }
+                50% { transform: translate(50%, -53%) scale(1.02) rotate(1deg); }
+            }
         }
 
         /* MODAL POPUP STYLING */
@@ -176,8 +188,7 @@
                 <p class="text-gray-500 text-sm leading-relaxed max-w-prose">
                     Analyzing sovereign interactions, international trade litigation, and ongoing updates from the International Court of Justice (ICJ). We turn intricate jurisdictional jargon into clean, strategic insights.
                 </p>
-                
-                </div>
+            </div>
         </header>
 
         <div class="bg-justice-wrapper">
@@ -419,11 +430,6 @@
             
             document.getElementById('countryDisplayModal').classList.add('active');
             document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(country) {
-            // Maintained for older routing references if needed
-            closeCountryModal(null);
         }
 
         function closeCountryModal(e) {
