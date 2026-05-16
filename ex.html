@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Law Journal | International Law & Justice</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -15,201 +15,215 @@
         }
 
         :root {
-            --primary: #8B3A3A;      /* Burgundy / Maroon */
-            --secondary: #D4AF8E;    /* Vintage Gold */
-            --cream: #F5F1E8;        /* Classic Sepia Background */
-            --dark: #1a1a1a;
-            --accent: #C9945C;       /* Light Tan */
-            --border: #D4B5A0;
+            --primary: #8B3A3A;       /* Deep Luxury Maroon */
+            --bg-gradient: linear-gradient(135deg, #fbf9f6 0%, #f3ece3 100%);
+            --card-bg: rgba(255, 255, 255, 0.7); /* Glassmorphism Base */
+            --text-dark: #1e1b18;
+            --accent: #C9945C;        /* Premium Tan/Gold */
+            --radius-lg: 24px;        /* Smooth Rounded Shapes */
+            --radius-md: 16px;
         }
 
         body {
-            font-family: 'Lora', serif;
-            background: var(--cream);
-            color: var(--dark);
-            line-height: 1.7;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-dark);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* HERO SECTION WITH LADY JUSTICE BACKGROUND */
+        /* MODERN HERO SECTION */
         .hero {
             position: relative;
             height: 100vh;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             padding: 0 8%;
-            background: linear-gradient(135deg, var(--cream) 0%, #FFFBF5 100%);
             overflow: hidden;
         }
 
-        /* Animated Vintage Lady Justice Background */
-        .hero::after {
-            content: '⚖️';
-            position: absolute;
-            right: 10%;
-            font-size: 28rem;
-            opacity: 0.15;
-            color: var(--primary);
-            filter: drop-shadow(0 10px 20px rgba(139, 58, 58, 0.2));
-            animation: floatLady 6s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        @keyframes floatLady {
-            0%, 100% { transform: translateY(0) rotate(-3deg); }
-            50% { transform: translateY(-30px) rotate(3deg); }
-        }
-
         .hero-content {
-            position: relative;
-            z-index: 5;
-            max-width: 650px;
+            max-width: 600px;
+            z-index: 10;
         }
 
         .subtitle {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             color: var(--accent);
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            font-weight: 600;
-            margin-bottom: 15px;
+            font-weight: 700;
+            margin-bottom: 20px;
         }
 
-        /* The Custom 'intro-DUCTION' Stacked Layout Style from Canva */
+        /* Canva Title Structure Style (Modernized) */
         .main-title {
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 2px;
             margin-bottom: 25px;
         }
 
         .title-script {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             color: var(--accent);
             line-height: 1;
         }
 
         .title-block {
-            font-family: 'Playfair Display', serif;
-            font-weight: 800;
-            font-size: 5rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 4.8rem;
             color: var(--primary);
-            line-height: 0.85;
+            line-height: 0.9;
             letter-spacing: -2px;
         }
 
         .hero p {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 40px;
-            line-height: 1.8;
+            font-size: 1.05rem;
+            color: #5c554e;
+            margin-bottom: 35px;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 16px 45px;
+            padding: 16px 38px;
             background: var(--primary);
             color: white;
             text-decoration: none;
             font-weight: 600;
-            border-radius: 4px; /* Scholarly square-ish look */
-            transition: all 0.4s ease;
-            border: 2px solid var(--primary);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-size: 0.9rem;
+            border-radius: 50px; /* Fully Rounded Modern Button */
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 8px 30px rgba(139, 58, 58, 0.2);
+            font-size: 0.95rem;
         }
 
         .cta-button:hover {
-            background: transparent;
-            color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(139, 58, 58, 0.15);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(139, 58, 58, 0.3);
         }
 
-        /* COUNTRIES GRID SECTION */
+        /* LADY JUSTICE PNG CONTAINER & ANIMATION */
+        .hero-right {
+            position: absolute;
+            right: 5%;
+            width: 45%;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+        }
+
+        .lady-justice-png {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            /* Smooth 3D-like floating setup */
+            animation: modernFloat 5s ease-in-out infinite;
+            filter: drop-shadow(0 20px 50px rgba(139, 58, 58, 0.15));
+            opacity: 0.9;
+        }
+
+        @keyframes modernFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(-1deg);
+            }
+            50% {
+                transform: translateY(-25px) rotate(1deg);
+            }
+        }
+
+        /* MODERN ROUNDED GRID SECTION */
         .journal-section {
-            padding: 100px 8%;
-            max-width: 1600px;
-            margin: 0 auto;
+            padding: 80px 8% 120px 8%;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 70px;
+            margin-bottom: 60px;
         }
 
         .section-header h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.2rem;
+            font-size: 3rem;
             color: var(--primary);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .section-header p {
-            font-size: 1.1rem;
-            color: #666;
-            font-style: italic;
+            color: #7c7267;
+            font-size: 1rem;
         }
 
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
+            gap: 30px;
         }
 
+        /* Glassmorphism Cards with Round Shapes */
         .country-card {
-            background: white;
-            border: 1px solid var(--border);
+            background: var(--card-bg);
+            backdrop-filter: blur(12px); /* Premium Blur Effect */
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
             padding: 35px;
-            border-radius: 4px;
+            border-radius: var(--radius-lg); /* Big Round Corners */
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            cursor: pointer;
-            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
         .country-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(139, 58, 58, 0.08);
-            border-color: var(--primary);
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(139, 58, 58, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
         }
 
         .card-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
-        .flag {
-            font-size: 2.5rem;
+        .flag-sphere {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%; /* Circular Flag Badge */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         .traffic-badge {
-            font-size: 0.8rem;
-            background: rgba(212, 175, 142, 0.2);
+            font-size: 0.75rem;
+            background: #fff;
             color: var(--primary);
-            padding: 4px 12px;
-            border-radius: 50px;
+            padding: 6px 14px;
+            border-radius: 30px; /* Rounded pill style */
             font-weight: 600;
-            letter-spacing: 0.5px;
+            border: 1px solid rgba(139, 58, 58, 0.15);
         }
 
         .country-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.45rem;
             color: var(--primary);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
+            font-weight: 700;
         }
 
         .country-card p {
-            color: #666;
+            color: #61584f;
             font-size: 0.95rem;
             margin-bottom: 25px;
         }
@@ -221,69 +235,50 @@
             font-size: 0.95rem;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            transition: gap 0.3s ease;
+            gap: 6px;
+            transition: transform 0.3s ease;
         }
 
         .country-card:hover .read-more-link {
-            gap: 15px;
+            transform: translateX(5px);
         }
 
-        /* GLOBAL / MISC CARD STYLE (Full Width Feature) */
+        /* GLOBAL FEATURE CARD */
         .global-card {
-            grid-column: 1 / -1; /* Forces it to span all columns */
-            background: linear-gradient(135deg, #FFFBF5 0%, #EFEBE0 100%);
-            border: 2px dashed var(--primary);
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(243,236,227,0.5) 100%);
+            border: 2px rgba(139, 58, 58, 0.2) solid;
             display: flex;
             flex-direction: row;
             align-items: center;
             gap: 40px;
         }
 
-        .global-info {
-            flex: 2;
-        }
-
-        .global-flag {
-            font-size: 5rem;
-            flex: 1;
-            text-align: center;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
-        }
+        .global-info { flex: 2; }
+        .global-icon { font-size: 4.5rem; flex: 0.5; text-align: center; }
 
         /* FOOTER */
         .footer {
-            background: var(--dark);
-            padding: 40px;
+            background: white;
+            padding: 35px;
             text-align: center;
-            border-top: 4px solid var(--primary);
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.02);
         }
 
         .footer-text {
-            color: #888;
+            color: #8c8175;
             font-size: 0.85rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            font-weight: 500;
         }
 
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 40px 5%;
-                text-align: center;
-            }
-            .hero::after {
-                font-size: 18rem;
-                right: 5%;
-                top: 30%;
-            }
+        /* RESPONSIVE SETUP */
+        @media (max-width: 992px) {
+            .hero { flex-direction: column; justify-content: center; text-align: center; padding-top: 80px; }
+            .hero-right { position: relative; width: 80%; height: 40vh; right: 0; margin-top: 40px; }
             .title-block { font-size: 3.5rem; }
-            .title-script { font-size: 2.5rem; }
-            .global-card {
-                flex-direction: column;
-                text-align: center;
-                padding: 30px;
-            }
+            .title-script { font-size: 2.8rem; }
+            .global-card { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -292,113 +287,114 @@
     <section class="hero">
         <div class="hero-content">
             <div class="subtitle">lawjournal.online</div>
-            
             <h1 class="main-title">
                 <span class="title-script">international</span>
                 <span class="title-block">LAW & JUSTICE</span>
             </h1>
-            
-            <p>A scholarly space dedicated to global legal updates, structural jurisprudence analysis, and high-traffic legal reports across international borders.</p>
-            <a href="#dispatch" class="cta-button">View Journal</a>
+            <p>Experience an advanced legal ecosystem. Track premium, high-traffic analytics and international judicial reports inside a fluid digital layout.</p>
+            <a href="#dispatch" class="cta-button">Explore Analytics</a>
+        </div>
+        
+        <div class="hero-right">
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1000&auto=format&fit=crop" alt="Lady Justice" class="lady-justice-png">
         </div>
     </section>
 
     <section class="journal-section" id="dispatch">
         <div class="section-header">
-            <h2>Global Legal Briefs</h2>
-            <p>"The law is reason, free from passion"</p>
+            <h2>Live Jurisdictions</h2>
+            <p>Real-time structural transitions and statutory analysis</p>
         </div>
 
         <div class="grid-container">
             <div class="country-card">
                 <div>
                     <div class="card-top">
-                        <span class="flag">🇺🇸</span>
-                        <span class="traffic-badge">High Traffic</span>
+                        <div class="flag-sphere">🇺🇸</div>
+                        <span class="traffic-badge">533 Requests</span>
                     </div>
                     <h3>United States</h3>
-                    <p>Federal case analysis, Supreme Court landmark decisions, and constitutional transitions.</p>
+                    <p>Supreme Court structural benchmarks, federal case workflows, and policy updates.</p>
                 </div>
-                <a href="#" class="read-more-link">Explore Dossier →</a>
+                <a href="#" class="read-more-link">Open Dossier →</a>
             </div>
 
             <div class="country-card">
                 <div>
                     <div class="card-top">
-                        <span class="flag">🇳🇱</span>
-                        <span class="traffic-badge">98 Daily Req</span>
+                        <div class="flag-sphere">🇳🇱</div>
+                        <span class="traffic-badge">98 Requests</span>
                     </div>
                     <h3>Netherlands</h3>
-                    <p>International Court of Justice updates, EU trade policies, and digital data regulations.</p>
+                    <p>International tribunals, EU trade litigation directives, and maritime adjustments.</p>
                 </div>
-                <a href="#" class="read-more-link">Explore Dossier →</a>
+                <a href="#" class="read-more-link">Open Dossier →</a>
             </div>
 
             <div class="country-card">
                 <div>
                     <div class="card-top">
-                        <span class="flag">🇩🇪</span>
-                        <span class="traffic-badge">Stable Traffic</span>
+                        <div class="flag-sphere">🇩🇪</div>
+                        <span class="traffic-badge">Stable</span>
                     </div>
                     <h3>Germany</h3>
-                    <p>EU statutory compliance reports, continental corporate law, and economic frameworks.</p>
+                    <p>Continental corporate statutory compliance and trade framework optimization.</p>
                 </div>
-                <a href="#" class="read-more-link">Explore Dossier →</a>
+                <a href="#" class="read-more-link">Open Dossier →</a>
             </div>
 
             <div class="country-card">
                 <div>
                     <div class="card-top">
-                        <span class="flag">🇨🇦</span>
+                        <div class="flag-sphere">🇨🇦</div>
                         <span class="traffic-badge">Active</span>
                     </div>
                     <h3>Canada</h3>
-                    <p>Bilingual policy frameworks, Supreme Court reviews, and cross-border trade legalities.</p>
+                    <p>Bilingual policy evaluation, federal court logs, and environmental jurisprudence.</p>
                 </div>
-                <a href="#" class="read-more-link">Explore Dossier →</a>
+                <a href="#" class="read-more-link">Open Dossier →</a>
             </div>
 
             <div class="country-card">
                 <div>
                     <div class="card-top">
-                        <span class="flag">🇸🇬</span>
+                        <div class="flag-sphere">🇸🇬</div>
                         <span class="traffic-badge">Hub Traffic</span>
                     </div>
                     <h3>Singapore</h3>
-                    <p>Asia-Pacific corporate arbitration updates and maritime legal adjustments.</p>
+                    <p>Asia-Pacific commercial arbitration data models and financial regulatory shifts.</p>
                 </div>
-                <a href="#" class="read-more-link">Explore Dossier →</a>
+                <a href="#" class="read-more-link">Open Dossier →</a>
             </div>
 
             <div class="country-card">
                 <div>
                     <div class="card-top">
-                        <span class="flag">🇨🇭</span>
+                        <div class="flag-sphere">🇨🇭</div>
                         <span class="traffic-badge">Premium</span>
                     </div>
                     <h3>Switzerland</h3>
-                    <p>International banking compliance, neutral diplomatic jurisprudence, and global treaty archives.</p>
+                    <p>Global financial compliance documentation and sovereign treaty management logs.</p>
                 </div>
-                <a href="#" class="read-more-link">Explore Dossier →</a>
+                <a href="#" class="read-more-link">Open Dossier →</a>
             </div>
 
             <div class="country-card global-card">
                 <div class="global-info">
                     <div class="card-top">
-                        <span class="traffic-badge" style="background: rgba(139, 58, 58, 0.15);">Universal Coverage</span>
+                        <span class="traffic-badge" style="background: rgba(139, 58, 58, 0.1);">Universal Coverage</span>
                     </div>
                     <h3>Global Legal Dispatch</h3>
-                    <p>Miscellaneous international reports, human rights tribunals, and multi-jurisdictional updates from around the globe that do not fit into specific country briefs.</p>
-                    <a href="#" class="read-more-link">Open Global Archives →</a>
+                    <p>Cross-border multi-jurisdictional updates, transnational treaty tracking, and miscellaneous legal items from any uncovered territories worldwide.</p>
+                    <a href="#" class="read-more-link">Access Unified Stream →</a>
                 </div>
-                <div class="global-flag">🌐</div>
+                <div class="global-icon">🌐</div>
             </div>
-
         </div>
     </section>
 
     <footer class="footer">
-        <p class="footer-text">© 2026 lawjournal.online • All Rights Reserved</p>
+        <p class="footer-text">© 2026 lawjournal.online • Advanced Legal Interface</p>
     </footer>
 
 </body>
