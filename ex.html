@@ -42,12 +42,46 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         }
         
-        /* Updated Premium Card Base styling with smooth layout properties */
+        /* ─── PREMIUM COUNTRY COLOR GRADIENT THEMES ─── */
+        .card-usa {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(219, 234, 254, 0.5) 100%);
+            border: 1px solid rgba(191, 219, 254, 0.6);
+        }
+        .card-usa:hover { background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%); }
+
+        .card-netherlands {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(238, 242, 255, 0.6) 100%);
+            border: 1px solid rgba(224, 231, 255, 0.6);
+        }
+        .card-netherlands:hover { background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%); }
+
+        .card-germany {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(254, 243, 199, 0.4) 60%, rgba(254, 226, 226, 0.4) 100%);
+            border: 1px solid rgba(252, 211, 77, 0.4);
+        }
+        .card-germany:hover { background: linear-gradient(135deg, #ffffff 0%, #fef3c7 60%, #fee2e2 100%); }
+
+        .card-canada {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(254, 226, 226, 0.5) 100%);
+            border: 1px solid rgba(254, 202, 202, 0.6);
+        }
+        .card-canada:hover { background: linear-gradient(135deg, #ffffff 0%, #fee2e2 100%); }
+
+        .card-singapore {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 241, 241, 0.6) 100%);
+            border: 1px solid rgba(254, 226, 226, 0.7);
+        }
+        .card-singapore:hover { background: linear-gradient(135deg, #ffffff 0%, #ffe4e4 100%); }
+
+        .card-switzerland {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(248, 250, 252, 0.8) 100%);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .card-switzerland:hover { background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%); }
+
         .glossy-card {
-            background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
             border-radius: 28px;
             position: relative;
             overflow: hidden;
@@ -55,7 +89,6 @@
         }
         .glossy-card:hover {
             transform: translateY(-6px);
-            background: rgba(255, 255, 255, 0.95);
             box-shadow: 0 25px 50px rgba(15, 23, 42, 0.04);
         }
 
@@ -193,104 +226,116 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             
-            <div class="glossy-card p-6 border-b-4 border-blue-600 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('usa')">
-                <div class="absolute right-[-15px] bottom-[-15px] text-slate-900/[0.03] pointer-events-none z-0 transform rotate-12 transition-all duration-500 group-hover:scale-110 group-hover:text-blue-600/[0.05] group-hover:rotate-6">
-                    <i class="fa-solid fa-gavel text-9xl"></i>
+            <div class="glossy-card card-usa p-6 border-b-4 border-blue-600 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('usa')">
+                <div class="absolute right-2 top-1/2 -translate-y-1/2 w-44 h-44 opacity-[0.06] text-blue-900 pointer-events-none z-0 transition-all duration-500 group-hover:scale-110 group-hover:opacity-[0.12]">
+                    <svg viewBox="0 0 1000 600" fill="currentColor" class="w-full h-full">
+                        <path d="M150,150 L220,130 L290,140 L380,120 L480,110 L580,120 L700,90 L850,90 L920,110 L940,160 L920,220 L950,280 L920,380 L880,420 L840,430 L810,480 L760,490 L710,450 L650,460 L580,480 L520,520 L450,510 L380,530 L320,510 L280,540 L220,530 L180,470 L190,410 L130,370 L100,380 L60,330 L50,260 L80,210 L120,210 Z"/>
+                    </svg>
                 </div>
                 <div class="relative z-10">
                     <div class="flex justify-between items-center mb-5">
                         <span class="text-3xl">🇺🇸</span>
-                        <span class="text-[9px] font-black bg-blue-50 text-blue-600 px-3 py-1 rounded-full uppercase">533 Requests</span>
+                        <span class="text-[9px] font-black bg-blue-100 text-blue-700 px-3 py-1 rounded-full uppercase">533 Requests</span>
                     </div>
                     <h3 class="text-base font-bold text-slate-900 uppercase tracking-tight">United States</h3>
-                    <p class="text-xs text-slate-500 mt-2 leading-relaxed">Cross-border regulatory enforcement, bilateral trade compacts, and Supreme Court foreign relations reviews.</p>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">Cross-border regulatory enforcement, bilateral trade compacts, and Supreme Court foreign relations reviews.</p>
                 </div>
-                <button class="relative z-10 mt-5 text-left text-blue-600 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
+                <button class="relative z-10 mt-5 text-left text-blue-700 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
                     Read Cases & Justice <i class="fa-solid fa-chevron-right text-[8px]"></i>
                 </button>
             </div>
 
-            <div class="glossy-card p-6 border-b-4 border-indigo-600 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('netherlands')">
-                <div class="absolute right-[-15px] bottom-[-15px] text-slate-900/[0.03] pointer-events-none z-0 transform -rotate-12 transition-all duration-500 group-hover:scale-110 group-hover:text-indigo-600/[0.05] group-hover:rotate-0">
-                    <i class="fa-solid fa-scale-balanced text-9xl"></i>
+            <div class="glossy-card card-netherlands p-6 border-b-4 border-indigo-600 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('netherlands')">
+                <div class="absolute right-4 top-1/2 -translate-y-1/2 w-40 h-40 opacity-[0.06] text-indigo-900 pointer-events-none z-0 transition-all duration-500 group-hover:scale-110 group-hover:opacity-[0.12]">
+                    <svg viewBox="0 0 500 500" fill="currentColor" class="w-full h-full">
+                        <path d="M200,100 L280,120 L350,110 L400,150 L410,220 L360,280 L380,350 L340,400 L280,420 L220,450 L150,430 L120,380 L140,320 L100,280 L110,200 L160,150 Z"/>
+                    </svg>
                 </div>
                 <div class="relative z-10">
                     <div class="flex justify-between items-center mb-5">
                         <span class="text-3xl">🇳🇱</span>
-                        <span class="text-[9px] font-black bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full uppercase">98 Requests</span>
+                        <span class="text-[9px] font-black bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full uppercase">98 Requests</span>
                     </div>
                     <h3 class="text-base font-bold text-slate-900 uppercase tracking-tight">Netherlands</h3>
-                    <p class="text-xs text-slate-500 mt-2 leading-relaxed">International Court of Justice (ICJ) rulings, Permanent Court of Arbitration directives, and EU statutory overrides.</p>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">International Court of Justice (ICJ) rulings, Permanent Court of Arbitration directives, and EU statutory overrides.</p>
                 </div>
-                <button class="relative z-10 mt-5 text-left text-indigo-600 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
+                <button class="relative z-10 mt-5 text-left text-indigo-700 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
                     Read Cases & Justice <i class="fa-solid fa-chevron-right text-[8px]"></i>
                 </button>
             </div>
 
-            <div class="glossy-card p-6 border-b-4 border-emerald-700 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('germany')">
-                <div class="absolute right-[-10px] bottom-[-10px] text-slate-900/[0.03] pointer-events-none z-0 transform rotate-45 transition-all duration-500 group-hover:scale-110 group-hover:text-emerald-700/[0.05] group-hover:rotate-12">
-                    <i class="fa-solid fa-book-bookmark text-9xl"></i>
+            <div class="glossy-card card-germany p-6 border-b-4 border-amber-500 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('germany')">
+                <div class="absolute right-4 top-1/2 -translate-y-1/2 w-36 h-40 opacity-[0.07] text-amber-900 pointer-events-none z-0 transition-all duration-500 group-hover:scale-110 group-hover:opacity-[0.14]">
+                    <svg viewBox="0 0 400 500" fill="currentColor" class="w-full h-full">
+                        <path d="M120,50 L250,40 L320,80 L350,150 L310,220 L360,300 L320,380 L340,450 L250,460 L180,420 L120,450 L70,380 L90,300 L60,220 L90,120 Z"/>
+                    </svg>
                 </div>
                 <div class="relative z-10">
                     <div class="flex justify-between items-center mb-5">
                         <span class="text-3xl">🇩🇪</span>
-                        <span class="text-[9px] font-black bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full uppercase">Stable</span>
+                        <span class="text-[9px] font-black bg-amber-100 text-amber-800 px-3 py-1 rounded-full uppercase">Stable</span>
                     </div>
                     <h3 class="text-base font-bold text-slate-900 uppercase tracking-tight">Germany</h3>
-                    <p class="text-xs text-slate-500 mt-2 leading-relaxed">European constitutional integration limits, transnational corporate compliance, and environmental treaty bindings.</p>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">European constitutional integration limits, transnational corporate compliance, and environmental treaty bindings.</p>
                 </div>
-                <button class="relative z-10 mt-5 text-left text-emerald-700 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
+                <button class="relative z-10 mt-5 text-left text-amber-800 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
                     Read Cases & Justice <i class="fa-solid fa-chevron-right text-[8px]"></i>
                 </button>
             </div>
 
-            <div class="glossy-card p-6 border-b-4 border-slate-700 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('canada')">
-                <div class="absolute right-[-15px] bottom-[-15px] text-slate-900/[0.03] pointer-events-none z-0 transform transition-all duration-500 group-hover:scale-110 group-hover:text-slate-700/[0.05] group-hover:-translate-y-2">
-                    <i class="fa-solid fa-building-columns text-9xl"></i>
+            <div class="glossy-card card-canada p-6 border-b-4 border-red-500 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('canada')">
+                <div class="absolute right-1 top-1/2 -translate-y-1/2 w-44 h-44 opacity-[0.06] text-red-900 pointer-events-none z-0 transition-all duration-500 group-hover:scale-110 group-hover:opacity-[0.12]">
+                    <svg viewBox="0 0 800 600" fill="currentColor" class="w-full h-full">
+                        <path d="M50,150 L120,100 L250,80 L380,50 L520,60 L680,40 L750,90 L780,180 L720,280 L750,380 L680,450 L580,420 L480,480 L320,460 L220,500 L120,440 L80,350 L110,250 Z"/>
+                    </svg>
                 </div>
                 <div class="relative z-10">
                     <div class="flex justify-between items-center mb-5">
                         <span class="text-3xl">🇨🇦</span>
-                        <span class="text-[9px] font-black bg-slate-100 text-slate-700 px-3 py-1 rounded-full uppercase">Active</span>
+                        <span class="text-[9px] font-black bg-red-50 text-red-600 px-3 py-1 rounded-full uppercase">Active</span>
                     </div>
                     <h3 class="text-base font-bold text-slate-900 uppercase tracking-tight">Canada</h3>
-                    <p class="text-xs text-slate-500 mt-2 leading-relaxed">International arbitration paradigms, multi-national extraction legislation, and cross-border environmental compacts.</p>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">International arbitration paradigms, multi-national extraction legislation, and cross-border environmental compacts.</p>
                 </div>
-                <button class="relative z-10 mt-5 text-left text-slate-700 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
+                <button class="relative z-10 mt-5 text-left text-red-600 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
                     Read Cases & Justice <i class="fa-solid fa-chevron-right text-[8px]"></i>
                 </button>
             </div>
 
-            <div class="glossy-card p-6 border-b-4 border-amber-600 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('singapore')">
-                <div class="absolute right-[-15px] bottom-[-15px] text-slate-900/[0.03] pointer-events-none z-0 transform rotate-12 transition-all duration-500 group-hover:scale-110 group-hover:text-amber-600/[0.05] group-hover:rotate-45">
-                    <i class="fa-solid fa-globe text-9xl"></i>
+            <div class="glossy-card card-singapore p-6 border-b-4 border-red-600 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('singapore')">
+                <div class="absolute right-2 top-1/2 -translate-y-1/2 w-44 h-32 opacity-[0.07] text-red-900 pointer-events-none z-0 transition-all duration-500 group-hover:scale-110 group-hover:opacity-[0.14]">
+                    <svg viewBox="0 0 800 400" fill="currentColor" class="w-full h-full">
+                        <path d="M50,180 L180,140 L320,130 L480,120 L620,140 L720,150 L750,190 L710,240 L580,250 L420,260 L280,250 L120,240 L60,210 Z"/>
+                    </svg>
                 </div>
                 <div class="relative z-10">
                     <div class="flex justify-between items-center mb-5">
                         <span class="text-3xl">🇸🇬</span>
-                        <span class="text-[9px] font-black bg-amber-50 text-amber-600 px-3 py-1 rounded-full uppercase">Hub Traffic</span>
+                        <span class="text-[9px] font-black bg-red-50 text-red-600 px-3 py-1 rounded-full uppercase">Hub Traffic</span>
                     </div>
                     <h3 class="text-base font-bold text-slate-900 uppercase tracking-tight">Singapore</h3>
-                    <p class="text-xs text-slate-500 mt-2 leading-relaxed">Asia-Pacific commercial dispute arbitration framework, maritime territorial adjustments, and digital space regulations.</p>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">Asia-Pacific commercial dispute arbitration framework, maritime territorial adjustments, and digital space regulations.</p>
                 </div>
-                <button class="relative z-10 mt-5 text-left text-amber-600 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
+                <button class="relative z-10 mt-5 text-left text-red-600 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
                     Read Cases & Justice <i class="fa-solid fa-chevron-right text-[8px]"></i>
                 </button>
             </div>
 
-            <div class="glossy-card p-6 border-b-4 border-purple-600 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('switzerland')">
-                <div class="absolute right-[-15px] bottom-[-15px] text-slate-900/[0.03] pointer-events-none z-0 transform -rotate-6 transition-all duration-500 group-hover:scale-110 group-hover:text-purple-600/[0.05] group-hover:rotate-0">
-                    <i class="fa-solid fa-shield-halved text-9xl"></i>
+            <div class="glossy-card card-switzerland p-6 border-b-4 border-slate-400 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('switzerland')">
+                <div class="absolute right-4 top-1/2 -translate-y-1/2 w-40 h-40 opacity-[0.06] text-slate-800 pointer-events-none z-0 transition-all duration-500 group-hover:scale-110 group-hover:opacity-[0.12] flex items-center justify-center">
+                    <svg viewBox="0 0 500 400" fill="currentColor" class="w-full h-full">
+                        <path d="M50,180 L120,120 L220,140 L320,100 L420,130 L450,200 L410,280 L320,300 L220,320 L120,280 L70,240 Z"/>
+                    </svg>
                 </div>
                 <div class="relative z-10">
                     <div class="flex justify-between items-center mb-5">
                         <span class="text-3xl">🇨🇭</span>
-                        <span class="text-[9px] font-black bg-purple-50 text-purple-600 px-3 py-1 rounded-full uppercase">Premium</span>
+                        <span class="text-[9px] font-black bg-slate-100 text-slate-600 px-3 py-1 rounded-full uppercase">Premium</span>
                     </div>
                     <h3 class="text-base font-bold text-slate-900 uppercase tracking-tight">Switzerland</h3>
-                    <p class="text-xs text-slate-500 mt-2 leading-relaxed">Sovereign treaty banking regulations, global neutrality compliance, and human rights diplomatic mandates.</p>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">Sovereign treaty banking regulations, global neutrality compliance, and human rights diplomatic mandates.</p>
                 </div>
-                <button class="relative z-10 mt-5 text-left text-purple-600 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
+                <button class="relative z-10 mt-5 text-left text-slate-700 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
                     Read Cases & Justice <i class="fa-solid fa-chevron-right text-[8px]"></i>
                 </button>
             </div>
@@ -312,7 +357,7 @@
         </div>
     </section>
 
-    <section class="glossy-card p-6 md:p-8 rounded-2xl max-w-6xl mx-auto my-4">
+    <section class="glossy-card p-6 md:p-8 rounded-2xl max-w-6xl mx-auto my-4 bg-white/60 border border-white">
         <div class="w-10 h-10 bg-slate-100 rounded-xl flex items-center justify-center mb-5 text-red-700">
             <i class="fa-solid fa-envelope"></i>
         </div>
