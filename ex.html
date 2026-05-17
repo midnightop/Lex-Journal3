@@ -71,16 +71,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 20; /* Image ko card ke upar rakhne ke liye higher index */
+            z-index: 20; 
             position: relative;
         }
 
         .lady-justice-png {
             width: 100%;
-            max-width: 310px; /* Perfect visible size on screen */
+            max-width: 310px; 
             height: auto;
             object-fit: contain;
-            /* Negative margin taaki legs text box ke andar dhas kar upar overlapping dikhein */
             margin-bottom: -45px; 
             animation: modernFloat 5s ease-in-out infinite;
             will-change: transform;
@@ -89,7 +88,7 @@
 
         .text-overlay-card {
             position: relative;
-            z-index: 10; /* Lower than image wrapper */
+            z-index: 10; 
             background: rgba(252, 253, 254, 0.85); 
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -98,20 +97,18 @@
             width: 100%;
         }
 
-        /* Responsive Mobile Behavior for Perfect Leg Overlay */
         @media (max-width: 768px) {
             .lady-justice-png {
-                max-width: 260px; /* Mobile relative scaling */
-                margin-bottom: -55px; /* Mobile par legs ko extra overlap dene ke liye negative shift */
+                max-width: 260px; 
+                margin-bottom: -55px; 
             }
             .text-overlay-card {
-                padding-top: 4rem !important; /* Image overlap space padding protection */
+                padding-top: 4rem !important; 
                 padding-left: 1.25rem !important;
                 padding-right: 1.25rem !important;
             }
         }
 
-        /* Continuous Fluid Animation */
         @keyframes modernFloat {
             0%, 100% { transform: translateY(0px) scale(1); }
             50% { transform: translateY(-10px) scale(1.01); }
@@ -160,7 +157,6 @@
     </nav>
 
     <div class="hero-container py-8 px-4 text-center">
-        
         <div class="image-top-container">
             <img src="lady-justice.png" 
                  alt="Lady Justice Logo Layout" 
@@ -291,19 +287,13 @@
         </div>
     </section>
 
-
-    
-
-   <section class="legal-card p-6 md:p-8 rounded-2xl fade-in-section" style="animation-delay: 0.4s;">
-                <div class="w-10 h-10 bg-slate-100 rounded-xl flex items-center justify-center mb-5 text-red-700">
-                    <i class="fa-solid fa-envelope"></i>
-                </div>
-                <h3 class="text-lg font-black uppercase tracking-tighter mb-2 italic">Contact Mail</h3>
-                <p class="text-gray-500 text-xs leading-relaxed">Email/mail <span class="font-bold text-slate-800">admin@lawjournal.online</p>
-   </section>
-
-
-
+    <section class="legal-card p-6 md:p-8 rounded-2xl fade-in-section max-w-6xl mx-auto my-4" style="animation-delay: 0.4s;">
+        <div class="w-10 h-10 bg-slate-100 rounded-xl flex items-center justify-center mb-5 text-red-700">
+            <i class="fa-solid fa-envelope"></i>
+        </div>
+        <h3 class="text-lg font-black uppercase tracking-tighter mb-2 italic">Contact Mail</h3>
+        <p class="text-gray-500 text-xs leading-relaxed">Email/mail <span class="font-bold text-slate-800">admin@lawjournal.online</span></p>
+    </section>
     
     <div class="modal" id="countryDisplayModal" onclick="closeCountryModal(event)">
         <div class="modal-body-card w-11/12 max-w-2xl rounded-[2.5rem] p-8 relative" onclick="event.stopPropagation()">
@@ -404,6 +394,7 @@
             }
         };
 
+        // ─── PHONE GESTURE BACK BUTTON POPUP CONTROL ───
         function openCountryModal(key) {
             const data = jurisdictionData[key];
             if (!data) return;
@@ -423,12 +414,26 @@
             
             document.getElementById('countryDisplayModal').classList.add('active');
             document.body.style.overflow = 'hidden';
+
+            window.history.pushState({ modalOpen: true }, "");
         }
 
         function closeCountryModal(e) {
+            if (window.history.state && window.history.state.modalOpen) {
+                window.history.back(); 
+            } else {
+                executeModalClose();
+            }
+        }
+
+        function executeModalClose() {
             document.getElementById('countryDisplayModal').classList.remove('active');
             document.body.style.overflow = 'auto';
         }
+
+        window.addEventListener('popstate', function(event) {
+            executeModalClose();
+        });
 
         const articleDatabase = [
             { author: "Ettisa Basak", college: "Sureswar Dutta Law | CU", title: "Advantages of Bare Acts", desc: "Accuracy and precision of raw legislation.", photo: "pages/read/author1.jpg", accent: "blue-500" },
