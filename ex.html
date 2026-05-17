@@ -42,21 +42,24 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         }
         
+        /* Updated Premium Card Base styling with smooth layout properties */
         .glossy-card {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.8);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
             border-radius: 28px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .glossy-card:hover {
             transform: translateY(-6px);
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 20px 40px rgba(139, 58, 58, 0.05);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 25px 50px rgba(15, 23, 42, 0.04);
         }
 
-        /* ─── STACKED DESIGN SYSTEM (PHOTO UPAR, TEXT NEECHE) ─── */
+        /* ─── STACKED DESIGN SYSTEM ─── */
         .hero-container {
             width: 100%;
             max-width: 800px;
@@ -189,8 +192,12 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <div class="glossy-card p-6 border-b-4 border-blue-600 flex flex-col justify-between cursor-pointer" onclick="openCountryModal('usa')">
-                <div>
+            
+            <div class="glossy-card p-6 border-b-4 border-blue-600 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('usa')">
+                <div class="absolute right-[-15px] bottom-[-15px] text-slate-900/[0.03] pointer-events-none z-0 transform rotate-12 transition-all duration-500 group-hover:scale-110 group-hover:text-blue-600/[0.05] group-hover:rotate-6">
+                    <i class="fa-solid fa-gavel text-9xl"></i>
+                </div>
+                <div class="relative z-10">
                     <div class="flex justify-between items-center mb-5">
                         <span class="text-3xl">🇺🇸</span>
                         <span class="text-[9px] font-black bg-blue-50 text-blue-600 px-3 py-1 rounded-full uppercase">533 Requests</span>
@@ -198,13 +205,16 @@
                     <h3 class="text-base font-bold text-slate-900 uppercase tracking-tight">United States</h3>
                     <p class="text-xs text-slate-500 mt-2 leading-relaxed">Cross-border regulatory enforcement, bilateral trade compacts, and Supreme Court foreign relations reviews.</p>
                 </div>
-                <button class="mt-5 text-left text-blue-600 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
+                <button class="relative z-10 mt-5 text-left text-blue-600 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
                     Read Cases & Justice <i class="fa-solid fa-chevron-right text-[8px]"></i>
                 </button>
             </div>
 
-            <div class="glossy-card p-6 border-b-4 border-indigo-600 flex flex-col justify-between cursor-pointer" onclick="openCountryModal('netherlands')">
-                <div>
+            <div class="glossy-card p-6 border-b-4 border-indigo-600 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('netherlands')">
+                <div class="absolute right-[-15px] bottom-[-15px] text-slate-900/[0.03] pointer-events-none z-0 transform -rotate-12 transition-all duration-500 group-hover:scale-110 group-hover:text-indigo-600/[0.05] group-hover:rotate-0">
+                    <i class="fa-solid fa-scale-balanced text-9xl"></i>
+                </div>
+                <div class="relative z-10">
                     <div class="flex justify-between items-center mb-5">
                         <span class="text-3xl">🇳🇱</span>
                         <span class="text-[9px] font-black bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full uppercase">98 Requests</span>
@@ -212,13 +222,16 @@
                     <h3 class="text-base font-bold text-slate-900 uppercase tracking-tight">Netherlands</h3>
                     <p class="text-xs text-slate-500 mt-2 leading-relaxed">International Court of Justice (ICJ) rulings, Permanent Court of Arbitration directives, and EU statutory overrides.</p>
                 </div>
-                <button class="mt-5 text-left text-indigo-600 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
+                <button class="relative z-10 mt-5 text-left text-indigo-600 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
                     Read Cases & Justice <i class="fa-solid fa-chevron-right text-[8px]"></i>
                 </button>
             </div>
 
-            <div class="glossy-card p-6 border-b-4 border-emerald-700 flex flex-col justify-between cursor-pointer" onclick="openCountryModal('germany')">
-                <div>
+            <div class="glossy-card p-6 border-b-4 border-emerald-700 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('germany')">
+                <div class="absolute right-[-10px] bottom-[-10px] text-slate-900/[0.03] pointer-events-none z-0 transform rotate-45 transition-all duration-500 group-hover:scale-110 group-hover:text-emerald-700/[0.05] group-hover:rotate-12">
+                    <i class="fa-solid fa-book-bookmark text-9xl"></i>
+                </div>
+                <div class="relative z-10">
                     <div class="flex justify-between items-center mb-5">
                         <span class="text-3xl">🇩🇪</span>
                         <span class="text-[9px] font-black bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full uppercase">Stable</span>
@@ -226,13 +239,16 @@
                     <h3 class="text-base font-bold text-slate-900 uppercase tracking-tight">Germany</h3>
                     <p class="text-xs text-slate-500 mt-2 leading-relaxed">European constitutional integration limits, transnational corporate compliance, and environmental treaty bindings.</p>
                 </div>
-                <button class="mt-5 text-left text-emerald-700 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
+                <button class="relative z-10 mt-5 text-left text-emerald-700 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
                     Read Cases & Justice <i class="fa-solid fa-chevron-right text-[8px]"></i>
                 </button>
             </div>
 
-            <div class="glossy-card p-6 border-b-4 border-slate-700 flex flex-col justify-between cursor-pointer" onclick="openCountryModal('canada')">
-                <div>
+            <div class="glossy-card p-6 border-b-4 border-slate-700 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('canada')">
+                <div class="absolute right-[-15px] bottom-[-15px] text-slate-900/[0.03] pointer-events-none z-0 transform transition-all duration-500 group-hover:scale-110 group-hover:text-slate-700/[0.05] group-hover:-translate-y-2">
+                    <i class="fa-solid fa-building-columns text-9xl"></i>
+                </div>
+                <div class="relative z-10">
                     <div class="flex justify-between items-center mb-5">
                         <span class="text-3xl">🇨🇦</span>
                         <span class="text-[9px] font-black bg-slate-100 text-slate-700 px-3 py-1 rounded-full uppercase">Active</span>
@@ -240,13 +256,16 @@
                     <h3 class="text-base font-bold text-slate-900 uppercase tracking-tight">Canada</h3>
                     <p class="text-xs text-slate-500 mt-2 leading-relaxed">International arbitration paradigms, multi-national extraction legislation, and cross-border environmental compacts.</p>
                 </div>
-                <button class="mt-5 text-left text-slate-700 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
+                <button class="relative z-10 mt-5 text-left text-slate-700 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
                     Read Cases & Justice <i class="fa-solid fa-chevron-right text-[8px]"></i>
                 </button>
             </div>
 
-            <div class="glossy-card p-6 border-b-4 border-amber-600 flex flex-col justify-between cursor-pointer" onclick="openCountryModal('singapore')">
-                <div>
+            <div class="glossy-card p-6 border-b-4 border-amber-600 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('singapore')">
+                <div class="absolute right-[-15px] bottom-[-15px] text-slate-900/[0.03] pointer-events-none z-0 transform rotate-12 transition-all duration-500 group-hover:scale-110 group-hover:text-amber-600/[0.05] group-hover:rotate-45">
+                    <i class="fa-solid fa-globe text-9xl"></i>
+                </div>
+                <div class="relative z-10">
                     <div class="flex justify-between items-center mb-5">
                         <span class="text-3xl">🇸🇬</span>
                         <span class="text-[9px] font-black bg-amber-50 text-amber-600 px-3 py-1 rounded-full uppercase">Hub Traffic</span>
@@ -254,13 +273,16 @@
                     <h3 class="text-base font-bold text-slate-900 uppercase tracking-tight">Singapore</h3>
                     <p class="text-xs text-slate-500 mt-2 leading-relaxed">Asia-Pacific commercial dispute arbitration framework, maritime territorial adjustments, and digital space regulations.</p>
                 </div>
-                <button class="mt-5 text-left text-amber-600 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
+                <button class="relative z-10 mt-5 text-left text-amber-600 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
                     Read Cases & Justice <i class="fa-solid fa-chevron-right text-[8px]"></i>
                 </button>
             </div>
 
-            <div class="glossy-card p-6 border-b-4 border-purple-600 flex flex-col justify-between cursor-pointer" onclick="openCountryModal('switzerland')">
-                <div>
+            <div class="glossy-card p-6 border-b-4 border-purple-600 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('switzerland')">
+                <div class="absolute right-[-15px] bottom-[-15px] text-slate-900/[0.03] pointer-events-none z-0 transform -rotate-6 transition-all duration-500 group-hover:scale-110 group-hover:text-purple-600/[0.05] group-hover:rotate-0">
+                    <i class="fa-solid fa-shield-halved text-9xl"></i>
+                </div>
+                <div class="relative z-10">
                     <div class="flex justify-between items-center mb-5">
                         <span class="text-3xl">🇨🇭</span>
                         <span class="text-[9px] font-black bg-purple-50 text-purple-600 px-3 py-1 rounded-full uppercase">Premium</span>
@@ -268,26 +290,29 @@
                     <h3 class="text-base font-bold text-slate-900 uppercase tracking-tight">Switzerland</h3>
                     <p class="text-xs text-slate-500 mt-2 leading-relaxed">Sovereign treaty banking regulations, global neutrality compliance, and human rights diplomatic mandates.</p>
                 </div>
-                <button class="mt-5 text-left text-purple-600 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
+                <button class="relative z-10 mt-5 text-left text-purple-600 font-extrabold text-[11px] uppercase tracking-wider flex items-center gap-1">
                     Read Cases & Justice <i class="fa-solid fa-chevron-right text-[8px]"></i>
                 </button>
             </div>
 
-            <div class="md:col-span-3 glossy-card p-6 border-2 border-dashed border-amber-700/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 cursor-pointer" onclick="openCountryModal('global')">
-                <div class="space-y-1">
+            <div class="md:col-span-3 glossy-card p-6 border-2 border-dashed border-amber-700/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 cursor-pointer group" onclick="openCountryModal('global')">
+                <div class="absolute right-4 bottom-[-30px] text-slate-900/[0.02] pointer-events-none z-0 transform transition-all duration-700 group-hover:scale-105 group-hover:text-amber-700/[0.04] group-hover:-translate-x-4">
+                    <i class="fa-solid fa-landmark text-9xl"></i>
+                </div>
+                <div class="space-y-1 relative z-10">
                     <h3 class="text-lg font-black text-slate-800 uppercase tracking-tight flex items-center gap-2">
                         <span>🌐</span> Global Legal Dispatch
                     </h3>
                     <p class="text-xs text-slate-500 max-w-2xl">Transnational treaty structural tracking, human rights declarations, and cross-border unified litigation streams.</p>
                 </div>
-                <button class="bg-slate-900 text-white text-[9px] font-black px-4 py-2.5 rounded-xl uppercase tracking-widest whitespace-nowrap">
+                <button class="relative z-10 bg-slate-900 text-white text-[9px] font-black px-4 py-2.5 rounded-xl uppercase tracking-widest whitespace-nowrap transition-transform duration-300 group-hover:scale-105">
                     Read Universal Stream
                 </button>
             </div>
         </div>
     </section>
 
-    <section class="legal-card p-6 md:p-8 rounded-2xl fade-in-section max-w-6xl mx-auto my-4" style="animation-delay: 0.4s;">
+    <section class="glossy-card p-6 md:p-8 rounded-2xl max-w-6xl mx-auto my-4">
         <div class="w-10 h-10 bg-slate-100 rounded-xl flex items-center justify-center mb-5 text-red-700">
             <i class="fa-solid fa-envelope"></i>
         </div>
@@ -394,7 +419,6 @@
             }
         };
 
-        // ─── PHONE GESTURE BACK BUTTON POPUP CONTROL ───
         function openCountryModal(key) {
             const data = jurisdictionData[key];
             if (!data) return;
@@ -433,37 +457,6 @@
 
         window.addEventListener('popstate', function(event) {
             executeModalClose();
-        });
-
-        const articleDatabase = [
-            { author: "Ettisa Basak", college: "Sureswar Dutta Law | CU", title: "Advantages of Bare Acts", desc: "Accuracy and precision of raw legislation.", photo: "pages/read/author1.jpg", accent: "blue-500" },
-            { author: "Rey", college: "Surendranath Law | CU", title: "Why Law is Important", desc: "Journey through the evolution of legal systems.", photo: "pages/read/author2-1.jpg", accent: "indigo-600" },
-            { author: "Analdeep Samanta", college: "South calcutta Law | CU", title: "What is case law", desc: "Learning about Indian legal cases and conducting in-depth research on them.", photo: "pages/read/author4.jpg", accent: "emerald-700" }
-        ];
-
-        const renderHomeArticles = () => {
-            const container = document.getElementById('home-articles-scroll');
-            if(container) {
-                container.innerHTML = articleDatabase.map(art => `
-                    <div class="min-w-[78vw] md:min-w-[380px] snap-center">
-                        <div class="glossy-card p-6 border-b-4 border-${art.accent} bg-white/80">
-                            <div class="flex items-center gap-4 mb-4">
-                                <img src="${art.photo}" onerror="this.src='https://ui-avatars.com/api/?name=${art.author.replace(' ', '+')}'" class="w-12 h-12 rounded-xl object-cover">
-                                <div>
-                                    <h4 class="font-black text-gray-800 text-sm">${art.author}</h4>
-                                    <p class="text-[8px] text-gray-400 font-bold uppercase">${art.college}</p>
-                                </div>
-                            </div>
-                            <h5 class="text-xs font-black text-gray-800 mb-1 uppercase text-amber-700">${art.title}</h5>
-                            <p class="text-[10px] text-gray-500 italic">"${art.desc}"</p>
-                        </div>
-                    </div>
-                `).join('');
-            }
-        };
-
-        window.addEventListener('load', () => {
-            renderHomeArticles();
         });
 
         document.addEventListener('DOMContentLoaded', () => {
