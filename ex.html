@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,700;1,400;1,700&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 
     <style>
         body { 
@@ -42,7 +42,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         }
         
-        /* ─── LIGHTWEIGHT STYLING (MATCHING THE REFERENCE EMBLEM) ─── */
+        /* ─── BASE CARD STYLE WITH EXTRA SMOOTH LAYERING ─── */
         .glossy-card {
             background: rgba(255, 255, 255, 0.9);
             border: 1px solid rgba(226, 232, 240, 0.8);
@@ -58,7 +58,7 @@
             box-shadow: 0 20px 40px rgba(15, 23, 42, 0.05);
         }
 
-        /* Flag Connected Bottom Accents */
+        /* Country Profiles Specific Bottom Identity Bars */
         .card-usa { border-bottom: 4px solid #1d4ed8; }
         .card-netherlands { border-bottom: 4px solid #4f46e5; }
         .card-germany { border-bottom: 4px solid #eab308; }
@@ -66,16 +66,16 @@
         .card-singapore { border-bottom: 4px solid #dc2626; }
         .card-switzerland { border-bottom: 4px solid #64748b; }
 
-        /* Crisp Map Blueprint Stroke Look */
+        /* Crisp Black Border Vector Stroke Alignment */
         .map-stroke {
             fill: none;
             stroke: #0f172a;
-            stroke-width: 1.5;
+            stroke-width: 1.2;
             stroke-linecap: round;
             stroke-linejoin: round;
         }
 
-        /* ─── STACKED HERO ARCHITECTURE ─── */
+        /* ─── HERO INTERIOR CORE ─── */
         .hero-container {
             width: 100%;
             max-width: 800px;
@@ -133,7 +133,7 @@
             50% { transform: translateY(-10px) scale(1.01); }
         }
 
-        /* MODAL STYLING */
+        /* MODAL POPUP LAYOUT */
         .modal {
             display: none;
             position: fixed;
@@ -207,7 +207,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             
             <div class="glossy-card card-usa p-6 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('usa')">
-                <div class="absolute inset-0 flex items-center justify-center opacity-[0.05] pointer-events-none z-0 transform scale-95 transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.09]">
+                <div class="absolute inset-0 flex items-center justify-center opacity-[0.04] pointer-events-none z-0 transform scale-95 transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.08]">
                     <svg viewBox="0 0 1000 600" class="w-11/12 h-56">
                         <path class="map-stroke" d="M150,150 L220,130 L290,140 L380,120 L480,110 L580,120 L700,90 L850,90 L920,110 L940,160 L920,220 L950,280 L920,380 L880,420 L840,430 L810,480 L760,490 L710,450 L650,460 L580,480 L520,520 L450,510 L380,530 L320,510 L280,540 L220,530 L180,470 L190,410 L130,370 L100,380 L60,330 L50,260 L80,210 L120,210 Z"/>
                     </svg>
@@ -226,7 +226,7 @@
             </div>
 
             <div class="glossy-card card-netherlands p-6 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('netherlands')">
-                <div class="absolute inset-0 flex items-center justify-center opacity-[0.05] pointer-events-none z-0 transform scale-95 transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.09]">
+                <div class="absolute inset-0 flex items-center justify-center opacity-[0.04] pointer-events-none z-0 transform scale-95 transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.08]">
                     <svg viewBox="0 0 500 500" class="w-10/12 h-48">
                         <path class="map-stroke" d="M200,100 L280,120 L350,110 L400,150 L410,220 L360,280 L380,350 L340,400 L280,420 L220,450 L150,430 L120,380 L140,320 L100,280 L110,200 L160,150 Z"/>
                     </svg>
@@ -245,7 +245,7 @@
             </div>
 
             <div class="glossy-card card-germany p-6 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('germany')">
-                <div class="absolute inset-0 flex items-center justify-center opacity-[0.05] pointer-events-none z-0 transform scale-95 transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.09]">
+                <div class="absolute inset-0 flex items-center justify-center opacity-[0.04] pointer-events-none z-0 transform scale-95 transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.08]">
                     <svg viewBox="0 0 400 500" class="w-9/12 h-48">
                         <path class="map-stroke" d="M120,50 L250,40 L320,80 L350,150 L310,220 L360,300 L320,380 L340,450 L250,460 L180,420 L120,450 L70,380 L90,300 L60,220 L90,120 Z"/>
                     </svg>
@@ -264,7 +264,7 @@
             </div>
 
             <div class="glossy-card card-canada p-6 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('canada')">
-                <div class="absolute inset-0 flex items-center justify-center opacity-[0.05] pointer-events-none z-0 transform scale-95 transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.09]">
+                <div class="absolute inset-0 flex items-center justify-center opacity-[0.04] pointer-events-none z-0 transform scale-95 transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.08]">
                     <svg viewBox="0 0 800 600" class="w-11/12 h-52">
                         <path class="map-stroke" d="M50,150 L120,100 L250,80 L380,50 L520,60 L680,40 L750,90 L780,180 L720,280 L750,380 L680,450 L580,420 L480,480 L320,460 L220,500 L120,440 L80,350 L110,250 Z"/>
                     </svg>
@@ -283,7 +283,7 @@
             </div>
 
             <div class="glossy-card card-singapore p-6 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('singapore')">
-                <div class="absolute inset-0 flex items-center justify-center opacity-[0.05] pointer-events-none z-0 transform scale-95 transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.09]">
+                <div class="absolute inset-0 flex items-center justify-center opacity-[0.04] pointer-events-none z-0 transform scale-95 transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.08]">
                     <svg viewBox="0 0 800 400" class="w-11/12 h-44">
                         <path class="map-stroke" d="M50,180 L180,140 L320,130 L480,120 L620,140 L720,150 L750,190 L710,240 L580,250 L420,260 L280,250 L120,240 L60,210 Z"/>
                     </svg>
@@ -302,7 +302,7 @@
             </div>
 
             <div class="glossy-card card-switzerland p-6 flex flex-col justify-between cursor-pointer group" onclick="openCountryModal('switzerland')">
-                <div class="absolute inset-0 flex items-center justify-center opacity-[0.05] pointer-events-none z-0 transform scale-95 transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.09]">
+                <div class="absolute inset-0 flex items-center justify-center opacity-[0.04] pointer-events-none z-0 transform scale-95 transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.08]">
                     <svg viewBox="0 0 500 400" class="w-10/12 h-44">
                         <path class="map-stroke" d="M50,180 L120,120 L220,140 L320,100 L420,130 L450,200 L410,280 L320,300 L220,320 L120,280 L70,240 Z"/>
                     </svg>
