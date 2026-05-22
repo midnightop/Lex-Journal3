@@ -5,13 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#fcfdfe">
 
-    <title>Law Journal | University of Calcutta B.A. LL.B. Syllabus Hub</title>
-    <meta name="description" content="Modern integrated legal platform for University of Calcutta 5-Year Integrated B.A. LL.B. course regulation, credit structure, and latest BNS, BNSS, BSA legal syllabus analysis.">
-    <meta name="keywords" content="University of Calcutta, B.A. LL.B Syllabus, BNS, BNSS, BSA, Choice Based Credit System, Law Journal Online, Legal Education">
-    <meta name="author" content="Lawjournal.online">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel="canonical" href="https://lawjournal.online/">
-
+    <title>Syllabus Architecture | Calcutta University B.A. LL.B.</title>
+    <meta name="description" content="Official modern digital hub for University of Calcutta 5-Year Integrated B.A. LL.B. course regulations, credit mapping, and new criminal laws (BNS, BNSS, BSA).">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,41 +27,33 @@
         
         .reveal { 
             opacity: 0; 
-            transform: translateY(20px); 
-            transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transform: translateY(15px); 
+            transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal.active { opacity: 1; transform: translateY(0); }
         
         .glass-nav {
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            border-bottom: 1px solid rgba(241, 245, 249, 0.8);
         }
         
-        /* PREMIUM GLASSMORPHIC CARD THEMES */
+        /* PREMIUM CORE GLASSMORPHIC DESIGN SYSTEM */
         .card-premium {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(248, 250, 252, 0.6) 100%);
-            border: 1px solid rgba(226, 232, 240, 0.8);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.7);
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .card-premium:hover { 
-            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
-            border-color: rgba(180, 83, 9, 0.3);
-        }
-
-        .glossy-card {
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
-            border-radius: 24px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .glossy-card:hover {
             transform: translateY(-4px);
+            background: #ffffff;
             box-shadow: 0 20px 40px rgba(15, 23, 42, 0.04);
         }
 
-        /* HERO STACKED ARCHITECTURE */
+        /* HERO LAYOUT CONFIGURATION */
         .hero-container {
             width: 100%;
             max-width: 850px;
@@ -84,51 +72,44 @@
             position: relative;
         }
 
-        .lady-justice-png {
+        .cu-banner-img {
             width: 100%;
-            max-width: 290px; 
+            max-width: 320px; 
             height: auto;
             object-fit: contain;
-            margin-bottom: -40px; 
-            animation: modernFloat 5s ease-in-out infinite;
+            margin-bottom: -35px; 
+            animation: elegantFloat 6s ease-in-out infinite;
             will-change: transform;
-            filter: drop-shadow(0 15px 35px rgba(15, 23, 42, 0.08));
+            filter: drop-shadow(0 15px 30px rgba(15, 23, 42, 0.06));
         }
 
         .text-overlay-card {
             position: relative;
             z-index: 10; 
             background: rgba(252, 253, 254, 0.85); 
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.6);
             border-radius: 2.5rem;
             width: 100%;
         }
 
         @media (max-width: 768px) {
-            .lady-justice-png {
-                max-width: 230px; 
-                margin-bottom: -50px; 
-            }
-            .text-overlay-card {
-                padding-top: 3.5rem !important; 
-                padding-left: 1.25rem !important;
-                padding-right: 1.25rem !important;
-            }
+            .cu-banner-img { max-width: 240px; margin-bottom: -45px; }
+            .text-overlay-card { padding-top: 3.5rem !important; }
         }
 
-        @keyframes modernFloat {
-            0%, 100% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-8px) scale(1.01); }
+        @keyframes elegantFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
         }
 
-        /* MODAL ANIMATION PARADIGM */
+        /* FULL FUNCTIONAL MODAL BLURS */
         .modal {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(15, 23, 42, 0.35);
+            background: rgba(15, 23, 42, 0.3);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             z-index: 100;
@@ -138,13 +119,13 @@
         .modal.active { display: flex; }
         
         .modal-body-card {
-            background: rgba(255, 255, 255, 0.96);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.12);
-            animation: modalScale 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            background: rgba(255, 255, 255, 0.97);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.1);
+            animation: modalIntro 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        @keyframes modalScale {
-            from { opacity: 0; transform: scale(0.96) translateY(8px); }
+        @keyframes modalIntro {
+            from { opacity: 0; transform: scale(0.97) translateY(6px); }
             to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
@@ -154,195 +135,198 @@
 </head>
 <body>
 
-    <nav class="sticky top-0 z-50 glass-nav px-6 py-3 flex justify-between items-center">
+    <nav class="sticky top-0 z-50 glass-nav px-6 py-3.5 flex justify-between items-center">
         <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-gradient-to-br from-slate-900 to-amber-900 rounded-xl flex items-center justify-center text-white shadow-md">
-                <i class="fa-solid fa-scale-balanced text-sm"></i>
+            <div class="w-9 h-9 bg-slate-900 rounded-xl flex items-center justify-center text-white shadow-sm">
+                <i class="fa-solid fa-scale-balanced text-xs"></i>
             </div>
             <a href="/">
-                <span class="font-black text-gray-800 tracking-tighter text-lg">Lawjournal<span class="text-amber-700">.online</span></span>
+                <span class="font-black text-gray-800 tracking-tighter text-base">Lawjournal<span class="text-amber-700">.online</span></span>
             </a>
         </div>
-        <button onclick="openGradingModal()" class="bg-amber-50 hover:bg-amber-100/80 transition-colors border border-amber-200/60 text-amber-800 text-[10px] font-black uppercase tracking-wider px-4 py-1.5 rounded-xl shadow-sm flex items-center gap-1.5">
-            <i class="fa-solid fa-graduation-cap"></i> Grading System
+        <button onclick="openGradingModal()" class="bg-amber-50/60 hover:bg-amber-100/80 transition-all border border-amber-200/50 text-amber-800 text-[10px] font-black uppercase tracking-wider px-3.5 py-1.5 rounded-xl shadow-xs flex items-center gap-1.5">
+            <i class="fa-solid fa-graduation-cap"></i> View Grades Protocol
         </button>
     </nav>
 
-    <div class="hero-container py-8 px-4 text-center">
+    <div class="hero-container py-6 px-4 text-center">
         <div class="image-top-container">
-            <img src="../lady-justice.png" 
-                 alt="Lady Justice Structural Asset" 
-                 class="lady-justice-png"
-                 onerror="this.src='https://ui-avatars.com/api/?name=⚖️&background=f1f5f9&color=94a3b8&size=256';">
+            <img src="cu-banner.png" 
+                 alt="University of Calcutta Institutional Crest" 
+                 class="cu-banner-img"
+                 onerror="this.src='https://ui-avatars.com/api/?name=CU+LAW&background=f1f5f9&color=b45309&size=256&bold=true';">
         </div>
 
-        <header class="p-8 md:p-14 text-overlay-card space-y-6 reveal active">
+        <header class="p-6 md:p-12 text-overlay-card space-y-5 reveal active">
             <div class="flex flex-col items-center space-y-1">
-                <span class="font-serif italic text-2xl md:text-3xl text-amber-700 tracking-wide">academic curriculum</span>
-                <h1 class="text-4xl md:text-5xl font-black tracking-tight uppercase text-slate-900 leading-none">
-                    Syllabus Architecture
+                <span class="font-serif italic text-xl md:text-2xl text-amber-700 tracking-wide">choice based credit system</span>
+                <h1 class="text-3xl md:text-5xl font-black tracking-tight uppercase text-slate-900 leading-none">
+                    Syllabus Engine
                 </h1>
             </div>
 
-            <p class="text-gray-700 text-base md:text-lg font-serif italic leading-relaxed max-w-2xl mx-auto">
-                Access structured legal frameworks. We turned the University of Calcutta's integrated double-degree system into clean, accessible digital nodes.
+            <p class="text-slate-700 text-sm md:text-base font-serif italic leading-relaxed max-w-2xl mx-auto">
+                Clean, strategic blueprint conversion for Calcutta University's 5-Year Integrated B.A. LL.B. course mapping parameters.
             </p>
 
-            <div class="w-full bg-slate-50/80 border border-slate-200/60 rounded-2xl p-5 text-left max-w-3xl mx-auto space-y-3">
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 bg-amber-700/10 rounded-lg flex items-center justify-center text-amber-800">
-                        <i class="fa-solid fa-university text-xs"></i>
-                    </div>
-                    <h3 class="text-xs font-black tracking-wider uppercase text-slate-900">University of Calcutta Legacy</h3>
+            <div class="w-full bg-slate-50/60 border border-slate-200/40 rounded-2xl p-4 text-left max-w-2xl mx-auto space-y-2">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-university text-amber-800 text-xs"></i>
+                    <h3 class="text-[10px] font-black tracking-wider uppercase text-slate-800">Faculty of Law Specification</h3>
                 </div>
-                <p class="text-xs text-slate-600 leading-relaxed">
-                    Governed under the Faculty of Law, Department of Law, University of Calcutta (2025 Regulations), this integrated course aligns structurally with the Choice Based Credit System (CBCS) and Bar Council of India standards.
+                <p class="text-[11px] text-slate-500 leading-relaxed">
+                    Structured in compliance with the rules of legal education under the Bar Council of India, transitioning into contemporary credit point evaluations.
                 </p>
-                <div class="flex flex-wrap gap-x-4 gap-y-1 pt-1 text-[10px] font-bold text-slate-500 uppercase tracking-wide">
-                    <span><i class="fa-regular fa-clock text-amber-700 mr-1"></i> Max Duration: 8 Years</span>
-                    <span><i class="fa-solid fa-language text-amber-700 mr-1"></i> Medium: English</span>
-                    <span><i class="fa-solid fa-briefcase text-amber-700 mr-1"></i> Internship: 20 Weeks</span>
+                <div class="flex flex-wrap gap-x-3 gap-y-1 pt-1 text-[9px] font-bold text-slate-400 uppercase tracking-wide border-t border-slate-200/40">
+                    <span><i class="fa-regular fa-clock mr-1"></i> Passing Ceiling: 8 Years</span>
+                    <span><i class="fa-solid fa-language mr-1"></i> Medium: English</span>
+                    <span><i class="fa-solid fa-briefcase mr-1"></i> Internships: 20 Weeks</span>
                 </div>
             </div>
         </header>
     </div>
 
-    <section class="px-6 py-12 max-w-6xl mx-auto reveal" id="syllabus-hub">
-        <div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-2">
-            <div>
-                <p class="text-[10px] text-amber-700 font-bold uppercase tracking-widest">Choice Based Credit System (CBCS)</p>
-                <h2 class="text-2xl font-black text-gray-800 uppercase tracking-tighter">Integrated B.A. LL.B. Semesters</h2>
-            </div>
-            <p class="text-xs font-medium text-slate-500 italic">Select a semester card to view core subject structures.</p>
+    <section class="px-6 py-8 max-w-5xl mx-auto reveal" id="syllabus-hub">
+        <div class="mb-6">
+            <p class="text-[9px] text-amber-700 font-bold uppercase tracking-widest">Calculated Structural Index</p>
+            <h2 class="text-xl font-black text-slate-800 uppercase tracking-tighter">Course Modules</h2>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" id="cardsGridContainer">
+            </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-6 mb-12">
+        <div onclick="openGradingModal()" class="w-full bg-slate-900 text-white rounded-2xl p-5 md:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 cursor-pointer group shadow-sm transition-transform duration-300 hover:scale-[1.005]">
+            <div class="space-y-1">
+                <span class="text-[8px] font-black bg-amber-600 text-white px-2 py-0.5 rounded uppercase tracking-wider">Metrics Profile</span>
+                <h3 class="text-base font-bold uppercase tracking-tight text-white">Grading System & Conversion Rules</h3>
+                <p class="text-xs text-slate-400 max-w-xl">Review formal multi-decimal rules for SGPA, CGPA calculations, and individual passing standards.</p>
+            </div>
+            <button class="bg-white/10 group-hover:bg-amber-700 text-white text-[10px] font-black px-4 py-2 rounded-xl uppercase tracking-widest whitespace-nowrap transition-colors duration-300">
+                Open Matrix
+            </button>
+        </div>
+    </section>
+
+    <section class="p-4 rounded-xl max-w-5xl mx-auto my-4 bg-slate-50 border border-slate-200/40 flex items-center gap-3">
+        <i class="fa-solid fa-envelope text-slate-400 text-xs"></i>
+        <p class="text-[11px] text-slate-500">Communications Desk Routing Email: <span class="font-bold text-slate-700">admin@lawjournal.online</span></p>
+    </section>
+    
+    <div class="modal" id="syllabusDetailModal" onclick="closeSyllabusModal(event)">
+        <div class="modal-body-card w-11/12 max-w-2xl rounded-3xl p-5 md:p-7 relative flex flex-col max-h-[80vh]" onclick="event.stopPropagation()">
+            <button class="absolute top-5 right-5 text-slate-400 hover:text-slate-900 text-sm" onclick="closeSyllabusModal(null)">✕</button>
             
-            <div class="glossy-card card-premium p-5 border-l-4 border-amber-700 flex flex-col justify-between cursor-pointer group" onclick="openSyllabusModal(1)">
-                <div class="space-y-4">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs font-black px-2.5 py-1 bg-amber-50 text-amber-800 rounded-md tracking-wider uppercase">Sem I</span>
-                        <span class="text-[10px] font-bold text-slate-400">20 Credits</span>
-                    </div>
-                    <div>
-                        <h3 class="text-sm font-black text-slate-800 uppercase tracking-tight">Foundational Legal Base</h3>
-                        <p class="text-xs text-slate-500 mt-1.5 leading-normal line-clamp-2">General principles of contract law, family structures, foundational sociology, political science, and English narratives.</p>
+            <div class="mb-4">
+                <span id="modalSemBadge" class="text-[9px] font-black text-amber-700 bg-amber-50 px-2 py-0.5 rounded uppercase tracking-wider"></span>
+                <h2 id="modalSemTitle" class="text-lg font-black text-slate-900 uppercase tracking-tight mt-1"></h2>
+            </div>
+            
+            <div id="modalPapersContainer" class="space-y-3 overflow-y-auto no-scrollbar flex-1 pr-1">
+                </div>
+        </div>
+    </div>
+
+    <div class="modal" id="gradingModal" onclick="closeGradingModal(event)">
+        <div class="modal-body-card w-11/12 max-w-2xl rounded-2xl p-5 md:p-7 relative flex flex-col max-h-[80vh]" onclick="event.stopPropagation()">
+            <button class="absolute top-5 right-5 text-slate-400 hover:text-slate-900 text-sm" onclick="closeGradingModal(null)">✕</button>
+            
+            <div class="mb-4 border-b border-slate-100 pb-2">
+                <span class="text-[9px] font-black text-amber-700 bg-amber-50 px-2 py-0.5 rounded uppercase tracking-wider">CU Scale Definition</span>
+                <h2 class="text-lg font-black text-slate-900 uppercase tracking-tight mt-0.5">Evaluation Architecture</h2>
+            </div>
+            
+            <div class="space-y-4 overflow-y-auto no-scrollbar flex-1 pr-1 text-[11px] text-slate-600 leading-relaxed">
+                <div class="space-y-1.5">
+                    <h4 class="font-black uppercase tracking-wider text-slate-800">1. Percentages to Letter Grade Boundaries</h4>
+                    <div class="grid grid-cols-2 gap-2 bg-slate-50 p-3 rounded-xl font-medium text-slate-700">
+                        <div class="space-y-1">
+                            <p>• 90 to 100 : <span class="font-bold text-slate-900">O (Outstanding) [GP: 10]</span></p>
+                            <p>• 80 to below 90 : <span class="font-bold text-slate-900">A+ (Excellent) [GP: 9]</span></p>
+                            <p>• 70 to below 80 : <span class="font-bold text-slate-900">A (Very Good) [GP: 8]</span></p>
+                            <p>• 60 to below 70 : <span class="font-bold text-slate-900">B (Good) [GP: 7]</span></p>
+                        </div>
+                        <div class="space-y-1">
+                            <p>• 50 to below 60 : <span class="font-bold text-slate-900">B+ (Above Good) [GP: 6]</span></p>
+                            <p>• 40 to below 50 : <span class="font-bold text-slate-900">C (Average) [GP: 5]</span></p>
+                            <p>• 30 to below 40 : <span class="font-bold text-slate-900">P (Pass) [GP: 4]</span></p>
+                            <p>• Below 30 / Absent : <span class="font-bold text-red-600">F / AB (Fail) [GP: 0]</span></p>
+                        </div>
                     </div>
                 </div>
-                <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-amber-800">
-                    <span>View 5 Papers</span>
-                    <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
+
+                <div class="space-y-1">
+                    <h4 class="font-black uppercase tracking-wider text-slate-800">2. Computational Index Formulas</h4>
+                    <div class="bg-slate-50 rounded-xl p-3 space-y-1.5">
+                        <p><strong class="text-slate-800">Credit Points :</strong> Achieved by multiplying credits in a course with grade point scored (4 credits assigned per 100 marks module).</p>
+                        <p><strong class="text-slate-800">SGPA Formulation :</strong> Expressed up to 2 decimal places using the mathematical expression value: <span class="font-mono font-bold text-amber-800">SGPA (Si) = Σ(Ci x Gi) / ΣCi</span>.</p>
+                        <p><strong class="text-slate-800">CGPA Architecture :</strong> Measures aggregate tracking over continuous evaluation tiers: <span class="font-mono font-bold text-amber-800">CGPA = Σ(Ci x Si) / ΣCi</span>.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <h4 class="font-black uppercase tracking-wider text-slate-800">3. Operational Passing Clauses</h4>
+                    <ul class="list-disc pl-4 space-y-1 text-slate-500">
+                        <li>Candidates must secure a clean minimum metric of 30% marks across each paper to satisfy pass standards.</li>
+                        <li>Promotion occurs if a candidate fails to clear up to two subjects, provided class metrics remain valid.</li>
+                        <li>A single grace mark parameter may clear failures inside thin operational boundaries.</li>
+                    </ul>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <div class="glossy-card card-premium p-5 border-l-4 border-amber-700 flex flex-col justify-between cursor-pointer group" onclick="openSyllabusModal(2)">
-                <div class="space-y-4">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs font-black px-2.5 py-1 bg-amber-50 text-amber-800 rounded-md tracking-wider uppercase">Sem II</span>
-                        <span class="text-[10px] font-bold text-slate-400">20 Credits</span>
-                    </div>
-                    <div>
-                        <h3 class="text-sm font-black text-slate-800 uppercase tracking-tight">Advanced Contractual Frameworks</h3>
-                        <p class="text-xs text-slate-500 mt-1.5 leading-normal line-clamp-2">Special contracts, indemnity, guarantees, agency setups, and early Muslim statutory inheritance structures.</p>
-                    </div>
-                </div>
-                <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-amber-800">
-                    <span>View 5 Papers</span>
-                    <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
-                </div>
-            </div>
+    <footer class="py-8 px-6 text-center border-t border-slate-100 mt-12">
+        <div class="flex justify-center gap-6 mb-3 flex-wrap">
+            <a href="/terms.html" class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Terms</a>
+            <a href="/privacy-policy.html" class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Privacy Policy</a>
+            <a href="/about.html" class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Contact Desk</a>
+        </div>
+        <p class="text-[9px] font-black text-slate-300 uppercase tracking-[0.2em]">© 2026 LAWJOURNAL.ONLINE</p>
+    </footer>
 
-            <div class="glossy-card card-premium p-5 border-l-4 border-amber-700 flex flex-col justify-between cursor-pointer group" onclick="openSyllabusModal(3)">
-                <div class="space-y-4">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs font-black px-2.5 py-1 bg-amber-50 text-amber-800 rounded-md tracking-wider uppercase">Sem III</span>
-                        <span class="text-[10px] font-bold text-slate-400">20 Credits</span>
-                    </div>
-                    <div>
-                        <h3 class="text-sm font-black text-slate-800 uppercase tracking-tight">Torts & Economic Disciplines</h3>
-                        <p class="text-xs text-slate-500 mt-1.5 leading-normal line-clamp-2">Law of torts, market consumer protections, modern competition regimes, and foundational macroeconomic theories.</p>
-                    </div>
-                </div>
-                <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-amber-800">
-                    <span>View 5 Papers</span>
-                    <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
-                </div>
-            </div>
-
-            <div class="glossy-card card-premium p-5 border-l-4 border-amber-700 flex flex-col justify-between cursor-pointer group" onclick="openSyllabusModal(4)">
-                <div class="space-y-4">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs font-black px-2.5 py-1 bg-amber-50 text-amber-800 rounded-md tracking-wider uppercase">Sem IV</span>
-                        <span class="text-[10px] font-bold text-slate-400">20 Credits</span>
-                    </div>
-                    <div>
-                        <h3 class="text-sm font-black text-slate-800 uppercase tracking-tight flex items-center gap-2">
-                            Penal Codes & Constitution <span class="bg-red-100 text-red-800 text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-wide">BNS</span>
-                        </h3>
-                        <p class="text-xs text-slate-500 mt-1.5 leading-normal line-clamp-2">Constitutional principles, regional local land updates, and the transition to the Bharatiya Nyaya Sanhita.</p>
-                    </div>
-                </div>
-                <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-amber-800">
-                    <span>View 5 Papers</span>
-                    <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
-                </div>
-            </div>
-
-            <div class="glossy-card card-premium p-5 border-l-4 border-amber-700 flex flex-col justify-between cursor-pointer group" onclick="openSyllabusModal(5)">
-                <div class="space-y-4">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs font-black px-2.5 py-1 bg-amber-50 text-amber-800 rounded-md tracking-wider uppercase">Sem V</span>
-                        <span class="text-[10px] font-bold text-slate-400">20 Credits</span>
-                    </div>
-                    <div>
-                        <h3 class="text-sm font-black text-slate-800 uppercase tracking-tight">Administrative & Real Property</h3>
-                        <p class="text-xs text-slate-500 mt-1.5 leading-normal line-clamp-2">Administrative mandates, rule of law structures, real property transactions, and global geopolitical trade paths.</p>
-                    </div>
-                </div>
-                <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-amber-800">
-                    <span>View 5 Papers</span>
-                    <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
-                </div>
-            </div>
-
-            <div class="glossy-card card-premium p-5 border-l-4 border-amber-700 flex flex-col justify-between cursor-pointer group" onclick="openSyllabusModal(6)">
-                <div class="space-y-4">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs font-black px-2.5 py-1 bg-amber-50 text-amber-800 rounded-md tracking-wider uppercase">Sem VI</span>
-                        <span class="text-[10px] font-bold text-slate-400">20 Credits</span>
-                    </div>
-                    <div>
-                        <h3 class="text-sm font-black text-slate-800 uppercase tracking-tight flex items-center gap-2">
-                            Procedures & Legal Theory <span class="bg-red-100 text-red-800 text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-wide">BNSS</span>
-                        </h3>
-                        <p class="text-xs text-slate-500 mt-1.5 leading-normal line-clamp-2">Bharatiya Nagarik Suraksha Sanhita integration, jurisprudence axioms, copyright frameworks, and civil procedures.</p>
-                    </div>
-                </div>
-                <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-amber-800">
-                    <span>View 5 Papers</span>
-                    <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
-                </div>
-            </div>
-
-            <div class="glossy-card card-premium p-5 border-l-4 border-amber-700 flex flex-col justify-between cursor-pointer group" onclick="openSyllabusModal(7)">
-                <div class="space-y-4">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs font-black px-2.5 py-1 bg-amber-50 text-amber-800 rounded-md tracking-wider uppercase">Sem VII</span>
-                        <span class="text-[10px] font-bold text-slate-400">16 Credits</span>
-                    </div>
-                    <div>
-                        <h3 class="text-sm font-black text-slate-800 uppercase tracking-tight flex items-center gap-2">
-                            Adjudication & Evidence <span class="bg-red-100 text-red-800 text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-wide">BSA</span>
-                        </h3>
-                        <p class="text-xs text-slate-500 mt-1.5 leading-normal line-clamp-2">Bharatiya Sakshya Adhiniyam standards, public international pacts, corporate banking, and core clinical drafting routines.</p>
-                    </div>
-                </div>
-                <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-amber-800">
-                    <span>View 4 Papers</span>
-                    <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
-                </div>
-            </div>
-
-            <div class="glossy-card card-premium p-5 border-l-4 border-amber-700 flex flex-col justify-between cursor-pointer group" onclick="openSyllabusModal(8)">
-                <div class="space-y-4">
-                    <div class="flex justify-between ite
+    <script>
+        // CLEAN STRUCTURAL ARRAY WITHOUT DANGEROUS TEMPLATE LITERAL BRACKETS WITHIN LOOPS
+        const coreSyllabusDataset = [
+            {
+                id: 1,
+                semBadge: "Semester I",
+                cardTitle: "Foundational Legal Base",
+                summary: "General contract principles, codified family laws, primary structural sociology modules, and English narratives.",
+                credits: "20 Credits",
+                totalTitle: "Core Foundational Modules (500 Marks | 20 Credits)",
+                papers: [
+                    { title: "Paper I: English - I", marks: "80 End-Sem + 20 Internal", desc: "W.H. Auden's 'Law Like Love', Shakespeare's Merchant of Venice (Trial Scene), Vijay Tendulkar's Silence! The Court is in Session, grammar patterns, transformation paths & comprehensions." },
+                    { title: "Paper II: Political Science - I", marks: "80 End-Sem + 20 Internal", desc: "State definitions, structural sovereignty scopes (Austin, Pluralist), contract theories (Hobbes, Locke, Rousseau), and values of Liberty, Equality, and Rights." },
+                    { title: "Paper III: Sociology - I", marks: "80 End-Sem + 20 Internal", desc: "Sociology framework interactions with law, foundational socialization tools, caste-class stratifications, dowry metrics, family forms, and fields of child welfare." },
+                    { title: "Paper IV: General Principles of Contract", marks: "80 End-Sem + 20 Internal", desc: "Indian Contract Act 1872 rules: Offers, acceptance communicated via post, minor capability exceptions, free consent breaks, wagering agreements, performance breaches, and Specific Relief Act 1963." },
+                    { title: "Paper V: Family Law - I", marks: "80 End-Sem + 20 Internal", desc: "Hindu Law parameters: Marriages as sacraments, matrimonial structures (restitution, separation, nullity voids), grounds for divorce under HMA 1955, customary adoptions, and the Special Marriage Act 1954." }
+                ]
+            },
+            {
+                id: 2,
+                semBadge: "Semester II",
+                cardTitle: "Advanced Contractual Frameworks",
+                summary: "Special contracts, indemnity parameters, guarantees, commercial agency controls, and early Muslim statutory laws.",
+                credits: "20 Credits",
+                totalTitle: "Advanced Statutory Transactions (500 Marks | 20 Credits)",
+                papers: [
+                    { title: "Paper I: English - II", marks: "80 End-Sem + 20 Internal", desc: "John Galsworthy's Justice (Court Scene), Francis Bacon's 'Of Judicature', official letter frameworks, precis compilation, and structural Latin term mastery (Functus Officio, Res Judicata, Mandamus)." },
+                    { title: "Paper II: Political Science - II", marks: "80 End-Sem + 20 Internal", desc: "Unitary vs Federal government configurations, separation of powers parameters, legislative wings, adult franchise setups, proportional representations, and public opinion tracking." },
+                    { title: "Paper III: Sociology - II", marks: "80 End-Sem + 20 Internal", desc: "Indian society compositions, breakdowns of village economic dynamics via British rules, joint family decline parameters, caste system mobility patterns, SC/ST marginalization codes, and civil society definitions." },
+                    { title: "Paper IV: Special Contract", marks: "80 End-Sem + 20 Internal", desc: "Indemnity rights mapping, continuing guarantees, surety discharge patterns, bailment types, agent personal liabilities, notice variables, Sale of Goods Act 1930, Indian Partnership Act 1932, and LLP frameworks." },
+                    { title: "Paper V: Family Law - II", marks: "80 End-Sem + 20 Internal", desc: "Muslim Law structures: valid marriage forms, dower (Mahr) variations, modes of dissolution, Dissolution of Muslim Marriage Act 1939, maintenance protocols under BNSS, Hiba rules, and Wakf validations." }
+                ]
+            },
+            {
+                id: 3,
+                semBadge: "Semester III",
+                cardTitle: "Torts & Economic Disciplines",
+                summary: "Law of civil wrongs, consumer protection frameworks, competition regimes, and foundational macro theory variables.",
+                credits: "20 Credits",
+                totalTitle: "Civil Wrongs & Market Regulation (500 Marks | 20 Credits)",
+                papers: [
+                    { title: "Paper I: Political Science - III", marks: "80 End-Sem + 20 Internal", desc: "Political obligation thresholds, Green's views, power/authority parameters, Jeremy Bentham's utilitarian configurations, core values of classical/neoliberal structures, Marxism relevance, and Ambedkar's social justice." },
+                    { title: "Paper II: Sociology - III", marks: "80 End-Sem + 20 Internal", desc: "Major socio-legal problem profiles in India: Poverty dynamics, corruption variables, juvenile delinquency, drug tracking systems, prostitution debates, and legal child labor checks." },
+                    { title: "Paper III: Economics - I", marks: "80 End-Sem + 20 Internal", desc: "Relevance of Economics in Law, scarcity/choice paradigms, market laws of supply/demand, Diminishing Marginal Utility laws, Ind
