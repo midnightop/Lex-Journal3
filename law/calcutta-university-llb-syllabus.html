@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#fcfdfe">
+
+    <title>Law Journal | University of Calcutta B.A. LL.B. Syllabus Hub</title>
+    <meta name="description" content="Modern integrated legal platform for University of Calcutta 5-Year Integrated B.A. LL.B. course regulation, credit structure, and latest BNS, BNSS, BSA legal syllabus analysis.">
+    <meta name="keywords" content="University of Calcutta, B.A. LL.B Syllabus, BNS, BNSS, BSA, Choice Based Credit System, Law Journal Online, Legal Education">
+    <meta name="author" content="Lawjournal.online">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://lawjournal.online/">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: #fcfdfe; 
+            color: #1e293b; 
+            overflow-x: hidden; 
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        /* PREMIUM GLASSMORPHIC CARD THEMES */
+        .card-premium {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(248, 250, 252, 0.6) 100%);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .card-premium:hover { 
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+            border-color: rgba(180, 83, 9, 0.3);
+        }
+
+        .glossy-card {
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glossy-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.04);
+        }
+
+        /* HERO STACKED ARCHITECTURE */
+        .hero-container {
+            width: 100%;
+            max-width: 850px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .image-top-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 20; 
+            position: relative;
+        }
+
+        .lady-justice-png {
+            width: 100%;
+            max-width: 290px; 
+            height: auto;
+            object-fit: contain;
+            margin-bottom: -40px; 
+            animation: modernFloat 5s ease-in-out infinite;
+            will-change: transform;
+            filter: drop-shadow(0 15px 35px rgba(15, 23, 42, 0.08));
+        }
+
+        .text-overlay-card {
+            position: relative;
+            z-index: 10; 
+            background: rgba(252, 253, 254, 0.85); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 2.5rem;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .lady-justice-png {
+                max-width: 230px; 
+                margin-bottom: -50px; 
+            }
+            .text-overlay-card {
+                padding-top: 3.5rem !important; 
+                padding-left: 1.25rem !important;
+                padding-right: 1.25rem !important;
+            }
+        }
+
+        @keyframes modernFloat {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-8px) scale(1.01); }
+        }
+
+        /* MODAL ANIMATION PARADIGM */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.35);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.active { display: flex; }
+        
+        .modal-body-card {
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.12);
+            animation: modalScale 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes modalScale {
+            from { opacity: 0; transform: scale(0.96) translateY(8px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body>
+
+    <nav class="sticky top-0 z-50 glass-nav px-6 py-3 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-gradient-to-br from-slate-900 to-amber-900 rounded-xl flex items-center justify-center text-white shadow-md">
+                <i class="fa-solid fa-scale-balanced text-sm"></i>
+            </div>
+            <a href="/">
+                <span class="font-black text-gray-800 tracking-tighter text-lg">Lawjournal<span class="text-amber-700">.online</span></span>
+            </a>
+        </div>
+        <button onclick="openGradingModal()" class="bg-amber-50 hover:bg-amber-100/80 transition-colors border border-amber-200/60 text-amber-800 text-[10px] font-black uppercase tracking-wider px-4 py-1.5 rounded-xl shadow-sm flex items-center gap-1.5">
+            <i class="fa-solid fa-graduation-cap"></i> Grading System
+        </button>
+    </nav>
+
+    <div class="hero-container py-8 px-4 text-center">
+        <div class="image-top-container">
+            <img src="../lady-justice.png" 
+                 alt="Lady Justice Structural Asset" 
+                 class="lady-justice-png"
+                 onerror="this.src='https://ui-avatars.com/api/?name=⚖️&background=f1f5f9&color=94a3b8&size=256';">
+        </div>
+
+        <header class="p-8 md:p-14 text-overlay-card space-y-6 reveal active">
+            <div class="flex flex-col items-center space-y-1">
+                <span class="font-serif italic text-2xl md:text-3xl text-amber-700 tracking-wide">academic curriculum</span>
+                <h1 class="text-4xl md:text-5xl font-black tracking-tight uppercase text-slate-900 leading-none">
+                    Syllabus Architecture
+                </h1>
+            </div>
+
+            <p class="text-gray-700 text-base md:text-lg font-serif italic leading-relaxed max-w-2xl mx-auto">
+                Access structured legal frameworks. We turned the University of Calcutta's integrated double-degree system into clean, accessible digital nodes.
+            </p>
+
+            <div class="w-full bg-slate-50/80 border border-slate-200/60 rounded-2xl p-5 text-left max-w-3xl mx-auto space-y-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-amber-700/10 rounded-lg flex items-center justify-center text-amber-800">
+                        <i class="fa-solid fa-university text-xs"></i>
+                    </div>
+                    <h3 class="text-xs font-black tracking-wider uppercase text-slate-900">University of Calcutta Legacy</h3>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    Governed under the Faculty of Law, Department of Law, University of Calcutta (2025 Regulations), this integrated course aligns structurally with the Choice Based Credit System (CBCS) and Bar Council of India standards.
+                </p>
+                <div class="flex flex-wrap gap-x-4 gap-y-1 pt-1 text-[10px] font-bold text-slate-500 uppercase tracking-wide">
+                    <span><i class="fa-regular fa-clock text-amber-700 mr-1"></i> Max Duration: 8 Years</span>
+                    <span><i class="fa-solid fa-language text-amber-700 mr-1"></i> Medium: English</span>
+                    <span><i class="fa-solid fa-briefcase text-amber-700 mr-1"></i> Internship: 20 Weeks</span>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <section class="px-6 py-12 max-w-6xl mx-auto reveal" id="syllabus-hub">
+        <div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-2">
+            <div>
+                <p class="text-[10px] text-amber-700 font-bold uppercase tracking-widest">Choice Based Credit System (CBCS)</p>
+                <h2 class="text-2xl font-black text-gray-800 uppercase tracking-tighter">Integrated B.A. LL.B. Semesters</h2>
+            </div>
+            <p class="text-xs font-medium text-slate-500 italic">Select a semester card to view core subject structures.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+            
+            <div class="glossy-card card-premium p-5 border-l-4 border-amber-700 flex flex-col justify-between cursor-pointer group" onclick="openSyllabusModal(1)">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-black px-2.5 py-1 bg-amber-50 text-amber-800 rounded-md tracking-wider uppercase">Sem I</span>
+                        <span class="text-[10px] font-bold text-slate-400">20 Credits</span>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-black text-slate-800 uppercase tracking-tight">Foundational Legal Base</h3>
+                        <p class="text-xs text-slate-500 mt-1.5 leading-normal line-clamp-2">General principles of contract law, family structures, foundational sociology, political science, and English narratives.</p>
+                    </div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-amber-800">
+                    <span>View 5 Papers</span>
+                    <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
+                </div>
+            </div>
+
+            <div class="glossy-card card-premium p-5 border-l-4 border-amber-700 flex flex-col justify-between cursor-pointer group" onclick="openSyllabusModal(2)">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-black px-2.5 py-1 bg-amber-50 text-amber-800 rounded-md tracking-wider uppercase">Sem II</span>
+                        <span class="text-[10px] font-bold text-slate-400">20 Credits</span>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-black text-slate-800 uppercase tracking-tight">Advanced Contractual Frameworks</h3>
+                        <p class="text-xs text-slate-500 mt-1.5 leading-normal line-clamp-2">Special contracts, indemnity, guarantees, agency setups, and early Muslim statutory inheritance structures.</p>
+                    </div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-amber-800">
+                    <span>View 5 Papers</span>
+                    <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
+                </div>
+            </div>
+
+            <div class="glossy-card card-premium p-5 border-l-4 border-amber-700 flex flex-col justify-between cursor-pointer group" onclick="openSyllabusModal(3)">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-black px-2.5 py-1 bg-amber-50 text-amber-800 rounded-md tracking-wider uppercase">Sem III</span>
+                        <span class="text-[10px] font-bold text-slate-400">20 Credits</span>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-black text-slate-800 uppercase tracking-tight">Torts & Economic Disciplines</h3>
+                        <p class="text-xs text-slate-500 mt-1.5 leading-normal line-clamp-2">Law of torts, market consumer protections, modern competition regimes, and foundational macroeconomic theories.</p>
+                    </div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-amber-800">
+                    <span>View 5 Papers</span>
+                    <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
+                </div>
+            </div>
+
+            <div class="glossy-card card-premium p-5 border-l-4 border-amber-700 flex flex-col justify-between cursor-pointer group" onclick="openSyllabusModal(4)">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-black px-2.5 py-1 bg-amber-50 text-amber-800 rounded-md tracking-wider uppercase">Sem IV</span>
+                        <span class="text-[10px] font-bold text-slate-400">20 Credits</span>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-black text-slate-800 uppercase tracking-tight flex items-center gap-2">
+                            Penal Codes & Constitution <span class="bg-red-100 text-red-800 text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-wide">BNS</span>
+                        </h3>
+                        <p class="text-xs text-slate-500 mt-1.5 leading-normal line-clamp-2">Constitutional principles, regional local land updates, and the transition to the Bharatiya Nyaya Sanhita.</p>
+                    </div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-amber-800">
+                    <span>View 5 Papers</span>
+                    <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
+                </div>
+            </div>
+
+            <div class="glossy-card card-premium p-5 border-l-4 border-amber-700 flex flex-col justify-between cursor-pointer group" onclick="openSyllabusModal(5)">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-black px-2.5 py-1 bg-amber-50 text-amber-800 rounded-md tracking-wider uppercase">Sem V</span>
+                        <span class="text-[10px] font-bold text-slate-400">20 Credits</span>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-black text-slate-800 uppercase tracking-tight">Administrative & Real Property</h3>
+                        <p class="text-xs text-slate-500 mt-1.5 leading-normal line-clamp-2">Administrative mandates, rule of law structures, real property transactions, and global geopolitical trade paths.</p>
+                    </div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-amber-800">
+                    <span>View 5 Papers</span>
+                    <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
+                </div>
+            </div>
+
+            <div class="glossy-card card-premium p-5 border-l-4 border-amber-700 flex flex-col justify-between cursor-pointer group" onclick="openSyllabusModal(6)">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-black px-2.5 py-1 bg-amber-50 text-amber-800 rounded-md tracking-wider uppercase">Sem VI</span>
+                        <span class="text-[10px] font-bold text-slate-400">20 Credits</span>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-black text-slate-800 uppercase tracking-tight flex items-center gap-2">
+                            Procedures & Legal Theory <span class="bg-red-100 text-red-800 text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-wide">BNSS</span>
+                        </h3>
+                        <p class="text-xs text-slate-500 mt-1.5 leading-normal line-clamp-2">Bharatiya Nagarik Suraksha Sanhita integration, jurisprudence axioms, copyright frameworks, and civil procedures.</p>
+                    </div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-amber-800">
+                    <span>View 5 Papers</span>
+                    <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
+                </div>
+            </div>
+
+            <div class="glossy-card card-premium p-5 border-l-4 border-amber-700 flex flex-col justify-between cursor-pointer group" onclick="openSyllabusModal(7)">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-black px-2.5 py-1 bg-amber-50 text-amber-800 rounded-md tracking-wider uppercase">Sem VII</span>
+                        <span class="text-[10px] font-bold text-slate-400">16 Credits</span>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-black text-slate-800 uppercase tracking-tight flex items-center gap-2">
+                            Adjudication & Evidence <span class="bg-red-100 text-red-800 text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-wide">BSA</span>
+                        </h3>
+                        <p class="text-xs text-slate-500 mt-1.5 leading-normal line-clamp-2">Bharatiya Sakshya Adhiniyam standards, public international pacts, corporate banking, and core clinical drafting routines.</p>
+                    </div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-amber-800">
+                    <span>View 4 Papers</span>
+                    <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
+                </div>
+            </div>
+
+            <div class="glossy-card card-premium p-5 border-l-4 border-amber-700 flex flex-col justify-between cursor-pointer group" onclick="openSyllabusModal(8)">
+                <div class="space-y-4">
+                    <div class="flex justify-between ite
