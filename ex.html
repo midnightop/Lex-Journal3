@@ -1,391 +1,237 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full bg-slate-950 text-slate-50">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GigHub Kolkata - Elite Job Marketplace Prototype</title>
-    <!-- Tailwind CSS v4 CDN -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GigHub Kolkata | Gamified Job Marketplace</title>
+    <!-- Tailwind Engine via CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Supabase CDN Client Stack Wrapper Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
-        /* Premium UI Utility Styles */
         .glassmorphism {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
-        /* Card Swiping Physics Classes */
-        .swipe-right-anim {
-            transform: translate(200%, 50px) rotate(35deg) !important;
-            opacity: 0;
-            transition: all 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
-        .swipe-left-anim {
-            transform: translate(-200%, 50px) rotate(-35deg) !important;
-            opacity: 0;
-            transition: all 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+        @keyframes pulse-neon {
+            0%, 100% { text-shadow: 0 0 4px #ef4444, 0 0 12px #ef4444; opacity: 1; }
+            50% { text-shadow: 0 0 1px #ef4444, 0 0 3px #ef4444; opacity: 0.75; }
         }
-        .card-stack-transition {
+        .animate-sos-neon {
+            animation: pulse-neon 1.2s infinite ease-in-out;
+            border-color: #ef4444;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+        }
+        .swipe-card {
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+            cursor: grab;
+            user-select: none;
+            touch-action: none;
         }
-        /* Custom Scrollbar for Smooth Feel */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0f172a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 10px;
-        }
+        .swipe-card:active { cursor: grabbing; }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col justify-between overflow-hidden selection:bg-amber-500 selection:text-slate-950">
+<body class="h-full font-sans antialiased selection:bg-indigo-500 selection:text-white overflow-x-hidden">
 
-    <!-- Global State Header -->
-    <header class="w-full max-w-md mx-auto px-4 pt-4 pb-2 z-30">
-        <div class="glassmorphism rounded-2xl p-3 flex justify-between items-center shadow-2xl">
-            <!-- App Identity -->
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
-                    <i class="fa-solid fa-fire-lightning text-slate-950 text-sm"></i>
+    <!-- APP SHELL CONTAINER -->
+    <div id="app-root" class="min-h-screen w-full flex flex-col items-center justify-center p-3 md:p-6 relative">
+        <!-- Abstract Neo-Noir Background Blobs -->
+        <div class="absolute top-10 left-10 w-72 h-72 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- SCREEN 1: LANDING / GLASSMORPHIC AUTHENTICATION SCREEN -->
+        <div id="screen-auth" class="w-full max-w-md glassmorphism p-8 rounded-3xl shadow-2xl z-10 transition-all duration-500 transform">
+            <div class="text-center mb-8">
+                <div class="inline-flex p-3 rounded-2xl bg-indigo-600/20 text-indigo-400 mb-3 border border-indigo-500/30">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </div>
+                <h1 class="text-3xl font-black tracking-tight bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">GIGHUB KOLKATA</h1>
+                <p class="text-xs text-slate-400 uppercase tracking-widest mt-1">Gamified Micro-Gig Engine</p>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-1.5 tracking-wider">Email Address</label>
+                    <input type="email" id="auth-email" value="student@jadavpur.edu" class="w-full bg-slate-900/60 border border-slate-700/60 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-slate-200 transition-colors" placeholder="yourname@college.com">
                 </div>
                 <div>
-                    <h1 class="text-sm font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">GIGHUB</h1>
-                    <p class="text-[10px] text-amber-400 font-bold tracking-tight uppercase"><i class="fa-solid fa-location-crosshairs mr-0.5"></i> Kolkata Core</p>
+                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-1.5 tracking-wider">Password</label>
+                    <input type="password" id="auth-password" value="gighubpass123" class="w-full bg-slate-900/60 border border-slate-700/60 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-slate-200 transition-colors" placeholder="••••••••">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 pt-2">
+                    <label class="relative flex flex-col p-4 bg-slate-900/40 border-2 border-slate-700 rounded-xl cursor-pointer select-none group has-[:checked]:border-indigo-500 has-[:checked]:bg-indigo-600/10 transition-all">
+                        <input type="radio" name="auth-role" value="student" checked class="sr-only">
+                        <span class="text-sm font-bold text-slate-200">Find Work</span>
+                        <span class="text-[10px] text-slate-400 mt-1">Kolkata Student</span>
+                    </label>
+                    <label class="relative flex flex-col p-4 bg-slate-900/40 border-2 border-slate-700 rounded-xl cursor-pointer select-none group has-[:checked]:border-indigo-500 has-[:checked]:bg-indigo-600/10 transition-all">
+                        <input type="radio" name="auth-role" value="business" class="sr-only">
+                        <span class="text-sm font-bold text-slate-200">Hire Instantly</span>
+                        <span class="text-[10px] text-slate-400 mt-1">Local Business</span>
+                    </label>
+                </div>
+
+                <button id="btn-login" class="w-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg transition-all transform active:scale-[0.98] mt-4 text-sm tracking-wide">
+                    Enter the Marketplace
+                </button>
+                <p class="text-center text-xs text-slate-500 mt-2">Secured with End-to-End Supabase Authentication Stack</p>
+            </div>
+        </div>
+
+        <!-- SCREEN 2: ONBOARDING / PROFILE CREATION -->
+        <div id="screen-onboarding" class="w-full max-w-md glassmorphism p-8 rounded-3xl shadow-2xl z-10 hidden transition-all duration-500 transform">
+            <h2 class="text-2xl font-extrabold text-white mb-1">Setup Your Profile</h2>
+            <p class="text-xs text-slate-400 mb-6">Let's fine-tune your hyper-local visibility preferences.</p>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-1.5">Your Full Name / Business Title</label>
+                    <input type="text" id="onboard-name" class="w-full bg-slate-900/60 border border-slate-700/60 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 text-slate-200" placeholder="e.g., Arjun Chakraborty / Roastery Cafe">
+                </div>
+
+                <!-- Dynamic Student Block -->
+                <div id="onboard-student-fields" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-400 uppercase mb-1.5">College / University</label>
+                        <select id="onboard-college" class="w-full bg-slate-900/60 border border-slate-700/60 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 text-slate-200">
+                            <option value="Jadavpur University">Jadavpur University (JU)</option>
+                            <option value="Calcutta University">Calcutta University (CU)</option>
+                            <option value="St. Xavier's College">St. Xavier's College</option>
+                            <option value="Presidency University">Presidency University</option>
+                            <option value="Asutosh College">Asutosh College</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Dynamic Business Block -->
+                <div id="onboard-business-fields" class="space-y-4 hidden">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-400 uppercase mb-1.5">Business Category</label>
+                        <input type="text" id="onboard-biztype" class="w-full bg-slate-900/60 border border-slate-700/60 rounded-xl px-4 py-3 text-sm text-slate-200" placeholder="e.g., Cafe, Bookstore, Event Agency">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-1.5">Primary Kolkata Operations Hub</label>
+                    <select id="onboard-location" class="w-full bg-slate-900/60 border border-slate-700/60 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 text-slate-200">
+                        <option value="Park Street">Park Street Area</option>
+                        <option value="Salt Lake Sector V">Salt Lake Sector V</option>
+                        <option value="Gariahat">Gariahat Junction</option>
+                        <option value="College Street">College Street (Boi Para)</option>
+                        <option value="New Town">New Town Axis</option>
+                    </select>
+                </div>
+
+                <button id="btn-save-onboard" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition-all text-sm tracking-wide mt-2">
+                    Initialize Core Dashboard Engine
+                </button>
+            </div>
+        </div>
+
+        <!-- SCREEN 3: DUAL-DECK MASTER MARKETPLACE MAIN DASHBOARD -->
+        <div id="screen-dashboard" class="w-full max-w-lg flex flex-col h-[880px] max-h-[95vh] glassmorphism rounded-3xl shadow-2xl z-10 hidden transition-all duration-500 transform overflow-hidden">
+            <!-- Header Operations Layer -->
+            <div class="p-4 border-b border-slate-800/80 flex items-center justify-between bg-slate-900/40">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center font-black text-xs text-white shadow-md shadow-indigo-500/20" id="user-avatar-initial">G</div>
+                    <div>
+                        <h3 class="text-sm font-bold text-white leading-tight" id="dash-user-name">Loading Profile...</h3>
+                        <div class="flex items-center space-x-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider" id="dash-user-meta">JU • 5.0★</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dual Deck Role Switch Controller -->
+                <div class="flex items-center bg-slate-950 p-1 rounded-xl border border-slate-800">
+                    <button id="toggle-mode-btn" class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow">
+                        Work Mode
+                    </button>
                 </div>
             </div>
 
-            <!-- Profile Dual Switcher Engine -->
-            <div class="bg-slate-900/90 p-1 rounded-xl flex border border-slate-800 relative w-44">
-                <button id="toggle-work" onclick="engine.switchMode('work')" class="w-1/2 py-1 text-[11px] font-black rounded-lg z-10 transition-all duration-300 flex items-center justify-center gap-1 bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 shadow-md">
-                    <i class="fa-solid fa-user-astronaut"></i> Work
-                </button>
-                <button id="toggle-hire" onclick="engine.switchMode('hire')" class="w-1/2 py-1 text-[11px] font-black rounded-lg z-10 text-slate-400 transition-all duration-300 flex items-center justify-center gap-1">
-                    <i class="fa-solid fa-building-columns"></i> Hire
-                </button>
+            <!-- Gamified Metric Overview Strip -->
+            <div class="px-4 py-2 bg-slate-900/60 border-b border-slate-800/50 flex justify-between items-center text-xs">
+                <div class="flex items-center space-x-1">
+                    <span class="text-amber-400 font-bold">⚡ XP Engine:</span>
+                    <span id="dash-xp-display" class="font-mono text-slate-200">120 XP</span>
+                </div>
+                <div class="flex items-center space-x-2" id="dash-badge-strip">
+                    <!-- Badges injected dynamically -->
+                </div>
             </div>
-        </div>
 
-        <!-- Real-Time Gamification Live Status Bar -->
-        <div class="mt-2 px-1 flex justify-between items-center text-[11px]">
-            <div class="flex items-center gap-1.5 text-slate-400 bg-slate-900/40 px-2 py-0.5 rounded-md border border-slate-800/60">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-                <span>User: <strong class="text-slate-200">Aktar Anjum</strong></span>
+            <!-- Card Swiper Arena Frame Layer -->
+            <div class="flex-1 relative flex items-center justify-center p-6 bg-slate-950/20 overflow-hidden" id="card-deck-container">
+                <!-- Swipeable Card Elements Injected Instantly via app.js Dynamic Engine -->
+                <div class="text-center text-slate-500 pointer-events-none p-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mx-auto mb-2 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                    </svg>
+                    <p class="text-sm font-medium">Scanning Kolkata Micro-Gigs Network Architecture...</p>
+                </div>
             </div>
-            <div id="reputation-badge" class="bg-slate-900/40 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded-md font-bold">
-                <i class="fa-solid fa-crown text-[10px]"></i> Elite Rank (4.9★)
-            </div>
-        </div>
-    </header>
 
-    <!-- Main Deck / Interaction Arena -->
-    <main class="flex-1 w-full max-w-md mx-auto flex items-center justify-center relative px-4 z-20">
-        
-        <!-- Live Match Celebration Portal -->
-        <div id="match-portal" class="hidden absolute inset-0 z-50 glassmorphism rounded-3xl m-4 flex flex-col items-center justify-center p-6 text-center animate-fade-in border border-emerald-500/30">
-            <div class="w-20 h-20 bg-gradient-to-tr from-emerald-400 to-green-600 rounded-full flex items-center justify-center text-3xl shadow-2xl shadow-green-500/40 animate-bounce mb-4">
-                🤝
-            </div>
-            <h2 class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 tracking-tight">IT'S A MATCH!</h2>
-            <p class="text-xs text-slate-400 mt-1 uppercase tracking-widest">Kolkata Fast-Track Node</p>
-            
-            <p id="match-details" class="text-sm text-slate-300 my-5 bg-slate-900/60 p-4 rounded-xl border border-slate-800 max-w-xs leading-relaxed"></p>
-            
-            <!-- Real-time UPI Match Action Handlers -->
-            <div class="flex flex-col gap-2 w-full max-w-xs">
-                <button onclick="engine.initiateInstantChat()" class="w-full bg-gradient-to-r from-emerald-500 to-green-600 text-slate-950 font-black py-3 rounded-xl text-xs tracking-wider uppercase shadow-xl hover:opacity-90 transition active:scale-95">
-                    <i class="fa-solid fa-comments mr-1"></i> Open Instant Chat Node
+            <!-- Manual Swipe Control Interface Bar -->
+            <div class="p-6 bg-slate-900/40 border-t border-slate-800/80 grid grid-cols-2 gap-4">
+                <button id="action-left" class="w-full bg-slate-900 hover:bg-red-950/40 border border-slate-800 hover:border-red-500/50 text-slate-400 hover:text-red-400 py-3 rounded-2xl font-bold transition-all text-sm flex items-center justify-center space-x-2">
+                    <span>❌ Pass / Skip</span>
                 </button>
-                <button onclick="engine.closeMatchPortal()" class="w-full bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 py-2.5 rounded-xl text-xs font-bold transition">
-                    Keep Swiping Market
+                <button id="action-right" class="w-full bg-indigo-600/10 hover:bg-indigo-600 border border-indigo-500/30 hover:border-indigo-500 text-indigo-400 hover:text-white py-3 rounded-2xl font-bold transition-all text-sm flex items-center justify-center space-x-2 shadow-lg">
+                    <span>⚡ Swash / Apply</span>
                 </button>
             </div>
         </div>
 
-        <!-- The Dynamic Card Deck Insertion Anchor -->
-        <div id="deck-anchor" class="relative w-full h-[460px] flex items-center justify-center">
-            <!-- Cards are structurally rendered and managed dynamically via State Machine Engine -->
-        </div>
-    </main>
+        <!-- POPUP COMPONENT: INSTANT MUTUAL MATCH & LIVE MOCK CHAT INTERFACE LAYER -->
+        <div id="modal-match" class="fixed inset-0 bg-slate-950/90 backdrop-blur-xl z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+            <div class="w-full max-w-md glass-card rounded-3xl p-6 text-center transform scale-95 transition-all duration-300 flex flex-col max-h-[85vh]">
+                
+                <!-- Match Header Celebrations -->
+                <div class="mb-4">
+                    <div class="inline-flex p-3 rounded-full bg-pink-500/20 text-pink-500 mb-2 animate-bounce">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                    <h2 class="text-3xl font-black bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">MUTUAL MATCH!</h2>
+                    <p class="text-xs text-slate-400 mt-1">Uber-style dual structural alignment confirmed.</p>
+                </div>
 
-    <!-- Professional Control System Grid -->
-    <footer class="w-full max-w-md mx-auto p-4 z-30 flex flex-col gap-3">
-        <!-- Live Global Metrics Deck Tracker -->
-        <div class="grid grid-cols-3 gap-2 bg-slate-900/50 p-2 rounded-xl border border-slate-800 text-center text-[10px]">
-            <div class="border-r border-slate-800">
-                <p class="text-slate-500 uppercase tracking-wider">Swipes Left</p>
-                <p id="stat-swipes" class="text-slate-200 font-bold text-xs mt-0.5">0</p>
+                <!-- Chat Display Thread Frame -->
+                <div class="flex-1 min-h-[220px] bg-slate-950/60 rounded-2xl border border-slate-800/80 p-4 text-left overflow-y-auto space-y-3 flex flex-col text-xs" id="chat-messages-container">
+                    <div class="bg-indigo-600/20 border border-indigo-500/20 rounded-xl p-3 max-w-[85%] self-start text-slate-300">
+                        <p class="font-bold text-indigo-400 mb-0.5 text-[10px] uppercase">System Engine</p>
+                        Secure pipeline connection established. You can now chat directly to arrange task metrics.
+                    </div>
+                </div>
+
+                <!-- Chat Action Bar Box -->
+                <div class="mt-4 flex space-x-2">
+                    <input type="text" id="chat-input-field" class="flex-1 bg-slate-900 border border-slate-700/80 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-indigo-500 text-slate-200" placeholder="Type instant meeting handshake detail...">
+                    <button id="btn-send-message" class="bg-indigo-600 hover:bg-indigo-700 px-4 rounded-xl text-xs font-bold transition-colors">Send</button>
+                </div>
+
+                <button id="btn-close-match" class="mt-4 text-xs font-bold text-slate-500 hover:text-slate-300 tracking-wider uppercase transition-colors py-1">
+                    Return to Swiper Deck Loop
+                </button>
             </div>
-            <div class="border-r border-slate-800">
-                <p class="text-slate-500 uppercase tracking-wider">Total XP</p>
-                <p id="stat-xp" class="text-amber-400 font-bold text-xs mt-0.5">1,250</p>
-            </div>
-            <div>
-                <p class="text-slate-500 uppercase tracking-wider">Node Active</p>
-                <p class="text-emerald-400 font-bold text-xs mt-0.5 flex items-center justify-center gap-1">
-                    <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span> 42 Gigs
-                </p>
-            </div>
         </div>
-
-        <!-- Control Action Interface -->
-        <div class="flex justify-between items-center px-4">
-            <!-- Dislike Trigger -->
-            <button onclick="engine.executeManualSwipe('left')" class="w-14 h-14 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-rose-500 rounded-full flex items-center justify-center text-xl shadow-xl transition transform active:scale-90 group">
-                <i class="fa-solid fa-xmark group-hover:rotate-90 transition duration-200"></i>
-            </button>
-            
-            <!-- Hyper-Local 3km SOS Surge Price Activation Node -->
-            <button onclick="engine.triggerUrgentSosAlert()" class="h-11 px-5 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-400 rounded-full flex items-center justify-center gap-2 text-xs font-black tracking-widest shadow-lg transition transform active:scale-95 uppercase">
-                <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
-                </span>
-                ⚡ SOS Surge
-            </button>
-            
-            <!-- Like Trigger -->
-            <button onclick="engine.executeManualSwipe('right')" class="w-14 h-14 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-emerald-400 rounded-full flex items-center justify-center text-xl shadow-xl transition transform active:scale-90 group">
-                <i class="fa-solid fa-heart group-hover:scale-125 transition duration-200"></i>
-            </button>
-        </div>
-    </footer>
-
-    <!-- Full-Scale Monolithic State Machine & API Integration Layer -->
-    <script>
-        class GigHubCoreEngine {
-            constructor() {
-                // Real-world localized Kolkata Mock Database Structures
-                this.jobGigsData = [
-                    { id: 101, title: "Specialist Barista", entity: "Roastery Coffee House", location: "Gariahat", basePay: 180, multiplier: 1.5, timing: "Sat-Sun (4 PM - 10 PM)", tag: "Verified Barista", isUrgent: true },
-                    { id: 102, title: "Academic Manuscript Cataloger", entity: "Dasgupta Publishers", location: "College Street", basePay: 150, multiplier: 1.0, timing: "Flexible 4hr Window", tag: "Data Entry Pro", isUrgent: false },
-                    { id: 103, title: "Visual Reel Content Director", entity: "Sienna Store & Cafe", location: "Hindustan Park", basePay: 250, multiplier: 1.5, timing: "Instant Gig (3 Hours)", tag: "Reel Creator", isUrgent: true },
-                    { id: 104, title: "Premium Stall Manager", entity: "Artisanal Guild Exhibition", location: "Milan Mela Complex", basePay: 140, multiplier: 1.0, timing: "Full Day Expo Shift", tag: "Weekend Sales Pro", isUrgent: false },
-                    { id: 105, title: "Late Night Operations Crew", entity: "Flurys Patisserie", location: "Park Street", basePay: 200, multiplier: 1.0, timing: "Fri-Sat (8 PM - 2 AM)", tag: "Trusted Editor", isUrgent: false }
-                ];
-
-                this.applicantStudentsData = [
-                    { id: 201, name: "Subham Dey", institute: "Jadavpur University", metric: "4.9 ★", geolocation: "0.8 km away (Hazra Route)", tag: "Verified Barista", history: "14 Successful Shifts" },
-                    { id: 202, name: "Ananya Sen", institute: "Asutosh College", metric: "4.7 ★", geolocation: "1.4 km away (Metro Line)", tag: "Reel Creator", history: "8 Successful Shifts" },
-                    { id: 203, name: "Rohan Das", institute: "Calcutta University", metric: "4.8 ★", geolocation: "2.5 km away (College St Node)", tag: "Weekend Sales Pro", history: "22 Successful Shifts" },
-                    { id: 204, name: "Priya Chakraborty", institute: "St. Xavier's College", metric: "5.0 ★", geolocation: "0.4 km away (Park St Hub)", tag: "Trusted Editor", history: "31 Successful Shifts" }
-                ];
-
-                // Runtime State Containers
-                this.currentMode = 'work'; // 'work' = Looking for job, 'hire' = Looking for student
-                this.pointerIndex = 0;
-                this.activeDataset = [...this.jobGigsData];
-                
-                // Track Analytics Variables locally
-                this.statistics = { totalSwipes: 0, accumulatedXp: 1250 };
-            }
-
-            init() {
-                this.renderActiveDeck();
-                this.updateStatisticsPanel();
-            }
-
-            switchMode(selectedMode) {
-                if (this.currentMode === selectedMode) return;
-                this.currentMode = selectedMode;
-                this.pointerIndex = 0;
-                this.activeDataset = (selectedMode === 'work') ? [...this.jobGigsData] : [...this.applicantStudentsData];
-                
-                const btnWork = document.getElementById('toggle-work');
-                const btnHire = document.getElementById('toggle-hire');
-                
-                if (selectedMode === 'work') {
-                    btnWork.className = "w-1/2 py-1 text-[11px] font-black rounded-lg z-10 transition-all duration-300 flex items-center justify-center gap-1 bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 shadow-md";
-                    btnHire.className = "w-1/2 py-1 text-[11px] font-black rounded-lg z-10 text-slate-400 transition-all duration-300 flex items-center justify-center gap-1";
-                } else {
-                    btnHire.className = "w-1/2 py-1 text-[11px] font-black rounded-lg z-10 transition-all duration-300 flex items-center justify-center gap-1 bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 shadow-md";
-                    btnWork.className = "w-1/2 py-1 text-[11px] font-black rounded-lg z-10 text-slate-400 transition-all duration-300 flex items-center justify-center gap-1";
-                }
-                
-                this.renderActiveDeck();
-            }
-
-            renderActiveDeck() {
-                const anchor = document.getElementById('deck-anchor');
-                anchor.innerHTML = '';
-
-                if (this.pointerIndex >= this.activeDataset.length) {
-                    anchor.innerHTML = `
-                        <div class="text-center p-6 bg-slate-900/40 rounded-2xl border border-slate-800 max-w-xs animate-fade-in">
-                            <div class="w-12 h-12 rounded-full bg-slate-800/80 mx-auto flex items-center justify-center text-slate-600 mb-3 border border-slate-700">
-                                <i class="fa-solid fa-database text-lg"></i>
-                            </div>
-                            <h3 class="text-sm font-bold text-slate-300">End of Local Node Data</h3>
-                            <p class="text-[11px] text-slate-500 mt-1">Expanding query parameters or wait for real-time location ping updates.</p>
-                        </div>`;
-                    return;
-                }
-
-                // Render 2 stacked cards to maximize look and feel depth
-                for (let step = this.pointerIndex + 1; step >= this.pointerIndex; step--) {
-                    if (step >= this.activeDataset.length) continue;
-                    
-                    const packet = this.activeDataset[step];
-                    const isTopmost = (step === this.pointerIndex);
-                    
-                    const cardInstance = document.createElement('div');
-                    cardInstance.className = `absolute w-full h-full bg-gradient-to-b from-slate-800/95 to-slate-900/95 border border-slate-700/60 rounded-3xl p-5 flex flex-col justify-between shadow-2xl card-stack-transition transform origin-bottom ${
-                        isTopmost ? 'z-20 scale-100 opacity-100 pointer-events-auto' : 'z-10 scale-95 opacity-40 translate-y-4 pointer-events-none'
-                    }`;
-                    
-                    if (this.currentMode === 'work') {
-                        const trueRate = Math.round(packet.basePay * packet.multiplier);
-                        cardInstance.innerHTML = `
-                            <div>
-                                <div class="flex justify-between items-start">
-                                    <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md ${
-                                        packet.isUrgent ? 'bg-red-500/10 text-red-400 border border-red-500/20 animate-pulse' : 'bg-slate-950 text-slate-400 border border-slate-800'
-                                    }">
-                                        ${packet.isUrgent ? '🔥 SOS SURGE' : 'Verified Gig'}
-                                    </span>
-                                    <div class="text-right">
-                                        <span class="text-lg font-black text-emerald-400">₹${trueRate}/hr</span>
-                                        ${packet.isUrgent ? `<p class="text-[9px] text-rose-400 font-bold line-through">₹${packet.basePay}</p>` : ''}
-                                    </div>
-                                </div>
-                                
-                                <h3 class="text-xl font-black mt-5 text-slate-100 tracking-tight leading-snug">${packet.title}</h3>
-                                <p class="text-xs text-amber-400 font-medium flex items-center gap-1.5 mt-1.5">
-                                    <i class="fa-solid fa-mug-hot text-[10px]"></i> ${packet.entity}
-                                </p>
-
-                                <div class="mt-6 space-y-1.5">
-                                    <div class="flex items-center gap-2.5 text-[11px] text-slate-300 bg-slate-950/40 p-2.5 rounded-xl border border-slate-900">
-                                        <i class="fa-solid fa-map-pin text-orange-500 w-3 text-center"></i>
-                                        <span>${packet.location}, Kolkata Node</span>
-                                    </div>
-                                    <div class="flex items-center gap-2.5 text-[11px] text-slate-300 bg-slate-950/40 p-2.5 rounded-xl border border-slate-900">
-                                        <i class="fa-solid fa-business-time text-sky-400 w-3 text-center"></i>
-                                        <span>${packet.timing}</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="border-t border-slate-800 pt-4 flex justify-between items-center text-[11px]">
-                                <span class="text-slate-500 font-medium">Target Competency:</span>
-                                <span class="font-black bg-slate-950 text-amber-400 border border-amber-500/20 px-2.5 py-1 rounded-lg flex items-center gap-1">
-                                    <i class="fa-solid fa-award text-[10px]"></i> ${packet.tag}
-                                </span>
-                            </div>`;
-                    } else {
-                        // RECRUITER MODE VIEWPORT
-                        cardInstance.innerHTML = `
-                            <div>
-                                <div class="flex justify-between items-start">
-                                    <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                                        <i class="fa-solid fa-circle-check mr-0.5"></i> ${packet.history}
-                                    </span>
-                                    <span class="text-xs font-black bg-slate-950 px-2.5 py-1 rounded-lg text-amber-400 border border-slate-800 flex items-center gap-1">
-                                        <i class="fa-solid fa-star text-[9px]"></i> ${packet.metric}
-                                    </span>
-                                </div>
-                                
-                                <h3 class="text-xl font-black mt-5 text-slate-100 tracking-tight leading-snug">${packet.name}</h3>
-                                <p class="text-xs text-indigo-400 font-medium flex items-center gap-1.5 mt-1.5">
-                                    <i class="fa-solid fa-building-columns text-[10px]"></i> ${packet.institute}
-                                </p>
-
-                                <div class="mt-6 space-y-1.5">
-                                    <div class="flex items-center gap-2.5 text-[11px] text-slate-300 bg-slate-950/40 p-2.5 rounded-xl border border-slate-900">
-                                        <i class="fa-solid fa-location-arrow text-emerald-500 w-3 text-center"></i>
-                                        <span>${packet.geolocation}</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="border-t border-slate-800 pt-4 flex justify-between items-center text-[11px]">
-                                <span class="text-slate-500 font-medium">Verified Attribute:</span>
-                                <span class="font-black bg-slate-950 text-amber-400 border border-amber-500/20 px-2.5 py-1 rounded-lg flex items-center gap-1">
-                                    <i class="fa-solid fa-shield-halved text-[10px]"></i> ${packet.tag}
-                                </span>
-                            </div>`;
-                    }
-                    anchor.appendChild(cardInstance);
-                }
-            }
-
-            executeManualSwipe(direction) {
-                if (this.pointerIndex >= this.activeDataset.length) return;
-
-                const cardCollection = document.getElementById('deck-anchor').children;
-                // Get the topmost processing DOM instance
-                let targetedDomNode = null;
-                for (let i = 0; i < cardCollection.length; i++) {
-                    if (cardCollection[i].classList.contains('z-20')) {
-                        targetedDomNode = cardCollection[i];
-                        break;
-                    }
-                }
-
-                if (!targetedDomNode) return;
-
-                // Fire custom animations
-                if (direction === 'right') {
-                    targetedDomNode.classList.add('swipe-right-anim');
-                    this.statistics.accumulatedXp += 75; // Reward operational XP points
-                    
-                    // Simulate production matching probability matrix (approx 50% rate)
-                    if (Math.random() > 0.45) {
-                        const isolatedMatchData = this.activeDataset[this.pointerIndex];
-                        setTimeout(() => this.triggerMatchPortalOverlay(isolatedMatchData), 350);
-                    }
-                } else {
-                    targetedDomNode.classList.add('swipe-left-anim');
-                }
-
-                this.statistics.totalSwipes++;
-                this.pointerIndex++;
-                
-                // Track update pipelines
-                this.updateStatisticsPanel();
-                setTimeout(() => this.renderActiveDeck(), 400);
-            }
-
-            triggerMatchPortalOverlay(matchedObject) {
-                const overlay = document.getElementById('match-portal');
-                const textArea = document.getElementById('match-details');
-                
-                if (this.currentMode === 'work') {
-                    textArea.innerHTML = `Your application profile has been instant-matched with <strong>${matchedObject.entity}</strong> for the role of <strong>${matchedObject.title}</strong> in ${matchedObject.location}. Payout tier setup successfully optimized.`;
-                } else {
-                    textArea.innerHTML = `Operational match locked with student researcher <strong>${matchedObject.name}</strong> from <strong>${matchedObject.institute}</strong>. They passed proximity metrics configuration checks.`;
-                }
-                overlay.classList.remove('hidden');
-            }
-
-            closeMatchPortal() {
-                document.getElementById('match-portal').classList.add('hidden');
-            }
-
-            initiateInstantChat() {
-                alert("Opening End-to-End WebSocket Secure Chat Engine via Supabase Real-Time Channel Router...");
-                this.closeMatchPortal();
-            }
-
-            triggerUrgentSosAlert() {
-                alert("System Notice: Broadcasted Hyper-Local SOS Surge Request Matrix across 3km geofence radius. Multiplier configured to 1.5x payout rate.");
-                this.statistics.accumulatedXp += 150;
-                this.updateStatisticsPanel();
-            }
-
-            updateStatisticsPanel() {
-                document.getElementById('stat-swipes').innerText = this.statistics.totalSwipes;
-                document.getElementById('stat-xp').innerText = this.statistics.accumulatedXp.toLocaleString();
-            }
-        }
-
-        // Initialize core component framework architecture engine
-        const engine = new GigHubCoreEngine();
-        document.addEventListener('DOMContentLoaded', () => engine.init());
-    </script>
+    </div>
+    
+    <!-- Injection Point for Main Controller App Module Logic Extension Engine -->
+    <script src="app.js"></script>
 </body>
 </html>
