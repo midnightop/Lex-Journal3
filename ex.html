@@ -3,228 +3,389 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GigSwipe Kolkata - Tinder for Part-Time Jobs</title>
+    <title>GigHub Kolkata - Elite Job Marketplace Prototype</title>
+    <!-- Tailwind CSS v4 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Card Swiping Animations */
-        .swipe-right {
-            transform: translate(150%, -20px) rotate(20deg) !important;
-            opacity: 0;
-            transition: all 0.5s ease-in-out;
+        /* Premium UI Utility Styles */
+        .glassmorphism {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .swipe-left {
-            transform: translate(-150%, -20px) rotate(-20deg) !important;
+        /* Card Swiping Physics Classes */
+        .swipe-right-anim {
+            transform: translate(200%, 50px) rotate(35deg) !important;
             opacity: 0;
-            transition: all 0.5s ease-in-out;
+            transition: all 0.45s cubic-bezier(0.25, 1, 0.5, 1);
         }
-        .card-transition {
-            transition: transform 0.3s ease, opacity 0.3s ease;
+        .swipe-left-anim {
+            transform: translate(-200%, 50px) rotate(-35deg) !important;
+            opacity: 0;
+            transition: all 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .card-stack-transition {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+        }
+        /* Custom Scrollbar for Smooth Feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 10px;
         }
     </style>
 </head>
-<body class="bg-slate-900 text-white font-sans min-h-screen flex flex-col justify-between overflow-hidden">
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col justify-between overflow-hidden selection:bg-amber-500 selection:text-slate-950">
 
-    <header class="p-4 bg-slate-800 border-b border-slate-700 flex flex-col items-center gap-3 shadow-md z-10">
-        <div class="flex items-center gap-2">
-            <i class="fa-solid fa-bolt text-yellow-400 text-2xl animate-pulse"></i>
-            <h1 class="text-xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">GIGSWIPE</h1>
-            <span class="text-xs bg-slate-700 px-2 py-0.5 rounded-full text-slate-300 font-semibold">Kolkata</span>
+    <!-- Global State Header -->
+    <header class="w-full max-w-md mx-auto px-4 pt-4 pb-2 z-30">
+        <div class="glassmorphism rounded-2xl p-3 flex justify-between items-center shadow-2xl">
+            <!-- App Identity -->
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
+                    <i class="fa-solid fa-fire-lightning text-slate-950 text-sm"></i>
+                </div>
+                <div>
+                    <h1 class="text-sm font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">GIGHUB</h1>
+                    <p class="text-[10px] text-amber-400 font-bold tracking-tight uppercase"><i class="fa-solid fa-location-crosshairs mr-0.5"></i> Kolkata Core</p>
+                </div>
+            </div>
+
+            <!-- Profile Dual Switcher Engine -->
+            <div class="bg-slate-900/90 p-1 rounded-xl flex border border-slate-800 relative w-44">
+                <button id="toggle-work" onclick="engine.switchMode('work')" class="w-1/2 py-1 text-[11px] font-black rounded-lg z-10 transition-all duration-300 flex items-center justify-center gap-1 bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 shadow-md">
+                    <i class="fa-solid fa-user-astronaut"></i> Work
+                </button>
+                <button id="toggle-hire" onclick="engine.switchMode('hire')" class="w-1/2 py-1 text-[11px] font-black rounded-lg z-10 text-slate-400 transition-all duration-300 flex items-center justify-center gap-1">
+                    <i class="fa-solid fa-building-columns"></i> Hire
+                </button>
+            </div>
         </div>
-        
-        <div class="bg-slate-950 p-1 rounded-full flex relative w-64 border border-slate-700">
-            <button id="btn-work" onclick="switchMode('work')" class="w-1/2 py-1.5 text-xs font-bold rounded-full z-10 transition-all duration-300 bg-gradient-to-r from-yellow-500 to-orange-500 text-slate-950">
-                <i class="fa-solid fa-briefcase mr-1"></i> Find Work
-            </button>
-            <button id="btn-hire" onclick="switchMode('hire')" class="w-1/2 py-1.5 text-xs font-bold rounded-full z-10 text-slate-400 transition-all duration-300">
-                <i class="fa-solid fa-users mr-1"></i> Hire Staff
-            </button>
+
+        <!-- Real-Time Gamification Live Status Bar -->
+        <div class="mt-2 px-1 flex justify-between items-center text-[11px]">
+            <div class="flex items-center gap-1.5 text-slate-400 bg-slate-900/40 px-2 py-0.5 rounded-md border border-slate-800/60">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                <span>User: <strong class="text-slate-200">Aktar Anjum</strong></span>
+            </div>
+            <div id="reputation-badge" class="bg-slate-900/40 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded-md font-bold">
+                <i class="fa-solid fa-crown text-[10px]"></i> Elite Rank (4.9★)
+            </div>
         </div>
     </header>
 
-    <main class="flex-1 flex items-center justify-center relative px-4">
-        <div id="match-popup" class="hidden absolute inset-0 bg-slate-950/90 z-50 flex flex-col items-center justify-center text-center p-6 animate-fade-in">
-            <div class="text-6xl mb-4 animate-bounce">🎉</div>
-            <h2 class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500">IT'S A MATCH!</h2>
-            <p id="match-text" class="text-slate-300 my-4 max-w-xs text-sm"></p>
-            <div class="flex gap-3 w-full max-w-xs mt-2">
-                <button onclick="closeMatch()" class="flex-1 bg-slate-800 hover:bg-slate-700 border border-slate-600 py-3 rounded-xl font-bold text-sm">Keep Swiping</button>
-                <button onclick="alert('Chat feature coming soon in main build!')" class="flex-1 bg-gradient-to-r from-green-500 to-emerald-600 text-slate-950 font-black py-3 rounded-xl text-sm shadow-lg shadow-green-500/20">Chat on UPI</button>
+    <!-- Main Deck / Interaction Arena -->
+    <main class="flex-1 w-full max-w-md mx-auto flex items-center justify-center relative px-4 z-20">
+        
+        <!-- Live Match Celebration Portal -->
+        <div id="match-portal" class="hidden absolute inset-0 z-50 glassmorphism rounded-3xl m-4 flex flex-col items-center justify-center p-6 text-center animate-fade-in border border-emerald-500/30">
+            <div class="w-20 h-20 bg-gradient-to-tr from-emerald-400 to-green-600 rounded-full flex items-center justify-center text-3xl shadow-2xl shadow-green-500/40 animate-bounce mb-4">
+                🤝
+            </div>
+            <h2 class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 tracking-tight">IT'S A MATCH!</h2>
+            <p class="text-xs text-slate-400 mt-1 uppercase tracking-widest">Kolkata Fast-Track Node</p>
+            
+            <p id="match-details" class="text-sm text-slate-300 my-5 bg-slate-900/60 p-4 rounded-xl border border-slate-800 max-w-xs leading-relaxed"></p>
+            
+            <!-- Real-time UPI Match Action Handlers -->
+            <div class="flex flex-col gap-2 w-full max-w-xs">
+                <button onclick="engine.initiateInstantChat()" class="w-full bg-gradient-to-r from-emerald-500 to-green-600 text-slate-950 font-black py-3 rounded-xl text-xs tracking-wider uppercase shadow-xl hover:opacity-90 transition active:scale-95">
+                    <i class="fa-solid fa-comments mr-1"></i> Open Instant Chat Node
+                </button>
+                <button onclick="engine.closeMatchPortal()" class="w-full bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 py-2.5 rounded-xl text-xs font-bold transition">
+                    Keep Swiping Market
+                </button>
             </div>
         </div>
 
-        <div id="card-deck" class="relative w-full max-w-sm h-[460px] flex items-center justify-center">
-            </div>
+        <!-- The Dynamic Card Deck Insertion Anchor -->
+        <div id="deck-anchor" class="relative w-full h-[460px] flex items-center justify-center">
+            <!-- Cards are structurally rendered and managed dynamically via State Machine Engine -->
+        </div>
     </main>
 
-    <footer class="p-6 bg-gradient-to-t from-slate-950 to-transparent flex justify-center items-center gap-6 z-10">
-        <button onclick="swipe('left')" class="w-14 h-14 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-red-500 rounded-full flex items-center justify-center text-xl shadow-lg transition transform active:scale-90">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-        <button onclick="alert('SOS Instant Alert sent to nearest 3km radius!')" class="w-12 h-12 bg-yellow-500/10 hover:bg-yellow-500/20 border border-yellow-500/30 text-yellow-400 rounded-full flex items-center justify-center text-sm font-bold shadow-md transition transform active:scale-90">
-            ⚡ SOS
-        </button>
-        <button onclick="swipe('right')" class="w-14 h-14 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-green-400 rounded-full flex items-center justify-center text-xl shadow-lg transition transform active:scale-90">
-            <i class="fa-solid fa-heart"></i>
-        </button>
+    <!-- Professional Control System Grid -->
+    <footer class="w-full max-w-md mx-auto p-4 z-30 flex flex-col gap-3">
+        <!-- Live Global Metrics Deck Tracker -->
+        <div class="grid grid-cols-3 gap-2 bg-slate-900/50 p-2 rounded-xl border border-slate-800 text-center text-[10px]">
+            <div class="border-r border-slate-800">
+                <p class="text-slate-500 uppercase tracking-wider">Swipes Left</p>
+                <p id="stat-swipes" class="text-slate-200 font-bold text-xs mt-0.5">0</p>
+            </div>
+            <div class="border-r border-slate-800">
+                <p class="text-slate-500 uppercase tracking-wider">Total XP</p>
+                <p id="stat-xp" class="text-amber-400 font-bold text-xs mt-0.5">1,250</p>
+            </div>
+            <div>
+                <p class="text-slate-500 uppercase tracking-wider">Node Active</p>
+                <p class="text-emerald-400 font-bold text-xs mt-0.5 flex items-center justify-center gap-1">
+                    <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span> 42 Gigs
+                </p>
+            </div>
+        </div>
+
+        <!-- Control Action Interface -->
+        <div class="flex justify-between items-center px-4">
+            <!-- Dislike Trigger -->
+            <button onclick="engine.executeManualSwipe('left')" class="w-14 h-14 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-rose-500 rounded-full flex items-center justify-center text-xl shadow-xl transition transform active:scale-90 group">
+                <i class="fa-solid fa-xmark group-hover:rotate-90 transition duration-200"></i>
+            </button>
+            
+            <!-- Hyper-Local 3km SOS Surge Price Activation Node -->
+            <button onclick="engine.triggerUrgentSosAlert()" class="h-11 px-5 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-400 rounded-full flex items-center justify-center gap-2 text-xs font-black tracking-widest shadow-lg transition transform active:scale-95 uppercase">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                </span>
+                ⚡ SOS Surge
+            </button>
+            
+            <!-- Like Trigger -->
+            <button onclick="engine.executeManualSwipe('right')" class="w-14 h-14 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-emerald-400 rounded-full flex items-center justify-center text-xl shadow-xl transition transform active:scale-90 group">
+                <i class="fa-solid fa-heart group-hover:scale-125 transition duration-200"></i>
+            </button>
+        </div>
     </footer>
 
+    <!-- Full-Scale Monolithic State Machine & API Integration Layer -->
     <script>
-        // Mock Data for Kolkata Market
-        const jobCards = [
-            { id: 1, title: "Weekend Barista", company: "Roastery Cafe", loc: "Gariahat", pay: "₹180/hr", time: "Sat-Sun (4PM - 10PM)", badge: "Verified Barista", urgent: true },
-            { id: 2, title: "Book Cataloger", company: "Dasgupta Publishers", loc: "College Street", pay: "₹600/Day", time: "Flexible 4 Hours", badge: "Data Entry Pro", urgent: false },
-            { id: 3, title: "Reel Content Creator", company: "The Tribe Cafe", loc: "Salt Lake Sec V", pay: "₹1,500/Gig", time: "Instant (2 Hours)", badge: "Reel Creator", urgent: true },
-            { id: 4, title: "Stall Sales Executive", company: "Handloom Expo", loc: "Milan Mela", pay: "₹1,000/Day", time: "Full Day Shift", badge: "Weekend Sales Pro", urgent: false }
-        ];
+        class GigHubCoreEngine {
+            constructor() {
+                // Real-world localized Kolkata Mock Database Structures
+                this.jobGigsData = [
+                    { id: 101, title: "Specialist Barista", entity: "Roastery Coffee House", location: "Gariahat", basePay: 180, multiplier: 1.5, timing: "Sat-Sun (4 PM - 10 PM)", tag: "Verified Barista", isUrgent: true },
+                    { id: 102, title: "Academic Manuscript Cataloger", entity: "Dasgupta Publishers", location: "College Street", basePay: 150, multiplier: 1.0, timing: "Flexible 4hr Window", tag: "Data Entry Pro", isUrgent: false },
+                    { id: 103, title: "Visual Reel Content Director", entity: "Sienna Store & Cafe", location: "Hindustan Park", basePay: 250, multiplier: 1.5, timing: "Instant Gig (3 Hours)", tag: "Reel Creator", isUrgent: true },
+                    { id: 104, title: "Premium Stall Manager", entity: "Artisanal Guild Exhibition", location: "Milan Mela Complex", basePay: 140, multiplier: 1.0, timing: "Full Day Expo Shift", tag: "Weekend Sales Pro", isUrgent: false },
+                    { id: 105, title: "Late Night Operations Crew", entity: "Flurys Patisserie", location: "Park Street", basePay: 200, multiplier: 1.0, timing: "Fri-Sat (8 PM - 2 AM)", tag: "Trusted Editor", isUrgent: false }
+                ];
 
-        const studentCards = [
-            { id: 1, name: "Subham Dey", college: "Jadavpur University", score: "4.9 ★", distance: "1.2 km away", badge: "Verified Barista", shifts: "14 Shifts Done" },
-            { id: 2, name: "Ananya Sen", college: "Asutosh College", score: "4.7 ★", distance: "0.8 km away", badge: "Reel Creator", shifts: "8 Shifts Done" },
-            { id: 3, name: "Rohan Das", college: "Calcutta University", score: "4.8 ★", distance: "2.5 km away", badge: "Weekend Sales Pro", shifts: "22 Shifts Done" }
-        ];
+                this.applicantStudentsData = [
+                    { id: 201, name: "Subham Dey", institute: "Jadavpur University", metric: "4.9 ★", geolocation: "0.8 km away (Hazra Route)", tag: "Verified Barista", history: "14 Successful Shifts" },
+                    { id: 202, name: "Ananya Sen", institute: "Asutosh College", metric: "4.7 ★", geolocation: "1.4 km away (Metro Line)", tag: "Reel Creator", history: "8 Successful Shifts" },
+                    { id: 203, name: "Rohan Das", institute: "Calcutta University", metric: "4.8 ★", geolocation: "2.5 km away (College St Node)", tag: "Weekend Sales Pro", history: "22 Successful Shifts" },
+                    { id: 204, name: "Priya Chakraborty", institute: "St. Xavier's College", metric: "5.0 ★", geolocation: "0.4 km away (Park St Hub)", tag: "Trusted Editor", history: "31 Successful Shifts" }
+                ];
 
-        let currentMode = 'work'; // Default Mode
-        let currentIndex = 0;
-        let activeData = [...jobCards];
-
-        function renderDeck() {
-            const deck = document.getElementById('card-deck');
-            deck.innerHTML = '';
-            
-            if (currentIndex >= activeData.length) {
-                deck.innerHTML = `<div class="text-center text-slate-500 font-medium">
-                                    <i class="fa-solid fa-circle-check text-4xl text-slate-700 mb-2 block"></i>
-                                    No more cards nearby!<br><span class="text-xs">Try switching modes or widening radius.</span>
-                                  </div>`;
-                return;
-            }
-
-            // Render top 2 cards for stacking effect
-            for (let i = currentIndex + 1; i >= currentIndex; i--) {
-                if (i >= activeData.length) continue;
-                const item = activeData[i];
-                const isTopCard = (i === currentIndex);
+                // Runtime State Containers
+                this.currentMode = 'work'; // 'work' = Looking for job, 'hire' = Looking for student
+                this.pointerIndex = 0;
+                this.activeDataset = [...this.jobGigsData];
                 
-                const card = document.createElement('div');
-                card.className = `absolute w-full h-full bg-slate-800 rounded-3xl border border-slate-700 p-6 flex flex-col justify-between shadow-2xl card-transition transform origin-bottom ${isTopCard ? 'z-20 scale-100 opacity-100' : 'z-10 scale-95 opacity-50 translate-y-4'}`;
-                card.id = `card-${item.id}`;
+                // Track Analytics Variables locally
+                this.statistics = { totalSwipes: 0, accumulatedXp: 1250 };
+            }
 
-                if (currentMode === 'work') {
-                    // JOB CARD UI
-                    card.innerHTML = `
-                        <div>
-                            <div class="flex justify-between items-start">
-                                <span class="text-xs font-bold tracking-wide uppercase px-2.5 py-1 rounded-md ${item.urgent ? 'bg-red-500/20 text-red-400 border border-red-500/30 animate-pulse' : 'bg-blue-500/20 text-blue-400'}">
-                                    ${item.urgent ? '🔥 URGENT (1.5x)' : 'Part-Time'}
-                                </span>
-                                <span class="text-xl font-black text-emerald-400">${item.pay}</span>
-                            </div>
-                            <h2 class="text-2xl font-black mt-4 text-white leading-tight">${item.title}</h2>
-                            <p class="text-slate-400 text-sm font-semibold flex items-center gap-1 mt-1">
-                                <i class="fa-solid fa-store text-xs text-yellow-500"></i> ${item.company}
-                            </p>
-                            
-                            <div class="mt-6 space-y-2">
-                                <div class="flex items-center gap-2 text-xs text-slate-300 bg-slate-900/50 p-2 rounded-lg">
-                                    <i class="fa-solid fa-location-dot text-orange-500 w-4"></i>
-                                    <span>${item.loc}, Kolkata</span>
-                                </div>
-                                <div class="flex items-center gap-2 text-xs text-slate-300 bg-slate-900/50 p-2 rounded-lg">
-                                    <i class="fa-solid fa-clock text-blue-400 w-4"></i>
-                                    <span>${item.time}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="border-t border-slate-700/60 pt-4 flex justify-between items-center">
-                            <span class="text-xs font-bold text-slate-400">Prefers Tag:</span>
-                            <span class="text-xs font-bold bg-slate-950 text-yellow-400 border border-yellow-500/20 px-2.5 py-1 rounded-full"><i class="fa-solid fa-award"></i> ${item.badge}</span>
-                        </div>
-                    `;
+            init() {
+                this.renderActiveDeck();
+                this.updateStatisticsPanel();
+            }
+
+            switchMode(selectedMode) {
+                if (this.currentMode === selectedMode) return;
+                this.currentMode = selectedMode;
+                this.pointerIndex = 0;
+                this.activeDataset = (selectedMode === 'work') ? [...this.jobGigsData] : [...this.applicantStudentsData];
+                
+                const btnWork = document.getElementById('toggle-work');
+                const btnHire = document.getElementById('toggle-hire');
+                
+                if (selectedMode === 'work') {
+                    btnWork.className = "w-1/2 py-1 text-[11px] font-black rounded-lg z-10 transition-all duration-300 flex items-center justify-center gap-1 bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 shadow-md";
+                    btnHire.className = "w-1/2 py-1 text-[11px] font-black rounded-lg z-10 text-slate-400 transition-all duration-300 flex items-center justify-center gap-1";
                 } else {
-                    // STUDENT APPLICANT CARD UI
-                    card.innerHTML = `
-                        <div>
-                            <div class="flex justify-between items-start">
-                                <span class="text-xs font-bold uppercase bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-md">
-                                    ${item.shifts}
-                                </span>
-                                <span class="text-sm font-black bg-slate-950 px-2.5 py-1 rounded-full text-yellow-400 border border-slate-700 flex items-center gap-1">${item.score}</span>
+                    btnHire.className = "w-1/2 py-1 text-[11px] font-black rounded-lg z-10 transition-all duration-300 flex items-center justify-center gap-1 bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 shadow-md";
+                    btnWork.className = "w-1/2 py-1 text-[11px] font-black rounded-lg z-10 text-slate-400 transition-all duration-300 flex items-center justify-center gap-1";
+                }
+                
+                this.renderActiveDeck();
+            }
+
+            renderActiveDeck() {
+                const anchor = document.getElementById('deck-anchor');
+                anchor.innerHTML = '';
+
+                if (this.pointerIndex >= this.activeDataset.length) {
+                    anchor.innerHTML = `
+                        <div class="text-center p-6 bg-slate-900/40 rounded-2xl border border-slate-800 max-w-xs animate-fade-in">
+                            <div class="w-12 h-12 rounded-full bg-slate-800/80 mx-auto flex items-center justify-center text-slate-600 mb-3 border border-slate-700">
+                                <i class="fa-solid fa-database text-lg"></i>
                             </div>
-                            <h2 class="text-2xl font-black mt-4 text-white leading-tight">${item.name}</h2>
-                            <p class="text-slate-400 text-sm font-semibold flex items-center gap-1 mt-1">
-                                <i class="fa-solid fa-graduation-cap text-xs text-indigo-400"></i> ${item.college}
-                            </p>
-                            
-                            <div class="mt-6 space-y-2">
-                                <div class="flex items-center gap-2 text-xs text-slate-300 bg-slate-900/50 p-2 rounded-lg">
-                                    <i class="fa-solid fa-street-view text-orange-500 w-4"></i>
-                                    <span>${item.distance} (Nearest Metro)</span>
+                            <h3 class="text-sm font-bold text-slate-300">End of Local Node Data</h3>
+                            <p class="text-[11px] text-slate-500 mt-1">Expanding query parameters or wait for real-time location ping updates.</p>
+                        </div>`;
+                    return;
+                }
+
+                // Render 2 stacked cards to maximize look and feel depth
+                for (let step = this.pointerIndex + 1; step >= this.pointerIndex; step--) {
+                    if (step >= this.activeDataset.length) continue;
+                    
+                    const packet = this.activeDataset[step];
+                    const isTopmost = (step === this.pointerIndex);
+                    
+                    const cardInstance = document.createElement('div');
+                    cardInstance.className = `absolute w-full h-full bg-gradient-to-b from-slate-800/95 to-slate-900/95 border border-slate-700/60 rounded-3xl p-5 flex flex-col justify-between shadow-2xl card-stack-transition transform origin-bottom ${
+                        isTopmost ? 'z-20 scale-100 opacity-100 pointer-events-auto' : 'z-10 scale-95 opacity-40 translate-y-4 pointer-events-none'
+                    }`;
+                    
+                    if (this.currentMode === 'work') {
+                        const trueRate = Math.round(packet.basePay * packet.multiplier);
+                        cardInstance.innerHTML = `
+                            <div>
+                                <div class="flex justify-between items-start">
+                                    <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md ${
+                                        packet.isUrgent ? 'bg-red-500/10 text-red-400 border border-red-500/20 animate-pulse' : 'bg-slate-950 text-slate-400 border border-slate-800'
+                                    }">
+                                        ${packet.isUrgent ? '🔥 SOS SURGE' : 'Verified Gig'}
+                                    </span>
+                                    <div class="text-right">
+                                        <span class="text-lg font-black text-emerald-400">₹${trueRate}/hr</span>
+                                        ${packet.isUrgent ? `<p class="text-[9px] text-rose-400 font-bold line-through">₹${packet.basePay}</p>` : ''}
+                                    </div>
+                                </div>
+                                
+                                <h3 class="text-xl font-black mt-5 text-slate-100 tracking-tight leading-snug">${packet.title}</h3>
+                                <p class="text-xs text-amber-400 font-medium flex items-center gap-1.5 mt-1.5">
+                                    <i class="fa-solid fa-mug-hot text-[10px]"></i> ${packet.entity}
+                                </p>
+
+                                <div class="mt-6 space-y-1.5">
+                                    <div class="flex items-center gap-2.5 text-[11px] text-slate-300 bg-slate-950/40 p-2.5 rounded-xl border border-slate-900">
+                                        <i class="fa-solid fa-map-pin text-orange-500 w-3 text-center"></i>
+                                        <span>${packet.location}, Kolkata Node</span>
+                                    </div>
+                                    <div class="flex items-center gap-2.5 text-[11px] text-slate-300 bg-slate-950/40 p-2.5 rounded-xl border border-slate-900">
+                                        <i class="fa-solid fa-business-time text-sky-400 w-3 text-center"></i>
+                                        <span>${packet.timing}</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="border-t border-slate-700/60 pt-4 flex justify-between items-center">
-                            <span class="text-xs font-bold text-slate-400">Unlocked Badge:</span>
-                            <span class="text-xs font-bold bg-slate-950 text-yellow-400 border border-yellow-500/20 px-2.5 py-1 rounded-full"><i class="fa-solid fa-shield-halved"></i> ${item.badge}</span>
-                        </div>
-                    `;
+
+                            <div class="border-t border-slate-800 pt-4 flex justify-between items-center text-[11px]">
+                                <span class="text-slate-500 font-medium">Target Competency:</span>
+                                <span class="font-black bg-slate-950 text-amber-400 border border-amber-500/20 px-2.5 py-1 rounded-lg flex items-center gap-1">
+                                    <i class="fa-solid fa-award text-[10px]"></i> ${packet.tag}
+                                </span>
+                            </div>`;
+                    } else {
+                        // RECRUITER MODE VIEWPORT
+                        cardInstance.innerHTML = `
+                            <div>
+                                <div class="flex justify-between items-start">
+                                    <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                                        <i class="fa-solid fa-circle-check mr-0.5"></i> ${packet.history}
+                                    </span>
+                                    <span class="text-xs font-black bg-slate-950 px-2.5 py-1 rounded-lg text-amber-400 border border-slate-800 flex items-center gap-1">
+                                        <i class="fa-solid fa-star text-[9px]"></i> ${packet.metric}
+                                    </span>
+                                </div>
+                                
+                                <h3 class="text-xl font-black mt-5 text-slate-100 tracking-tight leading-snug">${packet.name}</h3>
+                                <p class="text-xs text-indigo-400 font-medium flex items-center gap-1.5 mt-1.5">
+                                    <i class="fa-solid fa-building-columns text-[10px]"></i> ${packet.institute}
+                                </p>
+
+                                <div class="mt-6 space-y-1.5">
+                                    <div class="flex items-center gap-2.5 text-[11px] text-slate-300 bg-slate-950/40 p-2.5 rounded-xl border border-slate-900">
+                                        <i class="fa-solid fa-location-arrow text-emerald-500 w-3 text-center"></i>
+                                        <span>${packet.geolocation}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border-t border-slate-800 pt-4 flex justify-between items-center text-[11px]">
+                                <span class="text-slate-500 font-medium">Verified Attribute:</span>
+                                <span class="font-black bg-slate-950 text-amber-400 border border-amber-500/20 px-2.5 py-1 rounded-lg flex items-center gap-1">
+                                    <i class="fa-solid fa-shield-halved text-[10px]"></i> ${packet.tag}
+                                </span>
+                            </div>`;
+                    }
+                    anchor.appendChild(cardInstance);
                 }
-                deck.appendChild(card);
             }
-        }
 
-        function swipe(direction) {
-            if (currentIndex >= activeData.length) return;
-            
-            const topCard = document.querySelector('#card-deck .z-20');
-            if (!topCard) return;
+            executeManualSwipe(direction) {
+                if (this.pointerIndex >= this.activeDataset.length) return;
 
-            if (direction === 'right') {
-                topCard.classList.add('swipe-right');
-                // Simulate a 50% chance of a "Match" for interactive proto feel
-                if (Math.random() > 0.4) {
-                    setTimeout(() => {
-                        const matchedItem = activeData[currentIndex - 1]; 
-                        document.getElementById('match-text').innerText = currentMode === 'work' 
-                            ? `You and ${matchedItem.company} swiped right on each other! They need you today.`
-                            : `You and ${matchedItem.name} matched! Ready to start the shift?`;
-                        document.getElementById('match-popup').classList.remove('hidden');
-                    }, 400);
+                const cardCollection = document.getElementById('deck-anchor').children;
+                // Get the topmost processing DOM instance
+                let targetedDomNode = null;
+                for (let i = 0; i < cardCollection.length; i++) {
+                    if (cardCollection[i].classList.contains('z-20')) {
+                        targetedDomNode = cardCollection[i];
+                        break;
+                    }
                 }
-            } else {
-                topCard.classList.add('swipe-left');
+
+                if (!targetedDomNode) return;
+
+                // Fire custom animations
+                if (direction === 'right') {
+                    targetedDomNode.classList.add('swipe-right-anim');
+                    this.statistics.accumulatedXp += 75; // Reward operational XP points
+                    
+                    // Simulate production matching probability matrix (approx 50% rate)
+                    if (Math.random() > 0.45) {
+                        const isolatedMatchData = this.activeDataset[this.pointerIndex];
+                        setTimeout(() => this.triggerMatchPortalOverlay(isolatedMatchData), 350);
+                    }
+                } else {
+                    targetedDomNode.classList.add('swipe-left-anim');
+                }
+
+                this.statistics.totalSwipes++;
+                this.pointerIndex++;
+                
+                // Track update pipelines
+                this.updateStatisticsPanel();
+                setTimeout(() => this.renderActiveDeck(), 400);
             }
 
-            currentIndex++;
-            setTimeout(renderDeck, 300);
-        }
-
-        function closeMatch() {
-            document.getElementById('match-popup').classList.add('hidden');
-        }
-
-        function switchMode(mode) {
-            if (currentMode === mode) return;
-            currentMode = mode;
-            currentIndex = 0;
-            activeData = (mode === 'work') ? [...jobCards] : [...studentCards];
-            
-            // Adjust toggle button styles
-            const btnWork = document.getElementById('btn-work');
-            const btnHire = document.getElementById('btn-hire');
-            
-            if (mode === 'work') {
-                btnWork.className = "w-1/2 py-1.5 text-xs font-bold rounded-full z-10 transition-all duration-300 bg-gradient-to-r from-yellow-500 to-orange-500 text-slate-950";
-                btnHire.className = "w-1/2 py-1.5 text-xs font-bold rounded-full z-10 text-slate-400 transition-all duration-300";
-            } else {
-                btnHire.className = "w-1/2 py-1.5 text-xs font-bold rounded-full z-10 transition-all duration-300 bg-gradient-to-r from-yellow-500 to-orange-500 text-slate-950";
-                btnWork.className = "w-1/2 py-1.5 text-xs font-bold rounded-full z-10 text-slate-400 transition-all duration-300";
+            triggerMatchPortalOverlay(matchedObject) {
+                const overlay = document.getElementById('match-portal');
+                const textArea = document.getElementById('match-details');
+                
+                if (this.currentMode === 'work') {
+                    textArea.innerHTML = `Your application profile has been instant-matched with <strong>${matchedObject.entity}</strong> for the role of <strong>${matchedObject.title}</strong> in ${matchedObject.location}. Payout tier setup successfully optimized.`;
+                } else {
+                    textArea.innerHTML = `Operational match locked with student researcher <strong>${matchedObject.name}</strong> from <strong>${matchedObject.institute}</strong>. They passed proximity metrics configuration checks.`;
+                }
+                overlay.classList.remove('hidden');
             }
-            renderDeck();
+
+            closeMatchPortal() {
+                document.getElementById('match-portal').classList.add('hidden');
+            }
+
+            initiateInstantChat() {
+                alert("Opening End-to-End WebSocket Secure Chat Engine via Supabase Real-Time Channel Router...");
+                this.closeMatchPortal();
+            }
+
+            triggerUrgentSosAlert() {
+                alert("System Notice: Broadcasted Hyper-Local SOS Surge Request Matrix across 3km geofence radius. Multiplier configured to 1.5x payout rate.");
+                this.statistics.accumulatedXp += 150;
+                this.updateStatisticsPanel();
+            }
+
+            updateStatisticsPanel() {
+                document.getElementById('stat-swipes').innerText = this.statistics.totalSwipes;
+                document.getElementById('stat-xp').innerText = this.statistics.accumulatedXp.toLocaleString();
+            }
         }
 
-        // Initialize Deck on Load
-        renderDeck();
+        // Initialize core component framework architecture engine
+        const engine = new GigHubCoreEngine();
+        document.addEventListener('DOMContentLoaded', () => engine.init());
     </script>
 </body>
 </html>
