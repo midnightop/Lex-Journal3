@@ -15,10 +15,10 @@
         body {
             font-family: 'Inter', sans-serif;
             background:
-                radial-gradient(circle at 8% 0%, rgba(99,102,241,0.10), transparent 40%),
-                radial-gradient(circle at 95% 15%, rgba(236,72,153,0.08), transparent 40%),
-                radial-gradient(circle at 50% 100%, rgba(16,185,129,0.07), transparent 45%),
-                #fafbff;
+                radial-gradient(circle at 8% 0%, rgba(220,38,38,0.10), transparent 40%),
+                radial-gradient(circle at 95% 15%, rgba(239,68,68,0.08), transparent 40%),
+                radial-gradient(circle at 50% 100%, rgba(185,28,28,0.07), transparent 45%),
+                #fffafa;
             color: #1e293b;
             line-height: 1.75;
             scroll-behavior: smooth;
@@ -27,7 +27,7 @@
         .font-serif { font-family: 'Playfair Display', serif; }
 
         .title-gradient{
-            background: linear-gradient(100deg, #4f46e5 0%, #2563eb 35%, #7c3aed 70%, #db2777 100%);
+            background: linear-gradient(100deg, #ef4444 0%, #dc2626 35%, #b91c1c 70%, #7f1d1d 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -36,7 +36,7 @@
         .glass-nav {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(99,102,241,0.10);
+            border-bottom: 1px solid rgba(220,38,38,0.10);
         }
 
         .content-section {
@@ -46,31 +46,31 @@
         }
 
         .highlight-box {
-            background: linear-gradient(160deg, #eef2ff 0%, #ffffff 55%);
+            background: linear-gradient(160deg, #fef2f2 0%, #ffffff 55%);
             border-radius: 24px;
             padding: 28px;
             margin: 32px 0;
-            border: 1px solid #e0e7ff;
-            border-left: 6px solid #4f46e5;
-            box-shadow: 0 8px 24px rgba(79,70,229,0.08);
+            border: 1px solid #fee2e2;
+            border-left: 6px solid #dc2626;
+            box-shadow: 0 8px 24px rgba(220,38,38,0.08);
         }
 
         .author-card {
-            background: linear-gradient(160deg, #ffffff, #faf5ff 120%);
-            border: 1px solid #f1e6ff;
+            background: linear-gradient(160deg, #ffffff, #fff5f5 120%);
+            border: 1px solid #fee2e2;
             border-radius: 30px;
             padding: 26px;
             margin-top: 50px;
-            box-shadow: 0 14px 34px rgba(124,58,237,0.08);
+            box-shadow: 0 14px 34px rgba(220,38,38,0.08);
         }
 
         .download-card {
-            background: linear-gradient(135deg, #eff6ff, #fdf4ff);
-            border: 1px solid #dbeafe;
+            background: linear-gradient(135deg, #fef2f2, #fff5f5);
+            border: 1px solid #fecaca;
             border-radius: 30px;
             padding: 25px;
             margin-top: 32px;
-            box-shadow: 0 10px 30px rgba(37,99,235,0.08);
+            box-shadow: 0 10px 30px rgba(220,38,38,0.08);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -82,7 +82,7 @@
             position: fixed;
             bottom: 30px;
             right: 25px;
-            background: linear-gradient(135deg, #4f46e5, #db2777);
+            background: linear-gradient(135deg, #dc2626, #991b1b);
             color: white;
             width: 58px;
             height: 58px;
@@ -90,14 +90,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 12px 28px rgba(124,58,237,0.35);
+            box-shadow: 0 12px 28px rgba(220,38,38,0.35);
             z-index: 100;
         }
 
         .progress-bar {
             position: fixed;
             top: 0; left: 0; height: 4px;
-            background: linear-gradient(90deg, #4f46e5, #2563eb, #db2777);
+            background: linear-gradient(90deg, #ef4444, #dc2626, #991b1b);
             width: 0%; z-index: 1000;
         }
 
@@ -114,20 +114,20 @@
             gap: 8px;
             padding: 10px 18px;
             border-radius: 100px;
-            background: linear-gradient(100deg, #4f46e5, #2563eb);
-            box-shadow: 0 8px 18px rgba(37,99,235,0.25);
+            background: linear-gradient(100deg, #ef4444, #dc2626);
+            box-shadow: 0 8px 18px rgba(220,38,38,0.25);
         }
-        h2.h2-violet{ background: linear-gradient(100deg, #7c3aed, #a855f7); box-shadow: 0 8px 18px rgba(124,58,237,0.25); }
-        h2.h2-emerald{ background: linear-gradient(100deg, #059669, #10b981); box-shadow: 0 8px 18px rgba(5,150,105,0.25); }
-        h2.h2-pink{ background: linear-gradient(100deg, #db2777, #ec4899); box-shadow: 0 8px 18px rgba(219,39,119,0.25); }
+        h2.h2-violet{ background: linear-gradient(100deg, #dc2626, #b91c1c); box-shadow: 0 8px 18px rgba(220,38,38,0.25); }
+        h2.h2-emerald{ background: linear-gradient(100deg, #b91c1c, #991b1b); box-shadow: 0 8px 18px rgba(185,28,28,0.25); }
+        h2.h2-pink{ background: linear-gradient(100deg, #991b1b, #7f1d1d); box-shadow: 0 8px 18px rgba(153,27,27,0.25); }
 
         .content-section p { margin-bottom: 24px; font-weight: 400; }
-        strong { color: #4338ca; font-weight: 700; background: linear-gradient(180deg, transparent 60%, #e0e7ff 60%); padding: 0 2px; border-radius: 3px; }
+        strong { color: #b91c1c; font-weight: 700; background: linear-gradient(180deg, transparent 60%, #fee2e2 60%); padding: 0 2px; border-radius: 3px; }
 
         .kicker-pill{
             display:inline-block;
             font-size:10px; font-weight:900; letter-spacing:.2em; text-transform:uppercase;
-            color:#4f46e5; background:#eef2ff; border:1px solid #e0e7ff;
+            color:#dc2626; background:#fef2f2; border:1px solid #fee2e2;
             padding:6px 14px; border-radius:100px; margin-bottom:14px;
         }
     </style>
@@ -142,7 +142,7 @@
         </a>
         <div class="text-center">
             <span class="text-[8px] font-black uppercase tracking-[0.3em] text-slate-400 block">Lawjournal.online</span>
-            <span class="text-[10px] font-bold text-blue-600 uppercase">Article Hub</span>
+            <span class="text-[10px] font-bold text-red-600 uppercase">Article Hub</span>
         </div>
         <div class="w-10"></div>
     </nav>
@@ -156,12 +156,12 @@
             </h1>
             <p class="text-sm text-slate-500 font-semibold mb-8">"The Law Does Not Compel the Impossible"</p>
 
-            <div class="flex items-center gap-4 p-1 bg-white rounded-full pr-6 border border-indigo-100 w-fit shadow-sm">
-                <img src="author7.png" onerror="this.src='https://ui-avatars.com/api/?name=Shagun+Malik&background=4f46e5&color=fff'" class="w-12 h-12 rounded-full border-2 border-white object-cover ring-2 ring-indigo-200">
+            <div class="flex items-center gap-4 p-1 bg-white rounded-full pr-6 border border-red-100 w-fit shadow-sm">
+                <img src="author7.png" onerror="this.src='https://ui-avatars.com/api/?name=Shagun+Malik&background=dc2626&color=fff'" class="w-12 h-12 rounded-full border-2 border-white object-cover ring-2 ring-red-200">
                 <div>
                     <div class="flex items-center gap-1">
                         <h4 class="font-black text-slate-800 text-xs">Shagun Malik</h4>
-                        <i class="fa-solid fa-circle-check text-indigo-500 text-[10px]"></i>
+                        <i class="fa-solid fa-circle-check text-red-500 text-[10px]"></i>
                     </div>
                     <p class="text-[8px] text-slate-500 font-bold uppercase">IIMT University, Meerut</p>
                 </div>
@@ -199,8 +199,8 @@
             <h2 class="h2-emerald"><i class="fa-solid fa-scale-balanced"></i> Importance of the Maxim in Legal Doctrine</h2>
             <p>The enduring importance of this maxim lies in its capacity to reconcile legal certainty with substantive fairness. It acts as a restraint on the rigid enforcement of obligations that no reasonable person could discharge and protects individuals from liability arising solely from genuine supervening impossibility. By encouraging a realistic and context-sensitive interpretation of legal duties, the maxim strengthens public confidence in the legal system and reinforces the value of equity, reasonableness, and good conscience.</p>
 
-            <div class="text-white p-8 rounded-[30px] shadow-xl mt-10" style="background: linear-gradient(150deg, #1e1b4b, #312e81 55%, #4c1d95);">
-                <h4 class="font-black uppercase text-[10px] mb-3 text-pink-300 tracking-widest"><i class="fa-solid fa-quote-left mr-1"></i> Concluding Note</h4>
+            <div class="text-white p-8 rounded-[30px] shadow-xl mt-10" style="background: linear-gradient(150deg, #7f1d1d, #991b1b 55%, #b91c1c);">
+                <h4 class="font-black uppercase text-[10px] mb-3 text-red-300 tracking-widest"><i class="fa-solid fa-quote-left mr-1"></i> Concluding Note</h4>
                 <p class="text-base leading-relaxed font-medium">
                     <em>Lex non cogit ad impossibilia</em> remains a central principle of legal interpretation because it maintains that justice must not be subordinated to mechanical or technical rigidity. Its consistent recognition by Indian courts demonstrates that legal obligations must always be assessed in light of concrete factual circumstances and practical constraints. Through its application in contract, administrative, and constitutional law, the maxim continues to mediate the relationship between the rule of law and fairness. By refusing to compel the impossible, the legal system preserves both the normative authority of law and the fundamental ideals of justice.
                 </p>
@@ -212,20 +212,20 @@
                 <h4 class="font-black text-slate-900 text-sm mb-1">Download the full article</h4>
                 <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wide">Original PDF as submitted by the author</p>
             </div>
-            <a href="lex-non-cogit-ad-impossibilia.pdf" download class="text-white px-6 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest shadow-md active:scale-95 transition-all flex items-center gap-2 whitespace-nowrap" style="background: linear-gradient(100deg, #4f46e5, #2563eb);">
+            <a href="lex-non-cogit-ad-impossibilia.pdf" download class="text-white px-6 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest shadow-md active:scale-95 transition-all flex items-center gap-2 whitespace-nowrap" style="background: linear-gradient(100deg, #dc2626, #b91c1c);">
                 <i class="fa-solid fa-file-arrow-down"></i> Download PDF
             </a>
         </div>
 
         <div class="author-card">
             <div class="flex items-center gap-4 mb-6">
-                <img src="author7.png" onerror="this.src='https://ui-avatars.com/api/?name=Shagun+Malik&background=7c3aed&color=fff'" class="w-16 h-16 rounded-2xl object-cover shadow-md border-2 border-white ring-2 ring-violet-200">
+                <img src="author7.png" onerror="this.src='https://ui-avatars.com/api/?name=Shagun+Malik&background=dc2626&color=fff'" class="w-16 h-16 rounded-2xl object-cover shadow-md border-2 border-white ring-2 ring-red-200">
                 <div>
                     <div class="flex items-center gap-1">
                         <h3 class="font-black text-slate-900 text-lg leading-none">Shagun Malik</h3>
-                        <i class="fa-solid fa-circle-check text-violet-500 text-sm"></i>
+                        <i class="fa-solid fa-circle-check text-red-500 text-sm"></i>
                     </div>
-                    <p class="text-[9px] font-bold uppercase mt-2 tracking-tight leading-relaxed" style="color:#7c3aed;">
+                    <p class="text-[9px] font-bold uppercase mt-2 tracking-tight leading-relaxed" style="color:#dc2626;">
                         B.A. LL.B. Student &middot; IIMT University, Meerut
                     </p>
                 </div>
@@ -236,7 +236,7 @@
             </p>
 
             <div class="flex gap-3">
-                <a href="https://instagram.com/_chshagun" target="_blank" class="flex-1 bg-slate-50 border border-slate-200 py-3 rounded-xl text-center text-[10px] font-black uppercase tracking-widest text-pink-600 shadow-sm active:scale-95 transition-all">
+                <a href="https://instagram.com/_chshagun" target="_blank" class="flex-1 bg-slate-50 border border-slate-200 py-3 rounded-xl text-center text-[10px] font-black uppercase tracking-widest text-red-600 shadow-sm active:scale-95 transition-all">
                     <i class="fa-brands fa-instagram mr-2 text-sm"></i> Instagram
                 </a>
             </div>
