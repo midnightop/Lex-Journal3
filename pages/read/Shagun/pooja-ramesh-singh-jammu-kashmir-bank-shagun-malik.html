@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Human in the Loop: AI-Hallucinated Legal Authorities in Pooja Ramesh Singh v. Jammu and Kashmir Bank Ltd. | Lawjournal.online</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700;900&display=swap');
+
+        /* STRICT ANTI-COPY */
+        * {
+            -webkit-user-select: none !important;
+            user-select: none !important;
+            -webkit-touch-callout: none !important;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+
+            background:
+                radial-gradient(circle at 8% 0%, rgba(13,148,136,0.10), transparent 40%),
+                radial-gradient(circle at 95% 15%, rgba(20,184,166,0.08), transparent 40%),
+                radial-gradient(circle at 50% 100%, rgba(15,118,110,0.07), transparent 45%),
+                #fbfffe;
+
+            color: #1e293b;
+            line-height: 1.75;
+            scroll-behavior: smooth;
+        }
+
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* NEW COLOUR PALETTE — TEAL / EMERALD */
+
+        .title-gradient {
+            background: linear-gradient(
+                100deg,
+                #0f766e 0%,
+                #0d9488 35%,
+                #0f766e 70%,
+                #134e4a 100%
+            );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(13,148,136,0.12);
+        }
+
+        .content-section {
+            font-size: 18.5px;
+            color: #334155;
+            text-align: left;
+        }
+
+        .highlight-box {
+            background: linear-gradient(
+                160deg,
+                #ecfdf5 0%,
+                #ffffff 55%
+            );
+
+            border-radius: 24px;
+            padding: 28px;
+            margin: 32px 0;
+
+            border: 1px solid #ccfbf1;
+            border-left: 6px solid #0f766e;
+
+            box-shadow: 0 8px 24px rgba(13,148,136,0.08);
+        }
+
+        .author-card {
+            background: linear-gradient(
+                160deg,
+                #ffffff,
+                #f0fdfa 120%
+            );
+
+            border: 1px solid #ccfbf1;
+            border-radius: 30px;
+            padding: 26px;
+            margin-top: 50px;
+
+            box-shadow: 0 14px 34px rgba(13,148,136,0.08);
+        }
+
+        .download-card {
+            background: linear-gradient(
+                135deg,
+                #ecfdf5,
+                #f0fdfa
+            );
+
+            border: 1px solid #99f6e4;
+            border-radius: 30px;
+            padding: 25px;
+            margin-top: 32px;
+
+            box-shadow: 0 10px 30px rgba(13,148,136,0.08);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .share-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 25px;
+
+            background: linear-gradient(
+                135deg,
+                #0f766e,
+                #134e4a
+            );
+
+            color: white;
+            width: 58px;
+            height: 58px;
+            border-radius: 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            box-shadow: 0 12px 28px rgba(13,148,136,0.35);
+
+            z-index: 100;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+
+            background: linear-gradient(
+                90deg,
+                #14b8a6,
+                #0f766e,
+                #134e4a
+            );
+
+            width: 0%;
+            z-index: 1000;
+        }
+
+        h2 {
+            font-weight: 900;
+            color: #ffffff;
+
+            margin-top: 48px;
+            margin-bottom: 22px;
+
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+
+            font-size: 0.85rem;
+
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 10px 18px;
+            border-radius: 100px;
+
+            background: linear-gradient(
+                100deg,
+                #0d9488,
+                #0f766e
+            );
+
+            box-shadow: 0 8px 18px rgba(13,148,136,0.25);
+        }
+
+        h2.h2-violet {
+            background: linear-gradient(
+                100deg,
+                #0f766e,
+                #115e59
+            );
+
+            box-shadow: 0 8px 18px rgba(15,118,110,0.25);
+        }
+
+        h2.h2-emerald {
+            background: linear-gradient(
+                100deg,
+                #115e59,
+                #134e4a
+            );
+
+            box-shadow: 0 8px 18px rgba(19,78,74,0.25);
+        }
+
+        h2.h2-pink {
+            background: linear-gradient(
+                100deg,
+                #134e4a,
+                #042f2e
+            );
+
+            box-shadow: 0 8px 18px rgba(4,47,46,0.25);
+        }
+
+        .content-section p {
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        strong {
+            color: #0f766e;
+            font-weight: 700;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    transparent 60%,
+                    #ccfbf1 60%
+                );
+
+            padding: 0 2px;
+            border-radius: 3px;
+        }
+
+        .kicker-pill {
+            display: inline-block;
+
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+
+            color: #0f766e;
+            background: #ecfdf5;
+
+            border: 1px solid #ccfbf1;
+
+            padding: 6px 14px;
+            border-radius: 100px;
+
+            margin-bottom: 14px;
+        }
+
+        .toc-box {
+            background: #ffffff;
+
+            border: 1px solid #ccfbf1;
+            border-radius: 20px;
+
+            padding: 22px 24px;
+            margin: 28px 0;
+        }
+
+        .toc-box ol {
+            padding-left: 20px;
+        }
+
+        .toc-box li {
+            font-size: 13px;
+            color: #475569;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .stat-table {
+            width: 100%;
+            border-collapse: collapse;
+
+            font-size: 13px;
+            margin: 24px 0;
+
+            border-radius: 16px;
+            overflow: hidden;
+
+            box-shadow: 0 8px 20px rgba(13,148,136,0.06);
+        }
+
+        .stat-table th {
+            background: linear-gradient(
+                100deg,
+                #0f766e,
+                #134e4a
+            );
+
+            color: #fff;
+
+            text-align: left;
+
+            padding: 12px 14px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 0.04em;
+        }
+
+        .stat-table td {
+            padding: 12px 14px;
+
+            border-bottom: 1px solid #ccfbf1;
+
+            background: #fff;
+            color: #334155;
+        }
+
+        .stat-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .reference-list {
+            padding-left: 20px;
+        }
+
+        .reference-list li {
+            margin-bottom: 12px;
+            color: #475569;
+            font-size: 15px;
+        }
+
+        .footnote {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                #99f6e4,
+                transparent
+            );
+
+            margin: 45px 0;
+        }
+    </style>
+</head>
+
+<body oncontextmenu="return false;">
+
+    <!-- READING PROGRESS -->
+    <div class="progress-bar" id="readingProgress"></div>
+
+
+    <!-- NAVIGATION -->
+    <nav class="sticky top-0 z-50 glass-nav px-6 py-4 flex items-center justify-between">
+
+        <a
+            href="../articles.html"
+            class="w-10 h-10 flex items-center justify-center bg-white border border-slate-200 rounded-xl text-slate-800"
+        >
+            <i class="fa-solid fa-chevron-left"></i>
+        </a>
+
+        <div class="text-center">
+
+            <span class="text-[8px] font-black uppercase tracking-[0.3em] text-slate-400 block">
+                Lawjournal.online
+            </span>
+
+            <span class="text-[10px] font-bold uppercase" style="color:#0f766e;">
+                Article Hub
+            </span>
+
+        </div>
+
+        <div class="w-10"></div>
+
+    </nav>
+
+
+    <!-- MAIN ARTICLE -->
+    <main class="px-6 pt-10 pb-32 max-w-2xl mx-auto">
+
+
+        <!-- ARTICLE HEADER -->
+        <header class="mb-12">
+
+            <span class="kicker-pill">
+                Case Commentary &middot; Artificial Intelligence &amp; Law
+            </span>
+
+            <h1 class="text-4xl font-serif italic font-bold title-gradient leading-tight mb-2">
+                Human in the Loop: AI-Hallucinated Legal Authorities in Pooja Ramesh Singh v. Jammu and Kashmir Bank Ltd.
+            </h1>
+
+            <p class="text-sm text-slate-500 font-semibold mb-8">
+                Supreme Court of India &middot; AI &middot; Judicial Adjudication &middot; Rule of Law
+            </p>
+
+
+            <!-- AUTHOR -->
+            <div class="flex items-center gap-4 p-1 bg-white rounded-full pr-6 border border-teal-100 w-fit shadow-sm">
+
+                <img
+                    src="author7.png"
+                    onerror="this.src='https://ui-avatars.com/api/?name=Shagun+Malik&background=0f766e&color=fff'"
+                    class="w-12 h-12 rounded-full border-2 border-white object-cover ring-2 ring-teal-200"
+                >
+
+                <div>
+
+                    <div class="flex items-center gap-1">
+
+                        <h4 class="font-black text-slate-800 text-xs">
+                            Shagun Malik
+                        </h4>
+
+                        <i
+                            class="fa-solid fa-circle-check text-teal-600 text-[10px]"
+                        ></i>
+
+                    </div>
+
+                    <p class="text-[8px] text-slate-500 font-bold uppercase">
+                        IIMT University, Meerut
+                    </p>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+        <div class="content-section">
+
+
+            <!-- ABSTRACT -->
+            <h2>
+                <i class="fa-solid fa-file-lines"></i>
+                Abstract
+            </h2>
+
+            <p>
+                In <strong>Pooja Ramesh Singh v. Jammu and Kashmir Bank Ltd.</strong>, the Supreme Court of India confronted a particularly significant instance of the hazards posed by generative artificial intelligence to judicial adjudication: the disputed material had been relied upon by the adjudicating tribunal itself, in the course of its own research, rather than having been introduced before it by a party's counsel.
+            </p>
+
+            <p>
+                Setting aside the orders of the National Company Law Tribunal and the National Company Law Appellate Tribunal, the Division Bench of Justice Pamidighantam Sri Narasimha and Justice Alok Aradhe held that a decision resting on fake or hallucinated material is no decision in the eyes of law and is liable to be set aside, irrespective of whether such material had a direct or indirect bearing on the outcome, and directed the Bar Council of India to constitute a committee to prescribe guiding principles and disciplinary consequences governing the use of artificial intelligence in legal practice.
+            </p>
+
+            <p>
+                This commentary examines the factual matrix, the reasoning and the ratio decidendi of the judgment, before undertaking a critical evaluation of its zero-tolerance standard, its implications for natural justice and judicial accountability, and the doctrinal questions it leaves open for future adjudication.
+            </p>
+
+            <p>
+                It argues that while the Court's underlying concern for the integrity of the judicial process is well founded, the uncompromising character of the standard it has articulated invites doctrinal refinement as it comes to be applied across a hierarchy of courts and tribunals of varying institutional capacity.
+            </p>
+
+
+            <!-- KEYWORDS -->
+            <div class="highlight-box">
+
+                <p class="text-[10px] font-black uppercase tracking-widest mb-4" style="color:#0f766e;">
+                    Keywords
+                </p>
+
+                <p class="text-slate-700 font-semibold leading-relaxed">
+                    Artificial Intelligence; Judicial Adjudication; Hallucinated Precedents; Insolvency and Bankruptcy Code, 2016; Natural Justice; Rule of Law; Professional Misconduct.
+                </p>
+
+            </div>
+
+
+            <!-- TABLE OF CONTENTS -->
+            <div class="toc-box">
+
+                <p class="text-[10px] font-black uppercase tracking-widest mb-3" style="color:#0f766e;">
+                    In this article
+                </p>
+
+                <ol class="list-decimal">
+
+                    <li>Introduction</li>
+                    <li>Factual and Procedural Background</li>
+                    <li>Issues Arising for Determination</li>
+                    <li>Submissions of the Parties</li>
+                    <li>Judgment of the Supreme Court</li>
+                    <li>Ratio Decidendi</li>
+                    <li>Critical Analysis of the Judgment</li>
+                    <li>The Limits of the Judgment</li>
+                    <li>Constitutional and Jurisprudential Dimensions</li>
+                    <li>Implications for the Indian Legal System</li>
+                    <li>Critical Evaluation and Author's Perspective</li>
+                    <li>Conclusion</li>
+                    <li>References and Bibliography</li>
+
+                </ol>
+
+            </div>
+
+
+            <!-- I -->
+            <h2>
+                <i class="fa-solid fa-scale-balanced"></i>
+                I. Introduction
+            </h2>
+
+            <p>
+                The integration of artificial intelligence into legal research has, within a remarkably short span, moved from a matter of professional convenience to a subject of judicial anxiety. Large language models can draft, summarise and cite with a fluency that often masks a fundamental defect: their propensity to fabricate. Courts in the United States and England had already confronted advocates who placed non-existent authorities before the bench.
+            </p>
+
+            <p>
+                Unlike those earlier cases, in which advocates placed fabricated authorities before a court, <strong>Pooja Ramesh Singh</strong> presents the more difficult institutional problem of fabricated material entering the adjudicatory process through the tribunal's own research, rather than having been introduced by a party's counsel.
+            </p>
+
+            <p>
+                The controversy arose in the setting of an insolvency proceeding under Section 7 of the Insolvency and Bankruptcy Code, 2016, where a corporate guarantor resisted the initiation of the corporate insolvency resolution process. The insolvency dispute itself, however, receded into the background once the Supreme Court found that the reasoning of both the National Company Law Tribunal and the National Company Law Appellate Tribunal rested, in part, on citations that could not be verified against any real source.
+            </p>
+
+            <p>
+                The judgment matters not because of what it decides about the underlying debt, a question the Court expressly declined to address, but because of what it establishes about the permissible boundary between technological assistance and human adjudicatory responsibility. The central thesis of this commentary is that the Court was right to treat the contamination of the judicial record by fabricated material as a defect going to the root of adjudication, but that the absolute character of the standard it has articulated requires doctrinal refinement as it is applied across a hierarchy of courts and tribunals of widely varying institutional capacity.
+            </p>
+
+
+            <!-- II -->
+            <h2 class="h2-violet">
+                <i class="fa-solid fa-timeline"></i>
+                II. Factual and Procedural Background
+            </h2>
+
+            <p>
+                Jammu and Kashmir Bank Limited had extended credit facilities to Pan India Utilities Distribution Company Limited (PIUDCL), a group entity. To secure the facility, a corporate guarantee was executed by Essel Infraprojects Limited (EIL), of which the appellant, Pooja Ramesh Singh, was a suspended director. Clause 8 of the guarantee deed expressly provided that the guarantee would not be determined or prejudiced by any absorption or amalgamation of the guarantor company. When PIUDCL's account was classified as a non-performing asset following sustained default, Respondent No. 1 filed an application under Section 7 of the Code before the National Company Law Tribunal, Mumbai, seeking initiation of the corporate insolvency resolution process against EIL for recovery of the outstanding debt.
+            </p>
+
+            <p>
+                The appellant resisted the application on the ground that, pursuant to a scheme of demerger and amalgamation within the Essel group, the relevant liabilities had migrated to a separate entity, and that a renewed sanction letter dated 18 November 2017 did not mention the guarantee. By order dated 28 August 2024, the Tribunal found the existence of debt and default, admitted the application, appointed an Interim Resolution Professional, and declared a moratorium under Section 14 of the Code.
+            </p>
+
+            <p>
+                The appellant's challenge before the National Company Law Appellate Tribunal, in Company Appeal (AT) (Insolvency) No. 1808 of 2024, met with no greater success. By order dated 11 September 2025, the Appellate Tribunal dismissed the appeal, holding that clause 8 of the guarantee deed preserved the guarantee notwithstanding the internal corporate restructuring, and, in paragraph 12 of its opinion, referred to six decisions of the Supreme Court said to support the Tribunal's approach.
+            </p>
+
+            <p>
+                Before the Supreme Court, senior counsel for the appellant, Ms. Madhavi Divan, demonstrated that the citations relied upon by the Tribunal, as extracted by the Appellate Tribunal in paragraph 12 of its opinion, were fake and non-existent, and probably AI-generated; further, that even where a citation was accurate, the paragraph excerpted and attributed to it could not be traced to that judgment in any law report.
+            </p>
+
+            <p>
+                On independent examination, the Court found that six citations relied upon by the NCLT were, in varying degrees, unreliable: one carried the wrong cause title for an existing reported judgment together with a non-existent paragraph; two carried correct citations but paragraphs that did not exist in those judgments; and three were non-existent citations altogether.
+            </p>
+
+            <p>
+                A significant factual detail, easily under-emphasised, is that Respondent No. 1 filed an affidavit before the Supreme Court stating that the disputed authorities had not been cited by its own counsel at the bar, and that they had instead been obtained through the Tribunal's own research. This distinguishes the case from the more familiar pattern, exemplified by <em>Mata v. Avianca</em>, in which a party's advocate places fabricated material before a court; here, the fabrication is recorded as having entered the decision-making process through the adjudicating authority's own research, and it went undetected through a full round of appellate scrutiny before the National Company Law Appellate Tribunal.
+            </p>
+
+            <p>
+                Having set aside both orders, the Court restored the Section 7 application to its original number, directed the Tribunal to dispose of it expeditiously and preferably within two weeks, and directed the parties to maintain status quo in the interim, while expressly declining to record any view on the merits of the underlying guarantee dispute.
+            </p>
+
+
+            <!-- III -->
+            <h2 class="h2-emerald">
+                <i class="fa-solid fa-list-check"></i>
+                III. Issues Arising for Determination
+            </h2>
+
+            <p>
+                The judgment does not set out a formal list of framed issues; rather, the Court addresses, as a connected whole, the consequence of reliance on fake or hallucinated AI-generated material and the accountability and regulatory response that such reliance demands. For analytical purposes, the questions the Court addresses may be organised as follows:
+            </p>
+
+            <div class="highlight-box">
+
+                <p>
+                    <strong>1.</strong> Whether reliance upon fake or hallucinated AI-generated material by a court or an adjudicating authority vitiates the resulting decision.
+                </p>
+
+                <p>
+                    <strong>2.</strong> Whether that consequence follows even where the fabricated material had only an indirect bearing on the decision reached.
+                </p>
+
+                <p>
+                    <strong>3.</strong> What responsibilities and institutional safeguards arise for the Bar and the Bench in relation to AI-assisted legal research.
+                </p>
+
+            </div>
+
+
+            <!-- IV -->
+            <h2 class="h2-pink">
+                <i class="fa-solid fa-gavel"></i>
+                IV. Submissions of the Parties
+            </h2>
+
+            <p>
+                The appellant's case before the Supreme Court proceeded on two distinct planes. On the merits, she maintained that the corporate restructuring of the Essel group had transferred the relevant liabilities away from EIL before the guarantee could be invoked, and that the absence of any express reference to the guarantee in the renewed sanction letter of 18 November 2017 indicated that the facility had been placed on fresh terms that did not carry the earlier guarantee forward. On the procedural question, and ultimately dispositively, her counsel demonstrated that the authorities on which the Tribunal, and in turn the Appellate Tribunal, had relied in rejecting these very contentions were either fictitious or had been misquoted through paragraphs that did not exist in the judgments cited.
+            </p>
+
+            <p>
+                Respondent No. 1 did not resist the appellant's procedural objection once it was demonstrated; indeed, its own affidavit confirmed that the disputed authorities had not been placed before the Tribunal by its counsel and had originated instead from the Tribunal's own research. This placed the Bank in the unusual position of a respondent whose substantive claim survived the hearing untouched, even as the order in its favour was set aside on grounds unconnected to the merits of that claim.
+            </p>
+
+            <p>
+                The Supreme Court therefore ultimately treated the question of fabricated authority as dispositive of the appeal without adjudicating the underlying controversy concerning the enforceability of the corporate guarantee.
+            </p>
+
+
+            <!-- V -->
+            <h2>
+                <i class="fa-solid fa-building-columns"></i>
+                V. Judgment of the Supreme Court
+            </h2>
+
+            <p>
+                The Division Bench opened its reasons with an unusually reflective discussion of the place of artificial intelligence in professional and adjudicatory life. It noted that AI has acquired the capacity to substitute, if not fully replace, both routine and intellectual human effort, and pointed to the United Kingdom's Solicitors Regulation Authority having, in May 2025, authorised the first purely AI-driven law firm, Garfield.Law Ltd, which the Court itself noted had since been reported to have secured a county court decree in a suit for recovery of an unpaid fee.
+            </p>
+
+            <p>
+                Rather than treating this development as either wholly benign or wholly threatening, the Court observed that unlike earlier waves of court technology, which merely assisted human work, AI risks becoming an alternative to human thinking, reasoning and decision-making itself, a distinction it regarded as calling for particular caution.
+            </p>
+
+            <p>
+                It is on this basis that the Bench resolved to adopt AI technology in aid of adjudication, while at the same time asserting and declaring total and absolute control over adjudication, with a human in the loop at every stage.
+            </p>
+
+            <p>
+                Turning to the specific danger of hallucination, the Court described the production of fake, non-existent and hallucinated material and its use as precedent as comparable to the release of methyl isocyanate into the province of law and justice: invisible and insidious at first, but catastrophic by the time it is discovered.
+            </p>
+
+            <p>
+                On this footing, the Bench declared a zero-tolerance approach to the production, citation or use of AI-generated precedents without verification, holding that it is misconduct on the part of an advocate to cite such material without verification, and equally a serious lapse for a judge to rely upon it, whatever the source. It expressed no hesitation in declaring that a decision so tainted is no decision in the eyes of law, irrespective of whether the material had a direct or indirect bearing on the outcome, and that such a decision must be set aside even where only an iota of fake or hallucinated material has entered the decision-making process.
+            </p>
+
+            <p>
+                The Court was careful to clarify that the judgment has no bearing on the rightful use of AI as an aid to research; what it condemns is the presentation of, or reliance upon, fake or hallucinated material as though it were an actual court precedent.
+            </p>
+
+            <p>
+                Declaring a prohibition insufficient without a mechanism of accountability, the Bench directed the Bar Council of India, as the apex statutory body governing the profession, to constitute a committee to deliberate on the submission of such material by members of the Bar, and to prescribe both guiding principles and the disciplinary consequences of their breach.
+            </p>
+
+            <p>
+                On the specific citations before it, the Court found that a decision of a Court or an adjudicating authority based on material which is fake and hallucinated is no decision at all, and amounts to a subversion of the rule of law; such a decision, it held, is unsustainable and has to be set aside at the earliest.
+            </p>
+
+            <p>
+                In a footnote to this finding, the Bench drew a comparative illustration from English practice: in <em>Anthony Malcolm Cork &amp; Anor v. Mark Smith</em>, an English High Court judge found that letters sent to the court on behalf of the applicants by their solicitors, Pinsent Masons LLP, had contained a fabricated statutory quotation generated by an AI tool; the court accepted that this reflected a serious lack of care rather than deliberate dishonesty, but nonetheless concluded that the matter warranted a referral to the Solicitors Regulation Authority for further investigation.
+            </p>
+
+            <p>
+                Accordingly, the orders of the Tribunal and the Appellate Tribunal were set aside, the Section 7 application was restored to its original number, and the Tribunal was directed to dispose of it expeditiously, without being influenced by the earlier findings and without any expression of view by the Supreme Court on the merits.
+            </p>
+
+
+            <!-- VI -->
+            <h2 class="h2-violet">
+                <i class="fa-solid fa-scale-balanced"></i>
+                VI. Ratio Decidendi
+            </h2>
+
+            <div class="highlight-box">
+
+                <p class="text-slate-800 font-semibold leading-relaxed">
+                    The binding principle of the case may be stated as follows: a decision of a court or adjudicating authority based upon fake or hallucinated material presented or relied upon as legal precedent is unsustainable and must be set aside, irrespective of whether such material had a direct or indirect bearing on the decision-making process; the Bar and the Bench are subject to a standard of zero tolerance in citing, referring to, or relying upon such unverified material.
+                </p>
+
+            </div>
+
+            <p>
+                Distinct from this ratio, and better understood as an institutional direction flowing from it rather than as part of the ratio itself, is the Court's direction to the Bar Council of India to constitute a committee and to prescribe guiding principles and disciplinary consequences concerning the submission of fake or hallucinated material by members of the Bar. The appeal could have been, and was, disposed of on the narrower ground of contamination alone.
+            </p>
+
+            <p>
+                It should also be noted that the judgment does not expressly address the state of an advocate's or a judge's individual knowledge or intent in relying upon such material; the obligation to verify is stated in unconditional terms, but whether that obligation is genuinely fault-independent, or whether questions of knowledge and intent might yet bear upon the disciplinary consequences the Bar Council is directed to prescribe, is left open by the text of the judgment and is better treated as a question for future elaboration than as a settled component of the ratio.
+            </p>
+
+
+            <!-- VII -->
+            <h2 class="h2-emerald">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                VII. Critical Analysis of the Judgment
+            </h2>
+
+            <p>
+                The judgment's most valuable analytical move is its refusal to treat artificial intelligence as either a wholesale threat to adjudication or a neutral convenience beneath judicial notice. By locating the danger not in the use of the technology but in its unverified use, the Court preserved the space for artificial intelligence to remain a genuine aid to legal research while insisting that the epistemic burden of confirming what a source actually says can never shift from the human researcher to the tool that generated the lead.
+            </p>
+
+            <p>
+                The judgment therefore does not prohibit technological assistance in adjudication; rather, it draws a normative boundary between technology as an instrument of research and technology as an unverified source of legal authority. AI-assisted research is not the same thing as AI-dependent adjudication, and the Court's reasoning is best read as permitting the former while foreclosing the latter.
+            </p>
+
+            <p>
+                The insistence on human responsibility follows naturally from the structure of adjudication itself. A judge's authority rests on the capacity to give reasons that can be traced, tested and, where wrong, corrected on appeal. Reasoning built on a citation that does not exist, or on a paragraph invented and attached to a real citation, cannot be traced to any real authority at all; it is not merely weak reasoning but reasoning that has nothing underneath it. Treating such a decision as unsustainable and liable to be set aside, rather than merely as a defect to be weighed against the strength of the remaining reasoning, is a coherent response to an infirmity that goes to the foundation of the reasoning rather than merely to its quality.
+            </p>
+
+            <p>
+                The judgment's implications for natural justice and for Article 14 are related but analytically distinct, and the two should not be treated as interchangeable. Natural justice, in its audi alteram partem dimension, requires that a litigant have a meaningful opportunity to respond to the material that actually forms the basis of a decision; a litigant confronted with a fabricated precedent has, in substance, been denied that opportunity, since no amount of argument can distinguish a case that does not exist.
+            </p>
+
+            <p>
+                Article 14 and the broader rule-of-law principle operate on a different plane: they require that the exercise of state adjudicatory power rest on rational, ascertainable and legally sustainable reasons rather than on arbitrary or unverifiable grounds. A decision built on invented authority is arbitrary in this specific sense, because the reasons offered for it cannot, even in principle, be tested against anything real. Fabricated authority therefore undermines both dimensions at once, but for distinct reasons: it forecloses meaningful participation by the litigant, and it deprives the decision itself of a rational, ascertainable basis.
+            </p>
+
+            <p>
+                The human-in-the-loop formulation, while rhetorically powerful, is analytically less precise than the Court's other holdings. It functions well as an aspiration but does less work as a legal test, since the judgment does not specify what degree or manner of human verification will satisfy the requirement in any given case.
+            </p>
+
+            <p>
+                The requirement could, however, be operationalised along the following lines, consistent with the Court's own reasoning: AI-assisted research may properly locate a potentially relevant authority; the human researcher must then retrieve the actual judgment or provision from a primary source; the proposition attributed to that authority must be checked against the primary source itself, not merely against the AI-generated summary; the human decision-maker must independently assess the authority's relevance to the matter at hand; and only after each of these steps has been completed may the authority be relied upon in submissions or in a judicial order.
+            </p>
+
+            <div class="highlight-box">
+
+                <p class="text-slate-800 font-semibold leading-relaxed">
+                    A verification chain of this kind, running from AI output through primary-source verification and independent human legal assessment to eventual citation, would give the human-in-the-loop requirement the operational content that the judgment itself does not supply.
+                </p>
+
+            </div>
+
+            <p>
+                On the question whether the Court's zero-tolerance approach is justified, the case for an uncompromising standard is strong at the level of principle: any threshold short of zero tolerance would require courts to develop a jurisprudence of how much fabrication is tolerable, an enquiry that risks legitimising a category of error the system should not accommodate at all. The difficulty, addressed in the following section, lies not in the principle but in its undifferentiated application.
+            </p>
+
+
+            <!-- VIII -->
+            <h2 class="h2-pink">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                VIII. The Limits of the Judgment
+            </h2>
+
+            <p>
+                The Court's declaration that a decision falls even where an iota of hallucinated material has entered the process is the judgment's most demanding standard, and also its least fully worked out.
+            </p>
+
+            <p>
+                An iota-based test does not, on its face, distinguish between different relationships that fabricated material may bear to the ultimate decision. Three categories can usefully be separated.
+            </p>
+
+
+            <table class="stat-table">
+
+                <tr>
+                    <th>Category</th>
+                    <th>Meaning</th>
+                </tr>
+
+                <tr>
+                    <td>Operative fabricated authority</td>
+                    <td>
+                        The fabricated material actually supports the reasoning or the outcome, in the sense that the decision-maker relied upon it to reach a conclusion.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Incidental fabricated authority</td>
+                    <td>
+                        The fabricated material appears in the decision but the outcome is independently supported by genuine authorities, such that the decision would have been the same without it.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Unrelied-upon fabricated authority</td>
+                    <td>
+                        Fabricated authority is discovered in the record but was never in fact relied upon in reaching the decision at all.
+                    </td>
+                </tr>
+
+            </table>
+
+
+            <p>
+                The case for treating the first category as fatal to the decision is straightforward and consistent with the Court's own reasoning. The second category is more difficult: an incidental fabrication corrupts the integrity of the record and may still warrant a remand or reconsideration, but it is less obviously a case for automatic invalidation than for a more calibrated response, since the outcome itself does not depend on the fabricated material.
+            </p>
+
+            <p>
+                The third category, fabricated material discovered but never relied upon, sits furthest from the concern that animates the judgment, and treating it as automatically fatal risks allowing a procedural defect whose relationship to the outcome is uncertain to become independently dispositive. This three-part distinction, it is suggested, gives the iota standard the doctrinal precision it currently lacks, without displacing the zero-tolerance principle that the Court has, for good reason, applied to the first category.
+            </p>
+
+            <p>
+                Related to this is the judgment's silence on the distinction between material and harmless error more generally familiar to appellate practice. Indian appellate courts do not ordinarily set aside a decision for every defect in its reasoning; they ask whether the defect affected the result. The present judgment departs from that ordinary appellate discipline in the specific context of fabricated authority, and while there is a principled basis for doing so, given the peculiar difficulty of ever being certain how much a fabricated authority actually influenced a decision-maker's thinking, the departure would have benefited from more explicit justification.
+            </p>
+
+            <p>
+                The judgment also does not fully resolve whether the standard applied to a tribunal's own research process should be identical to the standard applied to material introduced by a party's advocate. An advocate who cites a fabricated authority has, at a minimum, an adversarial opponent capable of testing the citation. A tribunal that generates fabricated material through its own research and then relies upon it without any external check operates without that safeguard altogether, which arguably makes a tribunal's own use of unverified artificial intelligence the more dangerous of the two scenarios, even though the judgment treats both as attracting the same consequence.
+            </p>
+
+            <p>
+                Questions of finality also remain open. The judgment does not address how courts should treat final, unappealed decisions that are later discovered to rest on fabricated authority, nor does it indicate any limitation period within which such a challenge must be brought. The judgment leaves unresolved whether its zero-tolerance principle operates indefinitely, or whether the need to preserve finality imposes some temporal or procedural limit upon challenges based on subsequently discovered fabricated authorities.
+            </p>
+
+            <p>
+                Finally, an uncompromising zero-tolerance standard creates an incentive structure that itself deserves scrutiny. A litigant facing an adverse decision now has a straightforward means of seeking its reversal: identify any citation in the order and probe whether it can be independently verified. Genuine instances of fabrication should certainly be exposed by this route, but the same route is available to a litigant searching, in good faith or otherwise, for a procedural foothold unconnected to the substantive correctness of the decision.
+            </p>
+
+
+            <!-- IX -->
+            <h2>
+                <i class="fa-solid fa-landmark"></i>
+                IX. Constitutional and Jurisprudential Dimensions
+            </h2>
+
+            <p>
+                The judgment is best situated within the constitutional value of the rule of law and the guarantee of equality before law under Article 14, considered above in relation to natural justice: adjudicatory power must rest on ascertainable and rational reasons, and a decision resting on invented authority fails that test at its foundation while, at the same time, treating similarly situated litigants unequally, since one litigant's case is decided on authentic authority and another's is not.
+            </p>
+
+            <p>
+                Judicial independence and judicial accountability operate here in a complementary rather than a competing register. The Court's insistence that tribunals bear responsibility for verifying their own research is not an intrusion upon judicial independence; it is, rather, a condition of the kind of independence that is worth having, namely the freedom to decide cases on one's own considered reasoning rather than on the unexamined output of a tool.
+            </p>
+
+            <p>
+                The judgment can be understood as reinforcing a jurisprudential principle that core adjudicatory responsibility cannot be delegated to an unverified technological process.
+            </p>
+
+            <p>
+                The direction to the Bar Council of India may also be viewed as raising a limited separation-of-powers question concerning the Court's role in directing a statutory professional body to develop regulatory standards. Indian courts have, however, frequently directed expert or statutory bodies to frame guidelines in areas requiring specialised regulation where legislative or executive action has lagged behind an emerging problem, and the direction here is properly analysed against that established, if still contested, practice of court-prompted regulation rather than assumed to be unproblematic.
+            </p>
+
+            <p>
+                The direction also leaves a number of questions for the Bar Council's committee to resolve rather than answering them itself: whether the guiding principles it is to prescribe will apply only to advocates, or whether some parallel framework is contemplated for judicial officers and tribunal members whose own research is not within the Bar Council's jurisdiction at all; how negligent AI misuse is to be distinguished from deliberate misuse for the purpose of disciplinary consequence; what would constitute a proportionate sanction across that range of culpability; and what minimum verification standard the profession's rules should impose as a matter of general application rather than case-by-case adjudication.
+            </p>
+
+            <p>
+                The judgment identifies the need for such a framework without prescribing its content, leaving the committee's work to supply what the decision itself does not.
+            </p>
+
+            <p>
+                Underlying these strands is what the judgment's own reasoning, particularly its extended reflection on the discipline of human thought as against the invitation to delegate it, might be read as a broader concern with human agency in adjudication: the proposition that certain forms of responsibility are ill-suited to delegation to a non-human process, however sophisticated, because the capacity to discern truth from fabrication is treated by the Court as inseparable from the act of judging itself.
+            </p>
+
+
+            <!-- X -->
+            <h2 class="h2-violet">
+                <i class="fa-solid fa-scale-balanced"></i>
+                X. Implications for the Indian Legal System
+            </h2>
+
+            <p>
+                For advocates, the judgment converts what many practitioners may have treated as a norm of professional prudence into an enforceable duty: authorities relied upon in submissions must be traced to their primary source before they are cited, on pain of professional misconduct.
+            </p>
+
+            <p>
+                For judges and tribunals, the judgment imposes a comparable, and in some ways more exacting, duty of self-verification whenever artificial intelligence tools are used in the course of research, since the very safeguard that ordinarily protects the adjudicatory process, an adversarial opponent testing the other side's citations, is absent when a tribunal researches on its own initiative.
+            </p>
+
+            <p>
+                For the discipline of legal research more broadly, the judgment is likely to accelerate the development of verification protocols and citation-checking practices tailored to artificial-intelligence-assisted research, distinct from the ordinary standards of diligence that governed research conducted through conventional databases and digests.
+            </p>
+
+            <p>
+                For judicial administration, particularly in tribunals such as the National Company Law Tribunal that handle a high volume of matters under significant time pressure, the judgment will require institutional investment in verification infrastructure if the standard it sets is to be met in practice rather than merely in principle.
+            </p>
+
+            <p>
+                A further implication, less immediate but no less important, concerns law schools and legal education. As students increasingly turn to generative AI tools for legal research, verification of AI-assisted output should arguably be taught as part of legal research methodology and professional ethics from the outset of legal training, rather than being addressed for the first time as a disciplinary matter once a practitioner has already erred.
+            </p>
+
+            <p>
+                The direction to the Bar Council of India is likely to be the most consequential institutional outcome of the case in the medium term, since a committee empowered to prescribe guidelines and disciplinary consequences can operationalise the judgment's insistence on verification into concrete standards applicable across the profession, in a way that case-by-case adjudication cannot achieve on its own.
+            </p>
+
+
+            <!-- XI -->
+            <h2 class="h2-emerald">
+                <i class="fa-solid fa-user-pen"></i>
+                XI. Critical Evaluation and Author's Perspective
+            </h2>
+
+            <p>
+                The Supreme Court was, in the view advanced here, correct in principle to treat reliance upon fabricated authority as fatal to the validity of a decision. The Court adopts an uncompromising zero-tolerance rule; this commentary proposes a possible doctrinal refinement of that rule, offered as a suggestion for future elaboration rather than as a description of what the Court itself decided.
+            </p>
+
+            <p>
+                Verification is essential for reasons that go beyond the facts of this particular case. Once a fabricated citation is permitted to stand uncorrected in even one binding order, it acquires a derivative legitimacy that can propagate through subsequent citation, compounding the original error across the legal system. The requirement of independent verification, however burdensome in the individual instance, is the only reliable check against this form of contamination.
+            </p>
+
+            <p>
+                Artificial intelligence should remain assistive rather than authoritative, for the straightforward reason that its outputs are, at present, probabilistic approximations of plausible text rather than verified statements of fact; treating such output as citable authority conflates the appearance of a citation with its substance.
+            </p>
+
+            <p>
+                This non-delegability follows the same logic as the more familiar rule that a judge cannot delegate the writing of an order to a law clerk without reading it. The signature on a judicial order, and the professional certificate implicit in an advocate's submission, are representations of personal verification, not merely of institutional process.
+            </p>
+
+            <p>
+                Whether every instance of an artificial-intelligence-generated error should invalidate a judgment is, however, a genuinely harder question than the Court's own formulation addresses. The operative/incidental/unrelied-upon distinction developed above is this commentary's proposed answer to that question, offered as a suggestion for future elaboration and not as an account of the existing law, which remains, as stated, a rule of zero tolerance.
+            </p>
+
+            <p>
+                There is also a reasonable argument for differentiated institutional consequences as between judges and advocates, though not for a difference in the underlying duty to verify, which should remain equally stringent for both. The substantive obligation to verify an authority before relying upon it is the same regardless of who does the relying; what may properly differ is the procedural and institutional consequence that follows a lapse, depending on whether the fabricated authority was introduced by counsel, who operates within an adversarial process in which an opposing party can test the citation, or was relied upon by the adjudicating authority itself, whose own research is not subject to that same external check. This too is offered as a proposal for future doctrinal development rather than as a feature of the judgment as it stands.
+            </p>
+
+            <p>
+                Finally, a further reform proposed by this commentary, rather than any requirement the Court has imposed, would be a disclosure practice obliging counsel and tribunals alike to record where and how artificial intelligence tools were used in preparing submissions or research. The Supreme Court did not mandate any such requirement. Such a requirement would complement the verification duty the Court has already imposed, by making the use of such tools visible and auditable rather than leaving detection to the fortuity of an opposing counsel's diligence, as occurred in this very case.
+            </p>
+
+
+            <!-- XII -->
+            <h2 class="h2-pink">
+                <i class="fa-solid fa-feather-pointed"></i>
+                XII. Conclusion
+            </h2>
+
+            <div
+                class="text-white p-8 rounded-[30px] shadow-xl mt-10"
+                style="background: linear-gradient(150deg, #042f2e, #134e4a 55%, #0f766e);"
+            >
+
+                <h4 class="font-black uppercase text-[10px] mb-3 text-teal-200 tracking-widest">
+                    <i class="fa-solid fa-quote-left mr-1"></i>
+                    Concluding Note
+                </h4>
+
+                <p class="text-base leading-relaxed font-medium">
+                    Pooja Ramesh Singh v. Jammu and Kashmir Bank Ltd. will likely be remembered less for its resolution of a corporate guarantee dispute than for the principle it lays down about the place of artificial intelligence in the architecture of adjudication.
+                </p>
+
+                <p class="text-base leading-relaxed font-medium">
+                    The judgment gets a great deal right. It correctly identifies that the danger of artificial intelligence in legal proceedings lies not in its use but in its unverified use, and it correctly insists that the responsibility for verification cannot be transferred from the human researcher, whether advocate or judge, to the tool that generates the material.
+                </p>
+
+                <p class="text-base leading-relaxed font-medium">
+                    What the judgment leaves unresolved is the harder work of doctrinal calibration: how directly fabricated material must bear upon a decision before that decision must fall; how the human-in-the-loop requirement is to be given operational content; how the standard should apply to tribunals of differing institutional capacity; and how finality is to be reconciled with a rule that permits a decision to be unsettled by the later discovery of a single invented citation.
+                </p>
+
+                <p class="text-base leading-relaxed font-medium">
+                    This commentary has proposed a set of refinements addressed to that unfinished work: a three-part distinction between operative, incidental and unrelied-upon fabricated authority; a verification chain running from AI output through primary-source checking to independent human legal assessment before citation; and a disclosure practice making the use of AI tools in legal research visible and auditable. None of these proposals is presented as an account of what the Supreme Court has already decided; each is offered as a direction in which the doctrine might usefully develop.
+                </p>
+
+                <p class="text-base leading-relaxed font-medium">
+                    The larger question the judgment poses is where the permissible boundary lies between technological assistance and human adjudicatory responsibility. This commentary's final position is that the boundary should be drawn not at the point of use, since artificial intelligence can legitimately assist at every stage of legal research, but at the point of reliance: a proposition, once relied upon in reasoning that determines the rights of parties, must be capable of being traced by a human being to a real and verifiable source. Artificial intelligence can assist legal reasoning, but it cannot become an unverified source of legal authority.
+                </p>
+
+            </div>
+
+
+            <!-- XIII -->
+            <h2>
+                <i class="fa-solid fa-book"></i>
+                XIII. References and Bibliography
+            </h2>
+
+
+            <h3
+                class="font-black uppercase text-xs tracking-widest mt-8 mb-4"
+                style="color:#0f766e;"
+            >
+                Primary Sources
+            </h3>
+
+            <ol class="reference-list">
+
+                <li>
+                    India Const. art. 14.
+                </li>
+
+                <li>
+                    Insolvency and Bankruptcy Code, 2016, §§ 7, 14 (India).
+                </li>
+
+                <li>
+                    Pooja Ramesh Singh v. Jammu and Kashmir Bank Ltd., 2026 INSC 668 (India) (Civ. App. No. 11950 of 2025, decided July 2, 2026).
+                </li>
+
+                <li>
+                    Pooja Ramesh Singh v. Jammu &amp; Kashmir Bank Ltd., Co. Appeal (AT) (Insolvency) No. 1808 of 2024 (NCLAT Sept. 11, 2025) (India).
+                </li>
+
+                <li>
+                    Pooja Ramesh Singh v. Jammu &amp; Kashmir Bank Ltd., RCP (IB) 6/MB/2023 (NCLT Mumbai Aug. 28, 2024) (India).
+                </li>
+
+                <li>
+                    Mata v. Avianca, Inc., No. 22-cv-1461 (PKC), 2023 WL 4114965 (S.D.N.Y. June 22, 2023).
+                </li>
+
+                <li>
+                    R (Ayinde) v. London Borough of Haringey [2025] EWHC 1383 (Admin) (Eng.).
+                </li>
+
+                <li>
+                    Anthony Malcolm Cork &amp; Anor v. Mark Smith [2026] EWHC 1199 (Ch) (Eng.).
+                </li>
+
+            </ol>
+
+
+            <h3
+                class="font-black uppercase text-xs tracking-widest mt-10 mb-4"
+                style="color:#0f766e;"
+            >
+                Secondary Sources
+            </h3>
+
+            <ol class="reference-list">
+
+                <li>
+                    M.P. Jain, <em>Indian Constitutional Law</em> (LexisNexis 9th ed. 2022).
+                </li>
+
+            </ol>
+
+
+            <h3
+                class="font-black uppercase text-xs tracking-widest mt-10 mb-4"
+                style="color:#0f766e;"
+            >
+                Regulatory and Institutional Sources
+            </h3>
+
+            <ol class="reference-list">
+
+                <li>
+                    Solicitors Regulation Authority, <em>SRA Approves First AI-Driven Law Firm</em> (May 6, 2025).
+                </li>
+
+            </ol>
+
+
+            <h3
+                class="font-black uppercase text-xs tracking-widest mt-10 mb-4"
+                style="color:#0f766e;"
+            >
+                Online Sources
+            </h3>
+
+            <ol class="reference-list">
+
+                <li>
+                    Tulip Kanth, <em>Zero-Tolerance for Using AI-Generated Precedents Without Verification: Supreme Court Sets Aside NCLT, NCLAT Orders Citing Fake Judgments</em>, Verdictum (July 2, 2026).
+                </li>
+
+                <li>
+                    <em>Pooja Ramesh Singh v. Jammu and Kashmir Bank Ltd. &amp; Anr.</em>, 2026 LiveLaw (SC) 653 (July 2, 2026).
+                </li>
+
+                <li>
+                    <em>Pooja Ramesh Singh v. J&amp;K Bank (2026): SC Tears Apart NCLT Order That Relied on AI-Hallucinated Judgments</em>, Aashayein Judiciary (July 13, 2026).
+                </li>
+
+            </ol>
+
+
+        </div>
+
+
+        <!-- DOWNLOAD CARD -->
+        <div class="download-card">
+
+            <div>
+
+                <h4 class="font-black text-slate-900 text-sm mb-1">
+                    Download the full article
+                </h4>
+
+                <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wide">
+                    Original PDF as submitted by the author
+                </p>
+
+            </div>
+
+            <a
+                href="pooja-ramesh-singh-jammu-kashmir-bank-shagun-malik.pdf"
+                download
+                class="text-white px-6 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest shadow-md active:scale-95 transition-all flex items-center gap-2 whitespace-nowrap"
+                style="background: linear-gradient(100deg, #0f766e, #134e4a);"
+            >
+
+                <i class="fa-solid fa-file-arrow-down"></i>
+
+                Download PDF
+
+            </a>
+
+        </div>
+
+
+        <!-- AUTHOR CARD -->
+        <div class="author-card">
+
+            <div class="flex items-center gap-4 mb-6">
+
+                <img
+                    src="author7.png"
+                    onerror="this.src='https://ui-avatars.com/api/?name=Shagun+Malik&background=0f766e&color=fff'"
+                    class="w-16 h-16 rounded-2xl object-cover shadow-md border-2 border-white ring-2 ring-teal-200"
+                >
+
+                <div>
+
+                    <div class="flex items-center gap-1">
+
+                        <h3 class="font-black text-slate-900 text-lg leading-none">
+                            Shagun Malik
+                        </h3>
+
+                        <i class="fa-solid fa-circle-check text-teal-600 text-sm"></i>
+
+                    </div>
+
+                    <p
+                        class="text-[9px] font-bold uppercase mt-2 tracking-tight leading-relaxed"
+                        style="color:#0f766e;"
+                    >
+                        B.A. LL.B. &middot; IIMT University, Meerut
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <p class="text-[14px] text-slate-600 mb-6 leading-relaxed">
+
+                Shagun Malik is a B.A. LL.B. student at IIMT University, Meerut. She has gained legal exposure through an internship at the District Court, Baghpat, and is currently undertaking an internship under an Advocate practising before the Hon'ble Delhi High Court. She has also presented a research paper titled <em>"From Margins to Mainstream: The Legal Journey of LGBTQ+ Recognition"</em> at a National Conference. Her areas of interest include legal research, legal writing, constitutional law, criminal law, and contemporary legal issues.
+
+            </p>
+
+
+            <div class="flex gap-3">
+
+                <a
+                    href="https://instagram.com/_chshagun"
+                    target="_blank"
+                    class="flex-1 bg-slate-50 border border-slate-200 py-3 rounded-xl text-center text-[10px] font-black uppercase tracking-widest shadow-sm active:scale-95 transition-all"
+                    style="color:#0f766e;"
+                >
+
+                    <i class="fa-brands fa-instagram mr-2 text-sm"></i>
+
+                    Instagram
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- SHARE BUTTON -->
+    <div
+        class="share-fab"
+        onclick="toggleShare()"
+    >
+
+        <i class="fa-solid fa-share-nodes text-xl"></i>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        /* READING PROGRESS */
+
+        window.onscroll = function() {
+
+            var winScroll =
+                document.body.scrollTop ||
+                document.documentElement.scrollTop;
+
+            var height =
+                document.documentElement.scrollHeight -
+                document.documentElement.clientHeight;
+
+            var scrolled =
+                (winScroll / height) * 100;
+
+            document.getElementById("readingProgress").style.width =
+                scrolled + "%";
+
+        };
+
+
+        /* SHARE */
+
+        function toggleShare() {
+
+            if (navigator.share) {
+
+                navigator.share({
+
+                    title:
+                        'Human in the Loop: AI-Hallucinated Legal Authorities - Shagun Malik',
+
+                    url:
+                        window.location.href
+
+                }).catch(console.error);
+
+            }
+
+            else {
+
+                navigator.clipboard.writeText(
+                    window.location.href
+                );
+
+                alert('Article Link Copied!');
+
+            }
+
+        }
+
+
+        /* ANTI COPY / INSPECT SHORTCUTS */
+
+        document.onkeydown = function(e) {
+
+            if (
+                e.ctrlKey &&
+                (
+                    e.keyCode === 67 ||
+                    e.keyCode === 85 ||
+                    e.keyCode === 73 ||
+                    e.keyCode === 83
+                )
+            ) {
+
+                return false;
+
+            }
+
+            if (e.keyCode === 123) {
+
+                return false;
+
+            }
+
+        };
+
+    </script>
+
+</body>
+</html>
