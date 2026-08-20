@@ -3,14 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>Digital Evidence under the Bharatiya Sakshya Adhiniyam, 2023 | Lawjournal.online</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600;700;900&display=swap');
 
         /* STRICT ANTI-COPY */
-        * { -webkit-user-select: none !important; user-select: none !important; -webkit-touch-callout: none !important; }
+        * {
+            -webkit-user-select: none !important;
+            user-select: none !important;
+            -webkit-touch-callout: none !important;
+        }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -24,10 +31,18 @@
             scroll-behavior: smooth;
         }
 
-        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
 
-        .title-gradient{
-            background: linear-gradient(100deg, #6366f1 0%, #4f46e5 35%, #4338ca 70%, #312e81 100%);
+        .title-gradient {
+            background: linear-gradient(
+                100deg,
+                #6366f1 0%,
+                #4f46e5 35%,
+                #4338ca 70%,
+                #312e81 100%
+            );
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -36,6 +51,7 @@
         .glass-nav {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(220,38,38,0.10);
         }
 
@@ -92,13 +108,17 @@
             justify-content: center;
             box-shadow: 0 12px 28px rgba(220,38,38,0.35);
             z-index: 100;
+            cursor: pointer;
         }
 
         .progress-bar {
             position: fixed;
-            top: 0; left: 0; height: 4px;
+            top: 0;
+            left: 0;
+            height: 4px;
             background: linear-gradient(90deg, #6366f1, #4f46e5, #3730a3);
-            width: 0%; z-index: 1000;
+            width: 0%;
+            z-index: 1000;
         }
 
         h2 {
@@ -117,18 +137,51 @@
             background: linear-gradient(100deg, #6366f1, #4f46e5);
             box-shadow: 0 8px 18px rgba(220,38,38,0.25);
         }
-        h2.h2-violet{ background: linear-gradient(100deg, #4f46e5, #4338ca); box-shadow: 0 8px 18px rgba(220,38,38,0.25); }
-        h2.h2-emerald{ background: linear-gradient(100deg, #4338ca, #3730a3); box-shadow: 0 8px 18px rgba(185,28,28,0.25); }
-        h2.h2-pink{ background: linear-gradient(100deg, #3730a3, #312e81); box-shadow: 0 8px 18px rgba(153,27,27,0.25); }
 
-        .content-section p { margin-bottom: 24px; font-weight: 400; }
-        strong { color: #4338ca; font-weight: 700; background: linear-gradient(180deg, transparent 60%, #e0e7ff 60%); padding: 0 2px; border-radius: 3px; }
+        h2.h2-violet {
+            background: linear-gradient(100deg, #4f46e5, #4338ca);
+            box-shadow: 0 8px 18px rgba(220,38,38,0.25);
+        }
 
-        .kicker-pill{
-            display:inline-block;
-            font-size:10px; font-weight:900; letter-spacing:.2em; text-transform:uppercase;
-            color:#4f46e5; background:#eef2ff; border:1px solid #e0e7ff;
-            padding:6px 14px; border-radius:100px; margin-bottom:14px;
+        h2.h2-emerald {
+            background: linear-gradient(100deg, #4338ca, #3730a3);
+            box-shadow: 0 8px 18px rgba(185,28,28,0.25);
+        }
+
+        h2.h2-pink {
+            background: linear-gradient(100deg, #3730a3, #312e81);
+            box-shadow: 0 8px 18px rgba(153,27,27,0.25);
+        }
+
+        .content-section p {
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        strong {
+            color: #4338ca;
+            font-weight: 700;
+            background: linear-gradient(
+                180deg,
+                transparent 60%,
+                #e0e7ff 60%
+            );
+            padding: 0 2px;
+            border-radius: 3px;
+        }
+
+        .kicker-pill {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: #4f46e5;
+            background: #eef2ff;
+            border: 1px solid #e0e7ff;
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 14px;
         }
 
         .toc-box {
@@ -138,8 +191,17 @@
             padding: 22px 24px;
             margin: 28px 0;
         }
-        .toc-box ol { padding-left: 20px; }
-        .toc-box li { font-size: 13px; color: #475569; font-weight: 600; margin-bottom: 8px; }
+
+        .toc-box ol {
+            padding-left: 20px;
+        }
+
+        .toc-box li {
+            font-size: 13px;
+            color: #475569;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
 
         .stat-table {
             width: 100%;
@@ -150,6 +212,7 @@
             overflow: hidden;
             box-shadow: 0 8px 20px rgba(220,38,38,0.06);
         }
+
         .stat-table th {
             background: linear-gradient(100deg, #4f46e5, #3730a3);
             color: #fff;
@@ -160,52 +223,119 @@
             font-size: 10px;
             letter-spacing: 0.04em;
         }
+
         .stat-table td {
             padding: 12px 14px;
             border-bottom: 1px solid #e0e7ff;
             background: #fff;
             color: #334155;
         }
-        .stat-table tr:last-child td { border-bottom: none; }
+
+        .stat-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Back button */
+        .back-button {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            color: #1e293b;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            transition: transform 0.15s ease, background 0.15s ease;
+        }
+
+        .back-button:active {
+            transform: scale(0.92);
+            background: #f8fafc;
+        }
     </style>
 </head>
+
 <body oncontextmenu="return false;">
 
     <div class="progress-bar" id="readingProgress"></div>
 
+    <!-- NAVIGATION -->
     <nav class="sticky top-0 z-50 glass-nav px-6 py-4 flex items-center justify-between">
-        <a href="../pages/articles.html" class="w-10 h-10 flex items-center justify-center bg-white border border-slate-200 rounded-xl text-slate-800">
+
+        <!-- FIXED: Browser/phone history back -->
+        <button
+            type="button"
+            onclick="goBack()"
+            class="back-button"
+            aria-label="Go back"
+        >
             <i class="fa-solid fa-chevron-left"></i>
-        </a>
+        </button>
+
         <div class="text-center">
-            <span class="text-[8px] font-black uppercase tracking-[0.3em] text-slate-400 block">Lawjournal.online</span>
-            <span class="text-[10px] font-bold text-red-600 uppercase">Article Hub</span>
+            <span class="text-[8px] font-black uppercase tracking-[0.3em] text-slate-400 block">
+                Lawjournal.online
+            </span>
+
+            <span class="text-[10px] font-bold text-red-600 uppercase">
+                Article Hub
+            </span>
         </div>
+
         <div class="w-10"></div>
     </nav>
+
 
     <main class="px-6 pt-10 pb-32 max-w-2xl mx-auto">
 
         <header class="mb-12">
-            <span class="kicker-pill">Evidence Law &middot; Digital Age</span>
+
+            <span class="kicker-pill">
+                Evidence Law &middot; Digital Age
+            </span>
+
             <h1 class="text-4xl font-serif italic font-bold title-gradient leading-tight mb-2">
                 Digital Evidence under the BSA, 2023
             </h1>
-            <p class="text-sm text-slate-500 font-semibold mb-8">Are Indian Courts Ready for the Digital Age?</p>
+
+            <p class="text-sm text-slate-500 font-semibold mb-8">
+                Are Indian Courts Ready for the Digital Age?
+            </p>
+
 
             <div class="flex items-center gap-4 p-1 bg-white rounded-full pr-6 border border-red-100 w-fit shadow-sm">
-                <img src="../pages/read/author7.png" onerror="this.src='https://ui-avatars.com/api/?name=Shagun+Malik&background=dc2626&color=fff'" class="w-12 h-12 rounded-full border-2 border-white object-cover ring-2 ring-red-200">
+
+                <!-- FIXED IMAGE PATH -->
+                <img
+                    src="../author7.png"
+                    onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Shagun+Malik&background=dc2626&color=fff';"
+                    class="w-12 h-12 rounded-full border-2 border-white object-cover ring-2 ring-red-200"
+                    alt="Shagun Malik"
+                >
+
                 <div>
                     <div class="flex items-center gap-1">
-                        <h4 class="font-black text-slate-800 text-xs">Shagun Malik</h4>
+                        <h4 class="font-black text-slate-800 text-xs">
+                            Shagun Malik
+                        </h4>
+
                         <i class="fa-solid fa-circle-check text-red-500 text-[10px]"></i>
                     </div>
-                    <p class="text-[8px] text-slate-500 font-bold uppercase">IIMT University, Meerut</p>
+
+                    <p class="text-[8px] text-slate-500 font-bold uppercase">
+                        IIMT University, Meerut
+                    </p>
                 </div>
+
             </div>
         </header>
 
+
         <div class="content-section">
+
             <p class="mb-8 text-lg text-slate-600 font-medium leading-relaxed">
                 Phones, emails, social media chats, call records, CCTV footage and cloud storage have become central to how Indian litigation and criminal investigation actually run today. The <strong>Bharatiya Sakshya Adhiniyam, 2023 (BSA)</strong> responds to this shift through Sections 61, 62 and 63, which set out when and how electronic records can be treated as valid evidence.
             </p>
@@ -219,7 +349,10 @@
             </div>
 
             <div class="toc-box">
-                <p class="text-[10px] font-black uppercase tracking-widest text-red-600 mb-3">In this article</p>
+                <p class="text-[10px] font-black uppercase tracking-widest text-red-600 mb-3">
+                    In this article
+                </p>
+
                 <ol class="list-decimal">
                     <li>Understanding digital evidence</li>
                     <li>From Sections 65A–65B to Section 63</li>
@@ -232,120 +365,376 @@
                 </ol>
             </div>
 
-            <h2><i class="fa-solid fa-laptop-code"></i> What Counts as Digital Evidence</h2>
-            <p>Digital evidence is any information with evidentiary value that is created, stored or transmitted digitally — emails, chats, photos, recordings, CCTV footage, call records, location data, browser history and metadata. The same message can leave traces on the sender's device, the recipient's device and a server all at once, and a photograph can carry creation and modification data invisible on the screen itself. Its value, in other words, often cannot be judged just by looking at what's on display.</p>
-            <p>A useful distinction runs through the rest of this piece: the device is only the medium. A phone is not itself the evidence — the messages, files and recordings it holds are. Sections 61 and 62 fold this material into the ordinary law of documentary evidence, but recognising that a digital record exists is not the same as trusting it. Because digital data can be copied invisibly, edited with software, or reconstructed after deletion, the real questions — authenticity, integrity, source, chain of custody — are answered by the conditions of proof in Section 63, not by Section 61's general recognition.</p>
 
-            <h2 class="h2-violet"><i class="fa-solid fa-timeline"></i> From Section 65B to Section 63</h2>
-            <p>Under the old Indian Evidence Act, Sections 65A and 65B created a special mechanism for electronic records, and early courts disagreed on whether ordinary secondary-evidence rules could substitute for it. <strong>Anvar P.V. v P.K. Basheer</strong> (2014) settled that disagreement: a three-judge bench held electronic records offered as secondary evidence are governed exclusively by Section 65B, and the certificate was treated as a real safeguard of authenticity, not paperwork.</p>
-            <p><strong>Arjun Panditrao Khotkar v Kailash Kushanrao Gorantyal</strong> (2020) reaffirmed this and overruled a more relaxed line taken in <em>Shafhi Mohammad</em>, holding the certificate to be a condition precedent wherever Section 65B applies — with a narrow exception where the record sits with someone who can't be compelled to produce it.</p>
-            <p>The BSA carries this forward with two changes: Section 63(3) treats interconnected devices used for one activity as a single system for certification, and Section 63(4) adds a <strong>hash-value disclosure</strong> and a <strong>dual-signatory certificate</strong> — device custodian plus a qualified expert — replacing the old single-signatory model.</p>
+            <h2>
+                <i class="fa-solid fa-laptop-code"></i>
+                What Counts as Digital Evidence
+            </h2>
 
-            <h2 class="h2-pink"><i class="fa-solid fa-file-shield"></i> Section 63(4): The Certificate Requirement</h2>
-            <p>Section 61 says an electronic record isn't inadmissible merely for being electronic. Section 62 sends proof of its contents to Section 63. And Section 63 is where the real work happens: computer output is deemed a document and admissible without the original, provided the conditions in Section 63(2) — regular system use, ordinary course of feeding data in, proper functioning, and output matching what was fed in — are met.</p>
-            <p>Section 63(4) requires a certificate each time the record is tendered: identifying it, describing how it was produced, disclosing its hash value, and signed by both the device custodian and an expert.</p>
-            <p>The Supreme Court tested this regime head-on in <strong>Pune Bar Association v Union of India</strong> (2026), where it was argued the dual-signatory, hash-value requirement was too heavy a burden on ordinary litigants. The Court upheld it — treating the hash value as a genuine anti-tampering safeguard rather than red tape — and clarified that suitably qualified private individuals, not only government-notified examiners, can sign as the expert.</p>
-            <p>But the certificate is a safeguard, not a substitute for scrutiny. It can confirm how a file was extracted without confirming who created the message inside it. <strong>Chandrabhan Sudam Sanap v State of Maharashtra</strong> (2025) shows the cost of getting this wrong: the Supreme Court set aside a conviction and death sentence because the prosecution never furnished the required certificate for CCTV footage placing the accused with the deceased — the footage was excluded from consideration entirely.</p>
+            <p>
+                Digital evidence is any information with evidentiary value that is created, stored or transmitted digitally — emails, chats, photos, recordings, CCTV footage, call records, location data, browser history and metadata. The same message can leave traces on the sender's device, the recipient's device and a server all at once, and a photograph can carry creation and modification data invisible on the screen itself. Its value, in other words, often cannot be judged just by looking at what's on display.
+            </p>
 
-            <h2 class="h2-emerald"><i class="fa-solid fa-copy"></i> Primary vs Secondary — A Distinction Under Strain</h2>
-            <p>Digital records don't fit neatly into "original" and "copy." A message on a phone might also live on a server or another authorised device, and identical copies can exist with none of the wear that usually marks a reproduction. Because a file can be duplicated without any visible loss, the more useful question is usually not whether something is technically an original, but whether it is authentic, complete, and reliably tied to its claimed source.</p>
+            <p>
+                A useful distinction runs through the rest of this piece: the device is only the medium. A phone is not itself the evidence — the messages, files and recordings it holds are. Sections 61 and 62 fold this material into the ordinary law of documentary evidence, but recognising that a digital record exists is not the same as trusting it. Because digital data can be copied invisibly, edited with software, or reconstructed after deletion, the real questions — authenticity, integrity, source, chain of custody — are answered by the conditions of proof in Section 63, not by Section 61's general recognition.
+            </p>
+
+
+            <h2 class="h2-violet">
+                <i class="fa-solid fa-timeline"></i>
+                From Section 65B to Section 63
+            </h2>
+
+            <p>
+                Under the old Indian Evidence Act, Sections 65A and 65B created a special mechanism for electronic records, and early courts disagreed on whether ordinary secondary-evidence rules could substitute for it. <strong>Anvar P.V. v P.K. Basheer</strong> (2014) settled that disagreement: a three-judge bench held electronic records offered as secondary evidence are governed exclusively by Section 65B, and the certificate was treated as a real safeguard of authenticity, not paperwork.
+            </p>
+
+            <p>
+                <strong>Arjun Panditrao Khotkar v Kailash Kushanrao Gorantyal</strong> (2020) reaffirmed this and overruled a more relaxed line taken in <em>Shafhi Mohammad</em>, holding the certificate to be a condition precedent wherever Section 65B applies — with a narrow exception where the record sits with someone who can't be compelled to produce it.
+            </p>
+
+            <p>
+                The BSA carries this forward with two changes: Section 63(3) treats interconnected devices used for one activity as a single system for certification, and Section 63(4) adds a <strong>hash-value disclosure</strong> and a <strong>dual-signatory certificate</strong> — device custodian plus a qualified expert — replacing the old single-signatory model.
+            </p>
+
+
+            <h2 class="h2-pink">
+                <i class="fa-solid fa-file-shield"></i>
+                Section 63(4): The Certificate Requirement
+            </h2>
+
+            <p>
+                Section 61 says an electronic record isn't inadmissible merely for being electronic. Section 62 sends proof of its contents to Section 63. And Section 63 is where the real work happens: computer output is deemed a document and admissible without the original, provided the conditions in Section 63(2) — regular system use, ordinary course of feeding data in, proper functioning, and output matching what was fed in — are met.
+            </p>
+
+            <p>
+                Section 63(4) requires a certificate each time the record is tendered: identifying it, describing how it was produced, disclosing its hash value, and signed by both the device custodian and an expert.
+            </p>
+
+            <p>
+                The Supreme Court tested this regime head-on in <strong>Pune Bar Association v Union of India</strong> (2026), where it was argued the dual-signatory, hash-value requirement was too heavy a burden on ordinary litigants. The Court upheld it — treating the hash value as a genuine anti-tampering safeguard rather than red tape — and clarified that suitably qualified private individuals, not only government-notified examiners, can sign as the expert.
+            </p>
+
+            <p>
+                But the certificate is a safeguard, not a substitute for scrutiny. It can confirm how a file was extracted without confirming who created the message inside it. <strong>Chandrabhan Sudam Sanap v State of Maharashtra</strong> (2025) shows the cost of getting this wrong: the Supreme Court set aside a conviction and death sentence because the prosecution never furnished the required certificate for CCTV footage placing the accused with the deceased — the footage was excluded from consideration entirely.
+            </p>
+
+
+            <h2 class="h2-emerald">
+                <i class="fa-solid fa-copy"></i>
+                Primary vs Secondary — A Distinction Under Strain
+            </h2>
+
+            <p>
+                Digital records don't fit neatly into "original" and "copy." A message on a phone might also live on a server or another authorised device, and identical copies can exist with none of the wear that usually marks a reproduction. Because a file can be duplicated without any visible loss, the more useful question is usually not whether something is technically an original, but whether it is authentic, complete, and reliably tied to its claimed source.
+            </p>
+
 
             <table class="stat-table">
-                <tr><th>Concept</th><th>Digital Evidence under the BSA</th></tr>
-                <tr><td>Original / primary evidence</td><td>May be data within a system rather than one retrievable artefact (s 61)</td></tr>
-                <tr><td>Copy / secondary evidence</td><td>Screenshots, printouts, exported chats, forensic copies (s 62)</td></tr>
-                <tr><td>Authentication</td><td>Source, integrity, system functioning and metadata (s 63(2))</td></tr>
-                <tr><td>Certificate</td><td>Mandatory dual-signatory, hash-value certificate (s 63(4)), upheld in <em>Pune Bar Association</em></td></tr>
+                <tr>
+                    <th>Concept</th>
+                    <th>Digital Evidence under the BSA</th>
+                </tr>
+
+                <tr>
+                    <td>Original / primary evidence</td>
+                    <td>May be data within a system rather than one retrievable artefact (s 61)</td>
+                </tr>
+
+                <tr>
+                    <td>Copy / secondary evidence</td>
+                    <td>Screenshots, printouts, exported chats, forensic copies (s 62)</td>
+                </tr>
+
+                <tr>
+                    <td>Authentication</td>
+                    <td>Source, integrity, system functioning and metadata (s 63(2))</td>
+                </tr>
+
+                <tr>
+                    <td>Certificate</td>
+                    <td>
+                        Mandatory dual-signatory, hash-value certificate (s 63(4)),
+                        upheld in <em>Pune Bar Association</em>
+                    </td>
+                </tr>
             </table>
 
-            <p>Screenshots and printouts make the stakes concrete: a screenshot can show a conversation without proving who created it or whether it's complete, and a printout strips away timestamps and metadata. In <strong>Kailas Bajirao Pawar v State of Maharashtra</strong> (2025), the Court held that video evidence satisfying Section 63 can be admitted without a written transcript and viewed directly by the court — though simply playing a disc in open court isn't, by itself, legal proof of its contents; the proper witness and procedure still matter.</p>
 
-            <h2><i class="fa-solid fa-triangle-exclamation"></i> Where the Real Difficulties Sit</h2>
-            <p>Certification cannot repair a chain of custody that was broken before it began — preservation discipline has to start at seizure, not at the certificate stage. And proving a record is genuine isn't the same as proving who created it: a message from a number doesn't prove who was holding the phone, and a social account tied to one person may have been operated by someone else.</p>
-            <p>Metadata gets stripped away in ordinary copying; encryption protects privacy but can frustrate lawful access; and data sitting on cloud servers abroad raises cross-border cooperation questions that are legal rather than technical. None of this is solved by the certificate mechanism alone.</p>
-            <p>The sharpest new problem is generative AI. A deepfake recording can look and sound completely convincing while depicting something that never happened — which means visual plausibility is no longer a reliable test of genuineness. A certificate addressed to how a record was produced says nothing about whether its content was synthetically generated in the first place.</p>
+            <p>
+                Screenshots and printouts make the stakes concrete: a screenshot can show a conversation without proving who created it or whether it's complete, and a printout strips away timestamps and metadata. In <strong>Kailas Bajirao Pawar v State of Maharashtra</strong> (2025), the Court held that video evidence satisfying Section 63 can be admitted without a written transcript and viewed directly by the court — though simply playing a disc in open court isn't, by itself, legal proof of its contents; the proper witness and procedure still matter.
+            </p>
 
-            <h2 class="h2-violet"><i class="fa-solid fa-magnifying-glass-chart"></i> Digital Forensics: Necessary, Not Sufficient</h2>
-            <p>Forensic imaging preserves the original device while examination happens on a copy; hash values let investigators confirm a copy matches its source at each stage. But hashing only proves consistency between copy and source — it doesn't prove the underlying information is true or who created it. It's an integrity check, not a full authentication method.</p>
-            <p>Expert evidence assists the court rather than replacing its judgment — judges still need to weigh methodology and reasoning, not just accept a conclusion, especially where experts disagree. And as AI-generated content gets harder to distinguish from the real thing through ordinary examination, no single detection technique can be treated as final; the response has to keep evolving rather than being a one-time fix.</p>
 
-            <h2 class="h2-pink"><i class="fa-solid fa-scale-unbalanced"></i> So — Are Indian Courts Ready?</h2>
-            <p>Measured against four indicators, the picture is mixed but clear:</p>
-            <p><strong>Legal readiness</strong> is the strongest — Sections 61 to 63 give a structured, technology-neutral framework, tested and refined through <em>Anvar</em>, <em>Arjun Panditrao Khotkar</em> and now <em>Pune Bar Association</em>. <strong>Institutional readiness</strong> lags well behind — <em>Sanap</em> shows a case where the law was settled and the evidence was still lost because the certificate was simply never obtained; that's a failure of practice, not of statute. <strong>Technological readiness</strong> has to keep pace with encryption, cloud storage and, increasingly, deepfakes — a framework built around conventional computer output will strain as synthetic content gets harder to spot. <strong>Constitutional readiness</strong> asks whether evidence-gathering stays proportionate — a single seized device can hold years of communications mostly unconnected to the case, and efficiency cannot come at the cost of privacy safeguards.</p>
+            <h2>
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                Where the Real Difficulties Sit
+            </h2>
 
-            <div class="text-white p-8 rounded-[30px] shadow-xl mt-10" style="background: linear-gradient(150deg, #312e81, #3730a3 55%, #4338ca);">
-                <h4 class="font-black uppercase text-[10px] mb-3 text-red-300 tracking-widest"><i class="fa-solid fa-quote-left mr-1"></i> Concluding Note</h4>
+            <p>
+                Certification cannot repair a chain of custody that was broken before it began — preservation discipline has to start at seizure, not at the certificate stage. And proving a record is genuine isn't the same as proving who created it: a message from a number doesn't prove who was holding the phone, and a social account tied to one person may have been operated by someone else.
+            </p>
+
+            <p>
+                Metadata gets stripped away in ordinary copying; encryption protects privacy but can frustrate lawful access; and data sitting on cloud servers abroad raises cross-border cooperation questions that are legal rather than technical. None of this is solved by the certificate mechanism alone.
+            </p>
+
+            <p>
+                The sharpest new problem is generative AI. A deepfake recording can look and sound completely convincing while depicting something that never happened — which means visual plausibility is no longer a reliable test of genuineness. A certificate addressed to how a record was produced says nothing about whether its content was synthetically generated in the first place.
+            </p>
+
+
+            <h2 class="h2-violet">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                Digital Forensics: Necessary, Not Sufficient
+            </h2>
+
+            <p>
+                Forensic imaging preserves the original device while examination happens on a copy; hash values let investigators confirm a copy matches its source at each stage. But hashing only proves consistency between copy and source — it doesn't prove the underlying information is true or who created it. It's an integrity check, not a full authentication method.
+            </p>
+
+            <p>
+                Expert evidence assists the court rather than replacing its judgment — judges still need to weigh methodology and reasoning, not just accept a conclusion, especially where experts disagree. And as AI-generated content gets harder to distinguish from the real thing through ordinary examination, no single detection technique can be treated as final; the response has to keep evolving rather than being a one-time fix.
+            </p>
+
+
+            <h2 class="h2-pink">
+                <i class="fa-solid fa-scale-unbalanced"></i>
+                So — Are Indian Courts Ready?
+            </h2>
+
+            <p>
+                Measured against four indicators, the picture is mixed but clear:
+            </p>
+
+            <p>
+                <strong>Legal readiness</strong> is the strongest — Sections 61 to 63 give a structured, technology-neutral framework, tested and refined through <em>Anvar</em>, <em>Arjun Panditrao Khotkar</em> and now <em>Pune Bar Association</em>. <strong>Institutional readiness</strong> lags well behind — <em>Sanap</em> shows a case where the law was settled and the evidence was still lost because the certificate was simply never obtained; that's a failure of practice, not of statute. <strong>Technological readiness</strong> has to keep pace with encryption, cloud storage and, increasingly, deepfakes — a framework built around conventional computer output will strain as synthetic content gets harder to spot. <strong>Constitutional readiness</strong> asks whether evidence-gathering stays proportionate — a single seized device can hold years of communications mostly unconnected to the case, and efficiency cannot come at the cost of privacy safeguards.
+            </p>
+
+
+            <div
+                class="text-white p-8 rounded-[30px] shadow-xl mt-10"
+                style="background: linear-gradient(150deg, #312e81, #3730a3 55%, #4338ca);"
+            >
+
+                <h4 class="font-black uppercase text-[10px] mb-3 text-red-300 tracking-widest">
+                    <i class="fa-solid fa-quote-left mr-1"></i>
+                    Concluding Note
+                </h4>
+
                 <p class="text-base leading-relaxed font-medium">
                     The BSA confirms that Indian evidence law has moved decisively past treating digital material as exceptional. Sections 61 to 63 provide a coherent, constitutionally sound framework, built on jurisprudence running consistently from <em>Anvar</em> through <em>Sanap</em> and <em>Pawar</em>. But legal recognition is only one indicator of readiness — and not the one India is currently weakest on. Forensic infrastructure, trained personnel and coordinated practice remain uneven; technology keeps outrunning any fixed baseline of preparedness; and constitutional discipline has to hold even as evidence-gathering gets more efficient. The question is no longer whether digital evidence belongs in the justice system — it clearly does — but whether the institutions handling it can keep pace with the technology producing it.
                 </p>
+
             </div>
+
         </div>
+
 
         <div class="download-card">
+
             <div>
-                <h4 class="font-black text-slate-900 text-sm mb-1">Download the full article</h4>
-                <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wide">Original PDF as submitted by the author</p>
+                <h4 class="font-black text-slate-900 text-sm mb-1">
+                    Download the full article
+                </h4>
+
+                <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wide">
+                    Original PDF as submitted by the author
+                </p>
             </div>
-            <a href="digital-evidence-bsa-2023.pdf" download class="text-white px-6 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest shadow-md active:scale-95 transition-all flex items-center gap-2 whitespace-nowrap" style="background: linear-gradient(100deg, #4f46e5, #4338ca);">
-                <i class="fa-solid fa-file-arrow-down"></i> Download PDF
+
+            <a
+                href="digital-evidence-bsa-2023.pdf"
+                download
+                class="text-white px-6 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest shadow-md active:scale-95 transition-all flex items-center gap-2 whitespace-nowrap"
+                style="background: linear-gradient(100deg, #4f46e5, #4338ca);"
+            >
+                <i class="fa-solid fa-file-arrow-down"></i>
+                Download PDF
             </a>
+
         </div>
 
+
         <div class="author-card">
+
             <div class="flex items-center gap-4 mb-6">
-                <img src="author7.png" onerror="this.src='https://ui-avatars.com/api/?name=Shagun+Malik&background=dc2626&color=fff'" class="w-16 h-16 rounded-2xl object-cover shadow-md border-2 border-white ring-2 ring-red-200">
+
+                <!-- FIXED IMAGE PATH -->
+                <img
+                    src="../author7.png"
+                    onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Shagun+Malik&background=dc2626&color=fff';"
+                    class="w-16 h-16 rounded-2xl object-cover shadow-md border-2 border-white ring-2 ring-red-200"
+                    alt="Shagun Malik"
+                >
+
                 <div>
+
                     <div class="flex items-center gap-1">
-                        <h3 class="font-black text-slate-900 text-lg leading-none">Shagun Malik</h3>
+
+                        <h3 class="font-black text-slate-900 text-lg leading-none">
+                            Shagun Malik
+                        </h3>
+
                         <i class="fa-solid fa-circle-check text-red-500 text-sm"></i>
+
                     </div>
-                    <p class="text-[9px] font-bold uppercase mt-2 tracking-tight leading-relaxed" style="color:#4f46e5;">
+
+                    <p
+                        class="text-[9px] font-bold uppercase mt-2 tracking-tight leading-relaxed"
+                        style="color:#4f46e5;"
+                    >
                         B.A. LL.B. &middot; IIMT University, Meerut
                     </p>
+
                 </div>
+
             </div>
+
 
             <p class="text-[14px] text-slate-600 mb-6 leading-relaxed">
                 Shagun Malik is a B.A. LL.B. student at IIMT University, Meerut. She has gained legal exposure through an internship at the District Court, Baghpat, and is currently undertaking an internship under an Advocate practising before the Hon'ble Delhi High Court. She has also presented a research paper titled <em>"From Margins to Mainstream: The Legal Journey of LGBTQ+ Recognition"</em> at a National Conference. Her areas of interest include legal research, legal writing, constitutional law, criminal law, and contemporary legal issues.
             </p>
 
+
             <div class="flex gap-3">
-                <a href="https://instagram.com/_chshagun" target="_blank" class="flex-1 bg-slate-50 border border-slate-200 py-3 rounded-xl text-center text-[10px] font-black uppercase tracking-widest text-red-600 shadow-sm active:scale-95 transition-all">
-                    <i class="fa-brands fa-instagram mr-2 text-sm"></i> Instagram
+
+                <a
+                    href="https://instagram.com/_chshagun"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex-1 bg-slate-50 border border-slate-200 py-3 rounded-xl text-center text-[10px] font-black uppercase tracking-widest text-red-600 shadow-sm active:scale-95 transition-all"
+                >
+                    <i class="fa-brands fa-instagram mr-2 text-sm"></i>
+                    Instagram
                 </a>
+
             </div>
+
         </div>
 
     </main>
 
-    <div class="share-fab" onclick="toggleShare()">
+
+    <!-- SHARE BUTTON -->
+    <div
+        class="share-fab"
+        onclick="toggleShare()"
+        role="button"
+        aria-label="Share article"
+    >
         <i class="fa-solid fa-share-nodes text-xl"></i>
     </div>
 
-    <script>
-        window.onscroll = function() {
-            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            var scrolled = (winScroll / height) * 100;
-            document.getElementById("readingProgress").style.width = scrolled + "%";
-        };
 
-        function toggleShare() {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Digital Evidence under the BSA, 2023 - Shagun Malik',
-                    url: window.location.href
-                }).catch(console.error);
+    <script>
+
+        /* =========================================
+           BACK BUTTON
+           ========================================= */
+
+        function goBack() {
+
+            /*
+             * This behaves like the phone/browser
+             * navigation back button.
+             */
+
+            if (window.history.length > 1) {
+                window.history.back();
             } else {
-                navigator.clipboard.writeText(window.location.href);
-                alert('Article Link Copied!');
+                /*
+                 * If this page was opened directly and
+                 * there is no previous history, do nothing.
+                 */
+                console.log("No previous page in browser history.");
             }
         }
 
-        document.onkeydown = function(e) {
-            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 85 || e.keyCode === 73 || e.keyCode === 83)) return false;
-            if (event.keyCode == 123) return false;
-        };
+
+        /* =========================================
+           READING PROGRESS
+           ========================================= */
+
+        window.addEventListener("scroll", function () {
+
+            var winScroll =
+                document.body.scrollTop ||
+                document.documentElement.scrollTop;
+
+            var height =
+                document.documentElement.scrollHeight -
+                document.documentElement.clientHeight;
+
+            var scrolled =
+                height > 0
+                    ? (winScroll / height) * 100
+                    : 0;
+
+            document.getElementById("readingProgress").style.width =
+                scrolled + "%";
+        });
+
+
+        /* =========================================
+           SHARE
+           ========================================= */
+
+        function toggleShare() {
+
+            if (navigator.share) {
+
+                navigator.share({
+                    title: 'Digital Evidence under the BSA, 2023 - Shagun Malik',
+                    url: window.location.href
+                }).catch(function () {});
+
+            } else if (navigator.clipboard) {
+
+                navigator.clipboard.writeText(window.location.href)
+                    .then(function () {
+                        alert('Article Link Copied!');
+                    })
+                    .catch(function () {
+                        alert('Unable to copy the article link.');
+                    });
+
+            } else {
+
+                alert('Sharing is not supported on this browser.');
+
+            }
+        }
+
+
+        /* =========================================
+           ANTI-COPY KEYBOARD BLOCK
+           ========================================= */
+
+        document.addEventListener("keydown", function (e) {
+
+            if (
+                e.ctrlKey &&
+                (
+                    e.keyCode === 67 ||  /* Copy */
+                    e.keyCode === 85 ||  /* View Source */
+                    e.keyCode === 73 ||  /* DevTools */
+                    e.keyCode === 83     /* Save */
+                )
+            ) {
+                e.preventDefault();
+                return false;
+            }
+
+            /* F12 */
+            if (e.keyCode === 123) {
+                e.preventDefault();
+                return false;
+            }
+
+        });
+
     </script>
+
 </body>
 </html>
